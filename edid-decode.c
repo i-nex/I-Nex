@@ -77,6 +77,7 @@ detailed_block(unsigned char *x)
 	    printf("Color point\n");
 	    return 1;
 	case 0xFC:
+	    /* XXX should check for spaces after the \n */
 	    has_name_descriptor = 1;
 	    if (strchr((char *)name, '\n')) return 1;
 	    strncat((char *)name, (char *)x + 5, 12);
