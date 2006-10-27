@@ -30,7 +30,6 @@
 #include <stdlib.h>
 #include <time.h>
 
-/* booleans for determining 1.3 conformance */
 int claims_one_point_two = 0;
 int claims_one_point_three = 0;
 int conformant_digital_display = 0;
@@ -42,6 +41,7 @@ int has_preferred_timing = 0;
 int has_valid_checksum = 0;
 int has_valid_week = 0;
 int has_valid_year = 0;
+int has_valid_detailed_blocks = 0;
 
 int conformant = 1;
 
@@ -57,7 +57,9 @@ static char *manufacturer_name(unsigned char *x)
     return name;
 }
 
-static void
+/* 1 means valid data */
+/* XXX need to check that timings are first */
+static int
 detailed_block(unsigned char *x)
 {
     static unsigned char name[53];
@@ -67,35 +69,35 @@ detailed_block(unsigned char *x)
 	switch (x[3]) {
 	case 0x10:
 	    printf("Dummy block\n");
-	    return;
+	    return 1;
 	case 0xFA:
 	    printf("More standard timings\n");
-	    return;
+	    return 1;
 	case 0xFB:
 	    printf("Color point\n");
-	    return;
+	    return 1;
 	case 0xFC:
 	    has_name_descriptor = 1;
-	    if (strchr((char *)name, '\n')) return;
+	    if (strchr((char *)name, '\n')) return 1;
 	    strncat((char *)name, (char *)x + 5, 12);
 	    if (strchr((char *)name, '\n')) {
 		name_descriptor_terminated = 1;
 		printf("Monitor name: %s", name);
 	    }
-	    return;
+	    return 1;
 	case 0xFD:
 	    has_range_descriptor = 1;
 	    printf("Monitor ranges\n");
-	    return;
+	    return 1;
 	case 0xFE:
 	    printf("ASCII string\n");
-	    return;
+	    return 1;
 	case 0xFF:
 	    printf("Serial number\n");
-	    return;
+	    return 1;
 	default:
 	    printf("Unknown monitor description type %d\n", x[3]);
-	    return;
+	    return 0;
 	}
     }
 
@@ -120,6 +122,8 @@ detailed_block(unsigned char *x)
 	    ha, hbl, hso, hspw, hborder, va, vbl, vso, vspw, vborder
 	  );
     /* XXX flag decode */
+    
+    return 1;
 }
 
 static unsigned char *
@@ -262,12 +266,12 @@ int main(int argc, char **argv)
     /* XXX standard timings */
 
     /* detailed timings */
-    detailed_block(edid + 0x36);
+    has_valid_detailed_blocks = detailed_block(edid + 0x36);
     if (has_preferred_timing && !did_detailed_timing)
 	has_preferred_timing = 0; /* not really accurate... */
-    detailed_block(edid + 0x48);
-    detailed_block(edid + 0x5A);
-    detailed_block(edid + 0x6C);
+    has_valid_detailed_blocks &= detailed_block(edid + 0x48);
+    has_valid_detailed_blocks &= detailed_block(edid + 0x5A);
+    has_valid_detailed_blocks &= detailed_block(edid + 0x6C);
 
     if (edid[0x7e])
 	printf("Has %d extension blocks\n", edid[0x7e]);
@@ -314,7 +318,8 @@ int main(int argc, char **argv)
 
     if (!has_valid_checksum ||
 	!has_valid_year ||
-	!has_valid_week) {
+	!has_valid_week ||
+	!has_valid_detailed_blocks) {
 	printf("EDID block does not conform at all!\n");
 	if (!has_valid_checksum)
 	    printf("\tBlock has broken checksum\n");
@@ -322,6 +327,8 @@ int main(int argc, char **argv)
 	    printf("\tBad year of manufacture\n");
 	if (!has_valid_week)
 	    printf("\tBad week of manufacture\n");
+	if (!has_valid_detailed_blocks)
+	    printf("\tDetailed blocks filled with garbage\n");
     }
 
     free(edid);
