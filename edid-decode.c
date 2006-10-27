@@ -28,6 +28,7 @@
 #include <unistd.h>
 #include <string.h>
 #include <stdlib.h>
+#include <time.h>
 
 /* booleans for determining 1.3 conformance */
 int claims_one_point_two = 0;
@@ -39,6 +40,8 @@ int name_descriptor_terminated = 0;
 int has_range_descriptor = 0;
 int has_preferred_timing = 0;
 int has_valid_checksum = 0;
+int has_valid_week = 0;
+int has_valid_year = 0;
 
 int conformant = 1;
 
@@ -141,6 +144,8 @@ int main(int argc, char **argv)
 {
     int fd;
     unsigned char *edid;
+    time_t the_time;
+    struct tm *ptm;
     if (argc != 2) {
 	printf("Need a file name\n");
 	return 1;
@@ -163,10 +168,17 @@ int main(int argc, char **argv)
 	    manufacturer_name(edid + 0x08),
 	    (unsigned short)edid[0x0A],
 	    (unsigned int)edid[0x0C]);
-    if (edid[0x11])
-	printf("Made week %hd of %hd\n", edid[0x10], edid[0x11]);
-    else
-	printf("No manufacture date given\n");
+    /* XXX need manufacturer ID table */
+
+    time(&the_time);
+    ptm = localtime(&the_time);
+    if (edid[0x10] < 55)
+	has_valid_week = 1;
+    if (edid[0x11] > 3 && (edid[0x11] + 90) <= ptm->tm_year)
+	has_valid_year = 1;
+    if (has_valid_week && has_valid_year)
+	printf("Made week %hd of %hd\n", edid[0x10], edid[0x11] + 1990);
+
     printf("EDID version: %hd.%hd\n", edid[0x12], edid[0x13]);
     if (edid[0x12] == 1) {
 	if (edid[0x13] > 3) {
@@ -300,10 +312,16 @@ int main(int argc, char **argv)
 	    printf("\tName descriptor not terminated with a newline\n");
     }
 
-    if (!has_valid_checksum) {
+    if (!has_valid_checksum ||
+	!has_valid_year ||
+	!has_valid_week) {
 	printf("EDID block does not conform at all!\n");
 	if (!has_valid_checksum)
-	    printf("Block has broken checksum\n");
+	    printf("\tBlock has broken checksum\n");
+	if (!has_valid_year)
+	    printf("\tBad year of manufacture\n");
+	if (!has_valid_week)
+	    printf("\tBad week of manufacture\n");
     }
 
     free(edid);
