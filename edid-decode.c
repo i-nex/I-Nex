@@ -268,8 +268,6 @@ int main(int argc, char **argv)
 	    sum += edid[i];
 	has_valid_checksum = !sum;
     }
-    if (!has_valid_checksum)
-	printf("Block has broken checksum!\n");
 
     if (claims_one_point_three) {
 	if (!conformant_digital_display ||
@@ -300,6 +298,12 @@ int main(int argc, char **argv)
 	    printf("\tDigital display field contains garbage\n");
 	if (has_name_descriptor && !name_descriptor_terminated)
 	    printf("\tName descriptor not terminated with a newline\n");
+    }
+
+    if (!has_valid_checksum) {
+	printf("EDID block does not conform at all!\n");
+	if (!has_valid_checksum)
+	    printf("Block has broken checksum\n");
     }
 
     free(edid);
