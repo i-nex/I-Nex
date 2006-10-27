@@ -81,7 +81,7 @@ detailed_block(unsigned char *x)
 	    /* XXX should check for spaces after the \n */
 	    has_name_descriptor = 1;
 	    if (strchr((char *)name, '\n')) return 1;
-	    strncat((char *)name, (char *)x + 5, 12);
+	    strncat((char *)name, (char *)x + 5, 13);
 	    if (strchr((char *)name, '\n')) {
 		name_descriptor_terminated = 1;
 		printf("Monitor name: %s", name);
