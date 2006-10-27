@@ -42,6 +42,7 @@ int has_valid_checksum = 0;
 int has_valid_week = 0;
 int has_valid_year = 0;
 int has_valid_detailed_blocks = 0;
+int has_valid_extension_count = 0;
 
 int conformant = 1;
 
@@ -274,8 +275,14 @@ int main(int argc, char **argv)
     has_valid_detailed_blocks &= detailed_block(edid + 0x5A);
     has_valid_detailed_blocks &= detailed_block(edid + 0x6C);
 
-    if (edid[0x7e])
+    if (edid[0x7e]) {
 	printf("Has %d extension blocks\n", edid[0x7e]);
+	/* 2 is impossible because of the block map */
+	if (edid[0x7e] != 2)
+	    has_valid_extension_count = 1;
+    } else {
+	has_valid_extension_count = 1;
+    }
 
     printf("Checksum: 0x%hx\n", edid[0x7f]);
     {
@@ -320,7 +327,8 @@ int main(int argc, char **argv)
     if (!has_valid_checksum ||
 	!has_valid_year ||
 	!has_valid_week ||
-	!has_valid_detailed_blocks) {
+	!has_valid_detailed_blocks ||
+	!has_valid_extension_count) {
 	printf("EDID block does not conform at all!\n");
 	if (!has_valid_checksum)
 	    printf("\tBlock has broken checksum\n");
@@ -330,6 +338,8 @@ int main(int argc, char **argv)
 	    printf("\tBad week of manufacture\n");
 	if (!has_valid_detailed_blocks)
 	    printf("\tDetailed blocks filled with garbage\n");
+	if (!has_valid_extension_count)
+	    printf("\tImpossible extension block count\n");
     }
 
     free(edid);
