@@ -113,10 +113,28 @@ detailed_block(unsigned char *x)
     /* XXX flag decode */
 }
 
+static unsigned char *
+extract_edid(int fd)
+{
+    struct stat buf;
+    unsigned char *ret;
+
+    if (fstat(fd, &buf))
+	return NULL;
+
+    ret = calloc(1, buf.st_size);
+    if (!ret)
+	return NULL;
+
+    read(fd, ret, buf.st_size);
+
+    return ret;
+}
+
 int main(int argc, char **argv)
 {
     int fd;
-    unsigned char edid[128];
+    unsigned char *edid;
     if (argc != 2) {
 	printf("Need a file name\n");
 	return 1;
@@ -127,7 +145,7 @@ int main(int argc, char **argv)
 	return 1;
     }
 
-    read(fd, edid, 128);
+    edid = extract_edid(fd);
     close(fd);
 
     if (memcmp(edid, "\x00\xFF\xFF\xFF\xFF\xFF\xFF\x00", 8)) {
