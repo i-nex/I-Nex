@@ -27,6 +27,7 @@
 #include <stdio.h>
 #include <unistd.h>
 #include <string.h>
+#include <stdlib.h>
 
 /* booleans for determining 1.3 conformance */
 int claims_one_point_two = 0;
@@ -34,9 +35,12 @@ int claims_one_point_three = 0;
 int conformant_digital_display = 0;
 int did_detailed_timing = 0;
 int has_name_descriptor = 0;
+int name_descriptor_terminated = 0;
 int has_range_descriptor = 0;
 int has_preferred_timing = 0;
 int has_valid_checksum = 0;
+
+int conformant = 1;
 
 static char *manufacturer_name(unsigned char *x)
 {
@@ -71,8 +75,10 @@ detailed_block(unsigned char *x)
 	    has_name_descriptor = 1;
 	    if (strchr((char *)name, '\n')) return;
 	    strncat((char *)name, (char *)x + 5, 12);
-	    if (strchr((char *)name, '\n'))
+	    if (strchr((char *)name, '\n')) {
+		name_descriptor_terminated = 1;
 		printf("Monitor name: %s", name);
+	    }
 	    return;
 	case 0xFD:
 	    has_range_descriptor = 1;
@@ -268,13 +274,35 @@ int main(int argc, char **argv)
     if (claims_one_point_three) {
 	if (!conformant_digital_display ||
 	    !has_name_descriptor ||
+	    !name_descriptor_terminated ||
 	    !has_preferred_timing ||
 	    !has_range_descriptor)
+	    conformant = 0;
+	if (!conformant)
 	    printf("EDID block does NOT conform to EDID 1.3!\n");
-    } else if (claims_one_point_two) {
 	if (!conformant_digital_display)
+	    printf("\tDigital display field contains garbage\n");
+	if (!has_name_descriptor)
+	    printf("\tMissing name descriptor\n");
+	else if (!name_descriptor_terminated)
+	    printf("\tName descriptor not terminated with a newline\n");
+	if (!has_preferred_timing)
+	    printf("\tMissing preferred timing\n");
+	if (!has_range_descriptor)
+	    printf("\tMissing monitor ranges\n");
+    } else if (claims_one_point_two) {
+	if (!conformant_digital_display ||
+	    (has_name_descriptor && !name_descriptor_terminated))
+	    conformant = 0;
+	if (!conformant)
 	    printf("EDID block does NOT conform to EDID 1.2!\n");
+	if (!conformant_digital_display)
+	    printf("\tDigital display field contains garbage\n");
+	if (has_name_descriptor && !name_descriptor_terminated)
+	    printf("\tName descriptor not terminated with a newline\n");
     }
+
+    free(edid);
 
     return 0;
 }
