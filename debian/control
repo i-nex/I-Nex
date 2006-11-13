@@ -1,0 +1,14 @@
+Source: pastebinit
+Section: misc
+Priority: optional
+Maintainer: Stéphane Graber <stgraber@stgraber.org>
+Build-Depends: debhelper (>= 5)
+Standards-Version: 3.7.2
+
+Package: pastebinit
+Architecture: all
+Depends: python
+Description: A command line pastebin client
+ This tools can send the result of a command or
+ a file passed as argument directly to a pastebin
+ (actually http://paste.ubuntu-nl.org).

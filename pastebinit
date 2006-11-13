@@ -1,0 +1,63 @@
+#!/usr/bin/python
+
+# Writen by Stephane Graber <stgraber@stgraber.org>
+# Last modification : Fri Nov 10 21:57:40 CET 2006
+
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 2 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#				
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
+
+import urllib, os, sys
+
+try:
+    filename=sys.argv[1]
+except:
+    sys.exit("usage:\n       command | "+sys.argv[0]+" - [pastebin URL]\n       "+sys.argv[0]+" file [pastebin URL]\n\n       Default pastebin : http://ubuntu.pastebin.com")
+
+try:
+    website=sys.argv[2]
+except:
+    website="http://ubuntu.pastebin.com"
+
+if filename == "-":
+    content=sys.stdin.read()
+else:
+    try:
+        f=open(filename)
+        content=f.read()
+        f.close()        
+    except:
+        sys.exit("Unable to open : "+filename)
+
+user=os.environ.get('USER')
+
+params={}
+
+#Common fro pastebin.com and paste.ubuntu-nl.org
+params['poster']=user
+
+#For pastebin.com
+params['parent_pid']="" 
+params['format']="text"
+params['code2']=content
+params['paste']="Send"
+params['remember']="1"
+params['expiry']="f"
+
+#For paste.ubuntu-nl.org
+params['content']=content
+
+params=urllib.urlencode(params)
+
+page=urllib.urlopen(website+'/',params)
+print page.url

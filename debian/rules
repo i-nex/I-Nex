@@ -1,0 +1,45 @@
+#!/usr/bin/make -f
+# -*- makefile -*-
+#  debian rules file for pastebinit
+
+#export DH_VERBOSE=1
+
+
+build: build-stamp
+
+build-stamp: 
+	dh_testdir
+	touch build-stamp
+
+clean:
+	dh_testdir
+	dh_testroot
+	rm -f build-stamp
+	dh_clean 
+
+install: build
+	dh_testdir
+	dh_testroot
+	dh_clean -k 
+	dh_installdirs
+	dh_installchangelogs 
+	dh_installdocs
+	dh_installexamples
+	dh_install 
+	dh_compress
+	dh_fixperms
+	dh_installdeb
+	dh_shlibdeps
+	dh_gencontrol
+	dh_md5sums
+	dh_builddeb
+
+
+# Build architecture-independent files here.
+binary-indep: build install
+# We have nothing to do by default.
+
+binary-arch:
+
+binary: binary-indep
+.PHONY: build clean binary-indep binary install

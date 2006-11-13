@@ -1,0 +1,22 @@
+pastebinit (0.3) feisty; urgency=low
+
+  * Make it work with paste.ubuntu-nl.org and all pastebin.com pastebins (maybe some others as well)
+  * Clean a little bit the code (no more regexp and parsing)
+  * Add a second parameter to give the Pastebin URL when not using the default one.
+
+ -- Stéphane Graber <stgraber@stgraber.org>  Fri, 11 Nov 2006 19:26:25 +0100
+
+pastebinit (0.2) feisty; urgency=low
+
+  * Fixing some debian packaging files
+  * Updating the usages
+  * Variable to store the Pastebin URL (to support more than one pastebin later)
+
+ -- Stéphane Graber <stgraber@stgraber.org>  Fri, 11 Nov 2006 00:27:31 +0100
+
+pastebinit (0.1) feisty; urgency=low
+
+  * Initial release
+
+ -- Stéphane Graber <stgraber@stgraber.org>  Fri, 10 Nov 2006 22:00:16 +0100
+ 
