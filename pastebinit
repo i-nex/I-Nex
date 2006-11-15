@@ -22,8 +22,7 @@ import urllib, os, sys
 try:
     filename=sys.argv[1]
 except:
-    sys.exit("usage:\n       command | "+sys.argv[0]+" - [pastebin URL]\n       "+sys.argv[0]+" file [pastebin URL]\n\n       Default pastebin : http://ubuntu.pastebin.com")
-
+    sys.exit("usage: "+sys.argv[0]+" [filename|\"-\"]"+"\n\nDefault pastebin: http://ubuntu.pastebin.com")
 try:
     website=sys.argv[2]
 except:
