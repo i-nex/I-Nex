@@ -17,13 +17,34 @@
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
-import urllib, os, sys
+import urllib, os, sys, re
+defaultPB="http://paste.ubuntu-nl.org"
+
+def getParameters(website,content,user):
+    "Return the parameters array for the selected pastebin"
+    params={}
+    
+    if website == "http://paste.ubuntu-nl.org":
+	params['poster']=user
+        params['content']=content
+    elif re.search("http://.*\.pastebin\.com", website):
+	params['poster']=user
+        params['code2']=content
+        params['parent_pid']="" 
+	params['format']="text"
+	params['paste']="Send"
+        params['remember']="1"
+	params['expiry']="f"
+    else:
+	sys.exit("Unknown website, please post a bugreport to request this pastebin to be added ("+website+")")
+	
+    return params
 
 #Check if a filename is passed as argument, otherwise show the usages
 try:
     filename=sys.argv[1]
 except:
-    sys.exit("usage: "+sys.argv[0]+" [filename|\"-\"]"+"\n\nDefault pastebin: http://ubuntu.pastebin.com")
+    sys.exit("usage: "+sys.argv[0]+" [filename|\"-\"]"+"\n\nDefault pastebin: "+defaultPB)
     
 #Read the content and put it into content
 
@@ -42,27 +63,10 @@ else:
 try:
     website=sys.argv[2]
 except:
-    website="http://ubuntu.pastebin.com"
-
+    website=defaultPB
 
 user=os.environ.get('USER')
-
-params={}
-
-#Common for pastebin.com and paste.ubuntu-nl.org
-params['poster']=user
-
-#For pastebin.com
-params['parent_pid']="" 
-params['format']="text"
-params['code2']=content
-params['paste']="Send"
-params['remember']="1"
-params['expiry']="f"
-
-#For paste.ubuntu-nl.org
-params['content']=content
-
+params=getParameters(website,content,user)
 params=urllib.urlencode(params)
 
 page=urllib.urlopen(website+'/',params)
