@@ -1,0 +1,41 @@
+.TH "pastebinit" 1
+.SH NAME
+pastebinit \- a command line Pastebin client
+.SH USAGE
+.B pastebinit
+pastebinit [filename|-] [url]
+.SH DESCRIPTION
+.TP
+This software reads text and send it to a Pastebin on the internet, finally it gives the URL back to the user.
+.PP
+It allows the text to be passed through a pipe (|) or from a file passed as a parameter.
+.SH OPTIONS
+.TP
+.B filename
+Is the path to a file you want to send (a log file for example)
+.TP
+.B \- 
+Means that pastebinit must read the stdin instead of a file
+.TP
+.B URL (optional)
+The URL of an other supported pastebin to use (http://xyz.pastebin.com for example)
+.SH SUPPORTED PASTEBINS
+.RS
+.RE
+http://*.pastebin.com
+.RE
+http://paste.ubuntu-nl.org
+.SH BUGS
+.RS
+.RE
+If you have found a bug or if you want another Pastebin to be added, please send a bug report on :
+.RE
+https://bugs.launchpad.net/products/pastebinit/+bugs
+.SH AUTHORS
+.RS
+.RE
+Pastebinit is currently written by Stsphane Graber.
+.RE
+Website : http://www.stgraber.org/?cat=5
+.RE
+E-Mail : stgraber@stgraber.org

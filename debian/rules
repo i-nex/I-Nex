@@ -25,6 +25,7 @@ install: build
 	dh_installchangelogs 
 	dh_installdocs
 	dh_installexamples
+	dh_installman pastebinit.1
 	dh_install 
 	dh_compress
 	dh_fixperms

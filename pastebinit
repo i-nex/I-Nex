@@ -17,7 +17,8 @@
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
-import urllib, os, sys, re
+import urllib, os, sys, re, gettext
+gettext.install('pastebinit')
 defaultPB="http://paste.ubuntu-nl.org"
 
 #Return the parameters depending of the pastebin used
@@ -45,7 +46,7 @@ def getParameters(website,content,user):
 try:
     filename=sys.argv[1]
 except:
-    sys.exit("usage: "+sys.argv[0]+" [filename|\"-\"]"+"\n\nDefault pastebin: "+defaultPB)
+    sys.exit("usage: "+sys.argv[0]+" [filename|\"-\"] ([URL])\n\nDefault pastebin: "+defaultPB)
     
 #If - is specified as a filename read from stdin, otherwise load the specified file.
 if filename == "-":

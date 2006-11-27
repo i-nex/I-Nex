@@ -1,3 +1,11 @@
+pastebinit (0.4) feisty; urgency=low
+  * Update usage and error messages
+  * Correct typos
+  * Cleaning the code and commenting it
+  * Use a function to load the parameters depending of the website
+
+ -- Stéphane Graber <stgraber@stgraber.org>  Wed, 22 Nov 2006 17:10:50 +0100
+
 pastebinit (0.3) feisty; urgency=low
 
   * Make it work with paste.ubuntu-nl.org and all pastebin.com pastebins (maybe some others as well)
