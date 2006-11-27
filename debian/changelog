@@ -1,3 +1,11 @@
+pastebinit (0.5) feisty; urgency=low
+  * Adding a man page
+  * Correct typos
+  * Update debian files
+  * Update usages
+
+ -- Stéphane Graber <stgraber@stgraber.org>  Mon, 22 Nov 2006 21:17:50 +0100
+
 pastebinit (0.4) feisty; urgency=low
   * Update usage and error messages
   * Correct typos
