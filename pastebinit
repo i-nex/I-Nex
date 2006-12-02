@@ -19,7 +19,7 @@
 
 import urllib, os, sys, re
 defaultPB="http://paste.ubuntu-nl.org"
-version="0.5"
+version="0.6"
 
 #Return the parameters depending of the pastebin used
 def getParameters(website,content,user):
@@ -29,6 +29,8 @@ def getParameters(website,content,user):
     if website == "http://paste.ubuntu-nl.org":
 	params['poster']=user
         params['content']=content
+	params['syntax']="text"
+	params['regexp']="None"
     elif re.search("http://.*\.pastebin\.com", website):
 	params['poster']=user
         params['code2']=content
@@ -37,6 +39,14 @@ def getParameters(website,content,user):
 	params['paste']="Send" 
         params['remember']="1" #Do you want a cookie ?
 	params['expiry']="f" #The expiration, f = forever
+	params['regexp']="None"
+    elif website == "http://pastebin.ca":
+	params['name']=user
+        params['content']=content
+	params['type']="1" #The expiration, 1 = raw
+	params['save']="1"
+	params['s']="Submit Post"
+	params['regexp']='">http://pastebin.ca/(.*)</a></p><p>'
     else:
 	sys.exit("Unknown website, please post a bugreport to request this pastebin to be added ("+website+")")
 	
@@ -67,7 +77,16 @@ except:
 
 user=os.environ.get('USER') #Get the current username from the environment
 params=getParameters(website,content,user) #Get the parameters array
+reLink=params['regexp']
+params['regexp']=None
 params=urllib.urlencode(params) #Convert to a format usable with the HTML POST
 
 page=urllib.urlopen(website+'/',params) #Send the informations and be redirected to the final page
-print page.url #Get the final page and show the url
+
+try:
+    if reLink != "None":
+	print website+"/"+re.split(reLink, page.read())[1]
+    else:
+	print page.url #Get the final page and show the url
+except:
+    sys.exit("Unable to read or parse the result page, it could be a server timeout or a change server side, try with another pastebin.")
