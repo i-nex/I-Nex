@@ -18,7 +18,7 @@
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
 import urllib, os, sys, re
-defaultPB="http://paste.ubuntu-nl.org"
+defaultPB="http://paste.stgraber.org"
 version="0.6"
 
 #Return the parameters depending of the pastebin used
@@ -26,7 +26,16 @@ def getParameters(website,content,user):
     "Return the parameters array for the selected pastebin"
     params={}
     
-    if website == "http://paste.ubuntu-nl.org":
+    if website == "http://paste.stgraber.org":
+	params['poster']=user
+        params['code2']=content
+	params['parent_pid']=""
+	params['format']="text"
+	params['paste']="Send" 
+        params['remember']="1" #Do you want a cookie ?
+	params['expiry']="f" #The expiration, f = forever
+	params['regexp']="None"
+    elif website == "http://paste.ubuntu-nl.org":
 	params['poster']=user
         params['content']=content
 	params['syntax']="text"
