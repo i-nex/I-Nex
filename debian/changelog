@@ -1,3 +1,8 @@
+pastebinit (0.6-0ubuntu1) feisty; urgency=low
+  * New version upstream (change the default Pastebin, fix a bug with paste.ubuntu-nl.org, add support of regexp)
+
+ -- Stéphane Graber <stgraber@stgraber.org>  Tue, 28 Nov 2006 19:32:40 +0100
+
 pastebinit (0.5-0ubuntu1) feisty; urgency=low
   * Initial release
 

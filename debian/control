@@ -12,4 +12,4 @@ Depends: python ${python:Depends}
 Description: A command line pastebin client
  This tools can send the result of a command or
  a file passed as argument directly to a pastebin
- (actually http://paste.ubuntu-nl.org or http://pastebin.com).
+ (actually http://paste.stgraber.org, http://paste.ubuntu-nl.org or http://pastebin.com).

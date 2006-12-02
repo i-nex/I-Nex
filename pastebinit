@@ -1,7 +1,7 @@
 #!/usr/bin/python
 
 # Writen by Stephane Graber <stgraber@stgraber.org>
-# Last modification : Mon Nov 27 21:14:40 CET 2006
+# Last modification : Sat Dec 02 23:24:40 CET 2006
 
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -18,42 +18,43 @@
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
 import urllib, os, sys, re
-defaultPB="http://paste.stgraber.org"
-version="0.6"
+defaultPB="http://paste.stgraber.org" #Default pastebin
+version="0.6" #Version number to show in the usage
 
 #Return the parameters depending of the pastebin used
-def getParameters(website,content,user):
+def getParameters(website,content,user,version):
     "Return the parameters array for the selected pastebin"
     params={}
     
     if website == "http://paste.stgraber.org":
 	params['poster']=user
         params['code2']=content
-	params['parent_pid']=""
-	params['format']="text"
+	params['version']=version
+	params['parent_pid']="" #For reply, "" means homepage (new thread)
+	params['format']="text" #The format, for syntax hilighting
 	params['paste']="Send" 
-        params['remember']="1" #Do you want a cookie ?
+        params['remember']="0" #Do you want a cookie ?
 	params['expiry']="f" #The expiration, f = forever
 	params['regexp']="None"
     elif website == "http://paste.ubuntu-nl.org":
 	params['poster']=user
         params['content']=content
-	params['syntax']="text"
+	params['syntax']="text" #The format, for syntax hilighting
 	params['regexp']="None"
     elif re.search("http://.*\.pastebin\.com", website):
 	params['poster']=user
         params['code2']=content
-        params['parent_pid']="" 
+        params['parent_pid']="" #For reply, "" means homepage (new thread)
 	params['format']="text" #The format, for syntax hilighting
 	params['paste']="Send" 
-        params['remember']="1" #Do you want a cookie ?
+        params['remember']="0" #Do you want a cookie ?
 	params['expiry']="f" #The expiration, f = forever
 	params['regexp']="None"
     elif website == "http://pastebin.ca":
 	params['name']=user
         params['content']=content
 	params['type']="1" #The expiration, 1 = raw
-	params['save']="1"
+	params['save']="0" #Do you want a cookie ?
 	params['s']="Submit Post"
 	params['regexp']='">http://pastebin.ca/(.*)</a></p><p>'
     else:
@@ -85,16 +86,16 @@ except:
     website=defaultPB
 
 user=os.environ.get('USER') #Get the current username from the environment
-params=getParameters(website,content,user) #Get the parameters array
-reLink=params['regexp']
-params['regexp']=None
+params=getParameters(website,content,user,version) #Get the parameters array
+reLink=params['regexp'] #Extract the regexp
+params['regexp']=None #Remove the regexp from what will be sent
 params=urllib.urlencode(params) #Convert to a format usable with the HTML POST
 
 page=urllib.urlopen(website+'/',params) #Send the informations and be redirected to the final page
 
 try:
-    if reLink != "None":
-	print website+"/"+re.split(reLink, page.read())[1]
+    if reLink != "None": #Check if we have to apply a regexp
+	print website+"/"+re.split(reLink, page.read())[1] #Print the result of the Regexp
     else:
 	print page.url #Get the final page and show the url
 except:
