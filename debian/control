@@ -7,9 +7,13 @@ Standards-Version: 3.7.2
 
 Package: pastebinit
 Architecture: all
-Provides: ${python:Provides}
 Depends: python ${python:Depends}
+XB-Python-Version: ${python:Versions}
 Description: A command line pastebin client
  This tools can send the result of a command or
- a file passed as argument directly to a pastebin
- (actually http://paste.stgraber.org, http://paste.ubuntu-nl.org or http://pastebin.com).
+ a file passed as argument directly to a pastebin.
+ Actually supported Pastebins :
+ -http://paste.stgraber.org
+ -http://paste.ubuntu-nl.org
+ -http://pastebin.com
+ -http://pastebin.ca
