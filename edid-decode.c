@@ -139,7 +139,7 @@ extract_edid(int fd)
 {
     struct stat buf;
     unsigned char *ret1 = NULL, *ret2 = NULL;
-    unsigned char *start, *end, *c;
+    unsigned char *start, *c;
     unsigned char *out = NULL;
     int state = 0;
     int lines = 0;
@@ -163,13 +163,12 @@ extract_edid(int fd)
     /* I think it is, let's go scanning */
     if (!(start = strstr(strstr(ret1, "EDID (in hex):"), "(II)")))
 	return ret1;
-    if (!(end = strstr(start, ": \n")))
-	return ret1;
 
-    for (c = start; c < end; c++) {
+    for (c = start; *c; c++) {
 	if (state == 0) {
 	    /* skip ahead to the : */
-	    c = strstr(c, ":");
+	    if (!(c = strstr(c, ": \t")))
+		break;
 	    /* and find the first number */
 	    while (!isxdigit(c[1]))
 		c++;
