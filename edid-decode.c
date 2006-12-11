@@ -29,6 +29,7 @@
 #include <string.h>
 #include <stdlib.h>
 #include <time.h>
+#include <ctype.h>
 
 int claims_one_point_two = 0;
 int claims_one_point_three = 0;
@@ -132,18 +133,61 @@ static unsigned char *
 extract_edid(int fd)
 {
     struct stat buf;
-    unsigned char *ret;
+    unsigned char *ret1 = NULL, *ret2 = NULL;
+    int i;
 
     if (fstat(fd, &buf))
 	return NULL;
 
-    ret = calloc(1, buf.st_size);
-    if (!ret)
+    ret1 = calloc(1, buf.st_size);
+    if (!ret1)
 	return NULL;
 
-    read(fd, ret, buf.st_size);
+    read(fd, ret1, buf.st_size);
 
-    return ret;
+    /* wait, is this a log file? */
+    for (i = 0; i < 8; i++) {
+	if (!isascii(ret1[i]))
+	    return ret1;
+    }
+
+    /* I think it is, let's go scanning */
+    unsigned char *start, *end, *c;
+    unsigned char *out = NULL;
+    int state = 0;
+    int lines = 0;
+    start = strstr(strstr(ret1, "EDID (in hex):"), "(II)");
+    end = strstr(start, ": \n");
+    for (c = start; c < end; c++) {
+	if (state == 0) {
+	    /* skip ahead to the : */
+	    c = strstr(c, ":");
+	    /* and find the first number */
+	    while (!isxdigit(c[1]))
+		c++;
+	    state = 1;
+	    lines++;
+	    ret2 = realloc(ret2, lines * 16);
+	    if (!out)
+		out = ret2;
+	} else if (state == 1) {
+	    char buf[3];
+	    if (!isxdigit(*c)) {
+		state = 0;
+		continue;
+	    }
+	    buf[0] = c[0];
+	    buf[1] = c[1];
+	    buf[2] = 0;
+	    *out = strtol(buf, NULL, 16);
+	    out++;
+	    c++;
+	}
+    }
+
+    free(ret1);
+
+    return ret2;
 }
 
 int main(int argc, char **argv)
@@ -165,7 +209,7 @@ int main(int argc, char **argv)
     edid = extract_edid(fd);
     close(fd);
 
-    if (memcmp(edid, "\x00\xFF\xFF\xFF\xFF\xFF\xFF\x00", 8)) {
+    if (!edid || memcmp(edid, "\x00\xFF\xFF\xFF\xFF\xFF\xFF\x00", 8)) {
 	printf("No header found\n");
 	return 1;
     }
