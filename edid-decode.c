@@ -90,7 +90,12 @@ detailed_block(unsigned char *x)
 	    return 1;
 	case 0xFD:
 	    has_range_descriptor = 1;
-	    printf("Monitor ranges\n");
+	    printf("Monitor ranges: %d-%dHZ vertical, %d-%dkHz horizontal",
+		   x[5], x[6], x[7], x[8]);
+	    if (x[9] != 255)
+		printf(", max dotclock %dMHz\n", x[9] * 10);
+	    else
+		printf("\n");
 	    return 1;
 	case 0xFE:
 	    printf("ASCII string: %s", x+5);
