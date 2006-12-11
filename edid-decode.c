@@ -33,7 +33,7 @@
 
 int claims_one_point_two = 0;
 int claims_one_point_three = 0;
-int conformant_digital_display = 0;
+int nonconformant_digital_display = 0;
 int did_detailed_timing = 0;
 int has_name_descriptor = 0;
 int name_descriptor_terminated = 0;
@@ -93,7 +93,7 @@ detailed_block(unsigned char *x)
 	    printf("Monitor ranges\n");
 	    return 1;
 	case 0xFE:
-	    printf("ASCII string\n");
+	    printf("ASCII string: %s", x+5);
 	    return 1;
 	case 0xFF:
 	    printf("Serial number\n");
@@ -255,8 +255,7 @@ int main(int argc, char **argv)
 		printf("DFP 1.x compatible TMDS\n");
 	    }
 	}
-	if (!(edid[0x14] & conformance_mask))
-	    conformant_digital_display = 1;
+	nonconformant_digital_display = edid[0x14] & conformance_mask;
     } else {
 	int voltage = (edid[0x14] & 0x60) >> 5;
 	int sync = (edid[0x14] & 0x0F);
@@ -338,7 +337,7 @@ int main(int argc, char **argv)
     }
 
     if (claims_one_point_three) {
-	if (!conformant_digital_display ||
+	if (nonconformant_digital_display ||
 	    !has_name_descriptor ||
 	    !name_descriptor_terminated ||
 	    !has_preferred_timing ||
@@ -346,8 +345,9 @@ int main(int argc, char **argv)
 	    conformant = 0;
 	if (!conformant)
 	    printf("EDID block does NOT conform to EDID 1.3!\n");
-	if (!conformant_digital_display)
-	    printf("\tDigital display field contains garbage\n");
+	if (nonconformant_digital_display)
+	    printf("\tDigital display field contains garbage: %x\n",
+		   nonconformant_digital_display);
 	if (!has_name_descriptor)
 	    printf("\tMissing name descriptor\n");
 	else if (!name_descriptor_terminated)
@@ -357,13 +357,14 @@ int main(int argc, char **argv)
 	if (!has_range_descriptor)
 	    printf("\tMissing monitor ranges\n");
     } else if (claims_one_point_two) {
-	if (!conformant_digital_display ||
+	if (nonconformant_digital_display ||
 	    (has_name_descriptor && !name_descriptor_terminated))
 	    conformant = 0;
 	if (!conformant)
 	    printf("EDID block does NOT conform to EDID 1.2!\n");
-	if (!conformant_digital_display)
-	    printf("\tDigital display field contains garbage\n");
+	if (nonconformant_digital_display)
+	    printf("\tDigital display field contains garbage: %x\n",
+		   nonconformant_digital_display);
 	if (has_name_descriptor && !name_descriptor_terminated)
 	    printf("\tName descriptor not terminated with a newline\n");
     }
