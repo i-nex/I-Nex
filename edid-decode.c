@@ -101,7 +101,7 @@ detailed_block(unsigned char *x)
 	    printf("ASCII string: %s", x+5);
 	    return 1;
 	case 0xFF:
-	    printf("Serial number\n");
+	    printf("Serial number: %s", x+5);
 	    return 1;
 	default:
 	    printf("Unknown monitor description type %d\n", x[3]);
