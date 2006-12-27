@@ -13,7 +13,7 @@ Description: A command line pastebin client
  This tools can send the result of a command or
  a file passed as argument directly to a pastebin.
  Actually supported Pastebins :
- -http://paste.stgraber.org
- -http://paste.ubuntu-nl.org
- -http://pastebin.com
- -http://pastebin.ca
+ http://paste.stgraber.org
+ http://paste.ubuntu-nl.org
+ http://pastebin.com
+ http://pastebin.ca
