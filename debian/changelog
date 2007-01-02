@@ -1,8 +1,15 @@
+pastebinit (0.6-1ubuntu1) feisty; urgency=low
+  * New fix upstream
+    - Add a COPYING file
+    - remove paste.ubuntu-nl.org because of the anti-spam javascript
+
+ -- Stéphane Graber <stgraber@stgraber.org>  Tue, 02 Jan 2007 15:48:31 +0100
+
+
 pastebinit (0.6-0ubuntu1) feisty; urgency=low
   * New version upstream
     - change the default Pastebin
     - add two pastebins
-    - remove paste.ubuntu-nl.org because of the anti-spam javascript
     - add support of regexp
 
  -- Stéphane Graber <stgraber@stgraber.org>  Thu, 07 Dec 2006 20:58:31 +0100
