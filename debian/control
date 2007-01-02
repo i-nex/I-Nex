@@ -14,6 +14,5 @@ Description: A command line pastebin client
  a file passed as argument directly to a pastebin.
  Actually supported Pastebins :
  http://paste.stgraber.org
- http://paste.ubuntu-nl.org
  http://pastebin.com
  http://pastebin.ca

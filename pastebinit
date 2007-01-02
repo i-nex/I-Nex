@@ -19,7 +19,7 @@
 
 import urllib, os, sys, re
 defaultPB="http://paste.stgraber.org" #Default pastebin
-version="0.7" #Version number to show in the usage
+version="0.6" #Version number to show in the usage
 
 #Return the parameters depending of the pastebin used
 def getParameters(website,content,user,version):
@@ -36,20 +36,18 @@ def getParameters(website,content,user,version):
         params['remember']="0" #Do you want a cookie ?
 	params['expiry']="f" #The expiration, f = forever
 	params['regexp']="None"
-    elif website == "http://paste.ubuntu-nl.org":
-	params['poster']=user
-        params['content']=content
-	params['syntax']="text" #The format, for syntax hilighting
-	params['regexp']="None"
     elif re.search("http://.*\.pastebin\.com", website):
-	params['poster']=user
-        params['code2']=content
-        params['parent_pid']="" #For reply, "" means homepage (new thread)
-	params['format']="text" #The format, for syntax hilighting
-	params['paste']="Send" 
-        params['remember']="0" #Do you want a cookie ?
-	params['expiry']="f" #The expiration, f = forever
-	params['regexp']="None"
+	if website != "http://www.pastebin.com":
+	    params['poster']=user
+    	    params['code2']=content
+    	    params['parent_pid']="" #For reply, "" means homepage (new thread)
+	    params['format']="text" #The format, for syntax hilighting
+	    params['paste']="Send" 
+    	    params['remember']="0" #Do you want a cookie ?
+	    params['expiry']="f" #The expiration, f = forever
+	    params['regexp']="None"
+	else:
+	    sys.exit("Incorrect pastebin.")
     elif website == "http://pastebin.com":
 	params['poster']=user
         params['code2']=content
