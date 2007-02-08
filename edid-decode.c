@@ -161,7 +161,9 @@ extract_edid(int fd)
     }
 
     /* I think it is, let's go scanning */
-    if (!(start = strstr(strstr(ret1, "EDID (in hex):"), "(II)")))
+    if (!(start = strstr(ret1, "EDID (in hex):")))
+	return ret1;
+    if (!(start = strstr(start, "(II)")))
 	return ret1;
 
     for (c = start; *c; c++) {
