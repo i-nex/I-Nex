@@ -138,33 +138,34 @@ static unsigned char *
 extract_edid(int fd)
 {
     struct stat buf;
-    unsigned char *ret1 = NULL, *ret2 = NULL;
+    unsigned char *ret = NULL;
     unsigned char *start, *c;
     unsigned char *out = NULL;
     int state = 0;
     int lines = 0;
     int i;
+    int out_index = 0;
 
     if (fstat(fd, &buf))
 	return NULL;
 
-    ret1 = calloc(1, buf.st_size);
-    if (!ret1)
+    ret = calloc(1, buf.st_size);
+    if (!ret)
 	return NULL;
 
-    read(fd, ret1, buf.st_size);
+    read(fd, ret, buf.st_size);
 
     /* wait, is this a log file? */
     for (i = 0; i < 8; i++) {
-	if (!isascii(ret1[i]))
-	    return ret1;
+	if (!isascii(ret[i]))
+	    return ret;
     }
 
     /* I think it is, let's go scanning */
-    if (!(start = strstr(ret1, "EDID (in hex):")))
-	return ret1;
+    if (!(start = strstr(ret, "EDID (in hex):")))
+	return ret;
     if (!(start = strstr(start, "(II)")))
-	return ret1;
+	return ret;
 
     for (c = start; *c; c++) {
 	if (state == 0) {
@@ -176,11 +177,10 @@ extract_edid(int fd)
 		c++;
 	    state = 1;
 	    lines++;
-	    ret2 = realloc(ret2, lines * 16);
-	    if (!out)
-		out = ret2;
+	    out = realloc(out, lines * 16);
 	} else if (state == 1) {
 	    char buf[3];
+	    /* Read a %02x from the log */
 	    if (!isxdigit(*c)) {
 		state = 0;
 		continue;
@@ -188,15 +188,14 @@ extract_edid(int fd)
 	    buf[0] = c[0];
 	    buf[1] = c[1];
 	    buf[2] = 0;
-	    *out = strtol(buf, NULL, 16);
-	    out++;
+	    out[out_index++] = strtol(buf, NULL, 16);
 	    c++;
 	}
     }
 
-    free(ret1);
+    free(ret);
 
-    return ret2;
+    return out;
 }
 
 int main(int argc, char **argv)
