@@ -132,13 +132,14 @@ detailed_block(unsigned char *x)
     pvsync = (x[17] & (1 << 1)) ? '+' : '-';
 
     printf("Detailed mode: Clock %.3f MHz, %d mm x %d mm\n"
-	   "               ha %d hbl %d hso %d hspw %d hborder %d\n"
-	   "               va %d vbl %d vso %d vspw %d vborder %d\n"
+	   "               %4d %4d %4d %4d hborder %d\n"
+	   "               %4d %4d %4d %4d vborder %d\n"
 	   "               %chsync %cvsync\n",
 	    (x[0] + (x[1] << 8)) / 100.0,
 	    (x[12] + ((x[14] & 0xF0) << 4)),
 	    (x[13] + ((x[14] & 0x0F) << 8)),
-	   ha, hbl, hso, hspw, hborder, va, vbl, vso, vspw, vborder,
+	   ha, ha + hso, ha + hso + hspw, ha + hbl, hborder,
+	   va, va + vso, va + vso + vspw, va + vbl, vborder,
 	   phsync, pvsync
 	  );
     /* XXX flag decode */
