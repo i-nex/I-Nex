@@ -44,6 +44,8 @@ int has_valid_week = 0;
 int has_valid_year = 0;
 int has_valid_detailed_blocks = 0;
 int has_valid_extension_count = 0;
+int has_valid_descriptor_ordering = 1;
+int seen_non_detailed_descriptor = 0;
 
 int conformant = 1;
 
@@ -68,6 +70,7 @@ detailed_block(unsigned char *x)
     int ha, hbl, hso, hspw, hborder, va, vbl, vso, vspw, vborder;
 
     if (!x[0] && !x[1] && !x[2] && !x[4]) {
+	seen_non_detailed_descriptor = 1;
 	switch (x[3]) {
 	case 0x10:
 	    printf("Dummy block\n");
@@ -107,6 +110,10 @@ detailed_block(unsigned char *x)
 	    printf("Unknown monitor description type %d\n", x[3]);
 	    return 0;
 	}
+    }
+
+    if (seen_non_detailed_descriptor) {
+	has_valid_descriptor_ordering = 0;
     }
 
     did_detailed_timing = 1;
@@ -394,6 +401,14 @@ int main(int argc, char **argv)
 	    printf("\tDetailed blocks filled with garbage\n");
 	if (!has_valid_extension_count)
 	    printf("\tImpossible extension block count\n");
+    }
+
+    /* Not sure which chunk of spec exactly requires this. See E-EDID guide
+     * section 3.7.3.
+     */
+    if (!has_valid_descriptor_ordering) {
+	printf("EDID block has detailed timing descriptors after other "
+	       "descriptors!\n");
     }
 
     free(edid);
