@@ -68,6 +68,7 @@ detailed_block(unsigned char *x)
 {
     static unsigned char name[53];
     int ha, hbl, hso, hspw, hborder, va, vbl, vso, vspw, vborder;
+    char phsync, pvsync;
 
     if (!x[0] && !x[1] && !x[2] && !x[4]) {
 	seen_non_detailed_descriptor = 1;
@@ -127,14 +128,18 @@ detailed_block(unsigned char *x)
     vso = ((x[10] >> 4) + ((x[11] & 0x0C) << 2));
     vspw = ((x[10] & 0x0F) + ((x[11] & 0x03) << 4));
     vborder = x[16];
+    phsync = (x[17] & (1 << 2)) ? '+' : '-';
+    pvsync = (x[17] & (1 << 1)) ? '+' : '-';
 
     printf("Detailed mode: Clock %.3f MHz, %d mm x %d mm\n"
 	   "               ha %d hbl %d hso %d hspw %d hborder %d\n"
-	   "               va %d vbl %d vso %d vspw %d vborder %d\n",
+	   "               va %d vbl %d vso %d vspw %d vborder %d\n"
+	   "               %chsync %cvsync\n",
 	    (x[0] + (x[1] << 8)) / 100.0,
 	    (x[12] + ((x[14] & 0xF0) << 4)),
 	    (x[13] + ((x[14] & 0x0F) << 8)),
-	    ha, hbl, hso, hspw, hborder, va, vbl, vso, vspw, vborder
+	   ha, hbl, hso, hspw, hborder, va, vbl, vso, vspw, vborder,
+	   phsync, pvsync
 	  );
     /* XXX flag decode */
     
