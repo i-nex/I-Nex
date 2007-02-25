@@ -1,7 +1,7 @@
 #!/usr/bin/python
 # Written by Stephane Graber <stgraber@stgraber.org>
 # 	     Daniel Bartlett <dan@f-box.org>
-# Last modification : Sun Feb 25 11:25:00 CET 2007
+# Last modification : Sun Feb 25 13:23:00 CET 2007
 
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -31,7 +31,8 @@ class pasteURLopener(urllib.FancyURLopener):
 def getParameters(website, content, user, version, format, title, username, password):
     "Return the parameters array for the selected pastebin"
     params={}
-    if website == "http://paste.stgraber.org":
+    # pastebin.com v0.50
+    if re.search("http://((([a-zA-Z0-9\-_\.]*)(pastebin\.com))|(paste.stgraber.org))", website):
 	params['poster'] = user
         params['code2'] = content
 	params['version'] = version
@@ -41,6 +42,7 @@ def getParameters(website, content, user, version, format, title, username, pass
         params['remember'] = "0" #Do you want a cookie ?
 	params['expiry'] = "f" #The expiration, f = forever
 	params['regexp'] = "None"
+    # pastebin.com v0.60
     elif re.search("http://([a-zA-Z0-9\-_\.]*)1t2\.us", website):
 	params['poster'] = user
         params['code2'] = content
@@ -53,15 +55,6 @@ def getParameters(website, content, user, version, format, title, username, pass
 	params['username'] = username
 	params['password'] = password
 	params['regexp'] = "None"
-    elif re.search("http://([a-zA-Z0-9\-_\.]*)pastebin\.com", website):
-	params['poster'] = user
-        params['code2'] = content
-        params['parent_pid'] = "" #For reply, "" means homepage (new thread)
-	params['format'] = format #The format, for syntax hilighting
-	params['paste'] = "Send" 
-        params['remember'] = "0" #Do you want a cookie ?
-	params['expiry'] = "f" #The expiration, f = forever
-	params['regexp'] = "None"
     elif website == "http://pastebin.ca":
 	params['name'] = user
         params['content'] = content
@@ -70,7 +63,7 @@ def getParameters(website, content, user, version, format, title, username, pass
 	params['s'] = "Submit Post"
 	params['regexp'] = '">http://pastebin.ca/(.*)</a></p><p>'
     else:
-	sys.exit("Unknown website, please post a bugreport to request this pastebin to be added ("+website+")")
+	sys.exit("Unknown website, please post a bugreport to request this pastebin to be added (" + website + ")")
     return params
 
 # Display usage instructions
@@ -99,7 +92,7 @@ filename = ""
 content = ""
 
 #Check if some datas were passed by pipe, if yes directly assign content
-l_r = select.select([sys.stdin],[],[],0)
+l_r = select.select([sys.stdin], [], [], 0)
 try :
     content=l_r[0][0].read()
     filename="-"
@@ -108,7 +101,6 @@ except:
 
 # Check number of arguments
 if len(sys.argv) == 1 and filename == "":
-    print "Error no arguments specified!\n"
     Usage()
     sys.exit(1)
 
@@ -159,7 +151,7 @@ params['regexp'] = None #Remove the regexp from what will be sent
 params = urllib.urlencode(params) #Convert to a format usable with the HTML POST
 
 url_opener = pasteURLopener()
-page = url_opener.open(website+'/',params) #Send the informations and be redirected to the final page
+page = url_opener.open(website + '/', params) #Send the informations and be redirected to the final page
 
 try:
     if reLink != "None": #Check if we have to apply a regexp
