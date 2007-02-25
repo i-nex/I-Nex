@@ -3,22 +3,35 @@
 pastebinit \- a command line Pastebin client
 .SH USAGE
 .B pastebinit
-pastebinit [filename|-] [url]
+pastebinit [-ibaftup]
 .SH DESCRIPTION
 .TP
 This software reads text and send it to a Pastebin on the internet, finally it gives the URL back to the user.
 .PP
 It allows the text to be passed through a pipe (|) or from a file passed as a parameter.
 .SH OPTIONS
-.TP
-.B filename
-Is the path to a file you want to send (a log file for example)
-.TP
-.B \- 
-Means that pastebinit must read the stdin instead of a file
-.TP
-.B URL (optional)
-The URL of an other supported pastebin to use (http://xyz.pastebin.com for example)
+.RS
+.RE
+.B Required arguments:
+.RE
+-i <filename> (can be replaced by piped datas)
+.RE
+.B Optional arguments:
+.RE
+-b <pastebin url>
+.RE
+-a <author>
+.RE
+-f <format of paste>
+.RE
+.B Optional arguments supported only by lt2.us:
+.RE
+-t <title of paste>
+.RE
+-u <username>
+.RE
+-p <password>
+.RE
 .SH SUPPORTED PASTEBINS
 .RS
 .RE
@@ -27,6 +40,8 @@ http://paste.stgraber.org
 http://*.pastebin.com
 .RE
 http://pastebin.ca
+.RE
+http://*.lt2.us
 .SH BUGS
 .RS
 .RE
@@ -38,6 +53,8 @@ https://bugs.launchpad.net/products/pastebinit/+bugs
 .RE
 Pastebinit is currently written by Stephane Graber.
 .RE
-Website : http://www.stgraber.org/?cat=5
+lt2.us, username, password, format, title, arguments and redirect support added by Daniel Bartlett.
+.RE
+Website : http://www.stgraber.org/category/pastebinit
 .RE
 E-Mail : stgraber@stgraber.org

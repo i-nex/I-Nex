@@ -41,11 +41,6 @@ def getParameters(website, content, user, version, format, title, username, pass
         params['remember'] = "0" #Do you want a cookie ?
 	params['expiry'] = "f" #The expiration, f = forever
 	params['regexp'] = "None"
-    elif website == "http://paste.ubuntu-nl.org":
-	params['poster'] = user
-        params['content'] = content
-	params['syntax'] = format #The format, for syntax hilighting
-	params['regexp'] = "None"
     elif re.search("http://([a-zA-Z0-9\-_\.]*)1t2\.us", website):
 	params['poster'] = user
         params['code2'] = content
