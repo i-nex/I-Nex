@@ -1,7 +1,7 @@
 #!/usr/bin/python
-
-# Writen by Stephane Graber <stgraber@stgraber.org>
-# Last modification : Sat Dec 02 23:24:40 CET 2006
+# Written by Stephane Graber <stgraber@stgraber.org>
+# 	     Daniel Bartlett <dan@f-box.org>
+# Last modification : Sun Feb 25 11:25:00 CET 2007
 
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -17,92 +17,158 @@
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
-import urllib, os, sys, re
-defaultPB="http://paste.stgraber.org" #Default pastebin
-version="0.6" #Version number to show in the usage
+import urllib, os, sys, re, getopt, select
+
+defaultPB = "http://paste.stgraber.org" #Default pastebin
+version = "0.7" #Version number to show in the usage
+
+# Custom urlopener to handle 401's
+class pasteURLopener(urllib.FancyURLopener):
+    def http_error_401(self, url, fp, errcode, errmsg, headers, data=None):
+	return None
 
 #Return the parameters depending of the pastebin used
-def getParameters(website,content,user,version):
+def getParameters(website, content, user, version, format, title, username, password):
     "Return the parameters array for the selected pastebin"
     params={}
-    
     if website == "http://paste.stgraber.org":
-	params['poster']=user
-        params['code2']=content
-	params['version']=version
-	params['parent_pid']="" #For reply, "" means homepage (new thread)
-	params['format']="text" #The format, for syntax hilighting
-	params['paste']="Send" 
-        params['remember']="0" #Do you want a cookie ?
-	params['expiry']="f" #The expiration, f = forever
-	params['regexp']="None"
-    elif re.search("http://.*\.pastebin\.com", website):
-	if website != "http://www.pastebin.com":
-	    params['poster']=user
-    	    params['code2']=content
-    	    params['parent_pid']="" #For reply, "" means homepage (new thread)
-	    params['format']="text" #The format, for syntax hilighting
-	    params['paste']="Send" 
-    	    params['remember']="0" #Do you want a cookie ?
-	    params['expiry']="f" #The expiration, f = forever
-	    params['regexp']="None"
-	else:
-	    sys.exit("Incorrect pastebin.")
-    elif website == "http://pastebin.com":
-	params['poster']=user
-        params['code2']=content
-        params['parent_pid']="" #For reply, "" means homepage (new thread)
-	params['format']="text" #The format, for syntax hilighting
-	params['paste']="Send" 
-        params['remember']="0" #Do you want a cookie ?
-	params['expiry']="f" #The expiration, f = forever
-	params['regexp']="None"
+	params['poster'] = user
+        params['code2'] = content
+	params['version'] = version
+	params['parent_pid'] = "" #For reply, "" means homepage (new thread)
+	params['format'] = format #The format, for syntax hilighting
+	params['paste'] = "Send" 
+        params['remember'] = "0" #Do you want a cookie ?
+	params['expiry'] = "f" #The expiration, f = forever
+	params['regexp'] = "None"
+    elif website == "http://paste.ubuntu-nl.org":
+	params['poster'] = user
+        params['content'] = content
+	params['syntax'] = format #The format, for syntax hilighting
+	params['regexp'] = "None"
+    elif re.search("http://([a-zA-Z0-9\-_\.]*)1t2\.us", website):
+	params['poster'] = user
+        params['code2'] = content
+        params['parent_pid'] = "" #For reply, "" means homepage (new thread)
+	params['format'] = format #The format, for syntax hilighting
+	params['paste'] = "Send" 
+        params['remember'] = "0" #Do you want a cookie ?
+	params['expiry'] = "f" #The expiration, f = forever
+	params['title'] = title
+	params['username'] = username
+	params['password'] = password
+	params['regexp'] = "None"
+    elif re.search("http://([a-zA-Z0-9\-_\.]*)pastebin\.com", website):
+	params['poster'] = user
+        params['code2'] = content
+        params['parent_pid'] = "" #For reply, "" means homepage (new thread)
+	params['format'] = format #The format, for syntax hilighting
+	params['paste'] = "Send" 
+        params['remember'] = "0" #Do you want a cookie ?
+	params['expiry'] = "f" #The expiration, f = forever
+	params['regexp'] = "None"
     elif website == "http://pastebin.ca":
-	params['name']=user
-        params['content']=content
-	params['type']="1" #The expiration, 1 = raw
-	params['save']="0" #Do you want a cookie ?
-	params['s']="Submit Post"
-	params['regexp']='">http://pastebin.ca/(.*)</a></p><p>'
+	params['name'] = user
+        params['content'] = content
+	params['type'] = "1" #The expiration, 1 = raw
+	params['save'] = "0" #Do you want a cookie ?
+	params['s'] = "Submit Post"
+	params['regexp'] = '">http://pastebin.ca/(.*)</a></p><p>'
     else:
 	sys.exit("Unknown website, please post a bugreport to request this pastebin to be added ("+website+")")
-	
     return params
 
-#Check if a filename is passed as an argument, otherwise show the usages
-try:
-    filename=sys.argv[1]
+# Display usage instructions
+def Usage ():
+    print "pastebinit v" + version
+    print "Required arguments:"
+    print "\t-i <filename> (or pipe the text)"
+    print "Optional arguments:"
+    print "\t-b <pastebin url:default " + defaultPB + ">"
+    print "\t-a <author:defaults to system username>"
+    print "\t-f <format of paste:default text only>"
+    print "Optional arguments supported only by 1t2.us:"
+    print "\t-t <title of paste:default is blank>"
+    print "\t-u <username> -p <password>"
+    sys.exit(0)
+
+
+# Set defaults
+user = os.environ.get('USER')
+website = defaultPB
+title = ""
+format = "text"
+username = ""
+password = ""
+filename = ""
+content = ""
+
+#Check if some datas were passed by pipe, if yes directly assign content
+l_r = select.select([sys.stdin],[],[],0)
+try :
+    content=l_r[0][0].read()
+    filename="-"
 except:
-    sys.exit("usage: "+sys.argv[0]+" [filename|-] [URL]\n\nDefault pastebin: "+defaultPB+"\nVersion: "+version)
-    
+    filename=""
+
+# Check number of arguments
+if len(sys.argv) == 1 and filename == "":
+    print "Error no arguments specified!\n"
+    Usage()
+    sys.exit(1)
+
+
+# Get options
+try:
+    optlist, list = getopt.getopt(sys.argv[1:], 'i:f:b:a:t:u:p:')
+except getopt.GetoptError:
+    print "Invalid arguments!\n"
+    Usage()
+    sys.exit(1)
+
+# Iterate through options
+for opt in optlist:
+    if opt[0] == "-i":
+	filename = opt[1]
+    elif opt[0] == "-f":
+	format = opt[1]
+    elif opt[0] == "-b":
+	website = opt[1]
+    elif opt[0] == "-a":
+	user = opt[1]
+    elif opt[0] == "-t":
+	title = opt[1]
+    elif opt[0] == "-u":
+	username = opt[1]
+    elif opt[0] == "-p":
+	password = opt[1]
+
 #If - is specified as a filename read from stdin, otherwise load the specified file.
-if filename == "-":
-    content=sys.stdin.read()
-else:
+if filename == "":
+    print "Error no filename specified!\n"
+    Usage()
+    sys.exit(1)
+elif filename == "-" and content == "":
+    content = sys.stdin.read()
+elif content == "":
     try:
-        f=open(filename)
-        content=f.read()
-        f.close()        
+        f = open(filename)
+        content = f.read()
+        f.close()
     except:
-        sys.exit("Unable to read from: "+filename)
+        sys.exit("Unable to read from: " + filename)
 
-#Check if an extra pastebin is pasted as an argument otherwise use the default Pastebin
-try:
-    website=sys.argv[2]
-except:
-    website=defaultPB
+params = getParameters(website, content, user, version, format, title, username, password) #Get the parameters array
+reLink = params['regexp'] #Extract the regexp
+params['regexp'] = None #Remove the regexp from what will be sent
+params = urllib.urlencode(params) #Convert to a format usable with the HTML POST
 
-user=os.environ.get('USER') #Get the current username from the environment
-params=getParameters(website,content,user,version) #Get the parameters array
-reLink=params['regexp'] #Extract the regexp
-params['regexp']=None #Remove the regexp from what will be sent
-params=urllib.urlencode(params) #Convert to a format usable with the HTML POST
-
-page=urllib.urlopen(website+'/',params) #Send the informations and be redirected to the final page
+url_opener = pasteURLopener()
+page = url_opener.open(website+'/',params) #Send the informations and be redirected to the final page
 
 try:
     if reLink != "None": #Check if we have to apply a regexp
-	print website+"/"+re.split(reLink, page.read())[1] #Print the result of the Regexp
+	print website + "/" + re.split(reLink, page.read())[1] #Print the result of the Regexp
     else:
 	print page.url #Get the final page and show the url
 except:
