@@ -1,3 +1,15 @@
+pastebinit (0.7-0ubuntu1) feisty; urgency=low
+  * New version upstream
+    - Add 1t2.us pastebin support (Daniel Bartlett)
+    - New parameters system (Daniel Bartlett)
+    - Redirection support (Daniel Bartlett)
+    - Pipe content detection (Stéphane Graber)
+    - Title, format, user and password support (Daniel Bartlett)
+    - Updated manpage (Stéphane Graber)
+    - New regexp (Daniel Bartlett)
+
+ -- Stéphane Graber <stgraber@stgraber.org>  Thu, 07 Dec 2006 20:58:31 +0100
+
 pastebinit (0.6-0ubuntu1) feisty; urgency=low
   * New version upstream
     - Add a COPYING file

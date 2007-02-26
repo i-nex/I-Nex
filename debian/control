@@ -1,7 +1,7 @@
 Source: pastebinit
 Section: misc
 Priority: optional
-Maintainer: Stéphane Graber <stgraber@stgraber.org>
+Maintainer: Stéphane Graber <stgraber@ubuntu.com>
 Build-Depends: debhelper (>= 5)
 Standards-Version: 3.7.2
 
@@ -14,5 +14,6 @@ Description: A command line pastebin client
  a file passed as argument directly to a pastebin.
  Actually supported Pastebins :
  http://paste.stgraber.org
+ http://1t2.us
  http://pastebin.com
  http://pastebin.ca
