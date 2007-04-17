@@ -1,5 +1,5 @@
 /*
- * Copyright 2006 Red Hat, Inc.
+ * Copyright 2006-2007 Red Hat, Inc.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a
  * copy of this software and associated documentation files (the "Software"),
@@ -31,8 +31,10 @@
 #include <time.h>
 #include <ctype.h>
 
+int claims_one_point_oh = 0;
 int claims_one_point_two = 0;
 int claims_one_point_three = 0;
+int claims_one_point_four = 0;
 int nonconformant_digital_display = 0;
 int did_detailed_timing = 0;
 int has_name_descriptor = 0;
@@ -45,6 +47,7 @@ int has_valid_year = 0;
 int has_valid_detailed_blocks = 0;
 int has_valid_extension_count = 0;
 int has_valid_descriptor_ordering = 1;
+int manufacturer_name_well_formed = 0;
 int seen_non_detailed_descriptor = 0;
 
 int conformant = 1;
@@ -57,6 +60,9 @@ static char *manufacturer_name(unsigned char *x)
     name[1] = ((x[0] & 0x03) << 3) + ((x[1] & 0xE0) >> 5) + '@';
     name[2] = (x[1] & 0x1F) + '@';
     name[3] = 0;
+
+    if (isupper(name[0]) && isupper(name[1]) && isupper(name[2]))
+	manufacturer_name_well_formed = 1;
 
     return name;
 }
@@ -72,18 +78,39 @@ detailed_block(unsigned char *x)
 
     if (!x[0] && !x[1] && !x[2] && !x[4]) {
 	seen_non_detailed_descriptor = 1;
+	if (x[3] >= 0x0 && x[3] <= 0xF) {
+	    /* XXX in principle we could decode these if we ever found them */
+	    printf("Manufacturer-specified data, tag %d\n", x[3]);
+	    return 1;
+	}
 	switch (x[3]) {
 	case 0x10:
+	    /* XXX check: 5 through 17 filled with 0x0 */
 	    printf("Dummy block\n");
 	    return 1;
+	case 0xF7:
+	    /* TODO */
+	    printf("Established timings III\n");
+	    return 1;
+	case 0xF8:
+	    /* TODO */
+	    printf("CVT 3 byte code descriptor\n");
+	    return 1;
+	case 0xF9:
+	    /* TODO */
+	    printf("Color management data\n");
+	    return 1;
 	case 0xFA:
+	    /* TODO */
 	    printf("More standard timings\n");
 	    return 1;
 	case 0xFB:
+	    /* TODO */
 	    printf("Color point\n");
 	    return 1;
 	case 0xFC:
 	    /* XXX should check for spaces after the \n */
+	    /* XXX check: terminated with 0x0A, padded with 0x20 */
 	    has_name_descriptor = 1;
 	    if (strchr((char *)name, '\n')) return 1;
 	    strncat((char *)name, (char *)x + 5, 13);
@@ -93,6 +120,11 @@ detailed_block(unsigned char *x)
 	    }
 	    return 1;
 	case 0xFD:
+	    /* 
+	     * XXX todo: implement offsets, feature flags, vtd blocks
+	     * XXX check: ranges are well-formed; block termination if no vtd
+	     * XXX check: required if continuous frequency
+	     */
 	    has_range_descriptor = 1;
 	    printf("Monitor ranges: %d-%dHZ vertical, %d-%dkHz horizontal",
 		   x[5], x[6], x[7], x[8]);
@@ -102,9 +134,11 @@ detailed_block(unsigned char *x)
 		printf("\n");
 	    return 1;
 	case 0xFE:
+	    /* XXX check: terminated with 0x0A, padded with 0x20 */
 	    printf("ASCII string: %s", x+5);
 	    return 1;
 	case 0xFF:
+	    /* XXX check: terminated with 0x0A, padded with 0x20 */
 	    printf("Serial number: %s", x+5);
 	    return 1;
 	default:
@@ -244,20 +278,29 @@ int main(int argc, char **argv)
 
     time(&the_time);
     ptm = localtime(&the_time);
-    if (edid[0x10] < 55)
+    if (edid[0x10] < 55 || edid[0x10] == 0xff) {
 	has_valid_week = 1;
-    if (edid[0x11] > 3 && (edid[0x11] + 90) <= ptm->tm_year)
-	has_valid_year = 1;
-    if (has_valid_week && has_valid_year)
-	printf("Made week %hd of %hd\n", edid[0x10], edid[0x11] + 1990);
+	if (edid[0x11] > 0x0f) {
+	    if (edid[0x10] == 0xff) {
+		has_valid_year = 1;
+		printf("Made week %hd of model year %hd\n", edid[0x10],
+		       edid[0x11]);
+	    } else if (edid[0x11] + 90 <= ptm->tm_year) {
+		has_valid_year = 1;
+		printf("Made week %hd of %hd\n", edid[0x10], edid[0x11] + 1990);
+	    }
+	}
+    }
 
     printf("EDID version: %hd.%hd\n", edid[0x12], edid[0x13]);
     if (edid[0x12] == 1) {
-	if (edid[0x13] > 3) {
-	    printf("Claims > 1.3, assuming 1.3 conformance\n");
-	    edid[0x13] = 3;
+	if (edid[0x13] > 4) {
+	    printf("Claims > 1.4, assuming 1.4 conformance\n");
+	    edid[0x13] = 4;
 	}
 	switch (edid[0x13]) {
+	case 4:
+	    claims_one_point_four = 1;
 	case 3:
 	    claims_one_point_three = 1;
 	case 2:
@@ -265,19 +308,42 @@ int main(int argc, char **argv)
 	default:
 	    break;
 	}
+	claims_one_point_oh = 1;
     }
 
     /* display section */
 
     if (edid[0x14] & 0x80) {
-	int conformance_mask = claims_one_point_two ? 0x7E : 0x7F;
+	int conformance_mask;
 	printf("Digital display\n");
-	if (claims_one_point_two) {
+	if (claims_one_point_four) {
+	    conformance_mask = 0x80;
+	    if (edid[0x14] & 0x70 == 0x00) {
+		printf("Color depth is undefined\n");
+	    else if (edid[0x14] & 0x70 == 0x70)
+		nonconformant_digital_display = 1;
+	    else
+		printf("%d bits per primary color channel\n",
+		       edid[0x14] >> 3 + 2);
+	    }
+	    switch (edid[0x14] & 0x0f) {
+	    case 0x00: printf("Digital interface is not defined\n"); break;
+	    case 0x01: printf("DVI interface\n"); break;
+	    case 0x02: printf("HDMI-a interface\n"); break;
+	    case 0x03: printf("HDMI-b interface\n"); break;
+	    case 0x04: printf("MDDI interface\n"); break;
+	    case 0x05: printf("DisplayPort interface\n"); break;
+	    default:
+		nonconformant_digital_display = 1;
+	    }
+	} else if (claims_one_point_two) {
+	    conformance_mask = 0x7E;
 	    if (edid[0x14] & 0x01) {
 		printf("DFP 1.x compatible TMDS\n");
 	    }
-	}
-	nonconformant_digital_display = edid[0x14] & conformance_mask;
+	} else conformance_mask = 0x7F;
+	if (!nonconformant_digital_display)
+	    nonconformant_digital_display = edid[0x14] & conformance_mask;
     } else {
 	int voltage = (edid[0x14] & 0x60) >> 5;
 	int sync = (edid[0x14] & 0x0F);
@@ -286,8 +352,17 @@ int main(int argc, char **argv)
 	       voltage == 2 ? "1.0/0.4" :
 	       voltage == 1 ? "0.714/0.286" :
 	       "0.7/0.3");
-	if (edid[0x14] & 0x10)
+
+	/* XXX verify this, not sure what X means by configurable levels */
+	if (claims_one_point_four) {
+	    if (edid[0x14] & 0x10)
+		printf("Blank-to-black setup/pedestal\n");
+	    else
+		printf("Blank level equals black level\n");
+	} else if (edid[0x14] & 0x10) {
 	    printf("Configurable signal levels\n");
+	}
+
 	printf("Sync: %s%s%s%s\n", sync & 0x08 ? "Separate " : "",
 	       sync & 0x04 ? "Composite " : "",
 	       sync & 0x02 ? "SyncOnGreen " : "",
@@ -296,11 +371,20 @@ int main(int argc, char **argv)
 
     if (edid[0x15] && edid[0x16])
 	printf("Maximum image size: %d cm x %d cm\n", edid[0x15], edid[0x16]);
-    else
-	printf("Maximum image size is variable\n");
+    else if (claims_one_point_four && (edid[0x15] || edid[0x16])) {
+	/* XXX this might be a conformance failure for earlier revs */
+	if (edid[0x15])
+	    printf("Aspect ratio is %f (landscape)\n", 100.0/(edid[0x16] + 99));
+	else
+	    printf("Aspect ratio is %f (portrait)\n", 100.0/(edid[0x15] + 99));
+    } else
+	printf("Image size is variable\n");
 
-    printf("Gamma: %.2f\n",
-	    edid[0x17] == 0xff ? 1.0 : ((edid[0x17] + 100.0) / 100.0));
+    if (edid[0x17] == 0xff) {
+	if (claims_one_point_four) /* XXX might be 1.3 too */
+	    printf("Gamma is defined in an extension block\n");
+	else printf("Gamma: 1.0\n");
+    } else printf("Gamma: %.2f\n", ((edid[0x17] + 100.0) / 100.0));
 
     if (edid[0x18] & 0xE0) {
 	printf("DPMS levels:");
@@ -310,15 +394,17 @@ int main(int argc, char **argv)
 	printf("\n");
     }
 
+    /* FIXME: all four are valid combos in 1.4, and this is analog only */
     if (edid[0x18] & 0x10)
 	printf("Non-RGB color display\n");
     else if (edid[0x18] & 0x08)
 	printf("RGB color display\n");
     else
 	printf("Monochrome or grayscale display\n");
+    /* FIXME: digital displays can do color encoding here */
 
     if (edid[0x18] & 0x04)
-	printf("Default color space is primary color space\n");
+	printf("Default (sRGB) color space is primary color space\n");
     if (edid[0x18] & 0x02) {
 	printf("First detailed timing is preferred timing\n");
 	has_preferred_timing = 1;
@@ -340,6 +426,7 @@ int main(int argc, char **argv)
     has_valid_detailed_blocks &= detailed_block(edid + 0x5A);
     has_valid_detailed_blocks &= detailed_block(edid + 0x6C);
 
+    /* check this, 1.4 verification guide says otherwise */
     if (edid[0x7e]) {
 	printf("Has %d extension blocks\n", edid[0x7e]);
 	/* 2 is impossible because of the block map */
@@ -389,13 +476,21 @@ int main(int argc, char **argv)
 		   nonconformant_digital_display);
 	if (has_name_descriptor && !name_descriptor_terminated)
 	    printf("\tName descriptor not terminated with a newline\n");
+    } else if (claims_one_point_oh) {
+	if (seen_non_detailed_descriptor)
+	    conformant = 0;
+	if (!conformant)
+	    printf("EDID block does NOT conform to EDID 1.0!\n");
+	if (seen_non_detailed_descriptor)
+	    printf("\tHas descriptor blocks other than detailed timings\n");
     }
 
     if (!has_valid_checksum ||
 	!has_valid_year ||
 	!has_valid_week ||
 	!has_valid_detailed_blocks ||
-	!has_valid_extension_count) {
+	!has_valid_extension_count ||
+	!manufacturer_name_well_formed) {
 	printf("EDID block does not conform at all!\n");
 	if (!has_valid_checksum)
 	    printf("\tBlock has broken checksum\n");
@@ -407,6 +502,8 @@ int main(int argc, char **argv)
 	    printf("\tDetailed blocks filled with garbage\n");
 	if (!has_valid_extension_count)
 	    printf("\tImpossible extension block count\n");
+	if (!manufacturer_name_well_formed)
+	    printf("\tManufacturer name field contains garbage\n");
     }
 
     /* Not sure which chunk of spec exactly requires this. See E-EDID guide
