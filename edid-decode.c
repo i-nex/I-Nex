@@ -78,7 +78,7 @@ detailed_block(unsigned char *x)
 
     if (!x[0] && !x[1] && !x[2] && !x[4]) {
 	seen_non_detailed_descriptor = 1;
-	if (x[3] >= 0x0 && x[3] <= 0xF) {
+	if (x[3] <= 0xF) {
 	    /* XXX in principle we could decode these if we ever found them */
 	    printf("Manufacturer-specified data, tag %d\n", x[3]);
 	    return 1;
@@ -185,8 +185,8 @@ static unsigned char *
 extract_edid(int fd)
 {
     struct stat buf;
-    unsigned char *ret = NULL;
-    unsigned char *start, *c;
+    char *ret = NULL;
+    char *start, *c;
     unsigned char *out = NULL;
     int state = 0;
     int lines = 0;
@@ -205,14 +205,14 @@ extract_edid(int fd)
     /* wait, is this a log file? */
     for (i = 0; i < 8; i++) {
 	if (!isascii(ret[i]))
-	    return ret;
+	    return (unsigned char *)ret;
     }
 
     /* I think it is, let's go scanning */
     if (!(start = strstr(ret, "EDID (in hex):")))
-	return ret;
+	return (unsigned char *)ret;
     if (!(start = strstr(start, "(II)")))
-	return ret;
+	return (unsigned char *)ret;
 
     for (c = start; *c; c++) {
 	if (state == 0) {
@@ -251,6 +251,7 @@ int main(int argc, char **argv)
     unsigned char *edid;
     time_t the_time;
     struct tm *ptm;
+    int analog;
     if (argc != 2) {
 	printf("Need a file name\n");
 	return 1;
@@ -315,17 +316,18 @@ int main(int argc, char **argv)
 
     if (edid[0x14] & 0x80) {
 	int conformance_mask;
+	analog = 0;
 	printf("Digital display\n");
 	if (claims_one_point_four) {
 	    conformance_mask = 0x80;
-	    if (edid[0x14] & 0x70 == 0x00) {
+	    if ((edid[0x14] & 0x70) == 0x00)
 		printf("Color depth is undefined\n");
-	    else if (edid[0x14] & 0x70 == 0x70)
+	    else if ((edid[0x14] & 0x70) == 0x70)
 		nonconformant_digital_display = 1;
 	    else
 		printf("%d bits per primary color channel\n",
-		       edid[0x14] >> 3 + 2);
-	    }
+		       (edid[0x14] >> 3) + 2);
+
 	    switch (edid[0x14] & 0x0f) {
 	    case 0x00: printf("Digital interface is not defined\n"); break;
 	    case 0x01: printf("DVI interface\n"); break;
@@ -345,6 +347,7 @@ int main(int argc, char **argv)
 	if (!nonconformant_digital_display)
 	    nonconformant_digital_display = edid[0x14] & conformance_mask;
     } else {
+	analog = 1;
 	int voltage = (edid[0x14] & 0x60) >> 5;
 	int sync = (edid[0x14] & 0x0F);
 	printf("Analog display, Input voltage level: %s V\n",
@@ -394,13 +397,22 @@ int main(int argc, char **argv)
 	printf("\n");
     }
 
-    /* FIXME: all four are valid combos in 1.4, and this is analog only */
-    if (edid[0x18] & 0x10)
-	printf("Non-RGB color display\n");
-    else if (edid[0x18] & 0x08)
-	printf("RGB color display\n");
-    else
-	printf("Monochrome or grayscale display\n");
+    /* FIXME: this is from 1.4 spec, check earlier */
+    if (analog) {
+	switch (edid[0x18] & 0x18) {
+	case 0x00: printf("Monochrome or grayscale display\n"); break;
+	case 0x08: printf("RGB color display\n"); break;
+	case 0x10: printf("Non-RGB color display\n"); break;
+	case 0x18: printf("Undefined display color type\n");
+	}
+    } else {
+	printf("Supported color formats: RGB 4:4:4");
+	if (edid[0x18] & 0x10)
+	    printf(", YCrCb 4:4:4");
+	if (edid[0x18] & 0x08)
+	    printf(", YCrCb 4:2:2");
+	printf("\n");
+    }
     /* FIXME: digital displays can do color encoding here */
 
     if (edid[0x18] & 0x04)
