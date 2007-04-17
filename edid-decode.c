@@ -42,6 +42,7 @@ int name_descriptor_terminated = 0;
 int has_range_descriptor = 0;
 int has_preferred_timing = 0;
 int has_valid_checksum = 0;
+int has_valid_dummy_block = 1;
 int has_valid_week = 0;
 int has_valid_year = 0;
 int has_valid_detailed_blocks = 0;
@@ -74,6 +75,7 @@ detailed_block(unsigned char *x)
 {
     static unsigned char name[53];
     int ha, hbl, hso, hspw, hborder, va, vbl, vso, vspw, vborder;
+    int i;
     char phsync, pvsync;
 
     if (!x[0] && !x[1] && !x[2] && !x[4]) {
@@ -85,8 +87,10 @@ detailed_block(unsigned char *x)
 	}
 	switch (x[3]) {
 	case 0x10:
-	    /* XXX check: 5 through 17 filled with 0x0 */
 	    printf("Dummy block\n");
+	    for (i = 5; i < 18; i++)
+		if (x[i] != 0x00)
+		    has_valid_dummy_block = 0;
 	    return 1;
 	case 0xF7:
 	    /* TODO */
@@ -413,7 +417,6 @@ int main(int argc, char **argv)
 	    printf(", YCrCb 4:2:2");
 	printf("\n");
     }
-    /* FIXME: digital displays can do color encoding here */
 
     if (edid[0x18] & 0x04)
 	printf("Default (sRGB) color space is primary color space\n");
@@ -501,6 +504,7 @@ int main(int argc, char **argv)
 	!has_valid_year ||
 	!has_valid_week ||
 	!has_valid_detailed_blocks ||
+	!has_valid_dummy_block ||
 	!has_valid_extension_count ||
 	!manufacturer_name_well_formed) {
 	printf("EDID block does not conform at all!\n");
@@ -512,6 +516,8 @@ int main(int argc, char **argv)
 	    printf("\tBad week of manufacture\n");
 	if (!has_valid_detailed_blocks)
 	    printf("\tDetailed blocks filled with garbage\n");
+	if (!has_valid_dummy_block)
+	    printf("\tDummy block filled with garbage\n");
 	if (!has_valid_extension_count)
 	    printf("\tImpossible extension block count\n");
 	if (!manufacturer_name_well_formed)
