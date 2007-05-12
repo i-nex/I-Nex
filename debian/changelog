@@ -1,4 +1,4 @@
-pastebinit (0.7-0ubuntu1) feisty; urgency=low
+pastebinit (0.8-0ubuntu1) gutsy; urgency=low
   * New version upstream
     - Add 1t2.us pastebin support (Daniel Bartlett)
     - New parameters system (Daniel Bartlett)
@@ -8,7 +8,7 @@ pastebinit (0.7-0ubuntu1) feisty; urgency=low
     - Updated manpage (Stéphane Graber)
     - New regexp (Daniel Bartlett)
 
- -- Stéphane Graber <stgraber@stgraber.org>  Thu, 07 Dec 2006 20:58:31 +0100
+ -- Stéphane Graber <stgraber@stgraber.org>  Thu, 26 Apr 2007 14:05:31 +0200
 
 pastebinit (0.6-0ubuntu1) feisty; urgency=low
   * New version upstream
