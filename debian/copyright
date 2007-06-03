@@ -1,5 +1,5 @@
-This package was debianized by David Paleino <d.paleino@gmail.com> on
-Sun, 30 May 2007 10:54:10 +0200.
+This package was debianized by Stéphane Graber <stgraber@stgraber.org> on
+Fri, 27 Nov 2006 21:17:16 +0100.
 
 It was downloaded from http://www.stgraber.org/download/projects/pastebin/
 
@@ -31,5 +31,5 @@ License:
 On Debian systems, the complete text of the GNU General
 Public License can be found in `/usr/share/common-licenses/GPL'.
 
-The Debian packaging is (C) 2007, David Paleino <d.paleino@gmail.com> and
+The Debian packaging is (C) 2006, Stéphane Graber <stgraber@stgraber.org> and
 is licensed under the GPL, see above.

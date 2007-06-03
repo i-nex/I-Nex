@@ -1,7 +1,7 @@
 Source: pastebinit
 Section: misc
 Priority: optional
-Maintainer: David Paleino <d.paleino@gmail.com>
+Maintainer: Stéphane Graber <stgraber@ubuntu.com>
 Build-Depends: debhelper (>= 5)
 Build-Depends-Indep: xsltproc, docbook-xml, docbook-xsl
 Standards-Version: 3.7.2
