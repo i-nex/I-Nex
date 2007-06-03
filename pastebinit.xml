@@ -1,0 +1,117 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.2//EN"
+"http://www.oasis-open.org/docbook/xml/4.2/docbookx.dtd" [
+  <!ENTITY dhfirstname "<firstname>Stephane</firstname>">
+  <!ENTITY dhsurname   "<surname>Graber</surname>">
+  <!-- Please adjust the date whenever revising the manpage. -->
+  <!ENTITY dhdate      "<date>june 03, 2007</date>">
+  <!ENTITY dhsection   "<manvolnum>1</manvolnum>">
+  <!ENTITY dhemail     "<email>d.paleino@gmail.com</email>">
+  <!ENTITY dhusername  "David Paleino">
+  <!ENTITY dhucpackage "<refentrytitle>PASTEBINIT</refentrytitle>">
+  <!ENTITY dhpackage   "pastebinit">
+
+  <!ENTITY debian      "<productname>Debian</productname>">
+  <!ENTITY gnu         "<acronym>GNU</acronym>">
+  <!ENTITY gpl         "&gnu; <acronym>GPL</acronym>">
+]>
+
+<refentry>
+  <refentryinfo>
+    <address>
+      &dhemail;
+    </address>
+    <copyright>
+      <year>2007</year>
+      <holder>&dhusername;</holder>
+    </copyright>
+    &dhdate;
+  </refentryinfo>
+  <refmeta>
+    &dhucpackage;
+
+    &dhsection;
+  </refmeta>
+  <refnamediv>
+    <refname>&dhpackage;</refname>
+
+    <refpurpose>command-line pastebin client</refpurpose>
+  </refnamediv>
+  <refsynopsisdiv>
+    <cmdsynopsis>
+      <command>&dhpackage;</command>
+      <arg><option>-ibaftup</option></arg>
+    </cmdsynopsis>
+  </refsynopsisdiv>
+  <refsect1>
+    <title>DESCRIPTION</title>
+
+    <para>This manual page documents briefly the
+      <command>&dhpackage;</command> commands</para>
+
+    <para><command>&dhpackage;</command> reads text and sends it to a
+    "pastebin" on the internet, returning the URL to the user.</para>
+    <para>It allows the text to be passed through a pipe (|) or from
+    a file passed as an argument.</para> 
+  </refsect1>
+  <refsect1>
+    <title>OPTIONS</title>
+    <refsect2>
+      <title>Required arguments</title>
+      <variablelist>
+        <varlistentry>
+          <term><option>-f <arg>filename</arg></option> (or piped data)</term>
+        </varlistentry>
+      </variablelist>
+    </refsect2>
+    <refsect2>
+      <title>Optional arguments</title>
+      <variablelist>
+        <varlistentry>
+          <term><option>-b <arg>pastebin url</arg></option></term>
+        </varlistentry>
+        <varlistentry>
+          <term><option>-a <arg>author</arg></option></term>
+        </varlistentry>
+        <varlistentry>
+          <term><option>-f <arg>format of paste</arg></option></term>
+        </varlistentry>
+        <varlistentry>
+          <term><option>-t <arg>title of paste</arg></option> (ONLY FOR 1t2.us)</term>
+        </varlistentry>
+        <varlistentry>
+          <term><option>-u <arg>username</arg></option> (ONLY FOR 1t2.us)</term>
+        </varlistentry>
+        <varlistentry>
+          <term><option>-p <arg>password</arg></option> (ONLY FOR 1t2.us)</term>
+        </varlistentry>
+      </variablelist>
+    </refsect2>
+  </refsect1>
+  <refsect1>
+    <title>SUPPORTED PASTEBINS</title>
+    <itemizedlist>
+      <listitem>
+        <para>http://paste.stgraber.org</para>
+      </listitem>
+      <listitem>
+        <para>http://pastebin.com</para>
+      </listitem>
+      <listitem>
+        <para>http://pastebin.ca</para>
+      </listitem>
+      <listitem>
+        <para>http://1t2.us</para>
+      </listitem>
+    </itemizedlist>
+  </refsect1>
+  <refsect1>
+    <title>AUTHORS</title>
+    <para>Pastebinit is currently written by &dhfirstname; &dhsurname;.</para>
+    <para>1t2.us, username, password, format, title, arguments and redirect
+    support added by Daniel Bartlett.</para>
+    <para>Website: http://www.stgraber.org/category/pastebinit</para>
+    <para>E-mail: stgraber@ubuntu.com</para>
+  </refsect1>
+</refentry>
+
