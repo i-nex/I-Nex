@@ -20,7 +20,7 @@
 import urllib, os, sys, re, getopt, select, xml.dom.minidom
 
 defaultPB = "http://paste.stgraber.org" #Default pastebin
-version = "0.8" #Version number to show in the usage
+version = "0.8.1" #Version number to show in the usage
 configfile = os.environ.get('HOME') + "/.pastebinit.xml"
 
 # Custom urlopener to handle 401's

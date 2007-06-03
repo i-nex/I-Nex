@@ -1,32 +1,34 @@
 #!/usr/bin/make -f
 # -*- makefile -*-
-#  debian rules file for pastebinit
 
+# Uncomment this to turn on verbose mode.
 #export DH_VERBOSE=1
 
-
-build: build-stamp
-
-build-stamp: 
-	dh_testdir
-	touch build-stamp
+build:
+	xsltproc -''-nonet /usr/share/sgml/docbook/stylesheet/xsl/nwalsh/manpages/docbook.xsl pastebinit.xml
 
 clean:
 	dh_testdir
 	dh_testroot
-	rm -f build-stamp
-	dh_clean 
+	dh_clean pastebinit.1
 
 install: build
 	dh_testdir
 	dh_testroot
 	dh_clean -k 
-	dh_installdirs
+	dh_installdirs usr/bin
+
+	install -m 755 $(CURDIR)/pastebinit	$(CURDIR)/debian/pastebinit/usr/bin/
+
+binary-arch: build install
+binary-indep: build install
+	dh_testdir
+	dh_testroot
 	dh_installchangelogs 
 	dh_installdocs
-	dh_installexamples
 	dh_installman pastebinit.1
-	dh_install 
+	dh_link
+	dh_strip
 	dh_compress
 	dh_fixperms
 	dh_installdeb
@@ -35,12 +37,5 @@ install: build
 	dh_md5sums
 	dh_builddeb
 
-
-# Build architecture-independent files here.
-binary-indep: build install
-# We have nothing to do by default.
-
-binary-arch:
-
-binary: binary-indep
-.PHONY: build clean binary-indep binary install
+binary: binary-indep binary-arch
+.PHONY: build clean binary-indep binary-arch binary install

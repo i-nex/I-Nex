@@ -1,26 +1,5 @@
-pastebinit (0.8-0ubuntu1) gutsy; urgency=low
-  * New version upstream
-    - Add 1t2.us pastebin support (Daniel Bartlett)
-    - New parameters system (Daniel Bartlett)
-    - Redirection support (Daniel Bartlett)
-    - Pipe content detection (Stéphane Graber)
-    - Title, format, user and password support (Daniel Bartlett)
-    - Updated manpage (Stéphane Graber)
-    - New regexp (Daniel Bartlett)
+pastebinit (0.8.1-1) unstable; urgency=low
 
- -- Stéphane Graber <stgraber@stgraber.org>  Thu, 26 Apr 2007 14:05:31 +0200
+  * Initial release (Closes: #425226)
 
-pastebinit (0.6-0ubuntu1) feisty; urgency=low
-  * New version upstream
-    - Add a COPYING file
-    - remove paste.ubuntu-nl.org because of the anti-spam javascript
-    - change the default Pastebin
-    - add two pastebins
-    - add support of regexp
-
- -- Stéphane Graber <stgraber@stgraber.org>  Thu, 07 Dec 2006 20:58:31 +0100
-
-pastebinit (0.5-0ubuntu1) feisty; urgency=low
-  * Initial release
-
- -- Stéphane Graber <stgraber@stgraber.org>  Tue, 28 Nov 2006 19:32:40 +0100
+ -- David Paleino <d.paleino@gmail.com>  Sun, 03 Jun 2007 18:08:32 +0200
