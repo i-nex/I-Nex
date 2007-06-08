@@ -17,106 +17,107 @@
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
-import urllib, os, sys, re, getopt, select, xml.dom.minidom
+try:
+	import urllib, os, sys, re, getopt, select, xml.dom.minidom
 
-defaultPB = "http://paste.stgraber.org" #Default pastebin
-version = "0.8.1" #Version number to show in the usage
-configfile = os.environ.get('HOME') + "/.pastebinit.xml"
+	defaultPB = "http://paste.stgraber.org" #Default pastebin
+	version = "0.8.1" #Version number to show in the usage
+	configfile = os.environ.get('HOME') + "/.pastebinit.xml"
 
-# Custom urlopener to handle 401's
-class pasteURLopener(urllib.FancyURLopener):
-    def http_error_401(self, url, fp, errcode, errmsg, headers, data=None):
-	return None
+	# Custom urlopener to handle 401's
+	class pasteURLopener(urllib.FancyURLopener):
+	    def http_error_401(self, url, fp, errcode, errmsg, headers, data=None):
+		return None
 
-#Return the parameters depending of the pastebin used
-def getParameters(website, content, user, jabberid, version, format, parentpid, permatag, title, username, password):
-    "Return the parameters array for the selected pastebin"
-    params={}
-    # pastebin.com v0.50
-    if re.search("http://((([a-zA-Z0-9\-_\.]*)(pastebin\.com)))", website):
-	params['poster'] = user
-        params['code2'] = content
-	params['version'] = version
-	params['parent_pid'] = parentpid #For reply, "" means homepage (new thread)
-	params['format'] = format #The format, for syntax hilighting
-	params['paste'] = "Send" 
-        params['remember'] = "0" #Do you want a cookie ?
-	params['expiry'] = "f" #The expiration, f = forever
-	params['regexp'] = "None"
-    elif re.search("http://((([a-zA-Z0-9\-_\.]*)(paste\.f\-box\.org|1t2\.us|paste\.stgraber\.org)))", website):
-	params['poster'] = user
-	params['jid'] = jabberid
-        params['code2'] = content
-        params['parent_pid'] = parentpid #For reply, "" means homepage (new thread)
-	params['format'] = format #The format, for syntax hilighting
-	params['paste'] = "Send" 
-        params['remember'] = "0" #Do you want a cookie ?
-	params['expiry'] = "f" #The expiration, f = forever
-	params['permatag'] = permatag
-	params['title'] = title
-	params['username'] = username
-	params['password'] = password
-	params['regexp'] = "None"
-	params['version'] = version
-    elif website == "http://pastebin.ca":
-	params['name'] = user
-        params['content'] = content
-	params['type'] = "1" #The expiration, 1 = raw
-	params['save'] = "0" #Do you want a cookie ?
-	params['s'] = "Submit Post"
-	params['regexp'] = '">http://pastebin.ca/(.*)</a></p><p>'
-    else:
-	sys.exit("Unknown website, please post a bugreport to request this pastebin to be added ("+website+")")
-    return params
+	#Return the parameters depending of the pastebin used
+	def getParameters(website, content, user, jabberid, version, format, parentpid, permatag, title, username, password):
+		"Return the parameters array for the selected pastebin"
+		params={}
+		# pastebin.com v0.50
+		if re.search("http://((([a-zA-Z0-9\-_\.]*)(pastebin\.com)))", website):
+			params['poster'] = user
+			params['code2'] = content
+			params['version'] = version
+			params['parent_pid'] = parentpid #For reply, "" means homepage (new thread)
+			params['format'] = format #The format, for syntax hilighting
+			params['paste'] = "Send" 
+			params['remember'] = "0" #Do you want a cookie ?
+			params['expiry'] = "f" #The expiration, f = forever
+			params['regexp'] = "None"
+		elif re.search("http://((([a-zA-Z0-9\-_\.]*)(paste\.f\-box\.org|1t2\.us|paste\.stgraber\.org)))", website):
+			params['poster'] = user
+			params['jid'] = jabberid
+			params['code2'] = content
+			params['parent_pid'] = parentpid #For reply, "" means homepage (new thread)
+			params['format'] = format #The format, for syntax hilighting
+			params['paste'] = "Send" 
+			params['remember'] = "0" #Do you want a cookie ?
+			params['expiry'] = "f" #The expiration, f = forever
+			params['permatag'] = permatag
+			params['title'] = title
+			params['username'] = username
+			params['password'] = password
+			params['regexp'] = "None"
+			params['version'] = version
+		elif website == "http://pastebin.ca":
+			params['name'] = user
+			params['content'] = content
+			params['type'] = "1" #The expiration, 1 = raw
+			params['save'] = "0" #Do you want a cookie ?
+			params['s'] = "Submit Post"
+			params['regexp'] = '">http://pastebin.ca/(.*)</a></p><p>'
+		else:
+			sys.exit("Unknown website, please post a bugreport to request this pastebin to be added ("+website+")")
+		return params
 
-#XML Handling methods
-def getText(nodelist):
-    rc = ""
-    for node in nodelist:
-        if node.nodeType == node.TEXT_NODE:
-	    rc = rc + node.data
-    return rc
+	#XML Handling methods
+	def getText(nodelist):
+		rc = ""
+		for node in nodelist:
+			if node.nodeType == node.TEXT_NODE:
+				rc = rc + node.data
+		return rc
 
-def getNodes(nodes, title):
-    return nodes.getElementsByTagName(title)
+	def getNodes(nodes, title):
+		return nodes.getElementsByTagName(title)
 
-def getFirstNode(nodes, title):
-    return getNodes(nodes, title)[0]
+	def getFirstNode(nodes, title):
+		return getNodes(nodes, title)[0]
 
-def getFirstNodeText(nodes, title):
-    return getText(getFirstNode(nodes, title).childNodes)
+	def getFirstNodeText(nodes, title):
+		return getText(getFirstNode(nodes, title).childNodes)
 
-# Display usage instructions
-def Usage ():
-    print "pastebinit v" + version
-    print "Required arguments:"
-    print "\t-i <filename> (or pipe the text)"
-    print "Optional arguments:"
-    print "\t-b <pastebin url:default is '" + website + "'>"
-    print "\t-a <author:default is '" + user + "'>"
-    print "\t-f <format of paste:default is '" + format + "'>"
-    print "\t-r <parent posts ID:defaults to none>"
-    print "Optional arguments supported only by 1t2.us and paste.stgraber.org:"
-    print "\t-j <jabberid for notifications:default is '" + jabberid + "'>"
-    print "\t-m <permatag for all versions of a post:default is blank>"
-    print "\t-t <title of paste:default is blank>"
-    print "\t-u <username> -p <password>"
+	# Display usage instructions
+	def Usage ():
+		print "pastebinit v" + version
+		print "Required arguments:"
+		print "\t-i <filename> (or pipe the text)"
+		print "Optional arguments:"
+		print "\t-b <pastebin url:default is '" + website + "'>"
+		print "\t-a <author:default is '" + user + "'>"
+		print "\t-f <format of paste:default is '" + format + "'>"
+		print "\t-r <parent posts ID:defaults to none>"
+		print "Optional arguments supported only by 1t2.us and paste.stgraber.org:"
+		print "\t-j <jabberid for notifications:default is '" + jabberid + "'>"
+		print "\t-m <permatag for all versions of a post:default is blank>"
+		print "\t-t <title of paste:default is blank>"
+		print "\t-u <username> -p <password>"
 
-# Set defaults
-website = defaultPB
-user = os.environ.get('USER')
-jabberid = ""
-title = ""
-permatag = ""
-format = "text"
-username = ""
-password = ""
-filename = ""
-content = ""
-parentpid = ""
+	# Set defaults
+	website = defaultPB
+	user = os.environ.get('USER')
+	jabberid = ""
+	title = ""
+	permatag = ""
+	format = "text"
+	username = ""
+	password = ""
+	filename = ""
+	content = ""
+	parentpid = ""
 
-#Example configuration file string
-configexample = """\
+	#Example configuration file string
+	configexample = """\
 <pastebinit>
 <pastebin>http://1t2.us</pastebin>
 <author>DanBUK</author>
@@ -125,102 +126,115 @@ configexample = """\
 </pastebinit>
 """
 
-#Open configuration file if it exists
-try:
-    f = open(configfile)
-    configtext = f.read()
-    f.close()
-    gotconfigxml = 1
-except:
-    gotconfigxml = 0
+	#Open configuration file if it exists
+	try:
+		f = open(configfile)
+		configtext = f.read()
+		f.close()
+		gotconfigxml = 1
+	except KeyboardInterrupt:
+		sys.exit("KeyboardInterrupt catched.")
+	except:
+		gotconfigxml = 0
 
-#Parse configuration file
-if gotconfigxml == 1:
-    try:
-        configxml = xml.dom.minidom.parse(configfile)
-        website = getFirstNodeText(configxml, "pastebin")
-        user = getFirstNodeText(configxml, "author")
-        format = getFirstNodeText(configxml, "format")
-        jabberid = getFirstNodeText(configxml, "jabberid")
-    except:
-        print "Error parsing configuration file!"
-        print "Please ensure that your configuration file looks similar to the following:"
-        print configexample
-	sys.exit(1)
+	#Parse configuration file
+	if gotconfigxml == 1:
+		try:
+			configxml = xml.dom.minidom.parse(configfile)
+			website = getFirstNodeText(configxml, "pastebin")
+			user = getFirstNodeText(configxml, "author")
+			format = getFirstNodeText(configxml, "format")
+			jabberid = getFirstNodeText(configxml, "jabberid")
+		except KeyboardInterrupt:
+			sys.exit("KeyboardInterrupt catched.")
+		except:
+			print "Error parsing configuration file!"
+			print "Please ensure that your configuration file looks similar to the following:"
+			print configexample
+			sys.exit(1)
 
-#Check if some datas were passed by pipe, if yes directly assign content
-l_r = select.select([sys.stdin],[],[],0)
-try :
-    content=l_r[0][0].read()
-    filename="-"
-except:
-    filename=""
+	#Check if some datas were passed by pipe, if yes directly assign content
+	l_r = select.select([sys.stdin],[],[],0)
+	try:
+		content=l_r[0][0].read()
+		filename="-"
+	except:
+		filename=""
 
-# Check number of arguments
-if len(sys.argv) == 1 and filename == "":
-    print "Error no arguments specified!\n"
-    Usage()
-    sys.exit(1)
+	# Check number of arguments
+	if len(sys.argv) == 1 and filename == "":
+		print "Error no arguments specified!\n"
+		Usage()
+		sys.exit(1)
 
+	# Get options
+	try:
+		optlist, list = getopt.getopt(sys.argv[1:], 'i:f:b:a:r:j:t:m:u:p:')
+	except KeyboardInterrupt:
+		sys.exit("KeyboardInterrupt catched.")
+	except getopt.GetoptError:
+		print "Invalid arguments!\n"
+		Usage()
+		sys.exit(1)
 
-# Get options
-try:
-    optlist, list = getopt.getopt(sys.argv[1:], 'i:f:b:a:r:j:t:m:u:p:')
-except getopt.GetoptError:
-    print "Invalid arguments!\n"
-    Usage()
-    sys.exit(1)
+	# Iterate through options
+	for opt in optlist:
+		if opt[0] == "-i":
+			filename = opt[1]
+		elif opt[0] == "-f":
+			format = opt[1]
+		elif opt[0] == "-b":
+			website = opt[1]
+		elif opt[0] == "-a":
+			user = opt[1]
+		elif opt[0] == "-r":
+			parentpid = opt[1]
+		elif opt[0] == "-j":
+			jabberid = opt[1]
+		elif opt[0] == "-t":
+			title = opt[1]
+		elif opt[0] == "-m":
+			permatag = opt[1]
+		elif opt[0] == "-u":
+			username = opt[1]
+		elif opt[0] == "-p":
+			password = opt[1]
 
-# Iterate through options
-for opt in optlist:
-    if opt[0] == "-i":
-	filename = opt[1]
-    elif opt[0] == "-f":
-	format = opt[1]
-    elif opt[0] == "-b":
-	website = opt[1]
-    elif opt[0] == "-a":
-	user = opt[1]
-    elif opt[0] == "-r":
-	parentpid = opt[1]
-    elif opt[0] == "-j":
-	jabberid = opt[1]
-    elif opt[0] == "-t":
-	title = opt[1]
-    elif opt[0] == "-m":
-	permatag = opt[1]
-    elif opt[0] == "-u":
-	username = opt[1]
-    elif opt[0] == "-p":
-	password = opt[1]
+	#If - is specified as a filename read from stdin, otherwise load the specified file.
+	if filename == "":
+		print "Error no filename specified!\n"
+		Usage()
+		sys.exit(1)
+	elif filename == "-" and content == "":
+		content = sys.stdin.read()
+		sys.exit("KeyboardInterrupt catched.")
+	elif content == "":
+		try:
+			f = open(filename)
+			content = f.read()
+			f.close()
+		except KeyboardInterrupt:
+			sys.exit("KeyboardInterrupt catched.")
+		except:
+			sys.exit("Unable to read from: " + filename)
 
-#If - is specified as a filename read from stdin, otherwise load the specified file.
-if filename == "":
-    print "Error no filename specified!\n"
-    Usage()
-    sys.exit(1)
-elif filename == "-" and content == "":
-    content = sys.stdin.read()
-elif content == "":
-    try:
-        f = open(filename)
-        content = f.read()
-        f.close()
-    except:
-        sys.exit("Unable to read from: " + filename)
+	params = getParameters(website, content, user, jabberid, version, format, parentpid, permatag, title, username, password) #Get the parameters array
+	reLink = params['regexp'] #Extract the regexp
+	params['regexp'] = None #Remove the regexp from what will be sent
+	params = urllib.urlencode(params) #Convert to a format usable with the HTML POST
 
-params = getParameters(website, content, user, jabberid, version, format, parentpid, permatag, title, username, password) #Get the parameters array
-reLink = params['regexp'] #Extract the regexp
-params['regexp'] = None #Remove the regexp from what will be sent
-params = urllib.urlencode(params) #Convert to a format usable with the HTML POST
+	url_opener = pasteURLopener()
+	page = url_opener.open(website + '/', params) #Send the informations and be redirected to the final page
 
-url_opener = pasteURLopener()
-page = url_opener.open(website + '/', params) #Send the informations and be redirected to the final page
+	try:
+		if reLink != "None": #Check if we have to apply a regexp
+			print website + "/" + re.split(reLink, page.read())[1] #Print the result of the Regexp
+		else:
+			print page.url #Get the final page and show the ur
+	except KeyboardInterrupt:
+		sys.exit("KeyboardInterrupt catched.")
+	except:
+		sys.exit("Unable to read or parse the result page, it could be a server timeout or a change server side, try with another pastebin.")
 
-try:
-    if reLink != "None": #Check if we have to apply a regexp
-	print website + "/" + re.split(reLink, page.read())[1] #Print the result of the Regexp
-    else:
-	print page.url #Get the final page and show the url
-except:
-    sys.exit("Unable to read or parse the result page, it could be a server timeout or a change server side, try with another pastebin.")
+except KeyboardInterrupt:
+	sys.exit("KeyboardInterrupt catched.")
