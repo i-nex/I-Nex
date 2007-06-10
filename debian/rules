@@ -6,6 +6,9 @@
 
 build:
 	xsltproc -''-nonet /usr/share/sgml/docbook/stylesheet/xsl/nwalsh/manpages/docbook.xsl pastebinit.xml
+	
+	# build translations
+	(cd po; $(MAKE))
 
 clean:
 	dh_testdir
@@ -16,9 +19,8 @@ install: build
 	dh_testdir
 	dh_testroot
 	dh_clean -k 
-	dh_installdirs usr/bin
-
-	install -m 755 $(CURDIR)/pastebinit	$(CURDIR)/debian/pastebinit/usr/bin/
+	dh_installdirs
+	dh_install
 
 binary-arch: build install
 binary-indep: build install

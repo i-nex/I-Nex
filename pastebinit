@@ -18,10 +18,13 @@
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
 try:
-	import urllib, os, sys, re, getopt, select, xml.dom.minidom
+	import urllib, os, sys, re, getopt, select, xml.dom.minidom, gettext
+	from gettext import gettext as _
+
+	gettext.textdomain("pastebinit")
 
 	defaultPB = "http://paste.stgraber.org" #Default pastebin
-	version = "0.8.1" #Version number to show in the usage
+	version = "0.8.2" #Version number to show in the usage
 	configfile = os.environ.get('HOME') + "/.pastebinit.xml"
 
 	# Custom urlopener to handle 401's
@@ -67,7 +70,7 @@ try:
 			params['s'] = "Submit Post"
 			params['regexp'] = '">http://pastebin.ca/(.*)</a></p><p>'
 		else:
-			sys.exit("Unknown website, please post a bugreport to request this pastebin to be added ("+website+")")
+			sys.exit(_("Unknown website, please post a bugreport to request this pastebin to be added (%s)") % website)
 		return params
 
 	#XML Handling methods
@@ -90,18 +93,18 @@ try:
 	# Display usage instructions
 	def Usage ():
 		print "pastebinit v" + version
-		print "Required arguments:"
-		print "\t-i <filename> (or pipe the text)"
-		print "Optional arguments:"
-		print "\t-b <pastebin url:default is '" + website + "'>"
-		print "\t-a <author:default is '" + user + "'>"
-		print "\t-f <format of paste:default is '" + format + "'>"
-		print "\t-r <parent posts ID:defaults to none>"
-		print "Optional arguments supported only by 1t2.us and paste.stgraber.org:"
-		print "\t-j <jabberid for notifications:default is '" + jabberid + "'>"
-		print "\t-m <permatag for all versions of a post:default is blank>"
-		print "\t-t <title of paste:default is blank>"
-		print "\t-u <username> -p <password>"
+		print _("Required arguments:")
+		print _("\t-i <filename> (or pipe the text)")
+		print _("Optional arguments:")
+		print _("\t-b <pastebin url:default is '%s'>") % website
+		print _("\t-a <author:default is '%s'>") % website
+		print _("\t-f <format of paste:default is '%s'>") % format
+		print _("\t-r <parent posts ID:defaults to none>")
+		print _("Optional arguments supported only by 1t2.us and paste.stgraber.org:")
+		print _("\t-j <jabberid for notifications:default is '%s'>") % jabberid
+		print _("\t-m <permatag for all versions of a post:default is blank>")
+		print _("\t-t <title of paste:default is blank>")
+		print _("\t-u <username> -p <password>")
 
 	# Set defaults
 	website = defaultPB
@@ -133,7 +136,7 @@ try:
 		f.close()
 		gotconfigxml = 1
 	except KeyboardInterrupt:
-		sys.exit("KeyboardInterrupt catched.")
+		sys.exit(_("KeyboardInterrupt catched."))
 	except:
 		gotconfigxml = 0
 
@@ -146,10 +149,10 @@ try:
 			format = getFirstNodeText(configxml, "format")
 			jabberid = getFirstNodeText(configxml, "jabberid")
 		except KeyboardInterrupt:
-			sys.exit("KeyboardInterrupt catched.")
+			sys.exit(_("KeyboardInterrupt catched."))
 		except:
-			print "Error parsing configuration file!"
-			print "Please ensure that your configuration file looks similar to the following:"
+			print _("Error parsing configuration file!")
+			print _("Please ensure that your configuration file looks similar to the following:")
 			print configexample
 			sys.exit(1)
 
@@ -163,7 +166,7 @@ try:
 
 	# Check number of arguments
 	if len(sys.argv) == 1 and filename == "":
-		print "Error no arguments specified!\n"
+		print _("Error no arguments specified!\n")
 		Usage()
 		sys.exit(1)
 
@@ -171,9 +174,9 @@ try:
 	try:
 		optlist, list = getopt.getopt(sys.argv[1:], 'i:f:b:a:r:j:t:m:u:p:')
 	except KeyboardInterrupt:
-		sys.exit("KeyboardInterrupt catched.")
+		sys.exit(_("KeyboardInterrupt catched."))
 	except getopt.GetoptError:
-		print "Invalid arguments!\n"
+		print _("Invalid arguments!\n")
 		Usage()
 		sys.exit(1)
 
@@ -202,21 +205,21 @@ try:
 
 	#If - is specified as a filename read from stdin, otherwise load the specified file.
 	if filename == "":
-		print "Error no filename specified!\n"
+		print _("Error no filename specified!\n")
 		Usage()
 		sys.exit(1)
 	elif filename == "-" and content == "":
 		content = sys.stdin.read()
-		sys.exit("KeyboardInterrupt catched.")
+		sys.exit(_("KeyboardInterrupt catched."))
 	elif content == "":
 		try:
 			f = open(filename)
 			content = f.read()
 			f.close()
 		except KeyboardInterrupt:
-			sys.exit("KeyboardInterrupt catched.")
+			sys.exit(_("KeyboardInterrupt catched."))
 		except:
-			sys.exit("Unable to read from: " + filename)
+			sys.exit(_("Unable to read from: %s") % filename)
 
 	params = getParameters(website, content, user, jabberid, version, format, parentpid, permatag, title, username, password) #Get the parameters array
 	reLink = params['regexp'] #Extract the regexp
@@ -232,9 +235,9 @@ try:
 		else:
 			print page.url #Get the final page and show the ur
 	except KeyboardInterrupt:
-		sys.exit("KeyboardInterrupt catched.")
+		sys.exit(_("KeyboardInterrupt catched."))
 	except:
-		sys.exit("Unable to read or parse the result page, it could be a server timeout or a change server side, try with another pastebin.")
+		sys.exit(_("Unable to read or parse the result page, it could be a server timeout or a change server side, try with another pastebin."))
 
 except KeyboardInterrupt:
-	sys.exit("KeyboardInterrupt catched.")
+	sys.exit(_("KeyboardInterrupt catched."))

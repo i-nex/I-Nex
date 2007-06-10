@@ -1,3 +1,9 @@
+pastebinit (0.8.2) gutsy; urgency=low
+
+  * Closing launchpad bug #119723 "Implement gettext localization"
+
+ -- David Paleino <d.paleino@gmail.com>  Sun, 09 Jun 2007 01:28:11 +0200
+
 pastebinit (0.8.1-0ubuntu2) gutsy; urgency=low
 
   * Closing launchpad bug #119273 "Normal kill does not work"
