@@ -1,0 +1,109 @@
+# Po file for pastebinit
+# Copyright (C) 2007, Pastebinit Developers Team
+# David Paleino <d.paleino@gmail.com>, 2007
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: 0.8.1\n"
+"POT-Creation-Date: 2007-06-10 20:31+0200\n"
+"PO-Revision-Date: 2007-06-10 20:52+0200\n"
+"Last-Translator: Stéphane Graber <stgraber@ubuntu.com>"
+"Language-Team: Ubuntu French team\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+
+#: ../pastebinit:35
+#, docstring
+msgid "Return the parameters array for the selected pastebin"
+msgstr "Retourne le tableau de paramètres pour le pastebin selectionner"
+
+#: ../pastebinit:71
+msgid "Unknown website, please post a bugreport to request this pastebin to be added (%s)"
+msgstr "Site web inconnu, merci de rapporter un bug pour demmander que ce pastebin soit ajouté (%s)"
+
+#: ../pastebinit:94
+msgid "Required arguments:"
+msgstr "Paramètres nécessaires:"
+
+#: ../pastebinit:95
+msgid "\t-i <filename> (or pipe the text)"
+msgstr "\t-i <nom-du-fichier> (ou envoyer le texte via un pipe)"
+
+#: ../pastebinit:96
+msgid "Optional arguments:"
+msgstr "Paramètres optionels:"
+
+#: ../pastebinit:97
+msgid "\t-b <pastebin url:default is '%s'>"
+msgstr "\t-b <pastebin url:par défaut est'%s'>"
+
+#: ../pastebinit:98
+msgid "\t-a <author:default is '%s'>"
+msgstr "\t-a <auteur:par défaut est '%s'>"
+
+#: ../pastebinit:99
+msgid "\t-f <format of paste:default is '%s'>"
+msgstr "\t-f <format:par défaut est '%s'>"
+
+#: ../pastebinit:100
+msgid "\t-r <parent posts ID:defaults to none>"
+msgstr "\t-r <post parent:par défaut aucun>"
+
+#: ../pastebinit:101
+msgid "Optional arguments supported only by 1t2.us and paste.stgraber.org:"
+msgstr "Paramètres optionels supportés seulement par 1t2.us et paste.stgraber.org:"
+
+#: ../pastebinit:102
+msgid "\t-j <jabberid for notifications:default is '%s'>"
+msgstr "\t-j <jabberid pour avertissement:par défaut est '%s'>"
+
+#: ../pastebinit:103
+msgid "\t-m <permatag for all versions of a post:default is blank>"
+msgstr "\t-m <permatag pour toutes les versions du post:par défaut aucun>"
+
+#: ../pastebinit:104
+msgid "\t-t <title of paste:default is blank>"
+msgstr "\t-t <titre du post:par défaut aucun>"
+
+#: ../pastebinit:105
+msgid "\t-u <username> -p <password>"
+msgstr "\t-u <utilisateur> -p <mot de passe>"
+
+#: ../pastebinit:137 ../pastebinit:150 ../pastebinit:175 ../pastebinit:211
+#: ../pastebinit:218 ../pastebinit:236 ../pastebinit:241
+msgid "KeyboardInterrupt catched."
+msgstr "Interruption clavier."
+
+#: ../pastebinit:152
+msgid "Error parsing configuration file!"
+msgstr "Erreur d'analyse du fichier de configuration!"
+
+#: ../pastebinit:153
+msgid "Please ensure that your configuration file looks similar to the following:"
+msgstr "Merci de vous assurer que votre fichier de configuration ressemble à celui-ci:"
+
+#: ../pastebinit:167
+msgid ""
+"Error no arguments specified!\n"
+msgstr ""
+"Erreur, aucun paramètre spécifié!\n"
+
+#: ../pastebinit:177
+msgid ""
+"Invalid arguments!\n"
+msgstr ""
+"Paramètre invalide!\n"
+
+#: ../pastebinit:206
+msgid ""
+"Error no filename specified!\n"
+msgstr ""
+"Erreur, aucun nom de fichier specifié!!\n"
+
+#: ../pastebinit:220
+msgid "Unable to read from: %s"
+msgstr "Impossible de lire: %s"
+
+#: ../pastebinit:238
+msgid "Unable to read or parse the result page, it could be a server timeout or a change server side, try with another pastebin."
+msgstr "Impossible de lire ou d'analyser la page de résultat, il peut s'agir d'un timeout ou d'un changement au niveau du serveur, essayer avec un autre pastebin."
