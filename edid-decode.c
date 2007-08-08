@@ -180,8 +180,8 @@ detailed_block(unsigned char *x)
       syncmethod = "";
       break;
     }
-    phsync = (x[17] & (1 << 2)) ? '+' : '-';
-    pvsync = (x[17] & (1 << 1)) ? '+' : '-';
+    pvsync = (x[17] & (1 << 2)) ? '+' : '-';
+    phsync = (x[17] & (1 << 1)) ? '+' : '-';
 
     printf("Detailed mode: Clock %.3f MHz, %d mm x %d mm\n"
 	   "               %4d %4d %4d %4d hborder %d\n"
