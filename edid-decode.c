@@ -76,7 +76,7 @@ detailed_block(unsigned char *x)
     static unsigned char name[53];
     int ha, hbl, hso, hspw, hborder, va, vbl, vso, vspw, vborder;
     int i;
-    char phsync, pvsync;
+    char phsync, pvsync, *syncmethod;
 
     if (!x[0] && !x[1] && !x[2] && !x[4]) {
 	seen_non_detailed_descriptor = 1;
@@ -166,19 +166,33 @@ detailed_block(unsigned char *x)
     vso = ((x[10] >> 4) + ((x[11] & 0x0C) << 2));
     vspw = ((x[10] & 0x0F) + ((x[11] & 0x03) << 4));
     vborder = x[16];
+    switch ((x[17] & 0x0c) >> 2) {
+    case 0x00:
+      syncmethod = "analog composite";
+      break;
+    case 0x01:
+      syncmethod = "bipolar analog composite";
+      break;
+    case 0x02:
+      syncmethod = "digital composite";
+      break;
+    case 0x03:
+      syncmethod = "";
+      break;
+    }
     phsync = (x[17] & (1 << 2)) ? '+' : '-';
     pvsync = (x[17] & (1 << 1)) ? '+' : '-';
 
     printf("Detailed mode: Clock %.3f MHz, %d mm x %d mm\n"
 	   "               %4d %4d %4d %4d hborder %d\n"
 	   "               %4d %4d %4d %4d vborder %d\n"
-	   "               %chsync %cvsync\n",
+	   "               %chsync %cvsync %s\n",
 	    (x[0] + (x[1] << 8)) / 100.0,
 	    (x[12] + ((x[14] & 0xF0) << 4)),
 	    (x[13] + ((x[14] & 0x0F) << 8)),
 	   ha, ha + hso, ha + hso + hspw, ha + hbl, hborder,
 	   va, va + vso, va + vso + vspw, va + vbl, vborder,
-	   phsync, pvsync
+	   phsync, pvsync, syncmethod
 	  );
     /* XXX flag decode */
     
