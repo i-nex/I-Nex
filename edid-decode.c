@@ -220,6 +220,48 @@ extract_edid(int fd)
 
     read(fd, ret, buf.st_size);
 
+    /* Look for xrandr --verbose output (8 lines of 16 hex bytes) */
+    if ((start = strstr(ret, "EDID_DATA:")) != NULL) {
+	const char *indentation = "                ";
+	unsigned char *out;
+
+	out = malloc(128);
+	if (out == NULL)
+	    return NULL;
+
+	for (i = 0; i < 8; i++) {
+	    int j;
+
+	    /* Get the next start of the line of EDID hex. */
+	    start = strstr(start, indentation);
+	    if (start == NULL) {
+		free(ret);
+		free(out);
+		return NULL;
+	    }
+	    start += strlen(indentation);
+
+	    c = start;
+	    for (j = 0; j < 16; j++) {
+		char buf[3];
+		/* Read a %02x from the log */
+		if (!isxdigit(c[0]) || !isxdigit(c[1])) {
+		    free(ret);
+		    free(out);
+		    return NULL;
+		}
+		buf[0] = c[0];
+		buf[1] = c[1];
+		buf[2] = 0;
+		out[out_index++] = strtol(buf, NULL, 16);
+		c += 2;
+	    }
+	}
+
+	free(ret);
+	return out;
+    }
+
     /* wait, is this a log file? */
     for (i = 0; i < 8; i++) {
 	if (!isascii(ret[i]))
