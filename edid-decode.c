@@ -305,13 +305,39 @@ extract_edid(int fd)
     return out;
 }
 
+struct {
+  int x, y, refresh;
+} established_timings[] = {
+  /* 0x23 bit 7 - 0 */
+  {720, 400, 70},
+  {720, 400, 88},
+  {640, 480, 60},
+  {640, 480, 67},
+  {640, 480, 72},
+  {640, 480, 75},
+  {800, 600, 56},
+  {800, 600, 60},
+  /* 0x24 bit 7 - 0 */
+  {800, 600, 72},
+  {800, 600, 75},
+  {832, 624, 75},
+  {1280, 768, 87},
+  {1024, 768, 60},
+  {1024, 768, 70},
+  {1024, 768, 75},
+  {1280, 1024, 75},
+  /* 0x25 bit 7*/
+  {1152, 870, 75},
+};
+
 int main(int argc, char **argv)
 {
     int fd;
     unsigned char *edid;
     time_t the_time;
     struct tm *ptm;
-    int analog;
+    int analog, i;
+
     if (argc != 2) {
 	printf("Need a file name\n");
 	return 1;
@@ -485,9 +511,45 @@ int main(int argc, char **argv)
 
     /* XXX color section */
 
-    /* XXX established timings */
+    printf("Established timings supported:\n");
+    for (i = 0; i < 17; i++) {
+      if (edid[0x23 + i / 8] & (1 << (7 - i % 8))) {
+	printf("  %dx%d@%dHz\n", established_timings[i].x,
+	       established_timings[i].y, established_timings[i].refresh);
+      }
+    }
 
-    /* XXX standard timings */
+    printf("Standard timings supported:\n");
+    for (i = 0; i < 8; i++) {
+      uint8_t b1 = edid[0x26 + i * 2], b2 = edid[0x26 + i * 2 + 1];
+      unsigned int x, y, refresh;
+
+      if (b1 == 0x01 && b2 == 0x01)
+	continue;
+
+      if (b1 == 0) {
+	printf("non-conformant standard timing (0 horiz)\n");
+	continue;
+      }
+      x = (b1 + 31) * 8;
+      switch ((b2 >> 6) & 0x3) {
+      case 0x00:
+	y = x * 10 / 16;
+	break;
+      case 0x01:
+	y = x * 3 / 4;
+	break;
+      case 0x02:
+	y = x * 4 / 5;
+	break;
+      case 0x03:
+	y = x * 9 / 15;
+	break;
+      }
+      refresh = 60 + (b2 & 0x3f);
+
+      printf("  %dx%d@%dHz\n", x, y, refresh);
+    }
 
     /* detailed timings */
     has_valid_detailed_blocks = detailed_block(edid + 0x36);
