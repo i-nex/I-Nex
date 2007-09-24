@@ -352,10 +352,10 @@ static void print_subsection(char *name, unsigned char *edid, int start,
     int i;
 
     printf("%s:", name);
-    for (i = strlen(name); i < 16; i++)
+    for (i = strlen(name); i < 15; i++)
 	printf(" ");
     for (i = start; i <= end; i++)
-	printf("%02x", edid[i]);
+	printf(" %02x", edid[i]);
     printf("\n");
 }
 
