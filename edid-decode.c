@@ -88,6 +88,12 @@ detailed_block(unsigned char *x)
 		   x[2]);
 	    has_valid_descriptor_pad = 0;
 	}
+	if (x[3] != 0xfd && x[4] != 0x00) {
+	    /* 1.3, 3.10.3 */
+	    printf("Monitor descriptor block has byte 4 nonzero (0x%02x)\n",
+		   x[4]);
+	    has_valid_descriptor_pad = 0;
+	}
 
 	seen_non_detailed_descriptor = 1;
 	if (x[3] <= 0xF) {
