@@ -176,7 +176,7 @@ detailed_block(unsigned char *x)
     vso = ((x[10] >> 4) + ((x[11] & 0x0C) << 2));
     vspw = ((x[10] & 0x0F) + ((x[11] & 0x03) << 4));
     vborder = x[16];
-    switch ((x[17] & 0x0c) >> 2) {
+    switch ((x[17] & 0x18) >> 3) {
     case 0x00:
       syncmethod = "analog composite";
       break;
