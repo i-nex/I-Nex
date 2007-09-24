@@ -49,6 +49,7 @@ int has_valid_year = 0;
 int has_valid_detailed_blocks = 0;
 int has_valid_extension_count = 0;
 int has_valid_descriptor_ordering = 1;
+int has_valid_descriptor_pad = 1;
 int manufacturer_name_well_formed = 0;
 int seen_non_detailed_descriptor = 0;
 
@@ -79,7 +80,15 @@ detailed_block(unsigned char *x)
     int i;
     char phsync, pvsync, *syncmethod;
 
-    if (!x[0] && !x[1] && !x[2] && !x[4]) {
+    if (x[0] == 0 && x[1] == 0) {
+	/* Monitor descriptor block, not detailed timing descriptor. */
+	if (x[2] != 0) {
+	    /* 1.3, 3.10.3 */
+	    printf("Monitor descriptor block has byte 2 nonzero (0x%02x)\n",
+		   x[2]);
+	    has_valid_descriptor_pad = 0;
+	}
+
 	seen_non_detailed_descriptor = 1;
 	if (x[3] <= 0xF) {
 	    /* XXX in principle we could decode these if we ever found them */
@@ -331,6 +340,38 @@ struct {
   {1152, 870, 75},
 };
 
+static void print_subsection(char *name, unsigned char *edid, int start,
+			     int end)
+{
+    int i;
+
+    printf("%s:", name);
+    for (i = strlen(name); i < 16; i++)
+	printf(" ");
+    for (i = start; i <= end; i++)
+	printf("%02x", edid[i]);
+    printf("\n");
+}
+
+static void dump_breakdown(unsigned char *edid)
+{
+    printf("Extracted contents:\n");
+    print_subsection("header", edid, 0, 7);
+    print_subsection("serial number", edid, 8, 17);
+    print_subsection("version", edid,18, 19);
+    print_subsection("basic params", edid, 20, 24);
+    print_subsection("chroma info", edid, 25, 34);
+    print_subsection("established", edid, 35, 37);
+    print_subsection("standard", edid, 38, 53);
+    print_subsection("descriptor 1", edid, 54, 71);
+    print_subsection("descriptor 2", edid, 72, 89);
+    print_subsection("descriptor 3", edid, 90, 107);
+    print_subsection("descriptor 4", edid, 108, 125);
+    print_subsection("extensions", edid, 126, 126);
+    print_subsection("checksum", edid, 127, 127);
+    printf("\n");
+}
+
 int main(int argc, char **argv)
 {
     int fd;
@@ -351,6 +392,8 @@ int main(int argc, char **argv)
 
     edid = extract_edid(fd);
     close(fd);
+
+    dump_breakdown(edid);
 
     if (!edid || memcmp(edid, "\x00\xFF\xFF\xFF\xFF\xFF\xFF\x00", 8)) {
 	printf("No header found\n");
@@ -581,6 +624,7 @@ int main(int argc, char **argv)
 
     if (claims_one_point_three) {
 	if (nonconformant_digital_display ||
+	    !has_valid_descriptor_pad ||
 	    !has_name_descriptor ||
 	    !name_descriptor_terminated ||
 	    !has_preferred_timing ||
@@ -599,6 +643,8 @@ int main(int argc, char **argv)
 	    printf("\tMissing preferred timing\n");
 	if (!has_range_descriptor)
 	    printf("\tMissing monitor ranges\n");
+	if (!has_valid_descriptor_pad) /* Might be more than just 1.3 */
+	    printf("\tInvalid descriptor block padding\n");
     } else if (claims_one_point_two) {
 	if (nonconformant_digital_display ||
 	    (has_name_descriptor && !name_descriptor_terminated))
