@@ -210,6 +210,7 @@ detailed_block(unsigned char *x)
 	{
 	    int h_max_offset = 0, h_min_offset = 0;
 	    int v_max_offset = 0, v_min_offset = 0;
+	    int is_cvt = 0;
 	    has_range_descriptor = 1;
 	    /* 
 	     * XXX todo: implement feature flags, vtd blocks
@@ -223,11 +224,27 @@ detailed_block(unsigned char *x)
 		}
 	    }
 	    if (x[4] & 0x04) {
-		h_max_offset = 255
+		h_max_offset = 255;
 		if (x[4] & 0x03) {
 		    h_min_offset = 255;
 		}
 	    }
+
+	    /* despite the values, this is not a bitfield */
+	    switch (x[10]) {
+	    case 0x00: /* default gtf */
+		break;
+	    case 0x01: /* range limits only */
+		break;
+	    case 0x02: /* secondary gtf curve */
+		break;
+	    case 0x04: /* cvt */
+		is_cvt = 1;
+		break;
+	    default: /* invalid */
+		break;
+	    }
+
 	    printf("Monitor ranges: %d-%dHZ vertical, %d-%dkHz horizontal",
 		   x[5] + v_min_offset, x[6] + v_max_offset,
 		   x[7] + h_min_offset, x[8] + h_max_offset);
@@ -236,6 +253,54 @@ detailed_block(unsigned char *x)
 		printf(", max dotclock %dMHz\n", x[9] * 10);
 	    else
 		printf("\n");
+
+	    if (is_cvt) {
+		int max_h_pixels = 0;
+
+		max_h_pixels = x[12] & 0x03;
+		max_h_pixels <<= 8;
+		max_h_pixels |= x[13];
+		if (max_h_pixels)
+		    printf("Max active pixels per line: %d\n", max_h_pixels);
+
+		printf("Supported aspect ratios: %s %s %s %s %s\n",
+			x[14] & 0x80 ? "4:3" : "",
+			x[14] & 0x40 ? "16:9" : "",
+			x[14] & 0x20 ? "16:10" : "",
+			x[14] & 0x10 ? "5:4" : "",
+			x[14] & 0x08 ? "15:9" : "");
+
+		printf("Preferred aspect ratio: ");
+		switch((x[15] & 0xe0) >> 5) {
+		case 0x00: printf("4:3"); break;
+		case 0x01: printf("16:9"); break;
+		case 0x02: printf("16:10"); break;
+		case 0x03: printf("5:4"); break;
+		case 0x04: printf("15:9"); break;
+		default: printf("(broken)"); break;
+		}
+
+		if (x[15] & 0x04)
+		    printf("Supports CVT standard blanking\n");
+		if (x[15] & 0x10)
+		    printf("Supports CVT reduced blanking\n");
+
+		if (x[16] & 0xf0) {
+		    printf("Supported display scaling:\n");
+		    if (x[16] & 0x80)
+			printf("    Horizontal shrink\n");
+		    if (x[16] & 0x40)
+			printf("    Horizontal stretch\n");
+		    if (x[16] & 0x20)
+			printf("    Vertical shrink\n");
+		    if (x[16] & 0x10)
+			printf("    Vertical stretch\n");
+		}
+
+		if (x[17])
+		    printf("Preferred vertical refresh: %d Hz\n", x[17]);
+	    }
+
 	    return 1;
 	}
 	case 0xFE:
