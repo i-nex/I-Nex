@@ -207,19 +207,37 @@ detailed_block(unsigned char *x)
 	    }
 	    return 1;
 	case 0xFD:
+	{
+	    int h_max_offset = 0, h_min_offset = 0;
+	    int v_max_offset = 0, v_min_offset = 0;
+	    has_range_descriptor = 1;
 	    /* 
-	     * XXX todo: implement offsets, feature flags, vtd blocks
+	     * XXX todo: implement feature flags, vtd blocks
 	     * XXX check: ranges are well-formed; block termination if no vtd
 	     * XXX check: required if continuous frequency
 	     */
-	    has_range_descriptor = 1;
+	    if (x[4] & 0x02) {
+		v_max_offset = 255;
+		if (x[4] & 0x01) {
+		    v_min_offset = 255;
+		}
+	    }
+	    if (x[4] & 0x04) {
+		h_max_offset = 255
+		if (x[4] & 0x03) {
+		    h_min_offset = 255;
+		}
+	    }
 	    printf("Monitor ranges: %d-%dHZ vertical, %d-%dkHz horizontal",
-		   x[5], x[6], x[7], x[8]);
+		   x[5] + v_min_offset, x[6] + v_max_offset,
+		   x[7] + h_min_offset, x[8] + h_max_offset);
+	    /* XXX 1.4 says 0xFF is legal?  Check 1.3 */
 	    if (x[9] != 255)
 		printf(", max dotclock %dMHz\n", x[9] * 10);
 	    else
 		printf("\n");
 	    return 1;
+	}
 	case 0xFE:
 	    /* XXX check: terminated with 0x0A, padded with 0x20 */
 	    printf("ASCII string: %s", x+5);
