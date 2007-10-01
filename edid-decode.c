@@ -43,6 +43,7 @@ int name_descriptor_terminated = 0;
 int has_range_descriptor = 0;
 int has_preferred_timing = 0;
 int has_valid_checksum = 0;
+int has_valid_cvt = 1;
 int has_valid_dummy_block = 1;
 int has_valid_week = 0;
 int has_valid_year = 0;
@@ -68,6 +69,63 @@ static char *manufacturer_name(unsigned char *x)
 	manufacturer_name_well_formed = 1;
 
     return name;
+}
+
+static int
+detailed_cvt_descriptor(unsigned char *x, int first)
+{
+    const unsigned char empty[3] = { 0, 0, 0 };
+    char *names[] = { "50", "60", "75", "85" };
+    int width, height;
+    int valid = 1;
+    int fifty = 0, sixty = 0, seventyfive = 0, eightyfive = 0, reduced = 0;
+
+    if (!first && !memcmp(x, empty, 3))
+	return valid;
+
+    height = x[0];
+    height |= (x[1] & 0xf0) << 4;
+    height++;
+    height *= 2;
+
+    switch (x[1] & 0x0c) {
+    case 0x00:
+	width = (height * 4) / 3; break;
+    case 0x04:
+	width = (height * 16) / 9; break;
+    case 0x08:
+	width = (height * 16) / 10; break;
+    case 0x0c:
+	width = (height * 15) / 9; break;
+    }
+
+    if (x[1] & 0x03)
+	valid = 0;
+    if (x[2] & 0x80)
+	valid = 0;
+    if (!(x[2] & 0x1f))
+	valid = 0;
+
+    fifty	= (x[2] & 0x10);
+    sixty	= (x[2] & 0x08);
+    seventyfive = (x[2] & 0x04);
+    eightyfive  = (x[2] & 0x02);
+    reduced	= (x[2] & 0x01);
+
+    if (!valid) {
+	printf("    (broken)\n");
+    } else {
+	printf("    %dx%d @ ( %s%s%s%s%s) Hz (%s%s preferred)\n", width, height,
+		fifty ? "50 " : "",
+		sixty ? "60 " : "",
+		seventyfive ? "75 " : "",
+		eightyfive ? "85 " : "",
+		reduced ? "60RB " : "",
+		names[(x[2] & 0x60) >> 5],
+		(((x[2] & 0x60) == 0x20) && reduced) ? "RB" : "");
+    }
+
+    return valid;
 }
 
 /* 1 means valid data */
@@ -113,9 +171,18 @@ detailed_block(unsigned char *x)
 	    printf("Established timings III\n");
 	    return 1;
 	case 0xF8:
-	    /* TODO */
-	    printf("CVT 3 byte code descriptor\n");
-	    return 1;
+	{
+	    int valid_cvt = 1; /* just this block */
+	    printf("CVT 3-byte code descriptor:\n");
+	    if (x[5] != 0x01) {
+		has_valid_cvt = 0;
+		return 0;
+	    }
+	    for (i = 0; i < 4; i++)
+		valid_cvt &= detailed_cvt_descriptor(x + 6 + (i * 3), (i == 0));
+	    has_valid_cvt &= valid_cvt;
+	    return valid_cvt;
+	}
 	case 0xF9:
 	    /* TODO */
 	    printf("Color management data\n");
@@ -672,6 +739,7 @@ int main(int argc, char **argv)
     }
 
     if (!has_valid_checksum ||
+	!has_valid_cvt ||
 	!has_valid_year ||
 	!has_valid_week ||
 	!has_valid_detailed_blocks ||
@@ -681,6 +749,8 @@ int main(int argc, char **argv)
 	printf("EDID block does not conform at all!\n");
 	if (!has_valid_checksum)
 	    printf("\tBlock has broken checksum\n");
+	if (!has_valid_cvt)
+	    printf("\tBroken 3-byte CVT blocks\n");
 	if (!has_valid_year)
 	    printf("\tBad year of manufacture\n");
 	if (!has_valid_week)
