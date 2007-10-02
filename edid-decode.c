@@ -154,7 +154,7 @@ detailed_block(unsigned char *x)
 
 	seen_non_detailed_descriptor = 1;
 	if (x[3] <= 0xF) {
-	    /* XXX in principle we could decode these if we ever found them */
+	    /* in principle we could decode these if we ever found them */
 	    printf("Manufacturer-specified data, tag %d\n", x[3]);
 	    return 1;
 	}
