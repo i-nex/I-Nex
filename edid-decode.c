@@ -32,29 +32,29 @@
 #include <time.h>
 #include <ctype.h>
 
-int claims_one_point_oh = 0;
-int claims_one_point_two = 0;
-int claims_one_point_three = 0;
-int claims_one_point_four = 0;
-int nonconformant_digital_display = 0;
-int did_detailed_timing = 0;
-int has_name_descriptor = 0;
-int name_descriptor_terminated = 0;
-int has_range_descriptor = 0;
-int has_preferred_timing = 0;
-int has_valid_checksum = 0;
-int has_valid_cvt = 1;
-int has_valid_dummy_block = 1;
-int has_valid_week = 0;
-int has_valid_year = 0;
-int has_valid_detailed_blocks = 0;
-int has_valid_extension_count = 0;
-int has_valid_descriptor_ordering = 1;
-int has_valid_descriptor_pad = 1;
-int manufacturer_name_well_formed = 0;
-int seen_non_detailed_descriptor = 0;
+static int claims_one_point_oh = 0;
+static int claims_one_point_two = 0;
+static int claims_one_point_three = 0;
+static int claims_one_point_four = 0;
+static int nonconformant_digital_display = 0;
+static int did_detailed_timing = 0;
+static int has_name_descriptor = 0;
+static int name_descriptor_terminated = 0;
+static int has_range_descriptor = 0;
+static int has_preferred_timing = 0;
+static int has_valid_checksum = 0;
+static int has_valid_cvt = 1;
+static int has_valid_dummy_block = 1;
+static int has_valid_week = 0;
+static int has_valid_year = 0;
+static int has_valid_detailed_blocks = 0;
+static int has_valid_extension_count = 0;
+static int has_valid_descriptor_ordering = 1;
+static int has_valid_descriptor_pad = 1;
+static int manufacturer_name_well_formed = 0;
+static int seen_non_detailed_descriptor = 0;
 
-int conformant = 1;
+static int conformant = 1;
 
 static char *manufacturer_name(unsigned char *x)
 {
@@ -129,7 +129,6 @@ detailed_cvt_descriptor(unsigned char *x, int first)
 }
 
 /* 1 means valid data */
-/* XXX need to check that timings are first */
 static int
 detailed_block(unsigned char *x)
 {
@@ -471,7 +470,7 @@ extract_edid(int fd)
     return out;
 }
 
-struct {
+static const struct {
   int x, y, refresh;
 } established_timings[] = {
   /* 0x23 bit 7 - 0 */
