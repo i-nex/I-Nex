@@ -829,6 +829,7 @@ int main(int argc, char **argv)
 	!has_valid_dummy_block ||
 	!has_valid_extension_count ||
 	!manufacturer_name_well_formed) {
+	conformant = 0;
 	printf("EDID block does not conform at all!\n");
 	if (!has_valid_checksum)
 	    printf("\tBlock has broken checksum\n");
@@ -858,5 +859,5 @@ int main(int argc, char **argv)
 
     free(edid);
 
-    return 0;
+    return !conformant;
 }
