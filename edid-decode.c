@@ -51,6 +51,7 @@ static int has_valid_detailed_blocks = 0;
 static int has_valid_extension_count = 0;
 static int has_valid_descriptor_ordering = 1;
 static int has_valid_descriptor_pad = 1;
+static int has_valid_range_descriptor = 1;
 static int manufacturer_name_well_formed = 0;
 static int seen_non_detailed_descriptor = 0;
 
@@ -216,20 +217,27 @@ detailed_block(unsigned char *x)
 	     * XXX check: ranges are well-formed; block termination if no vtd
 	     * XXX check: required if continuous frequency
 	     */
-	    if (x[4] & 0x02) {
-		v_max_offset = 255;
-		if (x[4] & 0x01) {
-		    v_min_offset = 255;
+	    if (claims_one_point_four) { /* XXX might be valid earlier? */
+		if (x[4] & 0x02) {
+		    v_max_offset = 255;
+		    if (x[4] & 0x01) {
+			v_min_offset = 255;
+		    }
 		}
-	    }
-	    if (x[4] & 0x04) {
-		h_max_offset = 255;
-		if (x[4] & 0x03) {
-		    h_min_offset = 255;
+		if (x[4] & 0x04) {
+		    h_max_offset = 255;
+		    if (x[4] & 0x03) {
+			h_min_offset = 255;
+		    }
 		}
+	    } else if (x[4]) {
+		has_valid_range_descriptor = 0;
 	    }
 
-	    /* despite the values, this is not a bitfield */
+	    /*
+	     * despite the values, this is not a bitfield.
+	     * XXX not all of these values are valid for all revisions.
+	     */
 	    switch (x[10]) {
 	    case 0x00: /* default gtf */
 		break;
@@ -244,6 +252,10 @@ detailed_block(unsigned char *x)
 		break;
 	    }
 
+	    if (x[5] + v_min_offset > x[6] + v_max_offset)
+		has_valid_range_descriptor = 0;
+	    if (x[7] + h_min_offset > x[8] + h_max_offset)
+		has_valid_range_descriptor = 0;
 	    printf("Monitor ranges: %d-%dHZ vertical, %d-%dkHz horizontal",
 		   x[5] + v_min_offset, x[6] + v_max_offset,
 		   x[7] + h_min_offset, x[8] + h_max_offset);
@@ -268,6 +280,8 @@ detailed_block(unsigned char *x)
 			x[14] & 0x20 ? "16:10" : "",
 			x[14] & 0x10 ? "5:4" : "",
 			x[14] & 0x08 ? "15:9" : "");
+		if (x[14] & 0x07)
+		    has_valid_range_descriptor = 0;
 
 		printf("Preferred aspect ratio: ");
 		switch((x[15] & 0xe0) >> 5) {
@@ -284,6 +298,9 @@ detailed_block(unsigned char *x)
 		if (x[15] & 0x10)
 		    printf("Supports CVT reduced blanking\n");
 
+		if (x[15] & 0x07)
+		    has_valid_range_descriptor = 0;
+
 		if (x[16] & 0xf0) {
 		    printf("Supported display scaling:\n");
 		    if (x[16] & 0x80)
@@ -296,11 +313,18 @@ detailed_block(unsigned char *x)
 			printf("    Vertical stretch\n");
 		}
 
+		if (x[16] & 0x0f)
+		    has_valid_range_descriptor = 0;
+
 		if (x[17])
 		    printf("Preferred vertical refresh: %d Hz\n", x[17]);
 	    }
 
-	    return 1;
+	    /*
+	     * Slightly weird to return a global, but I've never seen any
+	     * EDID block wth two range descriptors, so it's harmless.
+	     */
+	    return has_valid_range_descriptor;
 	}
 	case 0xFE:
 	    /* XXX check: terminated with 0x0A, padded with 0x20 */
@@ -828,6 +852,7 @@ int main(int argc, char **argv)
 	!has_valid_dummy_block ||
 	!has_valid_extension_count ||
 	!has_valid_descriptor_ordering ||
+	!has_valid_range_descriptor ||
 	!manufacturer_name_well_formed) {
 	conformant = 0;
 	printf("EDID block does not conform at all!\n");
@@ -849,6 +874,8 @@ int main(int argc, char **argv)
 	    printf("\tManufacturer name field contains garbage\n");
 	if (!has_valid_descriptor_ordering)
 	    printf("\tInvalid detailed timing descriptor ordering\n");
+	if (!has_valid_range_descriptor)
+	    printf("\tRange descriptor contains garbage\n");
     }
 
     free(edid);
