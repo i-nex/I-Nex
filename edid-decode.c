@@ -215,7 +215,6 @@ detailed_block(unsigned char *x)
 	    /* 
 	     * XXX todo: implement feature flags, vtd blocks
 	     * XXX check: ranges are well-formed; block termination if no vtd
-	     * XXX check: required if continuous frequency
 	     */
 	    if (claims_one_point_four) { /* XXX might be valid earlier? */
 		if (x[4] & 0x02) {
