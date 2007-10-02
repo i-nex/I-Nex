@@ -828,6 +828,7 @@ int main(int argc, char **argv)
 	!has_valid_detailed_blocks ||
 	!has_valid_dummy_block ||
 	!has_valid_extension_count ||
+	!has_valid_descriptor_ordering ||
 	!manufacturer_name_well_formed) {
 	conformant = 0;
 	printf("EDID block does not conform at all!\n");
@@ -847,14 +848,8 @@ int main(int argc, char **argv)
 	    printf("\tImpossible extension block count\n");
 	if (!manufacturer_name_well_formed)
 	    printf("\tManufacturer name field contains garbage\n");
-    }
-
-    /* Not sure which chunk of spec exactly requires this. See E-EDID guide
-     * section 3.7.3.
-     */
-    if (!has_valid_descriptor_ordering) {
-	printf("EDID block has detailed timing descriptors after other "
-	       "descriptors!\n");
+	if (!has_valid_descriptor_ordering)
+	    printf("\tInvalid detailed timing descriptor ordering\n");
     }
 
     free(edid);
