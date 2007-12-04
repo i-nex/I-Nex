@@ -387,6 +387,39 @@ detailed_block(unsigned char *x)
     return 1;
 }
 
+/* generic extension code */
+
+static void
+extension_version(unsigned char *x)
+{
+    printf("Extension version: %d\n", x[1]);
+}
+
+static void
+parse_extension(unsigned char *x)
+{
+    printf("\n");
+
+    switch(x[0]) {
+    case 0x02: printf("CEA extension block\n"); break;
+    case 0x10: printf("VTB extension block\n"); break;
+    case 0x40: printf("DI extension block\n"); break;
+    case 0x50: printf("LS extension block\n"); break;
+    case 0x60: printf("DPVL extension block\n"); break;
+    case 0xF0: printf("Block map\n"); break;
+    case 0xFF: printf("Manufacturer-specific extension block\n");
+    default:
+	printf("Unknown extension block\n");
+	break;
+    }
+
+    extension_version(x);
+
+    printf("\n");
+}
+
+static int edid_lines = 0;
+
 static unsigned char *
 extract_edid(int fd)
 {
@@ -488,6 +521,8 @@ extract_edid(int fd)
 	}
     }
 
+    edid_lines = lines;
+
     free(ret);
 
     return out;
@@ -554,6 +589,7 @@ int main(int argc, char **argv)
 {
     int fd;
     unsigned char *edid;
+    unsigned char *x;
     time_t the_time;
     struct tm *ptm;
     int analog, i;
@@ -798,6 +834,12 @@ int main(int argc, char **argv)
 	for (i = 0; i < 128; i++)
 	    sum += edid[i];
 	has_valid_checksum = !sum;
+    }
+
+    x = edid;
+    for (edid_lines /= 8; edid_lines > 1; edid_lines--) {
+	x += 128;
+	parse_extension(x);
     }
 
     if (claims_one_point_three) {
