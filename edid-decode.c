@@ -37,6 +37,7 @@ static int claims_one_point_two = 0;
 static int claims_one_point_three = 0;
 static int claims_one_point_four = 0;
 static int nonconformant_digital_display = 0;
+static int nonconformant_extension = 0;
 static int did_detailed_timing = 0;
 static int has_name_descriptor = 0;
 static int name_descriptor_terminated = 0;
@@ -131,12 +132,19 @@ detailed_cvt_descriptor(unsigned char *x, int first)
 
 /* 1 means valid data */
 static int
-detailed_block(unsigned char *x)
+detailed_block(unsigned char *x, int in_extension)
 {
     static unsigned char name[53];
     int ha, hbl, hso, hspw, hborder, va, vbl, vso, vspw, vborder;
     int i;
     char phsync, pvsync, *syncmethod;
+
+#if 0
+    printf("Hex of detail: ");
+    for (i = 0; i < 18; i++)
+	printf("%02x", x[i]);
+    printf("\n");
+#endif
 
     if (x[0] == 0 && x[1] == 0) {
 	/* Monitor descriptor block, not detailed timing descriptor. */
@@ -339,7 +347,7 @@ detailed_block(unsigned char *x)
 	}
     }
 
-    if (seen_non_detailed_descriptor) {
+    if (seen_non_detailed_descriptor && !in_extension) {
 	has_valid_descriptor_ordering = 0;
     }
 
@@ -387,6 +395,46 @@ detailed_block(unsigned char *x)
     return 1;
 }
 
+static void
+do_checksum(unsigned char *x)
+{
+    printf("Checksum: 0x%hx\n", x[0x7f]);
+    {
+	unsigned char sum = 0;
+	int i;
+	for (i = 0; i < 128; i++)
+	    sum += x[i];
+	has_valid_checksum = !sum;
+    }
+}
+
+/* CEA extension */
+
+static int
+parse_cea(unsigned char *x)
+{
+    int ret = 0;
+    int version = x[1];
+    int offset = x[2];
+    unsigned char *detailed;
+
+    if (version == 1) {
+	if (x[3] != 0)
+	    ret = 1;
+
+	printf("%d 8-byte timing descriptors\n", offset - 4);
+	if (offset - 4 > 0)
+	    /* do stuff */ ;
+
+	for (detailed = x + offset; detailed + 18 < x + 127; detailed += 18)
+	    detailed_block(detailed, 1);
+    }
+
+    do_checksum(x);
+
+    return ret;
+}
+
 /* generic extension code */
 
 static void
@@ -395,13 +443,18 @@ extension_version(unsigned char *x)
     printf("Extension version: %d\n", x[1]);
 }
 
-static void
+static int
 parse_extension(unsigned char *x)
 {
+    int conformant_extension;
     printf("\n");
 
     switch(x[0]) {
-    case 0x02: printf("CEA extension block\n"); break;
+    case 0x02:
+	printf("CEA extension block\n");
+	extension_version(x);
+	conformant_extension = parse_cea(x);
+	break;
     case 0x10: printf("VTB extension block\n"); break;
     case 0x40: printf("DI extension block\n"); break;
     case 0x50: printf("LS extension block\n"); break;
@@ -413,9 +466,9 @@ parse_extension(unsigned char *x)
 	break;
     }
 
-    extension_version(x);
-
     printf("\n");
+
+    return conformant_extension;
 }
 
 static int edid_lines = 0;
@@ -810,12 +863,12 @@ int main(int argc, char **argv)
     }
 
     /* detailed timings */
-    has_valid_detailed_blocks = detailed_block(edid + 0x36);
+    has_valid_detailed_blocks = detailed_block(edid + 0x36, 0);
     if (has_preferred_timing && !did_detailed_timing)
 	has_preferred_timing = 0; /* not really accurate... */
-    has_valid_detailed_blocks &= detailed_block(edid + 0x48);
-    has_valid_detailed_blocks &= detailed_block(edid + 0x5A);
-    has_valid_detailed_blocks &= detailed_block(edid + 0x6C);
+    has_valid_detailed_blocks &= detailed_block(edid + 0x48, 0);
+    has_valid_detailed_blocks &= detailed_block(edid + 0x5A, 0);
+    has_valid_detailed_blocks &= detailed_block(edid + 0x6C, 0);
 
     /* check this, 1.4 verification guide says otherwise */
     if (edid[0x7e]) {
@@ -827,19 +880,12 @@ int main(int argc, char **argv)
 	has_valid_extension_count = 1;
     }
 
-    printf("Checksum: 0x%hx\n", edid[0x7f]);
-    {
-	unsigned char sum = 0;
-	int i;
-	for (i = 0; i < 128; i++)
-	    sum += edid[i];
-	has_valid_checksum = !sum;
-    }
+    do_checksum(edid);
 
     x = edid;
     for (edid_lines /= 8; edid_lines > 1; edid_lines--) {
 	x += 128;
-	parse_extension(x);
+	nonconformant_digital_display += parse_extension(x);
     }
 
     if (claims_one_point_three) {
@@ -885,7 +931,8 @@ int main(int argc, char **argv)
 	    printf("\tHas descriptor blocks other than detailed timings\n");
     }
 
-    if (!has_valid_checksum ||
+    if (nonconformant_extension ||
+	!has_valid_checksum ||
 	!has_valid_cvt ||
 	!has_valid_year ||
 	!has_valid_week ||
@@ -897,6 +944,8 @@ int main(int argc, char **argv)
 	!manufacturer_name_well_formed) {
 	conformant = 0;
 	printf("EDID block does not conform at all!\n");
+	if (nonconformant_extension)
+	    printf("\tHas at least one nonconformant extension block\n");
 	if (!has_valid_checksum)
 	    printf("\tBlock has broken checksum\n");
 	if (!has_valid_cvt)
