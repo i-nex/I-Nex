@@ -92,16 +92,16 @@
     <title>SUPPORTED PASTEBINS</title>
     <itemizedlist>
       <listitem>
-        <para>http://paste.stgraber.org</para>
-      </listitem>
-      <listitem>
-        <para>http://pastebin.com</para>
+        <para>http://*.pastebin.com</para>
       </listitem>
       <listitem>
         <para>http://pastebin.ca</para>
       </listitem>
       <listitem>
-        <para>http://1t2.us</para>
+        <para>http://rafb.net/paste</para>
+      </listitem>
+      <listitem>
+        <para>http://pastebin.archlinux.org</para>
       </listitem>
     </itemizedlist>
   </refsect1>

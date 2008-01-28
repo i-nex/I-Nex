@@ -1,3 +1,20 @@
+pastebinit (0.9-0ubuntu1) hardy; urgency=low
+
+  * New upstream release (0.9) 
+   * LP #137648 - Control file updated
+   * LP #115467 - http://rafb.net/paste now supported
+   * LP #184276 - http://pastebin.archlinux.org now supported (Thanks to Sashi)
+   * LP #184282 - -i parameter now optional (Thanks to Xilon)
+   * LP #185508 - Change default pastebin to pastebin.com
+   * Add a "page" parameter to specify a custom destination page
+   * Use cleaner code to handle "regexp" and "page" parameters
+   * Update manpage
+  * Update packaging to 3.7.3
+  * Update the control file according to manpage
+  * Change maintainer field to MOTU
+
+ -- Stéphane Graber <stgraber@ubuntu.com>  Mon, 28 Jan 2008 22:24:42 +0100
+
 pastebinit (0.8.2) gutsy; urgency=low
 
   * Closing launchpad bug #119723 "Implement gettext localization"

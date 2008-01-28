@@ -1,16 +1,16 @@
-This package was debianized by Stéphane Graber <stgraber@stgraber.org> on
+This package was debianized by Stéphane Graber <stgraber@ubuntu.com> on
 Fri, 27 Nov 2006 21:17:16 +0100.
 
 It was downloaded from http://www.stgraber.org/download/projects/pastebin/
 
 Upstream Author: 
 
-    Stéphane Graber <stgraber@stgraber.org>
+    Stéphane Graber <stgraber@ubuntu.com>
     Daniel Bartlett <dan@f-box.org>
 
 Copyright: 
 
-    (C) 2006, Stéphane Graber, Daniel Bartlett
+    (C) 2008, Stéphane Graber, Daniel Bartlett
 
 License:
 
@@ -31,5 +31,5 @@ License:
 On Debian systems, the complete text of the GNU General
 Public License can be found in `/usr/share/common-licenses/GPL'.
 
-The Debian packaging is (C) 2006, Stéphane Graber <stgraber@stgraber.org> and
+The Debian packaging is (C) 2008, Stéphane Graber <stgraber@ubuntu.com> and
 is licensed under the GPL, see above.

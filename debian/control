@@ -1,10 +1,10 @@
 Source: pastebinit
 Section: misc
 Priority: optional
-Maintainer: Stéphane Graber <stgraber@ubuntu.com>
+Maintainer: Ubuntu MOTU Developers <ubuntu-motu@lists.ubuntu.com>
 Build-Depends: debhelper (>= 5)
 Build-Depends-Indep: xsltproc, docbook-xml, docbook-xsl
-Standards-Version: 3.7.2
+Standards-Version: 3.7.3
 
 Package: pastebinit
 Architecture: all
@@ -20,9 +20,9 @@ Description: command-line pastebin client
  passed as argument.
  .
  It supports these pastebins:
-  - http://paste.stgraber.org
-  - http://1t2.us
-  - http://pastebin.com
+  - http://*.pastebin.com
   - http://pastebin.ca
+  - http://rafb.net/paste
+  - http://pastebin.archlinux.org
  .
-  Homepage: http://www.stgraber.org/category/pastebinit
+ Homepage: http://www.stgraber.org/category/pastebinit

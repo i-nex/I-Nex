@@ -1,7 +1,7 @@
 #!/usr/bin/python
 # Written by Stephane Graber <stgraber@stgraber.org>
-# 	     Daniel Bartlett <dan@f-box.org>
-# Last modification : Mon Feb 26 18:53:00 CET 2007
+#            Daniel Bartlett <dan@f-box.org>
+# Last modification : Mon Jan 28 22:33:23 CET 2008
 
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -23,8 +23,8 @@ try:
 
 	gettext.textdomain("pastebinit")
 
-	defaultPB = "http://paste.stgraber.org" #Default pastebin
-	version = "0.8.2" #Version number to show in the usage
+	defaultPB = "http://pastebin.com" #Default pastebin
+	version = "0.9" #Version number to show in the usage
 	configfile = os.environ.get('HOME') + "/.pastebinit.xml"
 
 	# Custom urlopener to handle 401's
@@ -37,7 +37,7 @@ try:
 		"Return the parameters array for the selected pastebin"
 		params={}
 		# pastebin.com v0.50
-		if re.search("http://((([a-zA-Z0-9\-_\.]*)(pastebin\.com)))", website):
+		if re.search("http://((([a-zA-Z0-9\-_\.]*)(pastebin\.com)))", website) and not website == "http://www.pastebin.com":
 			params['poster'] = user
 			params['code2'] = content
 			params['version'] = version
@@ -46,22 +46,6 @@ try:
 			params['paste'] = "Send" 
 			params['remember'] = "0" #Do you want a cookie ?
 			params['expiry'] = "f" #The expiration, f = forever
-			params['regexp'] = "None"
-		elif re.search("http://((([a-zA-Z0-9\-_\.]*)(paste\.f\-box\.org|1t2\.us|paste\.stgraber\.org)))", website):
-			params['poster'] = user
-			params['jid'] = jabberid
-			params['code2'] = content
-			params['parent_pid'] = parentpid #For reply, "" means homepage (new thread)
-			params['format'] = format #The format, for syntax hilighting
-			params['paste'] = "Send" 
-			params['remember'] = "0" #Do you want a cookie ?
-			params['expiry'] = "f" #The expiration, f = forever
-			params['permatag'] = permatag
-			params['title'] = title
-			params['username'] = username
-			params['password'] = password
-			params['regexp'] = "None"
-			params['version'] = version
 		elif website == "http://pastebin.ca":
 			params['name'] = user
 			params['content'] = content
@@ -69,6 +53,20 @@ try:
 			params['save'] = "0" #Do you want a cookie ?
 			params['s'] = "Submit Post"
 			params['regexp'] = '">http://pastebin.ca/(.*)</a></p><p>'
+		elif website == "http://pastebin.archlinux.org":
+			params['poster']=user
+			params['code2']=content
+			params['format']="text" #The format, for syntax hilighting
+			params['homosapien']="1"
+			params['paste']="Send" 
+			params['remember']="0" #Do you want a cookie ?
+			params['expiry']="f" #The expiration, f = forever
+		elif website == "http://rafb.net/paste" or website == "http://rafb.net/paste/":
+			params['page']="paste.php"
+			params['nick']=user
+			params['text']=content
+			params['lang']="Plain Text" #The format, for syntax hilighting
+			params['cvt_tabs']="No"
 		else:
 			sys.exit(_("Unknown website, please post a bugreport to request this pastebin to be added (%s)") % website)
 		return params
@@ -203,6 +201,9 @@ try:
 		elif opt[0] == "-p":
 			password = opt[1]
 
+	if filename == "" and list[0]:
+		filename = list[0]
+
 	#If - is specified as a filename read from stdin, otherwise load the specified file.
 	if filename == "":
 		print _("Error no filename specified!\n")
@@ -222,16 +223,22 @@ try:
 			sys.exit(_("Unable to read from: %s") % filename)
 
 	params = getParameters(website, content, user, jabberid, version, format, parentpid, permatag, title, username, password) #Get the parameters array
-	reLink = params['regexp'] #Extract the regexp
-	params['regexp'] = None #Remove the regexp from what will be sent
+	website+="/"
+	reLink=None
+	if params.__contains__("page"):
+		website+=params['page']
+		params.__delitem__("page")
+	if params.__contains__("regexp"):
+		reLink=params['regexp']
+		params.__delitem__("regexp")
 	params = urllib.urlencode(params) #Convert to a format usable with the HTML POST
 
 	url_opener = pasteURLopener()
-	page = url_opener.open(website + '/', params) #Send the informations and be redirected to the final page
+	page = url_opener.open(website, params) #Send the informations and be redirected to the final page
 
 	try:
-		if reLink != "None": #Check if we have to apply a regexp
-			print website + "/" + re.split(reLink, page.read())[1] #Print the result of the Regexp
+		if reLink: #Check if we have to apply a regexp
+			print website + re.split(reLink, page.read())[1] #Print the result of the Regexp
 		else:
 			print page.url #Get the final page and show the ur
 	except KeyboardInterrupt:
