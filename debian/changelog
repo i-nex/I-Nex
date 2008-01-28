@@ -1,9 +1,10 @@
 pastebinit (0.9-0ubuntu1) hardy; urgency=low
 
-  * New upstream release (0.9) 
+  * New upstream release (0.9)
    * LP #137648 - Control file updated
    * LP #115467 - http://rafb.net/paste now supported
-   * LP #184276 - http://pastebin.archlinux.org now supported (Thanks to Sashi)
+   * LP #184276 - http://pastebin.archlinux.org now supported (Thanks to
+     Sashi)
    * LP #184282 - -i parameter now optional (Thanks to Xilon)
    * LP #185508 - Change default pastebin to pastebin.com
    * Add a "page" parameter to specify a custom destination page
@@ -15,25 +16,14 @@ pastebinit (0.9-0ubuntu1) hardy; urgency=low
 
  -- Stéphane Graber <stgraber@ubuntu.com>  Mon, 28 Jan 2008 22:24:42 +0100
 
-pastebinit (0.8.2) gutsy; urgency=low
+pastebinit (0.8.2-0ubuntu1) gutsy; urgency=low
 
-  * Closing launchpad bug #119723 "Implement gettext localization"
+  * New upstream version
+    - Implement gettext localization (David Paleino) (LP: #119723)
+    - Normal kill now works (David Paleino) (LP: #119273)
+    - Added XML-generated manpage from Debian package (David Paleino)
 
- -- David Paleino <d.paleino@gmail.com>  Sun, 09 Jun 2007 01:28:11 +0200
-
-pastebinit (0.8.1-0ubuntu2) gutsy; urgency=low
-
-  * Closing launchpad bug #119273 "Normal kill does not work"
-
- -- David Paleino <d.paleino@gmail.com>  Sun, 08 Jun 2007 21:16:11 +0200
-
-pastebinit (0.8.1-0ubuntu1) gutsy; urgency=low
-
-  * New version upstream
-    - Added XML-generated manpage from Debian package.
-  * Syncing from upcoming Debian package
-
- -- David Paleino <d.paleino@gmail.com>  Sun, 03 Jun 2007 21:19:40 +0200
+ -- Stéphane Graber <stgraber@ubuntu.com>  Sat, 07 Jul 2007 17:31:40 +0200
 
 pastebinit (0.8-0ubuntu1) gutsy; urgency=low
 

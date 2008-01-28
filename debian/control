@@ -8,7 +8,7 @@ Standards-Version: 3.7.3
 
 Package: pastebinit
 Architecture: all
-Depends: python, ${python:Depends}
+Depends: ${python:Depends}
 XB-Python-Version: ${python:Versions}
 Description: command-line pastebin client
  pastebinit is a command-line tool to send data
