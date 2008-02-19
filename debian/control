@@ -5,10 +5,11 @@ Maintainer: Ubuntu MOTU Developers <ubuntu-motu@lists.ubuntu.com>
 Build-Depends: debhelper (>= 5)
 Build-Depends-Indep: xsltproc, docbook-xml, docbook-xsl
 Standards-Version: 3.7.3
+Homepage: http://www.stgraber.org/category/pastebinit
 
 Package: pastebinit
 Architecture: all
-Depends: ${python:Depends}
+Depends: python, ${python:Depends}
 XB-Python-Version: ${python:Versions}
 Description: command-line pastebin client
  pastebinit is a command-line tool to send data
@@ -25,4 +26,3 @@ Description: command-line pastebin client
   - http://rafb.net/paste
   - http://pastebin.archlinux.org
  .
- Homepage: http://www.stgraber.org/category/pastebinit
