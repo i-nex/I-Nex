@@ -4,7 +4,7 @@
   <!ENTITY dhfirstname "<firstname>Stephane</firstname>">
   <!ENTITY dhsurname   "<surname>Graber</surname>">
   <!-- Please adjust the date whenever revising the manpage. -->
-  <!ENTITY dhdate      "<date>june 03, 2007</date>">
+  <!ENTITY dhdate      "<date>February 05, 2008</date>">
   <!ENTITY dhsection   "<manvolnum>1</manvolnum>">
   <!ENTITY dhemail     "<email>d.paleino@gmail.com</email>">
   <!ENTITY dhusername  "David Paleino">
@@ -22,7 +22,7 @@
       &dhemail;
     </address>
     <copyright>
-      <year>2007</year>
+      <year>2007-2008</year>
       <holder>&dhusername;</holder>
     </copyright>
     &dhdate;
@@ -40,7 +40,7 @@
   <refsynopsisdiv>
     <cmdsynopsis>
       <command>&dhpackage;</command>
-      <arg><option>-ibaftup</option></arg>
+      <arg><option>-ibafrjmtup</option></arg>
     </cmdsynopsis>
   </refsynopsisdiv>
   <refsect1>
@@ -60,7 +60,7 @@
       <title>Required arguments</title>
       <variablelist>
         <varlistentry>
-          <term><option>-f <arg>filename</arg></option> (or piped data)</term>
+          <term><option>-i <arg>filename</arg></option> (- for reading from stdin)</term>
         </varlistentry>
       </variablelist>
     </refsect2>
@@ -68,16 +68,19 @@
       <title>Optional arguments</title>
       <variablelist>
         <varlistentry>
-          <term><option>-b <arg>pastebin url</arg></option></term>
+          <term><option>-b <arg>pastebin url</arg></option> (default: http://pastebin.com)</term>
         </varlistentry>
         <varlistentry>
-          <term><option>-a <arg>author</arg></option></term>
+          <term><option>-a <arg>author</arg></option> (default: $USER)</term>
         </varlistentry>
         <varlistentry>
-          <term><option>-f <arg>format of paste</arg></option></term>
+          <term><option>-f <arg>format of paste</arg></option> (used for syntax-highlighting, default: text)</term>
         </varlistentry>
         <varlistentry>
           <term><option>-t <arg>title of paste</arg></option> (ONLY FOR 1t2.us)</term>
+        </varlistentry>
+        <varlistentry>
+          <term><option>-m <arg>permatag</arg></option> (ONLY FOR 1t2.us, default: blank)</term>
         </varlistentry>
         <varlistentry>
           <term><option>-u <arg>username</arg></option> (ONLY FOR 1t2.us)</term>
