@@ -1,3 +1,11 @@
+pastebinit (0.9-0ubuntu2) hardy; urgency=low
+
+  * LP #193352 - http://yourpaste.net now supported
+  * debian/control: using Homepage field, not pseudo-one.
+  * pastebinit: better handling of command-line passed pastebins
+
+ -- David Paleino <d.paleino@gmail.com>  Tue, 19 Feb 2008 20:59:38 +0100
+
 pastebinit (0.9-0ubuntu1) hardy; urgency=low
 
   * New upstream release (0.9)
