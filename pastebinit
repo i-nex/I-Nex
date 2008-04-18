@@ -136,7 +136,7 @@ try:
 		f.close()
 		gotconfigxml = 1
 	except KeyboardInterrupt:
-		sys.exit(_("KeyboardInterrupt catched."))
+		sys.exit(_("KeyboardInterrupt caught."))
 	except:
 		gotconfigxml = 0
 
@@ -149,7 +149,7 @@ try:
 			format = getFirstNodeText(configxml, "format")
 			jabberid = getFirstNodeText(configxml, "jabberid")
 		except KeyboardInterrupt:
-			sys.exit(_("KeyboardInterrupt catched."))
+			sys.exit(_("KeyboardInterrupt caught."))
 		except:
 			print _("Error parsing configuration file!")
 			print _("Please ensure that your configuration file looks similar to the following:")
@@ -174,7 +174,7 @@ try:
 	try:
 		optlist, list = getopt.getopt(sys.argv[1:], 'i:f:b:a:r:j:t:m:u:p:')
 	except KeyboardInterrupt:
-		sys.exit(_("KeyboardInterrupt catched."))
+		sys.exit(_("KeyboardInterrupt caught."))
 	except getopt.GetoptError:
 		print _("Invalid arguments!\n")
 		Usage()
@@ -213,14 +213,14 @@ try:
 		sys.exit(1)
 	elif filename == "-" and content == "":
 		content = sys.stdin.read()
-		sys.exit(_("KeyboardInterrupt catched."))
+		sys.exit(_("KeyboardInterrupt caught."))
 	elif content == "":
 		try:
 			f = open(filename)
 			content = f.read()
 			f.close()
 		except KeyboardInterrupt:
-			sys.exit(_("KeyboardInterrupt catched."))
+			sys.exit(_("KeyboardInterrupt caught."))
 		except:
 			sys.exit(_("Unable to read from: %s") % filename)
 
@@ -249,9 +249,9 @@ try:
 		else:
 			print page.url #Get the final page and show the ur
 	except KeyboardInterrupt:
-		sys.exit(_("KeyboardInterrupt catched."))
+		sys.exit(_("KeyboardInterrupt caught."))
 	except:
 		sys.exit(_("Unable to read or parse the result page, it could be a server timeout or a change server side, try with another pastebin."))
 
 except KeyboardInterrupt:
-	sys.exit(_("KeyboardInterrupt catched."))
+	sys.exit(_("KeyboardInterrupt caught."))

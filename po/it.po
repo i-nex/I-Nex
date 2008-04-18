@@ -71,7 +71,7 @@ msgstr "\t-u <usename> -p <password>"
 
 #: ../pastebinit:137 ../pastebinit:150 ../pastebinit:175 ../pastebinit:211
 #: ../pastebinit:218 ../pastebinit:236 ../pastebinit:241
-msgid "KeyboardInterrupt catched."
+msgid "KeyboardInterrupt caught."
 msgstr "KeyboardInterrupt catturato."
 
 #: ../pastebinit:152
