@@ -5,6 +5,7 @@ Maintainer: Ubuntu MOTU Developers <ubuntu-motu@lists.ubuntu.com>
 Build-Depends: debhelper (>= 5)
 Build-Depends-Indep: xsltproc, docbook-xml, docbook-xsl
 Standards-Version: 3.7.3
+Vcs-Bzr: https://code.launchpad.net/~pastebinit-developers/pastebinit/trunk
 Homepage: http://www.stgraber.org/category/pastebinit
 
 Package: pastebinit
