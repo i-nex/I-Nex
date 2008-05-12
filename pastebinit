@@ -37,7 +37,7 @@ try:
 		"Return the parameters array for the selected pastebin"
 		params={}
 		# pastebin.com v0.50
-		if re.search("http://((([a-zA-Z0-9\-_\.]*)(pastebin\.com)))", website) and not website == "http://www.pastebin.com":
+		if re.search("http://((([a-zA-Z0-9\-_\.]*)(pastebin\.com)))", website) and not website == "http://www.pastebin.com" or website == "http://pastebin.mozilla.org":
 			params['poster'] = user
 			params['code2'] = content
 			params['version'] = version
@@ -69,6 +69,10 @@ try:
 			params['remember'] = "0" # Cookies? ;)
 			params['page'] = "/paste"
 			params['regexp'] = '">http://yourpaste.net(.*)/</a>'
+		elif website == "http://paste.ubuntu.com":
+			params['poster'] = user
+			params['syntax'] = format #The format, for syntax hilighting
+			params['content'] = content
 		else:
 			sys.exit(_("Unknown website, please post a bugreport to request this pastebin to be added (%s)") % website)
 		return params
@@ -97,7 +101,7 @@ try:
 		print _("\t-i <filename> (or pipe the text)")
 		print _("Optional arguments:")
 		print _("\t-b <pastebin url:default is '%s'>") % website
-		print _("\t-a <author:default is '%s'>") % website
+		print _("\t-a <author:default is '%s'>") % user
 		print _("\t-f <format of paste:default is '%s'>") % format
 		print _("\t-r <parent posts ID:defaults to none>")
 		print _("Optional arguments supported only by 1t2.us and paste.stgraber.org:")
