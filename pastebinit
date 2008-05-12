@@ -69,6 +69,10 @@ try:
 			params['remember'] = "0" # Cookies? ;)
 			params['page'] = "/paste"
 			params['regexp'] = '">http://yourpaste.net(.*)/</a>'
+		elif website == "http://paste.ubuntu.com":
+			params['poster'] = user
+			params['syntax'] = format #The format, for syntax hilighting
+			params['content'] = content
 		else:
 			sys.exit(_("Unknown website, please post a bugreport to request this pastebin to be added (%s)") % website)
 		return params
