@@ -22,11 +22,11 @@ Description: command-line pastebin client
  passed as argument.
  .
  It supports these pastebins:
- - http://*.pastebin.com
- - http://pastebin.mozilla.org
- - http://rafb.net
- - http://yourpaste.net
- - http://paste.ubuntu.com
- - http://*.paste.f-box.org
- - http://*.1t2.us
- - http://paste.stgraber.org
+  - http://*.pastebin.com
+  - http://pastebin.mozilla.org
+  - http://rafb.net
+  - http://yourpaste.net
+  - http://paste.ubuntu.com
+  - http://*.paste.f-box.org
+  - http://*.1t2.us
+  - http://paste.stgraber.org

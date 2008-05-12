@@ -1,22 +1,23 @@
 pastebinit (0.10-0ubuntu1) intrepid; urgency=low
 
-  * LP #193352 - http://yourpaste.net now supported
-  * LP #157082 - fixing wrong manpage
-  * LP #219185 - fixing typo "catched" > "caught"
-  * debian/control: using Homepage field, not pseudo-one.
-  * pastebinit: better handling of command-line passed pastebins
+  * New upstream release (0.10) (LP: #229589)
+   * http://yourpaste.net now supported (LP: #193352)
+   * fixing wrong manpage (LP: #157082)
+   * fixing typo "catched" > "caught" (LP: #219185)
+   * debian/control: using Homepage field, not pseudo-one.
+   * pastebinit: better handling of command-line passed pastebins
 
-  [ Fabien Tassin ]
-  * Add Vcs-Bzr to debian/control
-  * Fix -a in Usage()
-  * http://paste.ubuntu.com now supported
-  * http://pastebin.mozilla.org now supported
+   [ Fabien Tassin ]
+   * Add Vcs-Bzr to debian/control
+   * Fix -a in Usage()
+   * http://paste.ubuntu.com now supported
+   * http://pastebin.mozilla.org now supported
 
-  [ Stéphane Graber ]
-  * Changed Homepage field to LP
-  * http://paste.stgraber.org supported again
-  * http://paste.f-box.org supported again
-  * http://1t2.us supported again
+   [ Stéphane Graber ]
+   * Changed Homepage field to LP
+   * http://paste.stgraber.org supported again
+   * http://paste.f-box.org supported again
+   * http://1t2.us supported again
 
  -- Stéphane Graber <stgraber@ubuntu.com>  Mon, 12 May 2008 16:47:12 +0200
 
