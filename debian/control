@@ -6,7 +6,7 @@ Build-Depends: debhelper (>= 5)
 Build-Depends-Indep: xsltproc, docbook-xml, docbook-xsl
 Standards-Version: 3.7.3
 Vcs-Bzr: https://code.launchpad.net/~pastebinit-developers/pastebinit/trunk
-Homepage: http://www.stgraber.org/category/pastebinit
+Homepage: http://launchpad.net/pastebinit/
 
 Package: pastebinit
 Architecture: all
@@ -22,9 +22,11 @@ Description: command-line pastebin client
  passed as argument.
  .
  It supports these pastebins:
-  - http://*.pastebin.com
-  - http://pastebin.ca
-  - http://rafb.net/paste
-  - http://pastebin.archlinux.org
-  - http://paste.ubuntu.com
-  - http://pastebin.mozilla.org
+ - http://*.pastebin.com
+ - http://pastebin.mozilla.org
+ - http://rafb.net
+ - http://yourpaste.net
+ - http://paste.ubuntu.com
+ - http://*.paste.f-box.org
+ - http://*.1t2.us
+ - http://paste.stgraber.org

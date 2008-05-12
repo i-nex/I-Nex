@@ -98,19 +98,25 @@
         <para>http://*.pastebin.com</para>
       </listitem>
       <listitem>
-        <para>http://pastebin.ca</para>
+        <para>http://pastebin.mozilla.org</para>
       </listitem>
       <listitem>
-        <para>http://rafb.net/paste</para>
+        <para>http://rafb.net</para>
       </listitem>
       <listitem>
-        <para>http://pastebin.archlinux.org</para>
+        <para>http://yourpaste.net</para>
       </listitem>
       <listitem>
         <para>http://paste.ubuntu.com</para>
       </listitem>
       <listitem>
-        <para>http://pastebin.mozilla.org</para>
+        <para>http://*.paste.f-box.org</para>
+      </listitem>
+      <listitem>
+        <para>http://*.1t2.us</para>
+      </listitem>
+      <listitem>
+        <para>http://paste.stgraber.org</para>
       </listitem>
     </itemizedlist>
   </refsect1>

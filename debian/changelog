@@ -1,4 +1,4 @@
-pastebinit (0.9-0ubuntu2) UNRELEASED; urgency=low
+pastebinit (0.10-0ubuntu1) intrepid; urgency=low
 
   * LP #193352 - http://yourpaste.net now supported
   * LP #157082 - fixing wrong manpage
@@ -12,7 +12,13 @@ pastebinit (0.9-0ubuntu2) UNRELEASED; urgency=low
   * http://paste.ubuntu.com now supported
   * http://pastebin.mozilla.org now supported
 
- -- David Paleino <d.paleino@gmail.com>  Tue, 19 Feb 2008 21:07:02 +0100
+  [ Stéphane Graber ]
+  * Changed Homepage field to LP
+  * http://paste.stgraber.org supported again
+  * http://paste.f-box.org supported again
+  * http://1t2.us supported again
+
+ -- Stéphane Graber <stgraber@ubunut.com>  Mon, 12 May 2008 16:47:12 +0200
 
 pastebinit (0.9-0ubuntu1) hardy; urgency=low
 
