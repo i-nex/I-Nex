@@ -181,14 +181,6 @@ try:
 			print configexample
 			sys.exit(1)
 
-	#Check if some datas were passed by pipe, if yes directly assign content
-	l_r = select.select([sys.stdin],[],[],0)
-	try:
-		content=l_r[0][0].read()
-		filename="-"
-	except:
-		filename=""
-
 	# Check number of arguments
 	if len(sys.argv) == 1 and filename == "":
 		print _("Error no arguments specified!\n")
@@ -228,17 +220,12 @@ try:
 		elif opt[0] == "-p":
 			password = opt[1]
 
-	if filename == "" and list[0]:
+	if filename == "" and len(list) >= 1:
 		filename = list[0]
 
 	#If - is specified as a filename read from stdin, otherwise load the specified file.
-	if filename == "":
-		print _("Error no filename specified!\n")
-		Usage()
-		sys.exit(1)
-	elif filename == "-" and content == "":
+	if (filename == "" or filename == "-") and content == "":
 		content = sys.stdin.read()
-		sys.exit(_("KeyboardInterrupt caught."))
 	elif content == "":
 		try:
 			f = open(filename)
