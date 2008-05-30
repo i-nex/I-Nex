@@ -87,6 +87,13 @@ try:
 			params['poster'] = user
 			params['syntax'] = format #The format, for syntax hilighting
 			params['content'] = content
+		elif website == "http://paste.debian.net":
+			params['poster'] = user
+			params['lang'] = "-1" #The format, for syntax hilighting, default to plain text
+			params['syntax'] = format #The format, for syntax hilighting
+			params['code'] = content
+			params['remember'] = "0" #Do you want a cookie ?
+			params['expire'] = "259200" # expire in 72h
 		else:
 			sys.exit(_("Unknown website, please post a bugreport to request this pastebin to be added (%s)") % website)
 		return params
