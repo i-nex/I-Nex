@@ -95,19 +95,7 @@
     <title>SUPPORTED PASTEBINS</title>
     <itemizedlist>
       <listitem>
-        <para>http://*.pastebin.com</para>
-      </listitem>
-      <listitem>
-        <para>http://pastebin.mozilla.org</para>
-      </listitem>
-      <listitem>
-        <para>http://rafb.net</para>
-      </listitem>
-      <listitem>
-        <para>http://yourpaste.net</para>
-      </listitem>
-      <listitem>
-        <para>http://paste.ubuntu.com</para>
+        <para>http://*.1t2.us</para>
       </listitem>
       <listitem>
         <para>http://paste.debian.net</para>
@@ -116,13 +104,28 @@
         <para>http://*.paste.f-box.org</para>
       </listitem>
       <listitem>
-        <para>http://*.1t2.us</para>
+        <para>http://pastebin.mozilla.org</para>
+      </listitem>
+      <listitem>
+        <para>http://paste2.org</para>
+      </listitem>
+      <listitem>
+        <para>http://*.pastebin.com</para>
+      </listitem>
+      <listitem>
+        <para>http://*.pastecode.com</para>
+      </listitem>
+      <listitem>
+        <para>http://rafb.net</para>
       </listitem>
       <listitem>
         <para>http://paste.stgraber.org</para>
       </listitem>
       <listitem>
-        <para>http://paste2.org</para>
+        <para>http://paste.ubuntu.com</para>
+      </listitem>
+      <listitem>
+        <para>http://yourpaste.net</para>
       </listitem>
     </itemizedlist>
   </refsect1>
