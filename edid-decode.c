@@ -457,6 +457,9 @@ cea_block(unsigned char *x)
     unsigned int oui;
 
     switch ((x[0] & 0xe0) >> 5) {
+	case 0x01:
+	    printf("  Audio data block\n");
+	    break;
 	case 0x02:
 	    printf("  Video data block\n");
 	    cea_video_block(x);
@@ -470,8 +473,27 @@ cea_block(unsigned char *x)
 	    else
 		printf("\n");
 	    break;
-	default:
+	case 0x04:
+	    printf("  Speaker allocation data block\n");
 	    break;
+	case 0x05:
+	    printf("  VESA DTC data block\n");
+	    break;
+	case 0x07:
+	    printf("  Extended tag: ");
+	    switch (x[1]) {
+		default:
+		    printf("Unknown (%02x)\n", x[1]);
+		    break;
+	    }
+	    break;
+	default:
+	{
+	    int tag = (*x & 0xe0) >> 5;
+	    int length = *x & 0x1f;
+	    printf("  Unknown tag %d, length %d (raw %02x)\n", tag, length, *x);
+	    break;
+	}
     }
 }
 
@@ -498,9 +520,6 @@ parse_cea(unsigned char *x)
 	    int i;
 	    printf("%d bytes of CEA data\n", offset - 4);
 	    for (i = 4; i < offset; i += (x[i] & 0x1f) + 1) {
-		int tag = (x[i] & 0xe0) >> 5;
-		int length = x[i] & 0x1f;
-		printf("  Tag %d, length %d (raw %02x)\n", tag, length, x[i]);
 		cea_block(x + i);
 	    }
 	}
