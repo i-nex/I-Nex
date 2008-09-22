@@ -418,17 +418,38 @@ parse_cea(unsigned char *x)
     int offset = x[2];
     unsigned char *detailed;
 
-    if (version == 1) {
-	if (x[3] != 0)
+    if (version >= 1) do {
+	if (version == 1 && x[3] != 0)
 	    ret = 1;
 
-	printf("%d 8-byte timing descriptors\n", offset - 4);
-	if (offset - 4 > 0)
-	    /* do stuff */ ;
+	if (offset == 0)
+	    break;
+
+	if (version < 3) {
+	    printf("%d 8-byte timing descriptors\n", (offset - 4) / 8);
+	    if (offset - 4 > 0)
+		/* do stuff */ ;
+	} else if (version == 3) {
+	    printf("%d bytes of CEA data\n", offset);
+	    /* do stuff */
+	}
+	
+	if (version >= 2) {    
+	    if (x[3] & 0x80)
+		printf("Underscans PC formats by default\n");
+	    if (x[3] & 0x40)
+		printf("Basic audio support\n");
+	    if (x[3] & 0x20)
+		printf("Supports YCbCr 4:4:4\n");
+	    if (x[3] & 0x10)
+		printf("Supports YCbCr 4:2:2\n");
+	    printf("%d native detailed modes\n", x[3] & 0x0f);
+	}
 
 	for (detailed = x + offset; detailed + 18 < x + 127; detailed += 18)
-	    detailed_block(detailed, 1);
-    }
+	    if (detailed[0])
+		detailed_block(detailed, 1);
+    } while (0);
 
     do_checksum(x);
 
