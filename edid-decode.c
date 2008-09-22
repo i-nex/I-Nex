@@ -411,6 +411,16 @@ do_checksum(unsigned char *x)
 /* CEA extension */
 
 static void
+cea_video_block(unsigned char *x)
+{
+    int i;
+    int length = x[0] & 0x1f;
+
+    for (i = 1; i < length; i++)
+	printf("    VIC %02x %s\n", x[i] & 0x7f, x[i] & 0x80 ? "(native)" : "");
+}
+
+static void
 cea_hdmi_block(unsigned char *x)
 {
     int length = x[0] & 0x1f;
@@ -447,6 +457,10 @@ cea_block(unsigned char *x)
     unsigned int oui;
 
     switch ((x[0] & 0xe0) >> 5) {
+	case 0x02:
+	    printf("  Video data block\n");
+	    cea_video_block(x);
+	    break;
 	case 0x03:
 	    /* yes really, endianness lols */
 	    oui = (x[3] << 16) + (x[2] << 8) + x[1];
