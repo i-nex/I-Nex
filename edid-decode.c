@@ -410,6 +410,57 @@ do_checksum(unsigned char *x)
 
 /* CEA extension */
 
+static void
+cea_hdmi_block(unsigned char *x)
+{
+    int length = x[0] & 0x1f;
+
+    printf(" (HDMI)\n");
+    printf("    Source physical address %d.%d.%d.%d\n", x[4] >> 4, x[4] & 0x0f,
+	   x[5] >> 4, x[5] & 0x0f);
+
+    if (length > 5) {
+	if (x[6] & 0x80)
+	    printf("    Supports_AI\n");
+	if (x[6] & 0x40)
+	    printf("    DC_48bit\n");
+	if (x[6] & 0x20)
+	    printf("    DC_36bit\n");
+	if (x[6] & 0x10)
+	    printf("    DC_30bit\n");
+	if (x[6] & 0x08)
+	    printf("    DC_Y444\n");
+	/* two reserved */
+	if (x[6] & 0x01)
+	    printf("    DVI_Dual\n");
+    }
+
+    if (length > 6)
+	printf("    Maximum TMDS clock: %dMHz\n", x[7] * 5);
+
+    /* latency info */
+}
+
+static void
+cea_block(unsigned char *x)
+{
+    unsigned int oui;
+
+    switch ((x[0] & 0xe0) >> 5) {
+	case 0x03:
+	    /* yes really, endianness lols */
+	    oui = (x[3] << 16) + (x[2] << 8) + x[1];
+	    printf("  Vendor-specific data block, OUI %06x", oui);
+	    if (oui == 0x000c03)
+		cea_hdmi_block(x);
+	    else
+		printf("\n");
+	    break;
+	default:
+	    break;
+    }
+}
+
 static int
 parse_cea(unsigned char *x)
 {
@@ -422,7 +473,7 @@ parse_cea(unsigned char *x)
 	if (version == 1 && x[3] != 0)
 	    ret = 1;
 
-	if (offset == 0)
+	if (offset < 4)
 	    break;
 
 	if (version < 3) {
@@ -430,8 +481,14 @@ parse_cea(unsigned char *x)
 	    if (offset - 4 > 0)
 		/* do stuff */ ;
 	} else if (version == 3) {
-	    printf("%d bytes of CEA data\n", offset);
-	    /* do stuff */
+	    int i;
+	    printf("%d bytes of CEA data\n", offset - 4);
+	    for (i = 4; i < offset; i += (x[i] & 0x1f) + 1) {
+		int tag = (x[i] & 0xe0) >> 5;
+		int length = x[i] & 0x1f;
+		printf("  Tag %d, length %d (raw %02x)\n", tag, length, x[i]);
+		cea_block(x + i);
+	    }
 	}
 	
 	if (version >= 2) {    
