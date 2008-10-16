@@ -43,7 +43,7 @@ static int has_name_descriptor = 0;
 static int name_descriptor_terminated = 0;
 static int has_range_descriptor = 0;
 static int has_preferred_timing = 0;
-static int has_valid_checksum = 0;
+static int has_valid_checksum = 1;
 static int has_valid_cvt = 1;
 static int has_valid_dummy_block = 1;
 static int has_valid_week = 0;
@@ -398,14 +398,18 @@ detailed_block(unsigned char *x, int in_extension)
 static void
 do_checksum(unsigned char *x)
 {
-    printf("Checksum: 0x%hx\n", x[0x7f]);
+    printf("Checksum: 0x%hx", x[0x7f]);
     {
 	unsigned char sum = 0;
 	int i;
 	for (i = 0; i < 128; i++)
 	    sum += x[i];
-	has_valid_checksum = !sum;
+	if (sum) {
+	    printf(" (should be 0x%hx)", (unsigned char)(x[0x7f] - sum));
+	    has_valid_checksum = 0;
+	}
     }
+    printf("\n");
 }
 
 /* CEA extension */
