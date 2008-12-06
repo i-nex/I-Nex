@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2008-08-10 11:54+EDT\n"
+"POT-Creation-Date: 2008-12-06 13:20+EST\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -15,91 +15,91 @@ msgstr ""
 "Generated-By: pygettext.py 1.5\n"
 
 
-#: ../pastebinit:37
+#: ../pastebinit:54
 #, docstring
 msgid "Return the parameters array for the selected pastebin"
 msgstr ""
 
-#: ../pastebinit:104
+#: ../pastebinit:152
 msgid "Unknown website, please post a bugreport to request this pastebin to be added (%s)"
 msgstr ""
 
-#: ../pastebinit:127
+#: ../pastebinit:175
 msgid "Required arguments:"
 msgstr ""
 
-#: ../pastebinit:128
+#: ../pastebinit:176
 msgid "\t-i <filename> (or pipe the text)"
 msgstr ""
 
-#: ../pastebinit:129
+#: ../pastebinit:177
 msgid "Optional arguments:"
 msgstr ""
 
-#: ../pastebinit:130
+#: ../pastebinit:178
 msgid "\t-b <pastebin url:default is '%s'>"
 msgstr ""
 
-#: ../pastebinit:131
+#: ../pastebinit:179
 msgid "\t-a <author:default is '%s'>"
 msgstr ""
 
-#: ../pastebinit:132
+#: ../pastebinit:180
 msgid "\t-f <format of paste:default is '%s'>"
 msgstr ""
 
-#: ../pastebinit:133
+#: ../pastebinit:181
 msgid "\t-r <parent posts ID:defaults to none>"
 msgstr ""
 
-#: ../pastebinit:134
+#: ../pastebinit:182
 msgid "Optional arguments supported only by 1t2.us and paste.stgraber.org:"
 msgstr ""
 
-#: ../pastebinit:135
+#: ../pastebinit:183
 msgid "\t-j <jabberid for notifications:default is '%s'>"
 msgstr ""
 
-#: ../pastebinit:136
+#: ../pastebinit:184
 msgid "\t-m <permatag for all versions of a post:default is blank>"
 msgstr ""
 
-#: ../pastebinit:137
+#: ../pastebinit:185
 msgid "\t-t <title of paste:default is blank>"
 msgstr ""
 
-#: ../pastebinit:138
+#: ../pastebinit:186
 msgid "\t-u <username> -p <password>"
 msgstr ""
 
-#: ../pastebinit:170 ../pastebinit:183 ../pastebinit:200 ../pastebinit:241
-#: ../pastebinit:270 ../pastebinit:276
+#: ../pastebinit:218 ../pastebinit:231 ../pastebinit:248 ../pastebinit:289
+#: ../pastebinit:318 ../pastebinit:324
 msgid "KeyboardInterrupt caught."
 msgstr ""
 
-#: ../pastebinit:185
+#: ../pastebinit:233
 msgid "Error parsing configuration file!"
 msgstr ""
 
-#: ../pastebinit:186
+#: ../pastebinit:234
 msgid "Please ensure that your configuration file looks similar to the following:"
 msgstr ""
 
-#: ../pastebinit:192
+#: ../pastebinit:240
 msgid ""
 "Error no arguments specified!\n"
 msgstr ""
 
-#: ../pastebinit:202
+#: ../pastebinit:250
 msgid ""
 "Invalid arguments!\n"
 msgstr ""
 
-#: ../pastebinit:243
+#: ../pastebinit:291
 msgid "Unable to read from: %s"
 msgstr ""
 
-#: ../pastebinit:273
+#: ../pastebinit:321
 msgid "Unable to read or parse the result page, it could be a server timeout or a change server side, try with another pastebin."
 msgstr ""
 
