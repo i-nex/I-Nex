@@ -24,7 +24,7 @@ try:
 	gettext.textdomain("pastebinit")
 
 	defaultPB = "http://pastebin.com" #Default pastebin
-	version = "0.10" #Version number to show in the usage
+	version = "0.11" #Version number to show in the usage
 	configfile = os.environ.get('HOME') + "/.pastebinit.xml"
 
 	# Custom urlopener to handle 401's
@@ -32,12 +32,29 @@ try:
 	    def http_error_401(self, url, fp, errcode, errmsg, headers, data=None):
 		return None
 
+	# pastey.net obfuscates parent ids for replies.  Rather than taking the
+	# post ID given as the parent ID, we must handle this by going to that
+	# post page and looking up what the invisible parent ID field will be
+	# set to for children.
+	def pasteyParentFixup(website, parentid):
+		if parentid == "":
+			return ""
+		url_opener = pasteURLopener()
+		page = url_opener.open(website + '/' + parentid, None)
+		matches = re.split('<input.*?name="parent".*?value="(.*?)"', page.read())
+		if len(matches) <= 1 or re.match(parentid, matches[1]) == None:
+			# The obfuscated version didn't begin with the partial version,
+			# or unable to find the obfuscated version for some reason!
+			# Create a paste with no parent (should we throw, instead?)
+			return ""
+		return matches[1]
+
 	#Return the parameters depending of the pastebin used
 	def getParameters(website, content, user, jabberid, version, format, parentpid, permatag, title, username, password):
 		"Return the parameters array for the selected pastebin"
 		params={}
 		# pastebin.com v0.50
-		if (re.search("http://((([a-zA-Z0-9\-_\.]*)(pastebin\.com)))", website) and not website == "http://www.pastebin.com") or website == "http://pastebin.mozilla.org" or re.search("http://((([a-zA-Z0-9\-_\.]*)(pastecode\.com)))", website):
+		if (re.search("http://((([a-zA-Z0-9\-_\.]*)(pastebin\.com)))", website) and not website == "http://www.pastebin.com") or website == "http://pastebin.mozilla.org":
 			params['poster'] = user
 			params['code2'] = content
 			params['version'] = version
@@ -46,14 +63,14 @@ try:
 			params['paste'] = "Send" 
 			params['remember'] = "0" #Do you want a cookie ?
 			params['expiry'] = "f" #The expiration, f = forever
-#		elif website == "http://pastebin.ca":
-#			params['name'] = user
-#			params['content'] = content
-#			params['type'] = "1" #The expiration, 1 = raw
-#			params['save'] = "0" #Do you want a cookie ?
-#			params['s'] = "Submit Post"
-#			params['regexp'] = '">http://pastebin.ca/(.*)</a></p><p>
-		elif re.search("http://((([a-zA-Z0-9\-_\.]*)(paste\.f\-box\.org|1t2\.us|paste\.stgraber\.org)))", website):	
+		elif website == "http://pastebin.ca":
+			params['name'] = user
+			params['content'] = content
+			params['type'] = "1" #The expiration, 1 = raw
+			params['save'] = "0" #Do you want a cookie ?
+			params['s'] = "Submit Post"
+			params['regexp'] = '">http://pastebin.ca/(.*)</a></p><p>'
+		elif re.search("http://((([a-zA-Z0-9\-_\.]*)(1t2\.us)))", website):	
 			params['poster'] = user
 			params['jid'] = jabberid
 			params['code2'] = content
@@ -73,12 +90,37 @@ try:
 			params['text'] = content
 			params['lang'] = "Plain Text" #The format, for syntax hilighting
 			params['cvt_tabs'] = "No"
+		elif website == "http://slexy.org":
+			params['page'] = "/index.php/submit"
+			params['raw_paste'] = content
+			params['comment'] = ""
+			params['author'] = user
+			params['language'] = "text" #The format, for syntax hilighting
+			params['permissions'] = "0"
+			params['desc'] = title
+			params['linenumbers'] = "0"
+			params['expire'] = "0"
+			params['submit'] = "Submit Paste"
+		elif website == "http://fpaste.org":
+			params['lang'] = format #The format, for syntax hilighting
+			params['page'] = "/paste/save"
+			params['content'] = content
+			params['submit'] = "pastebinit"
 		elif website == "http://paste2.org":
 			params['page'] = "/new-paste"
 			params['description'] = title
 			params['lang'] = format
 			params['code'] = content
 			params['parent'] = "0"
+		elif re.search("http://((([a-zA-Z0-9\-_\.]*)(pastey\.net)))", website):	
+			params['author'] = user
+			params['subject'] = title
+			params['parent'] = pasteyParentFixup(website, parentpid)
+			params['text'] = content
+			params['language'] = format # File format, as a string like "cpp" or "lua"
+			params['paste'] = "Paste"
+			params['page'] = '/submit.php'
+			params['regexp'] = '">http://(?:(?:[a-zA-Z0-9\-_\.]*)(?:pastey\.net))(/.*)</a>'
 		elif website == "http://yourpaste.net":
 			params['syntax'] = format
 			params['name'] = user
@@ -89,6 +131,12 @@ try:
 			params['remember'] = "0" # Cookies? ;)
 			params['page'] = "/paste"
 			params['regexp'] = '">http://yourpaste.net(.*)/</a>'
+		elif website == "http://gist.github.com":
+			params['page'] = "/gists"
+			params['poster'] = user
+			params['file_ext[gistfile1]'] = format #The format, for syntax hilighting
+			params['file_contents[gistfile1]'] = content
+			params['file_name[gistfile1]'] = title
 		elif website == "http://paste.ubuntu.com":
 			params['poster'] = user
 			params['syntax'] = format #The format, for syntax hilighting
@@ -110,7 +158,7 @@ try:
 		for node in nodelist:
 			if node.nodeType == node.TEXT_NODE:
 				rc = rc + node.data
-		return rc
+		return rc.encode('utf-8')
 
 	def getNodes(nodes, title):
 		return nodes.getElementsByTagName(title)
@@ -174,7 +222,7 @@ try:
 	#Parse configuration file
 	if gotconfigxml == 1:
 		try:
-			configxml = xml.dom.minidom.parse(configfile)
+			configxml = xml.dom.minidom.parseString(configfile)
 			website = getFirstNodeText(configxml, "pastebin")
 			user = getFirstNodeText(configxml, "author")
 			format = getFirstNodeText(configxml, "format")
