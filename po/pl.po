@@ -1,16 +1,16 @@
-# Po file for pastebinit
-# Copyright (C) 2007, Pastebinit Developers Team
-# Vinzenz Vietzke <vinz@v1nz.org>, 2008
-#
+# Polish translation for pastebinit
+# Copyright (c) 2008 Rosetta Contributors and Canonical Ltd 2008
+# This file is distributed under the same license as the pastebinit package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2008.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: pastebinit 0.8.1\n"
-"Report-Msgid-Bugs-To: pastebinit@packages.debian.org\n"
+"Project-Id-Version: pastebinit\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2008-12-06 19:59+0000\n"
-"PO-Revision-Date: 2008-12-07 05:24+0000\n"
-"Last-Translator: Stéphane Graber <stgraber@stgraber.org>\n"
-"Language-Team: German <debian-l10n-german@lists.debian.org>\n"
+"PO-Revision-Date: 2008-03-04 22:07+0000\n"
+"Last-Translator: Adam Stankiewicz <Unknown>\n"
+"Language-Team: Polish <pl@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -20,101 +20,95 @@ msgstr ""
 #: ../pastebinit:54
 #, docstring
 msgid "Return the parameters array for the selected pastebin"
-msgstr "Parameter-Array für den ausgewählten Pastebin zurückgeben"
+msgstr "Zwróć tablicę parametrów dla zaznaczonego pastebin"
 
 #: ../pastebinit:152
 msgid ""
 "Unknown website, please post a bugreport to request this pastebin to be "
 "added (%s)"
 msgstr ""
-"Unbekannte Webseite, bitte sende einen Fehlerbericht damit dieses Pastebin "
-"hinzugefügt wird (%s)"
 
 #: ../pastebinit:175
 msgid "Required arguments:"
-msgstr "Benötigte Argumente"
+msgstr "Wymagane parametry:"
 
 #: ../pastebinit:176
 msgid "\t-i <filename> (or pipe the text)"
-msgstr "\t-i <Dateiname> (oder Pipe zum Text)"
+msgstr "\t-i <nazwapliku> (lub włącz tekst do potoku)"
 
 #: ../pastebinit:177
 msgid "Optional arguments:"
-msgstr "optionale Argumente"
+msgstr "Opcjonalne parametry:"
 
 #: ../pastebinit:178
 msgid "\t-b <pastebin url:default is '%s'>"
-msgstr "\t-b <pastebin url:default is '%s'>"
+msgstr "\t-b <url pastebin: domyślny to '%s'>"
 
 #: ../pastebinit:179
 msgid "\t-a <author:default is '%s'>"
-msgstr "\t-a <author:default is '%s'>"
+msgstr "\t-a <autor: domyślny to '%s'>"
 
 #: ../pastebinit:180
 msgid "\t-f <format of paste:default is '%s'>"
-msgstr "\t-f <Format des Eingefügten: Vorgabe ist '%s'>"
+msgstr "\t-f <format wklejania: domyślny to '%s'>"
 
 #: ../pastebinit:181
 msgid "\t-r <parent posts ID:defaults to none>"
-msgstr "\t-r <ID der Elternbeiträge: keine Vorgabe>"
+msgstr "\t-fr<nadrzędne ID wpisów: domyślne to none>"
 
 #: ../pastebinit:182
 msgid "Optional arguments supported only by 1t2.us and paste.stgraber.org:"
 msgstr ""
-"Optionale Argumente, die nur von 1t2.us und past.stgraber.org unterstützt "
-"werden:"
+"Opcjonalne parametry akceptowane tylko przez 1t2.us i paste.stgraber.org:"
 
 #: ../pastebinit:183
 msgid "\t-j <jabberid for notifications:default is '%s'>"
-msgstr "\t-j <Jabber-ID für Benachrichtigungen: Vorgabe ist '%s'>"
+msgstr "\t-j <ID jabbera dla zgłoszeń: domyślne to '%s'>"
 
 #: ../pastebinit:184
 msgid "\t-m <permatag for all versions of a post:default is blank>"
-msgstr ""
-"\t-m <Dauerhafte Kennzeichnung für alle Versionen eines Beitrags: Vorgabe "
-"ist leer>"
+msgstr "\t-m <permatag for all versions of a post:default is blank>"
 
 #: ../pastebinit:185
 msgid "\t-t <title of paste:default is blank>"
-msgstr "\t-t <Titel des Beitrags: Vorgabe ist leer>"
+msgstr "\t-m <tytuł wklejenia: domyślne to blank>"
 
 #: ../pastebinit:186
 msgid "\t-u <username> -p <password>"
-msgstr "\t-u <Benutzername> -p <Passwort>"
+msgstr "\t-u <nazwa użytkownika> -p <hasło>"
 
 #: ../pastebinit:218 ../pastebinit:231 ../pastebinit:248 ../pastebinit:289
 #: ../pastebinit:318 ../pastebinit:324
 msgid "KeyboardInterrupt caught."
-msgstr "Abbruch"
+msgstr ""
 
 #: ../pastebinit:233
 msgid "Error parsing configuration file!"
-msgstr "Fehler bei der Analyse der Konfigurationsdatei!"
+msgstr "Błąd przy przetwarzaniu pliku konfiguracyjnego!"
 
 #: ../pastebinit:234
 msgid ""
 "Please ensure that your configuration file looks similar to the following:"
 msgstr ""
-"Bitte überprüfe, dass deine Konfigurationsdatei gleich wie die folgende "
-"aussieht"
+"Upewnij się proszę, że twój plik konfiguracyjny wygląda podobnie do "
+"następującego:"
 
 #: ../pastebinit:240
 msgid "Error no arguments specified!\n"
-msgstr "Fehler: es wurden keine Argumente angegeben\n"
+msgstr "Błąd, brak podanych parametrów!\n"
 
 #: ../pastebinit:250
 msgid "Invalid arguments!\n"
-msgstr "falsches Argument\n"
+msgstr "Nieprawidłowe parametry!\n"
 
 #: ../pastebinit:291
 msgid "Unable to read from: %s"
-msgstr "Kannn von %s nicht lesen"
+msgstr "Nie mozna czytać z: %s"
 
 #: ../pastebinit:321
 msgid ""
 "Unable to read or parse the result page, it could be a server timeout or a "
 "change server side, try with another pastebin."
 msgstr ""
-"Lesen oder Analysieren der Ergebnisseite nicht möglich. Es könnte ein Server-"
-"Timeout oder eine serverseitige Veränderung sein. Versuche einen anderen "
-"Pastebin."
+"Nie można przeczytać albo przetworzyć strony wyników. Jest to byc może "
+"spowodowane opóźnieniem po stronie serwera, spróbuj z innym pastebin."
