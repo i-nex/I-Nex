@@ -4,7 +4,7 @@
   <!ENTITY dhfirstname "<firstname>Stephane</firstname>">
   <!ENTITY dhsurname   "<surname>Graber</surname>">
   <!-- Please adjust the date whenever revising the manpage. -->
-  <!ENTITY dhdate      "<date>February 05, 2008</date>">
+  <!ENTITY dhdate      "<date>December 19, 2008</date>">
   <!ENTITY dhsection   "<manvolnum>1</manvolnum>">
   <!ENTITY dhemail     "<email>d.paleino@gmail.com</email>">
   <!ENTITY dhusername  "David Paleino">
@@ -62,7 +62,7 @@
         <varlistentry>
           <term><option>-i <arg>filename</arg></option> (- for reading from stdin)</term>
         </varlistentry>
-      </variablelist>
+      </variablelist> 
     </refsect2>
     <refsect2>
       <title>Optional arguments</title>
@@ -75,7 +75,10 @@
         </varlistentry>
         <varlistentry>
           <term><option>-f <arg>format of paste</arg></option> (used for syntax-highlighting, default: text)</term>
-        </varlistentry>
+        </varlistentry>	
+	<varlistentry>
+          <term><option>-r <argh>parent post ID</arg></option> (default: none)</term>
+        </variablelist>
         <varlistentry>
           <term><option>-t <arg>title of paste</arg></option> (ONLY FOR 1t2.us)</term>
         </varlistentry>
@@ -88,50 +91,51 @@
         <varlistentry>
           <term><option>-p <arg>password</arg></option> (ONLY FOR 1t2.us)</term>
         </varlistentry>
+        <varlistentry>
+          <term><option>-j <argh>jabberid</arg></option> (ONLY FOR 1t2.us)</term>
+        </variablelist>        
       </variablelist>
+ibafrtmupj
     </refsect2>
   </refsect1>
   <refsect1>
     <title>SUPPORTED PASTEBINS</title>
     <itemizedlist>
       <listitem>
-        <para>http://*.1t2.us</para>
+        <para>http://pastebin.com (including subdomains)</para>
       </listitem>
       <listitem>
-        <para>http://paste.debian.net</para>
+        <para>http://pastebin.ca (including subdomains)</para>
       </listitem>
       <listitem>
-        <para>http://*.paste.f-box.org</para>
-      </listitem>
-      <listitem>
-        <para>http://pastebin.mozilla.org</para>
-      </listitem>
-      <listitem>
-        <para>http://paste2.org</para>
-      </listitem>
-      <listitem>
-        <para>http://*.pastebin.com</para>
-      </listitem>
-      <listitem>
-        <para>http://*.pastecode.com</para>
+        <para>http://1t2.com (including subdomains)</para>
       </listitem>
       <listitem>
         <para>http://rafb.net</para>
       </listitem>
       <listitem>
-        <para>http://paste.stgraber.org</para>
-      </listitem>
-      <listitem>
-        <para>http://paste.ubuntu.com</para>
-      </listitem>
-      <listitem>
-        <para>http://yourpaste.net</para>
+        <para>http://slexy.org</para>
       </listitem>
       <listitem>
         <para>http://fpaste.org</para>
       </listitem>
       <listitem>
-        <para>http://slexy.org</para>
+        <para>http://paste2.org</para>
+      </listitem>
+      <listitem>
+        <para>http://pastey.net</para>
+      </listitem>
+      <listitem>
+        <para>http://yourpaste.net</para>
+      </listitem>
+      <listitem>
+        <para>http://gist.github.com</para>
+      </listitem>
+      <listitem>
+        <para>http://paste.ubuntu.com</para>
+      </listitem>
+      <listitem>
+        <para>http://paste.debian.net</para>
       </listitem>
     </itemizedlist>
   </refsect1>
