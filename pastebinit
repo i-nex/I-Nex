@@ -179,7 +179,7 @@ try:
 		print _("\t-a <author:default is '%s'>") % user
 		print _("\t-f <format of paste:default is '%s'>") % format
 		print _("\t-r <parent posts ID:defaults to none>")
-		print _("Optional arguments supported only by 1t2.us and paste.stgraber.org:")
+		print _("Optional arguments supported only by 1t2.us:")
 		print _("\t-j <jabberid for notifications:default is '%s'>") % jabberid
 		print _("\t-m <permatag for all versions of a post:default is blank>")
 		print _("\t-t <title of paste:default is blank>")
