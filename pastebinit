@@ -201,9 +201,9 @@ try:
 	#Example configuration file string
 	configexample = """\
 <pastebinit>
-<pastebin>http://1t2.us</pastebin>
-<author>DanBUK</author>
-<jabberid>dan@f-box.org</jabberid>
+<pastebin>http://paste.debian.net</pastebin>
+<author>A pastebinit user</author>
+<jabberid>nobody@nowhere.org</jabberid>
 <format>text</format>
 </pastebinit>
 """
