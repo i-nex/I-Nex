@@ -173,7 +173,7 @@ try:
 	def Usage ():
 		print "pastebinit v" + version
 		print _("Required arguments:")
-		print _("\t-i <filename> (or pipe the text)")
+		print _("\t-i <filename> or - to read from stdin")
 		print _("Optional arguments:")
 		print _("\t-b <pastebin url:default is '%s'>") % website
 		print _("\t-a <author:default is '%s'>") % user
