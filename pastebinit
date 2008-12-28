@@ -90,6 +90,14 @@ try:
 			params['text'] = content
 			params['lang'] = "Plain Text" #The format, for syntax hilighting
 			params['cvt_tabs'] = "No"
+		elif website == "http://stikked.com":
+			params['name'] = user
+			params['title'] = title
+			params['email'] = ""
+			params['lang'] = "text" #The format, for syntax hilighting
+			params['code'] = content
+			params['website'] = ""
+			params['submit'] = "submit"
 		elif website == "http://slexy.org":
 			params['page'] = "/index.php/submit"
 			params['raw_paste'] = content
