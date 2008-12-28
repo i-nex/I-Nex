@@ -1,15 +1,16 @@
-# Po file for pastebinit
-# Copyright (C) 2007, Pastebinit Developers Team
-# Rex Tsai <chihchun@kalug.linux.org.tw>, 2008
+# Dutch translation for pastebinit
+# Copyright (c) 2008 Rosetta Contributors and Canonical Ltd 2008
+# This file is distributed under the same license as the pastebinit package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2008.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: pastebinit 0.10\n"
-"Report-Msgid-Bugs-To: \n"
+"Project-Id-Version: pastebinit\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2008-12-06 19:59+0000\n"
-"PO-Revision-Date: 2008-12-06 18:33+0000\n"
-"Last-Translator: Rex Tsai <chihchun@kalug.linux.org.tw>\n"
-"Language-Team: Traditional Chinese <debian-chinese-big5@debian.org>\n"
+"PO-Revision-Date: 2008-12-19 19:02+0000\n"
+"Last-Translator: hischild <His__Child@hotmail.com>\n"
+"Language-Team: Dutch <nl@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -19,90 +20,98 @@ msgstr ""
 #: ../pastebinit:54
 #, docstring
 msgid "Return the parameters array for the selected pastebin"
-msgstr "列出所選網站之參數"
+msgstr "Geef de array van parameters voor de geselecteerde pastebin"
 
 #: ../pastebinit:152
 msgid ""
 "Unknown website, please post a bugreport to request this pastebin to be "
 "added (%s)"
-msgstr "未支援網站，請回報此網站 (%s)"
+msgstr ""
+"Onbekende website. Maak een bugreport met een verzoek om deze site toe te "
+"voegen (%s)"
 
 #: ../pastebinit:175
 msgid "Required arguments:"
-msgstr "必要參數:"
+msgstr "Benodigde argumenten:"
 
 #: ../pastebinit:176
 msgid "\t-i <filename> (or pipe the text)"
-msgstr "\t-i <檔名> 或導入 (pipe) 文字"
+msgstr "\t-i <bestandsnaam> (of pipe de tekst)"
 
 #: ../pastebinit:177
 msgid "Optional arguments:"
-msgstr "選用參數"
+msgstr "Mogelijke argumenten:"
 
 #: ../pastebinit:178
 msgid "\t-b <pastebin url:default is '%s'>"
-msgstr "\t-b <網址:預設為 '%s'>"
+msgstr "\t-b <pastebin url:standaard is '%s'>"
 
 #: ../pastebinit:179
 msgid "\t-a <author:default is '%s'>"
-msgstr "\t-a <作者:預設為 '%s'>"
+msgstr "\t-a <Auteur:standaard is '%s'>"
 
 #: ../pastebinit:180
 msgid "\t-f <format of paste:default is '%s'>"
-msgstr "\t-f <張貼格式:預設為 '%s'>"
+msgstr "\t-f <formaat van de paste:standaard is '%s'>"
 
 #: ../pastebinit:181
 msgid "\t-r <parent posts ID:defaults to none>"
-msgstr "\t-r <母張貼 ID: 預設為無>"
+msgstr "\t-r <bovenliggende post's ID:is standaard to none>"
 
 #: ../pastebinit:182
 msgid "Optional arguments supported only by 1t2.us and paste.stgraber.org:"
-msgstr "選用參數，只有 1t2.us 與 paste.stgraber.org 支援:"
+msgstr ""
+"Mogelijke argumenten enkel ondersteund door 1t2.us en paste.stgraber.org:"
 
 #: ../pastebinit:183
 msgid "\t-j <jabberid for notifications:default is '%s'>"
-msgstr "\t-j <Jabber 通知帳號:預設是 '%s'>"
+msgstr "\t-j <jabberid voor berichten:standaard is '%s'>"
 
 #: ../pastebinit:184
 msgid "\t-m <permatag for all versions of a post:default is blank>"
-msgstr "\t-m <佈告之永久標籤 (permatag):預設空白>"
+msgstr "\t-m <permatag voor alle versies van een post:standaard is leeg>"
 
 #: ../pastebinit:185
 msgid "\t-t <title of paste:default is blank>"
-msgstr "\t-t <標題:預設空白>"
+msgstr "\t-t <titel van paste:standaard is leeg>"
 
 #: ../pastebinit:186
 msgid "\t-u <username> -p <password>"
-msgstr "\t-u <帳號> -p <密碼>"
+msgstr "\t-u <gebruikersnaam> -p <wachtwoord>"
 
 #: ../pastebinit:218 ../pastebinit:231 ../pastebinit:248 ../pastebinit:289
 #: ../pastebinit:318 ../pastebinit:324
 msgid "KeyboardInterrupt caught."
-msgstr "偵測到鍵盤中斷。"
+msgstr "eyboardInterrupt ontvangen."
 
 #: ../pastebinit:233
 msgid "Error parsing configuration file!"
-msgstr "無法解析設定檔!"
+msgstr "outmelding tijdens het verwerken van het configuratie bestand!"
 
 #: ../pastebinit:234
 msgid ""
 "Please ensure that your configuration file looks similar to the following:"
-msgstr "請確認您的設定檔看起來像:"
+msgstr ""
+"Controleer of uw configuratie bestand eruit ziet zoals in het volgende "
+"voorbeeld:"
 
 #: ../pastebinit:240
 msgid "Error no arguments specified!\n"
-msgstr "錯誤，未指定參數!\n"
+msgstr "Foutmelding, geen argumenten gegeven!\n"
 
 #: ../pastebinit:250
 msgid "Invalid arguments!\n"
-msgstr "參數錯誤!\n"
+msgstr "Ongeldige argumenten!\n"
 
 #: ../pastebinit:291
 msgid "Unable to read from: %s"
-msgstr "無法讀取: %s"
+msgstr "Kan niet lezen van: %s"
 
 #: ../pastebinit:321
 msgid ""
 "Unable to read or parse the result page, it could be a server timeout or a "
 "change server side, try with another pastebin."
-msgstr "無法分析或讀取結果頁，可能是伺服器逾時或伺服器端介面已更改。請使用其他 pastebin 服務。"
+msgstr ""
+"Het was niet mogelijk om de pagina te lezen of te verwerken. Dit kan een "
+"server-timeout zijn of een verandering aan de server kant. Probeer het met "
+"een andere pastebin."
