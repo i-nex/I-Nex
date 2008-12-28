@@ -77,8 +77,8 @@
           <term><option>-f <arg>format of paste</arg></option> (used for syntax-highlighting, default: text)</term>
         </varlistentry>	
 	<varlistentry>
-          <term><option>-r <argh>parent post ID</arg></option> (default: none)</term>
-        </variablelist>
+          <term><option>-r <arg>parent post ID</arg></option> (default: none)</term>
+        </varlistentry>
         <varlistentry>
           <term><option>-t <arg>title of paste</arg></option> (ONLY FOR 1t2.us)</term>
         </varlistentry>
@@ -92,8 +92,8 @@
           <term><option>-p <arg>password</arg></option> (ONLY FOR 1t2.us)</term>
         </varlistentry>
         <varlistentry>
-          <term><option>-j <argh>jabberid</arg></option> (ONLY FOR 1t2.us)</term>
-        </variablelist>        
+          <term><option>-j <arg>jabberid</arg></option> (ONLY FOR 1t2.us)</term>
+        </varlistentry>        
       </variablelist>
 ibafrtmupj
     </refsect2>
