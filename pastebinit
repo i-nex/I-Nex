@@ -29,8 +29,8 @@ try:
 
 	# Custom urlopener to handle 401's
 	class pasteURLopener(urllib.FancyURLopener):
-	    def http_error_401(self, url, fp, errcode, errmsg, headers, data=None):
-		return None
+		def http_error_401(self, url, fp, errcode, errmsg, headers, data=None):
+			return None
 
 	# pastey.net obfuscates parent ids for replies.  Rather than taking the
 	# post ID given as the parent ID, we must handle this by going to that
