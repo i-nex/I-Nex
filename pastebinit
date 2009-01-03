@@ -180,9 +180,9 @@ try:
 	# Display usage instructions
 	def Usage ():
 		print "pastebinit v" + version
-		print _("Required arguments:")
-		print _("\t-i <filename> or - to read from stdin")
 		print _("Optional arguments:")
+		print _("\t-h This help screen")
+		print _("\t-i <filename> or - to read from stdin")
 		print _("\t-b <pastebin url:default is '%s'>") % website
 		print _("\t-a <author:default is '%s'>") % user
 		print _("\t-f <format of paste:default is '%s'>") % format
@@ -230,7 +230,7 @@ try:
 	#Parse configuration file
 	if gotconfigxml == 1:
 		try:
-			configxml = xml.dom.minidom.parseString(configfile)
+			configxml = xml.dom.minidom.parse(configfile)
 			website = getFirstNodeText(configxml, "pastebin")
 			user = getFirstNodeText(configxml, "author")
 			format = getFirstNodeText(configxml, "format")
@@ -243,15 +243,9 @@ try:
 			print configexample
 			sys.exit(1)
 
-	# Check number of arguments
-	if len(sys.argv) == 1 and filename == "":
-		print _("Error no arguments specified!\n")
-		Usage()
-		sys.exit(1)
-
 	# Get options
 	try:
-		optlist, list = getopt.getopt(sys.argv[1:], 'i:f:b:a:r:j:t:m:u:p:')
+		optlist, list = getopt.getopt(sys.argv[1:], 'hi:f:b:a:r:j:t:m:u:p:')
 	except KeyboardInterrupt:
 		sys.exit(_("KeyboardInterrupt caught."))
 	except getopt.GetoptError:
@@ -261,6 +255,9 @@ try:
 
 	# Iterate through options
 	for opt in optlist:
+		if opt[0] == "-h":
+			Usage()
+			sys.exit(1)
 		if opt[0] == "-i":
 			filename = opt[1]
 		elif opt[0] == "-f":
@@ -297,7 +294,8 @@ try:
 			sys.exit(_("KeyboardInterrupt caught."))
 		except:
 			sys.exit(_("Unable to read from: %s") % filename)
-
+	if not content:
+		sys.exit(_("You are trying to send an empty document, exiting.")) 
 	params = getParameters(website, content, user, jabberid, version, format, parentpid, permatag, title, username, password) #Get the parameters array
 	
 	if not re.search(".*/", website):
