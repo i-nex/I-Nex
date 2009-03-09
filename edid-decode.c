@@ -275,6 +275,8 @@ detailed_block(unsigned char *x, int in_extension)
 	    if (is_cvt) {
 		int max_h_pixels = 0;
 
+		printf("CVT version %d.%d\n", x[11] & 0xf0 >> 4, x[11] & 0x0f);
+
 		max_h_pixels = x[12] & 0x03;
 		max_h_pixels <<= 8;
 		max_h_pixels |= x[13];
