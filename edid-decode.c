@@ -247,7 +247,7 @@ detailed_block(unsigned char *x, int in_extension)
 
 	    /*
 	     * despite the values, this is not a bitfield.
-	     * XXX not all of these values are valid for all revisions.
+	     * XXX only 0x00 and 0x02 are legal for pre-1.4
 	     */
 	    switch (x[10]) {
 	    case 0x00: /* default gtf */
@@ -920,13 +920,17 @@ int main(int argc, char **argv)
 	       voltage == 1 ? "0.714/0.286" :
 	       "0.7/0.3");
 
-	/* XXX verify this, not sure what X means by configurable levels */
 	if (claims_one_point_four) {
 	    if (edid[0x14] & 0x10)
 		printf("Blank-to-black setup/pedestal\n");
 	    else
 		printf("Blank level equals black level\n");
 	} else if (edid[0x14] & 0x10) {
+	    /*
+	     * XXX this is just the X text.  1.3 says "if set, display expects
+	     * a blank-to-black setup or pedestal per appropriate Signal
+	     * Level Standard".  Whatever _that_ means.
+	     */
 	    printf("Configurable signal levels\n");
 	}
 
@@ -939,18 +943,21 @@ int main(int argc, char **argv)
     if (edid[0x15] && edid[0x16])
 	printf("Maximum image size: %d cm x %d cm\n", edid[0x15], edid[0x16]);
     else if (claims_one_point_four && (edid[0x15] || edid[0x16])) {
-	/* XXX this might be a conformance failure for earlier revs */
 	if (edid[0x15])
 	    printf("Aspect ratio is %f (landscape)\n", 100.0/(edid[0x16] + 99));
 	else
 	    printf("Aspect ratio is %f (portrait)\n", 100.0/(edid[0x15] + 99));
-    } else
+    } else {
+	/* Either or both can be zero for 1.3 and before */
 	printf("Image size is variable\n");
+    }
 
     if (edid[0x17] == 0xff) {
-	if (claims_one_point_four) /* XXX might be 1.3 too */
+	if (claims_one_point_four)
 	    printf("Gamma is defined in an extension block\n");
-	else printf("Gamma: 1.0\n");
+	else
+	    /* XXX Technically 1.3 doesn't say this... */
+	    printf("Gamma: 1.0\n");
     } else printf("Gamma: %.2f\n", ((edid[0x17] + 100.0) / 100.0));
 
     if (edid[0x18] & 0xE0) {
