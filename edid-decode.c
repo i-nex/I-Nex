@@ -278,6 +278,7 @@ detailed_block(unsigned char *x, int in_extension)
 		max_h_pixels = x[12] & 0x03;
 		max_h_pixels <<= 8;
 		max_h_pixels |= x[13];
+		max_h_pixels *= 8;
 		if (max_h_pixels)
 		    printf("Max active pixels per line: %d\n", max_h_pixels);
 
