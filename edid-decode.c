@@ -56,6 +56,9 @@ static int has_valid_range_descriptor = 1;
 static int manufacturer_name_well_formed = 0;
 static int seen_non_detailed_descriptor = 0;
 
+static int warning_excessive_dotclock_correction = 0;
+static int warning_zero_preferred_refresh = 0;
+
 static int conformant = 1;
 
 static char *manufacturer_name(unsigned char *x)
@@ -278,9 +281,11 @@ detailed_block(unsigned char *x, int in_extension)
 		printf("CVT version %d.%d\n", x[11] & 0xf0 >> 4, x[11] & 0x0f);
 
 		if (x[12] & 0xfc) {
-		    /* XXX should warn if the offset is > 10MHz */
+		    int raw_offset = (x[12] & 0xfc) >> 2;
 		    printf("Real max dotclock: %.2fMHz\n",
-			   (x[9] * 10) - ((x[12] & 0xfc) >> 2) * 0.25);
+			   (x[9] * 10) - (raw_offset * 0.25));
+		    if (raw_offset >= 40)
+			warning_excessive_dotclock_correction = 1;
 		}
 
 		max_h_pixels = x[12] & 0x03;
@@ -335,6 +340,8 @@ detailed_block(unsigned char *x, int in_extension)
 
 		if (x[17])
 		    printf("Preferred vertical refresh: %d Hz\n", x[17]);
+		else
+		    warning_zero_preferred_refresh = 1;
 	    }
 
 	    /*
@@ -1124,6 +1131,11 @@ int main(int argc, char **argv)
 	if (!has_valid_range_descriptor)
 	    printf("\tRange descriptor contains garbage\n");
     }
+
+    if (warning_excessive_dotclock_correction)
+	printf("Warning: CVT block corrects dotclock by more than 9.75MHz\n");
+    if (warning_zero_preferred_refresh)
+	printf("Warning: CVT block does not set preferred refresh rate\n");
 
     free(edid);
 
