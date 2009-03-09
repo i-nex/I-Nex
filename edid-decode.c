@@ -705,8 +705,10 @@ extract_edid(int fd)
 
     /* wait, is this a log file? */
     for (i = 0; i < 8; i++) {
-	if (!isascii(ret[i]))
+	if (!isascii(ret[i])) {
+	    edid_lines = buf.st_size / 16;
 	    return (unsigned char *)ret;
+	}
     }
 
     /* I think it is, let's go scanning */
