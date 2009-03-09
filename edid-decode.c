@@ -299,6 +299,7 @@ detailed_block(unsigned char *x, int in_extension)
 		case 0x04: printf("15:9"); break;
 		default: printf("(broken)"); break;
 		}
+		printf("\n");
 
 		if (x[15] & 0x04)
 		    printf("Supports CVT standard blanking\n");
@@ -811,7 +812,7 @@ int main(int argc, char **argv)
 
     if (!edid || memcmp(edid, "\x00\xFF\xFF\xFF\xFF\xFF\xFF\x00", 8)) {
 	printf("No header found\n");
-	return 1;
+	// return 1;
     }
 
     printf("Manufacturer: %s Model %x Serial Number %u\n",
