@@ -53,6 +53,7 @@ static int has_valid_extension_count = 0;
 static int has_valid_descriptor_ordering = 1;
 static int has_valid_descriptor_pad = 1;
 static int has_valid_range_descriptor = 1;
+static int has_valid_max_dotclock = 1;
 static int manufacturer_name_well_formed = 0;
 static int seen_non_detailed_descriptor = 0;
 
@@ -269,11 +270,13 @@ detailed_block(unsigned char *x, int in_extension)
 	    printf("Monitor ranges: %d-%dHZ vertical, %d-%dkHz horizontal",
 		   x[5] + v_min_offset, x[6] + v_max_offset,
 		   x[7] + h_min_offset, x[8] + h_max_offset);
-	    /* XXX 1.4 says 0xFF is legal?  Check 1.3 */
-	    if (x[9] != 255)
+	    if (x[9])
 		printf(", max dotclock %dMHz\n", x[9] * 10);
-	    else
+	    else {
+		if (claims_one_point_four)
+		    has_valid_max_dotclock = 0;
 		printf("\n");
+	    }
 
 	    if (is_cvt) {
 		int max_h_pixels = 0;
@@ -1130,6 +1133,8 @@ int main(int argc, char **argv)
 	    printf("\tInvalid detailed timing descriptor ordering\n");
 	if (!has_valid_range_descriptor)
 	    printf("\tRange descriptor contains garbage\n");
+	if (!has_valid_max_dotclock)
+	    printf("\tEDID 1.4 block does not set max dotclock\n");
     }
 
     if (warning_excessive_dotclock_correction)
