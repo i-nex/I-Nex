@@ -277,6 +277,12 @@ detailed_block(unsigned char *x, int in_extension)
 
 		printf("CVT version %d.%d\n", x[11] & 0xf0 >> 4, x[11] & 0x0f);
 
+		if (x[12] & 0xfc) {
+		    /* XXX should warn if the offset is > 10MHz */
+		    printf("Real max dotclock: %.2fMHz\n",
+			   (x[9] * 10) - ((x[12] & 0xfc) >> 2) * 0.25);
+		}
+
 		max_h_pixels = x[12] & 0x03;
 		max_h_pixels <<= 8;
 		max_h_pixels |= x[13];
