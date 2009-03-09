@@ -228,7 +228,7 @@ detailed_block(unsigned char *x, int in_extension)
 	     * XXX todo: implement feature flags, vtd blocks
 	     * XXX check: ranges are well-formed; block termination if no vtd
 	     */
-	    if (claims_one_point_four) { /* XXX might be valid earlier? */
+	    if (claims_one_point_four) {
 		if (x[4] & 0x02) {
 		    v_max_offset = 255;
 		    if (x[4] & 0x01) {
