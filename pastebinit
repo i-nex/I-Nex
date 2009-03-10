@@ -12,202 +12,202 @@
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details.
-#				
+#
 # You should have received a copy of the GNU General Public License
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
 try:
-	import urllib, os, sys, re, getopt, select, xml.dom.minidom, gettext
-	from gettext import gettext as _
+    import urllib, os, sys, re, getopt, select, xml.dom.minidom, gettext
+    from gettext import gettext as _
 
-	gettext.textdomain("pastebinit")
+    gettext.textdomain("pastebinit")
 
-	defaultPB = "http://pastebin.com" #Default pastebin
-	version = "0.11" #Version number to show in the usage
-	configfile = os.environ.get('HOME') + "/.pastebinit.xml"
+    defaultPB = "http://pastebin.com" #Default pastebin
+    version = "0.11.1" #Version number to show in the usage
+    configfile = os.environ.get('HOME') + "/.pastebinit.xml"
 
-	# Custom urlopener to handle 401's
-	class pasteURLopener(urllib.FancyURLopener):
-		def http_error_401(self, url, fp, errcode, errmsg, headers, data=None):
-			return None
+    # Custom urlopener to handle 401's
+    class pasteURLopener(urllib.FancyURLopener):
+        def http_error_401(self, url, fp, errcode, errmsg, headers, data=None):
+            return None
 
-	# pastey.net obfuscates parent ids for replies.  Rather than taking the
-	# post ID given as the parent ID, we must handle this by going to that
-	# post page and looking up what the invisible parent ID field will be
-	# set to for children.
-	def pasteyParentFixup(website, parentid):
-		if parentid == "":
-			return ""
-		url_opener = pasteURLopener()
-		page = url_opener.open(website + '/' + parentid, None)
-		matches = re.split('<input.*?name="parent".*?value="(.*?)"', page.read())
-		if len(matches) <= 1 or re.match(parentid, matches[1]) == None:
-			# The obfuscated version didn't begin with the partial version,
-			# or unable to find the obfuscated version for some reason!
-			# Create a paste with no parent (should we throw, instead?)
-			return ""
-		return matches[1]
+    # pastey.net obfuscates parent ids for replies.  Rather than taking the
+    # post ID given as the parent ID, we must handle this by going to that
+    # post page and looking up what the invisible parent ID field will be
+    # set to for children.
+    def pasteyParentFixup(website, parentid):
+        if parentid == "":
+            return ""
+        url_opener = pasteURLopener()
+        page = url_opener.open(website + '/' + parentid, None)
+        matches = re.split('<input.*?name="parent".*?value="(.*?)"', page.read())
+        if len(matches) <= 1 or re.match(parentid, matches[1]) == None:
+            # The obfuscated version didn't begin with the partial version,
+            # or unable to find the obfuscated version for some reason!
+            # Create a paste with no parent (should we throw, instead?)
+            return ""
+        return matches[1]
 
-	#Return the parameters depending of the pastebin used
-	def getParameters(website, content, user, jabberid, version, format, parentpid, permatag, title, username, password):
-		"Return the parameters array for the selected pastebin"
-		params={}
-		# pastebin.com v0.50
-		if (re.search("http://((([a-zA-Z0-9\-_\.]*)(pastebin\.com)))", website) and not website == "http://www.pastebin.com") or website == "http://pastebin.mozilla.org":
-			params['poster'] = user
-			params['code2'] = content
-			params['version'] = version
-			params['parent_pid'] = parentpid #For reply, "" means homepage (new thread)
-			params['format'] = format #The format, for syntax hilighting
-			params['paste'] = "Send" 
-			params['remember'] = "0" #Do you want a cookie ?
-			params['expiry'] = "f" #The expiration, f = forever
-		elif website == "http://pastebin.ca":
-			params['name'] = user
-			params['content'] = content
-			params['type'] = "1" #The expiration, 1 = raw
-			params['save'] = "0" #Do you want a cookie ?
-			params['s'] = "Submit Post"
-			params['regexp'] = '">http://pastebin.ca/(.*)</a></p><p>'
-		elif re.search("http://((([a-zA-Z0-9\-_\.]*)(1t2\.us)))", website):	
-			params['poster'] = user
-			params['jid'] = jabberid
-			params['code2'] = content
-			params['parent_pid'] = parentpid #For reply, "" means homepage (new thread)
-			params['format'] = format #The format, for syntax hilighting
-			params['paste'] = "Send"
-			params['remember'] = "0" #Do you want a cookie ?
-			params['expiry'] = "f" #The expiration, f = forever
-			params['permatag'] = permatag
-			params['title'] = title
-			params['username'] = username
-			params['password'] = password
-			params['version'] = version
-		elif website == "http://rafb.net":
-			params['page'] = "/paste/paste.php"
-			params['nick'] = user
-			params['text'] = content
-			params['lang'] = "Plain Text" #The format, for syntax hilighting
-			params['cvt_tabs'] = "No"
-		elif website == "http://stikked.com":
-			params['name'] = user
-			params['title'] = title
-			params['email'] = ""
-			params['lang'] = "text" #The format, for syntax hilighting
-			params['code'] = content
-			params['website'] = ""
-			params['submit'] = "submit"
-		elif website == "http://slexy.org":
-			params['page'] = "/index.php/submit"
-			params['raw_paste'] = content
-			params['comment'] = ""
-			params['author'] = user
-			params['language'] = "text" #The format, for syntax hilighting
-			params['permissions'] = "0"
-			params['desc'] = title
-			params['linenumbers'] = "0"
-			params['expire'] = "0"
-			params['submit'] = "Submit Paste"
-		elif website == "http://fpaste.org":
-			params['lang'] = format #The format, for syntax hilighting
-			params['page'] = "/paste/save"
-			params['content'] = content
-			params['submit'] = "pastebinit"
-		elif website == "http://paste2.org":
-			params['page'] = "/new-paste"
-			params['description'] = title
-			params['lang'] = format
-			params['code'] = content
-			params['parent'] = "0"
-		elif re.search("http://((([a-zA-Z0-9\-_\.]*)(pastey\.net)))", website):	
-			params['author'] = user
-			params['subject'] = title
-			params['parent'] = pasteyParentFixup(website, parentpid)
-			params['text'] = content
-			params['language'] = format # File format, as a string like "cpp" or "lua"
-			params['paste'] = "Paste"
-			params['page'] = '/submit.php'
-			params['regexp'] = '">http://(?:(?:[a-zA-Z0-9\-_\.]*)(?:pastey\.net))(/.*)</a>'
-		elif website == "http://yourpaste.net":
-			params['syntax'] = format
-			params['name'] = user
-			params['desc'] = title
-			params['expire'] = "0" # Forever
-			params['code'] = content
-			params['private'] = "0" # It's not a private post
-			params['remember'] = "0" # Cookies? ;)
-			params['page'] = "/paste"
-			params['regexp'] = '">http://yourpaste.net(.*)/</a>'
-		elif website == "http://gist.github.com":
-			params['page'] = "/gists"
-			params['poster'] = user
-			params['file_ext[gistfile1]'] = format #The format, for syntax hilighting
-			params['file_contents[gistfile1]'] = content
-			params['file_name[gistfile1]'] = title
-		elif website == "http://paste.ubuntu.com":
-			params['poster'] = user
-			params['syntax'] = format #The format, for syntax hilighting
-			params['content'] = content
-		elif website == "http://paste.debian.net":
-			params['poster'] = user
-			params['lang'] = "-1" #The format, for syntax hilighting, default to plain text
-			params['syntax'] = format #The format, for syntax hilighting
-			params['code'] = content
-			params['remember'] = "0" #Do you want a cookie ?
-			params['expire'] = "259200" # expire in 72h
-		else:
-			sys.exit(_("Unknown website, please post a bugreport to request this pastebin to be added (%s)") % website)
-		return params
+    #Return the parameters depending of the pastebin used
+    def getParameters(website, content, user, jabberid, version, format, parentpid, permatag, title, username, password):
+        "Return the parameters array for the selected pastebin"
+        params={}
+        # pastebin.com v0.50
+        if (re.search("http://((([a-zA-Z0-9\-_\.]*)(pastebin\.com)))", website) and not website == "http://www.pastebin.com") or website == "http://pastebin.mozilla.org":
+            params['poster'] = user
+            params['code2'] = content
+            params['version'] = version
+            params['parent_pid'] = parentpid #For reply, "" means homepage (new thread)
+            params['format'] = format #The format, for syntax hilighting
+            params['paste'] = "Send" 
+            params['remember'] = "0" #Do you want a cookie ?
+            params['expiry'] = "f" #The expiration, f = forever
+        elif re.search("http://((([a-zA-Z0-9\-_\.]*)(pastebin\.ca)))", website):
+            params['name'] = user
+            params['content'] = content
+            params['type'] = "1" #The expiration, 1 = raw
+            params['save'] = "0" #Do you want a cookie ?
+            params['s'] = "Submit Post"
+            params['regexp'] = '">http://.*pastebin.ca/(.*)</a></p><p>'
+#        elif re.search("http://((([a-zA-Z0-9\-_\.]*)(1t2\.us)))", website):
+#            params['poster'] = user
+#            params['jid'] = jabberid
+#            params['code2'] = content
+#            params['parent_pid'] = parentpid #For reply, "" means homepage (new thread)
+#            params['format'] = format #The format, for syntax hilighting
+#            params['paste'] = "Send"
+#            params['remember'] = "0" #Do you want a cookie ?
+#            params['expiry'] = "f" #The expiration, f = forever
+#            params['permatag'] = permatag
+#            params['title'] = title
+#            params['username'] = username
+#            params['password'] = password
+#            params['version'] = version
+        elif website == "http://rafb.net":
+            params['page'] = "/paste/paste.php"
+            params['nick'] = user
+            params['text'] = content
+            params['lang'] = "Plain Text" #The format, for syntax hilighting
+            params['cvt_tabs'] = "No"
+        elif website == "http://stikked.com":
+            params['name'] = user
+            params['title'] = title
+            params['email'] = ""
+            params['lang'] = "text" #The format, for syntax hilighting
+            params['code'] = content
+            params['website'] = ""
+            params['submit'] = "submit"
+        elif website == "http://slexy.org":
+            params['page'] = "/index.php/submit"
+            params['raw_paste'] = content
+            params['comment'] = ""
+            params['author'] = user
+            params['language'] = "text" #The format, for syntax hilighting
+            params['permissions'] = "0"
+            params['desc'] = title
+            params['linenumbers'] = "0"
+            params['expire'] = "0"
+            params['submit'] = "Submit Paste"
+        elif website == "http://fpaste.org":
+            params['lang'] = format #The format, for syntax hilighting
+            params['page'] = "/paste/save"
+            params['content'] = content
+            params['submit'] = "pastebinit"
+        elif website == "http://paste2.org":
+            params['page'] = "/new-paste"
+            params['description'] = title
+            params['lang'] = format
+            params['code'] = content
+            params['parent'] = "0"
+        elif re.search("http://((([a-zA-Z0-9\-_\.]*)(pastey\.net)))", website):    
+            params['author'] = user
+            params['subject'] = title
+            params['parent'] = pasteyParentFixup(website, parentpid)
+            params['text'] = content
+            params['language'] = format # File format, as a string like "cpp" or "lua"
+            params['paste'] = "Paste"
+            params['page'] = '/submit.php'
+            params['regexp'] = '">http://(?:(?:[a-zA-Z0-9\-_\.]*)(?:pastey\.net))(/.*)</a>'
+        elif website == "http://yourpaste.net":
+            params['syntax'] = format
+            params['name'] = user
+            params['desc'] = title
+            params['expire'] = "0" # Forever
+            params['code'] = content
+            params['private'] = "0" # It's not a private post
+            params['remember'] = "0" # Cookies? ;)
+            params['page'] = "/paste"
+            params['regexp'] = '">http://yourpaste.net(.*)/</a>'
+        elif website == "http://gist.github.com":
+            params['page'] = "/gists"
+            params['poster'] = user
+            params['file_ext[gistfile1]'] = format #The format, for syntax hilighting
+            params['file_contents[gistfile1]'] = content
+            params['file_name[gistfile1]'] = title
+        elif website == "http://paste.ubuntu.com":
+            params['poster'] = user
+            params['syntax'] = format #The format, for syntax hilighting
+            params['content'] = content
+        elif website == "http://paste.debian.net":
+            params['poster'] = user
+            params['lang'] = "-1" #The format, for syntax hilighting, default to plain text
+            params['syntax'] = format #The format, for syntax hilighting
+            params['code'] = content
+            params['remember'] = "0" #Do you want a cookie ?
+            params['expire'] = "259200" # expire in 72h
+        else:
+            sys.exit(_("Unknown website, please post a bugreport to request this pastebin to be added (%s)") % website)
+        return params
 
-	#XML Handling methods
-	def getText(nodelist):
-		rc = ""
-		for node in nodelist:
-			if node.nodeType == node.TEXT_NODE:
-				rc = rc + node.data
-		return rc.encode('utf-8')
+    #XML Handling methods
+    def getText(nodelist):
+        rc = ""
+        for node in nodelist:
+            if node.nodeType == node.TEXT_NODE:
+                rc = rc + node.data
+        return rc.encode('utf-8')
 
-	def getNodes(nodes, title):
-		return nodes.getElementsByTagName(title)
+    def getNodes(nodes, title):
+        return nodes.getElementsByTagName(title)
 
-	def getFirstNode(nodes, title):
-		return getNodes(nodes, title)[0]
+    def getFirstNode(nodes, title):
+        return getNodes(nodes, title)[0]
 
-	def getFirstNodeText(nodes, title):
-		return getText(getFirstNode(nodes, title).childNodes)
+    def getFirstNodeText(nodes, title):
+        return getText(getFirstNode(nodes, title).childNodes)
 
-	# Display usage instructions
-	def Usage ():
-		print "pastebinit v" + version
-		print _("Optional arguments:")
-		print _("\t-h This help screen")
-		print _("\t-i <filename> or - to read from stdin")
-		print _("\t-b <pastebin url:default is '%s'>") % website
-		print _("\t-a <author:default is '%s'>") % user
-		print _("\t-f <format of paste:default is '%s'>") % format
-		print _("\t-r <parent posts ID:defaults to none>")
-		print _("Optional arguments supported only by 1t2.us:")
-		print _("\t-j <jabberid for notifications:default is '%s'>") % jabberid
-		print _("\t-m <permatag for all versions of a post:default is blank>")
-		print _("\t-t <title of paste:default is blank>")
-		print _("\t-u <username> -p <password>")
+    # Display usage instructions
+    def Usage ():
+        print "pastebinit v" + version
+        print "Reads on stdin for input or takes a filename as first parameter"
+        print _("Optional arguments:")
+        print _("\t-h This help screen")
+        print _("\t-b <pastebin url:default is '%s'>") % website
+        print _("\t-a <author:default is '%s'>") % user
+        print _("\t-f <format of paste:default is '%s'>") % format
+        print _("\t-r <parent posts ID:defaults to none>")
+#        print _("Optional arguments supported only by 1t2.us:")
+#        print _("\t-j <jabberid for notifications:default is '%s'>") % jabberid
+#        print _("\t-m <permatag for all versions of a post:default is blank>")
+#        print _("\t-t <title of paste:default is blank>")
+#        print _("\t-u <username> -p <password>")
 
-	# Set defaults
-	website = defaultPB
-	user = os.environ.get('USER')
-	jabberid = ""
-	title = ""
-	permatag = ""
-	format = "text"
-	username = ""
-	password = ""
-	filename = ""
-	content = ""
-	parentpid = ""
+    # Set defaults
+    website = defaultPB
+    user = os.environ.get('USER')
+    jabberid = ""
+    title = ""
+    permatag = ""
+    format = "text"
+    username = ""
+    password = ""
+    filename = ""
+    content = ""
+    parentpid = ""
 
-	#Example configuration file string
-	configexample = """\
+    #Example configuration file string
+    configexample = """\
 <pastebinit>
 <pastebin>http://paste.debian.net</pastebin>
 <author>A pastebinit user</author>
@@ -216,115 +216,117 @@ try:
 </pastebinit>
 """
 
-	#Open configuration file if it exists
-	try:
-		f = open(configfile)
-		configtext = f.read()
-		f.close()
-		gotconfigxml = 1
-	except KeyboardInterrupt:
-		sys.exit(_("KeyboardInterrupt caught."))
-	except:
-		gotconfigxml = 0
+    #Open configuration file if it exists
+    try:
+        f = open(configfile)
+        configtext = f.read()
+        f.close()
+        gotconfigxml = 1
+    except KeyboardInterrupt:
+        sys.exit(_("KeyboardInterrupt caught."))
+    except:
+        gotconfigxml = 0
 
-	#Parse configuration file
-	if gotconfigxml == 1:
-		try:
-			configxml = xml.dom.minidom.parse(configtext)
-			website = getFirstNodeText(configxml, "pastebin")
-			user = getFirstNodeText(configxml, "author")
-			format = getFirstNodeText(configxml, "format")
-			jabberid = getFirstNodeText(configxml, "jabberid")
-		except KeyboardInterrupt:
-			sys.exit(_("KeyboardInterrupt caught."))
-		except:
-			print _("Error parsing configuration file!")
-			print _("Please ensure that your configuration file looks similar to the following:")
-			print configexample
-			sys.exit(1)
+    #Parse configuration file
+    if gotconfigxml == 1:
+        try:
+            configxml = xml.dom.minidom.parseString(configtext)
+            website = getFirstNodeText(configxml, "pastebin")
+            user = getFirstNodeText(configxml, "author")
+            format = getFirstNodeText(configxml, "format")
+            jabberid = getFirstNodeText(configxml, "jabberid")
+        except KeyboardInterrupt:
+            sys.exit(_("KeyboardInterrupt caught."))
+        except:
+            raise
+            print _("Error parsing configuration file!")
+            print _("Please ensure that your configuration file looks similar to the following:")
+            print configexample
+            sys.exit(1)
 
-	# Get options
-	try:
-		optlist, list = getopt.getopt(sys.argv[1:], 'hi:f:b:a:r:j:t:m:u:p:')
-	except KeyboardInterrupt:
-		sys.exit(_("KeyboardInterrupt caught."))
-	except getopt.GetoptError:
-		print _("Invalid arguments!\n")
-		Usage()
-		sys.exit(1)
+    # Get options
+    try:
+        optlist, list = getopt.getopt(sys.argv[1:], 'hi:f:b:a:r:j:t:m:u:p:')
+    except KeyboardInterrupt:
+        sys.exit(_("KeyboardInterrupt caught."))
+    except getopt.GetoptError:
+        print _("Invalid arguments!\n")
+        Usage()
+        sys.exit(1)
 
-	# Iterate through options
-	for opt in optlist:
-		if opt[0] == "-h":
-			Usage()
-			sys.exit(1)
-		if opt[0] == "-i":
-			filename = opt[1]
-		elif opt[0] == "-f":
-			format = opt[1]
-		elif opt[0] == "-b":
-			website = opt[1]
-		elif opt[0] == "-a":
-			user = opt[1]
-		elif opt[0] == "-r":
-			parentpid = opt[1]
-		elif opt[0] == "-j":
-			jabberid = opt[1]
-		elif opt[0] == "-t":
-			title = opt[1]
-		elif opt[0] == "-m":
-			permatag = opt[1]
-		elif opt[0] == "-u":
-			username = opt[1]
-		elif opt[0] == "-p":
-			password = opt[1]
+    # Iterate through options
+    for opt in optlist:
+        if opt[0] == "-h":
+            Usage()
+            sys.exit(1)
+        if opt[0] == "-i":
+            filename = opt[1]
+        elif opt[0] == "-f":
+            format = opt[1]
+        elif opt[0] == "-b":
+            website = opt[1]
+        elif opt[0] == "-a":
+            user = opt[1]
+        elif opt[0] == "-r":
+            parentpid = opt[1]
+        elif opt[0] == "-j":
+            jabberid = opt[1]
+        elif opt[0] == "-t":
+            title = opt[1]
+        elif opt[0] == "-m":
+            permatag = opt[1]
+        elif opt[0] == "-u":
+            username = opt[1]
+        elif opt[0] == "-p":
+            password = opt[1]
 
-	if filename == "" and len(list) >= 1:
-		filename = list[0]
+    if filename == "" and len(list) >= 1:
+        filename = list[0]
 
-	#If - is specified as a filename read from stdin, otherwise load the specified file.
-	if (filename == "" or filename == "-") and content == "":
-		content = sys.stdin.read()
-	elif content == "":
-		try:
-			f = open(filename)
-			content = f.read()
-			f.close()
-		except KeyboardInterrupt:
-			sys.exit(_("KeyboardInterrupt caught."))
-		except:
-			sys.exit(_("Unable to read from: %s") % filename)
-	if not content:
-		sys.exit(_("You are trying to send an empty document, exiting.")) 
-	params = getParameters(website, content, user, jabberid, version, format, parentpid, permatag, title, username, password) #Get the parameters array
-	
-	if not re.search(".*/", website):
-		website += "/"
+    #If - is specified as a filename read from stdin, otherwise load the specified file.
+    if (filename == "" or filename == "-") and content == "":
+        content = sys.stdin.read()
+    elif content == "":
+        try:
+            f = open(filename)
+            content = f.read()
+            f.close()
+        except KeyboardInterrupt:
+            sys.exit(_("KeyboardInterrupt caught."))
+        except:
+            sys.exit(_("Unable to read from: %s") % filename)
+    if not content:
+        sys.exit(_("You are trying to send an empty document, exiting.")) 
+    params = getParameters(website, content, user, jabberid, version, format, parentpid, permatag, title, username, password) #Get the parameters array
 
-	reLink=None
-	if params.__contains__("page"):
-		website+=params['page']
-		tmp_page=params['page']
-		params.__delitem__("page")
-	if params.__contains__("regexp"):
-		reLink=params['regexp']
-		params.__delitem__("regexp")
-	params = urllib.urlencode(params) #Convert to a format usable with the HTML POST
+    if not re.search(".*/", website):
+        website += "/"
 
-	url_opener = pasteURLopener()
-	page = url_opener.open(website, params) #Send the informations and be redirected to the final page
+    reLink=None
+    tmp_page=""
+    if params.__contains__("page"):
+        website+=params['page']
+        tmp_page=params['page']
+        params.__delitem__("page")
+    if params.__contains__("regexp"):
+        reLink=params['regexp']
+        params.__delitem__("regexp")
+    params = urllib.urlencode(params) #Convert to a format usable with the HTML POST
 
-	try:
-		if reLink: #Check if we have to apply a regexp
-			website = website.replace(tmp_page, "")
-			print website + re.split(reLink, page.read())[1] #Print the result of the Regexp
-		else:
-			print page.url #Get the final page and show the ur
-	except KeyboardInterrupt:
-		sys.exit(_("KeyboardInterrupt caught."))
-	except:
-		raise
-		sys.exit(_("Unable to read or parse the result page, it could be a server timeout or a change server side, try with another pastebin."))
+    url_opener = pasteURLopener()
+    page = url_opener.open(website, params) #Send the informations and be redirected to the final page
+
+    try:
+        if reLink: #Check if we have to apply a regexp
+            website = website.replace(tmp_page, "")
+            print website + "/" + re.split(reLink, page.read())[1] #Print the result of the Regexp
+        else:
+            print page.url #Get the final page and show the ur
+    except KeyboardInterrupt:
+        sys.exit(_("KeyboardInterrupt caught."))
+    except:
+        raise
+        sys.exit(_("Unable to read or parse the result page, it could be a server timeout or a change server side, try with another pastebin."))
 
 except KeyboardInterrupt:
-	sys.exit(_("KeyboardInterrupt caught."))
+    sys.exit(_("KeyboardInterrupt caught."))

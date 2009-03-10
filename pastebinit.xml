@@ -76,10 +76,10 @@
         <varlistentry>
           <term><option>-f <arg>format of paste</arg></option> (used for syntax-highlighting, default: text)</term>
         </varlistentry>	
-	<varlistentry>
+        <varlistentry>
           <term><option>-r <arg>parent post ID</arg></option> (default: none)</term>
         </varlistentry>
-        <varlistentry>
+        <!-- <varlistentry>
           <term><option>-t <arg>title of paste</arg></option> (ONLY FOR 1t2.us)</term>
         </varlistentry>
         <varlistentry>
@@ -93,8 +93,8 @@
         </varlistentry>
         <varlistentry>
           <term><option>-j <arg>jabberid</arg></option> (ONLY FOR 1t2.us)</term>
-        </varlistentry>        
-      </variablelist>
+        </varlistentry>
+      </variablelist> -->
     </refsect2>
   </refsect1>
   <refsect1>
@@ -106,9 +106,9 @@
       <listitem>
         <para>http://pastebin.ca (including subdomains)</para>
       </listitem>
-      <listitem>
-        <para>http://1t2.com (including subdomains)</para>
-      </listitem>
+<!--      <listitem>
+        <para>http://1t2.us (including subdomains)</para>
+      </listitem> -->
       <listitem>
         <para>http://rafb.net</para>
       </listitem>
@@ -122,7 +122,7 @@
         <para>http://paste2.org</para>
       </listitem>
       <listitem>
-        <para>http://pastey.net</para>
+        <para>http://pastey.net (including subdomains)</para>
       </listitem>
       <listitem>
         <para>http://stikked.com</para>
