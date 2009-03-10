@@ -230,7 +230,7 @@ try:
 	#Parse configuration file
 	if gotconfigxml == 1:
 		try:
-			configxml = xml.dom.minidom.parse(configfile)
+			configxml = xml.dom.minidom.parse(configtext)
 			website = getFirstNodeText(configxml, "pastebin")
 			user = getFirstNodeText(configxml, "author")
 			format = getFirstNodeText(configxml, "format")
