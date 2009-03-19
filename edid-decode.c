@@ -885,7 +885,7 @@ int main(int argc, char **argv)
 	analog = 0;
 	printf("Digital display\n");
 	if (claims_one_point_four) {
-	    conformance_mask = 0x80;
+	    conformance_mask = 0;
 	    if ((edid[0x14] & 0x70) == 0x00)
 		printf("Color depth is undefined\n");
 	    else if ((edid[0x14] & 0x70) == 0x70)
