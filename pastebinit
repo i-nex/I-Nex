@@ -158,7 +158,31 @@ try:
             params['expire'] = "259200" # expire in 72h
         elif website == "http://pastie.org":
             params['page'] = "/pastes"
-            params['paste[parser_id]'] = '6' # plain text
+            # This feels so fragile... what if pastie.org renumbers them?
+            # <option value="2">ActionScript</option>
+            # <option value="7">C/C++</option>
+            # <option value="8">CSS</option>
+            # <option value="5">Diff</option>
+            # <option value="12">HTML (ERB / Rails)</option>
+            # <option value="11">HTML / XML</option>
+            # <option value="9">Java</option>
+            # <option value="10">Javascript</option>
+            # <option value="1">Objective C/C++</option>
+            # <option value="17">Pascal</option>
+            # <option value="18">Perl</option>
+            # <option value="15">PHP</option>
+            # <option value="6">Plain text</option>
+            # <option value="16">Python</option>
+            # <option value="3">Ruby</option>
+            # <option value="4">Ruby (on Rails)</option>
+            # <option value="13">Shell Script (Bash)</option>
+            # <option value="14">SQL</option>
+            # <option value="19">YAML</option>
+            formats = dict(actionscript=2, c=7, css=8, diff=5, html=11, java=9,
+                           javascript=10, objc=1, pascal=17, perl=18, php=15,
+                           text=6, python=16, ruby=3, rubyonrails=4, bash=13,
+                           sql=14, yaml=19)
+            params['paste[parser_id]'] = str(formats.get(format.lower(), format))
             params['paste[restricted]'] = '0' # private?
             params['paste[body]'] = content
             params['paste[authorization]'] = 'burger' # spambot trap?
