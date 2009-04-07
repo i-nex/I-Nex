@@ -156,6 +156,14 @@ try:
             params['code'] = content
             params['remember'] = "0" #Do you want a cookie ?
             params['expire'] = "259200" # expire in 72h
+        elif website == "http://pastie.org":
+            params['page'] = "/pastes"
+            params['paste[parser_id]'] = '6' # plain text
+            params['paste[restricted]'] = '0' # private?
+            params['paste[body]'] = content
+            params['paste[authorization]'] = 'burger' # spambot trap?
+            params['key'] = '' # no idea
+            params['commit'] = 'Paste' # submit button
         else:
             sys.exit(_("Unknown website, please post a bugreport to request this pastebin to be added (%s)") % website)
         return params
