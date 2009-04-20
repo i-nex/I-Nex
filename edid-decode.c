@@ -643,7 +643,6 @@ static int edid_lines = 0;
 static unsigned char *
 extract_edid(int fd)
 {
-    struct stat buf;
     char *ret = NULL;
     char *start, *c;
     unsigned char *out = NULL;
@@ -651,20 +650,31 @@ extract_edid(int fd)
     int lines = 0;
     int i;
     int out_index = 0;
+    int len, size;
 
-    if (fstat(fd, &buf))
-	return NULL;
-
-    ret = calloc(1, buf.st_size);
-    if (!ret)
-	return NULL;
-
-    read(fd, ret, buf.st_size);
+    ret = malloc(1024);
+    size = 1024;
+    len = 0;
+    for (;;) {
+	i = read(fd, ret + len, size - len);
+	if (i < 0) {
+	    free(ret);
+	    return 0;
+	}
+	if (i == 0)
+	    break;
+	len += i;
+	if (len == size)
+	    ret = realloc(ret, size + 1024);
+    }
 
     /* Look for xrandr --verbose output (8 lines of 16 hex bytes) */
     if ((start = strstr(ret, "EDID_DATA:")) != NULL) {
-	const char *indentation = "                ";
+	const char indentation1[] = "                ";
+	const char indentation2[] = "\t\t";
+	const char *indentation;
 	unsigned char *out;
+	char *s;
 
 	out = malloc(128);
 	if (out == NULL)
@@ -674,13 +684,15 @@ extract_edid(int fd)
 	    int j;
 
 	    /* Get the next start of the line of EDID hex. */
-	    start = strstr(start, indentation);
-	    if (start == NULL) {
+	    s = strstr(start, indentation = indentation1);
+	    if (!s)
+		s = strstr(start, indentation = indentation2);
+	    if (s == NULL) {
 		free(ret);
 		free(out);
 		return NULL;
 	    }
-	    start += strlen(indentation);
+	    start = s + strlen(indentation);
 
 	    c = start;
 	    for (j = 0; j < 16; j++) {
@@ -706,7 +718,7 @@ extract_edid(int fd)
     /* wait, is this a log file? */
     for (i = 0; i < 8; i++) {
 	if (!isascii(ret[i])) {
-	    edid_lines = buf.st_size / 16;
+	    edid_lines = len / 16;
 	    return (unsigned char *)ret;
 	}
     }
@@ -817,17 +829,21 @@ int main(int argc, char **argv)
     int analog, i;
 
     if (argc != 2) {
-	printf("Need a file name\n");
-	return 1;
-    }
-
-    if ((fd = open(argv[1], O_RDONLY)) == -1) {
-	printf("Open failed\n");
-	return 1;
+	fd = 0;
+    } else {
+	if ((fd = open(argv[1], O_RDONLY)) == -1) {
+	    perror(argv[1]);
+	    return 1;
+	}
     }
 
     edid = extract_edid(fd);
-    close(fd);
+    if (!edid) {
+	fprintf(stderr, "edid extract failed\n");
+	return 1;
+    }
+    if (fd != 0)
+	close(fd);
 
     dump_breakdown(edid);
 
