@@ -20,6 +20,7 @@
 try:
     import urllib, os, sys, re, getopt, select, xml.dom.minidom, gettext
     from gettext import gettext as _
+    from configobj import ConfigObj
 
     gettext.textdomain("pastebinit")
 
@@ -31,6 +32,16 @@ try:
     class pasteURLopener(urllib.FancyURLopener):
         def http_error_401(self, url, fp, errcode, errmsg, headers, data=None):
             return None
+
+    def preloadPastebins():
+	confdir = '/etc/pastebin.d/'
+	confdirlist = os.listdir(confdir)
+	pastebind = {}
+	for fileitem in confdirlist:
+		bininstance = ConfigObj(confdir + fileitem)
+		basename = bininstance['pastebin']['basename']
+		pastebind[basename] = bininstance
+	return pastebind
 
     # pastey.net obfuscates parent ids for replies.  Rather than taking the
     # post ID given as the parent ID, we must handle this by going to that
@@ -50,26 +61,26 @@ try:
         return matches[1]
 
     #Return the parameters depending of the pastebin used
-    def getParameters(website, content, user, jabberid, version, format, parentpid, permatag, title, username, password):
+    def getParameters(website, pastebind, content, user, jabberid, version, format, parentpid, permatag, title, username, password):
         "Return the parameters array for the selected pastebin"
         params={}
         # pastebin.com v0.50
-        if (re.search("http://((([a-zA-Z0-9\-_\.]*)(pastebin\.com)))", website) and not website == "http://www.pastebin.com") or website == "http://pastebin.mozilla.org":
-            params['poster'] = user
-            params['code2'] = content
-            params['version'] = version
-            params['parent_pid'] = parentpid #For reply, "" means homepage (new thread)
-            params['format'] = format #The format, for syntax hilighting
-            params['paste'] = "Send" 
-            params['remember'] = "0" #Do you want a cookie ?
-            params['expiry'] = "f" #The expiration, f = forever
-        elif re.search("http://((([a-zA-Z0-9\-_\.]*)(pastebin\.ca)))", website):
-            params['name'] = user
-            params['content'] = content
-            params['type'] = "1" #The expiration, 1 = raw
-            params['save'] = "0" #Do you want a cookie ?
-            params['s'] = "Submit Post"
-            params['regexp'] = '">http://.*pastebin.ca/(.*)</a></p><p>'
+#        if (re.search("http://((([a-zA-Z0-9\-_\.]*)(pastebin\.com)))", website) and not website == "http://www.pastebin.com") or website == "http://pastebin.mozilla.org":
+#            params['poster'] = user
+#            params['code2'] = content
+#            params['version'] = version
+#            params['parent_pid'] = parentpid #For reply, "" means homepage (new thread)
+#            params['format'] = format #The format, for syntax hilighting
+#            params['paste'] = "Send" 
+#            params['remember'] = "0" #Do you want a cookie ?
+#            params['expiry'] = "f" #The expiration, f = forever
+#        elif re.search("http://((([a-zA-Z0-9\-_\.]*)(pastebin\.ca)))", website):
+#            params['name'] = user
+#            params['content'] = content
+#            params['type'] = "1" #The expiration, 1 = raw
+#            params['save'] = "0" #Do you want a cookie ?
+#            params['s'] = "Submit Post"
+#            params['regexp'] = '">http://.*pastebin.ca/(.*)</a></p><p>'
 #        elif re.search("http://((([a-zA-Z0-9\-_\.]*)(1t2\.us)))", website):
 #            params['poster'] = user
 #            params['jid'] = jabberid
@@ -84,7 +95,8 @@ try:
 #            params['username'] = username
 #            params['password'] = password
 #            params['version'] = version
-        elif website == "http://rafb.net":
+        #elif website == "http://rafb.net":
+        if website == "http://rafb.net":
             params['page'] = "/paste/paste.php"
             params['nick'] = user
             params['text'] = content
@@ -145,10 +157,10 @@ try:
             params['file_ext[gistfile1]'] = format #The format, for syntax hilighting
             params['file_contents[gistfile1]'] = content
             params['file_name[gistfile1]'] = title
-        elif website == "http://paste.ubuntu.com":
-            params['poster'] = user
-            params['syntax'] = format #The format, for syntax hilighting
-            params['content'] = content
+#        elif website == "http://paste.ubuntu.com":
+#            params['poster'] = user
+#            params['syntax'] = format #The format, for syntax hilighting
+#            params['content'] = content
         elif website == "http://paste.debian.net":
             params['poster'] = user
             params['lang'] = "-1" #The format, for syntax hilighting, default to plain text
@@ -157,8 +169,37 @@ try:
             params['remember'] = "0" #Do you want a cookie ?
             params['expire'] = "259200" # expire in 72h
         else:
-            sys.exit(_("Unknown website, please post a bugreport to request this pastebin to be added (%s)") % website)
-        return params
+		for pastebin in pastebind:
+			if re.search( pastebind[pastebin]['pastebin']['regexp'], website ):
+				for param in pastebind[pastebin]['format'].keys():
+					paramname = pastebind[pastebin]['format'][param]
+					if param == 'user':
+						params[paramname] = user
+					elif param == 'content':
+						params[paramname] = content			
+					elif param == 'title':
+						params[paramname] = title
+					elif param == 'version':
+						params[paramname] = version
+					elif param == 'format':
+						params[paramname] = format
+					elif param == 'parentpid':
+						params[paramname] = parentpid
+					elif param == 'permatag':
+						params[paramname] = parmatag
+					elif param == 'username':
+						params[paramname] = username
+					elif param == 'password':
+						params[paramname] = password
+					elif param == 'jabberid':
+						params[paramname] = jabberid
+					else:
+						params[paramname] = pastebind[pastebin]['defaults'][paramname]
+				#print params
+	if params:
+        	return params
+	else:
+		sys.exit(_("Unknown website, please post a bugreport to request this pastebin to be added (%s)") % website)
 
     #XML Handling methods
     def getText(nodelist):
@@ -297,7 +338,8 @@ try:
             sys.exit(_("Unable to read from: %s") % filename)
     if not content:
         sys.exit(_("You are trying to send an empty document, exiting.")) 
-    params = getParameters(website, content, user, jabberid, version, format, parentpid, permatag, title, username, password) #Get the parameters array
+    pastebind = preloadPastebins() #get the config from /etc/pastebin.d/
+    params = getParameters(website, pastebind, content, user, jabberid, version, format, parentpid, permatag, title, username, password) #Get the parameters array
 
     if not re.search(".*/", website):
         website += "/"
