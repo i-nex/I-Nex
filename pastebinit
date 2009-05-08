@@ -47,12 +47,12 @@ try:
     # post ID given as the parent ID, we must handle this by going to that
     # post page and looking up what the invisible parent ID field will be
     # set to for children.
-    def pasteyParentFixup(website, parentid):
+    def doParentFixup(website, paramname, parentid):
         if parentid == "":
             return ""
         url_opener = pasteURLopener()
         page = url_opener.open(website + '/' + parentid, None)
-        matches = re.split('<input.*?name="parent".*?value="(.*?)"', page.read())
+        matches = re.split('<input.*?name="' + paramname + '".*?value="(.*?)"', page.read())
         if len(matches) <= 1 or re.match(parentid, matches[1]) == None:
             # The obfuscated version didn't begin with the partial version,
             # or unable to find the obfuscated version for some reason!
@@ -132,15 +132,15 @@ try:
             params['lang'] = format
             params['code'] = content
             params['parent'] = "0"
-        elif re.search("http://((([a-zA-Z0-9\-_\.]*)(pastey\.net)))", website):    
-            params['author'] = user
-            params['subject'] = title
-            params['parent'] = pasteyParentFixup(website, parentpid)
-            params['text'] = content
-            params['language'] = format # File format, as a string like "cpp" or "lua"
-            params['paste'] = "Paste"
-            params['page'] = '/submit.php'
-            params['regexp'] = '">http://(?:(?:[a-zA-Z0-9\-_\.]*)(?:pastey\.net))(/.*)</a>'
+        #elif re.search("http://((([a-zA-Z0-9\-_\.]*)(pastey\.net)))", website):    
+        #    params['author'] = user
+        #    params['subject'] = title
+        #    params['parent'] = pasteyParentFixup(website, parentpid)
+        #    params['text'] = content
+        #    params['language'] = format # File format, as a string like "cpp" or "lua"
+        #    params['paste'] = "Paste"
+        #    params['page'] = '/submit.php'
+        #    params['regexp'] = '">http://(?:(?:[a-zA-Z0-9\-_\.]*)(?:pastey\.net))(/.*)</a>'
         elif website == "http://yourpaste.net":
             params['syntax'] = format
             params['name'] = user
@@ -184,7 +184,8 @@ try:
 					elif param == 'format':
 						params[paramname] = format
 					elif param == 'parentpid':
-						params[paramname] = parentpid
+						#params[paramname] = parentpid
+            					params[paramname] = doParentFixup(website, paramname, parentpid)
 					elif param == 'permatag':
 						params[paramname] = parmatag
 					elif param == 'username':
