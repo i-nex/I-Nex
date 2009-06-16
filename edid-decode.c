@@ -908,7 +908,7 @@ int main(int argc, char **argv)
 		nonconformant_digital_display = 1;
 	    else
 		printf("%d bits per primary color channel\n",
-		       (edid[0x14] >> 3) + 2);
+		       ((edid[0x14] & 0x70) >> 3) + 4);
 
 	    switch (edid[0x14] & 0x0f) {
 	    case 0x00: printf("Digital interface is not defined\n"); break;
