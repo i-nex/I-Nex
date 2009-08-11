@@ -20,6 +20,7 @@
 try:
     import urllib, os, sys, re, getopt, select, xml.dom.minidom, gettext
     from gettext import gettext as _
+    from configobj import ConfigObj
 
     gettext.textdomain("pastebinit")
 
@@ -32,16 +33,26 @@ try:
         def http_error_401(self, url, fp, errcode, errmsg, headers, data=None):
             return None
 
+    def preloadPastebins():
+	confdir = '/etc/pastebin.d/'
+	confdirlist = os.listdir(confdir)
+	pastebind = {}
+	for fileitem in confdirlist:
+		bininstance = ConfigObj(confdir + fileitem)
+		basename = bininstance['pastebin']['basename']
+		pastebind[basename] = bininstance
+	return pastebind
+
     # pastey.net obfuscates parent ids for replies.  Rather than taking the
     # post ID given as the parent ID, we must handle this by going to that
     # post page and looking up what the invisible parent ID field will be
     # set to for children.
-    def pasteyParentFixup(website, parentid):
+    def doParentFixup(website, paramname, parentid):
         if parentid == "":
             return ""
         url_opener = pasteURLopener()
         page = url_opener.open(website + '/' + parentid, None)
-        matches = re.split('<input.*?name="parent".*?value="(.*?)"', page.read())
+        matches = re.split('<input.*?name="' + paramname + '".*?value="(.*?)"', page.read())
         if len(matches) <= 1 or re.match(parentid, matches[1]) == None:
             # The obfuscated version didn't begin with the partial version,
             # or unable to find the obfuscated version for some reason!
@@ -50,7 +61,7 @@ try:
         return matches[1]
 
     #Return the parameters depending of the pastebin used
-    def getParameters(website, content, user, jabberid, version, format, parentpid, permatag, title, username, password):
+    def getParameters(website, pastebind, content, user, jabberid, version, format, parentpid, permatag, title, username, password):
         "Return the parameters array for the selected pastebin"
         params={}
         # pastebin.com v0.50
@@ -84,51 +95,53 @@ try:
 #            params['username'] = username
 #            params['password'] = password
 #            params['version'] = version
-        elif website == "http://rafb.net":
-            params['page'] = "/paste/paste.php"
-            params['nick'] = user
-            params['text'] = content
-            params['lang'] = "Plain Text" #The format, for syntax hilighting
-            params['cvt_tabs'] = "No"
-        elif website == "http://stikked.com":
-            params['name'] = user
-            params['title'] = title
-            params['email'] = ""
-            params['lang'] = "text" #The format, for syntax hilighting
-            params['code'] = content
-            params['website'] = ""
-            params['submit'] = "submit"
-        elif website == "http://slexy.org":
-            params['page'] = "/index.php/submit"
-            params['raw_paste'] = content
-            params['comment'] = ""
-            params['author'] = user
-            params['language'] = "text" #The format, for syntax hilighting
-            params['permissions'] = "0"
-            params['desc'] = title
-            params['linenumbers'] = "0"
-            params['expire'] = "0"
-            params['submit'] = "Submit Paste"
-        elif website == "http://fpaste.org":
-            params['lang'] = format #The format, for syntax hilighting
-            params['page'] = "/paste/save"
-            params['content'] = content
-            params['submit'] = "pastebinit"
-        elif website == "http://paste2.org":
-            params['page'] = "/new-paste"
-            params['description'] = title
-            params['lang'] = format
-            params['code'] = content
-            params['parent'] = "0"
-        elif re.search("http://((([a-zA-Z0-9\-_\.]*)(pastey\.net)))", website):    
-            params['author'] = user
-            params['subject'] = title
-            params['parent'] = pasteyParentFixup(website, parentpid)
-            params['text'] = content
-            params['language'] = format # File format, as a string like "cpp" or "lua"
-            params['paste'] = "Paste"
-            params['page'] = '/submit.php'
-            params['regexp'] = '">http://(?:(?:[a-zA-Z0-9\-_\.]*)(?:pastey\.net))(/.*)</a>'
+#        elif website == "http://rafb.net":
+#        if website == "http://rafb.net":
+#            params['page'] = "/paste/paste.php"
+#            params['nick'] = user
+#            params['text'] = content
+#            params['lang'] = "Plain Text" #The format, for syntax hilighting
+#            params['cvt_tabs'] = "No"
+#        elif website == "http://stikked.com":
+#            params['name'] = user
+#            params['title'] = title
+#            params['email'] = ""
+#            params['lang'] = "text" #The format, for syntax hilighting
+#            params['code'] = content
+#            params['website'] = ""
+#            params['submit'] = "submit"
+#        elif website == "http://slexy.org":
+#        if website == "http://slexy.org":
+#            params['page'] = "/index.php/submit"
+#            params['raw_paste'] = content
+#            params['comment'] = ""
+#            params['author'] = user
+#            params['language'] = "text" #The format, for syntax hilighting
+#            params['permissions'] = "0"
+#            params['desc'] = title
+#            params['linenumbers'] = "0"
+#            params['expire'] = "0"
+#            params['submit'] = "Submit Paste"
+#        elif website == "http://fpaste.org":
+#            params['lang'] = format #The format, for syntax hilighting
+#            params['page'] = "/paste/save"
+#            params['content'] = content
+#            params['submit'] = "pastebinit"
+#        elif website == "http://paste2.org":
+#            params['page'] = "/new-paste"
+#            params['description'] = title
+#            params['lang'] = format
+#            params['code'] = content
+#            params['parent'] = "0"
+#        elif re.search("http://((([a-zA-Z0-9\-_\.]*)(pastey\.net)))", website):    
+#            params['author'] = user
+#            params['subject'] = title
+#            params['parent'] = pasteyParentFixup(website, parentpid)
+#            params['text'] = content
+#            params['language'] = format # File format, as a string like "cpp" or "lua"
+#            params['paste'] = "Paste"
+#            params['page'] = '/submit.php'
+#            params['regexp'] = '">http://(?:(?:[a-zA-Z0-9\-_\.]*)(?:pastey\.net))(/.*)</a>'
         elif website == "http://yourpaste.net":
             params['syntax'] = format
             params['name'] = user
@@ -145,20 +158,50 @@ try:
             params['file_ext[gistfile1]'] = format #The format, for syntax hilighting
             params['file_contents[gistfile1]'] = content
             params['file_name[gistfile1]'] = title
-        elif website == "http://paste.ubuntu.com":
-            params['poster'] = user
-            params['syntax'] = format #The format, for syntax hilighting
-            params['content'] = content
-        elif website == "http://paste.debian.net":
-            params['poster'] = user
-            params['lang'] = "-1" #The format, for syntax hilighting, default to plain text
-            params['syntax'] = format #The format, for syntax hilighting
-            params['code'] = content
-            params['remember'] = "0" #Do you want a cookie ?
-            params['expire'] = "259200" # expire in 72h
+#        elif website == "http://paste.ubuntu.com":
+#            params['poster'] = user
+#            params['syntax'] = format #The format, for syntax hilighting
+#            params['content'] = content
+#        elif website == "http://paste.debian.net":
+#            params['poster'] = user
+#            params['lang'] = "-1" #The format, for syntax hilighting, default to plain text
+#            params['syntax'] = format #The format, for syntax hilighting
+#            params['code'] = content
+#            params['remember'] = "0" #Do you want a cookie ?
+#            params['expire'] = "259200" # expire in 72h
         else:
-            sys.exit(_("Unknown website, please post a bugreport to request this pastebin to be added (%s)") % website)
-        return params
+		for pastebin in pastebind:
+			if re.search( pastebind[pastebin]['pastebin']['regexp'], website ):
+				for param in pastebind[pastebin]['format'].keys():
+					paramname = pastebind[pastebin]['format'][param]
+					if param == 'user':
+						params[paramname] = user
+					elif param == 'content':
+						params[paramname] = content			
+					elif param == 'title':
+						params[paramname] = title
+					elif param == 'version':
+						params[paramname] = version
+					elif param == 'format':
+						params[paramname] = format
+					elif param == 'parentpid':
+						#params[paramname] = parentpid
+            					params[paramname] = doParentFixup(website, paramname, parentpid)
+					elif param == 'permatag':
+						params[paramname] = parmatag
+					elif param == 'username':
+						params[paramname] = username
+					elif param == 'password':
+						params[paramname] = password
+					elif param == 'jabberid':
+						params[paramname] = jabberid
+					else:
+						params[paramname] = pastebind[pastebin]['defaults'][paramname]
+				#print params
+	if params:
+        	return params
+	else:
+		sys.exit(_("Unknown website, please post a bugreport to request this pastebin to be added (%s)") % website)
 
     #XML Handling methods
     def getText(nodelist):
@@ -297,7 +340,8 @@ try:
             sys.exit(_("Unable to read from: %s") % filename)
     if not content:
         sys.exit(_("You are trying to send an empty document, exiting.")) 
-    params = getParameters(website, content, user, jabberid, version, format, parentpid, permatag, title, username, password) #Get the parameters array
+    pastebind = preloadPastebins() #get the config from /etc/pastebin.d/
+    params = getParameters(website, pastebind, content, user, jabberid, version, format, parentpid, permatag, title, username, password) #Get the parameters array
 
     if not re.search(".*/", website):
         website += "/"
