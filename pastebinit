@@ -142,22 +142,22 @@ try:
 #            params['paste'] = "Paste"
 #            params['page'] = '/submit.php'
 #            params['regexp'] = '">http://(?:(?:[a-zA-Z0-9\-_\.]*)(?:pastey\.net))(/.*)</a>'
-        elif website == "http://yourpaste.net":
-            params['syntax'] = format
-            params['name'] = user
-            params['desc'] = title
-            params['expire'] = "0" # Forever
-            params['code'] = content
-            params['private'] = "0" # It's not a private post
-            params['remember'] = "0" # Cookies? ;)
-            params['page'] = "/paste"
-            params['regexp'] = '">http://yourpaste.net(.*)/</a>'
-        elif website == "http://gist.github.com":
-            params['page'] = "/gists"
-            params['poster'] = user
-            params['file_ext[gistfile1]'] = format #The format, for syntax hilighting
-            params['file_contents[gistfile1]'] = content
-            params['file_name[gistfile1]'] = title
+#        elif website == "http://yourpaste.net":
+#            params['syntax'] = format
+#            params['name'] = user
+#            params['desc'] = title
+#            params['expire'] = "0" # Forever
+#            params['code'] = content
+#            params['private'] = "0" # It's not a private post
+#            params['remember'] = "0" # Cookies? ;)
+#            params['page'] = "/paste"
+#            params['regexp'] = '">http://yourpaste.net(.*)/</a>'
+#        elif website == "http://gist.github.com":
+#            params['page'] = "/gists"
+#            params['poster'] = user
+#            params['file_ext[gistfile1]'] = format #The format, for syntax hilighting
+#            params['file_contents[gistfile1]'] = content
+#            params['file_name[gistfile1]'] = title
 #        elif website == "http://paste.ubuntu.com":
 #            params['poster'] = user
 #            params['syntax'] = format #The format, for syntax hilighting
