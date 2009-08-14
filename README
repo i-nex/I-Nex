@@ -1,25 +1,21 @@
 
 USING PASTEBIN.D FILES
 
-To enable support for private pastebins, first you will need to know the
-fields that are in use by the pastebin when posting data.
+To enable support for private pastebins, first you will need to know the fields
+that are in use by the pastebin when posting data.
 
 Add a file in the /etc/pastebin.d directory with the following format:
 
-[psatebin]
-basename = (the domain name of the pastebin site, without subdomains)
-regexp = (a regular expression that identifies the base site, and any
-		subdomains that may be used)
+[pastebin]
+basename = domain.name
+regexp = "http://(.*)\.?domain.name/"
 
 [format]
-pastebinit_field0 = site_field0
-pastebinit_fieldN = site_fieldN
-custom_field0 = site_fieldN
-custom_fieldN = site_fieldN
+reserved_keyword = pastebin_site_field
+custom_keyword = pastebin_site_field
 
 [defaults]
-custom_field0 = value
-custom_fieldN = value
+custom_keyword = value
 
 
 THE PASTEBIN SECTION
@@ -38,13 +34,14 @@ identify the pastebin. Only two fields are used in that section:
 
 THE FORMAT SECTION
 
-Under "[format]", identify the various fields in use in the pastebin you
-are trying to add support for. Identify any fields used to publish data
-on the pastebin, and add them to the configuration file.
+Under "[format]", identify the various fields in use in the pastebin you want
+to setup. Identify any fields used to publish data on the pastebin, and add
+them to the configuration file.
 
-The [format] section expects keywords from the pastebinit utility, for
-which the values will be the actual name of the field in which to put the
-data for that pastebin.
+The "[format]" section expects reserved and custom keywords matched to the real
+name for the field for the pastebin you are setting up. In other words, the
+data that a reserved or custom keyword (the left-hand side) refers to will be
+put in the named field assigned to it (the right-hand side).
 
 A number of reserved keywords can be used, but are optional:
 
@@ -89,25 +86,38 @@ Two additional special parameters are available for use:
 			pastebins that don't redirect you
 			to the new post's URL.
 
-Any other fields in use for the specific pastebin you are trying to enable
-may be added to the section using a similar syntax. An easy way to deal with
-such a requirement is to repeat the same keyword, such as:
+Add any other fields in use for the specific pastebin you are setting up may be
+added to the "[format]" section using the same syntax.
+
+An easy way to deal with special parameters that need to be passed to the
+pastebin, such as expiry time for a post, is to assign the pastebin's field
+name to a variable, and set the correct value for that variable under the 
+"[defaults]" section later, as such:
 
 [format]
-expire = expire
+expire = expiry
 
-Where 'page' can then be reused as the keyword to retrieve a static value,
-as set in the '[defaults]' section.
+[defaults]
+expire = 365
+
+Where 'expire' can then be reused as the keyword to retrieve a static value in
+the '[defaults]' section. See below for an example.
 
 
 THE DEFAULTS SECTION
 
-The '[defaults]' section is used to set static values for custom fields to
-retrieve. Some pastebins require setting fields such as expiry time for
-posts, or whether to use cookies. Such values would be set using a custom
-field if they are deemed necessary. In the above example, to statically
-set a page to be used in the 'page' field:
+The '[defaults]' section is used to set static values for custom fields. 
+
+Some pastebins require setting fields such as expiry time for posts, or 
+whether to use cookies. Such values are set using a custom field, followed by
+the value to give it. 
+
+To reuse the example above, statically set a post to be expire after 365 days:
 
 [defaults]
-expire = 3600
+expire = 365
+
+Here, the value 365 will be assigned to the expire keyword. In the "[format]"
+section, the value in the expire keyword is applied to the field called
+"expiry".
 

@@ -81,94 +81,6 @@ try:
             params['save'] = "0" #Do you want a cookie ?
             params['s'] = "Submit Post"
             params['regexp'] = '">http://.*pastebin.ca/(.*)</a></p><p>'
-#        elif re.search("http://((([a-zA-Z0-9\-_\.]*)(1t2\.us)))", website):
-#            params['poster'] = user
-#            params['jid'] = jabberid
-#            params['code2'] = content
-#            params['parent_pid'] = parentpid #For reply, "" means homepage (new thread)
-#            params['format'] = format #The format, for syntax hilighting
-#            params['paste'] = "Send"
-#            params['remember'] = "0" #Do you want a cookie ?
-#            params['expiry'] = "f" #The expiration, f = forever
-#            params['permatag'] = permatag
-#            params['title'] = title
-#            params['username'] = username
-#            params['password'] = password
-#            params['version'] = version
-#        elif website == "http://rafb.net":
-#        if website == "http://rafb.net":
-#            params['page'] = "/paste/paste.php"
-#            params['nick'] = user
-#            params['text'] = content
-#            params['lang'] = "Plain Text" #The format, for syntax hilighting
-#            params['cvt_tabs'] = "No"
-#        elif website == "http://stikked.com":
-#            params['name'] = user
-#            params['title'] = title
-#            params['email'] = ""
-#            params['lang'] = "text" #The format, for syntax hilighting
-#            params['code'] = content
-#            params['website'] = ""
-#            params['submit'] = "submit"
-#        elif website == "http://slexy.org":
-#        if website == "http://slexy.org":
-#            params['page'] = "/index.php/submit"
-#            params['raw_paste'] = content
-#            params['comment'] = ""
-#            params['author'] = user
-#            params['language'] = "text" #The format, for syntax hilighting
-#            params['permissions'] = "0"
-#            params['desc'] = title
-#            params['linenumbers'] = "0"
-#            params['expire'] = "0"
-#            params['submit'] = "Submit Paste"
-#        elif website == "http://fpaste.org":
-#            params['lang'] = format #The format, for syntax hilighting
-#            params['page'] = "/paste/save"
-#            params['content'] = content
-#            params['submit'] = "pastebinit"
-#        elif website == "http://paste2.org":
-#            params['page'] = "/new-paste"
-#            params['description'] = title
-#            params['lang'] = format
-#            params['code'] = content
-#            params['parent'] = "0"
-#        elif re.search("http://((([a-zA-Z0-9\-_\.]*)(pastey\.net)))", website):    
-#            params['author'] = user
-#            params['subject'] = title
-#            params['parent'] = pasteyParentFixup(website, parentpid)
-#            params['text'] = content
-#            params['language'] = format # File format, as a string like "cpp" or "lua"
-#            params['paste'] = "Paste"
-#            params['page'] = '/submit.php'
-#            params['regexp'] = '">http://(?:(?:[a-zA-Z0-9\-_\.]*)(?:pastey\.net))(/.*)</a>'
-#        elif website == "http://yourpaste.net":
-#            params['syntax'] = format
-#            params['name'] = user
-#            params['desc'] = title
-#            params['expire'] = "0" # Forever
-#            params['code'] = content
-#            params['private'] = "0" # It's not a private post
-#            params['remember'] = "0" # Cookies? ;)
-#            params['page'] = "/paste"
-#            params['regexp'] = '">http://yourpaste.net(.*)/</a>'
-#        elif website == "http://gist.github.com":
-#            params['page'] = "/gists"
-#            params['poster'] = user
-#            params['file_ext[gistfile1]'] = format #The format, for syntax hilighting
-#            params['file_contents[gistfile1]'] = content
-#            params['file_name[gistfile1]'] = title
-#        elif website == "http://paste.ubuntu.com":
-#            params['poster'] = user
-#            params['syntax'] = format #The format, for syntax hilighting
-#            params['content'] = content
-#        elif website == "http://paste.debian.net":
-#            params['poster'] = user
-#            params['lang'] = "-1" #The format, for syntax hilighting, default to plain text
-#            params['syntax'] = format #The format, for syntax hilighting
-#            params['code'] = content
-#            params['remember'] = "0" #Do you want a cookie ?
-#            params['expire'] = "259200" # expire in 72h
         else:
 		for pastebin in pastebind:
 			if re.search( pastebind[pastebin]['pastebin']['regexp'], website ):
@@ -185,7 +97,6 @@ try:
 					elif param == 'format':
 						params[paramname] = format
 					elif param == 'parentpid':
-						#params[paramname] = parentpid
             					params[paramname] = doParentFixup(website, paramname, parentpid)
 					elif param == 'permatag':
 						params[paramname] = parmatag
@@ -197,7 +108,6 @@ try:
 						params[paramname] = jabberid
 					else:
 						params[paramname] = pastebind[pastebin]['defaults'][paramname]
-				#print params
 	if params:
         	return params
 	else:
