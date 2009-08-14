@@ -25,10 +25,10 @@ identify the pastebin. Only two fields are used in that section:
 
 	basename - 	the generic domain name for the pastebin.
 			this domain name should not contain
-			possible subdomains in use.
+			possible sub-domains in use.
 
 	regexp -	a regular expression that matches the
-			basename, as well as any subdomains that
+			basename, as well as any sub-domains that
 			may be in use.
 
 
