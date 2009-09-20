@@ -1,5 +1,5 @@
 /*
- * Copyright 2006-2007 Red Hat, Inc.
+ * Copyright 2006-2009 Red Hat, Inc.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a
  * copy of this software and associated documentation files (the "Software"),
@@ -167,7 +167,11 @@ detailed_block(unsigned char *x, int in_extension)
 
 	seen_non_detailed_descriptor = 1;
 	if (x[3] <= 0xF) {
-	    /* in principle we could decode these if we ever found them */
+	    /*
+             * in principle we can decode these, if we know what they are.
+             * 0x0f seems to be common in laptop panels.
+             * 0x0e is used by EPI: http://www.epi-standard.org/
+             */
 	    printf("Manufacturer-specified data, tag %d\n", x[3]);
 	    return 1;
 	}
@@ -354,6 +358,10 @@ detailed_block(unsigned char *x, int in_extension)
 	    return has_valid_range_descriptor;
 	}
 	case 0xFE:
+            /*
+             * TODO: Two of these in a row, in the third and fouth slots,
+             * seems to be specified by SPWG: http://www.spwg.org/
+             */
 	    /* XXX check: terminated with 0x0A, padded with 0x20 */
 	    printf("ASCII string: %s", x+5);
 	    return 1;
