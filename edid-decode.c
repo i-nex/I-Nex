@@ -449,7 +449,7 @@ cea_video_block(unsigned char *x)
     int length = x[0] & 0x1f;
 
     for (i = 1; i < length; i++)
-	printf("    VIC %02x %s\n", x[i] & 0x7f, x[i] & 0x80 ? "(native)" : "");
+	printf("    VIC %02d %s\n", x[i] & 0x7f, x[i] & 0x80 ? "(native)" : "");
 }
 
 static void
