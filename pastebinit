@@ -64,50 +64,32 @@ try:
     def getParameters(website, pastebind, content, user, jabberid, version, format, parentpid, permatag, title, username, password):
         "Return the parameters array for the selected pastebin"
         params={}
-        # pastebin.com v0.50
-        if (0 and re.search("http://((([a-zA-Z0-9\-_\.]*)(pastebin\.com)))", website) and not website == "http://www.pastebin.com") or website == "http://pastebin.mozilla.org":
-            params['poster'] = user
-            params['code2'] = content
-            params['version'] = version
-            params['parent_pid'] = parentpid #For reply, "" means homepage (new thread)
-            params['format'] = format #The format, for syntax hilighting
-            params['paste'] = "Send" 
-            params['remember'] = "0" #Do you want a cookie ?
-            params['expiry'] = "f" #The expiration, f = forever
-        elif (0 and re.search("http://((([a-zA-Z0-9\-_\.]*)(pastebin\.ca)))", website)):
-            params['name'] = user
-            params['content'] = content
-            params['type'] = "1" #The expiration, 1 = raw
-            params['save'] = "0" #Do you want a cookie ?
-            params['s'] = "Submit Post"
-            params['regexp'] = '">http://.*pastebin.ca/(.*)</a></p><p>'
-        else:
-            for pastebin in pastebind:
-                if re.search( pastebind[pastebin]['pastebin']['regexp'], website ):
-                    for param in pastebind[pastebin]['format'].keys():
-                        paramname = pastebind[pastebin]['format'][param]
-                        if param == 'user':
-                            params[paramname] = user
-                        elif param == 'content':
-                            params[paramname] = content
-                        elif param == 'title':
-                            params[paramname] = title
-                        elif param == 'version':
-                            params[paramname] = version
-                        elif param == 'format':
-                            params[paramname] = format
-                        elif param == 'parentpid':
-                            params[paramname] = doParentFixup(website, paramname, parentpid)
-                        elif param == 'permatag':
-                            params[paramname] = parmatag
-                        elif param == 'username':
-                            params[paramname] = username
-                        elif param == 'password':
-                            params[paramname] = password
-                        elif param == 'jabberid':
-                            params[paramname] = jabberid
-                        else:
-                            params[paramname] = pastebind[pastebin]['defaults'][paramname]
+        for pastebin in pastebind:
+            if re.search( pastebind[pastebin]['pastebin']['regexp'], website ):
+                for param in pastebind[pastebin]['format'].keys():
+                    paramname = pastebind[pastebin]['format'][param]
+                    if param == 'user':
+                        params[paramname] = user
+                    elif param == 'content':
+                        params[paramname] = content
+                    elif param == 'title':
+                        params[paramname] = title
+                    elif param == 'version':
+                        params[paramname] = version
+                    elif param == 'format':
+                        params[paramname] = format
+                    elif param == 'parentpid':
+                        params[paramname] = doParentFixup(website, paramname, parentpid)
+                    elif param == 'permatag':
+                        params[paramname] = parmatag
+                    elif param == 'username':
+                        params[paramname] = username
+                    elif param == 'password':
+                        params[paramname] = password
+                    elif param == 'jabberid':
+                        params[paramname] = jabberid
+                    else:
+                        params[paramname] = pastebind[pastebin]['defaults'][paramname]
         if params:
             return params
         else:
