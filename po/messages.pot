@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2009-05-08 17:58+EDT\n"
+"POT-Creation-Date: 2009-12-26 13:06+EST\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -15,66 +15,66 @@ msgstr ""
 "Generated-By: pygettext.py 1.5\n"
 
 
-#: ../pastebinit:54
+#: ../pastebinit:65
 #, docstring
 msgid "Return the parameters array for the selected pastebin"
 msgstr ""
 
-#: ../pastebinit:160
+#: ../pastebinit:96
 msgid "Unknown website, please post a bugreport to request this pastebin to be added (%s)"
 msgstr ""
 
-#: ../pastebinit:184
+#: ../pastebinit:119
 msgid "Optional arguments:"
 msgstr ""
 
-#: ../pastebinit:185
+#: ../pastebinit:120
 msgid "\t-h This help screen"
 msgstr ""
 
-#: ../pastebinit:186
+#: ../pastebinit:121
 msgid "\t-b <pastebin url:default is '%s'>"
 msgstr ""
 
-#: ../pastebinit:187
+#: ../pastebinit:122
 msgid "\t-a <author:default is '%s'>"
 msgstr ""
 
-#: ../pastebinit:188
+#: ../pastebinit:123
 msgid "\t-f <format of paste:default is '%s'>"
 msgstr ""
 
-#: ../pastebinit:189
+#: ../pastebinit:124
 msgid "\t-r <parent posts ID:defaults to none>"
 msgstr ""
 
-#: ../pastebinit:226 ../pastebinit:239 ../pastebinit:251 ../pastebinit:295
-#: ../pastebinit:326 ../pastebinit:332
+#: ../pastebinit:161 ../pastebinit:174 ../pastebinit:186 ../pastebinit:230
+#: ../pastebinit:262 ../pastebinit:268
 msgid "KeyboardInterrupt caught."
 msgstr ""
 
-#: ../pastebinit:242
+#: ../pastebinit:177
 msgid "Error parsing configuration file!"
 msgstr ""
 
-#: ../pastebinit:243
+#: ../pastebinit:178
 msgid "Please ensure that your configuration file looks similar to the following:"
 msgstr ""
 
-#: ../pastebinit:253
+#: ../pastebinit:188
 msgid ""
 "Invalid arguments!\n"
 msgstr ""
 
-#: ../pastebinit:297
+#: ../pastebinit:232
 msgid "Unable to read from: %s"
 msgstr ""
 
-#: ../pastebinit:299
+#: ../pastebinit:234
 msgid "You are trying to send an empty document, exiting."
 msgstr ""
 
-#: ../pastebinit:329
+#: ../pastebinit:265
 msgid "Unable to read or parse the result page, it could be a server timeout or a change server side, try with another pastebin."
 msgstr ""
 
