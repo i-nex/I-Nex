@@ -1,16 +1,16 @@
-# Indonesian translation for pastebinit
-# Copyright (c) 2007 Rosetta Contributors and Canonical Ltd 2007
+# Czech translation for pastebinit
+# Copyright (c) 2009 Rosetta Contributors and Canonical Ltd 2009
 # This file is distributed under the same license as the pastebinit package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2007.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2009.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: pastebinit\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2009-12-26 19:36+0000\n"
-"PO-Revision-Date: 2009-12-26 19:36+0000\n"
-"Last-Translator: karina dwityaning <k_29convenience@yahoo.co.uk>\n"
-"Language-Team: Indonesian <id@li.org>\n"
+"PO-Revision-Date: 2009-10-21 13:58+0000\n"
+"Last-Translator: Kuvaly <kuvaly@seznam.cz>\n"
+"Language-Team: Czech <cs@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -30,19 +30,19 @@ msgstr ""
 
 #: ../pastebinit:119
 msgid "Optional arguments:"
-msgstr "Argumen pilihan:"
+msgstr ""
 
 #: ../pastebinit:120
 msgid "\t-h This help screen"
-msgstr ""
+msgstr "\t-h Toto zobrazí nápovědu"
 
 #: ../pastebinit:121
 msgid "\t-b <pastebin url:default is '%s'>"
-msgstr ""
+msgstr "\t-b <pastebin url:výchozí je '%s'>"
 
 #: ../pastebinit:122
 msgid "\t-a <author:default is '%s'>"
-msgstr ""
+msgstr "\t-a <autor:výchozí je '%s'>"
 
 #: ../pastebinit:123
 msgid "\t-f <format of paste:default is '%s'>"
@@ -68,11 +68,11 @@ msgstr ""
 
 #: ../pastebinit:188
 msgid "Invalid arguments!\n"
-msgstr "Argumen tidak valid!\n"
+msgstr ""
 
 #: ../pastebinit:232
 msgid "Unable to read from: %s"
-msgstr "Tidak dapat membaca dari: %s"
+msgstr ""
 
 #: ../pastebinit:234
 msgid "You are trying to send an empty document, exiting."
@@ -83,12 +83,3 @@ msgid ""
 "Unable to read or parse the result page, it could be a server timeout or a "
 "change server side, try with another pastebin."
 msgstr ""
-
-#~ msgid "Required arguments:"
-#~ msgstr "Argumen yang diperlukan:"
-
-#~ msgid "\t-u <username> -p <password>"
-#~ msgstr "\t-u <username> -p <password>"
-
-#~ msgid "Error no arguments specified!\n"
-#~ msgstr "Kesalahan tidak terdapat argumen yang spesifik!\n"

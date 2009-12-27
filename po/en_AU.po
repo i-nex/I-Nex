@@ -7,22 +7,22 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pastebinit\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2008-12-06 19:59+0000\n"
-"PO-Revision-Date: 2009-01-06 03:51+0000\n"
+"POT-Creation-Date: 2009-12-26 19:36+0000\n"
+"PO-Revision-Date: 2009-12-26 19:36+0000\n"
 "Last-Translator: Eitan Adler <EitanAdlerList@gmail.com>\n"
 "Language-Team: English (Australia) <en_AU@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2009-03-10 04:40+0000\n"
+"X-Launchpad-Export-Date: 2009-12-27 00:16+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
-#: ../pastebinit:54
+#: ../pastebinit:65
 #, docstring
 msgid "Return the parameters array for the selected pastebin"
 msgstr "Return the parameters array for the selected pastebin"
 
-#: ../pastebinit:152
+#: ../pastebinit:96
 msgid ""
 "Unknown website, please post a bugreport to request this pastebin to be "
 "added (%s)"
@@ -30,85 +30,85 @@ msgstr ""
 "Unknown website, please post a bugreport to request this pastebin to be "
 "added (%s)"
 
-#: ../pastebinit:175
-msgid "Required arguments:"
-msgstr "Required arguments:"
-
-#: ../pastebinit:176
-msgid "\t-i <filename> (or pipe the text)"
-msgstr "\t-i <filename> (or pipe the text)"
-
-#: ../pastebinit:177
+#: ../pastebinit:119
 msgid "Optional arguments:"
 msgstr "Optional arguments:"
 
-#: ../pastebinit:178
+#: ../pastebinit:120
+msgid "\t-h This help screen"
+msgstr ""
+
+#: ../pastebinit:121
 msgid "\t-b <pastebin url:default is '%s'>"
 msgstr "\t-b <pastebin url:default is '%s'>"
 
-#: ../pastebinit:179
+#: ../pastebinit:122
 msgid "\t-a <author:default is '%s'>"
 msgstr "\t-a <author:default is '%s'>"
 
-#: ../pastebinit:180
+#: ../pastebinit:123
 msgid "\t-f <format of paste:default is '%s'>"
 msgstr "\t-f <format of paste:default is '%s'>"
 
-#: ../pastebinit:181
+#: ../pastebinit:124
 msgid "\t-r <parent posts ID:defaults to none>"
 msgstr "\t-r <parent posts ID:defaults to none>"
 
-#: ../pastebinit:182
-msgid "Optional arguments supported only by 1t2.us and paste.stgraber.org:"
-msgstr "Optional arguments supported only by 1t2.us and paste.stgraber.org:"
-
-#: ../pastebinit:183
-msgid "\t-j <jabberid for notifications:default is '%s'>"
-msgstr "\t-j <jabberid for notifications:default is '%s'>"
-
-#: ../pastebinit:184
-msgid "\t-m <permatag for all versions of a post:default is blank>"
-msgstr "\t-m <permatag for all versions of a post:default is blank>"
-
-#: ../pastebinit:185
-msgid "\t-t <title of paste:default is blank>"
-msgstr "\t-t <title of paste:default is blank>"
-
-#: ../pastebinit:186
-msgid "\t-u <username> -p <password>"
-msgstr "\t-u <username> -p <password>"
-
-#: ../pastebinit:218 ../pastebinit:231 ../pastebinit:248 ../pastebinit:289
-#: ../pastebinit:318 ../pastebinit:324
+#: ../pastebinit:161 ../pastebinit:174 ../pastebinit:186 ../pastebinit:230
+#: ../pastebinit:262 ../pastebinit:268
 msgid "KeyboardInterrupt caught."
 msgstr "KeyboardInterrupt caught."
 
-#: ../pastebinit:233
+#: ../pastebinit:177
 msgid "Error parsing configuration file!"
 msgstr "Error parsing configuration file!"
 
-#: ../pastebinit:234
+#: ../pastebinit:178
 msgid ""
 "Please ensure that your configuration file looks similar to the following:"
 msgstr ""
 "Please ensure that your configuration file looks similar to the following:"
 
-#: ../pastebinit:240
-msgid "Error no arguments specified!\n"
-msgstr "Error no arguments specified!\n"
-
-#: ../pastebinit:250
+#: ../pastebinit:188
 msgid "Invalid arguments!\n"
 msgstr "nvalid arguments!\n"
 
-#: ../pastebinit:291
+#: ../pastebinit:232
 msgid "Unable to read from: %s"
 msgstr "Unable to read from: %s"
 
-#: ../pastebinit:321
+#: ../pastebinit:234
+msgid "You are trying to send an empty document, exiting."
+msgstr ""
+
+#: ../pastebinit:265
 msgid ""
 "Unable to read or parse the result page, it could be a server timeout or a "
 "change server side, try with another pastebin."
 msgstr ""
 "Unable to read or parse the result page, it could be a server timeout or a "
 "change server side, try with another pastebin."
+
+#~ msgid "Required arguments:"
+#~ msgstr "Required arguments:"
+
+#~ msgid "\t-i <filename> (or pipe the text)"
+#~ msgstr "\t-i <filename> (or pipe the text)"
+
+#~ msgid "Optional arguments supported only by 1t2.us and paste.stgraber.org:"
+#~ msgstr "Optional arguments supported only by 1t2.us and paste.stgraber.org:"
+
+#~ msgid "\t-j <jabberid for notifications:default is '%s'>"
+#~ msgstr "\t-j <jabberid for notifications:default is '%s'>"
+
+#~ msgid "\t-m <permatag for all versions of a post:default is blank>"
+#~ msgstr "\t-m <permatag for all versions of a post:default is blank>"
+
+#~ msgid "\t-t <title of paste:default is blank>"
+#~ msgstr "\t-t <title of paste:default is blank>"
+
+#~ msgid "\t-u <username> -p <password>"
+#~ msgstr "\t-u <username> -p <password>"
+
+#~ msgid "Error no arguments specified!\n"
+#~ msgstr "Error no arguments specified!\n"
