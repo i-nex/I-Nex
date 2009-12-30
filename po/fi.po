@@ -7,22 +7,22 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pastebinit\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2008-12-06 19:59+0000\n"
-"PO-Revision-Date: 2008-12-06 19:44+0000\n"
-"Last-Translator: Miia Ranta <Unknown>\n"
+"POT-Creation-Date: 2009-12-26 19:36+0000\n"
+"PO-Revision-Date: 2009-12-26 19:36+0000\n"
+"Last-Translator: Stéphane Graber <stgraber@stgraber.org>\n"
 "Language-Team: Finnish <fi@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2009-03-10 04:40+0000\n"
+"X-Launchpad-Export-Date: 2009-12-27 00:16+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
-#: ../pastebinit:54
+#: ../pastebinit:65
 #, docstring
 msgid "Return the parameters array for the selected pastebin"
 msgstr "Palauttaa valitun leikepöytäpalvelun parametrijonon"
 
-#: ../pastebinit:152
+#: ../pastebinit:96
 msgid ""
 "Unknown website, please post a bugreport to request this pastebin to be "
 "added (%s)"
@@ -30,81 +30,57 @@ msgstr ""
 "Tuntematon verkkosivusto, ole hyvä ja lähetä lisäyspyyntö tämän "
 "leikepöytäsivuston lisäämiseksi (%s)"
 
-#: ../pastebinit:175
-msgid "Required arguments:"
-msgstr "Vaaditut argumentit:"
-
-#: ../pastebinit:176
-msgid "\t-i <filename> (or pipe the text)"
-msgstr "\t-i <tiedostonimi> (tai putkita teksti)"
-
-#: ../pastebinit:177
+#: ../pastebinit:119
 msgid "Optional arguments:"
 msgstr "Valinnaiset argumentit:"
 
-#: ../pastebinit:178
+#: ../pastebinit:120
+msgid "\t-h This help screen"
+msgstr ""
+
+#: ../pastebinit:121
 msgid "\t-b <pastebin url:default is '%s'>"
 msgstr "\t-b <leikepöydän URL:oletus on '%s'>"
 
-#: ../pastebinit:179
+#: ../pastebinit:122
 msgid "\t-a <author:default is '%s'>"
 msgstr "\t-a <julkaisija:oletus on '%s'>"
 
-#: ../pastebinit:180
+#: ../pastebinit:123
 msgid "\t-f <format of paste:default is '%s'>"
 msgstr "\t-f <muotoilu:oletus on '%s'>"
 
-#: ../pastebinit:181
+#: ../pastebinit:124
 msgid "\t-r <parent posts ID:defaults to none>"
 msgstr "\t-r <vanhemman leikkeen ID:ei oletusarvoa>"
 
-#: ../pastebinit:182
-msgid "Optional arguments supported only by 1t2.us and paste.stgraber.org:"
-msgstr "Vain 1t2.us ja paste.stgraber.org tukevat valinnaisia argumentteja:"
-
-#: ../pastebinit:183
-msgid "\t-j <jabberid for notifications:default is '%s'>"
-msgstr "\t-j <jabber-tunnus ilmoituksille:oletus on '%s'>"
-
-#: ../pastebinit:184
-msgid "\t-m <permatag for all versions of a post:default is blank>"
-msgstr "\t-m <pysyvä merkintä kaikille leikkeen versioille:tyhjä oletusarvo>"
-
-#: ../pastebinit:185
-msgid "\t-t <title of paste:default is blank>"
-msgstr "\t-t <leikkeen otsikko:tyhjä oletusarvo>"
-
-#: ../pastebinit:186
-msgid "\t-u <username> -p <password>"
-msgstr "\t-u <käyttäjätunnus> -p <salasana>"
-
-#: ../pastebinit:218 ../pastebinit:231 ../pastebinit:248 ../pastebinit:289
-#: ../pastebinit:318 ../pastebinit:324
+#: ../pastebinit:161 ../pastebinit:174 ../pastebinit:186 ../pastebinit:230
+#: ../pastebinit:262 ../pastebinit:268
 msgid "KeyboardInterrupt caught."
 msgstr "NäppäimistöKeskeytys havaittu"
 
-#: ../pastebinit:233
+#: ../pastebinit:177
 msgid "Error parsing configuration file!"
 msgstr "Virhe jäsennettäessä asetustiedostoa!"
 
-#: ../pastebinit:234
+#: ../pastebinit:178
 msgid ""
 "Please ensure that your configuration file looks similar to the following:"
 msgstr "Tarkista, että asetustiedostosi näyttää seuraavan kaltaiselta:"
 
-#: ../pastebinit:240
-msgid "Error no arguments specified!\n"
-msgstr "Virhe, ei määriteltyjä argumentteja!\n"
-
-#: ../pastebinit:250
+#: ../pastebinit:188
 msgid "Invalid arguments!\n"
 msgstr "Epäkelvot argumentit!\n"
 
-#: ../pastebinit:291
+#: ../pastebinit:232
 msgid "Unable to read from: %s"
 msgstr "%s:sta ei pystytty lukemaan"
 
-#: ../pastebinit:321
+#: ../pastebinit:234
+msgid "You are trying to send an empty document, exiting."
+msgstr ""
+
+#: ../pastebinit:265
 msgid ""
 "Unable to read or parse the result page, it could be a server timeout or a "
 "change server side, try with another pastebin."
@@ -112,3 +88,27 @@ msgstr ""
 "Tulossivua ei pystytty lukemaan tai jäsentämään joko palvelimen "
 "aikakatkaisun tai palvelinpään muutoksen vuoksi. Yritä toisella "
 "leikepöytäpalvelulla."
+
+#~ msgid "Required arguments:"
+#~ msgstr "Vaaditut argumentit:"
+
+#~ msgid "\t-i <filename> (or pipe the text)"
+#~ msgstr "\t-i <tiedostonimi> (tai putkita teksti)"
+
+#~ msgid "Optional arguments supported only by 1t2.us and paste.stgraber.org:"
+#~ msgstr "Vain 1t2.us ja paste.stgraber.org tukevat valinnaisia argumentteja:"
+
+#~ msgid "\t-j <jabberid for notifications:default is '%s'>"
+#~ msgstr "\t-j <jabber-tunnus ilmoituksille:oletus on '%s'>"
+
+#~ msgid "\t-m <permatag for all versions of a post:default is blank>"
+#~ msgstr "\t-m <pysyvä merkintä kaikille leikkeen versioille:tyhjä oletusarvo>"
+
+#~ msgid "\t-t <title of paste:default is blank>"
+#~ msgstr "\t-t <leikkeen otsikko:tyhjä oletusarvo>"
+
+#~ msgid "\t-u <username> -p <password>"
+#~ msgstr "\t-u <käyttäjätunnus> -p <salasana>"
+
+#~ msgid "Error no arguments specified!\n"
+#~ msgstr "Virhe, ei määriteltyjä argumentteja!\n"

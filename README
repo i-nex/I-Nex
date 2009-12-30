@@ -1,0 +1,123 @@
+
+USING PASTEBIN.D FILES
+
+To enable support for private pastebins, first you will need to know the fields
+that are in use by the pastebin when posting data.
+
+Add a file in the /etc/pastebin.d directory with the following format:
+
+[pastebin]
+basename = domain.name
+regexp = "http://(.*)\.?domain.name/"
+
+[format]
+reserved_keyword = pastebin_site_field
+custom_keyword = pastebin_site_field
+
+[defaults]
+custom_keyword = value
+
+
+THE PASTEBIN SECTION
+
+Under "[pastebin]", you will want to keep the very basic information to
+identify the pastebin. Only two fields are used in that section:
+
+	basename - 	the generic domain name for the pastebin.
+			this domain name should not contain
+			possible sub-domains in use.
+
+	regexp -	a regular expression that matches the
+			basename, as well as any sub-domains that
+			may be in use.
+
+
+THE FORMAT SECTION
+
+Under "[format]", identify the various fields in use in the pastebin you want
+to setup. Identify any fields used to publish data on the pastebin, and add
+them to the configuration file.
+
+The "[format]" section expects reserved and custom keywords matched to the real
+name for the field for the pastebin you are setting up. In other words, the
+data that a reserved or custom keyword (the left-hand side) refers to will be
+put in the named field assigned to it (the right-hand side).
+
+A number of reserved keywords can be used, but are optional:
+
+	user - 		contains the username for the user
+			calling the pastebinit utility.
+
+	content -	contains the data that will be posted.
+
+	title -		contains the title if set at the command
+			line.
+
+	version -	contains the version as set at the
+			command line.
+
+	format -	contains the format setting:
+			usually used for syntax highlighting.
+
+	parentpid -	contains the parent post ID for 
+			pastebins that use it.
+
+	permatag -	contains permatag as set at the command
+			line.
+
+	username -	contains the pastebin username if 
+			required.
+
+	password -	contains the pastebin user's password
+			if required.
+
+	jabberid -	contains the jabberid for the poster
+			as set at the command line.
+
+Two additional special parameters are available for use:
+
+	page -		used to specify a page from which to
+			post data. It is the actual URL of
+			the pastebin's form.
+
+	regexp -	used to specify a regexp to execute
+			on the resulting page after posting.
+			This is useful to deal with special
+			pastebins that don't redirect you
+			to the new post's URL.
+
+Add any other fields in use for the specific pastebin you are setting up may be
+added to the "[format]" section using the same syntax.
+
+An easy way to deal with special parameters that need to be passed to the
+pastebin, such as expiry time for a post, is to assign the pastebin's field
+name to a variable, and set the correct value for that variable under the 
+"[defaults]" section later, as such:
+
+[format]
+expire = expiry
+
+[defaults]
+expire = 365
+
+Where 'expire' can then be reused as the keyword to retrieve a static value in
+the '[defaults]' section. See below for an example.
+
+
+THE DEFAULTS SECTION
+
+The '[defaults]' section is used to set static values for custom fields. 
+
+Some pastebins require setting fields such as expiry time for posts, or 
+whether to use cookies. Such values are set using a custom field, followed by
+the value to give it. 
+
+To reuse the example above, statically set a post to be expire after 365 days:
+
+[defaults]
+expire = 365
+
+Here, the value 365 will be assigned to the expire keyword. In the "[format]"
+section, the value in the expire keyword is applied to the field called
+"expiry".
+

@@ -7,24 +7,24 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pastebinit\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2008-12-06 19:59+0000\n"
-"PO-Revision-Date: 2007-07-22 18:03+0000\n"
-"Last-Translator: Ahmet Alp Balkan <Unknown>\n"
+"POT-Creation-Date: 2009-12-26 19:36+0000\n"
+"PO-Revision-Date: 2009-12-26 19:37+0000\n"
+"Last-Translator: Stéphane Graber <stgraber@stgraber.org>\n"
 "Language-Team: Turkish <tr@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2009-03-10 04:40+0000\n"
+"X-Launchpad-Export-Date: 2009-12-27 00:16+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 "X-Poedit-Country: TURKEY\n"
 "X-Poedit-Language: Turkish\n"
 
-#: ../pastebinit:54
+#: ../pastebinit:65
 #, docstring
 msgid "Return the parameters array for the selected pastebin"
 msgstr "Seçili bastebin için parametreleri dizi olarak döndür"
 
-#: ../pastebinit:152
+#: ../pastebinit:96
 msgid ""
 "Unknown website, please post a bugreport to request this pastebin to be "
 "added (%s)"
@@ -32,83 +32,57 @@ msgstr ""
 "Bilinmeyen web adresi, lütfen bu pastebin'in eklenmesi için bir hata "
 "bildiriminde bulunun. (%s)"
 
-#: ../pastebinit:175
-msgid "Required arguments:"
-msgstr "Gerekli argümanlar:"
-
-#: ../pastebinit:176
-msgid "\t-i <filename> (or pipe the text)"
-msgstr ""
-
-#: ../pastebinit:177
+#: ../pastebinit:119
 msgid "Optional arguments:"
 msgstr "Opsiyonel argümanlar:"
 
-#: ../pastebinit:178
+#: ../pastebinit:120
+msgid "\t-h This help screen"
+msgstr "\t-h Bu yardım ekranını açar"
+
+#: ../pastebinit:121
 msgid "\t-b <pastebin url:default is '%s'>"
 msgstr "\t-b <pastebin url:varsayılan '%s'>"
 
-#: ../pastebinit:179
+#: ../pastebinit:122
 msgid "\t-a <author:default is '%s'>"
 msgstr "\t-a <yazar:varsayılan  '%s'>"
 
-#: ../pastebinit:180
+#: ../pastebinit:123
 msgid "\t-f <format of paste:default is '%s'>"
 msgstr "\t-f <yapıştırma formatı:varsayılan '%s'>"
 
-#: ../pastebinit:181
+#: ../pastebinit:124
 msgid "\t-r <parent posts ID:defaults to none>"
 msgstr "\t-r <üst girdi ID:varsayılan hiçbiri>"
 
-#: ../pastebinit:182
-msgid "Optional arguments supported only by 1t2.us and paste.stgraber.org:"
-msgstr ""
-"Opsiyonel argümanlar sadece 1t2.us ve paste.stgraber.org tarafından "
-"desteklenir:"
-
-#: ../pastebinit:183
-msgid "\t-j <jabberid for notifications:default is '%s'>"
-msgstr "\t-j <bildirimler için jabberid:varsayılan '%s'>"
-
-#: ../pastebinit:184
-msgid "\t-m <permatag for all versions of a post:default is blank>"
-msgstr "\t-m <bir girdinin tüm sürümleri için kalıcı tag:varsayılan boş>"
-
-#: ../pastebinit:185
-msgid "\t-t <title of paste:default is blank>"
-msgstr "\t-t <yapıştırma başlığı:varsayılan boş>"
-
-#: ../pastebinit:186
-msgid "\t-u <username> -p <password>"
-msgstr "\t-u <kullaniciadi> -p <sifre>"
-
-#: ../pastebinit:218 ../pastebinit:231 ../pastebinit:248 ../pastebinit:289
-#: ../pastebinit:318 ../pastebinit:324
+#: ../pastebinit:161 ../pastebinit:174 ../pastebinit:186 ../pastebinit:230
+#: ../pastebinit:262 ../pastebinit:268
 msgid "KeyboardInterrupt caught."
-msgstr ""
+msgstr "KlavyeKesilmesi yakalandı."
 
-#: ../pastebinit:233
+#: ../pastebinit:177
 msgid "Error parsing configuration file!"
 msgstr "Ayar dosyasını okumada hata!"
 
-#: ../pastebinit:234
+#: ../pastebinit:178
 msgid ""
 "Please ensure that your configuration file looks similar to the following:"
 msgstr "Lütfen ayar dosyanızın şunlara benzediğine emin olun:"
 
-#: ../pastebinit:240
-msgid "Error no arguments specified!\n"
-msgstr "Hata hiçbir argüman seçilmedi!\n"
-
-#: ../pastebinit:250
+#: ../pastebinit:188
 msgid "Invalid arguments!\n"
 msgstr "Geçersiz argümanlar!\n"
 
-#: ../pastebinit:291
+#: ../pastebinit:232
 msgid "Unable to read from: %s"
 msgstr "Dosyadan okunamıyor: %s"
 
-#: ../pastebinit:321
+#: ../pastebinit:234
+msgid "You are trying to send an empty document, exiting."
+msgstr "Boş bir belge göndermeye çalışıyordunuz, çıkılıyor."
+
+#: ../pastebinit:265
 msgid ""
 "Unable to read or parse the result page, it could be a server timeout or a "
 "change server side, try with another pastebin."
@@ -116,3 +90,26 @@ msgstr ""
 "Sonuç sayfasından okunamıyor veya değerlendirilemiyor, hata sunucuda zaman "
 "aşımı veya bir değişiklikten kaynaklanıyor olabilir, başka bir pastebin ile "
 "deneyin."
+
+#~ msgid "Required arguments:"
+#~ msgstr "Gerekli argümanlar:"
+
+#~ msgid "Optional arguments supported only by 1t2.us and paste.stgraber.org:"
+#~ msgstr ""
+#~ "Opsiyonel argümanlar sadece 1t2.us ve paste.stgraber.org tarafından "
+#~ "desteklenir:"
+
+#~ msgid "\t-j <jabberid for notifications:default is '%s'>"
+#~ msgstr "\t-j <bildirimler için jabberid:varsayılan '%s'>"
+
+#~ msgid "\t-m <permatag for all versions of a post:default is blank>"
+#~ msgstr "\t-m <bir girdinin tüm sürümleri için kalıcı tag:varsayılan boş>"
+
+#~ msgid "\t-t <title of paste:default is blank>"
+#~ msgstr "\t-t <yapıştırma başlığı:varsayılan boş>"
+
+#~ msgid "\t-u <username> -p <password>"
+#~ msgstr "\t-u <kullaniciadi> -p <sifre>"
+
+#~ msgid "Error no arguments specified!\n"
+#~ msgstr "Hata hiçbir argüman seçilmedi!\n"

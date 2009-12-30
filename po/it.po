@@ -6,22 +6,22 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 0.8.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-12-06 19:59+0000\n"
-"PO-Revision-Date: 2008-12-06 20:31+0000\n"
-"Last-Translator: Milo Casagrande <milo@milo.name>\n"
+"POT-Creation-Date: 2009-12-26 19:36+0000\n"
+"PO-Revision-Date: 2009-12-26 19:36+0000\n"
+"Last-Translator: Milo Casagrande <milo@casagrande.name>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2009-03-10 04:40+0000\n"
+"X-Launchpad-Export-Date: 2009-12-27 00:16+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
-#: ../pastebinit:54
+#: ../pastebinit:65
 #, docstring
 msgid "Return the parameters array for the selected pastebin"
 msgstr "Ritorna l'array di parametri per il pastebin selezionato"
 
-#: ../pastebinit:152
+#: ../pastebinit:96
 msgid ""
 "Unknown website, please post a bugreport to request this pastebin to be "
 "added (%s)"
@@ -29,88 +29,88 @@ msgstr ""
 "Sito web sconosciuto, inviare una segnalazione bug per richiedere che questo "
 "pastebin venga aggiunto (%s)"
 
-#: ../pastebinit:175
-msgid "Required arguments:"
-msgstr "Argomenti richiesti:"
-
-#: ../pastebinit:176
-msgid "\t-i <filename> (or pipe the text)"
-msgstr "\t-i <nomefile> (o attraverso una pipe)"
-
-#: ../pastebinit:177
+#: ../pastebinit:119
 msgid "Optional arguments:"
 msgstr "Argomenti opzionali:"
 
-#: ../pastebinit:178
+#: ../pastebinit:120
+msgid "\t-h This help screen"
+msgstr "\t-h Questa schermata di aiuto"
+
+#: ../pastebinit:121
 msgid "\t-b <pastebin url:default is '%s'>"
 msgstr "\t-b <url pastebin: predefinito è \"%s\">"
 
-#: ../pastebinit:179
+#: ../pastebinit:122
 msgid "\t-a <author:default is '%s'>"
 msgstr "\t-a <autore: predefinito è \"%s\">"
 
-#: ../pastebinit:180
+#: ../pastebinit:123
 msgid "\t-f <format of paste:default is '%s'>"
 msgstr "\t-f <formato: predefinito è \"%s\">"
 
-#: ../pastebinit:181
+#: ../pastebinit:124
 msgid "\t-r <parent posts ID:defaults to none>"
 msgstr "\t-r <ID invii genitori: predefinito è nessuno>"
 
-#: ../pastebinit:182
-msgid "Optional arguments supported only by 1t2.us and paste.stgraber.org:"
-msgstr "Argomenti opzionali supportati solo da 1t2.us e paste.stgraber.org:"
-
-#: ../pastebinit:183
-msgid "\t-j <jabberid for notifications:default is '%s'>"
-msgstr "\t-j <ID jabber per le notifiche: predefinito è \"%s\">"
-
-#: ../pastebinit:184
-msgid "\t-m <permatag for all versions of a post:default is blank>"
-msgstr ""
-"\t-m <permatag per tutte le versioni di un post: predefinito è nessuno>"
-
-#: ../pastebinit:185
-msgid "\t-t <title of paste:default is blank>"
-msgstr "\t-t <titolo del paste: predefinito è vuoto>"
-
-#: ../pastebinit:186
-msgid "\t-u <username> -p <password>"
-msgstr "\t-u <nome_utente> -p <password>"
-
-#: ../pastebinit:218 ../pastebinit:231 ../pastebinit:248 ../pastebinit:289
-#: ../pastebinit:318 ../pastebinit:324
+#: ../pastebinit:161 ../pastebinit:174 ../pastebinit:186 ../pastebinit:230
+#: ../pastebinit:262 ../pastebinit:268
 msgid "KeyboardInterrupt caught."
 msgstr "Catturato KeyboardInterrupt."
 
-#: ../pastebinit:233
+#: ../pastebinit:177
 msgid "Error parsing configuration file!"
 msgstr "Errore nell'analisi del file di configurazione."
 
-#: ../pastebinit:234
+#: ../pastebinit:178
 msgid ""
 "Please ensure that your configuration file looks similar to the following:"
 msgstr "Assicurarsi che il file di configurazione sia simile a quanto segue:"
 
-#: ../pastebinit:240
-msgid "Error no arguments specified!\n"
-msgstr "Errore, nessun argomento specificato.\n"
-
-#: ../pastebinit:250
+#: ../pastebinit:188
 msgid "Invalid arguments!\n"
 msgstr "Argomenti non validi.\n"
 
-#: ../pastebinit:291
+#: ../pastebinit:232
 msgid "Unable to read from: %s"
 msgstr "Impossibile leggere da: %s"
 
-#: ../pastebinit:321
+#: ../pastebinit:234
+msgid "You are trying to send an empty document, exiting."
+msgstr "Si sta tentando di inviare un documento vuoto, in chiusura."
+
+#: ../pastebinit:265
 msgid ""
 "Unable to read or parse the result page, it could be a server timeout or a "
 "change server side, try with another pastebin."
 msgstr ""
 "Impossibile leggere o analizzare la pagina dei risultati, potrebbe essere un "
 "timeout o un cambiamento del server. Provare con un altro pastebin."
+
+#~ msgid "Required arguments:"
+#~ msgstr "Argomenti richiesti:"
+
+#~ msgid "\t-i <filename> (or pipe the text)"
+#~ msgstr "\t-i <nomefile> (o attraverso una pipe)"
+
+#~ msgid "Optional arguments supported only by 1t2.us and paste.stgraber.org:"
+#~ msgstr "Argomenti opzionali supportati solo da 1t2.us e paste.stgraber.org:"
+
+#~ msgid "\t-j <jabberid for notifications:default is '%s'>"
+#~ msgstr "\t-j <ID jabber per le notifiche: predefinito è \"%s\">"
+
+#~ msgid "\t-m <permatag for all versions of a post:default is blank>"
+#~ msgstr ""
+#~ "\t-m <permatag per tutte le versioni di un post: predefinito è nessuno>"
+
+#~ msgid "\t-t <title of paste:default is blank>"
+#~ msgstr "\t-t <titolo del paste: predefinito è vuoto>"
+
+#~ msgid "\t-u <username> -p <password>"
+#~ msgstr "\t-u <nome_utente> -p <password>"
+
+#~ msgid "Error no arguments specified!\n"
+#~ msgstr "Errore, nessun argomento specificato.\n"
 
 #~ msgid "Error no filename specified!\n"
 #~ msgstr "Errore, nessun file specificato!\n"
