@@ -261,7 +261,7 @@ try:
     pastebind = preloadPastebins() #get the config from /etc/pastebin.d/
     params = getParameters(website, pastebind, content, user, jabberid, version, format, parentpid, permatag, title, username, password) #Get the parameters array
 
-    if not re.search(".*/", website):
+    if not website.endswith("/"):
         website += "/"
 
     reLink = None
