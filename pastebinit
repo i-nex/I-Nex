@@ -115,7 +115,7 @@ try:
                     elif param == 'jabberid':
                         params[paramname] = jabberid
                     else:
-                        params[paramname] = pastebind[pastebin]['defaults'][paramname]
+                        params[paramname] = pastebind[pastebin]['defaults'][param]
         if params:
             return params
         else:
