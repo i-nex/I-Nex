@@ -182,14 +182,14 @@ try:
         f = open(configfile)
         configtext = f.read()
         f.close()
-        gotconfigxml = 1
+        gotconfigxml = True
     except KeyboardInterrupt:
         sys.exit(_("KeyboardInterrupt caught."))
     except:
-        gotconfigxml = 0
+        gotconfigxml = False
 
     #Parse configuration file
-    if gotconfigxml == 1:
+    if gotconfigxml:
         try:
             configxml = xml.dom.minidom.parseString(configtext)
             website = getFirstNodeText(configxml, "pastebin")
