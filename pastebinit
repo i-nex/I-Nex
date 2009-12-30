@@ -107,7 +107,7 @@ try:
                     elif param == 'parentpid':
                         params[paramname] = doParentFixup(website, paramname, parentpid)
                     elif param == 'permatag':
-                        params[paramname] = parmatag
+                        params[paramname] = permatag
                     elif param == 'username':
                         params[paramname] = username
                     elif param == 'password':
