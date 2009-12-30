@@ -89,9 +89,9 @@ try:
     #Return the parameters depending of the pastebin used
     def getParameters(website, pastebind, content, user, jabberid, version, format, parentpid, permatag, title, username, password):
         "Return the parameters array for the selected pastebin"
-        params={}
+        params = {}
         for pastebin in pastebind:
-            if re.search( pastebind[pastebin]['pastebin']['regexp'], website ):
+            if re.search(pastebind[pastebin]['pastebin']['regexp'], website):
                 for param in pastebind[pastebin]['format'].keys():
                     paramname = pastebind[pastebin]['format'][param]
                     if param == 'user':
@@ -139,7 +139,7 @@ try:
         return getText(getFirstNode(nodes, title).childNodes)
 
     # Display usage instructions
-    def Usage ():
+    def Usage():
         print "pastebinit v" + version
         print "Reads on stdin for input or takes a filename as first parameter"
         print _("Optional arguments:")
@@ -264,14 +264,14 @@ try:
     if not re.search(".*/", website):
         website += "/"
 
-    reLink=None
-    tmp_page=""
+    reLink = None
+    tmp_page = ""
     if params.__contains__("page"):
-        website+=params['page']
-        tmp_page=params['page']
+        website += params['page']
+        tmp_page = params['page']
         params.__delitem__("page")
     if params.__contains__("regexp"):
-        reLink=params['regexp']
+        reLink = params['regexp']
         params.__delitem__("regexp")
     params = urllib.urlencode(params) #Convert to a format usable with the HTML POST
 
