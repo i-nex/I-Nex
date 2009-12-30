@@ -18,7 +18,7 @@
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
 try:
-    import urllib, os, sys, re, getopt, select, xml.dom.minidom, gettext
+    import urllib, os, sys, re, getopt, xml.dom.minidom, gettext
     from gettext import gettext as _
     import configobj
 
