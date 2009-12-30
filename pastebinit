@@ -266,13 +266,13 @@ try:
 
     reLink = None
     tmp_page = ""
-    if params.__contains__("page"):
+    if "page" in params:
         website += params['page']
         tmp_page = params['page']
-        params.__delitem__("page")
-    if params.__contains__("regexp"):
+        del params["page"]
+    if "regexp" in params:
         reLink = params['regexp']
-        params.__delitem__("regexp")
+        del params["regexp"]
     params = urllib.urlencode(params) #Convert to a format usable with the HTML POST
 
     url_opener = pasteURLopener()
