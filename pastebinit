@@ -18,15 +18,15 @@
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
 try:
-    import urllib, os, sys, re, getopt, select, xml.dom.minidom, gettext
+    import urllib, os, sys, re, getopt, xml.dom.minidom, gettext
     from gettext import gettext as _
-    from configobj import ConfigObj
+    import configobj
 
     gettext.textdomain("pastebinit")
 
     defaultPB = "http://pastebin.com" #Default pastebin
     version = "0.11.2" #Version number to show in the usage
-    configfile = os.environ.get('HOME') + "/.pastebinit.xml"
+    configfile = os.path.expanduser("~/.pastebinit.xml")
 
     # Custom urlopener to handle 401's
     class pasteURLopener(urllib.FancyURLopener):
@@ -34,14 +34,40 @@ try:
             return None
 
     def preloadPastebins():
-        confdir = '/etc/pastebin.d/'
-        confdirlist = os.listdir(confdir)
-        pastebind = {}
-        for fileitem in confdirlist:
-            bininstance = ConfigObj(confdir + fileitem)
-            basename = bininstance['pastebin']['basename']
-            pastebind[basename] = bininstance
-        return pastebind
+        # Check several places for config files:
+        #  - global config in /etc/pastebin.d
+        #  - for source checkout, config in the checkout
+        #  - user's overrides in ~/.pastebin.d
+        # Files found later override files found earlier.
+        for confdir in ['/etc/pastebin.d',
+                        os.path.join(os.path.dirname(__file__), 'pastebin.d'),
+                        os.path.expanduser('~/.pastebin.d')]:
+            try:
+                confdirlist = os.listdir(confdir)
+            except OSError:
+                continue
+            pastebind = {}
+            for fileitem in confdirlist:
+                if fileitem.startswith('.'):
+                    continue
+                filename = os.path.join(confdir, fileitem)
+                try:
+                    bininstance = configobj.ConfigObj(filename)
+                except configobj.ConfigObjError, e:
+                    print >> sys.stderr, '%s: %s' % (filename, e)
+                    continue
+                try:
+                    section = bininstance['pastebin']
+                except KeyError:
+                    print >> sys.stderr, _('%s: no section [pastebin]') % filename
+                    continue
+                try:
+                    basename = section['basename']
+                except KeyError:
+                    print >> sys.stderr, _("%s: no 'basename' in [pastebin]") % filename
+                    continue
+                pastebind[basename] = bininstance
+            return pastebind
 
     # pastey.net obfuscates parent ids for replies.  Rather than taking the
     # post ID given as the parent ID, we must handle this by going to that
@@ -63,9 +89,9 @@ try:
     #Return the parameters depending of the pastebin used
     def getParameters(website, pastebind, content, user, jabberid, version, format, parentpid, permatag, title, username, password):
         "Return the parameters array for the selected pastebin"
-        params={}
+        params = {}
         for pastebin in pastebind:
-            if re.search( pastebind[pastebin]['pastebin']['regexp'], website ):
+            if re.search(pastebind[pastebin]['pastebin']['regexp'], website):
                 for param in pastebind[pastebin]['format'].keys():
                     paramname = pastebind[pastebin]['format'][param]
                     if param == 'user':
@@ -81,7 +107,7 @@ try:
                     elif param == 'parentpid':
                         params[paramname] = doParentFixup(website, paramname, parentpid)
                     elif param == 'permatag':
-                        params[paramname] = parmatag
+                        params[paramname] = permatag
                     elif param == 'username':
                         params[paramname] = username
                     elif param == 'password':
@@ -89,7 +115,7 @@ try:
                     elif param == 'jabberid':
                         params[paramname] = jabberid
                     else:
-                        params[paramname] = pastebind[pastebin]['defaults'][paramname]
+                        params[paramname] = pastebind[pastebin]['defaults'][param]
         if params:
             return params
         else:
@@ -113,7 +139,7 @@ try:
         return getText(getFirstNode(nodes, title).childNodes)
 
     # Display usage instructions
-    def Usage ():
+    def Usage():
         print "pastebinit v" + version
         print "Reads on stdin for input or takes a filename as first parameter"
         print _("Optional arguments:")
@@ -156,14 +182,14 @@ try:
         f = open(configfile)
         configtext = f.read()
         f.close()
-        gotconfigxml = 1
+        gotconfigxml = True
     except KeyboardInterrupt:
         sys.exit(_("KeyboardInterrupt caught."))
     except:
-        gotconfigxml = 0
+        gotconfigxml = False
 
     #Parse configuration file
-    if gotconfigxml == 1:
+    if gotconfigxml:
         try:
             configxml = xml.dom.minidom.parseString(configtext)
             website = getFirstNodeText(configxml, "pastebin")
@@ -235,18 +261,18 @@ try:
     pastebind = preloadPastebins() #get the config from /etc/pastebin.d/
     params = getParameters(website, pastebind, content, user, jabberid, version, format, parentpid, permatag, title, username, password) #Get the parameters array
 
-    if not re.search(".*/", website):
+    if not website.endswith("/"):
         website += "/"
 
-    reLink=None
-    tmp_page=""
-    if params.__contains__("page"):
-        website+=params['page']
-        tmp_page=params['page']
-        params.__delitem__("page")
-    if params.__contains__("regexp"):
-        reLink=params['regexp']
-        params.__delitem__("regexp")
+    reLink = None
+    tmp_page = ""
+    if "page" in params:
+        website += params['page']
+        tmp_page = params['page']
+        del params["page"]
+    if "regexp" in params:
+        reLink = params['regexp']
+        del params["regexp"]
     params = urllib.urlencode(params) #Convert to a format usable with the HTML POST
 
     url_opener = pasteURLopener()

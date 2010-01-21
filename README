@@ -4,7 +4,8 @@ USING PASTEBIN.D FILES
 To enable support for private pastebins, first you will need to know the fields
 that are in use by the pastebin when posting data.
 
-Add a file in the /etc/pastebin.d directory with the following format:
+Add a file in the ~/pastebin.d or /etc/pastebin.d/ directory with the following
+format:
 
 [pastebin]
 basename = domain.name
