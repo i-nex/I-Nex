@@ -8,13 +8,13 @@ msgstr ""
 "Project-Id-Version: pastebinit\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2009-12-26 19:36+0000\n"
-"PO-Revision-Date: 2009-12-26 19:37+0000\n"
-"Last-Translator: Andreas Jonsson <andreas@d-moll.com>\n"
+"PO-Revision-Date: 2010-02-14 20:16+0000\n"
+"Last-Translator: Treecko <Unknown>\n"
 "Language-Team: Swedish <sv@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2009-12-27 00:16+0000\n"
+"X-Launchpad-Export-Date: 2010-02-18 01:36+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #: ../pastebinit:65
@@ -78,7 +78,7 @@ msgstr "Kan inte läsa från: %s"
 
 #: ../pastebinit:234
 msgid "You are trying to send an empty document, exiting."
-msgstr ""
+msgstr "Du försöker skicka ett tomt dokument, avslutar."
 
 #: ../pastebinit:265
 msgid ""

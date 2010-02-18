@@ -8,29 +8,30 @@ msgstr ""
 "Project-Id-Version: pastebinit\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2009-12-26 19:36+0000\n"
-"PO-Revision-Date: 2009-12-26 19:36+0000\n"
-"Last-Translator: Eitan Adler <EitanAdlerList@gmail.com>\n"
+"PO-Revision-Date: 2010-01-18 20:37+0000\n"
+"Last-Translator: Omri Strumza <blueomega@gmail.com>\n"
 "Language-Team: Hebrew <he@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2009-12-27 00:16+0000\n"
+"X-Launchpad-Export-Date: 2010-02-18 01:36+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #: ../pastebinit:65
 #, docstring
 msgid "Return the parameters array for the selected pastebin"
-msgstr ""
+msgstr "החזר את מערך הפרמטרים עבור ה-pastebin הנבחר"
 
 #: ../pastebinit:96
 msgid ""
 "Unknown website, please post a bugreport to request this pastebin to be "
 "added (%s)"
 msgstr ""
+"אתר אינו ידוע, נא לשים לב לכתוב על בעיה זו על מנת לבקש כי pastebin יוספו (%s)"
 
 #: ../pastebinit:119
 msgid "Optional arguments:"
-msgstr ""
+msgstr "פרמטרים אופציונליים:"
 
 #: ../pastebinit:120
 msgid "\t-h This help screen"
@@ -38,11 +39,11 @@ msgstr ""
 
 #: ../pastebinit:121
 msgid "\t-b <pastebin url:default is '%s'>"
-msgstr ""
+msgstr "\t-b <pastebin url\":ברירת המחדל היא is %s>"
 
 #: ../pastebinit:122
 msgid "\t-a <author:default is '%s'>"
-msgstr ""
+msgstr "\t-a <author:default הוא'%s'>"
 
 #: ../pastebinit:123
 msgid "\t-f <format of paste:default is '%s'>"
@@ -59,12 +60,12 @@ msgstr ""
 
 #: ../pastebinit:177
 msgid "Error parsing configuration file!"
-msgstr ""
+msgstr "שגיאה בניתוח קובץ תצורה!"
 
 #: ../pastebinit:178
 msgid ""
 "Please ensure that your configuration file looks similar to the following:"
-msgstr ""
+msgstr "אנא וודא שקובץ התצורה שלך נראה דומה לבאים:"
 
 #: ../pastebinit:188
 msgid "Invalid arguments!\n"

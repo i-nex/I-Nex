@@ -8,19 +8,20 @@ msgstr ""
 "Project-Id-Version: pastebinit\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2009-12-26 19:36+0000\n"
-"PO-Revision-Date: 2009-12-26 19:36+0000\n"
-"Last-Translator: DiegoJ <diegojromerolopez@gmail.com>\n"
+"PO-Revision-Date: 2009-12-28 08:40+0000\n"
+"Last-Translator: Paco Molinero <paco@byasl.com>\n"
 "Language-Team: Spanish <es@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2009-12-27 00:16+0000\n"
+"X-Launchpad-Export-Date: 2010-02-18 01:36+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #: ../pastebinit:65
 #, docstring
 msgid "Return the parameters array for the selected pastebin"
-msgstr "Regresar a los parámetros elegidos para el pastebin seleccionado"
+msgstr ""
+"Regresar a la matriz de parámetros elegidos para el pastebin seleccionado"
 
 #: ../pastebinit:96
 msgid ""
@@ -44,7 +45,7 @@ msgstr "\t-b <pastebin url:el predeterminado es '%s'>"
 
 #: ../pastebinit:122
 msgid "\t-a <author:default is '%s'>"
-msgstr "\t-a <autor: el predeterminado es '%s>"
+msgstr "\t-a <autor: el predeterminado es «%s»>"
 
 #: ../pastebinit:123
 msgid "\t-f <format of paste:default is '%s'>"
@@ -67,8 +68,7 @@ msgstr "¡Error parseando el archivo de configuración!"
 msgid ""
 "Please ensure that your configuration file looks similar to the following:"
 msgstr ""
-"Por favor asegurarse que su archivo de configuración parezca similar al "
-"siguiente:"
+"Asegúrese que su archivo de configuración parezca similar al siguiente:"
 
 #: ../pastebinit:188
 msgid "Invalid arguments!\n"

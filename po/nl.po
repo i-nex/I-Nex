@@ -8,13 +8,13 @@ msgstr ""
 "Project-Id-Version: pastebinit\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2009-12-26 19:36+0000\n"
-"PO-Revision-Date: 2009-12-26 19:36+0000\n"
-"Last-Translator: hischild <His__Child@hotmail.com>\n"
+"PO-Revision-Date: 2010-01-25 17:10+0000\n"
+"Last-Translator: Redmar <redmar.vdberg@gmail.com>\n"
 "Language-Team: Dutch <nl@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2009-12-27 00:16+0000\n"
+"X-Launchpad-Export-Date: 2010-02-18 01:36+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #: ../pastebinit:65
@@ -36,7 +36,7 @@ msgstr "Mogelijke argumenten:"
 
 #: ../pastebinit:120
 msgid "\t-h This help screen"
-msgstr ""
+msgstr "\t-h Dit help venster"
 
 #: ../pastebinit:121
 msgid "\t-b <pastebin url:default is '%s'>"
@@ -57,11 +57,11 @@ msgstr "\t-r <bovenliggende post's ID:is standaard to none>"
 #: ../pastebinit:161 ../pastebinit:174 ../pastebinit:186 ../pastebinit:230
 #: ../pastebinit:262 ../pastebinit:268
 msgid "KeyboardInterrupt caught."
-msgstr "eyboardInterrupt ontvangen."
+msgstr "KeyboardInterrupt ontvangen"
 
 #: ../pastebinit:177
 msgid "Error parsing configuration file!"
-msgstr "outmelding tijdens het verwerken van het configuratie bestand!"
+msgstr "Foutmelding tijdens het verwerken van het configuratiebestand!"
 
 #: ../pastebinit:178
 msgid ""
@@ -80,7 +80,7 @@ msgstr "Kan niet lezen van: %s"
 
 #: ../pastebinit:234
 msgid "You are trying to send an empty document, exiting."
-msgstr ""
+msgstr "U probeert een leeg document te verzenden, bezig met beëindigen."
 
 #: ../pastebinit:265
 msgid ""

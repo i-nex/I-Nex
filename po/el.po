@@ -8,13 +8,13 @@ msgstr ""
 "Project-Id-Version: pastebinit\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2009-12-26 19:36+0000\n"
-"PO-Revision-Date: 2009-12-26 19:36+0000\n"
-"Last-Translator: Nick Agianniotis <nickagian@gmail.com>\n"
+"PO-Revision-Date: 2010-01-26 02:35+0000\n"
+"Last-Translator: George Kontis <giormatsis@gmail.com>\n"
 "Language-Team: Greek <el@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2009-12-27 00:16+0000\n"
+"X-Launchpad-Export-Date: 2010-02-18 01:36+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
 #: ../pastebinit:65
@@ -32,7 +32,7 @@ msgstr ""
 
 #: ../pastebinit:119
 msgid "Optional arguments:"
-msgstr ""
+msgstr "Προαιρετικές παράμετροι:"
 
 #: ../pastebinit:120
 msgid "\t-h This help screen"
@@ -40,7 +40,7 @@ msgstr ""
 
 #: ../pastebinit:121
 msgid "\t-b <pastebin url:default is '%s'>"
-msgstr ""
+msgstr "\t-b <pastebin url:προεπιλεγμένο το '%s'>"
 
 #: ../pastebinit:122
 msgid "\t-a <author:default is '%s'>"
@@ -61,20 +61,22 @@ msgstr ""
 
 #: ../pastebinit:177
 msgid "Error parsing configuration file!"
-msgstr ""
+msgstr "Σφάλμα κατά την ανάλυση του αρχείου ρυθμίσεων!"
 
 #: ../pastebinit:178
 msgid ""
 "Please ensure that your configuration file looks similar to the following:"
 msgstr ""
+"Παρακαλώ βεβαιωθείτε ότι το αρείο ρυθμίσεών σας μοιάζει παρόμοιο με  το "
+"ακόλουθο:"
 
 #: ../pastebinit:188
 msgid "Invalid arguments!\n"
-msgstr ""
+msgstr "Μη έγκυρες παράμετροι!\n"
 
 #: ../pastebinit:232
 msgid "Unable to read from: %s"
-msgstr ""
+msgstr "Δεν ήταν δυνατή η ανάγνωση από: %s"
 
 #: ../pastebinit:234
 msgid "You are trying to send an empty document, exiting."
