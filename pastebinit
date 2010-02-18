@@ -25,7 +25,7 @@ try:
     gettext.textdomain("pastebinit")
 
     defaultPB = "http://pastebin.com" #Default pastebin
-    version = "0.11.2" #Version number to show in the usage
+    version = "1.0" #Version number to show in the usage
     configfile = os.path.expanduser("~/.pastebinit.xml")
 
     # Custom urlopener to handle 401's
