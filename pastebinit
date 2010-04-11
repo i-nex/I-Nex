@@ -284,7 +284,7 @@ try:
             if reLink == '(.*)':
                 print page.read().strip()
             else:
-                print website + "/" + re.split(reLink, page.read())[1] #Print the result of the Regexp
+                print website + re.split(reLink, page.read())[1] #Print the result of the Regexp
         else:
             print page.url #Get the final page and show the ur
     except KeyboardInterrupt:
