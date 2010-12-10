@@ -67,7 +67,7 @@ try:
                     print >> sys.stderr, _("%s: no 'basename' in [pastebin]") % filename
                     continue
                 pastebind[basename] = bininstance
-            return pastebind
+        return pastebind
 
     # pastey.net obfuscates parent ids for replies.  Rather than taking the
     # post ID given as the parent ID, we must handle this by going to that
