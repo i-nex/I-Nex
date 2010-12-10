@@ -676,8 +676,11 @@ extract_edid(int fd)
 	    ret = realloc(ret, size + 1024);
     }
 
+    start = strstr(ret, "EDID_DATA:");
+    if (start == NULL)
+    	start = strstr(ret, "EDID:");
     /* Look for xrandr --verbose output (8 lines of 16 hex bytes) */
-    if ((start = strstr(ret, "EDID_DATA:")) != NULL) {
+    if (start != NULL) {
 	const char indentation1[] = "                ";
 	const char indentation2[] = "\t\t";
 	const char *indentation;
