@@ -4,10 +4,10 @@
   <!ENTITY dhfirstname "<firstname>Stephane</firstname>">
   <!ENTITY dhsurname   "<surname>Graber</surname>">
   <!-- Please adjust the date whenever revising the manpage. -->
-  <!ENTITY dhdate      "<date>December 19, 2008</date>">
+  <!ENTITY dhdate      "<date>January 09, 2011</date>">
   <!ENTITY dhsection   "<manvolnum>1</manvolnum>">
-  <!ENTITY dhemail     "<email>d.paleino@gmail.com</email>">
-  <!ENTITY dhusername  "David Paleino">
+  <!ENTITY dhemail     "<email>stgraber@ubuntu.com</email>">
+  <!ENTITY dhusername  "Stephane Graber">
   <!ENTITY dhucpackage "<refentrytitle>PASTEBINIT</refentrytitle>">
   <!ENTITY dhpackage   "pastebinit">
 
@@ -22,7 +22,7 @@
       &dhemail;
     </address>
     <copyright>
-      <year>2007-2008</year>
+      <year>2007-2011</year>
       <holder>&dhusername;</holder>
     </copyright>
     &dhdate;
@@ -40,7 +40,7 @@
   <refsynopsisdiv>
     <cmdsynopsis>
       <command>&dhpackage;</command>
-      <arg><option>-ibafrjmtup</option></arg>
+      <arg><option>-abfhiljmrtup</option></arg>
     </cmdsynopsis>
   </refsynopsisdiv>
   <refsect1>
@@ -57,97 +57,67 @@
   <refsect1>
     <title>OPTIONS</title>
     <refsect2>
-      <title>Required arguments</title>
+      <title>Optional arguments (not supported by all pastebins)</title>
       <variablelist>
-        <varlistentry>
-          <term><option>-i <arg>filename</arg></option> (- for reading from stdin)</term>
-        </varlistentry>
-      </variablelist> 
-    </refsect2>
-    <refsect2>
-      <title>Optional arguments</title>
-      <variablelist>
-        <varlistentry>
-          <term><option>-b <arg>pastebin url</arg></option> (default: http://pastebin.com)</term>
-        </varlistentry>
         <varlistentry>
           <term><option>-a <arg>author</arg></option> (default: $USER)</term>
         </varlistentry>
         <varlistentry>
+          <term><option>-b <arg>pastebin url</arg></option> (default: http://pastebin.com)</term>
+        </varlistentry>
+        <varlistentry>
           <term><option>-f <arg>format of paste</arg></option> (used for syntax-highlighting, default: text)</term>
-        </varlistentry>	
+        </varlistentry>
+        <varlistentry>
+          <term><option>-h</option> Help screen</term>
+        </varlistentry>
+        <varlistentry>
+          <term><option>-i <arg>filename</arg></option> Use filename for input</term>
+        </varlistentry>
+        <varlistentry>
+          <term><option>-l</option> List all the supported pastebins</term>
+        </varlistentry>
+        <varlistentry>
+          <term><option>-j <arg>jabberid</arg></option> (default: none)</term>
+        </varlistentry>
+        <varlistentry>
+          <term><option>-m <arg>permatag</arg></option> (default: none)</term>
+        </varlistentry>
         <varlistentry>
           <term><option>-r <arg>parent post ID</arg></option> (default: none)</term>
         </varlistentry>
-        <!-- <varlistentry>
-          <term><option>-t <arg>title of paste</arg></option> (ONLY FOR 1t2.us)</term>
+        <varlistentry>
+          <term><option>-t <arg>title of paste</arg></option> (default: none)</term>
         </varlistentry>
         <varlistentry>
-          <term><option>-m <arg>permatag</arg></option> (ONLY FOR 1t2.us, default: blank)</term>
+          <term><option>-u <arg>username</arg></option> (default: none)</term>
         </varlistentry>
         <varlistentry>
-          <term><option>-u <arg>username</arg></option> (ONLY FOR 1t2.us)</term>
+          <term><option>-p <arg>password</arg></option> (default: none)</term>
         </varlistentry>
-        <varlistentry>
-          <term><option>-p <arg>password</arg></option> (ONLY FOR 1t2.us)</term>
-        </varlistentry>
-        <varlistentry>
-          <term><option>-j <arg>jabberid</arg></option> (ONLY FOR 1t2.us)</term>
-        </varlistentry> -->
       </variablelist>
     </refsect2>
   </refsect1>
   <refsect1>
-    <title>SUPPORTED PASTEBINS</title>
-    <itemizedlist>
-      <listitem>
-        <para>http://pastebin.com (including subdomains)</para>
-      </listitem>
-      <listitem>
-        <para>http://pastebin.ca (including subdomains)</para>
-      </listitem>
-<!--      <listitem>
-        <para>http://1t2.us (including subdomains)</para>
-      </listitem> -->
-      <listitem>
-        <para>http://rafb.net</para>
-      </listitem>
-      <listitem>
-        <para>http://slexy.org</para>
-      </listitem>
-      <listitem>
-        <para>http://fpaste.org</para>
-      </listitem>
-      <listitem>
-        <para>http://paste2.org</para>
-      </listitem>
-      <listitem>
-        <para>http://pastey.net (including subdomains)</para>
-      </listitem>
-      <listitem>
-        <para>http://stikked.com</para>
-      </listitem>
-      <listitem>
-        <para>http://yourpaste.net</para>
-      </listitem>
-      <listitem>
-        <para>http://gist.github.com</para>
-      </listitem>
-      <listitem>
-        <para>http://paste.ubuntu.com</para>
-      </listitem>
-      <listitem>
-        <para>http://paste.debian.net</para>
-      </listitem>
-    </itemizedlist>
+    <title>CONFIGURATION FILE</title>
+    <para>If a .pastebinit.xml file is found in the user's home directory,
+    pastebinit will use it for its configuration.</para>
+    <para>Here's an example file:</para>
+    <code language="xml">
+ &lt;pastebinit&gt;
+     &lt;pastebin&gt;http://paste.ubuntu.com&lt;/pastebin&gt;
+     &lt;author&gt;Stephane Graber&lt;/author&gt;
+     &lt;jabberid&gt;stgraber@stgraber.org&lt;/jabberid&gt;
+     &lt;format&gt;text&lt;/format&gt;
+ &lt;/pastebinit&gt;
+</code>
   </refsect1>
   <refsect1>
     <title>AUTHORS</title>
     <para>Pastebinit is currently written by &dhfirstname; &dhsurname;.</para>
-    <para>1t2.us, username, password, format, title, arguments and redirect
+    <para>username, password, format, title, arguments and redirect
     support added by Daniel Bartlett.</para>
-    <para>Website: http://www.stgraber.org/category/pastebinit</para>
+    <para>Website: http://launchpad.net/pastebinit</para>
     <para>E-mail: stgraber@ubuntu.com</para>
   </refsect1>
 </refentry>
-
