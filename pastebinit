@@ -122,7 +122,7 @@ try:
         if params:
             return params
         else:
-            sys.exit(_("Unknown website, please post a bugreport to request this pastebin to be added (%s)") % website)
+            sys.exit(_("Unknown website, please post a bugreport to request this pastebin to be added (%s)" % website))
 
     #XML Handling methods
     def getText(nodelist):
