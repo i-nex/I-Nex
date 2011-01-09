@@ -196,10 +196,12 @@ try:
     if gotconfigxml:
         try:
             configxml = xml.dom.minidom.parseString(configtext)
-            website = getFirstNodeText(configxml, "pastebin")
-            user = getFirstNodeText(configxml, "author")
-            format = getFirstNodeText(configxml, "format")
-            jabberid = getFirstNodeText(configxml, "jabberid")
+            for variable,key in (('pastebin','website'),('author','user'),('format','format'),('jabberid','jabberid')):
+                try:
+                    value = getFirstNodeText(configxml, variable)
+                    vars()[key]=value
+                except:
+                    pass
         except KeyboardInterrupt:
             sys.exit(_("KeyboardInterrupt caught."))
         except:
