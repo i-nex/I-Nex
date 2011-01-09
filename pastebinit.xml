@@ -66,7 +66,8 @@
           <term><option>-b <arg>pastebin url</arg></option> (default: http://pastebin.com)</term>
         </varlistentry>
         <varlistentry>
-          <term><option>-f <arg>format of paste</arg></option> (used for syntax-highlighting, default: text)</term>
+          <term><option>-f <arg>format for syntax-highlighting</arg></option> (default: text)
+          (check pastebin's website for complete list, example: python)</term>
         </varlistentry>
         <varlistentry>
           <term><option>-h</option> Help screen</term>
