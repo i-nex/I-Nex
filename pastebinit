@@ -92,6 +92,9 @@ try:
         params = {}
         for pastebin in pastebind:
             if re.search(pastebind[pastebin]['pastebin']['regexp'], website):
+                if "sizelimit" in pastebind[pastebin]['pastebin']:
+                    params['sizelimit'] = pastebind[pastebin]['pastebin']['sizelimit']
+
                 for param in pastebind[pastebin]['format'].keys():
                     paramname = pastebind[pastebin]['format'][param]
                     if param == 'user':
@@ -264,11 +267,18 @@ try:
         except:
             sys.exit(_("Unable to read from: %s") % filename)
     if not content:
-        sys.exit(_("You are trying to send an empty document, exiting.")) 
+        sys.exit(_("You are trying to send an empty document, exiting."))
+
     params = getParameters(website, pastebind, content, user, jabberid, version, format, parentpid, permatag, title, username, password) #Get the parameters array
 
     if not website.endswith("/"):
         website += "/"
+
+    if "sizelimit" in params:
+        if len(content) > int(params['sizelimit']):
+            sys.exit(_("The content you are trying to send exceeds the pastebin's size limit."))
+        else:
+            del params['sizelimit']
 
     reLink = None
     tmp_page = ""
