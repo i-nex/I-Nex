@@ -17,6 +17,17 @@
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
+defaultPB = "http://pastebin.com" #Default pastebin
+try:
+    import lsb_release
+    release = lsb_release.get_distro_information()['ID'].lower()
+    if release == 'ubuntu':
+        defaultPB = "http://paste.ubuntu.com"
+    elif release == 'debian':
+        defaultPB = "http://paste.debian.net"
+except ImportError:
+    pass
+
 try:
     import urllib, os, sys, re, getopt, xml.dom.minidom, gettext
     from gettext import gettext as _
@@ -24,7 +35,6 @@ try:
 
     gettext.textdomain("pastebinit")
 
-    defaultPB = "http://pastebin.com" #Default pastebin
     version = "1.1" #Version number to show in the usage
     configfile = os.path.expanduser("~/.pastebinit.xml")
 
