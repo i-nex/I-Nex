@@ -7,79 +7,121 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pastebinit\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2009-12-26 19:36+0000\n"
-"PO-Revision-Date: 2009-12-26 19:36+0000\n"
-"Last-Translator: Siegfried Gevatter <rainct@ubuntu.com>\n"
+"POT-Creation-Date: 2011-01-09 20:24+0000\n"
+"PO-Revision-Date: 2010-10-18 18:01+0000\n"
+"Last-Translator: David Planella <david.planella@ubuntu.com>\n"
 "Language-Team: Catalan <ca@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-02-18 01:36+0000\n"
+"X-Launchpad-Export-Date: 2011-01-10 04:51+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
-#: ../pastebinit:65
-#, docstring
-msgid "Return the parameters array for the selected pastebin"
+#: ../pastebinit:62
+msgid "%s: no section [pastebin]"
 msgstr ""
 
-#: ../pastebinit:96
+#: ../pastebinit:67
+msgid "%s: no 'basename' in [pastebin]"
+msgstr ""
+
+#: ../pastebinit:91
+#, docstring
+msgid "Return the parameters array for the selected pastebin"
+msgstr "Retorna la matriu de paràmetres per al pastebin seleccionat"
+
+#: ../pastebinit:125
 msgid ""
 "Unknown website, please post a bugreport to request this pastebin to be "
 "added (%s)"
 msgstr ""
+"Es desconeix el lloc web. Envieu un informe d'error i sol·liciteu-hi que "
+"s'inclogui aquest pastebin (%s)"
 
-#: ../pastebinit:119
-msgid "Optional arguments:"
-msgstr "Arguments opcionals:"
-
-#: ../pastebinit:120
-msgid "\t-h This help screen"
+#: ../pastebinit:148
+msgid "Optional arguments (not supported by all pastebins):"
 msgstr ""
 
-#: ../pastebinit:121
-msgid "\t-b <pastebin url:default is '%s'>"
-msgstr ""
-
-#: ../pastebinit:122
+#: ../pastebinit:149
 msgid "\t-a <author:default is '%s'>"
-msgstr ""
+msgstr "\t-a <autor: el predeterminat és «%s»>"
 
-#: ../pastebinit:123
+#: ../pastebinit:150
+msgid "\t-b <pastebin url:default is '%s'>"
+msgstr "\t-b <URL del pastebin: el predeterminat és «%s»>"
+
+#: ../pastebinit:151
 msgid "\t-f <format of paste:default is '%s'>"
+msgstr "\t-f <format d'enganxament: el predeterminat és «%s»>"
+
+#: ../pastebinit:152
+msgid "\t-h This help screen"
+msgstr "\t-h Aquesta pantalla d'ajuda"
+
+#: ../pastebinit:153
+msgid "\t-i <input file>"
 msgstr ""
 
-#: ../pastebinit:124
+#: ../pastebinit:154
+msgid "\t-l List all supported pastebins"
+msgstr ""
+
+#: ../pastebinit:155
+msgid "\t-j <jabberid for notifications:default is '%s'>"
+msgstr ""
+
+#: ../pastebinit:156
+msgid "\t-m <permatag for all versions of a post:default is blank>"
+msgstr ""
+
+#: ../pastebinit:157
 msgid "\t-r <parent posts ID:defaults to none>"
+msgstr "\t-r <identificador de l'apunt pare: el predeterminat és «cap»>"
+
+#: ../pastebinit:158
+msgid "\t-t <title of paste:default is blank>"
 msgstr ""
 
-#: ../pastebinit:161 ../pastebinit:174 ../pastebinit:186 ../pastebinit:230
-#: ../pastebinit:262 ../pastebinit:268
+#: ../pastebinit:159
+msgid "\t-u <username> -p <password>"
+msgstr ""
+
+#: ../pastebinit:191 ../pastebinit:204 ../pastebinit:216 ../pastebinit:266
+#: ../pastebinit:307 ../pastebinit:313
 msgid "KeyboardInterrupt caught."
-msgstr ""
+msgstr "S'ha capturat una interrupció del tipus KeyboardInterrupt."
 
-#: ../pastebinit:177
+#: ../pastebinit:207
 msgid "Error parsing configuration file!"
-msgstr "Hi ha hagut un error al analitzar el fitxer de configuració!"
+msgstr "S'ha produït un error en analitzar el fitxer de configuració"
 
-#: ../pastebinit:178
+#: ../pastebinit:208
 msgid ""
 "Please ensure that your configuration file looks similar to the following:"
 msgstr ""
 "Assegureu-vos que el vostre fitxer de configuració s'assembli al següent:"
 
-#: ../pastebinit:188
+#: ../pastebinit:218
 msgid "Invalid arguments!\n"
 msgstr "Arguments no vàlids!\n"
 
-#: ../pastebinit:232
+#: ../pastebinit:241
+msgid "Supported pastebins:"
+msgstr ""
+
+#: ../pastebinit:268
 msgid "Unable to read from: %s"
 msgstr "No s'ha pogut llegir de: %s"
 
-#: ../pastebinit:234
+#: ../pastebinit:270
 msgid "You are trying to send an empty document, exiting."
+msgstr "Esteu intentant enviar un document buit; se sortirà."
+
+#: ../pastebinit:279
+msgid "The content you are trying to send exceeds the pastebin's size limit."
 msgstr ""
 
-#: ../pastebinit:265
+#: ../pastebinit:310
 msgid ""
 "Unable to read or parse the result page, it could be a server timeout or a "
 "change server side, try with another pastebin."
@@ -87,6 +129,9 @@ msgstr ""
 "No s'ha pogut llegir o analitzar la pàgina amb el resultat. Això podria ser "
 "degut a un excés del temps d'espera del servidor o a un canvi en la pàgina. "
 "Proveu amb un altre servei."
+
+#~ msgid "Optional arguments:"
+#~ msgstr "Arguments opcionals:"
 
 #~ msgid "Required arguments:"
 #~ msgstr "Arguments necessaris:"

@@ -7,86 +7,128 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pastebinit\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2009-12-26 19:36+0000\n"
-"PO-Revision-Date: 2010-01-18 20:37+0000\n"
+"POT-Creation-Date: 2011-01-09 20:24+0000\n"
+"PO-Revision-Date: 2010-02-22 13:45+0000\n"
 "Last-Translator: Omri Strumza <blueomega@gmail.com>\n"
 "Language-Team: Hebrew <he@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-02-18 01:36+0000\n"
+"X-Launchpad-Export-Date: 2011-01-10 04:51+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
-#: ../pastebinit:65
+#: ../pastebinit:62
+msgid "%s: no section [pastebin]"
+msgstr ""
+
+#: ../pastebinit:67
+msgid "%s: no 'basename' in [pastebin]"
+msgstr ""
+
+#: ../pastebinit:91
 #, docstring
 msgid "Return the parameters array for the selected pastebin"
 msgstr "החזר את מערך הפרמטרים עבור ה-pastebin הנבחר"
 
-#: ../pastebinit:96
+#: ../pastebinit:125
 msgid ""
 "Unknown website, please post a bugreport to request this pastebin to be "
 "added (%s)"
 msgstr ""
 "אתר אינו ידוע, נא לשים לב לכתוב על בעיה זו על מנת לבקש כי pastebin יוספו (%s)"
 
-#: ../pastebinit:119
-msgid "Optional arguments:"
-msgstr "פרמטרים אופציונליים:"
-
-#: ../pastebinit:120
-msgid "\t-h This help screen"
+#: ../pastebinit:148
+msgid "Optional arguments (not supported by all pastebins):"
 msgstr ""
 
-#: ../pastebinit:121
-msgid "\t-b <pastebin url:default is '%s'>"
-msgstr "\t-b <pastebin url\":ברירת המחדל היא is %s>"
-
-#: ../pastebinit:122
+#: ../pastebinit:149
 msgid "\t-a <author:default is '%s'>"
 msgstr "\t-a <author:default הוא'%s'>"
 
-#: ../pastebinit:123
+#: ../pastebinit:150
+msgid "\t-b <pastebin url:default is '%s'>"
+msgstr "\t-b <pastebin url\":ברירת המחדל היא is %s>"
+
+#: ../pastebinit:151
 msgid "\t-f <format of paste:default is '%s'>"
+msgstr "\t-f <פורמט הדבקה: ברירת המחדל היא  '%s'>"
+
+#: ../pastebinit:152
+msgid "\t-h This help screen"
+msgstr "\t-h מסך עזרה זה"
+
+#: ../pastebinit:153
+msgid "\t-i <input file>"
 msgstr ""
 
-#: ../pastebinit:124
+#: ../pastebinit:154
+msgid "\t-l List all supported pastebins"
+msgstr ""
+
+#: ../pastebinit:155
+msgid "\t-j <jabberid for notifications:default is '%s'>"
+msgstr ""
+
+#: ../pastebinit:156
+msgid "\t-m <permatag for all versions of a post:default is blank>"
+msgstr ""
+
+#: ../pastebinit:157
 msgid "\t-r <parent posts ID:defaults to none>"
+msgstr "\t-r <מזהה פוסט אב: ברירת המחדל ללא>"
+
+#: ../pastebinit:158
+msgid "\t-t <title of paste:default is blank>"
 msgstr ""
 
-#: ../pastebinit:161 ../pastebinit:174 ../pastebinit:186 ../pastebinit:230
-#: ../pastebinit:262 ../pastebinit:268
+#: ../pastebinit:159
+msgid "\t-u <username> -p <password>"
+msgstr "\t-u <שם משתמש> -p <סיסמא>"
+
+#: ../pastebinit:191 ../pastebinit:204 ../pastebinit:216 ../pastebinit:266
+#: ../pastebinit:307 ../pastebinit:313
 msgid "KeyboardInterrupt caught."
-msgstr ""
+msgstr "נתפס KeyboardInterrupt."
 
-#: ../pastebinit:177
+#: ../pastebinit:207
 msgid "Error parsing configuration file!"
 msgstr "שגיאה בניתוח קובץ תצורה!"
 
-#: ../pastebinit:178
+#: ../pastebinit:208
 msgid ""
 "Please ensure that your configuration file looks similar to the following:"
 msgstr "אנא וודא שקובץ התצורה שלך נראה דומה לבאים:"
 
-#: ../pastebinit:188
+#: ../pastebinit:218
 msgid "Invalid arguments!\n"
+msgstr "ארגומנטים לא חוקיים!\n"
+
+#: ../pastebinit:241
+msgid "Supported pastebins:"
 msgstr ""
 
-#: ../pastebinit:232
+#: ../pastebinit:268
 msgid "Unable to read from: %s"
 msgstr "לא ניתן לקרוא מ:s%"
 
-#: ../pastebinit:234
+#: ../pastebinit:270
 msgid "You are trying to send an empty document, exiting."
+msgstr "הינך מנסה לשלוח מסמך ריק, יוצא."
+
+#: ../pastebinit:279
+msgid "The content you are trying to send exceeds the pastebin's size limit."
 msgstr ""
 
-#: ../pastebinit:265
+#: ../pastebinit:310
 msgid ""
 "Unable to read or parse the result page, it could be a server timeout or a "
 "change server side, try with another pastebin."
 msgstr ""
+"נכשל בקריאת או ניתוח דף התוצאות, יתכן שזה נגמר בגלל שתם הזמן עבור השרת או "
+"שצד השרת השתנה, נסה pastebin אחר."
 
 #~ msgid "Required arguments:"
 #~ msgstr "אפשרות נדרשת"
 
-#~ msgid "\t-u <username> -p <password>"
-#~ msgstr "\t-u <שם משתמש> -p <סיסמא>"
+#~ msgid "Optional arguments:"
+#~ msgstr "פרמטרים אופציונליים:"

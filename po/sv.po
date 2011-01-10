@@ -7,22 +7,30 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pastebinit\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2009-12-26 19:36+0000\n"
-"PO-Revision-Date: 2010-02-14 20:16+0000\n"
-"Last-Translator: Treecko <Unknown>\n"
+"POT-Creation-Date: 2011-01-09 20:24+0000\n"
+"PO-Revision-Date: 2010-02-18 02:39+0000\n"
+"Last-Translator: Stéphane Graber <stgraber@stgraber.org>\n"
 "Language-Team: Swedish <sv@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-02-18 01:36+0000\n"
+"X-Launchpad-Export-Date: 2011-01-10 04:52+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
-#: ../pastebinit:65
+#: ../pastebinit:62
+msgid "%s: no section [pastebin]"
+msgstr ""
+
+#: ../pastebinit:67
+msgid "%s: no 'basename' in [pastebin]"
+msgstr ""
+
+#: ../pastebinit:91
 #, docstring
 msgid "Return the parameters array for the selected pastebin"
 msgstr "Returnera listan av parametrar för den valda pastebin"
 
-#: ../pastebinit:96
+#: ../pastebinit:125
 msgid ""
 "Unknown website, please post a bugreport to request this pastebin to be "
 "added (%s)"
@@ -30,63 +38,98 @@ msgstr ""
 "Okänd webbsida, var snäll och posta en bugrapport för att lägga till den "
 "begärda pastebin (%s)"
 
-#: ../pastebinit:119
-msgid "Optional arguments:"
-msgstr "Frivilliga argument:"
+#: ../pastebinit:148
+msgid "Optional arguments (not supported by all pastebins):"
+msgstr ""
 
-#: ../pastebinit:120
-msgid "\t-h This help screen"
-msgstr "\t-h Den här hjälpen"
-
-#: ../pastebinit:121
-msgid "\t-b <pastebin url:default is '%s'>"
-msgstr "\t-b <pastebin url:standard är '%s'>"
-
-#: ../pastebinit:122
+#: ../pastebinit:149
 msgid "\t-a <author:default is '%s'>"
 msgstr "\t-a <författare:standard är '%s'>"
 
-#: ../pastebinit:123
+#: ../pastebinit:150
+msgid "\t-b <pastebin url:default is '%s'>"
+msgstr "\t-b <pastebin url:standard är '%s'>"
+
+#: ../pastebinit:151
 msgid "\t-f <format of paste:default is '%s'>"
 msgstr "\t-f <format för paste:standard är '%s'>"
 
-#: ../pastebinit:124
+#: ../pastebinit:152
+msgid "\t-h This help screen"
+msgstr "\t-h Den här hjälpen"
+
+#: ../pastebinit:153
+msgid "\t-i <input file>"
+msgstr ""
+
+#: ../pastebinit:154
+msgid "\t-l List all supported pastebins"
+msgstr ""
+
+#: ../pastebinit:155
+msgid "\t-j <jabberid for notifications:default is '%s'>"
+msgstr "\t-j <jabberid för notifieringar:standard är '%s'>"
+
+#: ../pastebinit:156
+msgid "\t-m <permatag for all versions of a post:default is blank>"
+msgstr "\t-m <permatag för alla versioner av en post:standard är blank>"
+
+#: ../pastebinit:157
 msgid "\t-r <parent posts ID:defaults to none>"
 msgstr "\t-r <förälder posts ID:standard är tom>"
 
-#: ../pastebinit:161 ../pastebinit:174 ../pastebinit:186 ../pastebinit:230
-#: ../pastebinit:262 ../pastebinit:268
+#: ../pastebinit:158
+msgid "\t-t <title of paste:default is blank>"
+msgstr "\t-t <paste titel:standard är blank>"
+
+#: ../pastebinit:159
+msgid "\t-u <username> -p <password>"
+msgstr "\t-u <användardnamn> -p <lösenord>"
+
+#: ../pastebinit:191 ../pastebinit:204 ../pastebinit:216 ../pastebinit:266
+#: ../pastebinit:307 ../pastebinit:313
 msgid "KeyboardInterrupt caught."
 msgstr "KeyboardInterrupt fångat."
 
-#: ../pastebinit:177
+#: ../pastebinit:207
 msgid "Error parsing configuration file!"
 msgstr "Fel vid parsning av konfigurationsfil!"
 
-#: ../pastebinit:178
+#: ../pastebinit:208
 msgid ""
 "Please ensure that your configuration file looks similar to the following:"
 msgstr "Se till att konfigurationsfilen liknar följande:"
 
-#: ../pastebinit:188
+#: ../pastebinit:218
 msgid "Invalid arguments!\n"
 msgstr "Ogiltiga argument!\n"
 
-#: ../pastebinit:232
+#: ../pastebinit:241
+msgid "Supported pastebins:"
+msgstr ""
+
+#: ../pastebinit:268
 msgid "Unable to read from: %s"
 msgstr "Kan inte läsa från: %s"
 
-#: ../pastebinit:234
+#: ../pastebinit:270
 msgid "You are trying to send an empty document, exiting."
 msgstr "Du försöker skicka ett tomt dokument, avslutar."
 
-#: ../pastebinit:265
+#: ../pastebinit:279
+msgid "The content you are trying to send exceeds the pastebin's size limit."
+msgstr ""
+
+#: ../pastebinit:310
 msgid ""
 "Unable to read or parse the result page, it could be a server timeout or a "
 "change server side, try with another pastebin."
 msgstr ""
 "Kan inte läsa eller tolka resultatsidan. Det kan bero på en server timeout "
 "eller en ändring på servern. Försök med en annan pastebin."
+
+#~ msgid "Optional arguments:"
+#~ msgstr "Frivilliga argument:"
 
 #~ msgid "Required arguments:"
 #~ msgstr "Obligatoriska argument:"
@@ -96,18 +139,6 @@ msgstr ""
 
 #~ msgid "Optional arguments supported only by 1t2.us and paste.stgraber.org:"
 #~ msgstr "Frivilliga argument stöds endast av 1t2.us och paste.stgraber.org:"
-
-#~ msgid "\t-j <jabberid for notifications:default is '%s'>"
-#~ msgstr "\t-j <jabberid för notifieringar:standard är '%s'>"
-
-#~ msgid "\t-m <permatag for all versions of a post:default is blank>"
-#~ msgstr "\t-m <permatag för alla versioner av en post:standard är blank>"
-
-#~ msgid "\t-t <title of paste:default is blank>"
-#~ msgstr "\t-t <paste titel:standard är blank>"
-
-#~ msgid "\t-u <username> -p <password>"
-#~ msgstr "\t-u <användardnamn> -p <lösenord>"
 
 #~ msgid "Error no arguments specified!\n"
 #~ msgstr "Fel, inga argument angivna\n"

@@ -6,82 +6,125 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pastebinit 0.10\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-12-26 19:36+0000\n"
+"POT-Creation-Date: 2011-01-09 20:24+0000\n"
 "PO-Revision-Date: 2009-12-27 02:37+0000\n"
 "Last-Translator: Rex Tsai <chihchun@kalug.linux.org.tw>\n"
 "Language-Team: Traditional Chinese <debian-chinese-big5@debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2010-02-18 01:36+0000\n"
+"X-Launchpad-Export-Date: 2011-01-10 04:52+0000\n"
 "X-Generator: Launchpad (build Unknown)\n"
 
-#: ../pastebinit:65
+#: ../pastebinit:62
+msgid "%s: no section [pastebin]"
+msgstr ""
+
+#: ../pastebinit:67
+msgid "%s: no 'basename' in [pastebin]"
+msgstr ""
+
+#: ../pastebinit:91
 #, docstring
 msgid "Return the parameters array for the selected pastebin"
 msgstr "列出所選網站之參數"
 
-#: ../pastebinit:96
+#: ../pastebinit:125
 msgid ""
 "Unknown website, please post a bugreport to request this pastebin to be "
 "added (%s)"
 msgstr "未支援網站，請回報此網站 (%s)"
 
-#: ../pastebinit:119
-msgid "Optional arguments:"
-msgstr "選用參數"
+#: ../pastebinit:148
+msgid "Optional arguments (not supported by all pastebins):"
+msgstr ""
 
-#: ../pastebinit:120
-msgid "\t-h This help screen"
-msgstr "\t-h 本說明"
-
-#: ../pastebinit:121
-msgid "\t-b <pastebin url:default is '%s'>"
-msgstr "\t-b <網址:預設為 '%s'>"
-
-#: ../pastebinit:122
+#: ../pastebinit:149
 msgid "\t-a <author:default is '%s'>"
 msgstr "\t-a <作者:預設為 '%s'>"
 
-#: ../pastebinit:123
+#: ../pastebinit:150
+msgid "\t-b <pastebin url:default is '%s'>"
+msgstr "\t-b <網址:預設為 '%s'>"
+
+#: ../pastebinit:151
 msgid "\t-f <format of paste:default is '%s'>"
 msgstr "\t-f <張貼格式:預設為 '%s'>"
 
-#: ../pastebinit:124
+#: ../pastebinit:152
+msgid "\t-h This help screen"
+msgstr "\t-h 本說明"
+
+#: ../pastebinit:153
+msgid "\t-i <input file>"
+msgstr ""
+
+#: ../pastebinit:154
+msgid "\t-l List all supported pastebins"
+msgstr ""
+
+#: ../pastebinit:155
+msgid "\t-j <jabberid for notifications:default is '%s'>"
+msgstr "\t-j <Jabber 通知帳號:預設是 '%s'>"
+
+#: ../pastebinit:156
+msgid "\t-m <permatag for all versions of a post:default is blank>"
+msgstr "\t-m <佈告之永久標籤 (permatag):預設空白>"
+
+#: ../pastebinit:157
 msgid "\t-r <parent posts ID:defaults to none>"
 msgstr "\t-r <母張貼 ID: 預設為無>"
 
-#: ../pastebinit:161 ../pastebinit:174 ../pastebinit:186 ../pastebinit:230
-#: ../pastebinit:262 ../pastebinit:268
+#: ../pastebinit:158
+msgid "\t-t <title of paste:default is blank>"
+msgstr "\t-t <標題:預設空白>"
+
+#: ../pastebinit:159
+msgid "\t-u <username> -p <password>"
+msgstr "\t-u <帳號> -p <密碼>"
+
+#: ../pastebinit:191 ../pastebinit:204 ../pastebinit:216 ../pastebinit:266
+#: ../pastebinit:307 ../pastebinit:313
 msgid "KeyboardInterrupt caught."
 msgstr "偵測到鍵盤中斷。"
 
-#: ../pastebinit:177
+#: ../pastebinit:207
 msgid "Error parsing configuration file!"
 msgstr "無法解析設定檔!"
 
-#: ../pastebinit:178
+#: ../pastebinit:208
 msgid ""
 "Please ensure that your configuration file looks similar to the following:"
 msgstr "請確認您的設定檔看起來像:"
 
-#: ../pastebinit:188
+#: ../pastebinit:218
 msgid "Invalid arguments!\n"
 msgstr "參數錯誤!\n"
 
-#: ../pastebinit:232
+#: ../pastebinit:241
+msgid "Supported pastebins:"
+msgstr ""
+
+#: ../pastebinit:268
 msgid "Unable to read from: %s"
 msgstr "無法讀取: %s"
 
-#: ../pastebinit:234
+#: ../pastebinit:270
 msgid "You are trying to send an empty document, exiting."
 msgstr "您嘗試送出空白文件使得程式結束。"
 
-#: ../pastebinit:265
+#: ../pastebinit:279
+msgid "The content you are trying to send exceeds the pastebin's size limit."
+msgstr ""
+
+#: ../pastebinit:310
 msgid ""
 "Unable to read or parse the result page, it could be a server timeout or a "
 "change server side, try with another pastebin."
 msgstr "無法分析或讀取結果頁，可能是伺服器逾時或伺服器端介面已更改。請使用其他 pastebin 服務。"
+
+#~ msgid "Optional arguments:"
+#~ msgstr "選用參數"
 
 #~ msgid "Required arguments:"
 #~ msgstr "必要參數:"
@@ -91,18 +134,6 @@ msgstr "無法分析或讀取結果頁，可能是伺服器逾時或伺服器端
 
 #~ msgid "Optional arguments supported only by 1t2.us and paste.stgraber.org:"
 #~ msgstr "選用參數，只有 1t2.us 與 paste.stgraber.org 支援:"
-
-#~ msgid "\t-j <jabberid for notifications:default is '%s'>"
-#~ msgstr "\t-j <Jabber 通知帳號:預設是 '%s'>"
-
-#~ msgid "\t-m <permatag for all versions of a post:default is blank>"
-#~ msgstr "\t-m <佈告之永久標籤 (permatag):預設空白>"
-
-#~ msgid "\t-t <title of paste:default is blank>"
-#~ msgstr "\t-t <標題:預設空白>"
-
-#~ msgid "\t-u <username> -p <password>"
-#~ msgstr "\t-u <帳號> -p <密碼>"
 
 #~ msgid "Error no arguments specified!\n"
 #~ msgstr "錯誤，未指定參數!\n"
