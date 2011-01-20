@@ -310,6 +310,9 @@ try:
     if "regexp" in params:
         reLink = params['regexp']
         del params["regexp"]
+    if "target_url" in params:
+        target_url = params["target_url"]
+        del params["target_url"]
 
     if 'post_format' in params:
         post_format = params['post_format']
@@ -328,11 +331,16 @@ try:
     else:
         params = urllib.urlencode(params) #Convert to a format usable with the HTML POST
 
+    print website
     page = url_opener.open(website, params) #Send the informations and be redirected to the final page
 
     try:
         if reLink: #Check if we have to apply a regexp
-            website = website.replace(tmp_page, "")
+            if target_url:
+                website = target_url
+            else:
+                website = website.replace(tmp_page, "")
+
             if reLink == '(.*)':
                 print page.read().strip()
             else:
