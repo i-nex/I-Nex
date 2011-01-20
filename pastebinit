@@ -313,7 +313,8 @@ try:
     if "target_url" in params:
         target_url = params["target_url"]
         del params["target_url"]
-
+    else:
+        target_url = None
     if 'post_format' in params:
         post_format = params['post_format']
         del params['post_format']
