@@ -32,6 +32,13 @@ except ImportError:
 
 try:
     import urllib, os, sys, re, getopt, xml.dom.minidom, gettext
+    try:
+        import json # For python 2.6 and newer
+    except ImportError:
+        try:
+            import simplejson as json
+        except ImportError:
+            json = None
     from gettext import gettext as _
     import configobj
 
@@ -303,9 +310,24 @@ try:
     if "regexp" in params:
         reLink = params['regexp']
         del params["regexp"]
-    params = urllib.urlencode(params) #Convert to a format usable with the HTML POST
+
+    if 'post_format' in params:
+        post_format = params['post_format']
+        del params['post_format']
+    else:
+        post_format = 'standard'
 
     url_opener = pasteURLopener()
+
+    if post_format == 'json':
+        if json:
+            params = json.dumps(params)
+            url_opener.addheader('Content-type: text/json')
+        else:
+            sys.exit(_("Could not find any json library."))
+    else:
+        params = urllib.urlencode(params) #Convert to a format usable with the HTML POST
+
     page = url_opener.open(website, params) #Send the informations and be redirected to the final page
 
     try:
