@@ -8,22 +8,22 @@ msgstr ""
 "Project-Id-Version: pastebinit\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2011-01-09 20:24+0000\n"
-"PO-Revision-Date: 2010-11-22 11:24+0000\n"
+"PO-Revision-Date: 2011-01-24 20:40+0000\n"
 "Last-Translator: Michael Kotsarinis <Unknown>\n"
 "Language-Team: Greek <el@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-01-10 04:51+0000\n"
-"X-Generator: Launchpad (build Unknown)\n"
+"X-Launchpad-Export-Date: 2011-01-25 04:43+0000\n"
+"X-Generator: Launchpad (build 12177)\n"
 
 #: ../pastebinit:62
 msgid "%s: no section [pastebin]"
-msgstr ""
+msgstr "%s: χωρίς ενότητα [pastebin]"
 
 #: ../pastebinit:67
 msgid "%s: no 'basename' in [pastebin]"
-msgstr ""
+msgstr "%s: δεν υπάρχει 'basename' στο [pastebin]"
 
 #: ../pastebinit:91
 #, docstring
@@ -40,7 +40,7 @@ msgstr ""
 
 #: ../pastebinit:148
 msgid "Optional arguments (not supported by all pastebins):"
-msgstr ""
+msgstr "Προαιρετικά ορίσματα (δεν υποστηρίζονται απ' όλα τα pastebin):"
 
 #: ../pastebinit:149
 msgid "\t-a <author:default is '%s'>"
@@ -60,19 +60,20 @@ msgstr "\t-h Αυτή είναι η οθόνη βοήθειας"
 
 #: ../pastebinit:153
 msgid "\t-i <input file>"
-msgstr ""
+msgstr "\t-i <αρχείο εισαγωγής>"
 
 #: ../pastebinit:154
 msgid "\t-l List all supported pastebins"
-msgstr ""
+msgstr "\t-l Λίστα όλων των υποστηριζόμενων pastebin"
 
 #: ../pastebinit:155
 msgid "\t-j <jabberid for notifications:default is '%s'>"
-msgstr ""
+msgstr "\t-j <jabberid για ειδοποιήσεις:η προεπιλογή είναι '%s'>"
 
 #: ../pastebinit:156
 msgid "\t-m <permatag for all versions of a post:default is blank>"
 msgstr ""
+"\t-m <permatag για όλες τις εκδόσεις ενός μηνύματος:η προεπιλογή είναι κενό>"
 
 #: ../pastebinit:157
 msgid "\t-r <parent posts ID:defaults to none>"
@@ -80,11 +81,11 @@ msgstr "\t-r <ID γονικών αναρτήσεων:ως προεπιλογή �
 
 #: ../pastebinit:158
 msgid "\t-t <title of paste:default is blank>"
-msgstr ""
+msgstr "\t-t <ο τίτλος της επικόλλησης:η προεπιλογή είναι κενό>"
 
 #: ../pastebinit:159
 msgid "\t-u <username> -p <password>"
-msgstr ""
+msgstr "\t-u <όνομα χρήστη> -p <συνθηματικό>"
 
 #: ../pastebinit:191 ../pastebinit:204 ../pastebinit:216 ../pastebinit:266
 #: ../pastebinit:307 ../pastebinit:313
@@ -108,7 +109,7 @@ msgstr "Μη έγκυρες παράμετροι!\n"
 
 #: ../pastebinit:241
 msgid "Supported pastebins:"
-msgstr ""
+msgstr "Υποστηριζόμενα pastebin:"
 
 #: ../pastebinit:268
 msgid "Unable to read from: %s"
@@ -121,6 +122,8 @@ msgstr "Προσπαθείτε να στείλετε ένα κενό έγγρα�
 #: ../pastebinit:279
 msgid "The content you are trying to send exceeds the pastebin's size limit."
 msgstr ""
+"Το περιεχόμενο που προσπαθείτε να αποστείλετε υπερβαίνει το όριο μεγέθους "
+"του pastebin."
 
 #: ../pastebinit:310
 msgid ""
