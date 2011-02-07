@@ -8,118 +8,119 @@ msgstr ""
 "Project-Id-Version: pastebinit\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2011-01-09 20:24+0000\n"
-"PO-Revision-Date: 2011-01-10 11:39+0000\n"
-"Last-Translator: Rolf Leggewie <Unknown>\n"
+"PO-Revision-Date: 2011-02-06 22:59+0000\n"
+"Last-Translator: Nobuto MURATA <nobuto@nobuto-murata.org>\n"
 "Language-Team: Japanese <ja@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-01-11 04:46+0000\n"
-"X-Generator: Launchpad (build Unknown)\n"
+"X-Launchpad-Export-Date: 2011-02-07 05:01+0000\n"
+"X-Generator: Launchpad (build 12177)\n"
 
 #: ../pastebinit:62
 msgid "%s: no section [pastebin]"
-msgstr ""
+msgstr "%s: [pastebin]セクションがありません"
 
 #: ../pastebinit:67
 msgid "%s: no 'basename' in [pastebin]"
-msgstr ""
+msgstr "%s: [pastebin]内に'basename'がありません"
 
 #: ../pastebinit:91
 #, docstring
 msgid "Return the parameters array for the selected pastebin"
-msgstr ""
+msgstr "選択したpastebinのパラメータ配列を返します"
 
 #: ../pastebinit:125
 msgid ""
 "Unknown website, please post a bugreport to request this pastebin to be "
 "added (%s)"
-msgstr ""
+msgstr "不明なウェブサイトです。バグレポートを投稿して、このpastebinの追加を要請してください(%s)"
 
 #: ../pastebinit:148
 msgid "Optional arguments (not supported by all pastebins):"
-msgstr ""
+msgstr "任意の引数 (すべてのpastebinでサポートされているわけではありません):"
 
 #: ../pastebinit:149
 msgid "\t-a <author:default is '%s'>"
-msgstr ""
+msgstr "\t-a <投稿者:デフォルトは'%s'>"
 
 #: ../pastebinit:150
 msgid "\t-b <pastebin url:default is '%s'>"
-msgstr ""
+msgstr "\t-b <pastebin url:デフォルトは'%s'>"
 
 #: ../pastebinit:151
 msgid "\t-f <format of paste:default is '%s'>"
-msgstr ""
+msgstr "\t-f <ペースト時のフォーマット:デフォルトは'%s'>"
 
 #: ../pastebinit:152
 msgid "\t-h This help screen"
-msgstr ""
+msgstr "\t-h このヘルプ画面"
 
 #: ../pastebinit:153
 msgid "\t-i <input file>"
-msgstr ""
+msgstr "\t-i <入力ファイル>"
 
 #: ../pastebinit:154
 msgid "\t-l List all supported pastebins"
-msgstr ""
+msgstr "\t-l サポートされているすべてのpastebinをリスト表示"
 
 #: ../pastebinit:155
 msgid "\t-j <jabberid for notifications:default is '%s'>"
-msgstr ""
+msgstr "\t-j <通知に使うjabberid:デフォルトは'%s'>"
 
 #: ../pastebinit:156
 msgid "\t-m <permatag for all versions of a post:default is blank>"
-msgstr ""
+msgstr "\t-m <投稿のすべてのバージョンに付けるpermatag:デフォルトは空>"
 
 #: ../pastebinit:157
 msgid "\t-r <parent posts ID:defaults to none>"
-msgstr ""
+msgstr "\t-r <親投稿のID:デフォルトは関連無し>"
 
 #: ../pastebinit:158
 msgid "\t-t <title of paste:default is blank>"
-msgstr ""
+msgstr "\t-t <ペースト時のタイトル:デフォルトは空>"
 
 #: ../pastebinit:159
 msgid "\t-u <username> -p <password>"
-msgstr ""
+msgstr "\t-u <ユーザ名> -p <パスワード>"
 
 #: ../pastebinit:191 ../pastebinit:204 ../pastebinit:216 ../pastebinit:266
 #: ../pastebinit:307 ../pastebinit:313
 msgid "KeyboardInterrupt caught."
-msgstr ""
+msgstr "キーボード割り込みを検出しました"
 
 #: ../pastebinit:207
 msgid "Error parsing configuration file!"
-msgstr ""
+msgstr "設定ファイルをパースする際にエラー!"
 
 #: ../pastebinit:208
 msgid ""
 "Please ensure that your configuration file looks similar to the following:"
-msgstr ""
+msgstr "設定ファイルが次のものと同様になっているか確認してください:"
 
 #: ../pastebinit:218
 msgid "Invalid arguments!\n"
-msgstr ""
+msgstr "不正な引数!\n"
 
 #: ../pastebinit:241
 msgid "Supported pastebins:"
-msgstr ""
+msgstr "サポートされているpastebin:"
 
 #: ../pastebinit:268
 msgid "Unable to read from: %s"
-msgstr "%sから読めませんでした"
+msgstr "%sから読み込めませんでした"
 
 #: ../pastebinit:270
 msgid "You are trying to send an empty document, exiting."
-msgstr ""
+msgstr "空のドキュメントを送信しようとしたので、終了します。"
 
 #: ../pastebinit:279
 msgid "The content you are trying to send exceeds the pastebin's size limit."
-msgstr ""
+msgstr "送信しようとしたコンテンツはpastebinの上限サイズを超えています。"
 
 #: ../pastebinit:310
 msgid ""
 "Unable to read or parse the result page, it could be a server timeout or a "
 "change server side, try with another pastebin."
 msgstr ""
+"結果ページを読み込み、またはパースできませんでした。サーバのタイムアウトや仕様変更の可能性があります。他のpastebinを試してください。"
