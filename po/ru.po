@@ -8,13 +8,13 @@ msgstr ""
 "Project-Id-Version: pastebinit\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2011-01-09 20:24+0000\n"
-"PO-Revision-Date: 2011-01-31 08:30+0000\n"
-"Last-Translator: Andrey Olykainen <Unknown>\n"
+"PO-Revision-Date: 2011-02-09 17:43+0000\n"
+"Last-Translator: Nick Homolibere <homolibere@gmail.com>\n"
 "Language-Team: Russian <ru@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-02-01 04:35+0000\n"
+"X-Launchpad-Export-Date: 2011-02-10 04:31+0000\n"
 "X-Generator: Launchpad (build 12177)\n"
 
 #: ../pastebinit:62
@@ -44,15 +44,15 @@ msgstr ""
 
 #: ../pastebinit:149
 msgid "\t-a <author:default is '%s'>"
-msgstr "\t-a <author:default is '%s'>"
+msgstr "\t-a <автор:по умолчанию это '%s'>"
 
 #: ../pastebinit:150
 msgid "\t-b <pastebin url:default is '%s'>"
-msgstr "\t-b <pastebin url:default is '%s'>"
+msgstr "\t-b <pastebin ссылка:по умолчанию это '%s'>"
 
 #: ../pastebinit:151
 msgid "\t-f <format of paste:default is '%s'>"
-msgstr "\t-f <format of paste:default is '%s'>"
+msgstr "\t-f <формат вставки:по умолчанию это '%s'>"
 
 #: ../pastebinit:152
 msgid "\t-h This help screen"
@@ -60,7 +60,7 @@ msgstr "\t[позиция табуляции]-h Этот экран справк
 
 #: ../pastebinit:153
 msgid "\t-i <input file>"
-msgstr ""
+msgstr "\t-i <входящий файл>"
 
 #: ../pastebinit:154
 msgid "\t-l List all supported pastebins"
@@ -84,7 +84,7 @@ msgstr ""
 
 #: ../pastebinit:159
 msgid "\t-u <username> -p <password>"
-msgstr ""
+msgstr "\t-u <имя пользователя> -p <пароль>"
 
 #: ../pastebinit:191 ../pastebinit:204 ../pastebinit:216 ../pastebinit:266
 #: ../pastebinit:307 ../pastebinit:313
@@ -104,7 +104,7 @@ msgstr ""
 
 #: ../pastebinit:218
 msgid "Invalid arguments!\n"
-msgstr "Несостоятельные аргументы!\n"
+msgstr "Не верные аргументы!\n"
 
 #: ../pastebinit:241
 msgid "Supported pastebins:"
@@ -112,24 +112,24 @@ msgstr "Поддерживаемые pastebin-ы:"
 
 #: ../pastebinit:268
 msgid "Unable to read from: %s"
-msgstr "Неспособный читать от: %s"
+msgstr "Не возможно прочесть: %s"
 
 #: ../pastebinit:270
 msgid "You are trying to send an empty document, exiting."
-msgstr "Вы пытаетесь послать пустой документ, выходя"
+msgstr "Вы пытаетесь послать пустой документ, прекращение работы"
 
 #: ../pastebinit:279
 msgid "The content you are trying to send exceeds the pastebin's size limit."
-msgstr ""
+msgstr "Содержимое, которое вы хотите отослать, превышает лимиты pastebin-а."
 
 #: ../pastebinit:310
 msgid ""
 "Unable to read or parse the result page, it could be a server timeout or a "
 "change server side, try with another pastebin."
 msgstr ""
-"Неспособный читать или анализировать страницу результата, это могло быть "
-"время ожидания сервера или сторона сервера изменения, попробовать другим "
-"pastebin."
+"Не возможно прочитать или распознать страницу ответа, это может быть "
+"превышение времени ожидания или изменения на сервере, попробуйте с другим "
+"pastebin-ом."
 
 #~ msgid "Optional arguments:"
 #~ msgstr "Необязательные аргументы:"
