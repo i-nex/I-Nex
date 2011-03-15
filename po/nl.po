@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: pastebinit\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2011-01-09 20:24+0000\n"
-"PO-Revision-Date: 2011-01-11 15:17+0000\n"
+"PO-Revision-Date: 2011-03-14 22:54+0000\n"
 "Last-Translator: Rachid <Unknown>\n"
 "Language-Team: Dutch <nl@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-01-12 04:38+0000\n"
-"X-Generator: Launchpad (build Unknown)\n"
+"X-Launchpad-Export-Date: 2011-03-15 04:51+0000\n"
+"X-Generator: Launchpad (build 12559)\n"
 
 #: ../pastebinit:62
 msgid "%s: no section [pastebin]"
@@ -23,7 +23,7 @@ msgstr "%s: geen sectie [pastebin]"
 
 #: ../pastebinit:67
 msgid "%s: no 'basename' in [pastebin]"
-msgstr ""
+msgstr "%s: geen 'basisnaam' in [pastebin]"
 
 #: ../pastebinit:91
 #, docstring
