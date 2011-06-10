@@ -8,79 +8,81 @@ msgstr ""
 "Project-Id-Version: pastebinit\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2011-01-09 20:24+0000\n"
-"PO-Revision-Date: 2011-05-10 17:48+0000\n"
-"Last-Translator: Arthur Shniv <Unknown>\n"
+"PO-Revision-Date: 2011-06-09 05:27+0000\n"
+"Last-Translator: Oleg Koptev <koptev.oleg@gmail.com>\n"
 "Language-Team: Russian <ru@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-05-11 04:32+0000\n"
-"X-Generator: Launchpad (build 12959)\n"
+"X-Launchpad-Export-Date: 2011-06-10 04:30+0000\n"
+"X-Generator: Launchpad (build 13168)\n"
 
 #: ../pastebinit:62
 msgid "%s: no section [pastebin]"
-msgstr ""
+msgstr "%s: нет раздела [pastebin]"
 
 #: ../pastebinit:67
 msgid "%s: no 'basename' in [pastebin]"
-msgstr ""
+msgstr "%s: в [pastebin] нет 'basename'"
 
 #: ../pastebinit:91
 #, docstring
 msgid "Return the parameters array for the selected pastebin"
-msgstr "Возвращение параметров массива для выбранного pastebin"
+msgstr "Возвратить массив параметров для выбранного pastebin-сервиса"
 
 #: ../pastebinit:125
 msgid ""
 "Unknown website, please post a bugreport to request this pastebin to be "
 "added (%s)"
 msgstr ""
-"Неизвестный сайт. Пожалуйста, отправьте отчет об ошибке или запрос на "
-"добавление этого pastebin-а в список поддерживаемых (%s)"
+"Неизвестный сайт. Отправьте отчет об ошибке или запрос на добавление этого "
+"сервиса в список поддерживаемых (%s)"
 
 #: ../pastebinit:148
 msgid "Optional arguments (not supported by all pastebins):"
-msgstr "Дополнительные агрументы(поддерживается не всеми сервисами pastebin)"
+msgstr ""
+"Дополнительные агрументы (поддерживается не всеми сервисами pastebin)"
 
 #: ../pastebinit:149
 msgid "\t-a <author:default is '%s'>"
-msgstr "\t-a <автор:по умолчанию это '%s'>"
+msgstr "\t-a <автор: по умолчанию «%s»>"
 
 #: ../pastebinit:150
 msgid "\t-b <pastebin url:default is '%s'>"
-msgstr "\t-b <pastebin ссылка:по умолчанию это '%s'>"
+msgstr "\t-b <ссылка на сервис pastebin: по умолчанию «%s»>"
 
 #: ../pastebinit:151
 msgid "\t-f <format of paste:default is '%s'>"
-msgstr "\t-f <формат вставки:по умолчанию это '%s'>"
+msgstr "\t-f <формат вставки: по умолчанию «%s»>"
 
 #: ../pastebinit:152
 msgid "\t-h This help screen"
-msgstr "\t[позиция табуляции]-h Этот экран справки"
+msgstr "\t-h этот экран справки"
 
 #: ../pastebinit:153
 msgid "\t-i <input file>"
-msgstr "\t-i <входящий файл>"
+msgstr "\t-i <входной файл>"
 
 #: ../pastebinit:154
 msgid "\t-l List all supported pastebins"
-msgstr "\t-l Список всех поддерживаемых pastebin-ов"
+msgstr "\t-l Список всех поддерживаемых сервисов pastebin"
 
 #: ../pastebinit:155
 msgid "\t-j <jabberid for notifications:default is '%s'>"
-msgstr "\t-j <jabberid для уведомлений:по умолчанию '%s'>"
+msgstr "\t-j <JabberID для уведомлений: по умолчанию «%s»>"
 
 #: ../pastebinit:156
 msgid "\t-m <permatag for all versions of a post:default is blank>"
 msgstr ""
+"\t-m <постоянная метка для всех вариантов кода: по умолчанию «пусто»>"
 
 #: ../pastebinit:157
 msgid "\t-r <parent posts ID:defaults to none>"
-msgstr "\t-r <parent posts ID:defaults to none>"
+msgstr "\t-r <ID «предков» выгрузки: по умолчанию «пусто»>"
 
 #: ../pastebinit:158
 msgid "\t-t <title of paste:default is blank>"
-msgstr ""
+msgstr "\t-t <заголовок выгружаемого кода: по умолчанию «пусто»>"
 
 #: ../pastebinit:159
 msgid "\t-u <username> -p <password>"
@@ -93,43 +95,43 @@ msgstr "KeyboardInterrupt захвачен."
 
 #: ../pastebinit:207
 msgid "Error parsing configuration file!"
-msgstr "Ошибка, анализирующая файл конфигурации!"
+msgstr "Ошибка разбора файла конфигурации!"
 
 #: ../pastebinit:208
 msgid ""
 "Please ensure that your configuration file looks similar to the following:"
-msgstr ""
-"Пожалуйста гарантируйте, что Ваш файл конфигурации выглядит подобным "
-"следующему:"
+msgstr "Убедитесь, что ваш файл конфигурации выглядит подобным образом:"
 
 #: ../pastebinit:218
 msgid "Invalid arguments!\n"
-msgstr "Не верные аргументы!\n"
+msgstr "Неверные аргументы!\n"
 
 #: ../pastebinit:241
 msgid "Supported pastebins:"
-msgstr "Поддерживаемые pastebin-ы:"
+msgstr "Поддерживаемые pastebin-сервисы:"
 
 #: ../pastebinit:268
 msgid "Unable to read from: %s"
-msgstr "Не возможно прочесть: %s"
+msgstr "Невозможно прочесть из: %s"
 
 #: ../pastebinit:270
 msgid "You are trying to send an empty document, exiting."
-msgstr "Вы пытаетесь послать пустой документ, прекращение работы"
+msgstr "Вы пытаетесь выгрузить пустой документ, прекращение работы."
 
 #: ../pastebinit:279
 msgid "The content you are trying to send exceeds the pastebin's size limit."
-msgstr "Содержимое, которое вы хотите отослать, превышает лимиты pastebin-а."
+msgstr ""
+"Содержимое, которое вы пытаетесь отослать, превышает допустимый размер "
+"pastebin-сервиса."
 
 #: ../pastebinit:310
 msgid ""
 "Unable to read or parse the result page, it could be a server timeout or a "
 "change server side, try with another pastebin."
 msgstr ""
-"Не возможно прочитать или распознать страницу ответа, это может быть "
-"превышение времени ожидания или изменения на сервере, попробуйте с другим "
-"pastebin-ом."
+"Невозможно прочитать или распознать страницу ответа, это может быть вызвано "
+"превышением времени ожидания или изменениями на сервере, попробуйте выбрать "
+"другой pastebin-сервис."
 
 #~ msgid "Optional arguments:"
 #~ msgstr "Необязательные аргументы:"
