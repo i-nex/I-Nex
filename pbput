@@ -1,0 +1,70 @@
+#!/bin/sh
+#
+#    pbput, pbputs, pbget - put and get binary files to/from pastebin.com
+#    Copyright (C) 2010 Dustin Kirkland <dustin.kirkland@gmail.com>
+#
+#    Authors: Dustin Kirkland <dustin.kirkland@gmail.com>
+#
+#    This program is free software; you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation; either version 2 of the License, or
+#    (at your option) any later version.
+#
+#    This program is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License along
+#    with this program; if not, write to the Free Software Foundation, Inc.,
+#    51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+
+PROG=$(basename $0)
+URL="http://pastebin.com"
+TEMPLATE="$PROG.XXXXXXXXXX"
+[ -d "$TMPDIR" ] && TEMPLATE="$TMPDIR/$TEMPLATE" || TEMPLATE="/tmp/$TEMPLATE"
+
+# Create a secure tempfiles
+TEMP=$(mktemp $TEMPLATE)
+TEMP2=$(mktemp $TEMPLATE)
+trap "rm -f $TEMP $TEMP2 2>/dev/null || true" EXIT HUP INT QUIT TERM
+
+case "$PROG" in
+	pbget)
+		url=$(echo "$1" | sed -e "s:.com/:.com/download.php?i=:")
+		wget -q -O- "$url" | base64 -d | lzma -d > "$TEMP"
+		# Support secure uploads
+		if gpg -d "$TEMP" >"$TEMP2" 2>/dev/null; then
+			# Upload was encrypted
+			mv -f "$TEMP2" "$TEMP"
+		fi
+		if LC=C file "$TEMP" | grep -qs "^$TEMP: POSIX tar archive"; then
+			# Download is a tarball; unpack safely
+			[ -d "$2" ] && DIR="$2" || DIR=$(mktemp -d $TEMPLATE)
+			tar -C "$DIR" -xvf "$TEMP" 2>/dev/null || cat "$TEMP"
+			echo "INFO: Output is in [$DIR]"
+		else
+			# Upload came from stdin, so display on stdout
+			cat "$TEMP"
+		fi
+	;;
+	pbput|pbputs)
+		if [ -r "$1" ]; then
+			# Read file from argument
+			tar cf "$TEMP" "$1"
+		else
+			# Read from standard in
+			cat /dev/stdin > "$TEMP"
+		fi
+		if [ "$PROG" = "pbputs" ]; then
+			mv -f "$TEMP" "$TEMP".in
+			cat "$TEMP".in | gpg -c > "$TEMP"
+			rm -f "$TEMP".in
+		fi
+		lzma -9 -f -c "$TEMP" | base64 | pastebinit -b "$URL"
+	;;
+	*)
+		echo "ERROR"
+		exit 1
+	;;
+esac
