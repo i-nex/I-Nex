@@ -11,9 +11,9 @@ pbget - decode and decompress arbitrary files from pastebin.com
 
 cat foo | \fBpbput\fP
 
-\fBpbputs\fP [FILENAME]
+\fBpbputs\fP [FILENAME] [GPG_USER]
 
-cat foo | \fBpbputs\fP
+cat foo | \fBpbputs [GPG_USER]\fP
 
 \fBpbget\fP URL [DIRECTORY]
 
@@ -22,7 +22,7 @@ cat foo | \fBpbputs\fP
 
 \fBpbget\fP is a program that be used to retrieve content uploaded to a pastebin by \fBpbput\fP.
 
-\fBpbputs\fP operates exactly like \fBpbput\fP, except the user is prompted for a symmetric passphrase for encrypting the content with \fBgpg\fP(1) before uploading.  \fBpbget\fP will automatically prompt the receiving user for the pre-shared passphrase.
+\fBpbputs\fP operates exactly like \fBpbput\fP, except it encrypts the data.  An optional GPG_USER argument is allowed, which will sign and encrypt the data to the target user in one's keyring (which could be oneself!).  Otherwise, the user is prompted for a symmetric passphrase for encrypting the content with \fBgpg\fP(1) before uploading.  \fBpbget\fP will automatically prompt the receiving user for the pre-shared passphrase.
 
 \fBpbput\fP and \fBpbputs\fP can take its input either on STDIN, or as a FILENAME argument.
   - If STDIN is used, then the receiving user's \fBpbget\fP will simply paste the input on STDOUT.

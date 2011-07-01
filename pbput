@@ -52,19 +52,23 @@ case "$PROG" in
 		if [ -r "$1" ]; then
 			# Read file from argument
 			tar cf "$TEMP" "$1"
+			# Second argument indicates a target user in the gpg keyring
+			[ -z "$2" ] && GPG_OPTS="-c" || GPG_OPTS="-s -e -r $2"
 		else
 			# Read from standard in
 			cat /dev/stdin > "$TEMP"
+			# Argument indicates a target user in the gpg keyring
+			[ -z "$1" ] && GPG_OPTS="-c" || GPG_OPTS="-s -e -r $1"
 		fi
 		if [ "$PROG" = "pbputs" ]; then
 			mv -f "$TEMP" "$TEMP".in
-			cat "$TEMP".in | gpg -c > "$TEMP"
+			cat "$TEMP".in | gpg $GPG_OPTS > "$TEMP"
 			rm -f "$TEMP".in
 		fi
 		lzma -9 -f -c "$TEMP" | base64 | pastebinit -b "$URL"
 	;;
 	*)
-		echo "ERROR"
+		echo "ERROR" 1>&2
 		exit 1
 	;;
 esac
