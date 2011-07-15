@@ -63,7 +63,7 @@
           <term><option>-a <arg>author</arg></option> (default: $USER)</term>
         </varlistentry>
         <varlistentry>
-          <term><option>-b <arg>pastebin url</arg></option> (default: http://pastebin.com)</term>
+          <term><option>-b <arg>pastebin url</arg></option> (default is distro-specific with a fallback to pastebin.com)</term>
         </varlistentry>
         <varlistentry>
           <term><option>-f <arg>format for syntax-highlighting</arg></option> (default: text)
