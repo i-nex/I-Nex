@@ -219,7 +219,7 @@ detailed_block(unsigned char *x, int in_extension)
 	    strncat((char *)name, (char *)x + 5, 13);
 	    if (strchr((char *)name, '\n')) {
 		name_descriptor_terminated = 1;
-		printf("Monitor name: %s", name);
+		printf("Monitor name: %s ", name);
 	    }
 	    return 1;
 	case 0xFD:
@@ -271,7 +271,7 @@ detailed_block(unsigned char *x, int in_extension)
 		has_valid_range_descriptor = 0;
 	    if (x[7] + h_min_offset > x[8] + h_max_offset)
 		has_valid_range_descriptor = 0;
-	    printf("Monitor ranges: %d-%dHZ vertical, %d-%dkHz horizontal",
+	    printf("Monitor ranges: %d-%dHz vertical, %d-%dkHz horizontal",
 		   x[5] + v_min_offset, x[6] + v_max_offset,
 		   x[7] + h_min_offset, x[8] + h_max_offset);
 	    if (x[9])
@@ -359,15 +359,15 @@ detailed_block(unsigned char *x, int in_extension)
 	}
 	case 0xFE:
             /*
-             * TODO: Two of these in a row, in the third and fouth slots,
+             * TODO: Two of these in a row, in the third and fourth slots,
              * seems to be specified by SPWG: http://www.spwg.org/
              */
 	    /* XXX check: terminated with 0x0A, padded with 0x20 */
-	    printf("ASCII string: %s", x+5);
+	    printf("ASCII string: %s\n", x+5);
 	    return 1;
 	case 0xFF:
 	    /* XXX check: terminated with 0x0A, padded with 0x20 */
-	    printf("Serial number: %s", x+5);
+	    printf("Serial number: %s\n", x+5);
 	    return 1;
 	default:
 	    printf("Unknown monitor description type %d\n", x[3]);
@@ -435,7 +435,7 @@ do_checksum(unsigned char *x)
 	if (sum) {
 	    printf(" (should be 0x%hx)", (unsigned char)(x[0x7f] - sum));
 	    has_valid_checksum = 0;
-	}
+	} else printf(" (valid)");
     }
     printf("\n");
 }
