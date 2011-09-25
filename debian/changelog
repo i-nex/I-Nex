@@ -1,0 +1,107 @@
+silicon (0.2.1~eloaders~oneiric) oneiric; urgency=low
+
+  * Dodano opcję zmiany rozdzielczości
+  * Dodano opcję usuwania kerneli
+  * Usunięto nieużywane pliki graficzne z programu
+  * Zmieniono ikony zakładek
+
+ -- eloaders <eloaders@yahoo.com>  Sun, 25 Sep 2011 12:43:00 +0000
+
+silicon (0.1.99~eloaders~natty) natty; urgency=low
+
+  * Przebudowano pozycję Kernel
+  * Dodatkowy progressbar informujący o użyciu pamięci swap w pozycji Pamięć
+  * Wykrywanie informacji o procesorze do 6 rdzeni oraz całkowite przebudowanie kodu w tej części
+
+ -- eloaders <eloaders@yahoo.com>  Fri, 23 Sep 2011 19:50:00 +0000
+
+silicon (0.1.9-1~eloaders) natty; urgency=low
+
+  * Naprawiono wyświetlanie grafiki dla procesorów AMD Athlon 2 x2 2xx
+
+ -- eloaders <eloaders@yahoo.com>  Sun, 18 Sep 2011 14:16:00 +0000
+
+silicon (0.1.8-0ubuntu2) natty; urgency=low
+
+  * Naprawiono pozycje dysk oraz progressbary.
+  * Naprawiono / Ulepszono wykrywanie domyślnej przeglądarki.
+  * Dodano wstępny button generowania raportu. (Domyślnie niewidoczny)
+
+ -- eloaders <eloaders@yahoo.com>  Sun, 06 Mar 2011 12:00:00 +0000
+
+silicon (0.1.8-0ubuntu1) natty; urgency=low
+
+  * Naprawiono wyświetlanie nazwy dystrybucji w zakładce system.
+  * Przebudowano i dodano dodatkowe opcje wyświetlania w zakładce pamięć.
+
+ -- eloaders <eloaders@yahoo.com>  Thu, 17 Feb 2011 12:00:00 +0000
+
+silicon (0.1.8-0ubuntu1) natty; urgency=low
+
+  * Zmieniono pozycję system oraz grafika.
+
+ -- eloaders <eloaders@yahoo.com>  Wed, 16 Feb 2011 12:00:00 +0000
+
+silicon (0.1.8-0ubuntu1) natty; urgency=low
+
+  * Zmiana nazwy
+  * Test build
+
+ -- eloaders <eloaders@yahoo.com>  Wed, 16 Feb 2011 12:00:00 +0000
+
+silicon (0.1.8-0ubuntu1) natty; urgency=low
+
+  * Zmieniono wygląd zakładki system.
+  * Dodano informacje o ilości zainstalowanych pakietów.
+  * Naprawiono wyświetlanie zakładki dysk.
+
+ -- eloaders <eloaders@yahoo.com>  Tue, 15 Feb 2011 12:00:00 +0000
+
+silicon (0.1.8-0ubuntu1) natty; urgency=low
+
+  * FIXED
+
+ -- eloaders <eloaders@yahoo.com>  Mon, 14 Feb 2011 12:00:00 +0000
+
+silicon (0.1.8-0ubuntu1) natty; urgency=low
+
+  * FIXED
+
+ -- eloaders <eloaders@yahoo.com>  Mon, 14 Feb 2011 12:00:00 +0000
+
+silicon (0.1.8-0ubuntu1) natty; urgency=low
+
+  * Dodano progress bar informujący o zajętym miejscu na dysku jak i informacja o wolnym miejscu.
+  * Zmieniono wygląd pozycji bios.
+  * Dodano progress bar w zakładce pamięć.
+  * Dodano informacje o pojemności głównego dysku.
+
+ -- eloaders <eloaders@yahoo.com>  Mon, 14 Feb 2011 12:00:00 +0000
+
+silicon (0.1.8-0ubuntu1) natty; urgency=low
+
+  * Poprawiono wyświetlanie grafiki / stickera procesora
+
+ -- eloaders <eloaders@yahoo.com>  Sat, 12 Feb 2011 12:00:00 +0000
+
+silicon (0.1.8-0ubuntu1) natty; urgency=low
+
+  * Dodano ikony do zakładek.
+  * Naprawiono karte dźwięk. Wyświetla wszystkie urządzenia odpowiedzialne za dźwięk.
+  * Dodano wykrywanie grafiki, sticera procesora.
+  * Dodano button info odsyłający do strony o szczegółowych informacjach o procesorze.
+  * Zmieniono tekst strona domowa na button.
+  * Zmieniono wygląd zakładki system.
+
+ -- eloaders <eloaders@yahoo.com>  Fri, 11 Feb 2011 12:00:00 +0000
+
+silicon (0.1.8-0ubuntu1) natty; urgency=low
+
+  * Usunięto opcje zmiany tapety.
+  * Usunięto wykrywanie tapety pulpitu.
+  * Zmniejszono użycie procesora poprzez usunięcie timer.
+  * Dodano buttony odświerz.
+  * Oraz naprawiono inne błędy których nie pamiętam.
+
+ -- eloaders <eloaders@yahoo.com>  Tue, 08 Feb 2011 12:00:00 +0000
+

@@ -1,0 +1,713 @@
+# Gambas Form File 2.0
+
+{ Form Form
+  Move(0,0,483,525)
+  #(Scaled) = False
+  Mouse = Mouse.Blank
+  Text = ("Silicon")
+  Icon = Picture["siliconlogo.png"]
+  Border = Window.Fixed
+  { TabStrip1 TabStrip
+    Move(0,0,483,483)
+    Tag = "System"
+    AutoResize = True
+    Count = 9
+    Index = 0
+    Text = ("Procesor")
+    Picture = Picture["Data/Tabs/cpu.png"]
+    { Frame4 Frame
+      Move(7,308,462,133)
+      Text = ("Cache")
+      { Label13 Label
+        Move(7,49,98,21)
+        Text = ("L1 instruction:")
+      }
+      { Label12 Label
+        Move(21,21,56,21)
+        Text = ("L1 Data:")
+      }
+      { TextArea11 TextArea
+        Move(105,49,112,21)
+        Text = ("N/A")
+        ReadOnly = True
+        ScrollBar = Scroll.None
+      }
+      { TextArea12 TextArea
+        Move(105,77,112,21)
+        Text = ("N/A")
+        ReadOnly = True
+        ScrollBar = Scroll.None
+      }
+      { TextArea13 TextArea
+        Move(105,21,112,21)
+        Text = ("N/A")
+        ReadOnly = True
+        ScrollBar = Scroll.None
+      }
+      { TextArea14 TextArea
+        Move(105,105,112,21)
+        Text = ("N/A")
+        ReadOnly = True
+        ScrollBar = Scroll.None
+      }
+      { Label14 Label
+        Move(21,77,56,21)
+        Text = ("Level 2:")
+      }
+      { Label15 Label
+        Move(21,105,56,21)
+        Text = ("Level 3:")
+      }
+      { ComboBox1 ComboBox
+        Move(224,105,231,21)
+        Text = ("Wybierz rdze\xC5\x84.")
+      }
+    }
+    { Frame3 Frame
+      Move(7,154,462,154)
+      Text = ("CPU")
+      { Label6 Label
+        Move(7,56,42,21)
+        Text = ("Flagi:")
+      }
+      { Label7 Label
+        Move(7,21,56,21)
+        Text = ("Rodzina:")
+      }
+      { Label10 Label
+        Move(7,91,70,21)
+        Text = ("bogomips:")
+      }
+      { TextArea3 TextArea
+        Move(49,56,406,21)
+        Text = ("N/A")
+        ReadOnly = True
+        ScrollBar = Scroll.None
+      }
+      { TextArea6 TextArea
+        Move(77,21,70,21)
+        Text = ("N/A")
+        ReadOnly = True
+        ScrollBar = Scroll.None
+      }
+      { TextArea9 TextArea
+        Move(77,91,133,21)
+        Text = ("N/A")
+        ReadOnly = True
+        ScrollBar = Scroll.None
+      }
+      { Label8 Label
+        Move(161,21,42,21)
+        Text = ("Model:")
+      }
+      { TextArea7 TextArea
+        Move(210,21,70,21)
+        Text = ("N/A")
+        ReadOnly = True
+        ScrollBar = Scroll.None
+      }
+      { Label11 Label
+        Move(7,119,42,21)
+        Text = ("Width:")
+      }
+      { Label9 Label
+        Move(322,21,63,21)
+        Text = ("Stepping:")
+      }
+      { TextArea10 TextArea
+        Move(56,119,399,21)
+        Text = ("N/A")
+        ReadOnly = True
+        ScrollBar = Scroll.None
+      }
+      { TextArea8 TextArea
+        Move(385,21,70,21)
+        Text = ("N/A")
+        ReadOnly = True
+        ScrollBar = Scroll.None
+      }
+      { Label3 Label
+        Move(497,119,168,21)
+        Text = ("Label3")
+      }
+    }
+    { Frame2 Frame
+      Move(7,7,462,147)
+      Text = ("Informacje g\xC5\x82\xC3\xB3wne")
+      { Label2 Label
+        Move(7,49,63,21)
+        Text = ("Model:")
+      }
+      { Label1 Label
+        Move(7,21,70,21)
+        Text = ("Producent:")
+      }
+      { TextArea5 TextArea
+        Move(70,77,301,21)
+        Text = ("N/A")
+        ReadOnly = True
+        ScrollBar = Scroll.None
+      }
+      { TextArea2 TextArea
+        Move(84,364,301,21)
+        Text = ("TextArea2")
+        ReadOnly = True
+        ScrollBar = Scroll.None
+      }
+      { Label5 Label
+        Move(7,77,63,21)
+        Text = ("CPU MHz:")
+      }
+      { TextArea4 TextArea
+        Move(77,21,294,21)
+        Text = ("N/A")
+        ReadOnly = True
+        ScrollBar = Scroll.None
+      }
+      { Button4 Button
+        Move(378,119,77,21)
+        Text = ("Info")
+      }
+    }
+    { TextArea1 TextArea
+      Move(63,56,315,21)
+      Text = ("N/A")
+      ReadOnly = True
+      ScrollBar = Scroll.None
+    }
+    { PictureBox3 PictureBox
+      Move(385,21,80,95)
+      Stretch = True
+      Alignment = Align.Center
+      Border = Border.Etched
+    }
+    Index = 1
+    Text = ("Płyta główna / Bios")
+    Picture = Picture["motherboard.png"]
+    { Frame1 Frame
+      Move(7,147,462,112)
+      Text = ("Bios")
+      { TextLabel33 TextLabel
+        Move(7,21,77,21)
+        Text = ("Producent:")
+      }
+      { TextLabel34 TextLabel
+        Move(7,49,56,21)
+        Text = ("Wersja:")
+      }
+      { TextLabel35 TextLabel
+        Move(7,77,42,21)
+        Text = ("Data:")
+      }
+    }
+    { Frame5 Frame
+      Move(7,7,462,133)
+      Text = ("P\xC5\x82yta g\xC5\x82\xC3\xB3wna")
+      { TextArea15 TextArea
+        Move(7,42,448,21)
+        Text = ("N/A")
+        ReadOnly = True
+        ScrollBar = Scroll.None
+      }
+      { TextArea16 TextArea
+        Move(7,91,448,21)
+        Text = ("N/A")
+        ReadOnly = True
+        ScrollBar = Scroll.None
+      }
+      { TextLabel2 TextLabel
+        Move(7,21,70,21)
+        Text = ("Producent:")
+      }
+      { TextLabel3 TextLabel
+        Move(7,70,42,21)
+        Text = ("Model:")
+      }
+    }
+    { TextArea25 TextArea
+      Move(98,168,364,21)
+      Text = ("TextArea25")
+      ReadOnly = True
+      ScrollBar = Scroll.None
+    }
+    { TextArea26 TextArea
+      Move(98,196,364,21)
+      Text = ("TextArea26")
+      ReadOnly = True
+      ScrollBar = Scroll.None
+    }
+    { TextArea27 TextArea
+      Move(98,224,364,21)
+      Text = ("TextArea27")
+      ReadOnly = True
+      ScrollBar = Scroll.None
+    }
+    Index = 2
+    Text = ("Dźwięk")
+    Picture = Picture["Data/Tabs/sound.png"]
+    { TextLabel19 TextLabel
+      Move(7,7,462,21)
+      Text = ("Urz\xC4\x85dzenia d\xC5\xBAwi\xC4\x99kowe:")
+      Alignment = Align.TopLeft
+    }
+    { TextArea18 TextArea
+      Move(7,28,462,91)
+      Text = ("N/A")
+      ReadOnly = True
+      ScrollBar = Scroll.None
+    }
+    Index = 3
+    Text = ("Grafika")
+    Picture = Picture["Data/Tabs/gpu.png"]
+    { Frame9 Frame
+      Move(7,7,462,49)
+      Text = ("Karta graficzna:")
+    }
+    { TextArea17 TextArea
+      Move(14,28,448,21)
+      Text = ("N/A")
+      ReadOnly = True
+      ScrollBar = Scroll.None
+    }
+    { Frame6 Frame
+      Move(7,70,462,161)
+      Text = ("OpenGL")
+      { TextLabel17 TextLabel
+        Move(7,21,168,21)
+        Text = ("OpenGL vendor string:")
+      }
+      { TextArea19 TextArea
+        Move(154,21,301,21)
+        Text = ("TextArea19")
+        ReadOnly = True
+        ScrollBar = Scroll.None
+      }
+      { TextLabel37 TextLabel
+        Move(7,56,161,21)
+        Text = ("OpenGL renderer string:")
+      }
+      { TextArea20 TextArea
+        Move(161,56,294,21)
+        Text = ("TextArea20")
+        ReadOnly = True
+        ScrollBar = Scroll.None
+      }
+      { TextLabel38 TextLabel
+        Move(7,91,168,21)
+        Text = ("OpenGL version string:")
+      }
+      { TextArea21 TextArea
+        Move(154,91,301,21)
+        Text = ("TextArea21")
+        ReadOnly = True
+        ScrollBar = Scroll.None
+      }
+      { TextLabel8 TextLabel
+        Move(7,126,168,21)
+        Text = ("Obecna rozdzielczo\xC5\x9B\xC4\x87:")
+      }
+      { TextArea38 TextArea
+        Move(154,126,301,21)
+        Text = ("N/A")
+        ReadOnly = True
+        ScrollBar = Scroll.None
+      }
+    }
+    { Frame10 Frame
+      Move(7,238,455,56)
+      Text = ("Zmiana rozdzielczo\xC5\x9B\xC4\x87i")
+    }
+    { ComboBox2 ComboBox
+      Move(14,259,217,21)
+      Text = ("Wybierz rozdzielczo\xC5\x9B\xC4\x87")
+    }
+    { Button8 Button
+      Move(245,259,112,21)
+      Text = ("Ustaw")
+    }
+    { PictureBox1 PictureBox
+      Move(160,301,160,147)
+    }
+    Index = 4
+    Text = ("Dyski i napędy")
+    Picture = Picture["Data/Tabs/hdd.png"]
+    { TextLabel20 TextLabel
+      Move(7,7,231,21)
+      Text = ("Dyski twarde i pami\xC4\x99ci przeno\xC5\x9Bne:")
+      Alignment = Align.Left
+    }
+    { TextLabel1 TextLabel
+      Move(182,217,91,21)
+      Text = ("N/A")
+    }
+    { TextLabel22 TextLabel
+      Move(7,217,168,21)
+      AutoResize = True
+      Text = ("Dost\xC4\x99pne miejsce na (./):")
+      Alignment = Align.Normal
+    }
+    { TextArea24 TextArea
+      Move(7,28,462,182)
+      Text = ("N/A")
+      ReadOnly = True
+    }
+    { TextLabel4 TextLabel
+      Move(7,273,147,21)
+      Text = ("Zaj\xC4\x99te miejsce na (./):")
+    }
+    { TextLabel6 TextLabel
+      Move(161,273,168,21)
+      Text = ("N/A")
+    }
+    { ProgressBar2 ProgressBar
+      Move(7,245,462,21)
+      Label = False
+    }
+    { ProgressBar3 ProgressBar
+      Move(7,301,462,21)
+      Label = False
+    }
+    { TextLabel12 TextLabel
+      Move(7,329,168,21)
+      Text = ("Ca\xC5\x82kowita pojemno\xC5\x9B\xC4\x87 (./):")
+    }
+    { TextLabel13 TextLabel
+      Move(203,329,168,21)
+      Text = ("N/A")
+    }
+    { TextLabel9 TextLabel
+      Move(182,329,14,21)
+      Text = ("~")
+    }
+    Index = 5
+    Text = ("System")
+    Picture = Picture["System.png"]
+    { Frame8 Frame
+      Move(7,315,462,56)
+      Text = ("Czas dzia\xC5\x82ania systemu:")
+      { TextArea37 TextArea
+        Move(14,21,406,21)
+        Text = ("TextArea37")
+        ReadOnly = True
+        ScrollBar = Scroll.None
+      }
+    }
+    { Frame7 Frame
+      Move(7,0,462,245)
+      Text = ("G\xC5\x82\xC3\xB3wne:")
+      { TextArea29 TextArea
+        Move(119,49,336,21)
+        Text = ("TextArea29")
+        ReadOnly = True
+        ScrollBar = Scroll.None
+      }
+      { TextArea30 TextArea
+        Move(119,105,336,21)
+        Text = ("TextArea30")
+        ReadOnly = True
+        ScrollBar = Scroll.None
+      }
+      { TextArea31 TextArea
+        Move(119,133,336,21)
+        Text = ("TextArea31")
+        ReadOnly = True
+        ScrollBar = Scroll.None
+      }
+      { TextArea32 TextArea
+        Move(119,77,336,21)
+        Text = ("TextArea32")
+        ReadOnly = True
+        ScrollBar = Scroll.None
+      }
+      { TextArea33 TextArea
+        Move(119,21,336,21)
+        Text = ("TextArea33")
+        ReadOnly = True
+        ScrollBar = Scroll.None
+      }
+      { TextArea34 TextArea
+        Move(119,161,336,21)
+        Text = ("TextArea34")
+        ReadOnly = True
+        ScrollBar = Scroll.None
+      }
+      { TextLabel5 TextLabel
+        Move(7,21,84,21)
+        Text = ("U\xC5\xBCytkownik:")
+      }
+      { TextLabel11 TextLabel
+        Move(7,49,84,21)
+        Text = ("Dystrybucja:")
+      }
+      { TextLabel14 TextLabel
+        Move(7,77,84,21)
+        Text = ("Wydanie:")
+      }
+      { TextLabel15 TextLabel
+        Move(7,105,105,21)
+        Text = ("Strefa czasowa:")
+      }
+      { TextLabel16 TextLabel
+        Move(7,133,49,21)
+        Text = ("GCC v:")
+      }
+      { TextLabel27 TextLabel
+        Move(7,161,105,21)
+        Text = ("X.org v:")
+      }
+      { TextLabel28 TextLabel
+        Move(7,189,105,21)
+        Text = ("GLX v:")
+      }
+      { TextArea35 TextArea
+        Move(119,189,336,21)
+        Text = ("TextArea35")
+        ReadOnly = True
+        ScrollBar = Scroll.None
+      }
+      { TextArea36 TextArea
+        Move(119,217,336,21)
+        Text = ("TextArea36")
+        ReadOnly = True
+        ScrollBar = Scroll.None
+      }
+      { TextLabel29 TextLabel
+        Move(7,217,91,21)
+        Text = ("Architektura:")
+      }
+    }
+    { Button5 Button
+      Move(434,336,28,21)
+      Text = ("")
+      Picture = Picture["icon:/16/refresh"]
+    }
+    { Frame23 Frame
+      Move(7,252,462,56)
+      Text = ("Ilo\xC5\x9B\xC4\x87 zainstalowanych pakiet\xC3\xB3w:")
+      { Button7 Button
+        Move(7,21,112,21)
+        Text = ("Sprawd\xC5\xBA")
+      }
+      { TextLabel10 TextLabel
+        Move(126,21,203,21)
+        Text = ("Obecnie masz zainstalowane")
+      }
+      { TextLabel21 TextLabel
+        Move(392,21,63,21)
+        Text = ("pakiet\xC3\xB3w.")
+      }
+      { TextArea28 TextArea
+        Move(322,21,63,21)
+        Text = ("N/A")
+        ReadOnly = True
+        ScrollBar = Scroll.None
+      }
+    }
+    { Button9 Button
+      Move(133,427,77,21)
+      Text = ("Poka\xC5\xBC")
+    }
+    { TextLabel43 TextLabel
+      Move(7,371,329,49)
+      Text = ("pokazuje kiedy, na jakie konto i sk\xC4\x85d mia\xC5\x82y miejsce logowania do systemu, jak r\xC3\xB3wnie\xC5\xBC restarty maszyny")
+      Alignment = Align.Center
+    }
+    Index = 6
+    Text = ("Kernel")
+    Picture = Picture["Data/Tabs/user.png"]
+    { Frame22 Frame
+      Move(7,7,462,441)
+      Text = ("Zainstalowane kernele:")
+      { TextLabel26 TextLabel
+        Move(7,238,119,21)
+        Text = ("Obecnie u\xC5\xBCywany:")
+      }
+      { Label26 Label
+        Move(140,238,294,21)
+        Text = ("N/A")
+      }
+      { Label4 Label
+        Move(7,21,77,21)
+        Text = ("Znaleziono")
+      }
+      { Label16 Label
+        Move(84,21,42,21)
+        Text = ("Label16")
+      }
+      { Label17 Label
+        Move(133,21,56,21)
+        Text = ("kerneli:")
+      }
+      { ComboBox3 ComboBox
+        Move(7,273,392,21)
+        Text = ("Wybierz kernel do usuni\xC4\x99cia")
+      }
+      { Button10 Button
+        Move(406,273,49,21)
+        Text = ("Usu\xC5\x84")
+      }
+    }
+    { TextArea47 TextArea
+      Move(14,56,448,182)
+      Text = ("TextArea47")
+      ReadOnly = True
+    }
+    Index = 7
+    Text = ("Pamięć")
+    Picture = Picture["Data/Tabs/RAM-Drive-64.png"]
+    { TextLabel7 TextLabel
+      Move(140,7,77,21)
+      Text = ("N/A")
+    }
+    { TextLabel31 TextLabel
+      Move(7,7,126,21)
+      Text = ("U\xC5\xBCyta pami\xC4\x99\xC4\x87 ram:")
+    }
+    { Button6 Button
+      Move(441,119,28,21)
+      Text = ("")
+      Picture = Picture["icon:/16/refresh"]
+    }
+    { ProgressBar1 ProgressBar
+      Move(7,28,462,21)
+    }
+    { TextArea39 TextArea
+      Move(63,119,259,21)
+      Text = ("N/A")
+      ReadOnly = True
+      ScrollBar = Scroll.None
+    }
+    { TextArea40 TextArea
+      Move(63,147,259,21)
+      Text = ("N/A")
+      ReadOnly = True
+      ScrollBar = Scroll.None
+    }
+    { TextArea41 TextArea
+      Move(63,175,259,21)
+      Text = ("N/A")
+      ReadOnly = True
+      ScrollBar = Scroll.None
+    }
+    { TextArea42 TextArea
+      Move(63,203,259,21)
+      Text = ("N/A")
+      ReadOnly = True
+      ScrollBar = Scroll.None
+    }
+    { TextArea43 TextArea
+      Move(63,231,259,21)
+      Text = ("N/A")
+      ReadOnly = True
+      ScrollBar = Scroll.None
+    }
+    { TextArea44 TextArea
+      Move(63,259,259,21)
+      Text = ("N/A")
+      ReadOnly = True
+      ScrollBar = Scroll.None
+    }
+    { TextLabel18 TextLabel
+      Move(7,119,42,21)
+      Text = ("Total:")
+    }
+    { TextLabel30 TextLabel
+      Move(7,147,42,21)
+      Text = ("Used:")
+    }
+    { TextLabel36 TextLabel
+      Move(7,175,42,21)
+      Text = ("Free:")
+    }
+    { TextLabel39 TextLabel
+      Move(7,203,56,21)
+      Text = ("Shared:")
+    }
+    { TextLabel40 TextLabel
+      Move(7,231,56,21)
+      Text = ("Buffers:")
+    }
+    { TextLabel41 TextLabel
+      Move(7,259,56,21)
+      Text = ("Cached:")
+    }
+    { TextArea45 TextArea
+      Move(91,287,231,21)
+      Text = ("N/A")
+      ReadOnly = True
+      ScrollBar = Scroll.None
+    }
+    { TextLabel32 TextLabel
+      Move(7,287,84,21)
+      Text = ("Swap total:")
+    }
+    { ProgressBar4 ProgressBar
+      Move(7,84,462,21)
+    }
+    { TextLabel23 TextLabel
+      Move(7,56,168,21)
+      Text = ("U\xC5\xBCyta pami\xC4\x99\xC4\x87 SWAP:")
+    }
+    { TextLabel24 TextLabel
+      Move(147,56,154,21)
+      Text = ("N/A")
+    }
+    Index = 8
+    Text = ("Internet")
+    Picture = Picture["11068_9016_16_network_globe_icon.png"]
+    { Frame11 Frame
+      Move(7,0,462,56)
+      Text = ("Domy\xC5\x9Blna przegl\xC4\x85darka:")
+      { TextArea46 TextArea
+        Move(7,21,448,21)
+        Text = ("N/A")
+        ReadOnly = True
+        ScrollBar = Scroll.None
+      }
+    }
+    { Frame12 Frame
+      Move(7,63,462,56)
+      Text = ("Network controller:")
+      { TextArea22 TextArea
+        Move(7,21,448,21)
+        Text = ("N/A")
+        ReadOnly = True
+        ScrollBar = Scroll.None
+      }
+    }
+    { Frame13 Frame
+      Move(7,126,462,56)
+      Text = ("Ethernet controller:")
+      { TextArea23 TextArea
+        Move(7,21,448,21)
+        Text = ("N/A")
+        ReadOnly = True
+        ScrollBar = Scroll.None
+      }
+    }
+    Index = 0
+  }
+  { Button2 Button
+    Move(7,497,182,21)
+    Text = ("Zr\xC3\xB3b zdj\xC4\x99cie tego okna")
+    Picture = Picture["icon:/16/camera"]
+  }
+  { Button1 Button
+    Move(392,497,84,21)
+    Text = ("Zamknij")
+    Picture = Picture["icon:/16/cancel"]
+  }
+  { Button3 Button
+    Move(364,497,21,21)
+    Text = ("")
+    Picture = Picture["icon:/16/help"]
+  }
+  { Label25 Label
+    Move(301,497,56,21)
+    Text = ("Label25")
+  }
+  { Label27 Label
+    Move(238,497,63,21)
+    Text = ("Silicon v:")
+  }
+}

@@ -1,0 +1,12 @@
+Source: silicon
+Section: contrib/gnome
+Priority: optional
+Maintainer: eloaders <eloaders@yahoo.com>
+Build-Depends: debhelper (>= 5.0.0), gambas2-dev (>= 1.9.48), gambas2-dev (<< 2.90), gambas2-gb-gtk (>= 1.9.48), gambas2-gb-gtk (<< 2.90), gambas2-gb-form (>= 1.90.1), gambas2-gb-form (<< 2.90.0), gambas2-gb-desktop (>= 1.9.48), gambas2-gb-desktop (<< 2.90), gambas2-gb-gtk-ext (>= 1.9.48), gambas2-gb-gtk-ext (<< 2.90)
+Standards-Version: 0.2.1~eloaders~oneiric
+
+Package: silicon
+Architecture: all
+Depends: gambas2-runtime (>= 1.9.48), gambas2-runtime (<< 2.90), gambas2-gb-gtk (>= 1.9.48), gambas2-gb-gtk (<< 2.90), gambas2-gb-form (>= 1.90.1), gambas2-gb-form (<< 2.90.0), gambas2-gb-desktop (>= 1.9.48), gambas2-gb-desktop (<< 2.90), gambas2-gb-gtk-ext (>= 1.9.48), gambas2-gb-gtk-ext (<< 2.90)
+Description: Aplikacja wyświetlająca różne informacje o systemie 
+ This program is written in Gambas

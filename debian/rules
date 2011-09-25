@@ -1,0 +1,45 @@
+#!/usr/bin/make -f
+build: build-stamp
+build-stamp:
+	dh_testdir
+	touch build-stamp
+	/usr/bin/gbc2 -a -t -p -m  src/Silicon
+	gba2 src/Silicon
+
+clean:
+	dh_testdir
+	dh_testroot
+	rm -Rf `find . -name ".gambas"`
+	rm -Rf `find . -name "*.gambas"`
+
+	rm -f build-stamp install-stamp
+	dh_clean
+
+install: build
+	dh_testdir
+	dh_testroot
+	dh_clean -k
+
+	dh_installdirs
+
+	touch install-stamp
+
+binary-arch: build install
+	dh_testdir
+
+binary-indep: build install
+	dh_testdir -i
+	dh_testroot -i
+	dh_installdocs -i
+	dh_installchangelogs -i
+	dh_install -i
+	dh_installmenu
+	dh_compress -i
+	dh_fixperms -i
+	dh_installdeb -i
+	dh_gencontrol -i
+	dh_md5sums -i
+	dh_builddeb -i
+
+binary: binary-indep binary-arch
+.PHONY: build clean binary-indep binary-arch binary install

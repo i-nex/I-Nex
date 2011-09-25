@@ -1,0 +1,3 @@
+src/Silicon/Silicon.gambas usr/bin
+src/Silicon/silicon.png usr/share/pixmaps
+debian/silicon.desktop usr/share/applications

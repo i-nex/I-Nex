@@ -1,0 +1,61 @@
+# Gambas Form File 2.0
+
+{ Form Form
+  Move(0,0,364,266)
+  #(Scaled) = False
+  Text = ("Zas\xC5\x82ugi")
+  Icon = Picture["siliconlogo.png"]
+  Border = Window.Fixed
+  { TabStrip1 TabStrip
+    Move(0,0,364,217)
+    Count = 3
+    Index = 0
+    Text = ("Program")
+    { TextLabel6 TextLabel
+      Move(7,7,168,21)
+      Text = ("G\xC5\x82\xC3\xB3wny bajkopisarz:")
+    }
+    { TextLabel7 TextLabel
+      Move(7,28,196,21)
+      Text = ("Micha\xC5\x82 'eloaders' G\xC5\x82owienka")
+    }
+    { TextLabel8 TextLabel
+      Move(210,28,147,21)
+      Text = ("eloaders@yahoo.com")
+    }
+    Index = 1
+    Text = ("Grafika")
+    { TextLabel1 TextLabel
+      Move(7,7,168,21)
+      Text = ("Ikona oraz logo programu:")
+    }
+    { TextLabel2 TextLabel
+      Move(7,28,168,21)
+      Text = ("Daniel 'DaNieL' Pabis ")
+    }
+    { TextLabel3 TextLabel
+      Move(189,28,168,21)
+      Text = ("daniel.pabis@interia.pl")
+    }
+    { TextLabel4 TextLabel
+      Move(7,49,133,21)
+      Text = ("Maciej Urma\xC5\x84ski")
+    }
+    { TextLabel5 TextLabel
+      Move(147,49,168,21)
+      Text = ("maciej14@gmail.com")
+    }
+    Index = 2
+    Text = ("Inne")
+    { TextArea3 TextArea
+      Move(0,0,364,189)
+      Text = ("")
+      ReadOnly = True
+    }
+    Index = 0
+  }
+  { Button1 Button
+    Move(273,224,84,28)
+    Text = ("Zamknij")
+  }
+}

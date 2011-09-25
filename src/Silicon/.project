@@ -1,0 +1,29 @@
+# Gambas Project File 2.0
+# Compiled with Gambas 2.21.0
+Title=Silicon
+Startup=Finfosys
+Icon=siliconlogo.png
+Version=0.2.2
+Library=gb.gtk
+Library=gb.form
+Library=gb.desktop
+Library=gb.gtk.ext
+Description=Aplikacja w wersji alpha wyświetlająca informacje o systemie.\nData, wersja biosu oraz producent.\nUżyta pamięć, całkowita pamięć i dostępne miejsce na dysku.\nWyświetla także inne informacje o systemie.
+Authors=eloaders
+TabSize=1
+Translate=1
+Language=pl
+ControlPublic=1
+ModulePublic=1
+ExecPath=/home/michal/Pulpit/tuu.gambas
+SourcePath=/home/michal/Dokumenty
+Maintainer=eloaders
+Vendor=silicon
+Address=eloaders@yahoo.com
+Url=http://code.google.com/p/lft/
+License=General Public Licence
+UseRelease=1
+Systems=ubuntu
+Menus=Applications/System/Hardware
+Categories=System
+Groups=gnome

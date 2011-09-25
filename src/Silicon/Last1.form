@@ -1,0 +1,10 @@
+# Gambas Form File 2.0
+
+{ Form Form
+  MoveScaled(0,0,64,64)
+  Text = ("")
+  { TextArea1 TextArea
+    MoveScaled(0,0,64,65)
+    Text = ("TextArea1")
+  }
+}

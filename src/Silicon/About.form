@@ -1,0 +1,36 @@
+# Gambas Form File 2.0
+
+{ Form Form
+  Move(0,0,259,399)
+  #(Scaled) = False
+  Text = ("O programie")
+  Icon = Picture["siliconlogo.png"]
+  Border = Window.Fixed
+  { Button1 Button
+    Move(175,364,77,28)
+    Text = ("Zamknij")
+  }
+  { Button2 Button
+    Move(7,364,77,28)
+    Text = ("Zas\xC5\x82ugi")
+  }
+  { Button3 Button
+    Move(91,364,77,28)
+    Text = ("Licencja")
+  }
+  { PictureBox1 PictureBox
+    Move(0,0,259,231)
+    Picture = Picture["siliconlogo.png"]
+    Stretch = True
+    Alignment = Align.Normal
+  }
+  { TextLabel1 TextLabel
+    Move(7,231,245,112)
+    Text = ("Silicon to aplikacja maj\xC4\x85ca na celu danie u\xC5\xBCytkownikowi pe\xC5\x82nego GUI wy\xC5\x9Bwietlaj\xC4\x85cego r\xC3\xB3\xC5\xBCne informacje o podzespo\xC5\x82ach komputera oraz informacje na temat zainstalowanego systemu.")
+  }
+  { Button4 Button
+    Move(77,336,105,21)
+    Text = ("Strona domowa")
+    Border = False
+  }
+}

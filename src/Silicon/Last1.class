@@ -1,0 +1,8 @@
+' Gambas class file
+
+
+PUBLIC SUB Form_Open()
+
+  SHELL "last" TO TextArea1.Text
+
+END

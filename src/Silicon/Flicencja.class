@@ -1,0 +1,15 @@
+' Gambas class file
+
+PUBLIC SUB Form_Open()
+
+  ME.Center
+
+END 
+
+PUBLIC SUB Button1_Click()
+
+  Flicencja.Close
+
+END
+
+
