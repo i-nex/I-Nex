@@ -180,7 +180,7 @@ PUBLIC SUB System()
   SHELL "gcc -dumpversion" WAIT TO gcc
   SHELL "xdpyinfo | grep 'X.Org version:' | sed -n '1p' | cut -d ':' -f 2" WAIT TO xorg_version
   SHELL "glxinfo | grep 'GLX version:' | sed -n '1p' | cut -d ':' -f 2" WAIT TO glx_version
-  
+  SHELL "echo $SHELL" WAIT TO TextArea48.Text
   distrodetect.distro_detect()
   
   TextArea31.Text = gcc

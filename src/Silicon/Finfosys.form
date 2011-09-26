@@ -383,7 +383,7 @@
     Text = ("System")
     Picture = Picture["System.png"]
     { Frame8 Frame
-      Move(7,315,462,56)
+      Move(7,350,462,56)
       Text = ("Czas dzia\xC5\x82ania systemu:")
       { TextArea37 TextArea
         Move(14,21,406,21)
@@ -393,42 +393,48 @@
       }
     }
     { Frame7 Frame
-      Move(7,0,462,245)
+      Move(7,0,462,280)
       Text = ("G\xC5\x82\xC3\xB3wne:")
       { TextArea29 TextArea
         Move(119,49,336,21)
         Text = ("TextArea29")
         ReadOnly = True
+        Border = False
         ScrollBar = Scroll.None
       }
       { TextArea30 TextArea
         Move(119,105,336,21)
         Text = ("TextArea30")
         ReadOnly = True
+        Border = False
         ScrollBar = Scroll.None
       }
       { TextArea31 TextArea
         Move(119,133,336,21)
         Text = ("TextArea31")
         ReadOnly = True
+        Border = False
         ScrollBar = Scroll.None
       }
       { TextArea32 TextArea
         Move(119,77,336,21)
         Text = ("TextArea32")
         ReadOnly = True
+        Border = False
         ScrollBar = Scroll.None
       }
       { TextArea33 TextArea
         Move(119,21,336,21)
         Text = ("TextArea33")
         ReadOnly = True
+        Border = False
         ScrollBar = Scroll.None
       }
       { TextArea34 TextArea
         Move(119,161,336,21)
         Text = ("TextArea34")
         ReadOnly = True
+        Border = False
         ScrollBar = Scroll.None
       }
       { TextLabel5 TextLabel
@@ -463,26 +469,39 @@
         Move(119,189,336,21)
         Text = ("TextArea35")
         ReadOnly = True
+        Border = False
         ScrollBar = Scroll.None
       }
       { TextArea36 TextArea
         Move(119,217,336,21)
         Text = ("TextArea36")
         ReadOnly = True
+        Border = False
         ScrollBar = Scroll.None
       }
       { TextLabel29 TextLabel
         Move(7,217,91,21)
         Text = ("Architektura:")
       }
+      { TextLabel10 TextLabel
+        Move(7,245,105,21)
+        Text = ("Pow\xC5\x82oka:")
+      }
+      { TextArea48 TextArea
+        Move(119,245,336,21)
+        Text = ("TextArea48")
+        ReadOnly = True
+        Border = False
+        ScrollBar = Scroll.None
+      }
     }
     { Button5 Button
-      Move(434,336,28,21)
+      Move(434,371,28,21)
       Text = ("")
       Picture = Picture["icon:/16/refresh"]
     }
     { Frame23 Frame
-      Move(7,252,462,56)
+      Move(7,287,462,56)
       Text = ("Ilo\xC5\x9B\xC4\x87 zainstalowanych pakiet\xC3\xB3w:")
       { Button7 Button
         Move(7,21,112,21)
