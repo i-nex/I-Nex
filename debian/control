@@ -2,8 +2,10 @@ Source: silicon
 Section: contrib/gnome
 Priority: optional
 Maintainer: eloaders <eloaders@yahoo.com>
+Vcs-Bzr: https://code.launchpad.net/~eloaders/i-nex/i-nex
 Build-Depends: debhelper (>= 5.0.0), gambas2-dev (>= 1.9.48), gambas2-dev (<< 2.90), gambas2-gb-gtk (>= 1.9.48), gambas2-gb-gtk (<< 2.90), gambas2-gb-form (>= 1.90.1), gambas2-gb-form (<< 2.90.0), gambas2-gb-desktop (>= 1.9.48), gambas2-gb-desktop (<< 2.90), gambas2-gb-gtk-ext (>= 1.9.48), gambas2-gb-gtk-ext (<< 2.90)
-Standards-Version: 0.2.1~eloaders~oneiric
+Homepage: https://launchpad.net/~eloaders
+Standards-Version: 3.8.4
 
 Package: silicon
 Architecture: all
