@@ -2,7 +2,7 @@
 
 
 PUBLIC SUB Form_Open()
-  DIM cpuz0, cpuz1, cpuz2, cpuz3, cpuz4, cpuz5 AS String
+  DIM cpuz0, cpuz1, cpuz2, cpuz3, cpuz4, cpuz5, cpuz6, cpuz7, cpuz8, cpuz9, cpuz10, cpuz11 AS String
   TextLabel10.Visible = FALSE
   TextArea28.Visible = FALSE 
   TextLabel21.Visible = FALSE
@@ -14,6 +14,12 @@ PUBLIC SUB Form_Open()
   SHELL "ls /sys/devices/system/cpu/ | grep -v save | sed -n '4p'" WAIT TO cpuz3
   SHELL "ls /sys/devices/system/cpu/ | grep -v save | sed -n '5p'" WAIT TO cpuz4
   SHELL "ls /sys/devices/system/cpu/ | grep -v save | sed -n '6p'" WAIT TO cpuz5
+  SHELL "ls /sys/devices/system/cpu/ | grep -v save | sed -n '7p'" WAIT TO cpuz6
+  SHELL "ls /sys/devices/system/cpu/ | grep -v save | sed -n '8p'" WAIT TO cpuz7
+  SHELL "ls /sys/devices/system/cpu/ | grep -v save | sed -n '9p'" WAIT TO cpuz8
+  SHELL "ls /sys/devices/system/cpu/ | grep -v save | sed -n '10p'" WAIT TO cpuz9
+  SHELL "ls /sys/devices/system/cpu/ | grep -v save | sed -n '11p'" WAIT TO cpuz10
+  SHELL "ls /sys/devices/system/cpu/ | grep -v save | sed -n '12p'" WAIT TO cpuz11
   
   cpuz0 = Replace(cpuz0, "\n", "")
   cpuz1 = Replace(cpuz1, "\n", "")
@@ -21,6 +27,12 @@ PUBLIC SUB Form_Open()
   cpuz3 = Replace(cpuz3, "\n", "")
   cpuz4 = Replace(cpuz4, "\n", "")
   cpuz5 = Replace(cpuz5, "\n", "")
+  cpuz6 = Replace(cpuz6, "\n", "")
+  cpuz7 = Replace(cpuz7, "\n", "")
+  cpuz8 = Replace(cpuz8, "\n", "")
+  cpuz9 = Replace(cpuz9, "\n", "")
+  cpuz10 = Replace(cpuz10, "\n", "")
+  cpuz11 = Replace(cpuz11, "\n", "")
 IF (cpuz0 = "cpu0") = TRUE THEN
 ComboBox1.Add("Procesor0")
 ENDIF
@@ -43,6 +55,30 @@ ENDIF
 
 IF (cpuz5 = "cpu5") = TRUE THEN
 ComboBox1.Add("Procesor5")
+ENDIF
+
+IF (cpuz6 = "cpu6") = TRUE THEN
+ComboBox1.Add("Procesor6")
+ENDIF
+
+IF (cpuz7 = "cpu7") = TRUE THEN
+ComboBox1.Add("Procesor7")
+ENDIF
+
+IF (cpuz8 = "cpu8") = TRUE THEN
+ComboBox1.Add("Procesor8")
+ENDIF
+
+IF (cpuz9 = "cpu9") = TRUE THEN
+ComboBox1.Add("Procesor9")
+ENDIF
+
+IF (cpuz10 = "cpu10") = TRUE THEN
+ComboBox1.Add("Procesor10")
+ENDIF
+
+IF (cpuz11 = "cpu11") = TRUE THEN
+ComboBox1.Add("Procesor11")
 ENDIF
 
 dospam_uptime()
@@ -240,6 +276,36 @@ PUBLIC SUB Wykrywanie_procesorow()
      eloaders = "6p"
      eloaders2 = "cpu5"
      eloaders3 = "11p"
+  ENDIF
+  IF ComboBox1.Text = "Procesor6" THEN 
+     eloaders = "7p"
+     eloaders2 = "cpu6"
+     eloaders3 = "13p"
+  ENDIF
+  IF ComboBox1.Text = "Procesor7" THEN 
+     eloaders = "8p"
+     eloaders2 = "cpu7"
+     eloaders3 = "15p"
+  ENDIF
+  IF ComboBox1.Text = "Procesor8" THEN 
+     eloaders = "9p"
+     eloaders2 = "cpu8"
+     eloaders3 = "17p"
+  ENDIF
+  IF ComboBox1.Text = "Procesor9" THEN 
+     eloaders = "10p"
+     eloaders2 = "cpu9"
+     eloaders3 = "19p"
+  ENDIF
+  IF ComboBox1.Text = "Procesor10" THEN 
+     eloaders = "11p"
+     eloaders2 = "cpu10"
+     eloaders3 = "21p"
+  ENDIF
+  IF ComboBox1.Text = "Procesor11" THEN 
+     eloaders = "12p"
+     eloaders2 = "cpu11"
+     eloaders3 = "23p"
   ENDIF
   
   SHELL "cat /proc/cpuinfo | grep 'vendor_id' | sed -n '" & eloaders & "' | cut -d ':' -f 2" WAIT TO obrazekcpu
