@@ -1,4 +1,4 @@
-silicon (0.2.1~eloaders~oneiric) oneiric; urgency=low
+silicon (0.2.1~eloaders) oneiric; urgency=low
 
   * Dodano opcję zmiany rozdzielczości
   * Dodano opcję usuwania kerneli
