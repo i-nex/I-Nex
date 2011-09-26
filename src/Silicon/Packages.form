@@ -1,0 +1,11 @@
+# Gambas Form File 2.0
+
+{ Form Form
+  Move(0,0,630,448)
+  #(Scaled) = False
+  Text = ("Zainstalowane pakiety:")
+  Border = Window.Fixed
+  { ColumnView1 ColumnView
+    Move(0,0,630,448)
+  }
+}

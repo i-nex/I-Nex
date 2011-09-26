@@ -3,7 +3,6 @@
 
 PUBLIC SUB Form_Open()
   DIM cpuz0, cpuz1, cpuz2, cpuz3, cpuz4, cpuz5, cpuz6, cpuz7, cpuz8, cpuz9, cpuz10, cpuz11 AS String
-  TextLabel10.Visible = FALSE
   TextArea28.Visible = FALSE 
   TextLabel21.Visible = FALSE
   'End dpkg installed
@@ -411,7 +410,6 @@ END
 PUBLIC SUB Button7_Click()
   DIM dpkg AS String
   SHELL "cat /var/lib/dpkg/status | grep '^Status: install ok installed' | wc -l" WAIT TO dpkg
-  TextLabel10.Visible = TRUE
   TextArea28.Visible = TRUE
   TextLabel21.Visible = TRUE
   TextArea28.Text = dpkg
@@ -420,7 +418,7 @@ END
 
 PUBLIC SUB Button9_Click()
 
-  Last1.Show
+  Packages.Show
 
 END
 

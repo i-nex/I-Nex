@@ -488,29 +488,20 @@
         Move(7,21,112,21)
         Text = ("Sprawd\xC5\xBA")
       }
-      { TextLabel10 TextLabel
-        Move(126,21,203,21)
-        Text = ("Obecnie masz zainstalowane")
-      }
       { TextLabel21 TextLabel
-        Move(392,21,63,21)
-        Text = ("pakiet\xC3\xB3w.")
+        Move(189,21,203,21)
+        Text = ("Pakiet\xC3\xB3w jest zainstalowane")
       }
       { TextArea28 TextArea
-        Move(322,21,63,21)
+        Move(119,21,63,21)
         Text = ("N/A")
         ReadOnly = True
         ScrollBar = Scroll.None
       }
-    }
-    { Button9 Button
-      Move(133,427,77,21)
-      Text = ("Poka\xC5\xBC")
-    }
-    { TextLabel43 TextLabel
-      Move(7,371,329,49)
-      Text = ("pokazuje kiedy, na jakie konto i sk\xC4\x85d mia\xC5\x82y miejsce logowania do systemu, jak r\xC3\xB3wnie\xC5\xBC restarty maszyny")
-      Alignment = Align.Center
+      { Button9 Button
+        Move(392,21,63,21)
+        Text = ("Poka\xC5\xBC")
+      }
     }
     Index = 6
     Text = ("Kernel")
@@ -707,7 +698,7 @@
     Text = ("Label25")
   }
   { Label27 Label
-    Move(238,497,63,21)
-    Text = ("Silicon v:")
+    Move(245,497,49,21)
+    Text = ("i-nex v:")
   }
 }

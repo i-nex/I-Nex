@@ -3,7 +3,7 @@
 Title=Silicon
 Startup=Finfosys
 Icon=siliconlogo.png
-Version=0.2.2
+Version=0.2.3
 Library=gb.gtk
 Library=gb.form
 Library=gb.desktop
