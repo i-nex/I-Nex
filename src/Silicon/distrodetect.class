@@ -1,0 +1,30 @@
+' Gambas class file
+STATIC PUBLIC SUB distro_detect()
+  DIM distro, codename AS String
+  SHELL "lsb_release -i | sed -e 's/Distributor ID://' -e 's/\t//g'" WAIT TO distro
+  SHELL "lsb_release -c | sed -e 's/Codename://' -e 's/\t//g'" WAIT TO codename
+  IF distro LIKE "*Ubuntu*" THEN 
+  Finfosys.TextArea29.Text = distro
+  Finfosys.TextArea32.Text = codename
+  ELSE 
+  IF distro LIKE "*Arch*" THEN 
+  Finfosys.TextArea29.Text = "Arch Linux"
+  Finfosys.TextArea32.Text = codename
+  ELSE 
+  IF distro LIKE "*Debian*" THEN 
+  Finfosys.TextArea29.Text = "Debian"
+  Finfosys.TextArea32.Text = codename
+  ELSE 
+  IF distro LIKE "LinuxMint" AND IF codename LIKE "debian" THEN 
+  Finfosys.TextArea29.Text = "Linux Mint Debian Edition"
+  Finfosys.TextArea32.Text = codename
+  ELSE 
+  IF distro LIKE "LinuxMint" THEN 
+  Finfosys.TextArea29.Text = "Linux Mint"
+  Finfosys.TextArea32.Text = codename
+          ENDIF 
+        ENDIF 
+      ENDIF 
+   ENDIF 
+ ENDIF
+END

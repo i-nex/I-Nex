@@ -13,7 +13,7 @@ SearchString=True
 
 [OpenFile]
 File[1]="Finfosys.form"
-File[2]="Finfosys.class:411.94"
+File[2]="Finfosys.class:177.35"
 File[3]="Global.class:76.34"
 File[4]="linuxmint.png"
 File[5]="intellogo.gif"
@@ -32,9 +32,10 @@ File[17]="Last1.form"
 File[18]="Last1.class:5.32"
 File[19]="11068_9016_16_network_globe_icon.png"
 File[20]="Packages.form"
-Active=20
 File[21]="Packages.class:34.17"
-Count=21
+File[22]="distrodetect.class:23.37"
+Active=22
+Count=22
 
 [Watches]
 Count=0

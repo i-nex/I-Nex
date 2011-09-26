@@ -31,7 +31,7 @@ msgid "Licencja"
 msgstr ""
 
 #: About.class:77
-msgid "Silicon to aplikacja mająca na celu danie użytkownikowi pełnego GUI wyświetlającego różne informacje o podzespołach komputera oraz informacje na temat zainstalowanego systemu."
+msgid "I-nex to aplikacja mająca na celu danie użytkownikowi pełnego GUI wyświetlającego różne informacje o podzespołach komputera oraz informacje na temat zainstalowanego systemu."
 msgstr ""
 
 #: About.class:82

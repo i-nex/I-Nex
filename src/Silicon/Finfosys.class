@@ -176,17 +176,15 @@ PUBLIC SUB System()
   DIM hostname, dist, release, arch, gcc, timezone, xorg_version, glx_version AS String
   SHELL "cat /etc/timezone" WAIT TO timezone
   SHELL "hostname" WAIT TO hostname
-  SHELL "cat /etc/issue.net" WAIT TO dist 
-  SHELL "sed 's/DISTRIB_RELEASE=//' /etc/lsb-release | sed -n '2p'" WAIT TO release
   SHELL "uname -m" WAIT TO arch
   SHELL "gcc -dumpversion" WAIT TO gcc
   SHELL "xdpyinfo | grep 'X.Org version:' | sed -n '1p' | cut -d ':' -f 2" WAIT TO xorg_version
   SHELL "glxinfo | grep 'GLX version:' | sed -n '1p' | cut -d ':' -f 2" WAIT TO glx_version
   
+  distrodetect.distro_detect()
+  
   TextArea31.Text = gcc
   TextArea33.Text = hostname
-  TextArea29.Text = dist
-  TextArea32.Text = release
   TextArea36.Text = arch
   TextArea30.Text = timezone
   TextArea34.Text = xorg_version
