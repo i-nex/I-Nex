@@ -1,5 +1,15 @@
 silicon (0.2.1~eloaders) oneiric; urgency=low
 
+  * Change debian/control and compat
+  * Change debian/chanelog
+  * Dodano wykrywanie do 12 procesorów bądź rdzeni
+  * Dodanie zależności debian/control
+  * Nowy formularz wyświetlający informacje o pakietach
+
+ -- eloaders <eloaders@yahoo.com>  Mon, 26 Sep 2011 15:48:00 +0000
+
+silicon (0.2.1~eloaders) oneiric; urgency=low
+
   * Dodano opcję zmiany rozdzielczości
   * Dodano opcję usuwania kerneli
   * Usunięto nieużywane pliki graficzne z programu
