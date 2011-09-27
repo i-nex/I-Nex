@@ -185,7 +185,7 @@
     Text = ("Płyta główna / Bios")
     Picture = Picture["motherboard.png"]
     { Frame1 Frame
-      Move(7,147,462,112)
+      Move(7,147,462,168)
       Text = ("Bios")
       { TextLabel33 TextLabel
         Move(7,21,77,21)
@@ -198,6 +198,25 @@
       { TextLabel35 TextLabel
         Move(7,77,42,21)
         Text = ("Data:")
+      }
+      { TextLabel25 TextLabel
+        Move(7,105,77,21)
+        Text = ("Unique Id:")
+      }
+      { TextArea49 TextArea
+        Move(91,105,364,21)
+        Text = ("TextArea49")
+        ReadOnly = True
+        ScrollBar = Scroll.None
+      }
+      { TextLabel42 TextLabel
+        Move(7,133,119,21)
+        Text = ("Hardware Class:")
+      }
+      { TextArea50 TextArea
+        Move(119,133,105,21)
+        Text = ("TextArea50")
+        ScrollBar = Scroll.None
       }
     }
     { Frame5 Frame
@@ -277,7 +296,7 @@
         Text = ("OpenGL vendor string:")
       }
       { TextArea19 TextArea
-        Move(154,21,301,21)
+        Move(161,21,294,21)
         Text = ("TextArea19")
         ReadOnly = True
         ScrollBar = Scroll.None
@@ -297,7 +316,7 @@
         Text = ("OpenGL version string:")
       }
       { TextArea21 TextArea
-        Move(154,91,301,21)
+        Move(161,91,294,21)
         Text = ("TextArea21")
         ReadOnly = True
         ScrollBar = Scroll.None
@@ -307,7 +326,7 @@
         Text = ("Obecna rozdzielczo\xC5\x9B\xC4\x87:")
       }
       { TextArea38 TextArea
-        Move(154,126,301,21)
+        Move(161,126,294,21)
         Text = ("N/A")
         ReadOnly = True
         ScrollBar = Scroll.None

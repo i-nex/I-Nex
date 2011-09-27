@@ -69,7 +69,7 @@ STATIC PUBLIC SUB ikonaprocka()
   ENDIF
   
   IF Finfosys.TextArea1.Text LIKE "*AMD Athlon(tm) II X2*" THEN 
-  Finfosys.PictureBox3.Picture = Picture["730143272452F11.jpg"]
+  Finfosys.PictureBox3.Picture = Picture["730143272452F1.jpg"]
   ENDIF 
 
 END

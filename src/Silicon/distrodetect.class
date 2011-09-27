@@ -22,6 +22,26 @@ STATIC PUBLIC SUB distro_detect()
   IF distro LIKE "LinuxMint" THEN 
   Finfosys.TextArea29.Text = "Linux Mint"
   Finfosys.TextArea32.Text = codename
+  IF distro LIKE "*Fedora*" THEN 
+  Finfosys.TextArea29.Text = "Fedora"
+  Finfosys.TextArea32.Text = codename
+  IF distro LIKE "*CrunchBang*" THEN 
+  Finfosys.TextArea29.Text = "CrunchBang"
+  Finfosys.TextArea32.Text = codename
+  IF distro LIKE "*frugalware*" THEN 
+  Finfosys.TextArea29.Text = "frugalware"
+  Finfosys.TextArea32.Text = codename
+  IF distro LIKE "*Peppermint*" THEN 
+  Finfosys.TextArea29.Text = "Peppermint"
+  Finfosys.TextArea32.Text = codename
+  IF Exist("/etc/SuSE-release") THEN 
+  Finfosys.TextArea29.Text = "OpenSUSE"
+  Finfosys.TextArea32.Text = codename
+                    ENDIF 
+                  ENDIF 
+                ENDIF 
+              ENDIF 
+            ENDIF
           ENDIF 
         ENDIF 
       ENDIF 

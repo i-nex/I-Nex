@@ -13,9 +13,9 @@ SearchString=True
 
 [OpenFile]
 File[1]="Finfosys.form"
-File[2]="Finfosys.class:182.45"
-Active=2
-File[3]="Global.class:76.34"
+File[2]="Finfosys.class:181.2"
+File[3]="Global.class:69.2"
+Active=3
 File[4]="linuxmint.png"
 File[5]="intellogo.gif"
 File[6]="About.form"
@@ -29,13 +29,11 @@ File[13]="amdphenom.png"
 File[14]="intelpentium2.png"
 File[15]="730143272452F1.jpg"
 File[16]="730143272452F11.jpg"
-File[17]="Last1.form"
-File[18]="Last1.class:5.32"
-File[19]="11068_9016_16_network_globe_icon.png"
-File[20]="Packages.form"
-File[21]="Packages.class:34.17"
-File[22]="distrodetect.class:23.37"
-Count=22
+File[17]="11068_9016_16_network_globe_icon.png"
+File[18]="Packages.form"
+File[19]="Packages.class:24.34"
+File[20]="distrodetect.class:38.26"
+Count=20
 
 [Watches]
 Count=0

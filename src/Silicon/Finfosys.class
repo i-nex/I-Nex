@@ -159,12 +159,18 @@ PUBLIC SUB dysk()
 END
 
 PUBLIC SUB bios()
-DIM bios_vendor, bios_version, bios_date, board_name, board_vendor AS String
+  DIM bios_vendor, bios_version, bios_date, board_name, board_vendor AS String
+  
   SHELL "cat /sys/devices/virtual/dmi/id/bios_vendor" TO bios_vendor
   SHELL "cat /sys/devices/virtual/dmi/id/bios_version" TO bios_version
   SHELL "cat /sys/devices/virtual/dmi/id/bios_date" TO bios_date
   SHELL "cat /sys/devices/virtual/dmi/id/board_vendor" TO board_vendor
   SHELL "cat /sys/devices/virtual/dmi/id/board_name" TO board_name
+  SHELL "hwinfo --bios | grep 'Unique ID:' | sed -e 's/Unique ID://' -e 's/\t//g'" WAIT TO TextArea49.Text
+  SHELL "hwinfo --bios | grep 'Hardware Class:' | sed -e 's/Hardware Class://' -e 's/\t//g'" WAIT TO TextArea50.Text
+  'SHELL "hwinfo --bios | grep 'BIOS Keyboard LED Status:' | sed -e 's/BIOS Keyboard LED Status://' -e 's/\t//g'" WAIT TO TextArea51.Text
+  
+  
   TextArea25.Text = bios_vendor
   TextArea26.Text = bios_version
   TextArea27.Text = bios_date
