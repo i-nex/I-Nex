@@ -1,4 +1,4 @@
-silicon (0.2.3~eloaders) oneiric; urgency=low
+silicon (0.2.3) oneiric; urgency=low
 
   * Change debian/control and compat
   * Change debian/chanelog
