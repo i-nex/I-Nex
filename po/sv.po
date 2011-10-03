@@ -14,8 +14,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-07-23 04:30+0000\n"
-"X-Generator: Launchpad (build 13405)\n"
+"X-Launchpad-Export-Date: 2011-10-03 04:31+0000\n"
+"X-Generator: Launchpad (build 14071)\n"
 
 #: ../pastebinit:62
 msgid "%s: no section [pastebin]"
@@ -127,18 +127,3 @@ msgid ""
 msgstr ""
 "Kan inte läsa eller tolka resultatsidan. Det kan bero på en server timeout "
 "eller en ändring på servern. Försök med en annan pastebin."
-
-#~ msgid "Optional arguments:"
-#~ msgstr "Frivilliga argument:"
-
-#~ msgid "Required arguments:"
-#~ msgstr "Obligatoriska argument:"
-
-#~ msgid "\t-i <filename> (or pipe the text)"
-#~ msgstr "\t-i <filnamn> (eller skriv i texten)"
-
-#~ msgid "Optional arguments supported only by 1t2.us and paste.stgraber.org:"
-#~ msgstr "Frivilliga argument stöds endast av 1t2.us och paste.stgraber.org:"
-
-#~ msgid "Error no arguments specified!\n"
-#~ msgstr "Fel, inga argument angivna\n"

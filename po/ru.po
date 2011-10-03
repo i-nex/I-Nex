@@ -14,8 +14,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-07-23 04:30+0000\n"
-"X-Generator: Launchpad (build 13405)\n"
+"X-Launchpad-Export-Date: 2011-10-03 04:31+0000\n"
+"X-Generator: Launchpad (build 14071)\n"
 
 #: ../pastebinit:62
 msgid "%s: no section [pastebin]"
@@ -132,9 +132,3 @@ msgstr ""
 "Невозможно прочитать или распознать страницу ответа, это может быть вызвано "
 "превышением времени ожидания или изменениями на сервере, попробуйте выбрать "
 "другой pastebin-сервис."
-
-#~ msgid "Optional arguments:"
-#~ msgstr "Необязательные аргументы:"
-
-#~ msgid "Required arguments:"
-#~ msgstr "Необходимые аргументы:"

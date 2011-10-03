@@ -8,13 +8,13 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-01-09 20:24+0000\n"
 "PO-Revision-Date: 2009-12-27 02:37+0000\n"
-"Last-Translator: Rex Tsai <rex.tsai@ubuntu.com>\n"
+"Last-Translator: Rex Tsai <Unknown>\n"
 "Language-Team: Traditional Chinese <debian-chinese-big5@debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-07-23 04:30+0000\n"
-"X-Generator: Launchpad (build 13405)\n"
+"X-Launchpad-Export-Date: 2011-10-03 04:31+0000\n"
+"X-Generator: Launchpad (build 14071)\n"
 
 #: ../pastebinit:62
 msgid "%s: no section [pastebin]"
@@ -122,18 +122,3 @@ msgid ""
 "Unable to read or parse the result page, it could be a server timeout or a "
 "change server side, try with another pastebin."
 msgstr "無法分析或讀取結果頁，可能是伺服器逾時或伺服器端介面已更改。請使用其他 pastebin 服務。"
-
-#~ msgid "Optional arguments:"
-#~ msgstr "選用參數"
-
-#~ msgid "Required arguments:"
-#~ msgstr "必要參數:"
-
-#~ msgid "\t-i <filename> (or pipe the text)"
-#~ msgstr "\t-i <檔名> 或導入 (pipe) 文字"
-
-#~ msgid "Optional arguments supported only by 1t2.us and paste.stgraber.org:"
-#~ msgstr "選用參數，只有 1t2.us 與 paste.stgraber.org 支援:"
-
-#~ msgid "Error no arguments specified!\n"
-#~ msgstr "錯誤，未指定參數!\n"

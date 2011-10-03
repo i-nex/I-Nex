@@ -14,8 +14,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-07-23 04:30+0000\n"
-"X-Generator: Launchpad (build 13405)\n"
+"X-Launchpad-Export-Date: 2011-10-03 04:31+0000\n"
+"X-Generator: Launchpad (build 14071)\n"
 
 #: ../pastebinit:62
 msgid "%s: no section [pastebin]"
@@ -134,20 +134,3 @@ msgstr ""
 "Kann die Ergebnis-Seite nicht lesen oder auswerten, es könnte eine "
 "Zeitüberschreitung des Servers oder eine serverseitige Veränderung sein. "
 "Versuchen Sie einen anderen Pastebin."
-
-#~ msgid "Optional arguments:"
-#~ msgstr "Optionale Argumente:"
-
-#~ msgid "Required arguments:"
-#~ msgstr "Benötigte Argumente"
-
-#~ msgid "\t-i <filename> (or pipe the text)"
-#~ msgstr "\t-i <Dateiname> (oder Pipe zum Text)"
-
-#~ msgid "Optional arguments supported only by 1t2.us and paste.stgraber.org:"
-#~ msgstr ""
-#~ "Optionale Argumente, die nur von 1t2.us und past.stgraber.org unterstützt "
-#~ "werden:"
-
-#~ msgid "Error no arguments specified!\n"
-#~ msgstr "Fehler: es wurden keine Argumente angegeben\n"

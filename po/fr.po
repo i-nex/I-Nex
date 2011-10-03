@@ -13,8 +13,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-07-23 04:30+0000\n"
-"X-Generator: Launchpad (build 13405)\n"
+"X-Launchpad-Export-Date: 2011-10-03 04:31+0000\n"
+"X-Generator: Launchpad (build 14071)\n"
 
 #: ../pastebinit:62
 msgid "%s: no section [pastebin]"
@@ -133,22 +133,3 @@ msgstr ""
 "Impossible de lire ou d'analyser la page de résultat. Il peut s'agir d'un "
 "timeout ou d'un changement au niveau du serveur. Merci d'essayer avec un "
 "autre pastebin."
-
-#~ msgid "Optional arguments:"
-#~ msgstr "Paramètres optionnels :"
-
-#~ msgid "Required arguments:"
-#~ msgstr "Paramètres nécessaires :"
-
-#~ msgid "\t-i <filename> (or pipe the text)"
-#~ msgstr "\t-i <nom-du-fichier> (ou envoyer le texte via un pipe)"
-
-#~ msgid "Optional arguments supported only by 1t2.us and paste.stgraber.org:"
-#~ msgstr ""
-#~ "Paramètres optionnels supportés seulement par 1t2.us et paste.stgraber.org:"
-
-#~ msgid "Error no arguments specified!\n"
-#~ msgstr "Erreur, aucun paramètre spécifié !\n"
-
-#~ msgid "Error no filename specified!\n"
-#~ msgstr "Erreur, aucun nom de fichier specifié!!\n"

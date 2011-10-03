@@ -14,8 +14,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-07-23 04:30+0000\n"
-"X-Generator: Launchpad (build 13405)\n"
+"X-Launchpad-Export-Date: 2011-10-03 04:31+0000\n"
+"X-Generator: Launchpad (build 14071)\n"
 
 #: ../pastebinit:62
 msgid "%s: no section [pastebin]"
@@ -128,18 +128,3 @@ msgstr ""
 "Tulossivua ei pystytty lukemaan tai jäsentämään joko palvelimen "
 "aikakatkaisun tai palvelinpään muutoksen vuoksi. Yritä toisella "
 "leikepöytäpalvelulla."
-
-#~ msgid "Optional arguments:"
-#~ msgstr "Valinnaiset argumentit:"
-
-#~ msgid "Required arguments:"
-#~ msgstr "Vaaditut argumentit:"
-
-#~ msgid "\t-i <filename> (or pipe the text)"
-#~ msgstr "\t-i <tiedostonimi> (tai putkita teksti)"
-
-#~ msgid "Optional arguments supported only by 1t2.us and paste.stgraber.org:"
-#~ msgstr "Vain 1t2.us ja paste.stgraber.org tukevat valinnaisia argumentteja:"
-
-#~ msgid "Error no arguments specified!\n"
-#~ msgstr "Virhe, ei määriteltyjä argumentteja!\n"
