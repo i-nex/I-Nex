@@ -3,7 +3,7 @@
 bindir ?= /usr/bin
 
 edid-decode: edid-decode.c
-	gcc -g -Wall -o $@ $<
+	$(CC) -g -Wall -o $@ $<
 
 clean:
 	rm -f edid-decode
