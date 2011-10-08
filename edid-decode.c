@@ -696,12 +696,13 @@ extract_edid(int fd)
 	const char indentation1[] = "                ";
 	const char indentation2[] = "\t\t";
 	const char *indentation;
-	unsigned char *out;
 	char *s;
 
 	out = malloc(128);
-	if (out == NULL)
+	if (out == NULL) {
+	    free(ret);
 	    return NULL;
+	}
 
 	for (i = 0; i < 8; i++) {
 	    int j;
@@ -767,7 +768,13 @@ extract_edid(int fd)
 		c++;
 	    state = 1;
 	    lines++;
-	    out = realloc(out, lines * 16);
+	    s = realloc(out, lines * 16);
+	    if (!s) {
+		free(ret);
+		free(out);
+		return NULL;
+	    }
+	    out = s;
 	} else if (state == 1) {
 	    char buf[3];
 	    /* Read a %02x from the log */
