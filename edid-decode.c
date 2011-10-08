@@ -739,6 +739,41 @@ extract_edid(int fd)
 	return out;
     }
 
+    /* Is the EDID provided in hex? */
+    for (i = 0; i < 32 && isxdigit(ret[i]); i++);
+    if (i == 32) {
+	out = malloc(size >> 1);
+	if (out == NULL) {
+	    free(ret);
+	    return NULL;
+	}
+
+	for (c=ret; *c; c++) {
+	    char buf[3];
+
+	    if (*c == '\n')
+		continue;
+
+	    /* Read a %02x from the log */
+	    if (!isxdigit(c[0]) || !isxdigit(c[1])) {
+		free(ret);
+		free(out);
+		return NULL;
+	    }
+
+	    buf[0] = c[0];
+	    buf[1] = c[1];
+	    buf[2] = 0;
+
+	    out[out_index++] = strtol(buf, NULL, 16);
+	    c++;
+	}
+
+	free(ret);
+	edid_lines = out_index >> 4;
+	return out;
+    }
+
     /* wait, is this a log file? */
     for (i = 0; i < 8; i++) {
 	if (!isascii(ret[i])) {
