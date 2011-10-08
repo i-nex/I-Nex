@@ -660,20 +660,32 @@ extract_edid(int fd)
     int out_index = 0;
     int len, size;
 
-    ret = malloc(1024);
-    size = 1024;
+    size = 1 << 10;
+    ret = malloc(size);
     len = 0;
+
+    if (ret == NULL)
+        return NULL;
+
     for (;;) {
 	i = read(fd, ret + len, size - len);
 	if (i < 0) {
 	    free(ret);
-	    return 0;
+	    return NULL;
 	}
 	if (i == 0)
 	    break;
 	len += i;
-	if (len == size)
-	    ret = realloc(ret, size + 1024);
+	if (len == size) {
+            char *t;
+            size <<= 1;
+	    t = realloc(ret, size);
+            if (t == NULL) {
+                free(ret);
+                return NULL;
+            }
+            ret = t;
+        }
     }
 
     start = strstr(ret, "EDID_DATA:");
