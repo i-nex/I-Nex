@@ -774,7 +774,7 @@ extract_edid(int fd)
 		free(out);
 		return NULL;
 	    }
-	    out = s;
+	    out = (unsigned char *)s;
 	} else if (state == 1) {
 	    char buf[3];
 	    /* Read a %02x from the log */
