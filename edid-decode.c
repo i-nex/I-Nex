@@ -856,20 +856,37 @@ static void dump_breakdown(unsigned char *edid)
 
 int main(int argc, char **argv)
 {
-    int fd;
+    int fd, ofd;
     unsigned char *edid;
     unsigned char *x;
     time_t the_time;
     struct tm *ptm;
     int analog, i;
 
-    if (argc != 2) {
-	fd = 0;
-    } else {
-	if ((fd = open(argv[1], O_RDONLY)) == -1) {
-	    perror(argv[1]);
+    switch (argc) {
+	case 1:
+	    fd = 0;
+	    ofd = -1;
+	    break;
+	case 2:
+	    if ((fd = open(argv[1], O_RDONLY)) == -1) {
+		perror(argv[1]);
+		return 1;
+	    }
+	    break;
+	case 3:
+	    if ((fd = open(argv[1], O_RDONLY)) == -1) {
+		perror(argv[1]);
+		return 1;
+	    }
+	    if ((ofd = open(argv[2], O_WRONLY)) == -1) {
+		perror(argv[2]);
+		return 1;
+            }
+	    break;
+	default:
+	    fprintf(stderr, "What do you want from me?\n");
 	    return 1;
-	}
     }
 
     edid = extract_edid(fd);
@@ -879,6 +896,11 @@ int main(int argc, char **argv)
     }
     if (fd != 0)
 	close(fd);
+
+    if (ofd != -1) {
+	write(ofd, edid, edid_lines * 16);
+	close(ofd);
+    }
 
     dump_breakdown(edid);
 
