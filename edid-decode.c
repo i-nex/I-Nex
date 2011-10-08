@@ -754,9 +754,14 @@ extract_edid(int fd)
 
     for (c = start; *c; c++) {
 	if (state == 0) {
+	    char *s;
 	    /* skip ahead to the : */
-	    if (!(c = strstr(c, ": \t")))
+	    s = strstr(c, ": \t");
+	    if (!s)
+		s = strstr(c, ":     ");
+	    if (!s)
 		break;
+	    c = s;
 	    /* and find the first number */
 	    while (!isxdigit(c[1]))
 		c++;
