@@ -1,0 +1,2 @@
+#!/bin/bash
+dpkg-query -f '${status} ${package}\n' -W linux-image-\* | grep '^install ok installed ' | cut -d' ' -f4

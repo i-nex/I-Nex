@@ -1,3 +1,4 @@
 src/i-nex/i-nex.gambas usr/bin
 src/i-nex/i-nex.png usr/share/pixmaps
 debian/i-nex.desktop usr/share/applications
+debian/check_kernel usr/bin

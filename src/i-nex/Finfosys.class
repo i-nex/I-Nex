@@ -5,7 +5,6 @@ PUBLIC SUB Form_Open()
   DIM cpuz0, cpuz1, cpuz2, cpuz3, cpuz4, cpuz5, cpuz6, cpuz7, cpuz8, cpuz9, cpuz10, cpuz11 AS String
   TextArea28.Visible = FALSE 
   TextLabel21.Visible = FALSE
-  'End dpkg installed
   'Procesor
   SHELL "ls /sys/devices/system/cpu/ | grep -v save | sed -n '1p'" WAIT TO cpuz0
   SHELL "ls /sys/devices/system/cpu/ | grep -v save | sed -n '2p'" WAIT TO cpuz1
@@ -112,8 +111,8 @@ PUBLIC SUB kernel()
   SHELL "ls /boot/vmlinuz* | cut -d '/' -f 3 | wc -l" WAIT TO Label16.Text
   SHELL "uname -r" WAIT TO Label26.Text
   'Usuwanie kerneli
-  SHELL "dpkg-query -W --showformat='${Package}\n' | grep 'linux-image'" TO stringa 
- 
+  SHELL "bash -c /usr/bin/check_kernel" WAIT TO stringa 
+  'dpkg-query -f '${status} ${package}\n' -W linux-image-\* | grep '^install ok installed ' | cut -d' ' -f4
   righe = Split(stringa, "\n", "%%", TRUE)  
   
   FOR count = 2 TO righe.Max
@@ -435,7 +434,7 @@ END
 
 PUBLIC SUB Button10_Click()
 'sudo apt-get -y remove
-  EXEC ["gksu", "sudo apt-get -y remove " & ComboBox3.Text & ""] WAIT
+  EXEC ["gksu", "apt-get -y remove " & ComboBox3.Text & ""] WAIT
   kernel()
   Message.Warning("Dla poprawności tego działania proszę\nzaktualizuj gruba poleceniem = sudo update-grub")
 END
