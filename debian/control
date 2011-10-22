@@ -1,14 +1,12 @@
-Source: silicon
+Source: i-nex
 Section: contrib/gnome
 Priority: optional
 Maintainer: eloaders <eloaders@yahoo.com>
-Vcs-Bzr: https://code.launchpad.net/~eloaders/i-nex/i-nex
 Build-Depends: debhelper (>= 5.0.0), gambas2-dev (>= 1.9.48), gambas2-dev (<< 2.90), gambas2-gb-gtk (>= 1.9.48), gambas2-gb-gtk (<< 2.90), gambas2-gb-form (>= 1.90.1), gambas2-gb-form (<< 2.90.0), gambas2-gb-desktop (>= 1.9.48), gambas2-gb-desktop (<< 2.90), gambas2-gb-gtk-ext (>= 1.9.48), gambas2-gb-gtk-ext (<< 2.90)
-Homepage: https://launchpad.net/~eloaders
-Standards-Version: 3.8.4
+Standards-Version: 3.7.2
 
-Package: silicon
+Package: i-nex
 Architecture: all
 Depends: gambas2-runtime (>= 1.9.48), gambas2-runtime (<< 2.90), gambas2-gb-gtk (>= 1.9.48), gambas2-gb-gtk (<< 2.90), gambas2-gb-form (>= 1.90.1), gambas2-gb-form (<< 2.90.0), gambas2-gb-desktop (>= 1.9.48), gambas2-gb-desktop (<< 2.90), gambas2-gb-gtk-ext (>= 1.9.48), gambas2-gb-gtk-ext (<< 2.90), coreutils (>= 8.5), dpkg, gnome-screenshot, grep, mount, procps, x11-xserver-utils (>= 7.6), gksu, lsb-release
-Description: Aplikacja wyświetlająca różne informacje o systemie 
+Description: Aplikacja wyświetlająca różne informacje o systemie
  This program is written in Gambas

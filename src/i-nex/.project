@@ -1,9 +1,9 @@
 # Gambas Project File 2.0
 # Compiled with Gambas 2.22.0
-Title=Silicon
+Title=i-nex
 Startup=Finfosys
 Icon=i-nex.png
-Version=0.2.3
+Version=0.2.4
 Library=gb.gtk
 Library=gb.form
 Library=gb.desktop
@@ -18,7 +18,7 @@ ModulePublic=1
 ExecPath=/home/michal/Pulpit/tuu.gambas
 SourcePath=/home/michal/Dokumenty
 Maintainer=eloaders
-Vendor=silicon
+Vendor=i-nex
 Address=eloaders@yahoo.com
 Url=http://code.google.com/p/lft/
 License=General Public Licence

@@ -13,12 +13,12 @@ SearchString=True
 
 [OpenFile]
 File[1]="Finfosys.form"
-Active=1
 File[2]="Finfosys.class:22.34"
 File[3]="Global.class:69.2"
 File[4]="linuxmint.png"
 File[5]="intellogo.gif"
 File[6]="About.form"
+Active=6
 File[7]="About.class:29.47"
 File[8]="Flicencja.form"
 File[9]="Fzaslugi.form"

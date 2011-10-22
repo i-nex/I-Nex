@@ -20,7 +20,7 @@
   }
   { PictureBox1 PictureBox
     Move(0,0,258,246)
-    Picture = Picture["i-nex.png"]
+    Picture = Picture["192.png"]
     Stretch = True
     Alignment = Align.Normal
   }

@@ -1,10 +1,10 @@
 [Desktop Entry]
 Version=1.0
 Encoding=UTF-8
-Name=Silicon
+Name=i-nex
 Comment=Aplikacja w wersji alpha wyświetlająca informacje o systemie. Data, wersja biosu oraz producent. Użyta pamięć, całkowita pamięć i dostępne miejsce na dysku. Wyświetla także inne informacje o systemie.
-Exec=/usr/bin/Silicon.gambas
-Icon=/usr/share/pixmaps/silicon.png
+Exec=/usr/bin/i-nex.gambas
+Icon=/usr/share/pixmaps/i-nex.png
 Terminal=false
 Type=Application
 StartupNotify=true

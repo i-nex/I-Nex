@@ -4,7 +4,7 @@
   Move(0,0,483,525)
   #(Scaled) = False
   Mouse = Mouse.Blank
-  Text = ("Silicon")
+  Text = ("i-nex")
   Icon = Picture["i-nex.png"]
   Border = Window.Fixed
   { TabStrip1 TabStrip

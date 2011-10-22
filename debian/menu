@@ -1,5 +1,4 @@
-?package(silicon):needs="X11"\
-section="Applications/System/Hardware"\
-title="Silicon"\
-command="/usr/bin/silicon.gambas"\
-icon="/usr/share/pixmaps/silicon.png"
+?package(i-nex):needs="X11" section="Applications/System/Hardware"\
+title="i-nex"\
+command="/usr/bin/i-nex.gambas"\
+icon="/usr/share/pixmaps/i-nex.png"
