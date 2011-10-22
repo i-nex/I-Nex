@@ -1,8 +1,8 @@
 # Gambas Project File 2.0
-# Compiled with Gambas 2.21.0
+# Compiled with Gambas 2.22.0
 Title=Silicon
 Startup=Finfosys
-Icon=siliconlogo.png
+Icon=i-nex.png
 Version=0.2.3
 Library=gb.gtk
 Library=gb.form

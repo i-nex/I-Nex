@@ -4,7 +4,7 @@
   Move(0,0,364,266)
   #(Scaled) = False
   Text = ("Zas\xC5\x82ugi")
-  Icon = Picture["siliconlogo.png"]
+  Icon = Picture["i-nex.png"]
   Border = Window.Fixed
   { TabStrip1 TabStrip
     Move(0,0,364,217)

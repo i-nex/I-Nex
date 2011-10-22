@@ -4,6 +4,7 @@
   Move(0,0,630,448)
   #(Scaled) = False
   Text = ("Zainstalowane pakiety:")
+  Icon = Picture["i-nex.png"]
   Border = Window.Fixed
   { ColumnView1 ColumnView
     Move(0,0,630,448)
