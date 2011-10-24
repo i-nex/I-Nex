@@ -8,15 +8,15 @@
   Border = Window.Fixed
   { Button1 Button
     Move(175,364,77,28)
-    Text = ("Zamknij")
+    Text = ("Close")
   }
   { Button2 Button
     Move(7,364,77,28)
-    Text = ("Zas\xC5\x82ugi")
+    Text = ("Merit")
   }
   { Button3 Button
     Move(91,364,77,28)
-    Text = ("Licencja")
+    Text = ("License")
   }
   { PictureBox1 PictureBox
     Move(0,0,258,246)
@@ -30,7 +30,7 @@
   }
   { Button4 Button
     Move(77,336,105,21)
-    Text = ("Strona domowa")
+    Text = ("Home page")
     Border = False
   }
 }
