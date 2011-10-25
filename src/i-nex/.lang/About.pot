@@ -19,15 +19,15 @@ msgid "O programie"
 msgstr ""
 
 #: About.class:55
-msgid "Zamknij"
+msgid "Close"
 msgstr ""
 
 #: About.class:60
-msgid "Zasługi"
+msgid "Merit"
 msgstr ""
 
 #: About.class:65
-msgid "Licencja"
+msgid "License"
 msgstr ""
 
 #: About.class:77
@@ -35,6 +35,6 @@ msgid "I-nex to aplikacja mająca na celu danie użytkownikowi pełnego GUI wyś
 msgstr ""
 
 #: About.class:82
-msgid "Strona domowa"
+msgid "Home page"
 msgstr ""
 

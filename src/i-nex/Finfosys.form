@@ -536,10 +536,6 @@
         ReadOnly = True
         ScrollBar = Scroll.None
       }
-      { Button9 Button
-        Move(392,21,63,21)
-        Text = ("Show")
-      }
     }
     Index = 6
     Text = ("Kernel")
