@@ -185,7 +185,7 @@
     Text = ("Motherboard / Bios")
     Picture = Picture["motherboard.png"]
     { Frame1 Frame
-      Move(7,147,462,168)
+      Move(7,147,462,108)
       Text = ("Bios")
       { TextLabel33 TextLabel
         Move(7,21,77,21)
@@ -198,25 +198,6 @@
       { TextLabel35 TextLabel
         Move(7,77,42,21)
         Text = ("Date:")
-      }
-      { TextLabel25 TextLabel
-        Move(7,105,77,21)
-        Text = ("Unique Id:")
-      }
-      { TextArea49 TextArea
-        Move(91,105,364,21)
-        Text = ("TextArea49")
-        ReadOnly = True
-        ScrollBar = Scroll.None
-      }
-      { TextLabel42 TextLabel
-        Move(7,133,119,21)
-        Text = ("Hardware Class:")
-      }
-      { TextArea50 TextArea
-        Move(119,133,105,21)
-        Text = ("TextArea50")
-        ScrollBar = Scroll.None
       }
     }
     { Frame5 Frame
