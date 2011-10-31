@@ -13,8 +13,8 @@ SearchString=True
 
 [OpenFile]
 File[1]="Finfosys.form"
-Active=1
-File[2]="Finfosys.class:171.31"
+File[2]="Finfosys.class:368.24"
+Active=2
 File[3]="Global.class:69.2"
 File[4]="linuxmint.png"
 File[5]="intellogo.gif"

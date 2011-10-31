@@ -366,8 +366,8 @@ PUBLIC SUB dospam_uptime()
   SHELL "free -m | grep Mem | awk {'print $2'}" WAIT TO totpam
   SHELL "echo `free -m | grep 'Swap:' | awk {'print $2'}` MB" WAIT TO swaptotal
   'Obliczanie zajętości swap
-  SHELL "swapon -s | awk {'print $3'} | sed -n '2p'" WAIT TO totalswap
-  SHELL "swapon -s | awk {'print $4'} | sed -n '2p'" WAIT TO usedswap
+  SHELL "/sbin/swapon -s | awk {'print $3'} | sed -n '2p'" WAIT TO totalswap
+  SHELL "/sbin/swapon -s | awk {'print $4'} | sed -n '2p'" WAIT TO usedswap
   TextArea39.Text = total
   TextArea40.Text = used
   TextArea41.Text = freee
