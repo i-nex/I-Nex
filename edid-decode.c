@@ -1263,3 +1263,58 @@ int main(int argc, char **argv)
 
     return !conformant;
 }
+
+/*
+ * Notes on panel extensions: (TODO, implement me in the code)
+ *
+ * EPI: http://www.epi-standard.org/fileadmin/spec/EPI_Specification1.0.pdf
+ * at offset 0x6c (fourth detailed block): (all other bits reserved)
+ * 0x6c: 00 00 00 0e 00
+ * 0x71: bit 6-5: data color mapping (00 conventional/fpdi/vesa, 01 openldi)
+ *       bit 4-3: pixels per clock (00 1, 01 2, 10 4, 11 reserved)
+ *       bit 2-0: bits per pixel (000 18, 001 24, 010 30, else reserved)
+ * 0x72: bit 5: FPSCLK polarity (0 normal 1 inverted)
+ *       bit 4: DE polarity (0 high active 1 low active)
+ *       bit 3-0: interface (0000 LVDS TFT
+ *                           0001 mono STN 4/8bit
+ *                           0010 color STN 8/16 bit
+ *                           0011 18 bit tft
+ *                           0100 24 bit tft
+ *                           0101 tmds
+ *                           else reserved)
+ * 0x73: bit 1: horizontal display mode (0 normal 1 right/left reverse)
+ *       bit 0: vertical display mode (0 normal 1 up/down reverse)
+ * 0x74: bit 7-4: total poweroff seq delay (0000 vga controller default
+ *                                          else time in 10ms (10ms to 150ms))
+ *       bit 3-0: total poweron seq delay (as above)
+ * 0x75: contrast power on/off seq delay, same as 0x74
+ * 0x76: bit 7: backlight control enable (1 means this field is valid)
+ *       bit 6: backlight enabled at boot (0 on 1 off)
+ *       bit 5-0: backlight brightness control steps (0..63)
+ * 0x77: bit 7: contrast control, same bit pattern as 0x76 except bit 6 resvd
+ * 0x78 - 0x7c: reserved
+ * 0x7d: bit 7-4: EPI descriptor major version (1)
+ *       bit 3-0: EPI descriptor minor version (0)
+ *
+ * ----
+ *
+ * SPWG: http://www.spwg.org/spwg_spec_version3.8_3-14-2007.pdf
+ *
+ * Since these are "dummy" blocks, terminate with 0a 20 20 20 ... as usual
+ *
+ * detailed descriptor 3:
+ * 0x5a - 0x5e: 00 00 00 fe 00
+ * 0x5f - 0x63: PC maker part number
+ * 0x64: LCD supplier revision #
+ * 0x65 - 0x6b: manufacturer part number
+ *
+ * detailed descriptor 4:
+ * 0x6c - 0x70: 00 00 00 fe 00
+ * 0x71 - 0x78: smbus nits values (whut)
+ * 0x79: number of lvds channels (1 or 2)
+ * 0x7A: panel self test (1 if present)
+ * and then dummy terminator
+ *
+ * SPWG also says something strange about the LSB of detailed descriptor 1:
+ * "LSB is set to "1" if panel is DE-timing only. H/V can be ignored."
+ */
