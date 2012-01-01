@@ -232,12 +232,12 @@ END
 
 
 PUBLIC SUB internet()
-  DIM domyslnaprzegladarka, network_controller, ethernet_controller AS String
-  SHELL "x-www-browser -version" WAIT TO domyslnaprzegladarka
+  DIM default_web_browser, network_controller, ethernet_controller AS String
+  SHELL "x-www-browser -version" WAIT TO default_web_browser
   SHELL "lspci | grep 'Network' | cut -d ':' -f 3 | cut -d '(' -f 1" WAIT TO network_controller
   SHELL "lspci | grep 'Ethernet' | cut -d ':' -f 3 | cut -d '(' -f 1" WAIT TO ethernet_controller
   'SHELL "ss -a" WAIT TO ssa
-  TextArea46.Text = domyslnaprzegladarka
+  TextArea46.Text = default_web_browser
   TextArea22.Text = network_controller
   TextArea23.Text = ethernet_controller
   'TextArea48.Text = ssa
@@ -341,7 +341,7 @@ END
 
 PUBLIC SUB Button2_Click()
 
-  SHELL "gnome-screenshot -w"
+  EXEC ["gnome-screenshot -w"]
 
 END
 
