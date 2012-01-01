@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: .project:1 Finfosys.class:586
+#: .project:1 Finfosys.class:585
 msgid "i-nex"
 msgstr ""
 
@@ -26,7 +26,7 @@ msgstr ""
 msgid "O programie"
 msgstr ""
 
-#: About.class:55 Finfosys.class:1421
+#: About.class:55 Finfosys.class:1420
 msgid "Close"
 msgstr ""
 
@@ -49,405 +49,405 @@ msgstr ""
 msgid "Home page"
 msgstr ""
 
-#: Finfosys.class:596
+#: Finfosys.class:595
 msgid "CPU"
 msgstr ""
 
-#: Finfosys.class:601
+#: Finfosys.class:600
 msgid "Cache"
 msgstr ""
 
-#: Finfosys.class:605
+#: Finfosys.class:604
 msgid "L1 instruction:"
 msgstr ""
 
-#: Finfosys.class:610
+#: Finfosys.class:609
 msgid "L1 Data:"
 msgstr ""
 
-#: Finfosys.class:615
+#: Finfosys.class:614
 msgid "N/A"
 msgstr ""
 
-#: Finfosys.class:643
+#: Finfosys.class:642
 msgid "Level 2:"
 msgstr ""
 
-#: Finfosys.class:648
+#: Finfosys.class:647
 msgid "Level 3:"
 msgstr ""
 
-#: Finfosys.class:653
+#: Finfosys.class:652
 msgid "Select core"
 msgstr ""
 
-#: Finfosys.class:663
+#: Finfosys.class:662
 msgid "Flags:"
 msgstr ""
 
-#: Finfosys.class:668
+#: Finfosys.class:667
 msgid "Family:"
 msgstr ""
 
-#: Finfosys.class:673
+#: Finfosys.class:672
 msgid "bogomips:"
 msgstr ""
 
-#: Finfosys.class:699
+#: Finfosys.class:698
 msgid "Model:"
 msgstr ""
 
-#: Finfosys.class:711
+#: Finfosys.class:710
 msgid "Width:"
 msgstr ""
 
-#: Finfosys.class:716
+#: Finfosys.class:715
 msgid "Stepping:"
 msgstr ""
 
-#: Finfosys.class:735
+#: Finfosys.class:734
 msgid "Label3"
 msgstr ""
 
-#: Finfosys.class:741
+#: Finfosys.class:740
 msgid "The main information\n"
 msgstr ""
 
-#: Finfosys.class:750
+#: Finfosys.class:749
 msgid "Manufacturer:"
 msgstr ""
 
-#: Finfosys.class:762
+#: Finfosys.class:761
 msgid "TextArea2"
 msgstr ""
 
-#: Finfosys.class:769
+#: Finfosys.class:768
 msgid "CPU MHz:"
 msgstr ""
 
-#: Finfosys.class:781
+#: Finfosys.class:780
 msgid "Info"
 msgstr ""
 
-#: Finfosys.class:799
+#: Finfosys.class:798
 msgid "Motherboard / Bios"
 msgstr ""
 
-#: Finfosys.class:804
+#: Finfosys.class:803
 msgid "Bios"
 msgstr ""
 
-#: Finfosys.class:813
+#: Finfosys.class:812
 msgid "Version:"
 msgstr ""
 
-#: Finfosys.class:818
+#: Finfosys.class:817
 msgid "Date:"
 msgstr ""
 
-#: Finfosys.class:824
+#: Finfosys.class:823
 msgid "Motherboard"
 msgstr ""
 
-#: Finfosys.class:853
+#: Finfosys.class:852
 msgid "TextArea25"
 msgstr ""
 
-#: Finfosys.class:860
+#: Finfosys.class:859
 msgid "TextArea26"
 msgstr ""
 
-#: Finfosys.class:867
+#: Finfosys.class:866
 msgid "TextArea27"
 msgstr ""
 
-#: Finfosys.class:872
+#: Finfosys.class:871
 msgid "Sound"
 msgstr ""
 
-#: Finfosys.class:877
+#: Finfosys.class:876
 msgid "Sound Equipment:"
 msgstr ""
 
-#: Finfosys.class:888
+#: Finfosys.class:887
 msgid "Graphics"
 msgstr ""
 
-#: Finfosys.class:893
+#: Finfosys.class:892
 msgid "Graphics card:"
 msgstr ""
 
-#: Finfosys.class:905
+#: Finfosys.class:904
 msgid "OpenGL"
 msgstr ""
 
-#: Finfosys.class:909
+#: Finfosys.class:908
 msgid "OpenGL vendor string:"
 msgstr ""
 
-#: Finfosys.class:914
+#: Finfosys.class:913
 msgid "TextArea19"
 msgstr ""
 
-#: Finfosys.class:921
+#: Finfosys.class:920
 msgid "OpenGL renderer string:"
 msgstr ""
 
-#: Finfosys.class:926
+#: Finfosys.class:925
 msgid "TextArea20"
 msgstr ""
 
-#: Finfosys.class:933
+#: Finfosys.class:932
 msgid "OpenGL version string:"
 msgstr ""
 
-#: Finfosys.class:938
+#: Finfosys.class:937
 msgid "TextArea21"
 msgstr ""
 
-#: Finfosys.class:945
+#: Finfosys.class:944
 msgid "Obecna rozdzielczość:"
 msgstr ""
 
-#: Finfosys.class:958
+#: Finfosys.class:957
 msgid "Change resolution:"
 msgstr ""
 
-#: Finfosys.class:963
+#: Finfosys.class:962
 msgid "Wybierz rozdzielczość"
 msgstr ""
 
-#: Finfosys.class:968
+#: Finfosys.class:967
 msgid "Set"
 msgstr ""
 
-#: Finfosys.class:975
+#: Finfosys.class:974
 msgid "Drives"
 msgstr ""
 
-#: Finfosys.class:980
+#: Finfosys.class:979
 msgid "Hard drives and memory sticks:\n"
 msgstr ""
 
-#: Finfosys.class:992
+#: Finfosys.class:991
 msgid ""
 "Available space on the\n"
 " (./):"
 msgstr ""
 
-#: Finfosys.class:1004
+#: Finfosys.class:1003
 msgid "Used space on (./):"
 msgstr ""
 
-#: Finfosys.class:1024
+#: Finfosys.class:1023
 msgid "The total capacity of (./):"
 msgstr ""
 
-#: Finfosys.class:1034
+#: Finfosys.class:1033
 msgid "~"
 msgstr ""
 
-#: Finfosys.class:1037
+#: Finfosys.class:1036
 msgid "System"
 msgstr ""
 
-#: Finfosys.class:1042
+#: Finfosys.class:1041
 msgid "System uptime:"
 msgstr ""
 
-#: Finfosys.class:1046
+#: Finfosys.class:1045
 msgid "TextArea37"
 msgstr ""
 
-#: Finfosys.class:1054
+#: Finfosys.class:1053
 msgid "Main:"
 msgstr ""
 
-#: Finfosys.class:1058
+#: Finfosys.class:1057
 msgid "TextArea29"
 msgstr ""
 
-#: Finfosys.class:1066
+#: Finfosys.class:1065
 msgid "TextArea30"
 msgstr ""
 
-#: Finfosys.class:1074
+#: Finfosys.class:1073
 msgid "TextArea31"
 msgstr ""
 
-#: Finfosys.class:1082
+#: Finfosys.class:1081
 msgid "TextArea32"
 msgstr ""
 
-#: Finfosys.class:1090
+#: Finfosys.class:1089
 msgid "TextArea33"
 msgstr ""
 
-#: Finfosys.class:1098
+#: Finfosys.class:1097
 msgid "TextArea34"
 msgstr ""
 
-#: Finfosys.class:1106
+#: Finfosys.class:1105
 msgid "User:"
 msgstr ""
 
-#: Finfosys.class:1111
+#: Finfosys.class:1110
 msgid "Distribution:"
 msgstr ""
 
-#: Finfosys.class:1116
+#: Finfosys.class:1115
 msgid "Edition:"
 msgstr ""
 
-#: Finfosys.class:1121
+#: Finfosys.class:1120
 msgid "Time zone:"
 msgstr ""
 
-#: Finfosys.class:1126
+#: Finfosys.class:1125
 msgid "GCC v:"
 msgstr ""
 
-#: Finfosys.class:1131
+#: Finfosys.class:1130
 msgid "X.org v:"
 msgstr ""
 
-#: Finfosys.class:1136
+#: Finfosys.class:1135
 msgid "GLX v:"
 msgstr ""
 
-#: Finfosys.class:1141
+#: Finfosys.class:1140
 msgid "TextArea35"
 msgstr ""
 
-#: Finfosys.class:1149
+#: Finfosys.class:1148
 msgid "TextArea36"
 msgstr ""
 
-#: Finfosys.class:1157
+#: Finfosys.class:1156
 msgid "Architecture:"
 msgstr ""
 
-#: Finfosys.class:1162
+#: Finfosys.class:1161
 msgid "Shell:"
 msgstr ""
 
-#: Finfosys.class:1167
+#: Finfosys.class:1166
 msgid "TextArea48"
 msgstr ""
 
-#: Finfosys.class:1182
+#: Finfosys.class:1181
 msgid "Number of installed packages:"
 msgstr ""
 
-#: Finfosys.class:1186
+#: Finfosys.class:1185
 msgid "Check"
 msgstr ""
 
-#: Finfosys.class:1191
+#: Finfosys.class:1190
 msgid "Packages are installed"
 msgstr ""
 
-#: Finfosys.class:1202
+#: Finfosys.class:1201
 msgid "Kernel"
 msgstr ""
 
-#: Finfosys.class:1207
+#: Finfosys.class:1206
 msgid "Installed kernels:"
 msgstr ""
 
-#: Finfosys.class:1211
+#: Finfosys.class:1210
 msgid "Currently used:"
 msgstr ""
 
-#: Finfosys.class:1221
+#: Finfosys.class:1220
 msgid "Found"
 msgstr ""
 
-#: Finfosys.class:1226
+#: Finfosys.class:1225
 msgid "Label16"
 msgstr ""
 
-#: Finfosys.class:1231
+#: Finfosys.class:1230
 msgid "kernels:"
 msgstr ""
 
-#: Finfosys.class:1236
+#: Finfosys.class:1235
 msgid "Select the kernel to remove"
 msgstr ""
 
-#: Finfosys.class:1241
+#: Finfosys.class:1240
 msgid "Delete"
 msgstr ""
 
-#: Finfosys.class:1247
+#: Finfosys.class:1246
 msgid "TextArea47"
 msgstr ""
 
-#: Finfosys.class:1251
+#: Finfosys.class:1250
 msgid "Memory"
 msgstr ""
 
-#: Finfosys.class:1261
+#: Finfosys.class:1260
 msgid "Ram used:"
 msgstr ""
 
-#: Finfosys.class:1318
+#: Finfosys.class:1317
 msgid "Total:"
 msgstr ""
 
-#: Finfosys.class:1323
+#: Finfosys.class:1322
 msgid "Used:"
 msgstr ""
 
-#: Finfosys.class:1328
+#: Finfosys.class:1327
 msgid "Free:"
 msgstr ""
 
-#: Finfosys.class:1333
+#: Finfosys.class:1332
 msgid "Shared:"
 msgstr ""
 
-#: Finfosys.class:1338
+#: Finfosys.class:1337
 msgid "Buffers:"
 msgstr ""
 
-#: Finfosys.class:1343
+#: Finfosys.class:1342
 msgid "Cached:"
 msgstr ""
 
-#: Finfosys.class:1355
+#: Finfosys.class:1354
 msgid "Swap total:"
 msgstr ""
 
-#: Finfosys.class:1364
+#: Finfosys.class:1363
 msgid "SWAP memory used:"
 msgstr ""
 
-#: Finfosys.class:1372
+#: Finfosys.class:1371
 msgid "Internet"
 msgstr ""
 
-#: Finfosys.class:1377
+#: Finfosys.class:1376
 msgid "Default web browser"
 msgstr ""
 
-#: Finfosys.class:1389
+#: Finfosys.class:1388
 msgid "Network controller:"
 msgstr ""
 
-#: Finfosys.class:1401
+#: Finfosys.class:1400
 msgid "Ethernet controller:"
 msgstr ""
 
-#: Finfosys.class:1415
+#: Finfosys.class:1414
 msgid "Take a photo was this window\n"
 msgstr ""
 
-#: Finfosys.class:1433
+#: Finfosys.class:1432
 msgid "Label25"
 msgstr ""
 
-#: Finfosys.class:1438
+#: Finfosys.class:1437
 msgid "i-nex v:"
 msgstr ""
 

@@ -144,7 +144,7 @@ PUBLIC SUB dysk()
   DIM wolnegbnadysku, dysktwardy, zajetegb, calkowitapoj AS String
   DIM wolgb, zajgb, calkowite AS Float
   'SHELL "cat /proc/scsi/scsi | grep ATA | head -1 | cut -d ':' -f 3 | cut -d ' ' -f 2-3 && echo $(cat /proc/partitions | grep sda | head -n 1 | awk {'print $3'})/1024/1024 | bc && echo GB" WAIT TO dysktwardy
-  SHELL "cat /proc/scsi/scsi | grep 'Vendor'" WAIT TO dysktwardy
+  SHELL "grep 'Vendor' /proc/scsi/scsi" WAIT TO dysktwardy
   SHELL "echo $(df -m | grep '/' | awk {'print $4'} | head -1)/1000 | bc && echo GB" WAIT TO wolnegbnadysku
   SHELL "echo $(df -m | grep '/' | awk {'print $3'} | head -1)/1000 | bc && echo GB" WAIT TO zajetegb
   SHELL "echo $(df -m | grep '/' | awk {'print $2'} | head -1)/1000 | bc && echo GB" WAIT TO calkowitapoj
@@ -163,12 +163,11 @@ END
 PUBLIC SUB bios()
   DIM bios_vendor, bios_version, bios_date, board_name, board_vendor AS String
   
-  SHELL "cat /sys/devices/virtual/dmi/id/bios_vendor" TO bios_vendor
-  SHELL "cat /sys/devices/virtual/dmi/id/bios_version" TO bios_version
-  SHELL "cat /sys/devices/virtual/dmi/id/bios_date" TO bios_date
-  SHELL "cat /sys/devices/virtual/dmi/id/board_vendor" TO board_vendor
+  SHELL "cat /sys/devices/virtual/dmi/id/bios_vendor" WAIT TO bios_vendor
+  SHELL "cat /sys/devices/virtual/dmi/id/bios_version" WAIT TO bios_version
+  SHELL "cat /sys/devices/virtual/dmi/id/bios_date" WAIT TO bios_date
+  SHELL "cat /sys/devices/virtual/dmi/id/board_vendor" WAIT TO board_vendor
   SHELL "cat /sys/devices/virtual/dmi/id/board_name" TO board_name
-
   TextArea25.Text = bios_vendor
   TextArea26.Text = bios_version
   TextArea27.Text = bios_date
