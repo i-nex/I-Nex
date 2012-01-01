@@ -341,7 +341,7 @@ END
 
 PUBLIC SUB Button2_Click()
 
-  EXEC ["gnome-screenshot -w"]
+  EXEC ["gnome-screenshot", "-w"]
 
 END
 
