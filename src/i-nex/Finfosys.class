@@ -385,11 +385,11 @@ PUBLIC SUB dospam_uptime()
   TextArea45.Text = swaptotal & "MB"
   TextArea45.Text = Replace(TextArea45.Text, "\n", " ")
   TextLabel24.Text = usedswap / 1000
-  SHELL "uptime" TO uptime
+  EXEC ["uptime"] WAIT TO uptime
   TextArea37.Text = uptime
   
   ProgressBar1.Value = dospam / totpam
-  ProgressBar4.Value = usedswap / totalswap 
+  TRY ProgressBar4.Value = usedswap / totalswap 
 
 END
 
