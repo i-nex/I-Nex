@@ -77,7 +77,7 @@ END
 STATIC PUBLIC SUB kartagraficzna()
   
   IF Finfosys.TextArea17.Text LIKE "*intel*" THEN 
-  Finfosys.PictureBox1.Picture = Picture["Data/Karta_graficzna/intel.jpg"]
+  Finfosys.PictureBox1.Picture = Picture["Data/Karta_graficzna/intel.png"]
   ENDIF
   
 END
