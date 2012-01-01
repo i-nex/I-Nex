@@ -308,17 +308,17 @@ PUBLIC SUB Wykrywanie_procesorow()
      eloaders3 = "23p"
   ENDIF
   
-  SHELL "cat /proc/cpuinfo | grep 'vendor_id' | sed -n '" & eloaders & "' | cut -d ':' -f 2" WAIT TO obrazekcpu
-  SHELL "cat /proc/cpuinfo | grep 'model name'| sed -n '" & eloaders & "' | cut -d ':' -f 2" WAIT TO cpu
-  SHELL "cat /proc/cpuinfo | grep 'vendor_id' | sed -n '" & eloaders & "' | cut -d ':' -f 2" WAIT TO vendor_id
-  SHELL "cat /proc/cpuinfo | grep 'flags' | sed -n '" & eloaders & "' | cut -d ':' -f 2" WAIT TO flags
-  SHELL "cat /proc/cpuinfo | grep 'cpu MHz' | sed -n '" & eloaders & "' | cut -d ':' -f 2" WAIT TO cpu_MHz
-  SHELL "cat /proc/cpuinfo | grep 'model' | sed -n '" & eloaders3 & "' | cut -d ':' -f 2" WAIT TO model
-  SHELL "cat /proc/cpuinfo | grep 'stepping' | sed -n '" & eloaders & "' | cut -d ':' -f 2" WAIT TO stepping
-  SHELL "cat /proc/cpuinfo | grep 'cpu family' | sed -n '" & eloaders & "' | cut -d ':' -f 2" WAIT TO cpu_family
-  SHELL "cat /proc/cpuinfo | grep 'bogomips' | sed -n '" & eloaders & "' | cut -d ':' -f 2" WAIT TO bogomips
-  SHELL "cat /proc/cpuinfo | grep 'address sizes' | sed -n '" & eloaders & "' | cut -d ':' -f 2" WAIT TO address_sizes
-  SHELL "cat /proc/cpuinfo | grep 'cache size' | sed -n '" & eloaders & "' | cut -d ':' -f 2" WAIT TO cache_size
+  SHELL "grep 'vendor_id' /proc/cpuinfo | sed -n '" & eloaders & "' | cut -d ':' -f 2" WAIT TO obrazekcpu
+  SHELL "grep 'model name' /proc/cpuinfo | sed -n '" & eloaders & "' | cut -d ':' -f 2" WAIT TO cpu
+  SHELL "grep 'vendor_id' /proc/cpuinfo | sed -n '" & eloaders & "' | cut -d ':' -f 2" WAIT TO vendor_id
+  SHELL "grep 'flags' /proc/cpuinfo | sed -n '" & eloaders & "' | cut -d ':' -f 2" WAIT TO flags
+  SHELL "grep 'cpu MHz' /proc/cpuinfo | sed -n '" & eloaders & "' | cut -d ':' -f 2" WAIT TO cpu_MHz
+  SHELL "grep 'model' /proc/cpuinfo | sed -n '" & eloaders3 & "' | cut -d ':' -f 2" WAIT TO model
+  SHELL "grep 'stepping' /proc/cpuinfo | sed -n '" & eloaders & "' | cut -d ':' -f 2" WAIT TO stepping
+  SHELL "grep 'cpu family' /proc/cpuinfo | sed -n '" & eloaders & "' | cut -d ':' -f 2" WAIT TO cpu_family
+  SHELL "grep 'bogomips' /proc/cpuinfo | sed -n '" & eloaders & "' | cut -d ':' -f 2" WAIT TO bogomips
+  SHELL "grep 'address sizes' /proc/cpuinfo | sed -n '" & eloaders & "' | cut -d ':' -f 2" WAIT TO address_sizes
+  SHELL "grep 'cache size' /proc/cpuinfo | sed -n '" & eloaders & "' | cut -d ':' -f 2" WAIT TO cache_size
   SHELL "cat /sys/devices/system/cpu/" & eloaders2 & "/cache/index0/size" WAIT TO ldata
   SHELL "cat /sys/devices/system/cpu/" & eloaders2 & "/cache/index1/size" WAIT TO linstruction
   
@@ -354,27 +354,36 @@ END
 PUBLIC SUB dospam_uptime()
   DIM uptime, total, used, freee, shared, buffers, cached, usedonthistime, swaptotal AS String
   DIM dospam, totpam, totalswap, usedswap AS Float
-  SHELL "echo `free -m | grep 'Mem' | awk {'print $2'}` MB" WAIT TO total
-  SHELL "echo `free -m | awk {'print $2'} | sed -n '2p'` MB" WAIT TO used
-  SHELL "echo `free -m | awk {'print $3'} | sed -n '2p'` MB" WAIT TO freee
-  SHELL "echo `free -m | awk {'print $4'} | sed -n '2p'` MB" WAIT TO shared
-  SHELL "echo `free -m | awk {'print $5'} | sed -n '2p'` MB" WAIT TO buffers
-  SHELL "echo `free -m | awk {'print $6'} | sed -n '2p'` MB" WAIT TO cached
+  SHELL "free -m | grep 'Mem' | awk {'print $2'}" WAIT TO total
+  SHELL "free -m | awk {'print $2'} | sed -n '2p'" WAIT TO used
+  SHELL "free -m | awk {'print $3'} | sed -n '2p'" WAIT TO freee
+  SHELL "free -m | awk {'print $4'} | sed -n '2p'" WAIT TO shared
+  SHELL "free -m | awk {'print $5'} | sed -n '2p'" WAIT TO buffers
+  SHELL "free -m | awk {'print $6'} | sed -n '2p'" WAIT TO cached
   SHELL "free -m | grep - | awk {'print $3'}" TO dospam
-  SHELL "echo `free -m | grep - | awk {'print $3'}` MB" TO usedonthistime
+  SHELL "free -m | grep - | awk {'print $3'}" TO usedonthistime
   SHELL "free -m | grep Mem | awk {'print $2'}" WAIT TO totpam
-  SHELL "echo `free -m | grep 'Swap:' | awk {'print $2'}` MB" WAIT TO swaptotal
+  SHELL "free -m | grep 'Swap:' | awk {'print $2'}" WAIT TO swaptotal
   'Obliczanie zajętości swap
   SHELL "/sbin/swapon -s | awk {'print $3'} | sed -n '2p'" WAIT TO totalswap
   SHELL "/sbin/swapon -s | awk {'print $4'} | sed -n '2p'" WAIT TO usedswap
-  TextArea39.Text = total
-  TextArea40.Text = used
-  TextArea41.Text = freee
-  TextArea42.Text = shared
-  TextArea43.Text = buffers
-  TextArea44.Text = cached
-  TextLabel7.Text = usedonthistime
-  TextArea45.Text = swaptotal
+  
+  TextArea39.Text = total & "MB"
+  TextArea39.Text = Replace(TextArea39.Text, "\n", " ")
+  TextArea40.Text = used & "MB"
+  TextArea40.Text = Replace(TextArea40.Text, "\n", " ")
+  TextArea41.Text = freee & "MB"
+  TextArea41.Text = Replace(TextArea41.Text, "\n", " ")
+  TextArea42.Text = shared & "MB"
+  TextArea42.Text = Replace(TextArea42.Text, "\n", " ")
+  TextArea43.Text = buffers & "MB"
+  TextArea43.Text = Replace(TextArea43.Text, "\n", " ")
+  TextArea44.Text = cached & "MB"
+  TextArea44.Text = Replace(TextArea44.Text, "\n", " ")
+  TextLabel7.Text = usedonthistime & "MB"
+  TextLabel7.Text = Replace(TextLabel7.Text, "\n", " ")
+  TextArea45.Text = swaptotal & "MB"
+  TextArea45.Text = Replace(TextArea45.Text, "\n", " ")
   TextLabel24.Text = usedswap / 1000
   SHELL "uptime" TO uptime
   TextArea37.Text = uptime
@@ -410,7 +419,7 @@ END
 
 PUBLIC SUB Button7_Click()
   DIM dpkg AS String
-  SHELL "cat /var/lib/dpkg/status | grep '^Status: install ok installed' | wc -l" WAIT TO dpkg
+  SHELL "grep '^Status: install ok installed' /var/lib/dpkg/status | wc -l" WAIT TO dpkg
   TextArea28.Visible = TRUE
   TextLabel21.Visible = TRUE
   TextArea28.Text = dpkg
