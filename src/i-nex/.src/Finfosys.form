@@ -692,7 +692,7 @@
   }
   { Button2 Button
     Move(7,497,192,21)
-    Text = ("Take a photo was this window\n")
+    Text = ("Take a picture of this window")
     Picture = Picture["icon:/16/camera"]
   }
   { Button1 Button

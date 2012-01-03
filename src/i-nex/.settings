@@ -12,6 +12,7 @@ SearchComment=False
 SearchString=True
 
 [OpenFile]
+Active=1
 File[1]=".src/Finfosys.form"
 File[2]=".src/Finfosys.class:406.25"
 File[3]=".src/Global.class:66.2"
@@ -30,7 +31,6 @@ File[15]="730143272452F1.jpg"
 File[16]="730143272452F11.jpg"
 File[17]="11068_9016_16_network_globe_icon.png"
 File[18]=".src/distrodetect.class:17.6"
-Active=19
 File[19]="VERSION:0.5"
 Count=19
 
