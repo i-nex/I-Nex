@@ -10,452 +10,444 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: .project:1 Finfosys.class:599
+#: .project:1 Finfosys.form:149
 msgid "i-nex"
 msgstr ""
 
-#: .project:2
-msgid ""
-"Aplikacja w wersji alpha wyświetlająca informacje o systemie.\n"
-"Data, wersja biosu oraz producent.\n"
-"Użyta pamięć, całkowita pamięć i dostępne miejsce na dysku.\n"
-"Wyświetla także inne informacje o systemie."
-msgstr ""
-
-#: About.class:49
+#: About.form:13
 msgid "O programie"
 msgstr ""
 
-#: About.class:55 Finfosys.class:1434
+#: About.form:19 Finfosys.form:982
 msgid "Close"
 msgstr ""
 
-#: About.class:60
+#: About.form:24
 msgid "Merit"
 msgstr ""
 
-#: About.class:65
+#: About.form:29
 msgid "License"
 msgstr ""
 
-#: About.class:77
+#: About.form:41
 msgid ""
 "I-nex to aplikacja mająca na celu danie użytkownikowi pełnego GUI "
 "wyświetlającego różne informacje o podzespołach komputera oraz informacje na "
 "temat zainstalowanego systemu."
 msgstr ""
 
-#: About.class:82
+#: About.form:46
 msgid "Home page"
 msgstr ""
 
-#: Finfosys.class:609
+#: Finfosys.form:159
 msgid "CPU"
 msgstr ""
 
-#: Finfosys.class:614
+#: Finfosys.form:164
 msgid "Cache"
 msgstr ""
 
-#: Finfosys.class:618
+#: Finfosys.form:168
 msgid "L1 instruction:"
 msgstr ""
 
-#: Finfosys.class:623
+#: Finfosys.form:173
 msgid "L1 Data:"
 msgstr ""
 
-#: Finfosys.class:628
+#: Finfosys.form:178
 msgid "N/A"
 msgstr ""
 
-#: Finfosys.class:656
+#: Finfosys.form:206
 msgid "Level 2:"
 msgstr ""
 
-#: Finfosys.class:661
+#: Finfosys.form:211
 msgid "Level 3:"
 msgstr ""
 
-#: Finfosys.class:666
+#: Finfosys.form:216
 msgid "Select core"
 msgstr ""
 
-#: Finfosys.class:676
+#: Finfosys.form:226
 msgid "Flags:"
 msgstr ""
 
-#: Finfosys.class:681
+#: Finfosys.form:231
 msgid "Family:"
 msgstr ""
 
-#: Finfosys.class:686
+#: Finfosys.form:236
 msgid "bogomips:"
 msgstr ""
 
-#: Finfosys.class:712
+#: Finfosys.form:262
 msgid "Model:"
 msgstr ""
 
-#: Finfosys.class:724
+#: Finfosys.form:274
 msgid "Width:"
 msgstr ""
 
-#: Finfosys.class:729
+#: Finfosys.form:279
 msgid "Stepping:"
 msgstr ""
 
-#: Finfosys.class:748
+#: Finfosys.form:298
 msgid "Label3"
 msgstr ""
 
-#: Finfosys.class:754
+#: Finfosys.form:304
 msgid "The main information\n"
 msgstr ""
 
-#: Finfosys.class:763
+#: Finfosys.form:313
 msgid "Manufacturer:"
 msgstr ""
 
-#: Finfosys.class:775
+#: Finfosys.form:325
 msgid "TextArea2"
 msgstr ""
 
-#: Finfosys.class:782
+#: Finfosys.form:332
 msgid "CPU MHz:"
 msgstr ""
 
-#: Finfosys.class:794
+#: Finfosys.form:344
 msgid "Info"
 msgstr ""
 
-#: Finfosys.class:812
+#: Finfosys.form:362
 msgid "Motherboard / Bios"
 msgstr ""
 
-#: Finfosys.class:817
+#: Finfosys.form:367
 msgid "Bios"
 msgstr ""
 
-#: Finfosys.class:826
+#: Finfosys.form:376
 msgid "Version:"
 msgstr ""
 
-#: Finfosys.class:831
+#: Finfosys.form:381
 msgid "Date:"
 msgstr ""
 
-#: Finfosys.class:837
+#: Finfosys.form:387
 msgid "Motherboard"
 msgstr ""
 
-#: Finfosys.class:866
+#: Finfosys.form:416
 msgid "TextArea25"
 msgstr ""
 
-#: Finfosys.class:873
+#: Finfosys.form:423
 msgid "TextArea26"
 msgstr ""
 
-#: Finfosys.class:880
+#: Finfosys.form:430
 msgid "TextArea27"
 msgstr ""
 
-#: Finfosys.class:885
+#: Finfosys.form:435
 msgid "Sound"
 msgstr ""
 
-#: Finfosys.class:890
+#: Finfosys.form:440
 msgid "Sound Equipment:"
 msgstr ""
 
-#: Finfosys.class:901
+#: Finfosys.form:451
 msgid "Graphics"
 msgstr ""
 
-#: Finfosys.class:906
+#: Finfosys.form:456
 msgid "Graphics card:"
 msgstr ""
 
-#: Finfosys.class:918
+#: Finfosys.form:468
 msgid "OpenGL"
 msgstr ""
 
-#: Finfosys.class:922
+#: Finfosys.form:472
 msgid "OpenGL vendor string:"
 msgstr ""
 
-#: Finfosys.class:927
+#: Finfosys.form:477
 msgid "TextArea19"
 msgstr ""
 
-#: Finfosys.class:934
+#: Finfosys.form:484
 msgid "OpenGL renderer string:"
 msgstr ""
 
-#: Finfosys.class:939
+#: Finfosys.form:489
 msgid "TextArea20"
 msgstr ""
 
-#: Finfosys.class:946
+#: Finfosys.form:496
 msgid "OpenGL version string:"
 msgstr ""
 
-#: Finfosys.class:951
+#: Finfosys.form:501
 msgid "TextArea21"
 msgstr ""
 
-#: Finfosys.class:958
+#: Finfosys.form:508
 msgid "Obecna rozdzielczość:"
 msgstr ""
 
-#: Finfosys.class:971
+#: Finfosys.form:521
 msgid "Change resolution:"
 msgstr ""
 
-#: Finfosys.class:976
+#: Finfosys.form:526
 msgid "Wybierz rozdzielczość"
 msgstr ""
 
-#: Finfosys.class:981
+#: Finfosys.form:531
 msgid "Set"
 msgstr ""
 
-#: Finfosys.class:988
+#: Finfosys.form:538
 msgid "Drives"
 msgstr ""
 
-#: Finfosys.class:993
+#: Finfosys.form:543
 msgid "Hard drives and memory sticks:\n"
 msgstr ""
 
-#: Finfosys.class:1005
+#: Finfosys.form:555
 msgid ""
 "Available space on the\n"
 " (./):"
 msgstr ""
 
-#: Finfosys.class:1017
+#: Finfosys.form:567
 msgid "Used space on (./):"
 msgstr ""
 
-#: Finfosys.class:1037
+#: Finfosys.form:587
 msgid "The total capacity of (./):"
 msgstr ""
 
-#: Finfosys.class:1047
+#: Finfosys.form:597
 msgid "~"
 msgstr ""
 
-#: Finfosys.class:1050
+#: Finfosys.form:600
 msgid "System"
 msgstr ""
 
-#: Finfosys.class:1055
+#: Finfosys.form:605
 msgid "System uptime:"
 msgstr ""
 
-#: Finfosys.class:1059
+#: Finfosys.form:609
 msgid "TextArea37"
 msgstr ""
 
-#: Finfosys.class:1067
+#: Finfosys.form:617
 msgid "Main:"
 msgstr ""
 
-#: Finfosys.class:1071
+#: Finfosys.form:621
 msgid "TextArea29"
 msgstr ""
 
-#: Finfosys.class:1079
+#: Finfosys.form:629
 msgid "TextArea30"
 msgstr ""
 
-#: Finfosys.class:1087
+#: Finfosys.form:637
 msgid "TextArea31"
 msgstr ""
 
-#: Finfosys.class:1095
+#: Finfosys.form:645
 msgid "TextArea32"
 msgstr ""
 
-#: Finfosys.class:1103
+#: Finfosys.form:653
 msgid "TextArea33"
 msgstr ""
 
-#: Finfosys.class:1111
+#: Finfosys.form:661
 msgid "TextArea34"
 msgstr ""
 
-#: Finfosys.class:1119
+#: Finfosys.form:669
 msgid "User:"
 msgstr ""
 
-#: Finfosys.class:1124
+#: Finfosys.form:674
 msgid "Distribution:"
 msgstr ""
 
-#: Finfosys.class:1129
+#: Finfosys.form:679
 msgid "Edition:"
 msgstr ""
 
-#: Finfosys.class:1134
+#: Finfosys.form:684
 msgid "Time zone:"
 msgstr ""
 
-#: Finfosys.class:1139
+#: Finfosys.form:689
 msgid "GCC v:"
 msgstr ""
 
-#: Finfosys.class:1144
+#: Finfosys.form:694
 msgid "X.org v:"
 msgstr ""
 
-#: Finfosys.class:1149
+#: Finfosys.form:699
 msgid "GLX v:"
 msgstr ""
 
-#: Finfosys.class:1154
+#: Finfosys.form:704
 msgid "TextArea35"
 msgstr ""
 
-#: Finfosys.class:1162
+#: Finfosys.form:712
 msgid "TextArea36"
 msgstr ""
 
-#: Finfosys.class:1170
+#: Finfosys.form:720
 msgid "Architecture:"
 msgstr ""
 
-#: Finfosys.class:1175
+#: Finfosys.form:725
 msgid "Shell:"
 msgstr ""
 
-#: Finfosys.class:1180
+#: Finfosys.form:730
 msgid "TextArea48"
 msgstr ""
 
-#: Finfosys.class:1195
+#: Finfosys.form:744
 msgid "Number of installed packages:"
 msgstr ""
 
-#: Finfosys.class:1199
+#: Finfosys.form:748
 msgid "Check"
 msgstr ""
 
-#: Finfosys.class:1204
+#: Finfosys.form:753
 msgid "Packages are installed"
 msgstr ""
 
-#: Finfosys.class:1215
+#: Finfosys.form:764
 msgid "Kernel"
 msgstr ""
 
-#: Finfosys.class:1220
+#: Finfosys.form:769
 msgid "Installed kernels:"
 msgstr ""
 
-#: Finfosys.class:1224
+#: Finfosys.form:773
 msgid "Currently used:"
 msgstr ""
 
-#: Finfosys.class:1234
+#: Finfosys.form:783
 msgid "Found"
 msgstr ""
 
-#: Finfosys.class:1239
+#: Finfosys.form:788
 msgid "Label16"
 msgstr ""
 
-#: Finfosys.class:1244
+#: Finfosys.form:793
 msgid "kernels:"
 msgstr ""
 
-#: Finfosys.class:1249
+#: Finfosys.form:798
 msgid "Select the kernel to remove"
 msgstr ""
 
-#: Finfosys.class:1254
+#: Finfosys.form:803
 msgid "Delete"
 msgstr ""
 
-#: Finfosys.class:1260
+#: Finfosys.form:809
 msgid "TextArea47"
 msgstr ""
 
-#: Finfosys.class:1264
+#: Finfosys.form:813
 msgid "Memory"
 msgstr ""
 
-#: Finfosys.class:1274
+#: Finfosys.form:823
 msgid "Ram used:"
 msgstr ""
 
-#: Finfosys.class:1331
+#: Finfosys.form:879
 msgid "Total:"
 msgstr ""
 
-#: Finfosys.class:1336
+#: Finfosys.form:884
 msgid "Used:"
 msgstr ""
 
-#: Finfosys.class:1341
+#: Finfosys.form:889
 msgid "Free:"
 msgstr ""
 
-#: Finfosys.class:1346
+#: Finfosys.form:894
 msgid "Shared:"
 msgstr ""
 
-#: Finfosys.class:1351
+#: Finfosys.form:899
 msgid "Buffers:"
 msgstr ""
 
-#: Finfosys.class:1356
+#: Finfosys.form:904
 msgid "Cached:"
 msgstr ""
 
-#: Finfosys.class:1368
+#: Finfosys.form:916
 msgid "Swap total:"
 msgstr ""
 
-#: Finfosys.class:1377
+#: Finfosys.form:925
 msgid "SWAP memory used:"
 msgstr ""
 
-#: Finfosys.class:1385
+#: Finfosys.form:933
 msgid "Internet"
 msgstr ""
 
-#: Finfosys.class:1390
+#: Finfosys.form:938
 msgid "Default web browser"
 msgstr ""
 
-#: Finfosys.class:1402
+#: Finfosys.form:950
 msgid "Network controller:"
 msgstr ""
 
-#: Finfosys.class:1414
+#: Finfosys.form:962
 msgid "Ethernet controller:"
 msgstr ""
 
-#: Finfosys.class:1428
+#: Finfosys.form:976
 msgid "Take a photo was this window\n"
 msgstr ""
 
-#: Finfosys.class:1446
+#: Finfosys.form:993
 msgid "Label25"
 msgstr ""
 
-#: Finfosys.class:1451
+#: Finfosys.form:998
 msgid "i-nex v:"
 msgstr ""
 
-#: Flicencja.class:28
+#: Flicencja.form:9
 msgid "Licencja"
 msgstr ""
 
-#: Flicencja.class:34
+#: Flicencja.form:15
 msgid ""
 "Program I-nex jest wolnym oprogramowaniem; można go rozprowadzać dalej i/lub "
 "modyfikować na warunkach Powszechnej Licencji Publicznej GNU, wydanej przez "
@@ -468,54 +460,54 @@ msgid ""
 "bliższych informacji należy zapoznać się z Powszechną Licencją Publiczną GNU."
 msgstr ""
 
-#: Flicencja.class:41 Fzaslugi.class:107
+#: Flicencja.form:22 Fzaslugi.form:81
 msgid "Zamknij"
 msgstr ""
 
-#: Fzaslugi.class:43
+#: Fzaslugi.form:18
 msgid "Zasługi"
 msgstr ""
 
-#: Fzaslugi.class:51
+#: Fzaslugi.form:26
 msgid "Program"
 msgstr ""
 
-#: Fzaslugi.class:55
+#: Fzaslugi.form:30
 msgid "Główny bajkopisarz:"
 msgstr ""
 
-#: Fzaslugi.class:60
+#: Fzaslugi.form:35
 msgid "Michał 'eloaders' Głowienka"
 msgstr ""
 
-#: Fzaslugi.class:65
+#: Fzaslugi.form:40
 msgid "eloaders@yahoo.com"
 msgstr ""
 
-#: Fzaslugi.class:68
+#: Fzaslugi.form:43
 msgid "Grafika"
 msgstr ""
 
-#: Fzaslugi.class:72
+#: Fzaslugi.form:47
 msgid "Ikona oraz logo programu:"
 msgstr ""
 
-#: Fzaslugi.class:77
+#: Fzaslugi.form:52
 msgid "Daniel 'DaNieL' Pabis "
 msgstr ""
 
-#: Fzaslugi.class:82
+#: Fzaslugi.form:57
 msgid "daniel.pabis@interia.pl"
 msgstr ""
 
-#: Fzaslugi.class:87
+#: Fzaslugi.form:62
 msgid "Maciej Urmański"
 msgstr ""
 
-#: Fzaslugi.class:92
+#: Fzaslugi.form:67
 msgid "maciej14@gmail.com"
 msgstr ""
 
-#: Fzaslugi.class:95
+#: Fzaslugi.form:70
 msgid "Inne"
 msgstr ""

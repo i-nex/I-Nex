@@ -1,21 +1,21 @@
-# Gambas Project File 2.0
-# Compiled with Gambas 2.22.0
+# Gambas Project File 3.0
+# Compiled with Gambas 3.0.0
 Title=i-nex
 Startup=Finfosys
 Icon=i-nex.png
 Version=0.2.4
-Library=gb.gtk
-Library=gb.form
-Library=gb.desktop
-Library=gb.gtk.ext
-Description=Aplikacja w wersji alpha wyświetlająca informacje o systemie.\nData, wersja biosu oraz producent.\nUżyta pamięć, całkowita pamięć i dostępne miejsce na dysku.\nWyświetla także inne informacje o systemie.
-Authors=eloaders
+VersionFile=1
+Component=gb.image
+Component=gb.gtk
+Component=gb.form
+Component=gb.desktop
+Authors="eloaders"
 TabSize=1
 Translate=1
 Language=en
 ControlPublic=1
 ModulePublic=1
-ExecPath=/home/michal/Pulpit/tuu.gambas
+ExecPath=tuu.gambas
 SourcePath=/home/michal/Dokumenty
 Maintainer=eloaders
 Vendor=i-nex
@@ -27,3 +27,5 @@ Systems=ubuntu
 Menus=Applications/System/Hardware
 Categories=System
 Groups=gnome
+ExtraDependencies=
+ExtraFiles=

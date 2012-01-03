@@ -1,0 +1,85 @@
+' Gambas class file
+
+Static Public gravity As Integer
+
+Static Public Sub ikonaprocka()
+  'Procesory intel
+  If Finfosys.TextArea1.Text Like "*Intel(R) Atom(TM)*" Then
+  Finfosys.PictureBox3.Picture = Picture["atom.png"]
+  Endif
+  
+  If Finfosys.TextArea1.Text Like "*Intel(R) Core(TM)2 Duo*" Then
+  Finfosys.PictureBox3.Picture = Picture["intelcore2duo.png"]
+  Endif
+  
+  If Finfosys.TextArea1.Text Like "*Intel(R) Core(TM)2 Quad*" Then
+  Finfosys.PictureBox3.Picture = Picture["intelcore2quad.png"]
+  Endif
+  
+  If Finfosys.TextArea1.Text Like "*Intel(R) Core(TM)2 CPU*" Then
+  Finfosys.PictureBox3.Picture = Picture["atom.png"]
+  Endif
+  
+  If Finfosys.TextArea1.Text Like "*Intel(R) Core(TM)2 Extreme*" Then
+  Finfosys.PictureBox3.Picture = Picture["intelcore2extreme.png"]
+  Endif
+  
+  If Finfosys.TextArea1.Text Like "*Intel(R) Xeon(TM)*" Then
+  Finfosys.PictureBox3.Picture = Picture["intelxeon.png"]
+  Endif
+  
+  If Finfosys.TextArea1.Text Like "*Pentium II*" Then
+  Finfosys.PictureBox3.Picture = Picture["intelpentium2.png"]
+  Endif
+  
+  If Finfosys.TextArea1.Text Like "*Intel(R) Pentium(R) Dual*" Then
+  Finfosys.PictureBox3.Picture = Picture["intelpentiumdual.png"]
+  Endif
+  
+  If Finfosys.TextArea1.Text Like "*Intel(R) Pentium(R) 4*" Then
+  Finfosys.PictureBox3.Picture = Picture["intelp4.png"]
+  Endif
+  
+  'Procesory amd
+  If Finfosys.TextArea1.Text Like "*AMD Athlon(tm) 64 X2*" Then
+  Finfosys.PictureBox3.Picture = Picture["amdathlonx2.png"]
+  Endif
+  
+  If Finfosys.TextArea1.Text Like "*AMD Sempron(tm)*" Then
+  Finfosys.PictureBox3.Picture = Picture["amdsempron.png"]
+  Endif
+  
+  If Finfosys.TextArea1.Text Like "*Mobile AMD Sempron(tm)*" Then
+  Finfosys.PictureBox3.Picture = Picture["amdsempronmobile.png"]
+  Endif
+  
+  If Finfosys.TextArea1.Text Like "*AMD Opteron(tm)*" Then
+  Finfosys.PictureBox3.Picture = Picture["amdopteron.png"]
+  Endif
+  
+  If Finfosys.TextArea1.Text Like "*AMD Athlon(tm) XP*" Then
+  Finfosys.PictureBox3.Picture = Picture["amdathlonxp.png"]
+  Endif
+  
+  If Finfosys.TextArea1.Text Like "*AMD Athlon(tm) 64 Processor*" Then
+  Finfosys.PictureBox3.Picture = Picture["amdathlon64.png"]
+  Endif
+  
+  If Finfosys.TextArea1.Text Like "*AMD Phenom(tm)*" Then
+  Finfosys.PictureBox3.Picture = Picture["amdphenom.png"]
+  Endif
+  
+  If Finfosys.TextArea1.Text Like "*AMD Athlon(tm) II X2*" Then
+  Finfosys.PictureBox3.Picture = Picture["730143272452F1.jpg"]
+  Endif
+
+End
+
+Static Public Sub kartagraficzna()
+  
+  If Finfosys.TextArea17.Text Like "*intel*" Then
+  Finfosys.PictureBox1.Picture = Picture["Data/Karta_graficzna/intel.png"]
+  Endif
+  
+End
+

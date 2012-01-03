@@ -1,13 +1,13 @@
-# Gambas Form File 2.0
+# Gambas Form File 3.0
 
 { Form Form
-  Move(0,0,483,525)
-  #(Scaled) = False
+  Move(0,0,474,528)
+  #Scaled = False
   Text = ("i-nex")
   Icon = Picture["i-nex.png"]
-  Border = Window.Fixed
+  Resizable = False
   { TabStrip1 TabStrip
-    Move(0,0,483,483)
+    Move(0,0,474,486)
     Tag = "System"
     AutoResize = True
     Count = 9
@@ -303,7 +303,7 @@
       }
       { TextLabel8 TextLabel
         Move(7,126,168,21)
-        Text = ("Obecna rozdzielczo\xC5\x9B\xC4\x87:")
+        Text = ("Obecna rozdzielczość:")
       }
       { TextArea38 TextArea
         Move(161,126,294,21)
@@ -318,7 +318,7 @@
     }
     { ComboBox2 ComboBox
       Move(14,259,217,21)
-      Text = ("Wybierz rozdzielczo\xC5\x9B\xC4\x87")
+      Text = ("Wybierz rozdzielczość")
     }
     { Button8 Button
       Move(245,259,112,21)
@@ -496,7 +496,6 @@
     }
     { Button5 Button
       Move(434,371,28,21)
-      Text = ("")
       Picture = Picture["icon:/16/refresh"]
     }
     { Frame23 Frame
@@ -570,7 +569,6 @@
     }
     { Button6 Button
       Move(441,119,28,21)
-      Text = ("")
       Picture = Picture["icon:/16/refresh"]
     }
     { ProgressBar1 ProgressBar
@@ -698,21 +696,20 @@
     Picture = Picture["icon:/16/camera"]
   }
   { Button1 Button
-    Move(392,497,84,21)
+    Move(378,498,84,21)
     Text = ("Close")
     Picture = Picture["icon:/16/cancel"]
   }
   { Button3 Button
-    Move(364,497,21,21)
-    Text = ("")
+    Move(354,498,21,21)
     Picture = Picture["icon:/16/help"]
   }
   { Label25 Label
-    Move(301,497,56,21)
+    Move(294,498,56,21)
     Text = ("Label25")
   }
   { Label27 Label
-    Move(245,497,49,21)
+    Move(240,498,49,21)
     Text = ("i-nex v:")
   }
 }
