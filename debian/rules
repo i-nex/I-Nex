@@ -3,8 +3,8 @@ build: build-stamp
 build-stamp:
 	dh_testdir
 	touch build-stamp
-	/usr/bin/gbc2 -a -t -p -m  src/i-nex
-	gba2 src/i-nex
+	/usr/bin/gbc3 -e -a -g -t -p -m  src/i-nex
+	gba3 src/i-nex
 
 clean:
 	dh_testdir
