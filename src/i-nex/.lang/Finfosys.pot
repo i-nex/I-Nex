@@ -407,7 +407,7 @@ msgid "Ethernet controller:"
 msgstr ""
 
 #: Finfosys.form:976
-msgid "Take a photo was this window\n"
+msgid "Take a picture of this window"
 msgstr ""
 
 #: Finfosys.form:982

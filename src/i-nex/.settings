@@ -12,10 +12,10 @@ SearchComment=False
 SearchString=True
 
 [OpenFile]
-Active=1
 File[1]=".src/Finfosys.form"
 File[2]=".src/Finfosys.class:406.25"
-File[3]=".src/Global.class:66.2"
+Active=3
+File[3]=".src/Global.class:84.71"
 File[4]="linuxmint.png"
 File[5]="intellogo.gif"
 File[6]=".src/About.form"
@@ -27,12 +27,10 @@ File[11]=".src/Flicencja.class:4.11"
 File[12]="atom.png"
 File[13]="amdphenom.png"
 File[14]="intelpentium2.png"
-File[15]="730143272452F1.jpg"
-File[16]="730143272452F11.jpg"
-File[17]="11068_9016_16_network_globe_icon.png"
-File[18]=".src/distrodetect.class:17.6"
-File[19]="VERSION:0.5"
-Count=19
+File[15]="11068_9016_16_network_globe_icon.png"
+File[16]=".src/distrodetect.class:17.6"
+File[17]="VERSION:0.5"
+Count=17
 
 [Watches]
 Count=0
