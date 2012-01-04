@@ -4,10 +4,6 @@ Static Public gravity As Integer
 
 Static Public Sub ikonaprocka()
   'Procesory intel
-  If Finfosys.TextArea1.Text Like "*Intel(R) Atom(TM)*" Then
-  Finfosys.PictureBox3.Picture = Picture["atom.png"]
-  Endif
-  
   If Finfosys.TextArea1.Text Like "*Intel(R) Core(TM)2 Duo*" Then
   Finfosys.PictureBox3.Picture = Picture["intelcore2duo.png"]
   Endif
@@ -17,7 +13,7 @@ Static Public Sub ikonaprocka()
   Endif
   
   If Finfosys.TextArea1.Text Like "*Intel(R) Core(TM)2 CPU*" Then
-  Finfosys.PictureBox3.Picture = Picture["atom.png"]
+  Finfosys.PictureBox3.Picture = Picture["intelcore2duo.png"]
   Endif
   
   If Finfosys.TextArea1.Text Like "*Intel(R) Core(TM)2 Extreme*" Then
@@ -70,7 +66,11 @@ Static Public Sub ikonaprocka()
   Endif
   
   If Finfosys.TextArea1.Text Like "*AMD Athlon(tm) II X2*" Then
-  Finfosys.PictureBox3.Picture = Picture["730143272452F1.jpg"]
+  Finfosys.PictureBox3.Picture = Picture["Processors/amd_athlon_x2.png"]
+  Endif
+  
+  If Finfosys.TextArea1.Text Like "*Intel(R) Atom(TM)*" Then
+  Finfosys.PictureBox3.Picture = Picture["atom.png"]
   Endif
 
 End
@@ -81,5 +81,9 @@ Static Public Sub kartagraficzna()
   Finfosys.PictureBox1.Picture = Picture["Data/Karta_graficzna/intel.png"]
   Endif
   
+  If Finfosys.TextArea17.Text Like "*Radeon*" Then
+  Finfosys.PictureBox1.Picture = Picture["Data/Karta_graficzna/ati.png"]
+  Endif
+
 End
 
