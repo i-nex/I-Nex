@@ -250,67 +250,69 @@ End
 
 
 Public Sub Wykrywanie_procesorow()
-  Dim eloaders, eloaders2, eloaders3, obrazekcpu, cpu, vendor_id, flags, cpu_MHz, model, stepping, cpu_family, bogomips, address_sizes, cache_size, ldata, linstruction As String
+  Dim eloaders, eloaders2, eloaders3 As String
+  Dim obrazekcpu, cpu, vendor_id, flags, cpu_MHz, model, stepping, cpu_family, bogomips, address_sizes, cache_size, ldata, linstruction As String
+  Dim physical_id, cpu_cores As String
   
   If ComboBox1.Text = "Procesor0" Then
-     eloaders = "1p"
-     eloaders2 = "cpu0"
-     eloaders3 = "1p"
-     Endif
-        If ComboBox1.Text = "Procesor1" Then
-           eloaders = "2p"
-           eloaders2 = "cpu1"
-           eloaders3 = "3p"
-           Endif
-              If ComboBox1.Text = "Procesor2" Then
-                 eloaders = "3p"
-                 eloaders2 = "cpu2"
-                 eloaders3 = "5p"
-                 Endif
-                    If ComboBox1.Text = "Procesor3" Then
-                       eloaders = "4p"
-                       eloaders2 = "cpu3"
-                       eloaders3 = "7p"
-                       Endif
-                          If ComboBox1.Text = "Procesor4" Then
-                             eloaders = "5p"
-                             eloaders2 = "cpu4"
-                             eloaders3 = "9p"
-                             Endif
-                                If ComboBox1.Text = "Procesor5" Then
-                                   eloaders = "6p"
-                                   eloaders2 = "cpu5"
-                                   eloaders3 = "11p"
-                                   Endif
-                                If ComboBox1.Text = "Procesor6" Then
-                                   eloaders = "7p"
-                                   eloaders2 = "cpu6"
-                                   eloaders3 = "13p"
-                                   Endif
-                          If ComboBox1.Text = "Procesor7" Then
-                             eloaders = "8p"
-                             eloaders2 = "cpu7"
-                             eloaders3 = "15p"
-                          Endif
-                    If ComboBox1.Text = "Procesor8" Then
-                       eloaders = "9p"
-                       eloaders2 = "cpu8"
-                       eloaders3 = "17p"
-                    Endif
-              If ComboBox1.Text = "Procesor9" Then
-                 eloaders = "10p"
-                 eloaders2 = "cpu9"
-                 eloaders3 = "19p"
-              Endif
-       If ComboBox1.Text = "Procesor10" Then
-          eloaders = "11p"
-          eloaders2 = "cpu10"
-          eloaders3 = "21p"
-       Endif
+  eloaders = "1p"
+  eloaders2 = "cpu0"
+  eloaders3 = "1p"
+  Endif
+  If ComboBox1.Text = "Procesor1" Then
+  eloaders = "2p"
+  eloaders2 = "cpu1"
+  eloaders3 = "3p"
+  Endif
+  If ComboBox1.Text = "Procesor2" Then
+  eloaders = "3p"
+  eloaders2 = "cpu2"
+  eloaders3 = "5p"
+  Endif
+  If ComboBox1.Text = "Procesor3" Then
+  eloaders = "4p"
+  eloaders2 = "cpu3"
+  eloaders3 = "7p"
+  Endif
+  If ComboBox1.Text = "Procesor4" Then
+  eloaders = "5p"
+  eloaders2 = "cpu4"
+  eloaders3 = "9p"
+  Endif
+  If ComboBox1.Text = "Procesor5" Then
+  eloaders = "6p"
+  eloaders2 = "cpu5"
+  eloaders3 = "11p"
+  Endif
+  If ComboBox1.Text = "Procesor6" Then
+  eloaders = "7p"
+  eloaders2 = "cpu6"
+  eloaders3 = "13p"
+  Endif
+  If ComboBox1.Text = "Procesor7" Then
+  eloaders = "8p"
+  eloaders2 = "cpu7"
+  eloaders3 = "15p"
+  Endif
+  If ComboBox1.Text = "Procesor8" Then
+  eloaders = "9p"
+  eloaders2 = "cpu8"
+  eloaders3 = "17p"
+  Endif
+  If ComboBox1.Text = "Procesor9" Then
+  eloaders = "10p"
+  eloaders2 = "cpu9"
+  eloaders3 = "19p"
+  Endif
+  If ComboBox1.Text = "Procesor10" Then
+  eloaders = "11p"
+  eloaders2 = "cpu10"
+  eloaders3 = "21p"
+  Endif
   If ComboBox1.Text = "Procesor11" Then
-     eloaders = "12p"
-     eloaders2 = "cpu11"
-     eloaders3 = "23p"
+  eloaders = "12p"
+  eloaders2 = "cpu11"
+  eloaders3 = "23p"
   Endif
   
   Shell "grep 'vendor_id' /proc/cpuinfo | sed -n '" & eloaders & "' | cut -d ':' -f 2" Wait To obrazekcpu
@@ -326,32 +328,37 @@ Public Sub Wykrywanie_procesorow()
   Shell "grep 'cache size' /proc/cpuinfo | sed -n '" & eloaders & "' | cut -d ':' -f 2" Wait To cache_size
   Shell "cat /sys/devices/system/cpu/" & eloaders2 & "/cache/index0/size" Wait To ldata
   Shell "cat /sys/devices/system/cpu/" & eloaders2 & "/cache/index1/size" Wait To linstruction
+  Shell "grep 'cpu cores' /proc/cpuinfo | sed -n '" & eloaders & "' | cut -d ':' -f 2" Wait To cpu_cores
+  Shell "grep 'physical id' /proc/cpuinfo | sed -n '" & eloaders & "' | cut -d ':' -f 2" Wait To physical_id
   
   TextArea1.Text = cpu
-  TextArea1.Text = Replace(TextArea1.Text, "\n", " ")
+  TextArea1.Text = Replace(TextArea1.Text, "\n", "")
   TextArea3.Text = flags
-  TextArea3.Text = Replace(TextArea3.Text, "\n", " ")
+  TextArea3.Text = Replace(TextArea3.Text, "\n", "")
   TextArea4.Text = vendor_id
-  TextArea4.Text = Replace(TextArea4.Text, "\n", " ")
-  TextArea5.Text = cpu_MHz & "MHz"
-  TextArea5.Text = Replace(TextArea5.Text, "\n", " ")
-  TextArea7.Text = model
-  TextArea7.Text = Replace(TextArea7.Text, "\n", " ")
-  TextArea8.Text = stepping
-  TextArea8.Text = Replace(TextArea8.Text, "\n", " ")
-  TextArea6.Text = cpu_family
-  TextArea6.Text = Replace(TextArea6.Text, "\n", " ")
-  TextArea9.Text = bogomips
-  TextArea9.Text = Replace(TextArea9.Text, "\n", " ")
+  TextArea4.Text = Replace(TextArea4.Text, "\n", "")
+  TextArea5.Text = cpu_MHz & " MHz"
+  TextArea5.Text = Replace(TextArea5.Text, "\n", "")
+  TextBox3.Text = model
+  TextBox3.Text = Replace(TextBox3.Text, "\n", "")
+  TextBox2.Text = stepping
+  TextBox2.Text = Replace(TextBox2.Text, "\n", "")
+  TextBox4.Text = cpu_family
+  TextBox4.Text = Replace(TextBox4.Text, "\n", "")
+  TextBox6.Text = bogomips
+  TextBox6.Text = Replace(TextBox6.Text, "\n", "")
   TextArea10.Text = address_sizes
-  TextArea10.Text = Replace(TextArea10.Text, "\n", " ")
+  TextArea10.Text = Replace(TextArea10.Text, "\n", "")
   TextArea12.Text = cache_size
-  TextArea12.Text = Replace(TextArea12.Text, "\n", " ")
+  TextArea12.Text = Replace(TextArea12.Text, "\n", "")
   TextArea13.Text = ldata
-  TextArea13.Text = Replace(TextArea13.Text, "\n", " ")
+  TextArea13.Text = Replace(TextArea13.Text, "\n", "")
   TextArea11.Text = linstruction
-  TextArea11.Text = Replace(TextArea11.Text, "\n", " ")
-  
+  TextArea11.Text = Replace(TextArea11.Text, "\n", "")
+  TextBox1.Text = cpu_cores
+  TextBox1.Text = Replace(TextBox1.Text, "\n", "")
+  TextBox5.Text = physical_id
+  TextBox5.Text = Replace(TextBox5.Text, "\n", "")
   Global.ikonaprocka()
 
 End

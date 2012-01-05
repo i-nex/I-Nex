@@ -12,10 +12,10 @@ SearchComment=False
 SearchString=True
 
 [OpenFile]
+Active=1
 File[1]=".src/Finfosys.form"
-File[2]=".src/Finfosys.class:406.25"
-Active=3
-File[3]=".src/Global.class:84.71"
+File[2]=".src/Finfosys.class:204.25"
+File[3]=".src/Global.class:19.20"
 File[4]="linuxmint.png"
 File[5]="intellogo.gif"
 File[6]=".src/About.form"

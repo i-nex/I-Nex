@@ -63,64 +63,40 @@
       }
     }
     { Frame3 Frame
-      Move(7,154,462,154)
+      Move(6,156,462,154)
       Text = ("CPU")
       { Label6 Label
-        Move(7,56,42,21)
+        Move(6,78,42,21)
         Text = ("Flags:")
       }
       { Label7 Label
-        Move(7,21,56,21)
+        Move(6,18,56,21)
         Text = ("Family:")
       }
       { Label10 Label
-        Move(7,91,70,21)
+        Move(120,48,70,21)
         Text = ("bogomips:")
       }
       { TextArea3 TextArea
-        Move(49,56,406,21)
-        Text = ("N/A")
-        ReadOnly = True
-        ScrollBar = Scroll.None
-      }
-      { TextArea6 TextArea
-        Move(77,21,70,21)
-        Text = ("N/A")
-        ReadOnly = True
-        ScrollBar = Scroll.None
-      }
-      { TextArea9 TextArea
-        Move(77,91,133,21)
+        Move(48,78,406,21)
         Text = ("N/A")
         ReadOnly = True
         ScrollBar = Scroll.None
       }
       { Label8 Label
-        Move(161,21,42,21)
+        Move(96,18,42,21)
         Text = ("Model:")
       }
-      { TextArea7 TextArea
-        Move(210,21,70,21)
-        Text = ("N/A")
-        ReadOnly = True
-        ScrollBar = Scroll.None
-      }
       { Label11 Label
-        Move(7,119,42,21)
+        Move(6,108,42,21)
         Text = ("Width:")
       }
       { Label9 Label
-        Move(322,21,63,21)
+        Move(186,18,63,21)
         Text = ("Stepping:")
       }
       { TextArea10 TextArea
-        Move(56,119,399,21)
-        Text = ("N/A")
-        ReadOnly = True
-        ScrollBar = Scroll.None
-      }
-      { TextArea8 TextArea
-        Move(385,21,70,21)
+        Move(54,108,399,21)
         Text = ("N/A")
         ReadOnly = True
         ScrollBar = Scroll.None
@@ -128,6 +104,38 @@
       { Label3 Label
         Move(497,119,168,21)
         Text = ("Label3")
+      }
+      { TextBox2 TextBox
+        Move(246,18,42,24)
+        Text = ("N/A")
+      }
+      { TextBox3 TextBox
+        Move(138,18,42,24)
+        Text = ("N/A")
+      }
+      { TextBox4 TextBox
+        Move(48,18,42,24)
+        Text = ("N/A")
+      }
+      { TextBox1 TextBox
+        Move(360,18,42,24)
+        Text = ("N/A")
+      }
+      { Label18 Label
+        Move(294,18,66,24)
+        Text = ("CPU Cores:")
+      }
+      { TextBox5 TextBox
+        Move(72,48,42,24)
+        Text = ("N/A")
+      }
+      { Label19 Label
+        Move(6,48,66,24)
+        Text = ("Physical id:")
+      }
+      { TextBox6 TextBox
+        Move(186,48,84,24)
+        Text = ("N/A")
       }
     }
     { Frame2 Frame

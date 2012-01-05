@@ -23,7 +23,7 @@ msgid "Close"
 msgstr ""
 
 #: About.form:24
-msgid "Merit"
+msgid "Credits"
 msgstr ""
 
 #: About.form:29
