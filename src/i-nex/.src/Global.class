@@ -72,6 +72,10 @@ Static Public Sub ikonaprocka()
   If Finfosys.TextArea1.Text Like "*Intel(R) Atom(TM)*" Then
   Finfosys.PictureBox3.Picture = Picture["atom.png"]
   Endif
+  
+  If Finfosys.TextArea1.Text Like "*AMD Athlon(tm) II X4*" Then
+  Finfosys.PictureBox3.Picture = Picture["Processors/amd_athlon_x4.png"]
+  Endif
 
 End
 
@@ -81,7 +85,7 @@ Static Public Sub kartagraficzna()
   Finfosys.PictureBox1.Picture = Picture["Data/Karta_graficzna/intel.png"]
   Endif
   
-  If Finfosys.TextArea17.Text Like "*Radeon*" Then
+  If Finfosys.TextArea17.Text Like "*ATI*" Then
   Finfosys.PictureBox1.Picture = Picture["Data/Karta_graficzna/ati.png"]
   Endif
 
