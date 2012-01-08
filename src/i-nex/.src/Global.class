@@ -12,7 +12,7 @@ Static Public Sub ikonaprocka()
   Finfosys.PictureBox3.Picture = Picture["intelcore2quad.png"]
   Endif
   
-  If Finfosys.TextArea1.Text Like "*Intel(R) Core(TM)2 CPU*" Then
+  If Finfosys.TextArea1.Text Like "*Intel(R) Core(TM)2*" Then
   Finfosys.PictureBox3.Picture = Picture["intelcore2duo.png"]
   Endif
   
@@ -36,6 +36,13 @@ Static Public Sub ikonaprocka()
   Finfosys.PictureBox3.Picture = Picture["intelp4.png"]
   Endif
   
+  If Finfosys.TextArea1.Text Like "*Intel(R) Atom(TM)*" Then
+  Finfosys.PictureBox3.Picture = Picture["atom.png"]
+  Endif
+  
+  If Finfosys.TextArea1.Text Like "*Intel(R) Core(TM) i7*" Then
+  Finfosys.PictureBox3.Picture = Picture["Processors/intel_core_i7.png"]
+  Endif
   'Procesory amd
   If Finfosys.TextArea1.Text Like "*AMD Athlon(tm) 64 X2*" Then
   Finfosys.PictureBox3.Picture = Picture["amdathlonx2.png"]
@@ -45,7 +52,7 @@ Static Public Sub ikonaprocka()
   Finfosys.PictureBox3.Picture = Picture["amdsempron.png"]
   Endif
   
-  If Finfosys.TextArea1.Text Like "*Mobile AMD Sempron(tm)*" Then
+  If Finfosys.TextArea1.Text Like "*Mobile AMD Sempron*" Then
   Finfosys.PictureBox3.Picture = Picture["amdsempronmobile.png"]
   Endif
   
@@ -69,12 +76,16 @@ Static Public Sub ikonaprocka()
   Finfosys.PictureBox3.Picture = Picture["Processors/amd_athlon_x2.png"]
   Endif
   
-  If Finfosys.TextArea1.Text Like "*Intel(R) Atom(TM)*" Then
-  Finfosys.PictureBox3.Picture = Picture["atom.png"]
-  Endif
-  
   If Finfosys.TextArea1.Text Like "*AMD Athlon(tm) II X4*" Then
   Finfosys.PictureBox3.Picture = Picture["Processors/amd_athlon_x4.png"]
+  Endif
+  
+  If Finfosys.TextArea1.Text Like "*AMD FX*" Then
+  Finfosys.PictureBox3.Picture = Picture["Processors/amd_fx_eight_core_processor.png"]
+  Endif
+  
+  If Finfosys.TextArea1.Text Like "*AMD Opteron*6*" Then
+  Finfosys.PictureBox3.Picture = Picture["Processors/amd_opteron_processor_6xxx.png"]
   Endif
 
 End

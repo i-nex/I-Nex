@@ -105,21 +105,15 @@ Public Sub kernel()
   Shell "uname -r" Wait To Label26.Text
   'Usuwanie kerneli
   Shell "bash -c /usr/bin/check_kernel" Wait To stringa
-  'dpkg-query -f '${status} ${package}\n' -W linux-image-\* | grep '^install ok installed ' | cut -d' ' -f4
   righe = Split(stringa, "\n", "%%", True)
-  
   For count = 2 To righe.Max
-     
      riga = Split(righe[count], " ", "%%", True)
-     
      risultato = Replace(riga[0], " ", "")
      lista.add(risultato)
   Next
-  
   ComboBox3.List = lista
   ComboBox3.Index = 0
   'Koniec usuwania kerneli
-  
 End
 
 Public Sub dzwiek()

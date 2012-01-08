@@ -13,9 +13,9 @@ SearchString=True
 
 [OpenFile]
 File[1]=".src/Finfosys.form"
-File[2]=".src/Finfosys.class:327.89"
+File[2]=".src/Finfosys.class:104.10"
 Active=3
-File[3]=".src/Global.class:87.53"
+File[3]=".src/Global.class:83.24"
 File[4]="linuxmint.png"
 File[5]="intellogo.gif"
 File[6]=".src/About.form"
