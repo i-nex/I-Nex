@@ -2,10 +2,12 @@ Finfosys
 i-nex
 0
 0
-0.3.1
+0.3.2
 
 gb.image
 gb.gtk
 gb.form
 gb.desktop
+gb.settings
+gb.form.mdi
 
