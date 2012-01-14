@@ -1,0 +1,69 @@
+' Gambas module file
+
+Public battery_exist As Boolean = Exist("/proc/acpi/battery")
+Public true_false As Boolean = Setting.Settings["battery/active"]
+Public addres_battery As String
+Public Present As String
+Public Design_capacity As String
+Public last_full_capacity As String
+Public battery_technology As String
+Public design_voltage As String
+Public design_capacity_warning As String
+Public design_capacity_low As String
+Public cycle_count As String
+Public capacity_granularity_1 As String
+Public capacity_granularity_2 As String
+Public model_number As String
+Public serial_number As String
+Public battery_type As String
+Public OEM_info As String
+
+
+Public Sub _init()
+If true_false = True Then
+ addres_battery = Setting.Settings["battery/patch"]
+ _get_inf()
+ _replace_n()
+Else
+ addres_battery = "/proc/acpi/battery/BAT1/info" 
+ _get_inf()
+ _replace_n()
+Endif
+End
+
+Public Sub _get_inf()
+ 
+ Shell "grep 'present:' " & addres_battery & " | cut -d ':' -f 2" Wait To Present
+ Shell "grep 'design capacity:' " & addres_battery & " | cut -d ':' -f 2" Wait To Design_capacity
+ Shell "grep 'last full capacity:' " & addres_battery & " | cut -d ':' -f 2" Wait To last_full_capacity
+ Shell "grep 'battery technology:' " & addres_battery & " | cut -d ':' -f 2" Wait To battery_technology
+ Shell "grep 'design voltage:' " & addres_battery & " | cut -d ':' -f 2" Wait To design_voltage
+ Shell "grep 'design capacity warning:' " & addres_battery & " | cut -d ':' -f 2" Wait To design_capacity_warning
+ Shell "grep 'design capacity low:' " & addres_battery & " | cut -d ':' -f 2" Wait To design_capacity_low
+ Shell "grep 'cycle count:' " & addres_battery & " | cut -d ':' -f 2" Wait To cycle_count
+ Shell "grep 'capacity granularity 1:' " & addres_battery & " | cut -d ':' -f 2" Wait To capacity_granularity_1
+ Shell "grep 'capacity granularity 2:' " & addres_battery & " | cut -d ':' -f 2" Wait To capacity_granularity_2
+ Shell "grep 'model number:' " & addres_battery & " | cut -d ':' -f 2" Wait To model_number
+ Shell "grep 'serial number:' " & addres_battery & " | cut -d ':' -f 2" Wait To serial_number
+ Shell "grep 'battery type:' " & addres_battery & " | cut -d ':' -f 2" Wait To battery_type
+ Shell "grep 'OEM info:' " & addres_battery & " | cut -d ':' -f 2" Wait To OEM_info
+
+End
+
+Public Sub _replace_n()
+ Present = Replace(Present, "\n", "")
+ Design_capacity = Replace(Design_capacity, "\n", "")
+ last_full_capacity = Replace(last_full_capacity, "\n", "")
+ battery_technology = Replace(battery_technology, "\n", "")
+ design_voltage = Replace(design_voltage, "\n", "")
+ design_capacity_warning = Replace(design_capacity_warning, "\n", "")
+ design_capacity_low = Replace(design_capacity_low, "\n", "")
+ cycle_count = Replace(cycle_count, "\n", "")
+ capacity_granularity_1 = Replace(capacity_granularity_1, "\n", "")
+ capacity_granularity_2 = Replace(capacity_granularity_2, "\n", "")
+ model_number = Replace(model_number, "\n", "")
+ serial_number = Replace(serial_number, "\n", "")
+ battery_type = Replace(battery_type, "\n", "")
+ OEM_info = Replace(OEM_info, "\n", "")
+End
+
