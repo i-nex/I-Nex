@@ -1,3 +1,16 @@
+i-nex (0.3.3) unstable; urgency=low
+
+  * Add battery.module
+  * Add Setting.module
+  * Add pots
+  * Add Options dialog
+  * Update and add initial support for battery on netbooks / laptops
+  * Update project gambas files
+  * Update control Build depends and binary depends
+  * Update changelog for version 0.3.3
+
+ -- eloaders <eloaders@yahoo.com>  Sat, 14 Jan 2012 15:13:07 +0100
+
 i-nex (0.3.1) unstable; urgency=low
 
   * Więcej opcji w głównej karcie
