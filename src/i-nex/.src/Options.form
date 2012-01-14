@@ -1,0 +1,20 @@
+# Gambas Form File 3.0
+
+{ Form Form
+  MoveScaled(0,0,85,12)
+  Text = ("Options")
+  Icon = Picture["icon:/16/properties"]
+  Resizable = False
+  { ButtonBox1 ButtonBox
+    MoveScaled(41,2,43,4)
+  }
+  { Button1 Button
+    MoveScaled(68,7,16,4)
+    Text = ("Close & Save")
+    Picture = Picture["icon:/16/apply"]
+  }
+  { CheckBox1 CheckBox
+    MoveScaled(1,1,40,5)
+    Text = ("Battery info patch\nExample: /proc/acpi/battery/BAT1/info")
+  }
+}

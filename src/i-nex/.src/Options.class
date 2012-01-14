@@ -1,0 +1,24 @@
+' Gambas class file
+
+
+
+Public Sub Form_Open()
+ Me.Center
+ ButtonBox1.Text = Setting.Settings["battery/patch", ButtonBox1.Text]
+ CheckBox1.Value = Setting.Settings["battery/active", CheckBox1.Value]
+End
+
+Public Sub ButtonBox1_Click()
+ Dialog.OpenFile
+ ButtonBox1.Text = Dialog.Path
+End
+
+Public Sub Button1_Click()
+
+ Setting.Settings["battery/patch"] = ButtonBox1.Text
+ Setting.Settings["battery/active"] = CheckBox1.Value
+ Object.Call(battery, "_init")
+ Object.Call(Finfosys, "battery_info")
+ Options.Close
+
+End
