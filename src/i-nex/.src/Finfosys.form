@@ -10,7 +10,7 @@
     Move(0,0,474,486)
     Tag = "System"
     AutoResize = True
-    Count = 9
+    Count = 10
     Index = 0
     Text = ("CPU")
     Picture = Picture["Data/Tabs/cpu.png"]
@@ -108,18 +108,22 @@
       { TextBox2 TextBox
         Move(246,18,42,24)
         Text = ("N/A")
+        ReadOnly = True
       }
       { TextBox3 TextBox
         Move(138,18,42,24)
         Text = ("N/A")
+        ReadOnly = True
       }
       { TextBox4 TextBox
         Move(48,18,42,24)
         Text = ("N/A")
+        ReadOnly = True
       }
       { TextBox1 TextBox
         Move(360,18,42,24)
         Text = ("N/A")
+        ReadOnly = True
       }
       { Label18 Label
         Move(294,18,66,24)
@@ -128,6 +132,7 @@
       { TextBox5 TextBox
         Move(72,48,42,24)
         Text = ("N/A")
+        ReadOnly = True
       }
       { Label19 Label
         Move(6,48,66,24)
@@ -136,6 +141,7 @@
       { TextBox6 TextBox
         Move(186,48,84,24)
         Text = ("N/A")
+        ReadOnly = True
       }
     }
     { Frame2 Frame
@@ -550,14 +556,6 @@
         Move(133,21,56,21)
         Text = ("kernels:")
       }
-      { ComboBox3 ComboBox
-        Move(7,273,392,21)
-        Text = ("Select the kernel to remove")
-      }
-      { Button10 Button
-        Move(406,273,49,21)
-        Text = ("Delete")
-      }
     }
     { TextArea47 TextArea
       Move(14,56,448,182)
@@ -696,11 +694,116 @@
         ScrollBar = Scroll.None
       }
     }
+    Index = 9
+    Text = ("Battery")
+    Picture = Picture["icon:/16/battery"]
+    { TextBox7 TextBox
+      Move(144,12,318,24)
+    }
+    { TextBox8 TextBox
+      Move(144,42,318,24)
+    }
+    { TextBox9 TextBox
+      Move(144,72,318,24)
+    }
+    { TextBox10 TextBox
+      Move(144,102,318,24)
+    }
+    { TextBox11 TextBox
+      Move(144,132,318,24)
+    }
+    { TextBox12 TextBox
+      Move(144,162,318,24)
+    }
+    { TextBox13 TextBox
+      Move(144,192,318,24)
+    }
+    { TextBox14 TextBox
+      Move(144,222,318,24)
+    }
+    { TextBox15 TextBox
+      Move(144,252,318,24)
+    }
+    { TextBox16 TextBox
+      Move(144,282,318,24)
+    }
+    { TextBox17 TextBox
+      Move(144,312,318,24)
+    }
+    { TextBox18 TextBox
+      Move(144,342,318,24)
+    }
+    { TextBox19 TextBox
+      Move(144,372,318,24)
+    }
+    { TextBox20 TextBox
+      Move(144,402,318,24)
+    }
+    { Label20 Label
+      Move(6,12,102,24)
+      Text = ("Present:")
+    }
+    { Label21 Label
+      Move(6,42,102,24)
+      Text = ("Design capacity:")
+    }
+    { Label22 Label
+      Move(6,72,102,24)
+      Text = ("Last full capacity:")
+    }
+    { Label23 Label
+      Move(6,102,108,24)
+      Text = ("Battery technology:")
+    }
+    { Label24 Label
+      Move(6,132,138,24)
+      Text = ("Design voltage:")
+    }
+    { Label28 Label
+      Move(6,162,138,24)
+      Text = ("Design capacity warning:")
+    }
+    { Label29 Label
+      Move(6,192,138,24)
+      Text = ("Design capacity low:")
+    }
+    { Label30 Label
+      Move(6,222,138,24)
+      Text = ("Cycle count:")
+    }
+    { Label31 Label
+      Move(6,252,138,24)
+      Text = ("Capacity granularity 1:")
+    }
+    { Label32 Label
+      Move(6,282,138,24)
+      Text = ("Capacity granularity 2:")
+    }
+    { Label33 Label
+      Move(6,312,138,24)
+      Text = ("Model number:")
+    }
+    { Label34 Label
+      Move(6,342,138,24)
+      Text = ("Serial number:")
+    }
+    { Label35 Label
+      Move(6,402,138,24)
+      Text = ("OEM info:")
+    }
+    { Label36 Label
+      Move(6,372,138,24)
+      Text = ("Battery type:")
+    }
+    { Button10 Button
+      Move(438,426,24,24)
+      Picture = Picture["icon:/16/refresh"]
+    }
     Index = 0
   }
   { Button2 Button
-    Move(7,497,192,21)
-    Text = ("Take a picture of this window")
+    Move(7,497,120,24)
+    Text = ("Take Screenshot")
     Picture = Picture["icon:/16/camera"]
   }
   { Button1 Button
@@ -709,15 +812,19 @@
     Picture = Picture["icon:/16/cancel"]
   }
   { Button3 Button
-    Move(354,498,21,21)
+    Move(330,498,21,21)
     Picture = Picture["icon:/16/help"]
   }
   { Label25 Label
-    Move(294,498,56,21)
+    Move(270,498,56,21)
     Text = ("Label25")
   }
   { Label27 Label
-    Move(240,498,49,21)
+    Move(216,498,49,21)
     Text = ("i-nex v:")
+  }
+  { Button9 Button
+    Move(354,498,21,21)
+    Picture = Picture["icon:/16/properties"]
   }
 }

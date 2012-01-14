@@ -1,9 +1,18 @@
 ' Gambas class file
 
 Public Sub Form_Open()
+  Dim gnome_screenshot As Boolean = Exist("/usr/bin/gnome-screenshot")
   Dim cpuz0, cpuz1, cpuz2, cpuz3, cpuz4, cpuz5, cpuz6, cpuz7, cpuz8, cpuz9, cpuz10, cpuz11 As String
-  If Exist("/usr/bin/gnome-screenshot") Then
+  If gnome_screenshot = True Then
   Button2.Visible = True
+  Endif
+  If battery.battery_exist And battery.true_false = False Then
+  TabStrip1[9].Visible = False
+  Else
+  TabStrip1[9].Visible = True 
+  Object.Call(battery, "_init")
+  Object.Call(Setting, "_init")
+  battery_info()
   Endif
   TextArea28.Visible = False
   TextLabel21.Visible = False
@@ -95,25 +104,9 @@ Public Sub ComboBox1_Click()
 End
 
 Public Sub kernel()
-  Dim stringa, risultato, kernel, uzywanyobecniekernel As String
-  Dim righe As New String[]
-  Dim count As Integer
-  Dim riga As New String[]
-  Dim lista As New String[]
   Shell "ls /boot/vmlinuz* | cut -d '/' -f 3 " Wait To TextArea47.Text
   Shell "ls /boot/vmlinuz* | cut -d '/' -f 3 | wc -l" Wait To Label16.Text
   Shell "uname -r" Wait To Label26.Text
-  'Usuwanie kerneli
-  Shell "bash -c /usr/bin/check_kernel" Wait To stringa
-  righe = Split(stringa, "\n", "%%", True)
-  For count = 2 To righe.Max
-     riga = Split(righe[count], " ", "%%", True)
-     risultato = Replace(riga[0], " ", "")
-     lista.add(risultato)
-  Next
-  ComboBox3.List = lista
-  ComboBox3.Index = 0
-  'Koniec usuwania kerneli
 End
 
 Public Sub dzwiek()
@@ -128,7 +121,7 @@ Public Sub dysk()
   Dim wolnegbnadysku, dysktwardy, zajetegb, calkowitapoj, zajgb1, wolgb1, calkowite1 As String
   Dim wolgb, zajgb, calkowite As Float
   'SHELL "cat /proc/scsi/scsi | grep ATA | head -1 | cut -d ':' -f 3 | cut -d ' ' -f 2-3 && echo $(cat /proc/partitions | grep sda | head -n 1 | awk {'print $3'})/1024/1024 | bc && echo GB" WAIT TO dysktwardy
-  Shell "grep 'Vendor' /proc/scsi/scsi" Wait To dysktwardy
+  Shell "cat /proc/scsi/scsi" Wait To dysktwardy
   Shell "echo $(df -m | grep '/' | awk {'print $4'} | head -1)/1000 | bc && echo GB" Wait To wolnegbnadysku
   Shell "echo $(df -m | grep '/' | awk {'print $3'} | head -1)/1000 | bc && echo GB" Wait To zajetegb
   Shell "echo $(df -m | grep '/' | awk {'print $2'} | head -1)/1000 | bc && echo GB" Wait To calkowitapoj
@@ -420,6 +413,26 @@ Public Sub dospam_uptime()
 
 End
 
+Public Sub battery_info()
+ 
+ TextBox7.Text = battery.Present
+ TextBox8.Text = battery.Design_capacity
+ TextBox9.Text = battery.last_full_capacity
+ TextBox10.Text = battery.battery_technology
+ TextBox11.Text = battery.design_voltage
+ TextBox12.Text = battery.design_capacity_warning
+ TextBox13.Text = battery.design_capacity_low
+ TextBox14.Text = battery.cycle_count
+ TextBox15.Text = battery.capacity_granularity_1
+ TextBox16.Text = battery.capacity_granularity_2
+ TextBox17.Text = battery.model_number
+ TextBox18.Text = battery.serial_number
+ TextBox19.Text = battery.battery_type
+ TextBox20.Text = battery.OEM_info
+ 
+End
+
+
 Public Sub Button3_Click()
 
   About.Show
@@ -460,9 +473,15 @@ Public Sub Button8_Click()
 
 End
 
+Public Sub Button9_Click()
+
+ Options.Show
+
+End
+
 Public Sub Button10_Click()
-'sudo apt-get -y remove
-  Exec ["gksu", "apt-get -y remove " & ComboBox3.Text & ""] Wait
-  kernel()
-  Message.Warning("Dla poprawności tego działania proszę\nzaktualizuj gruba poleceniem = sudo update-grub")
+
+ Object.Call(battery, "_init")
+ battery_info()
+
 End
