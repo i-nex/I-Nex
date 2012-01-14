@@ -2,11 +2,11 @@ Source: i-nex
 Section: contrib/gnome
 Priority: optional
 Maintainer: eloaders <eloaders@yahoo.com>
-Build-Depends: debhelper (>= 5.0.0), gambas3-dev (>= 2.90.0), gambas3-dev (<< 3.0.90), gambas3-gb-image (>= 2.90.0), gambas3-gb-image (<< 3.0.90), gambas3-gb-gtk (>= 2.90.0), gambas3-gb-gtk (<< 3.0.90), gambas3-gb-form (>= 2.90.0), gambas3-gb-form (<< 3.0.90), gambas3-gb-desktop (>= 2.90.0), gambas3-gb-desktop (<< 3.0.90), dpkg (>= 1.16), grep (>= 2.9), mount (>= 2.19), procps, x11-xserver-utils (>= 7.6), gksu (>= 2.0.2), lsb-release (>= 4.0)
+Build-Depends: debhelper (>= 5.0.0), gambas3-dev (>= 2.90.0), gambas3-dev (<< 3.0.90), gambas3-gb-image (>= 2.90.0), gambas3-gb-image (<< 3.0.90), gambas3-gb-gtk (>= 2.90.0), gambas3-gb-gtk (<< 3.0.90), gambas3-gb-form (>= 2.90.0), gambas3-gb-form (<< 3.0.90), gambas3-gb-desktop (>= 2.90.0), gambas3-gb-desktop (<< 3.0.90), gambas3-gb-settings (>= 2.90.0), gambas3-gb-settings (<< 3.0.90), gambas3-gb-form-mdi (>= 2.90.0), gambas3-gb-form-mdi (<< 3.0.90), dpkg (>= 1.16), grep (>= 2.9), mount (>= 2.19), procps, x11-xserver-utils (>= 7.6), gksu (>= 2.0.2), lsb-release (>= 4.0)
 Standards-Version: 3.7.2
 
 Package: i-nex
 Architecture: all
-Depends: gambas3-runtime (>= 2.90.0), gambas3-runtime (<< 3.0.90), gambas3-gb-image (>= 2.90.0), gambas3-gb-image (<< 3.0.90), gambas3-gb-gtk (>= 2.90.0), gambas3-gb-gtk (<< 3.0.90), gambas3-gb-form (>= 2.90.0), gambas3-gb-form (<< 3.0.90), gambas3-gb-desktop (>= 2.90.0), gambas3-gb-desktop (<< 3.0.90), dpkg (>= 1.16), grep (>= 2.9), mount (>= 2.19), procps, x11-xserver-utils (>= 7.6), gksu (>= 2.0.2), lsb-release (>= 4.0)
+Depends: gambas3-runtime (>= 2.90.0), gambas3-runtime (<< 3.0.90), gambas3-gb-image (>= 2.90.0), gambas3-gb-image (<< 3.0.90), gambas3-gb-gtk (>= 2.90.0), gambas3-gb-gtk (<< 3.0.90), gambas3-gb-form (>= 2.90.0), gambas3-gb-form (<< 3.0.90), gambas3-gb-desktop (>= 2.90.0), gambas3-gb-desktop (<< 3.0.90), gambas3-gb-settings (>= 2.90.0), gambas3-gb-settings (<< 3.0.90), gambas3-gb-form-mdi (>= 2.90.0), gambas3-gb-form-mdi (<< 3.0.90), dpkg (>= 1.16), grep (>= 2.9), mount (>= 2.19), procps, x11-xserver-utils (>= 7.6), gksu (>= 2.0.2), lsb-release (>= 4.0)
 Description:I-nex is a alternative to cpu-z
  This program is written in Gambas
