@@ -465,3 +465,9 @@ Public Sub Button8_Click()
   grafika()
 
 End
+
+Public Sub TabStrip1_Click()
+
+ 
+
+End
