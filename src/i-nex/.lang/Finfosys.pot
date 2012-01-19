@@ -395,7 +395,7 @@ msgid "SWAP memory used:"
 msgstr ""
 
 #: Finfosys.form:986
-msgid "Internet"
+msgid "Network"
 msgstr ""
 
 #: Finfosys.form:991

@@ -1,8 +1,7 @@
 ' Gambas module file
 
-Public battery_exist As Boolean = Exist("/proc/acpi/battery")
-Public true_false As Boolean = Setting.Settings["battery/active"]
-Public addres_battery As String
+Public battery_exist As Boolean = Exist("/proc/acpi/battery/BAT1/info")
+Public addres_battery As String = "/proc/acpi/battery/BAT1/info"
 Public Present As String
 Public Design_capacity As String
 Public last_full_capacity As String
@@ -20,14 +19,12 @@ Public OEM_info As String
 
 
 Public Sub _init()
-If true_false = True Then
- addres_battery = Setting.Settings["battery/patch"]
+If battery_exist = True Then
  _get_inf()
  _replace_n()
+ Object.Call(Finfosys, "battery_info")
 Else
- addres_battery = "/proc/acpi/battery/BAT1/info" 
- _get_inf()
- _replace_n()
+ Finfosys.TabStrip1[9].Visible = False 
 Endif
 End
 
