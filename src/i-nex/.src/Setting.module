@@ -1,8 +1,0 @@
-' Gambas module file
-
-Public MainPath As String = User.Home &/ ".i-nex"
-Public Settings As Settings = New Settings(MainPath &/ "settings.conf")
-
-Public Sub _init()
- If Not Exist(MainPath) Then Mkdir MainPath
-End

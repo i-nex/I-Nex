@@ -74,7 +74,7 @@
         Text = ("Family:")
       }
       { Label10 Label
-        Move(120,48,70,21)
+        Move(126,48,66,24)
         Text = ("bogomips:")
       }
       { TextArea3 TextArea
@@ -130,7 +130,7 @@
         Text = ("CPU Cores:")
       }
       { TextBox5 TextBox
-        Move(72,48,42,24)
+        Move(78,48,42,24)
         Text = ("N/A")
         ReadOnly = True
       }
@@ -139,7 +139,7 @@
         Text = ("Physical id:")
       }
       { TextBox6 TextBox
-        Move(186,48,84,24)
+        Move(198,48,84,24)
         Text = ("N/A")
         ReadOnly = True
       }
@@ -180,6 +180,16 @@
       { Button4 Button
         Move(378,119,77,21)
         Text = ("Info")
+      }
+      { TextBox21 TextBox
+        Move(120,102,72,24)
+        Visible = False
+        Text = ("N/A")
+      }
+      { Label37 Label
+        Move(6,102,102,24)
+        Visible = False
+        Text = ("CPU Temperature:")
       }
     }
     { TextArea1 TextArea
@@ -286,7 +296,7 @@
       Move(7,70,462,161)
       Text = ("OpenGL")
       { TextLabel17 TextLabel
-        Move(7,21,168,21)
+        Move(7,21,150,24)
         Text = ("OpenGL vendor string:")
       }
       { TextArea19 TextArea
@@ -296,7 +306,7 @@
         ScrollBar = Scroll.None
       }
       { TextLabel37 TextLabel
-        Move(7,56,161,21)
+        Move(7,56,150,24)
         Text = ("OpenGL renderer string:")
       }
       { TextArea20 TextArea
@@ -306,7 +316,7 @@
         ScrollBar = Scroll.None
       }
       { TextLabel38 TextLabel
-        Move(7,91,168,21)
+        Move(7,91,150,24)
         Text = ("OpenGL version string:")
       }
       { TextArea21 TextArea
@@ -316,8 +326,8 @@
         ScrollBar = Scroll.None
       }
       { TextLabel8 TextLabel
-        Move(7,126,168,21)
-        Text = ("Obecna rozdzielczość:")
+        Move(7,126,150,24)
+        Text = ("Present resolution:")
       }
       { TextArea38 TextArea
         Move(161,126,294,21)
@@ -802,7 +812,7 @@
     Index = 0
   }
   { Button2 Button
-    Move(7,497,120,24)
+    Move(7,497,138,24)
     Text = ("Take Screenshot")
     Picture = Picture["icon:/16/camera"]
   }
@@ -822,9 +832,5 @@
   { Label27 Label
     Move(216,498,49,21)
     Text = ("i-nex v:")
-  }
-  { Button9 Button
-    Move(354,498,21,21)
-    Picture = Picture["icon:/16/properties"]
   }
 }

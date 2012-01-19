@@ -6,16 +6,9 @@ Public Sub Form_Open()
   If gnome_screenshot = True Then
   Button2.Visible = True
   Endif
-  If battery.battery_exist And battery.true_false = False Then
-  TabStrip1[9].Visible = False
-  Else
-  TabStrip1[9].Visible = True 
-  Object.Call(battery, "_init")
-  Object.Call(Setting, "_init")
-  battery_info()
-  Endif
   TextArea28.Visible = False
   TextLabel21.Visible = False
+  TabStrip1[9].Visible = False
   'Procesor
   Shell "ls /sys/devices/system/cpu/ | grep -v save | sed -n '1p'" Wait To cpuz0
   Shell "ls /sys/devices/system/cpu/ | grep -v save | sed -n '2p'" Wait To cpuz1
@@ -470,18 +463,5 @@ Public Sub Button8_Click()
 
   Shell "xrandr -s " & ComboBox2.Text & "" Wait
   grafika()
-
-End
-
-Public Sub Button9_Click()
-
- Options.Show
-
-End
-
-Public Sub Button10_Click()
-
- Object.Call(battery, "_init")
- battery_info()
 
 End

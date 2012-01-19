@@ -13,7 +13,8 @@ SearchString=True
 
 [OpenFile]
 File[1]=".src/Finfosys.form"
-File[2]=".src/Finfosys.class:9.30"
+Active=2
+File[2]=".src/Finfosys.class:10.30"
 File[3]=".src/Global.class:92.31"
 File[4]=".src/About.form"
 File[5]=".src/About.class:29.47"
@@ -22,11 +23,8 @@ File[7]=".src/Fzaslugi.form"
 File[8]=".src/Fzaslugi.class:18.9"
 File[9]=".src/Flicencja.class:4.11"
 File[10]=".src/distrodetect.class:7.35"
-File[11]=".src/battery.module:46.93"
-File[12]=".src/Options.form"
-Active=13
-File[13]=".src/Options.class:6.22"
-Count=13
+File[11]=".src/battery.module:13.28"
+Count=11
 
 [Watches]
 Count=0

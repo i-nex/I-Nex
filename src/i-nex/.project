@@ -3,11 +3,10 @@
 Title=i-nex
 Startup=Finfosys
 Icon=i-nex.png
-Version=0.3.3
+Version=0.3.5
 Component=gb.image
 Component=gb.gtk
 Component=gb.form
-Component=gb.dbus
 Component=gb.desktop
 Component=gb.settings
 Component=gb.form.mdi
