@@ -7,7 +7,6 @@ Public Sub Form_Open()
   Button2.Visible = True
   Endif
   Object.Call(battery, "_init")
-  TextArea28.Visible = False
   TextLabel21.Visible = False
   'Procesor
   Shell "ls /sys/devices/system/cpu/ | grep -v save | sed -n '1p'" Wait To cpuz0
@@ -97,9 +96,12 @@ Public Sub ComboBox1_Click()
 End
 
 Public Sub kernel()
+  Dim found_kernels, cur_used As String
   Shell "ls /boot/vmlinuz* | cut -d '/' -f 3 " Wait To TextArea47.Text
-  Shell "ls /boot/vmlinuz* | cut -d '/' -f 3 | wc -l" Wait To Label16.Text
-  Shell "uname -r" Wait To Label26.Text
+  Shell "ls /boot/vmlinuz* | cut -d '/' -f 3 | wc -l" Wait To found_kernels
+  Shell "uname -r" Wait To cur_used
+  TextLabel25.Text = "Found " & found_kernels & " kernels:"
+  TextLabel26.Text = "Currently used: " & cur_used & ""
 End
 
 Public Sub dzwiek()
@@ -453,9 +455,8 @@ End
 Public Sub Button7_Click()
   Dim dpkg As String
   Shell "grep '^Status: install ok installed' /var/lib/dpkg/status | wc -l" Wait To dpkg
-  TextArea28.Visible = True
   TextLabel21.Visible = True
-  TextArea28.Text = dpkg
+  TextLabel21.Text = "" & dpkg & " Packages are installed"
 
 End
 

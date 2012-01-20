@@ -12,9 +12,8 @@ SearchComment=False
 SearchString=True
 
 [OpenFile]
-Active=1
 File[1]=".src/Finfosys.form"
-File[2]=".src/Finfosys.class:457.24"
+File[2]=".src/Finfosys.class:152.3"
 File[3]=".src/Global.class:92.31"
 File[4]=".src/About.form"
 File[5]=".src/About.class:29.47"
@@ -23,8 +22,11 @@ File[7]=".src/Fzaslugi.form"
 File[8]=".src/Fzaslugi.class:18.9"
 File[9]=".src/Flicencja.class:4.11"
 File[10]=".src/distrodetect.class:7.35"
-File[11]=".src/battery.module:13.28"
-Count=11
+File[11]=".src/battery.module:20.16"
+File[12]=".src/Form1.form"
+Active=13
+File[13]=".src/Form1.class:6.1"
+Count=13
 
 [Watches]
 Count=0

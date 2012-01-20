@@ -530,14 +530,7 @@
         Text = ("Check")
       }
       { TextLabel21 TextLabel
-        Move(189,21,203,21)
-        Text = ("Packages are installed")
-      }
-      { TextArea28 TextArea
-        Move(119,21,63,21)
-        Text = ("N/A")
-        ReadOnly = True
-        ScrollBar = Scroll.None
+        Move(126,24,330,24)
       }
     }
     Index = 6
@@ -547,28 +540,14 @@
       Move(7,7,462,441)
       Text = ("Installed kernels:")
       { TextLabel26 TextLabel
-        Move(7,238,119,21)
-        Text = ("Currently used:")
+        Move(7,238,444,24)
       }
-      { Label26 Label
-        Move(140,238,294,21)
-        Text = ("N/A")
-      }
-      { Label4 Label
-        Move(7,21,77,21)
-        Text = ("Found")
-      }
-      { Label16 Label
-        Move(84,21,42,21)
-        Text = ("Label16")
-      }
-      { Label17 Label
-        Move(133,21,56,21)
-        Text = ("kernels:")
+      { TextLabel25 TextLabel
+        Move(6,18,216,24)
       }
     }
     { TextArea47 TextArea
-      Move(14,56,448,182)
+      Move(12,48,448,182)
       Text = ("TextArea47")
       ReadOnly = True
     }
