@@ -533,11 +533,14 @@
       Move(7,287,462,56)
       Text = ("Number of installed packages:")
       { Button7 Button
-        Move(7,21,112,21)
+        Move(7,21,72,24)
         Text = ("Check")
+        Picture = Picture["icon:/16/info"]
       }
       { TextLabel21 TextLabel
-        Move(126,24,330,24)
+        Move(84,18,330,30)
+        Alignment = Align.Left
+        Border = Border.Etched
       }
     }
     Index = 6
