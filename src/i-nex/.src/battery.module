@@ -20,11 +20,13 @@ Public OEM_info As String
 
 Public Sub _init()
 If battery_exist = True Then
+ Debug "Battery found " & addres_battery & ""
  _get_inf()
  _replace_n()
  Object.Call(Finfosys, "battery_info")
 Else
- Finfosys.TabStrip1[9].Visible = False 
+ Finfosys.TabStrip1[9].Visible = False
+ Debug "Battery not found in " & addres_battery & "" 
 Endif
 End
 

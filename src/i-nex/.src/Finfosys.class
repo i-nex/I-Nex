@@ -75,26 +75,27 @@ Public Sub Form_Open()
       ComboBox1.Add("Procesor11")
   Endif
 'Uruchomienie instrukcji dla poszczególnych zakładek w celu wydobycia informacji z systemu
- Debug "Dospam uptime"
+ Debug "Check Dospam uptime"
  dospam_uptime()
- Debug "System"
+ Debug "Check System"
  System()
- Debug "Bios"
+ Debug "Check Bios"
  bios()
- Debug "Kernel"
+ Debug "Check Kernels"
  kernel()
- Debug "Internet"
+ Debug "Check network"
  internet()
- Debug "Dzwiek"
+ Debug "Check sound cards"
  dzwiek()
- Debug "Grafika"
+ Debug "Check graphic card"
  grafika()
- Debug "Dysk"
+ Debug "Check drives"
  dysk()
  'END Uruchomienie instrukcji dla poszczególnych zakładek w celu wydobycia informacji z systemu
  Debug "Set Combobox to Procesor0"
  ComboBox1.Text = "Procesor0" 'Ustawienie combobox na Procesor0 / W przeciwnym wypadku nie pokaże nic
  Label25.Text = Application.version
+ Debug Application.Version
  'Okno na środku
  Me.Center
 
@@ -360,12 +361,13 @@ End
 Public Sub Button2_Click()
 
   Exec ["gnome-screenshot", "-w"]
+  Debug "Running Gnome Screenshot"
 
 End
 
 Public Sub Button1_Click()
 
-  Finfosys.Close
+  Me.Close
   Debug "God bye!"
 End
 
@@ -436,12 +438,13 @@ Public Sub battery_info()
  TextBox18.Text = battery.serial_number
  TextBox19.Text = battery.battery_type
  TextBox20.Text = battery.OEM_info
+ Debug "Get information Active Battery Done"
  
 End
 
 
 Public Sub Button3_Click()
-
+  Debug "Show About Window"
   About.Show
 
 End
@@ -461,7 +464,7 @@ End
 Public Sub Button4_Click()
 
   Desktop.Open("http://www.cpu-world.com/cgi-bin/SearchSite.pl?SEARCH=" & TextArea1.Text & "&PROCESS=Search")
-
+  Debug "Open website for more informations about your processor"
 End
 
 Public Sub Button7_Click()

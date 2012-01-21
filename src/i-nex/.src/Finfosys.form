@@ -805,7 +805,7 @@
   { Button1 Button
     Move(378,498,84,21)
     Text = ("Close")
-    Picture = Picture["icon:/16/cancel"]
+    Picture = Picture["icon:/16/quit"]
   }
   { Button3 Button
     Move(330,498,21,21)
