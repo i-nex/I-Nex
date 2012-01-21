@@ -3,12 +3,15 @@
 Public Sub Form_Open()
   Dim gnome_screenshot As Boolean = Exist("/usr/bin/gnome-screenshot")
   Dim cpuz0, cpuz1, cpuz2, cpuz3, cpuz4, cpuz5, cpuz6, cpuz7, cpuz8, cpuz9, cpuz10, cpuz11 As String
+  Debug "Check Gnome Screenshot"
   If gnome_screenshot = True Then
   Button2.Visible = True
+  Debug "Gnome Screenshot Exist = True"
   Endif
   Object.Call(battery, "_init")
   TextLabel21.Visible = False
   'Procesor
+  Debug "Check available procesors"
   Shell "ls /sys/devices/system/cpu/ | grep -v save | sed -n '1p'" Wait To cpuz0
   Shell "ls /sys/devices/system/cpu/ | grep -v save | sed -n '2p'" Wait To cpuz1
   Shell "ls /sys/devices/system/cpu/ | grep -v save | sed -n '3p'" Wait To cpuz2
@@ -21,7 +24,7 @@ Public Sub Form_Open()
   Shell "ls /sys/devices/system/cpu/ | grep -v save | sed -n '10p'" Wait To cpuz9
   Shell "ls /sys/devices/system/cpu/ | grep -v save | sed -n '11p'" Wait To cpuz10
   Shell "ls /sys/devices/system/cpu/ | grep -v save | sed -n '12p'" Wait To cpuz11
-  
+  Debug "Replaces new line to space"
   cpuz0 = Replace(cpuz0, "\n", "")
   cpuz1 = Replace(cpuz1, "\n", "")
   cpuz2 = Replace(cpuz2, "\n", "")
@@ -72,15 +75,24 @@ Public Sub Form_Open()
       ComboBox1.Add("Procesor11")
   Endif
 'Uruchomienie instrukcji dla poszczególnych zakładek w celu wydobycia informacji z systemu
+ Debug "Dospam uptime"
  dospam_uptime()
+ Debug "System"
  System()
+ Debug "Bios"
  bios()
+ Debug "Kernel"
  kernel()
+ Debug "Internet"
  internet()
+ Debug "Dzwiek"
  dzwiek()
+ Debug "Grafika"
  grafika()
+ Debug "Dysk"
  dysk()
  'END Uruchomienie instrukcji dla poszczególnych zakładek w celu wydobycia informacji z systemu
+ Debug "Set Combobox to Procesor0"
  ComboBox1.Text = "Procesor0" 'Ustawienie combobox na Procesor0 / W przeciwnym wypadku nie pokaże nic
  Label25.Text = Application.version
  'Okno na środku
@@ -90,7 +102,7 @@ End
 
 
 Public Sub ComboBox1_Click()
-
+  Debug "Checking procesors"
   Wykrywanie_procesorow()
 
 End
@@ -354,7 +366,7 @@ End
 Public Sub Button1_Click()
 
   Finfosys.Close
-
+  Debug "God bye!"
 End
 
 Public Sub dospam_uptime()
@@ -409,7 +421,7 @@ Public Sub dospam_uptime()
 End
 
 Public Sub battery_info()
- 
+ Debug "Get information Active Battery"
  TextBox7.Text = battery.Present
  TextBox8.Text = battery.Design_capacity
  TextBox9.Text = battery.last_full_capacity
@@ -470,5 +482,11 @@ End
 Public Sub Button10_Click()
 
  Object.Call(battery, "_init")
+ Debug "Battery initial"
+End
 
+Public Sub Button9_Click()
+
+ Brightness.Show
+ Debug "Show brightness window"
 End

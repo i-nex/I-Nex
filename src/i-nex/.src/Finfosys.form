@@ -206,7 +206,7 @@
     }
     Index = 1
     Text = ("Motherboard / Bios")
-    Picture = Picture["motherboard.png"]
+    Picture = Picture["icon:/16/hardware"]
     { Frame1 Frame
       Move(7,147,462,108)
       Text = ("Bios")
@@ -267,7 +267,7 @@
     }
     Index = 2
     Text = ("Sound")
-    Picture = Picture["Data/Tabs/sound.png"]
+    Picture = Picture["icon:/16/media-player"]
     { TextLabel19 TextLabel
       Move(7,7,462,21)
       Text = ("Sound Equipment:")
@@ -345,11 +345,18 @@
       Text = ("Wybierz rozdzielczość")
     }
     { Button8 Button
-      Move(245,259,112,21)
+      Move(246,258,66,24)
       Text = ("Set")
+      Picture = Picture["icon:/16/screen"]
     }
     { PictureBox1 PictureBox
-      Move(160,301,160,147)
+      Move(6,300,160,147)
+    }
+    { Button9 Button
+      Move(318,258,96,24)
+      Visible = False
+      Text = ("Brightness")
+      Picture = Picture["icon:/16/sun"]
     }
     Index = 4
     Text = ("Drives")
@@ -535,7 +542,7 @@
     }
     Index = 6
     Text = ("Kernel")
-    Picture = Picture["Data/Tabs/user.png"]
+    Picture = Picture["icon:/16/linux"]
     { Frame22 Frame
       Move(7,7,462,441)
       Text = ("Installed kernels:")
@@ -652,7 +659,7 @@
     }
     Index = 8
     Text = ("Network")
-    Picture = Picture["11068_9016_16_network_globe_icon.png"]
+    Picture = Picture["icon:/16/network"]
     { Frame11 Frame
       Move(7,0,462,56)
       Text = ("Default web browser")
