@@ -495,7 +495,6 @@ Public Sub Button10_Click()
 End
 
 Public Sub Button9_Click()
-
- Brightness.Show
+ 'Brightness.Show
  Debug "Show brightness window"
 End
