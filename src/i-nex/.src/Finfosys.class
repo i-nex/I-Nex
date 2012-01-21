@@ -3,6 +3,7 @@
 Public Sub Form_Open()
   Dim gnome_screenshot As Boolean = Exist("/usr/bin/gnome-screenshot")
   Dim cpuz0, cpuz1, cpuz2, cpuz3, cpuz4, cpuz5, cpuz6, cpuz7, cpuz8, cpuz9, cpuz10, cpuz11 As String
+  Dim maxim As Integer
   Debug "Check Gnome Screenshot"
   If gnome_screenshot = True Then
   Button2.Visible = True
@@ -99,6 +100,11 @@ Public Sub Form_Open()
  'Okno na środku
  Me.Center
 
+End
+Public Sub rplc()
+ 
+ 
+ 
 End
 
 
@@ -390,25 +396,25 @@ Public Sub dospam_uptime()
   Shell "/sbin/swapon -s | awk {'print $4'} | sed -n '2p'" Wait To usedswap1
   
   TextArea39.Text = total & "MB"
-  TextArea39.Text = Replace(TextArea39.Text, "\n", " ")
+  TextArea39.Text = Replace(TextArea39.Text, "\n", "")
   TextArea40.Text = used & "MB"
-  TextArea40.Text = Replace(TextArea40.Text, "\n", " ")
+  TextArea40.Text = Replace(TextArea40.Text, "\n", "")
   TextArea41.Text = freee & "MB"
-  TextArea41.Text = Replace(TextArea41.Text, "\n", " ")
+  TextArea41.Text = Replace(TextArea41.Text, "\n", "")
   TextArea42.Text = shared & "MB"
-  TextArea42.Text = Replace(TextArea42.Text, "\n", " ")
+  TextArea42.Text = Replace(TextArea42.Text, "\n", "")
   TextArea43.Text = buffers & "MB"
-  TextArea43.Text = Replace(TextArea43.Text, "\n", " ")
+  TextArea43.Text = Replace(TextArea43.Text, "\n", "")
   TextArea44.Text = cached & "MB"
-  TextArea44.Text = Replace(TextArea44.Text, "\n", " ")
+  TextArea44.Text = Replace(TextArea44.Text, "\n", "")
   TextLabel7.Text = usedonthistime & "MB"
-  TextLabel7.Text = Replace(TextLabel7.Text, "\n", " ")
+  TextLabel7.Text = Replace(TextLabel7.Text, "\n", "")
   TextArea45.Text = swaptotal & "MB"
-  TextArea45.Text = Replace(TextArea45.Text, "\n", " ")
+  TextArea45.Text = Replace(TextArea45.Text, "\n", "")
   TextLabel24.Text = usedswap / 1000
   Exec ["uptime"] Wait To uptime
   TextArea37.Text = uptime
-  TextArea37.Text = Replace(TextArea37.Text, "\n", " ")
+  TextArea37.Text = Replace(TextArea37.Text, "\n", "")
   dospam1 = Replace(dospam1, "\n", "")
   totpam1 = Replace(totpam1, "\n", "")
   totalswap1 = Replace(totalswap1, "\n", "")
