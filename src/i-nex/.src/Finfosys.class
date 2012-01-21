@@ -94,7 +94,7 @@ Public Sub Form_Open()
  'END Uruchomienie instrukcji dla poszczególnych zakładek w celu wydobycia informacji z systemu
  Debug "Set Combobox to Procesor0"
  ComboBox1.Text = "Procesor0" 'Ustawienie combobox na Procesor0 / W przeciwnym wypadku nie pokaże nic
- Label25.Text = Application.version
+ Label25.Text = Application.Name & " v: " & Application.version
  Debug Application.Version
  'Okno na środku
  Me.Center

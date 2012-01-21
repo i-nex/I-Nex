@@ -808,15 +808,11 @@
     Picture = Picture["icon:/16/quit"]
   }
   { Button3 Button
-    Move(330,498,21,21)
+    Move(354,498,21,21)
     Picture = Picture["icon:/16/help"]
   }
   { Label25 Label
-    Move(270,498,56,21)
+    Move(276,498,72,24)
     Text = ("Label25")
-  }
-  { Label27 Label
-    Move(216,498,49,21)
-    Text = ("i-nex v:")
   }
 }
