@@ -48,6 +48,10 @@ Static Public Sub ikonaprocka()
   Finfosys.PictureBox3.Picture = Picture["Processors/intel_core_i5.png"]
   Endif
   
+  If Finfosys.TextArea1.Text Like "*Intel(R) Celeron(R) M*" Then
+  Finfosys.PictureBox3.Picture = Picture["Processors/intel_celeron_m_processor.png"]
+  Endif
+  
   'Procesory amd
   If Finfosys.TextArea1.Text Like "*AMD Athlon(tm) 64 X2*" Then
   Finfosys.PictureBox3.Picture = Picture["amdathlonx2.png"]
