@@ -14,71 +14,75 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: Fzaslugi.form:22
+#: Fzaslugi.form:23
 msgid "Zasługi"
 msgstr ""
 
-#: Fzaslugi.form:30
+#: Fzaslugi.form:31
 msgid "Application"
 msgstr ""
 
-#: Fzaslugi.form:34
+#: Fzaslugi.form:35
 msgid "Główny bajkopisarz:"
 msgstr ""
 
-#: Fzaslugi.form:39
+#: Fzaslugi.form:40
 msgid "Michał 'eloaders' Głowienka"
 msgstr ""
 
-#: Fzaslugi.form:44
+#: Fzaslugi.form:45
 msgid "eloaders@yahoo.com"
 msgstr ""
 
-#: Fzaslugi.form:47
+#: Fzaslugi.form:48
 msgid "Art and graphic"
 msgstr ""
 
-#: Fzaslugi.form:51
-msgid "Ikona oraz logo programu:"
+#: Fzaslugi.form:52
+msgid "0.3.x Version"
 msgstr ""
 
-#: Fzaslugi.form:56
+#: Fzaslugi.form:57
+msgid "0.2.x Version"
+msgstr ""
+
+#: Fzaslugi.form:62
 msgid "Daniel 'DaNieL' Pabis "
 msgstr ""
 
-#: Fzaslugi.form:61
+#: Fzaslugi.form:67
 msgid "daniel.pabis@interia.pl"
 msgstr ""
 
-#: Fzaslugi.form:66
+#: Fzaslugi.form:72
 msgid "Maciej Urmański"
 msgstr ""
 
-#: Fzaslugi.form:71
+#: Fzaslugi.form:77
 msgid "maciej14@gmail.com"
 msgstr ""
 
-#: Fzaslugi.form:76
+#: Fzaslugi.form:82
 msgid "I-Nex Logo by:"
 msgstr ""
 
-#: Fzaslugi.form:81
+#: Fzaslugi.form:87
 msgid "mmaciek12"
 msgstr ""
 
-#: Fzaslugi.form:86
+#: Fzaslugi.form:92
 msgid "DeviantArt"
 msgstr ""
 
-#: Fzaslugi.form:91
+#: Fzaslugi.form:97
 msgid "Mail"
 msgstr ""
 
-#: Fzaslugi.form:94
+#: Fzaslugi.form:100
 msgid "Inne"
 msgstr ""
 
-#: Fzaslugi.form:105
+#: Fzaslugi.form:111
 msgid "Zamknij"
 msgstr ""
 
