@@ -19,3 +19,15 @@ Public Sub TextLabel8_MouseDown()
   Desktop.Open("eloaders@yahoo.com")
 
 End
+
+Public Sub Button2_Click()
+
+ Desktop.Open("http://mmaciek12.deviantart.com/")
+
+End
+
+Public Sub Button3_Click()
+
+ Desktop.Open("mailto:mmaciek123@gmail.com")
+
+End

@@ -15,7 +15,7 @@ Public Sub Form_Open()
    TextBox22.Visible = True
    TextBox22.Text = File.Load("/etc/X11/default-display-manager")
    TextBox22.Text = Replace(TextBox22.Text, "\n", "")
-   Debug "Default display manager is" & TextBox22.Text
+   Debug "Default display manager is " & TextBox22.Text
   Endif
   Object.Call(battery, "_init")
   TextLabel21.Visible = False

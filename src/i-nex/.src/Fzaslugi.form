@@ -1,58 +1,75 @@
 # Gambas Form File 3.0
-{ Form Form 
+
+{ Form Form
   Move(0,0,364,266)
   #Scaled = False
-  Text = ("Zas\xC5\x82ugi")
+  Text = ("Zasługi")
   Icon = Picture["i-nex.png"]
   Resizable = False
-  { TabStrip1 TabStrip 
+  { TabStrip1 TabStrip
     Move(0,0,364,217)
     Count = 3
     Index = 0
-    Text = ("Program")
-    { TextLabel6 TextLabel 
+    Text = ("Application")
+    { TextLabel6 TextLabel
       Move(7,7,168,21)
-      Text = ("G\xC5\x82\xC3\xB3wny bajkopisarz:")
+      Text = ("Główny bajkopisarz:")
     }
-    { TextLabel7 TextLabel 
+    { TextLabel7 TextLabel
       Move(7,28,196,21)
-      Text = ("Micha\xC5\x82 'eloaders' G\xC5\x82owienka")
+      Text = ("Michał 'eloaders' Głowienka")
     }
-    { TextLabel8 TextLabel 
+    { TextLabel8 TextLabel
       Move(210,28,147,21)
       Text = ("eloaders@yahoo.com")
     }
     Index = 1
-    Text = ("Grafika")
-    { TextLabel1 TextLabel 
+    Text = ("Art and graphic")
+    { TextLabel1 TextLabel
       Move(7,7,168,21)
       Text = ("Ikona oraz logo programu:")
     }
-    { TextLabel2 TextLabel 
-      Move(7,28,168,21)
+    { TextLabel2 TextLabel
+      Move(6,132,168,21)
       Text = ("Daniel 'DaNieL' Pabis ")
     }
-    { TextLabel3 TextLabel 
-      Move(189,28,168,21)
+    { TextLabel3 TextLabel
+      Move(192,132,168,21)
       Text = ("daniel.pabis@interia.pl")
     }
-    { TextLabel4 TextLabel 
-      Move(7,49,133,21)
-      Text = ("Maciej Urma\xC5\x84ski")
+    { TextLabel4 TextLabel
+      Move(6,156,133,21)
+      Text = ("Maciej Urmański")
     }
-    { TextLabel5 TextLabel 
-      Move(147,49,168,21)
+    { TextLabel5 TextLabel
+      Move(150,156,168,21)
       Text = ("maciej14@gmail.com")
+    }
+    { Label1 Label
+      Move(6,24,84,24)
+      Text = ("I-Nex Logo by:")
+    }
+    { Label2 Label
+      Move(90,24,72,24)
+      Text = ("mmaciek12")
+    }
+    { Button2 Button
+      Move(156,24,78,24)
+      Text = ("DeviantArt")
+    }
+    { Button3 Button
+      Move(240,24,84,24)
+      Text = ("Mail")
     }
     Index = 2
     Text = ("Inne")
-    { TextArea3 TextArea 
+    { TextArea3 TextArea
       Move(0,0,364,189)
       ReadOnly = True
     }
     Index = 0
   }
-  { Button1 Button 
+  { Button1 Button
     Move(273,224,84,28)
     Text = ("Zamknij")
   }
