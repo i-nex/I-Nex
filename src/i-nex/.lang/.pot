@@ -577,5 +577,5 @@ msgid "Mail"
 msgstr ""
 
 #: Fzaslugi.form:100
-msgid "Inne"
+msgid "Other"
 msgstr ""
