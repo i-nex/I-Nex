@@ -532,6 +532,7 @@
       { TextBox22 TextBox
         Move(156,276,300,24)
         Visible = False
+        ReadOnly = True
       }
     }
     { Button5 Button
