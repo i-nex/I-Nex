@@ -322,151 +322,151 @@ msgstr ""
 msgid "Default Display Manager:"
 msgstr ""
 
-#: Finfosys.form:824
+#: Finfosys.form:825
 msgid "Number of installed packages:"
 msgstr ""
 
-#: Finfosys.form:828
+#: Finfosys.form:829
 msgid "Check"
 msgstr ""
 
-#: Finfosys.form:839
+#: Finfosys.form:840
 msgid "Kernel"
 msgstr ""
 
-#: Finfosys.form:844
+#: Finfosys.form:845
 msgid "Installed kernels:"
 msgstr ""
 
-#: Finfosys.form:857
+#: Finfosys.form:858
 msgid "TextArea47"
 msgstr ""
 
-#: Finfosys.form:861
+#: Finfosys.form:862
 msgid "Memory"
 msgstr ""
 
-#: Finfosys.form:871
+#: Finfosys.form:872
 msgid "Ram used:"
 msgstr ""
 
-#: Finfosys.form:927
+#: Finfosys.form:928
 msgid "Total:"
 msgstr ""
 
-#: Finfosys.form:932
+#: Finfosys.form:933
 msgid "Used:"
 msgstr ""
 
-#: Finfosys.form:937
+#: Finfosys.form:938
 msgid "Free:"
 msgstr ""
 
-#: Finfosys.form:942
+#: Finfosys.form:943
 msgid "Shared:"
 msgstr ""
 
-#: Finfosys.form:947
+#: Finfosys.form:948
 msgid "Buffers:"
 msgstr ""
 
-#: Finfosys.form:952
+#: Finfosys.form:953
 msgid "Cached:"
 msgstr ""
 
-#: Finfosys.form:964
+#: Finfosys.form:965
 msgid "Swap total:"
 msgstr ""
 
-#: Finfosys.form:973
+#: Finfosys.form:974
 msgid "SWAP memory used:"
 msgstr ""
 
-#: Finfosys.form:981
+#: Finfosys.form:982
 msgid "Network"
 msgstr ""
 
-#: Finfosys.form:986
+#: Finfosys.form:987
 msgid "Default web browser"
 msgstr ""
 
-#: Finfosys.form:998
+#: Finfosys.form:999
 msgid "Network controller:"
 msgstr ""
 
-#: Finfosys.form:1010
+#: Finfosys.form:1011
 msgid "Ethernet controller:"
 msgstr ""
 
-#: Finfosys.form:1020
+#: Finfosys.form:1021
 msgid "Battery"
 msgstr ""
 
-#: Finfosys.form:1081
+#: Finfosys.form:1082
 msgid "Present:"
 msgstr ""
 
-#: Finfosys.form:1086
+#: Finfosys.form:1087
 msgid "Design capacity:"
 msgstr ""
 
-#: Finfosys.form:1091
+#: Finfosys.form:1092
 msgid "Last full capacity:"
 msgstr ""
 
-#: Finfosys.form:1096
+#: Finfosys.form:1097
 msgid "Battery technology:"
 msgstr ""
 
-#: Finfosys.form:1101
+#: Finfosys.form:1102
 msgid "Design voltage:"
 msgstr ""
 
-#: Finfosys.form:1106
+#: Finfosys.form:1107
 msgid "Design capacity warning:"
 msgstr ""
 
-#: Finfosys.form:1111
+#: Finfosys.form:1112
 msgid "Design capacity low:"
 msgstr ""
 
-#: Finfosys.form:1116
+#: Finfosys.form:1117
 msgid "Cycle count:"
 msgstr ""
 
-#: Finfosys.form:1121
+#: Finfosys.form:1122
 msgid "Capacity granularity 1:"
 msgstr ""
 
-#: Finfosys.form:1126
+#: Finfosys.form:1127
 msgid "Capacity granularity 2:"
 msgstr ""
 
-#: Finfosys.form:1131
+#: Finfosys.form:1132
 msgid "Model number:"
 msgstr ""
 
-#: Finfosys.form:1136
+#: Finfosys.form:1137
 msgid "Serial number:"
 msgstr ""
 
-#: Finfosys.form:1141
+#: Finfosys.form:1142
 msgid "OEM info:"
 msgstr ""
 
-#: Finfosys.form:1146
+#: Finfosys.form:1147
 msgid "Battery type:"
 msgstr ""
 
-#: Finfosys.form:1158
+#: Finfosys.form:1159
 msgid "Take Screenshot"
 msgstr ""
 
-#: Finfosys.form:1164
+#: Finfosys.form:1165
 msgid "Close"
 msgstr ""
 
-#: Finfosys.form:1175
+#: Finfosys.form:1176
 msgid "Label25"
 msgstr ""
 
