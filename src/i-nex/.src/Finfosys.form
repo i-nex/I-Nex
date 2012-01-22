@@ -413,17 +413,17 @@
     Text = ("System")
     Picture = Picture["System.png"]
     { Frame8 Frame
-      Move(7,350,462,56)
+      Move(6,390,462,56)
       Text = ("System uptime:")
       { TextArea37 TextArea
-        Move(14,21,406,21)
+        Move(12,24,406,21)
         Text = ("TextArea37")
         ReadOnly = True
         ScrollBar = Scroll.None
       }
     }
     { Frame7 Frame
-      Move(7,0,462,280)
+      Move(7,0,462,312)
       Text = ("Main:")
       { TextArea29 TextArea
         Move(119,49,336,21)
@@ -524,13 +524,22 @@
         Border = False
         ScrollBar = Scroll.None
       }
+      { Label4 Label
+        Move(6,276,144,24)
+        Visible = False
+        Text = ("Default Display Manager:")
+      }
+      { TextBox22 TextBox
+        Move(156,276,300,24)
+        Visible = False
+      }
     }
     { Button5 Button
-      Move(434,371,28,21)
+      Move(432,414,28,21)
       Picture = Picture["icon:/16/refresh"]
     }
     { Frame23 Frame
-      Move(7,287,462,56)
+      Move(6,324,462,56)
       Text = ("Number of installed packages:")
       { Button7 Button
         Move(7,21,72,24)
