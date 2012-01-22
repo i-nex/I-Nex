@@ -96,6 +96,10 @@ Static Public Sub ikonaprocka()
   If Finfosys.TextArea1.Text Like "*AMD Opteron*6*" Then
   Finfosys.PictureBox3.Picture = Picture["Processors/amd_opteron_processor_6xxx.png"]
   Endif
+  
+  If Finfosys.TextArea1.Text Like "*AMD Athlon(tm) II X3*" Then
+  Finfosys.PictureBox3.Picture = Picture["Processors/amd_athlon_2_x3.png"]
+  Endif
 
 End
 
