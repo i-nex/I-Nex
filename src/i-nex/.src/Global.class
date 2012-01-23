@@ -52,6 +52,10 @@ Static Public Sub ikonaprocka()
   Finfosys.PictureBox3.Picture = Picture["Processors/intel_celeron_m_processor.png"]
   Endif
   
+  If Finfosys.TextArea1.Text Like "*Pentium(R) Dual-Core*" Then
+  Finfosys.PictureBox3.Picture = Picture["Processors/pentium_dual_core.png"]
+  Endif
+  
   'Procesory amd
   If Finfosys.TextArea1.Text Like "*AMD Athlon(tm) 64 X2*" Then
   Finfosys.PictureBox3.Picture = Picture["amdathlonx2.png"]
