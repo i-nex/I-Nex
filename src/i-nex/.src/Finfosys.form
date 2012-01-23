@@ -222,22 +222,22 @@
         Move(7,77,42,21)
         Text = ("Date:")
       }
+      { TextBox25 TextBox
+        Move(96,12,360,24)
+        ReadOnly = True
+      }
+      { TextBox26 TextBox
+        Move(96,42,360,24)
+        ReadOnly = True
+      }
+      { TextBox27 TextBox
+        Move(96,72,360,24)
+        ReadOnly = True
+      }
     }
     { Frame5 Frame
       Move(7,7,462,133)
       Text = ("Motherboard")
-      { TextArea15 TextArea
-        Move(7,42,448,21)
-        Text = ("N/A")
-        ReadOnly = True
-        ScrollBar = Scroll.None
-      }
-      { TextArea16 TextArea
-        Move(7,91,448,21)
-        Text = ("N/A")
-        ReadOnly = True
-        ScrollBar = Scroll.None
-      }
       { TextLabel2 TextLabel
         Move(6,18,78,24)
         Text = ("Manufacturer:")
@@ -246,24 +246,14 @@
         Move(7,70,42,21)
         Text = ("Model:")
       }
-    }
-    { TextArea25 TextArea
-      Move(98,168,364,21)
-      Text = ("TextArea25")
-      ReadOnly = True
-      ScrollBar = Scroll.None
-    }
-    { TextArea26 TextArea
-      Move(98,196,364,21)
-      Text = ("TextArea26")
-      ReadOnly = True
-      ScrollBar = Scroll.None
-    }
-    { TextArea27 TextArea
-      Move(98,224,364,21)
-      Text = ("TextArea27")
-      ReadOnly = True
-      ScrollBar = Scroll.None
+      { TextBox23 TextBox
+        Move(6,36,450,24)
+        ReadOnly = True
+      }
+      { TextBox24 TextBox
+        Move(6,90,450,24)
+        ReadOnly = True
+      }
     }
     Index = 2
     Text = ("Sound")

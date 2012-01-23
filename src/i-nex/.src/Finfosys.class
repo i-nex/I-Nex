@@ -167,18 +167,16 @@ Public Sub dysk()
 End
 
 Public Sub bios()
-  Dim bios_vendor, bios_version, bios_date, board_name, board_vendor As String
-  
-  Shell "cat /sys/devices/virtual/dmi/id/bios_vendor" Wait To bios_vendor
-  Shell "cat /sys/devices/virtual/dmi/id/bios_version" Wait To bios_version
-  Shell "cat /sys/devices/virtual/dmi/id/bios_date" Wait To bios_date
-  Shell "cat /sys/devices/virtual/dmi/id/board_vendor" Wait To board_vendor
-  Shell "cat /sys/devices/virtual/dmi/id/board_name" To board_name
-  TextArea25.Text = bios_vendor
-  TextArea26.Text = bios_version
-  TextArea27.Text = bios_date
-  TextArea15.Text = board_vendor
-  TextArea16.Text = board_name
+  Exec ["cat", "/sys/devices/virtual/dmi/id/board_vendor"] Wait To TextBox23.Text
+  Exec ["cat", "/sys/devices/virtual/dmi/id/board_name"] Wait To TextBox24.Text
+  Exec ["cat", "/sys/devices/virtual/dmi/id/bios_vendor"] Wait To TextBox25.Text
+  Exec ["cat", "/sys/devices/virtual/dmi/id/bios_date"] Wait To TextBox26.Text
+  Exec ["cat", "/sys/devices/virtual/dmi/id/bios_vendor"] Wait To TextBox27.Text
+  TextBox23.Text = Replace(TextBox23.Text, "\n", "")
+  TextBox24.Text = Replace(TextBox24.Text, "\n", "")
+  TextBox25.Text = Replace(TextBox25.Text, "\n", "")
+  TextBox26.Text = Replace(TextBox26.Text, "\n", "")
+  TextBox27.Text = Replace(TextBox27.Text, "\n", "")
 End
 
 Public Sub System()
@@ -489,7 +487,6 @@ Public Sub Button7_Click()
   Shell "grep '^Status: install ok installed' /var/lib/dpkg/status | wc -l" Wait To dpkg
   TextLabel21.Visible = True
   TextLabel21.Text = "" & dpkg & " Packages are installed"
-
 End
 
 Public Sub Button8_Click()
