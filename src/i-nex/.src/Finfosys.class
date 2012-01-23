@@ -390,7 +390,7 @@ End
 
 Public Sub dospam_uptime()
   Dim uptime, total, used, freee, shared, buffers, cached, usedonthistime, swaptotal As String
-  Dim dospam, totpam, totalswap, usedswap As Float
+  Dim dospam, totpam, totalswap, usedswap As Integer
   Dim dospam1, totpam1, totalswap1, usedswap1 As String
   Shell "free -m | grep 'Mem' | awk {'print $2'}" Wait To total
   Shell "free -m | awk {'print $3'} | sed -n '2p'" Wait To used
