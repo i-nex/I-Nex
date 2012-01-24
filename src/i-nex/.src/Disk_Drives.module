@@ -1,0 +1,90 @@
+' Gambas module file
+
+Public block_drive As String = "Finfosys.ComboBox4.Text"
+Public device_model As String
+Public device_vendor As String
+Public mount_point As String
+Public device_uuid As String
+Public real_size As String
+Public filesystem_type As String
+Public mount_widtch As String
+Public device_rev As String
+Public max_sectors As String
+Public device_state As String
+Public modalias As String
+Public Used As String
+Public check_swap As String
+
+Public Sub _init()
+Dim ListAllDiscs, risultato As String
+Dim righe As New String[]
+  Dim count As Integer
+  Dim riga As New String[]
+  Dim lista As New String[]
+Shell "ls /sys/block/ | grep 'sd'" To ListAllDiscs
+righe = Split(ListAllDiscs, "\n", "%%", True)
+For count = 0 To righe.Max
+  riga = Split(righe[count], " ", "%%", True)
+  risultato = Replace(riga[0], " ", "")
+  lista.add(risultato)
+Next
+  Finfosys.ComboBox4.List = lista
+  Finfosys.ComboBox4.Index = 0
+End
+
+Public Sub _init_2()
+ 
+ Dim ListAllDiscs, risultato As String
+Dim righe As New String[]
+  Dim count As Integer
+  Dim riga As New String[]
+  Dim lista As New String[]
+Shell "ls /sys/block/" & Finfosys.ComboBox4.Text & " | grep 'sd'" To ListAllDiscs
+righe = Split(ListAllDiscs, "\n", "%%", True)
+For count = 0 To righe.Max
+  riga = Split(righe[count], " ", "%%", True)
+  risultato = Replace(riga[0], " ", "")
+  lista.add(risultato)
+Next
+  Finfosys.ComboBox3.List = lista
+  Finfosys.ComboBox3.Index = 0
+End
+
+Public Sub get_informations()
+ 
+  Shell "cat /sys/block/" & Finfosys.ComboBox4.Text & "/device/model" Wait To device_model
+  Shell "cat /sys/block/" & Finfosys.ComboBox4.Text & "/device/vendor" Wait To device_vendor
+  Shell "cat /sys/block/" & Finfosys.ComboBox4.Text & "/device/rev" Wait To device_rev
+  Shell "cat /sys/block/" & Finfosys.ComboBox4.Text & "/device/max_sectors" Wait To max_sectors
+  Shell "cat /sys/block/" & Finfosys.ComboBox4.Text & "/device/state" Wait To device_state
+  Shell "cat /sys/block/" & Finfosys.ComboBox4.Text & "/device/modalias" Wait To modalias
+  Shell "cat /sys/block/" & Finfosys.ComboBox4.Text & "/" & Finfosys.ComboBox3.Text & "/size" Wait To real_size
+  Shell "cat /proc/mounts | grep " & Finfosys.ComboBox3.Text & " | awk {'print $2'}" Wait To mount_point
+  Shell "cat /proc/mounts | grep " & Finfosys.ComboBox3.Text & " | awk {'print $3'}" Wait To filesystem_type
+  Shell "cat /proc/mounts | grep " & Finfosys.ComboBox3.Text & " | awk {'print $4'}" Wait To mount_widtch
+  Shell "ls -l /dev/disk/by-uuid/ | grep " & Finfosys.ComboBox3.Text & " | awk {'print $8'}" Wait To device_uuid
+  Shell "swapon -s | sed -n '2p' | awk {'print $1'} | cut -d '/' -f 3" Wait To check_swap
+  Shell "df | grep '" & Finfosys.ComboBox3.Text & "' | awk {'print $5'}" Wait To used
+  rm_new_line()
+ 
+End
+
+Public Sub rm_new_line()
+ 
+  device_model = Replace(device_model, "\n", "")
+  device_vendor = Replace(device_vendor, "\n", "")
+  mount_point = Replace(mount_point, "\n", "")
+  device_uuid = Replace(device_uuid, "\n", "")
+  real_size = Replace(real_size, "\n", "")
+  filesystem_type = Replace(filesystem_type, "\n", "")
+  mount_widtch = Replace(mount_widtch, "\n", "")
+  device_rev = Replace(device_rev, "\n", "")
+  max_sectors = Replace(max_sectors, "\n", "")
+  device_state = Replace(device_state, "\n", "")
+  modalias = Replace(modalias, "\n", "")
+  Used = Replace(Used, "\n", "")
+  Used = Replace(Used, "%", "")
+  check_swap = Replace(check_swap, "\n", "")
+ 
+End
+

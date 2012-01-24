@@ -4,6 +4,9 @@ Public Sub Form_Open()
   Dim gnome_screenshot As Boolean = Exist("/usr/bin/gnome-screenshot")
   Dim default_display_manager As Boolean = Exist("/etc/X11/default-display-manager")
   Dim cpuz0, cpuz1, cpuz2, cpuz3, cpuz4, cpuz5, cpuz6, cpuz7, cpuz8, cpuz9, cpuz10, cpuz11 As String
+  Object.Call(Disk_Drives, "_init")
+  Object.Call(Disk_Drives, "_init_2")
+  Object.Call(Disk_Drives, "get_informations")
   Debug "Check Gnome Screenshot"
   If gnome_screenshot = True Then
   Button2.Visible = True
@@ -98,8 +101,6 @@ Public Sub Form_Open()
  dzwiek()
  Debug "Check graphic card"
  grafika()
- Debug "Check drives"
- dysk()
  'END Uruchomienie instrukcji dla poszczególnych zakładek w celu wydobycia informacji z systemu
  Debug "Set Combobox to Procesor0"
  ComboBox1.Text = "Procesor0" 'Ustawienie combobox na Procesor0 / W przeciwnym wypadku nie pokaże nic
@@ -109,12 +110,6 @@ Public Sub Form_Open()
  Me.Center
 
 End
-Public Sub rplc()
- 
- 
- 
-End
-
 
 Public Sub ComboBox1_Click()
   Debug "Checking procesors"
@@ -137,33 +132,6 @@ Public Sub dzwiek()
   Shell "lspci | grep 'udio' | cut -d ':' -f 3 | cut -d '(' -f 1" Wait To kartadzwiekowa
   TextArea18.Text = kartadzwiekowa
 
-End
-
-Public Sub dysk()
-  Dim wolnegbnadysku, dysktwardy, zajetegb, calkowitapoj, zajgb1, wolgb1, calkowite1 As String
-  Dim wolgb, zajgb, calkowite As Float
-  'SHELL "cat /proc/scsi/scsi | grep ATA | head -1 | cut -d ':' -f 3 | cut -d ' ' -f 2-3 && echo $(cat /proc/partitions | grep sda | head -n 1 | awk {'print $3'})/1024/1024 | bc && echo GB" WAIT TO dysktwardy
-  Shell "cat /proc/scsi/scsi" Wait To dysktwardy
-  Shell "echo $(df -m | grep '/' | awk {'print $4'} | head -1)/1000 | bc && echo GB" Wait To wolnegbnadysku
-  Shell "echo $(df -m | grep '/' | awk {'print $3'} | head -1)/1000 | bc && echo GB" Wait To zajetegb
-  Shell "echo $(df -m | grep '/' | awk {'print $2'} | head -1)/1000 | bc && echo GB" Wait To calkowitapoj
-  'Progress
-  Shell "df -m | grep / | awk {'print $4'} | head -n 1" Wait To wolgb1
-  wolgb1 = Replace(wolgb1, "\n", "")
-  Shell "df -m | grep / | awk {'print $3'} | head -n 1" Wait To zajgb1
-  zajgb1 = Replace(zajgb1, "\n", "")
-  Shell "df -m | grep / | awk {'print $2'} | head -n 1" Wait To calkowite1
-  calkowite1 = Replace(calkowite1, "\n", "")
-  calkowite = calkowite1
-  zajgb = zajgb1
-  wolgb = wolgb1
-  TextLabel1.Text = wolnegbnadysku
-  TextArea24.Text = dysktwardy
-  TextLabel6.Text = zajetegb
-  TextLabel13.Text = calkowitapoj
-  ProgressBar2.Value = wolgb / calkowite
-  ProgressBar3.Value = zajgb / calkowite
-  
 End
 
 Public Sub bios()
@@ -214,7 +182,7 @@ Public Sub grafika()
  
   righe = Split(stringa, "\n", "%%", True)
   
-  For count = 2 To righe.Max
+  For count = 0 To righe.Max
      
      riga = Split(righe[count], " ", "%%", True)
      
@@ -425,14 +393,18 @@ Public Sub dospam_uptime()
   TextArea37.Text = uptime
   TextArea37.Text = Replace(TextArea37.Text, "\n", "")
   dospam1 = Replace(dospam1, "\n", "")
+  dospam1 = Replace(dospam1, " ", "")
   totpam1 = Replace(totpam1, "\n", "")
+  totpam1 = Replace(totpam1, " ", "")
   totalswap1 = Replace(totalswap1, "\n", "")
+  totalswap1 = Replace(totalswap1, " ", "")
   usedswap1 = Replace(usedswap1, "\n", "")
+  usedswap1 = Replace(usedswap1, " ", "")
   dospam = dospam1
   totpam = totpam1
   totalswap = totalswap1
   usedswap = usedswap1
-  ProgressBar1.Value = dospam / totpam
+  Try ProgressBar1.Value = dospam / totpam
   Try ProgressBar4.Value = usedswap / totalswap
 
 End
@@ -506,3 +478,41 @@ Public Sub Button9_Click()
  'Brightness.Show
  Debug "Show brightness window"
 End
+
+Public Sub ComboBox3_Click()
+Disk_Drives.get_informations()
+refreshing()
+End
+
+Public Sub ComboBox4_Click()
+
+ Disk_Drives._init_2()
+ Disk_Drives.get_informations()
+ Finfosys.refreshing()
+End
+
+Public Sub refreshing()
+ Label16.Text = "Device model: " & Disk_Drives.device_model & ""
+ Label17.Text = "Device vendor: " & Disk_Drives.device_vendor & ""
+ TextArea8.Text = Disk_Drives.mount_point
+ TextArea7.Text = Disk_Drives.device_uuid
+ Label38.Text = "Device real size: " & Disk_Drives.real_size & ""
+ Label39.Text = "Filesystem type: " & Disk_Drives.filesystem_type & ""
+ TextArea6.Text = Disk_Drives.mount_widtch
+ Label41.Text = "Device rev: " & Disk_Drives.device_rev & ""
+ Label42.Text = "Max sectors: " & Disk_Drives.max_sectors & ""
+ Label43.Text = "State: " & Disk_Drives.device_state & ""
+ Label44.Text = "Modalias: " & Disk_Drives.modalias & ""
+ If Disk_Drives.Used <> 0 Then
+ Try ProgressBar2.Value = Disk_Drives.Used / 100
+ Endif
+ If Disk_Drives.Used = Null Then
+ ProgressBar2.Value = 0
+ Endif
+ If Disk_Drives.check_swap = ComboBox3.Text Then
+ Label48.Visible = True
+ Else
+ Label48.Visible = False
+ Endif
+End
+

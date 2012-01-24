@@ -1,3 +1,70 @@
+i-nex (0.4.0) unstable; urgency=low
+
+  * Add debian/control depends Gambas form stock icons
+  * Remove: options, settings mangament, modules.
+  * Fix version program. Not 0.3.5, correct to 0.3.3.
+  * Fix Internet / Network
+  * Battery support on netbooks is active if exist patch to get informations from info file.
+  * Add Build Depends = gambas3-gb-dbus (>= 2.90.0)
+  * Remove TextBox, TextLabel and fix Kernel Tab, System Tab
+  * Move PictureBox on Graphic Tab.
+  * Delete /src/i-nex/version, /src/i-nex/VERSION.
+  * Label25.Text = Application.Name & " v: " & Application.version
+  * Change: System Tab
+  * Add support for:
+                            Intel(R) Core(TM) i7 xxx (bug = black logo)
+                            Intel(R) Core(TM) i5 xxx
+  * Fix bug:
+                            /usr/bin/gbc3 -e -a -g -t -p -m  src/i-nex
+                            Finfosys.class:499: error: Unknown identifier: &1   Brightness
+  * Add support: Intel(R) Celeron(R) M xxx
+  * Add support: AMD Athlon(tm) 2 x3
+  * Add Check for default display manager
+    Dim default_display_manager As Boolean = Exist("/etc/X11/default-display-manager")
+
+    Debug "Check for default display manager"
+    If default_display_manager = True Then
+     Label4.Visible = True
+     TextBox22.Visible = True
+     TextBox22.Text = File.Load("/etc/X11/default-display-manager")
+     TextBox22.Text = Replace(TextBox22.Text, "\n", "")
+     Debug "Default display manager is " & TextBox22.Text
+    Endif
+  * Add to Credits, Art and Graphic
+    I-Nex logo by: mmaciek12
+                         DeviantArt profile: http://mmaciek12.deviantart.com/
+                         Mail: mmaciek123@gmail.com
+  * Add Frames for: 0.2.x Version and 0.3.x Version
+  * Fix Memory Tab: total, used, free, shared, buffers, cached +$1
+    Thanks to Dariusz Duma
+  * TextBox22 ReadOnly = True
+  * Fix detect L3 Cache
+    Thanks to lp:~dhor
+  * Fix:
+    Finfosys.dospam_uptime.435: #6: Type mismatch: wanted Float, got String instead
+    1: Finfosys.dospam_uptime.435
+  * 1: Fix Motherboard / Bios Tab, replace TextArea to TexBox
+    2: Fix bios()
+    Exec ["cat", "/sys/devices/virtual/dmi/id/board_vendor"] Wait To TextBox23.Text
+    Exec ["cat", "/sys/devices/virtual/dmi/id/board_name"] Wait To TextBox24.Text
+    Exec ["cat", "/sys/devices/virtual/dmi/id/bios_vendor"] Wait To TextBox25.Text
+    Exec ["cat", "/sys/devices/virtual/dmi/id/bios_date"] Wait To TextBox26.Text
+    Exec ["cat", "/sys/devices/virtual/dmi/id/bios_vendor"] Wait To TextBox27.Text
+    TextBox23.Text = Replace(TextBox23.Text, "\n", "")
+    TextBox24.Text = Replace(TextBox24.Text, "\n", "")
+    TextBox25.Text = Replace(TextBox25.Text, "\n", "")
+    TextBox26.Text = Replace(TextBox26.Text, "\n", "")
+    TextBox27.Text = Replace(TextBox27.Text, "\n", "")
+  * Add support Pentium(R) Dual-Core
+    see http://opensource-tr.org/destek/thread-569-post-4227.html#pid4227
+  * Fix last commit
+    files added:
+                src/i-nex/Processors/pentium_dual_core.png
+  * Fix Device Tab, remove old functions and add new func and UI. More Information about disc sda,b,c....,x..
+    New 0.4.0 Version
+
+ -- eloaders <eloaders@yahoo.com>  Wed, 25 Jan 2012 00:20:29 +0100
+
 i-nex (0.3.3) unstable; urgency=low
 
   * Add battery.module
