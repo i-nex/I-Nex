@@ -18,7 +18,7 @@ msgstr ""
 msgid "About"
 msgstr ""
 
-#: About.form:19 Finfosys.form:1313
+#: About.form:19 Finfosys.form:1313 Fzaslugi.form:143
 msgid "Close"
 msgstr ""
 
@@ -490,7 +490,7 @@ msgid ""
 "bliższych informacji należy zapoznać się z Powszechną Licencją Publiczną GNU."
 msgstr ""
 
-#: Flicencja.form:22 Fzaslugi.form:143
+#: Flicencja.form:22
 msgid "Zamknij"
 msgstr ""
 

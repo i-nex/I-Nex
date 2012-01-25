@@ -1,7 +1,7 @@
 # Gambas Form File 3.0
 
 { Form Form
-  Move(0,0,259,399)
+  Move(0,0,258,402)
   #Scaled = False
   Text = ("About")
   Icon = Picture["i-nex.png"]
@@ -19,8 +19,8 @@
     Text = ("License")
   }
   { PictureBox1 PictureBox
-    Move(0,0,258,246)
-    Picture = Picture["192.png"]
+    Move(0,0,256,256)
+    Picture = Picture["logo/i-nex.0.4.x.png"]
     Stretch = True
     Alignment = Align.Normal
   }

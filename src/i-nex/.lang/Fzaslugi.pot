@@ -91,6 +91,6 @@ msgid "Other"
 msgstr ""
 
 #: Fzaslugi.form:143
-msgid "Zamknij"
+msgid "Close"
 msgstr ""
 

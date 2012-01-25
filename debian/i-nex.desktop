@@ -2,9 +2,9 @@
 Version=1.0
 Encoding=UTF-8
 Name=i-nex
-Comment=Aplikacja w wersji alpha wyświetlająca informacje o systemie. Data, wersja biosu oraz producent. Użyta pamięć, całkowita pamięć i dostępne miejsce na dysku. Wyświetla także inne informacje o systemie.
+Comment=I-Nex, system information tool
 Exec=/usr/bin/i-nex.gambas
-Icon=/usr/share/pixmaps/i-nex.png
+Icon=/usr/share/pixmaps/i-nex.0.4.x.png
 Terminal=false
 Type=Application
 StartupNotify=true
