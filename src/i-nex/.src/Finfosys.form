@@ -434,7 +434,7 @@
       Border = False
     }
     { !ProgressBar2 ProgressBar
-      Move(6,246,456,24)
+      Move(6,282,456,24)
       #Public = True
       Tracking = True
     }
@@ -445,6 +445,10 @@
       Text = ("SWAP")
       Alignment = Align.Center
       Transparent = True
+    }
+    { Label45 Label
+      Move(300,246,162,24)
+      Border = Border.Plain
     }
     Index = 5
     Text = ("System")

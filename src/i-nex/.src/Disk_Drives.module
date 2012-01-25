@@ -14,6 +14,7 @@ Public device_state As String
 Public modalias As String
 Public Used As String
 Public check_swap As String
+Public removable As String
 
 Public Sub _init()
 Dim ListAllDiscs, risultato As String
@@ -58,6 +59,7 @@ Public Sub get_informations()
   Shell "cat /sys/block/" & Finfosys.ComboBox4.Text & "/device/max_sectors" Wait To max_sectors
   Shell "cat /sys/block/" & Finfosys.ComboBox4.Text & "/device/state" Wait To device_state
   Shell "cat /sys/block/" & Finfosys.ComboBox4.Text & "/device/modalias" Wait To modalias
+  Shell "cat /sys/block/" & Finfosys.ComboBox4.Text & "/removable" Wait To removable
   Shell "cat /sys/block/" & Finfosys.ComboBox4.Text & "/" & Finfosys.ComboBox3.Text & "/size" Wait To real_size
   Shell "cat /proc/mounts | grep " & Finfosys.ComboBox3.Text & " | awk {'print $2'}" Wait To mount_point
   Shell "cat /proc/mounts | grep " & Finfosys.ComboBox3.Text & " | awk {'print $3'}" Wait To filesystem_type
@@ -85,6 +87,7 @@ Public Sub rm_new_line()
   Used = Replace(Used, "\n", "")
   Used = Replace(Used, "%", "")
   check_swap = Replace(check_swap, "\n", "")
+  removable = Replace(removable, "\n", "")
  
 End
 

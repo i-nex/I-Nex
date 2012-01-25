@@ -503,6 +503,12 @@ Public Sub refreshing()
  Label42.Text = "Max sectors: " & Disk_Drives.max_sectors & ""
  Label43.Text = "State: " & Disk_Drives.device_state & ""
  Label44.Text = "Modalias: " & Disk_Drives.modalias & ""
+ If Disk_Drives.removable Like "0" Then
+ Label45.Text = "Removable: No"
+ Endif
+ If Disk_Drives.removable Like "1" Then
+ Label45.Text = "Removable: Yes"
+ Endif
  If Disk_Drives.Used <> 0 Then
  Try ProgressBar2.Value = Disk_Drives.Used / 100
  Endif
