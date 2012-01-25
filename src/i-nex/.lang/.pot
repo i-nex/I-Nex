@@ -15,14 +15,14 @@ msgid "i-nex"
 msgstr ""
 
 #: About.form:13
-msgid "O programie"
+msgid "About"
 msgstr ""
 
 #: About.form:19 Finfosys.form:1313
 msgid "Close"
 msgstr ""
 
-#: About.form:24
+#: About.form:24 Fzaslugi.form:28
 msgid "Credits"
 msgstr ""
 
@@ -37,7 +37,7 @@ msgid ""
 "temat zainstalowanego systemu."
 msgstr ""
 
-#: About.form:46
+#: About.form:46 Fzaslugi.form:50
 msgid "Home page"
 msgstr ""
 
@@ -490,74 +490,74 @@ msgid ""
 "bliższych informacji należy zapoznać się z Powszechną Licencją Publiczną GNU."
 msgstr ""
 
-#: Flicencja.form:22 Fzaslugi.form:111
+#: Flicencja.form:22 Fzaslugi.form:143
 msgid "Zamknij"
 msgstr ""
 
-#: Fzaslugi.form:23
-msgid "Zasługi"
-msgstr ""
-
-#: Fzaslugi.form:31
+#: Fzaslugi.form:36
 msgid "Application"
 msgstr ""
 
-#: Fzaslugi.form:35
-msgid "Główny bajkopisarz:"
-msgstr ""
-
 #: Fzaslugi.form:40
-msgid "Michał 'eloaders' Głowienka"
+msgid "Main bug reporter"
 msgstr ""
 
 #: Fzaslugi.form:45
-msgid "eloaders@yahoo.com"
+msgid "Dariusz Duma"
 msgstr ""
 
-#: Fzaslugi.form:48
-msgid "Art and graphic"
-msgstr ""
-
-#: Fzaslugi.form:52
-msgid "0.3.x Version"
-msgstr ""
-
-#: Fzaslugi.form:57
-msgid "0.2.x Version"
-msgstr ""
-
-#: Fzaslugi.form:62
-msgid "Daniel 'DaNieL' Pabis "
-msgstr ""
-
-#: Fzaslugi.form:67
-msgid "daniel.pabis@interia.pl"
-msgstr ""
-
-#: Fzaslugi.form:72
-msgid "Maciej Urmański"
-msgstr ""
-
-#: Fzaslugi.form:77
-msgid "maciej14@gmail.com"
-msgstr ""
-
-#: Fzaslugi.form:82
-msgid "I-Nex Logo by:"
-msgstr ""
-
-#: Fzaslugi.form:87
-msgid "mmaciek12"
-msgstr ""
-
-#: Fzaslugi.form:92
-msgid "DeviantArt"
-msgstr ""
-
-#: Fzaslugi.form:97
+#: Fzaslugi.form:55
 msgid "Mail"
 msgstr ""
 
-#: Fzaslugi.form:100
+#: Fzaslugi.form:61
+msgid "Main developer"
+msgstr ""
+
+#: Fzaslugi.form:66
+msgid "Michał Głowienka"
+msgstr ""
+
+#: Fzaslugi.form:80
+msgid "Art and graphic"
+msgstr ""
+
+#: Fzaslugi.form:84
+msgid "0.3.x Version"
+msgstr ""
+
+#: Fzaslugi.form:89
+msgid "0.2.x Version"
+msgstr ""
+
+#: Fzaslugi.form:94
+msgid "Daniel 'DaNieL' Pabis "
+msgstr ""
+
+#: Fzaslugi.form:99
+msgid "daniel.pabis@interia.pl"
+msgstr ""
+
+#: Fzaslugi.form:104
+msgid "Maciej Urmański"
+msgstr ""
+
+#: Fzaslugi.form:109
+msgid "maciej14@gmail.com"
+msgstr ""
+
+#: Fzaslugi.form:114
+msgid "I-Nex Logo by:"
+msgstr ""
+
+#: Fzaslugi.form:119
+msgid "mmaciek12"
+msgstr ""
+
+#: Fzaslugi.form:124
+msgid "DeviantArt"
+msgstr ""
+
+#: Fzaslugi.form:132
 msgid "Other"
 msgstr ""

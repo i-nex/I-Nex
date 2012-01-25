@@ -15,7 +15,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 #: About.form:13
-msgid "O programie"
+msgid "About"
 msgstr ""
 
 #: About.form:19

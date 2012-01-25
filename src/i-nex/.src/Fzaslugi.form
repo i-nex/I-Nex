@@ -3,7 +3,7 @@
 { Form Form
   Move(0,0,364,266)
   #Scaled = False
-  Text = ("Zasługi")
+  Text = ("Credits")
   Icon = Picture["i-nex.png"]
   Resizable = False
   { TabStrip1 TabStrip
@@ -11,17 +11,39 @@
     Count = 3
     Index = 0
     Text = ("Application")
-    { TextLabel6 TextLabel
-      Move(7,7,168,21)
-      Text = ("Główny bajkopisarz:")
+    { Frame3 Frame
+      Move(6,96,348,78)
+      Text = ("Main bug reporter")
+      { Label3 Label
+        Move(6,24,90,24)
+        Padding = 3
+        Text = ("Dariusz Duma")
+      }
+      { Button4 Button
+        Move(120,24,96,24)
+        Text = ("Home page")
+      }
+      { Button5 Button
+        Move(222,24,96,24)
+        Text = ("Mail")
+      }
     }
-    { TextLabel7 TextLabel
-      Move(7,28,196,21)
-      Text = ("Michał 'eloaders' Głowienka")
-    }
-    { TextLabel8 TextLabel
-      Move(210,28,147,21)
-      Text = ("eloaders@yahoo.com")
+    { Frame4 Frame
+      Move(6,6,348,72)
+      Text = ("Main developer")
+      { Label4 Label
+        Move(6,24,108,24)
+        Padding = 3
+        Text = ("Michał Głowienka")
+      }
+      { Button6 Button
+        Move(120,24,96,24)
+        Text = ("Home page")
+      }
+      { Button7 Button
+        Move(222,24,96,24)
+        Text = ("Mail")
+      }
     }
     Index = 1
     Text = ("Art and graphic")
