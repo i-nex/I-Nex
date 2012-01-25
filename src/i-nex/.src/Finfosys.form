@@ -448,6 +448,17 @@
     }
     { Label45 Label
       Move(300,246,162,24)
+      Padding = 3
+      Border = Border.Plain
+    }
+    { Label46 Label
+      Move(6,246,144,24)
+      Padding = 3
+      Border = Border.Plain
+    }
+    { Label47 Label
+      Move(156,246,138,24)
+      Padding = 3
       Border = Border.Plain
     }
     Index = 5

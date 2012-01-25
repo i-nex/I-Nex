@@ -503,6 +503,8 @@ Public Sub refreshing()
  Label42.Text = "Max sectors: " & Disk_Drives.max_sectors & ""
  Label43.Text = "State: " & Disk_Drives.device_state & ""
  Label44.Text = "Modalias: " & Disk_Drives.modalias & ""
+ Label46.Text = "Ext range: " & Disk_Drives.ext_range & ""
+ Label47.Text = "Range: " & Disk_Drives.range & ""
  If Disk_Drives.removable Like "0" Then
  Label45.Text = "Removable: No"
  Endif
