@@ -4,8 +4,9 @@
   Move(0,0,474,528)
   #Scaled = False
   Text = ("i-nex")
-  Icon = Picture["i-nex.png"]
+  Icon = Picture["logo/i-nex.0.4.x.png"]
   Resizable = False
+  Margin = True
   { TabStrip1 TabStrip
     Move(0,0,474,486)
     Tag = "System"

@@ -4,7 +4,7 @@
   Move(0,0,364,266)
   #Scaled = False
   Text = ("Credits")
-  Icon = Picture["i-nex.png"]
+  Icon = Picture["logo/i-nex.0.4.x.png"]
   Resizable = False
   { TabStrip1 TabStrip
     Move(0,0,366,264)
@@ -49,7 +49,7 @@
     Text = ("Art and graphic")
     { Frame2 Frame
       Move(6,6,348,90)
-      Text = ("0.3.x Version")
+      Text = ("0.4.x Version")
     }
     { Frame1 Frame
       Move(6,114,348,78)

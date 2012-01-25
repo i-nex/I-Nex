@@ -4,7 +4,7 @@
   Move(0,0,258,402)
   #Scaled = False
   Text = ("About")
-  Icon = Picture["i-nex.png"]
+  Icon = Picture["logo/i-nex.0.4.x.png"]
   Resizable = False
   { Button1 Button
     Move(175,364,77,28)

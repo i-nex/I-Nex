@@ -51,7 +51,7 @@ msgid "Art and graphic"
 msgstr ""
 
 #: Fzaslugi.form:84
-msgid "0.3.x Version"
+msgid "0.4.x Version"
 msgstr ""
 
 #: Fzaslugi.form:89

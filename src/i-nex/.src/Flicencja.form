@@ -1,17 +1,18 @@
 # Gambas Form File 3.0
-{ Form Form 
+
+{ Form Form
   Move(0,0,378,228)
   #Scaled = False
   Text = ("Licencja")
-  Icon = Picture["i-nex.png"]
+  Icon = Picture["logo/i-nex.0.4.x.png"]
   Resizable = False
-  { TextArea1 TextArea 
+  { TextArea1 TextArea
     Move(0,0,378,180)
-    Text = ("Program I-nex jest wolnym oprogramowaniem; mo\xC5\xBCna go rozprowadza\xC4\x87 dalej i/lub modyfikowa\xC4\x87 na warunkach Powszechnej Licencji Publicznej GNU, wydanej przez Fundacj\xC4\x99 Wolnego Oprogramowania - wed\xC5\x82ug wersji drugiej tej Licencji lub kt\xC3\xB3rej\xC5\x9B z p\xC3\xB3\xC5\xBAniejszych wersji.\n\nProgram I-nex rozpowszechniany jest z nadziej\xC4\x85, i\xC5\xBC b\xC4\x99dzie on u\xC5\xBCyteczny - jednak BEZ JAKIEJKOLWIEK GWARANCJI, nawet domy\xC5\x9Blnej gwarancji PRZYDATNO\xC5\x9ACI HANDLOWEJ albo PRZYDATNO\xC5\x9ACI DO OKRE\xC5\x9ALONYCH ZASTOSOWA\xC5\x83. W celu uzyskania bli\xC5\xBCszych informacji nale\xC5\xBCy zapozna\xC4\x87 si\xC4\x99 z Powszechn\xC4\x85 Licencj\xC4\x85 Publiczn\xC4\x85 GNU.")
+    Text = ("Program I-nex jest wolnym oprogramowaniem; można go rozprowadzać dalej i/lub modyfikować na warunkach Powszechnej Licencji Publicznej GNU, wydanej przez Fundację Wolnego Oprogramowania - według wersji drugiej tej Licencji lub którejś z późniejszych wersji.\n\nProgram I-nex rozpowszechniany jest z nadzieją, iż będzie on użyteczny - jednak BEZ JAKIEJKOLWIEK GWARANCJI, nawet domyślnej gwarancji PRZYDATNOŚCI HANDLOWEJ albo PRZYDATNOŚCI DO OKREŚLONYCH ZASTOSOWAŃ. W celu uzyskania bliższych informacji należy zapoznać się z Powszechną Licencją Publiczną GNU.")
     ReadOnly = True
     Wrap = True
   }
-  { Button1 Button 
+  { Button1 Button
     Move(144,192,91,28)
     Text = ("Zamknij")
   }
