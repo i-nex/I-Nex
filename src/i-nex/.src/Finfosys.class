@@ -505,6 +505,11 @@ Public Sub refreshing()
  Label44.Text = "Modalias: " & Disk_Drives.modalias & ""
  Label46.Text = "Ext range: " & Disk_Drives.ext_range & ""
  Label47.Text = "Range: " & Disk_Drives.range & ""
+ Label49.Text = "Add random: " & Disk_Drives.add_random & ""
+ Label50.Text = "Discard granularity: " & Disk_Drives.discard_granularity & ""
+ Label51.Text = "Discard max bytes: " & Disk_Drives.discard_max_bytes & ""
+ Label52.Text = "Discard zeroes data: " & Disk_Drives.discard_zeroes_data & ""
+ Label53.Text = "HW sector size: " & Disk_Drives.hw_sector_size & ""
  If Disk_Drives.removable Like "0" Then
  Label45.Text = "Removable: No"
  Endif

@@ -434,7 +434,7 @@
       Border = False
     }
     { !ProgressBar2 ProgressBar
-      Move(6,282,456,24)
+      Move(6,426,456,24)
       #Public = True
       Tracking = True
     }
@@ -458,6 +458,31 @@
     }
     { Label47 Label
       Move(156,246,138,24)
+      Padding = 3
+      Border = Border.Plain
+    }
+    { Label49 Label
+      Move(324,390,138,24)
+      Padding = 3
+      Border = Border.Plain
+    }
+    { Label50 Label
+      Move(6,276,144,24)
+      Padding = 3
+      Border = Border.Plain
+    }
+    { Label51 Label
+      Move(300,276,162,24)
+      Padding = 3
+      Border = Border.Plain
+    }
+    { Label52 Label
+      Move(156,276,138,24)
+      Padding = 3
+      Border = Border.Plain
+    }
+    { Label53 Label
+      Move(6,306,144,24)
       Padding = 3
       Border = Border.Plain
     }

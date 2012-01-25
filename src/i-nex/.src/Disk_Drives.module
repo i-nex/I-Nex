@@ -17,6 +17,11 @@ Public check_swap As String
 Public removable As String
 Public ext_range As String
 Public range As String
+Public add_random As String
+Public discard_granularity As String
+Public discard_max_bytes As String
+Public discard_zeroes_data As String
+Public hw_sector_size As String
 
 Public Sub _init()
 Dim ListAllDiscs, risultato As String
@@ -64,6 +69,11 @@ Public Sub get_informations()
   Shell "cat /sys/block/" & Finfosys.ComboBox4.Text & "/removable" Wait To removable
   Shell "cat /sys/block/" & Finfosys.ComboBox4.Text & "/ext_range" Wait To ext_range
   Shell "cat /sys/block/" & Finfosys.ComboBox4.Text & "/range" Wait To range
+  Shell "cat /sys/block/" & Finfosys.ComboBox4.Text & "/queue/add_random" Wait To add_random
+  Shell "cat /sys/block/" & Finfosys.ComboBox4.Text & "/queue/discard_granularity" Wait To discard_granularity
+  Shell "cat /sys/block/" & Finfosys.ComboBox4.Text & "/queue/discard_max_bytes" Wait To discard_max_bytes
+  Shell "cat /sys/block/" & Finfosys.ComboBox4.Text & "/queue/discard_zeroes_data" Wait To discard_zeroes_data
+  Shell "cat /sys/block/" & Finfosys.ComboBox4.Text & "/queue/hw_sector_size" Wait To hw_sector_size
   Shell "cat /sys/block/" & Finfosys.ComboBox4.Text & "/" & Finfosys.ComboBox3.Text & "/size" Wait To real_size
   Shell "cat /proc/mounts | grep " & Finfosys.ComboBox3.Text & " | awk {'print $2'}" Wait To mount_point
   Shell "cat /proc/mounts | grep " & Finfosys.ComboBox3.Text & " | awk {'print $3'}" Wait To filesystem_type
@@ -94,6 +104,11 @@ Public Sub rm_new_line()
   removable = Replace(removable, "\n", "")
   ext_range = Replace(ext_range, "\n", "")
   range = Replace(range, "\n", "")
+  add_random = Replace(add_random, "\n", "")
+  discard_granularity = Replace(discard_granularity, "\n", "")
+  discard_max_bytes = Replace(discard_max_bytes, "\n", "")
+  discard_zeroes_data = Replace(discard_zeroes_data, "\n", "")
+  hw_sector_size = Replace(hw_sector_size, "\n", "")
  
 End
 
