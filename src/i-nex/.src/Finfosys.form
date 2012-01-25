@@ -462,7 +462,7 @@
       Border = Border.Plain
     }
     { Label49 Label
-      Move(324,390,138,24)
+      Move(300,306,162,24)
       Padding = 3
       Border = Border.Plain
     }
@@ -483,6 +483,36 @@
     }
     { Label53 Label
       Move(6,306,144,24)
+      Padding = 3
+      Border = Border.Plain
+    }
+    { Label54 Label
+      Move(156,336,306,24)
+      Padding = 3
+      Border = Border.Plain
+    }
+    { Label55 Label
+      Move(6,336,144,24)
+      Padding = 3
+      Border = Border.Plain
+    }
+    { Label56 Label
+      Move(6,366,144,24)
+      Padding = 3
+      Border = Border.Plain
+    }
+    { Label57 Label
+      Move(156,366,306,24)
+      Padding = 3
+      Border = Border.Plain
+    }
+    { Label58 Label
+      Move(6,396,144,24)
+      Padding = 3
+      Border = Border.Plain
+    }
+    { Label59 Label
+      Move(156,396,306,24)
       Padding = 3
       Border = Border.Plain
     }

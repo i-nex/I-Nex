@@ -22,6 +22,12 @@ Public discard_granularity As String
 Public discard_max_bytes As String
 Public discard_zeroes_data As String
 Public hw_sector_size As String
+Public max_hw_sectors_kb As String
+Public max_sectors_kb As String
+Public max_segments As String
+Public max_segment_size As String
+Public read_ahead_kb As String
+Public scheduler As String
 
 Public Sub _init()
 Dim ListAllDiscs, risultato As String
@@ -74,6 +80,12 @@ Public Sub get_informations()
   Shell "cat /sys/block/" & Finfosys.ComboBox4.Text & "/queue/discard_max_bytes" Wait To discard_max_bytes
   Shell "cat /sys/block/" & Finfosys.ComboBox4.Text & "/queue/discard_zeroes_data" Wait To discard_zeroes_data
   Shell "cat /sys/block/" & Finfosys.ComboBox4.Text & "/queue/hw_sector_size" Wait To hw_sector_size
+  Shell "cat /sys/block/" & Finfosys.ComboBox4.Text & "/queue/max_hw_sectors_kb" Wait To max_hw_sectors_kb
+  Shell "cat /sys/block/" & Finfosys.ComboBox4.Text & "/queue/max_sectors_kb" Wait To max_sectors_kb
+  Shell "cat /sys/block/" & Finfosys.ComboBox4.Text & "/queue/max_segments" Wait To max_segments
+  Shell "cat /sys/block/" & Finfosys.ComboBox4.Text & "/queue/max_segment_size" Wait To max_segment_size
+  Shell "cat /sys/block/" & Finfosys.ComboBox4.Text & "/queue/read_ahead_kb" Wait To read_ahead_kb
+  Shell "cat /sys/block/" & Finfosys.ComboBox4.Text & "/queue/scheduler" Wait To scheduler
   Shell "cat /sys/block/" & Finfosys.ComboBox4.Text & "/" & Finfosys.ComboBox3.Text & "/size" Wait To real_size
   Shell "cat /proc/mounts | grep " & Finfosys.ComboBox3.Text & " | awk {'print $2'}" Wait To mount_point
   Shell "cat /proc/mounts | grep " & Finfosys.ComboBox3.Text & " | awk {'print $3'}" Wait To filesystem_type
@@ -109,6 +121,12 @@ Public Sub rm_new_line()
   discard_max_bytes = Replace(discard_max_bytes, "\n", "")
   discard_zeroes_data = Replace(discard_zeroes_data, "\n", "")
   hw_sector_size = Replace(hw_sector_size, "\n", "")
+  max_hw_sectors_kb = Replace(max_hw_sectors_kb, "\n", "")
+  max_sectors_kb = Replace(max_sectors_kb, "\n", "")
+  max_segments = Replace(max_segments, "\n", "")
+  max_segment_size = Replace(max_segment_size, "\n", "")
+  read_ahead_kb = Replace(read_ahead_kb, "\n", "")
+  scheduler = Replace(scheduler, "\n", "")
  
 End
 

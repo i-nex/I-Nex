@@ -510,6 +510,12 @@ Public Sub refreshing()
  Label51.Text = "Discard max bytes: " & Disk_Drives.discard_max_bytes & ""
  Label52.Text = "Discard zeroes data: " & Disk_Drives.discard_zeroes_data & ""
  Label53.Text = "HW sector size: " & Disk_Drives.hw_sector_size & ""
+ Label54.Text = "Max HW sectors kb: " & Disk_Drives.max_hw_sectors_kb & ""
+ Label55.Text = "Max sectors kb: " & Disk_Drives.max_sectors_kb & ""
+ Label56.Text = "Max segments: " & Disk_Drives.max_segments & ""
+ Label57.Text = "Max segment size: " & Disk_Drives.max_segment_size & ""
+ Label58.Text = "Read ahead kb: " & Disk_Drives.read_ahead_kb & ""
+ Label59.Text = "Scheduler: " & Disk_Drives.scheduler & ""
  If Disk_Drives.removable Like "0" Then
  Label45.Text = "Removable: No"
  Endif
