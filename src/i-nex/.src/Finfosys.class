@@ -306,36 +306,42 @@ Public Sub Wykrywanie_procesorow()
   Shell "grep 'cpu cores' /proc/cpuinfo | sed -n '" & eloaders & "' | cut -d ':' -f 2" Wait To cpu_cores
   Shell "grep 'physical id' /proc/cpuinfo | sed -n '" & eloaders & "' | cut -d ':' -f 2" Wait To physical_id
   
+  TextBox29.Alignment = 1
+  TextBox31.Alignment = 1
   TextBox29.Text = cpu
   TextBox29.Text = Replace(TextBox29.Text, "\n", "")
+  'New
+  'TextArea1.Text = cpu
+  'TextArea1.Text = Replace(TextArea1.Text, "\n", "")
+  'new
+  level3cache = Replace(level3cache, "\n", "")
+  physical_id = Replace(physical_id, "\n", "")
+  cpu_cores = Replace(cpu_cores, "\n", "")
+  linstruction = Replace(linstruction, "\n", "")
+  ldata = Replace(ldata, "\n", "")
+  cache_size = Replace(cache_size, "\n", "")
+  address_sizes = Replace(address_sizes, "\n", "")
+  bogomips = Replace(bogomips, "\n", "")
+  cpu_family = Replace(cpu_family, "\n", "")
+  stepping = Replace(stepping, "\n", "")
+  model = Replace(model, "\n", "")
+  cpu_MHz = Replace(cpu_MHz, "\n", "")
+  vendor_id = Replace(vendor_id, "\n", "")
+  flags = Replace(flags, "\n", "")
   TextBox31.Text = flags
-  TextBox31.Text = Replace(TextBox31.Text, "\n", "")
   TextBox28.Text = vendor_id
-  TextBox28.Text = Replace(TextBox28.Text, "\n", "")
   TextBox30.Text = cpu_MHz & " MHz"
-  TextBox30.Text = Replace(TextBox30.Text, "\n", "")
   TextBox3.Text = model
-  TextBox3.Text = Replace(TextBox3.Text, "\n", "")
   TextBox2.Text = stepping
-  TextBox2.Text = Replace(TextBox2.Text, "\n", "")
   TextBox4.Text = cpu_family
-  TextBox4.Text = Replace(TextBox4.Text, "\n", "")
   TextBox6.Text = bogomips
-  TextBox6.Text = Replace(TextBox6.Text, "\n", "")
   TextBox32.Text = address_sizes
-  TextBox32.Text = Replace(TextBox32.Text, "\n", "")
   TextBox35.Text = cache_size
-  TextBox35.Text = Replace(TextBox35.Text, "\n", "")
   TextBox33.Text = ldata
-  TextBox33.Text = Replace(TextBox33.Text, "\n", "")
   TextBox34.Text = linstruction
-  TextBox34.Text = Replace(TextBox34.Text, "\n", "")
   TextBox1.Text = cpu_cores
-  TextBox1.Text = Replace(TextBox1.Text, "\n", "")
   TextBox5.Text = physical_id
-  TextBox5.Text = Replace(TextBox5.Text, "\n", "")
   TextBox36.Text = level3cache
-  TextBox36.Text = Replace(TextBox36.Text, "\n", "")
   Global.ikonaprocka()
 
 End
@@ -533,4 +539,3 @@ Public Sub refreshing()
  Label48.Visible = False
  Endif
 End
-

@@ -15,6 +15,55 @@
     Index = 0
     Text = ("CPU")
     Picture = Picture["Data/Tabs/cpu.png"]
+    { Frame2 Frame
+      Move(6,0,462,156)
+      Text = ("The main information\n")
+      { Label2 Label
+        Move(6,54,78,24)
+        Font = Font["Bold"]
+        Text = ("Model:")
+        Transparent = True
+      }
+      { Label1 Label
+        Move(6,24,84,24)
+        Font = Font["Bold"]
+        Text = ("Manufacturer:")
+        Transparent = True
+      }
+      { TextArea2 TextArea
+        Move(84,364,301,21)
+        Text = ("TextArea2")
+        ReadOnly = True
+        ScrollBar = Scroll.None
+      }
+      { Label5 Label
+        Move(6,84,78,24)
+        Font = Font["Bold"]
+        Text = ("CPU Speed:")
+        Transparent = True
+      }
+      { TextBox28 TextBox
+        Move(90,24,276,24)
+        Alignment = Align.Left
+        ReadOnly = True
+      }
+      { TextBox29 TextBox
+        Move(48,54,318,24)
+        Expand = True
+        Alignment = Align.Left
+        ReadOnly = True
+      }
+      { TextBox30 TextBox
+        Move(90,84,276,24)
+        ReadOnly = True
+      }
+      { Button4 Button
+        Move(378,126,72,21)
+        Text = ("Info")
+        Picture = Picture["icon:/16/info"]
+        Border = False
+      }
+    }
     { Frame4 Frame
       Move(6,312,462,132)
       Text = ("Cache")
@@ -67,40 +116,46 @@
       Move(6,156,462,154)
       Text = ("CPU")
       { Label6 Label
-        Move(6,78,42,21)
+        Move(6,78,48,24)
         Font = Font["Bold"]
         Padding = 3
         Text = ("Flags:")
+        Transparent = True
       }
       { Label7 Label
         Move(6,18,54,24)
         Font = Font["Bold"]
         Padding = 3
         Text = ("Family:")
+        Transparent = True
       }
       { Label10 Label
-        Move(126,48,66,24)
+        Move(132,48,72,24)
         Font = Font["Bold"]
         Padding = 3
         Text = ("bogomips:")
+        Transparent = True
       }
       { Label8 Label
-        Move(102,18,42,21)
+        Move(108,18,48,24)
         Font = Font["Bold"]
         Padding = 3
         Text = ("Model:")
+        Transparent = True
       }
       { Label11 Label
-        Move(6,108,42,21)
+        Move(6,108,48,24)
         Font = Font["Bold"]
         Padding = 3
         Text = ("Width:")
+        Transparent = True
       }
       { Label9 Label
-        Move(204,18,63,21)
+        Move(204,18,66,24)
         Font = Font["Bold"]
         Padding = 3
         Text = ("Stepping:")
+        Transparent = True
       }
       { Label3 Label
         Move(497,119,168,21)
@@ -117,7 +172,7 @@
         ReadOnly = True
       }
       { TextBox4 TextBox
-        Move(54,18,42,24)
+        Move(60,18,42,24)
         Text = ("N/A")
         ReadOnly = True
       }
@@ -127,91 +182,42 @@
         ReadOnly = True
       }
       { Label18 Label
-        Move(324,18,66,24)
+        Move(324,18,72,24)
         Font = Font["Bold"]
         Padding = 3
         Text = ("CPU Cores:")
+        Transparent = True
       }
       { TextBox5 TextBox
-        Move(78,48,42,24)
+        Move(84,48,42,24)
         Text = ("N/A")
         ReadOnly = True
       }
       { Label19 Label
-        Move(6,48,66,24)
+        Move(6,48,72,24)
         Font = Font["Bold"]
         Padding = 3
         Text = ("Physical id:")
+        Transparent = True
       }
       { TextBox6 TextBox
-        Move(198,48,84,24)
+        Move(204,48,84,24)
         Text = ("N/A")
         ReadOnly = True
       }
       { TextBox31 TextBox
-        Move(54,78,396,24)
+        Move(60,78,396,24)
         Alignment = Align.Left
+        ReadOnly = True
       }
       { TextBox32 TextBox
-        Move(54,108,396,24)
-      }
-    }
-    { Frame2 Frame
-      Move(6,0,462,156)
-      Text = ("The main information\n")
-      { Label2 Label
-        Move(6,54,78,24)
-        Font = Font["Bold"]
-        Text = ("Model:")
-        Transparent = True
-      }
-      { Label1 Label
-        Move(6,24,84,24)
-        Font = Font["Bold"]
-        Text = ("Manufacturer:")
-        Transparent = True
-      }
-      { TextArea2 TextArea
-        Move(84,364,301,21)
-        Text = ("TextArea2")
-        ReadOnly = True
-        ScrollBar = Scroll.None
-      }
-      { Label5 Label
-        Move(6,84,78,24)
-        Font = Font["Bold"]
-        Text = ("CPU Speed:")
-        Transparent = True
-      }
-      { Button4 Button
-        Move(372,126,77,21)
-        Text = ("Info")
-      }
-      { TextBox21 TextBox
-        Move(120,108,72,24)
-        Visible = False
-        Text = ("N/A")
-      }
-      { Label37 Label
-        Move(6,108,102,24)
-        Visible = False
-        Text = ("CPU Temperature:")
-      }
-      { TextBox28 TextBox
-        Move(90,24,276,24)
-      }
-      { TextBox29 TextBox
-        Move(90,54,276,24)
-      }
-      { TextBox30 TextBox
-        Move(90,84,276,24)
+        Move(60,108,396,24)
       }
     }
     { PictureBox3 PictureBox
       Move(378,24,80,95)
       Stretch = True
-      Alignment = Align.Center
-      Border = Border.Etched
+      Alignment = Align.Justify
     }
     Index = 1
     Text = ("Motherboard / Bios")

@@ -14,7 +14,7 @@ SearchString=True
 [OpenFile]
 Active=1
 File[1]=".src/Finfosys.form"
-File[2]=".src/Finfosys.class:337.36"
+File[2]=".src/Finfosys.class:321.25"
 File[3]=".src/Global.class:120.69"
 File[4]=".src/About.form"
 File[5]=".src/About.class:29.47"
