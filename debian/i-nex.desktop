@@ -3,7 +3,7 @@ Version=1.0
 Encoding=UTF-8
 Name=i-nex
 Comment=I-Nex, system information tool
-Exec=/usr/bin/i-nex.gambas
+Exec=env LIBOVERLAY_SCROLLBAR=0 /usr/bin/i-nex.gambas
 Icon=/usr/share/pixmaps/i-nex.0.4.x.png
 Terminal=false
 Type=Application
