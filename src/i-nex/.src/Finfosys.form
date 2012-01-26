@@ -296,6 +296,7 @@
       Text = ("OpenGL")
       { TextLabel17 TextLabel
         Move(7,21,150,24)
+        Padding = 3
         Text = ("OpenGL vendor string:")
       }
       { TextArea19 TextArea
@@ -306,6 +307,7 @@
       }
       { TextLabel37 TextLabel
         Move(7,56,150,24)
+        Padding = 3
         Text = ("OpenGL renderer string:")
       }
       { TextArea20 TextArea
@@ -316,6 +318,7 @@
       }
       { TextLabel38 TextLabel
         Move(7,91,150,24)
+        Padding = 3
         Text = ("OpenGL version string:")
       }
       { TextArea21 TextArea
@@ -326,6 +329,7 @@
       }
       { TextLabel8 TextLabel
         Move(7,126,150,24)
+        Padding = 3
         Text = ("Present resolution:")
       }
       { TextArea38 TextArea
