@@ -108,7 +108,6 @@ Public Sub Form_Open()
  Debug Label25.Text
  'Okno na środku
  Me.Center
-
 End
 
 Public Sub ComboBox1_Click()
@@ -307,14 +306,14 @@ Public Sub Wykrywanie_procesorow()
   Shell "grep 'cpu cores' /proc/cpuinfo | sed -n '" & eloaders & "' | cut -d ':' -f 2" Wait To cpu_cores
   Shell "grep 'physical id' /proc/cpuinfo | sed -n '" & eloaders & "' | cut -d ':' -f 2" Wait To physical_id
   
-  TextArea1.Text = cpu
-  TextArea1.Text = Replace(TextArea1.Text, "\n", "")
-  TextArea3.Text = flags
-  TextArea3.Text = Replace(TextArea3.Text, "\n", "")
-  TextArea4.Text = vendor_id
-  TextArea4.Text = Replace(TextArea4.Text, "\n", "")
-  TextArea5.Text = cpu_MHz & " MHz"
-  TextArea5.Text = Replace(TextArea5.Text, "\n", "")
+  TextBox29.Text = cpu
+  TextBox29.Text = Replace(TextBox29.Text, "\n", "")
+  TextBox31.Text = flags
+  TextBox31.Text = Replace(TextBox31.Text, "\n", "")
+  TextBox28.Text = vendor_id
+  TextBox28.Text = Replace(TextBox28.Text, "\n", "")
+  TextBox30.Text = cpu_MHz & " MHz"
+  TextBox30.Text = Replace(TextBox30.Text, "\n", "")
   TextBox3.Text = model
   TextBox3.Text = Replace(TextBox3.Text, "\n", "")
   TextBox2.Text = stepping
@@ -323,20 +322,20 @@ Public Sub Wykrywanie_procesorow()
   TextBox4.Text = Replace(TextBox4.Text, "\n", "")
   TextBox6.Text = bogomips
   TextBox6.Text = Replace(TextBox6.Text, "\n", "")
-  TextArea10.Text = address_sizes
-  TextArea10.Text = Replace(TextArea10.Text, "\n", "")
-  TextArea12.Text = cache_size
-  TextArea12.Text = Replace(TextArea12.Text, "\n", "")
-  TextArea13.Text = ldata
-  TextArea13.Text = Replace(TextArea13.Text, "\n", "")
-  TextArea11.Text = linstruction
-  TextArea11.Text = Replace(TextArea11.Text, "\n", "")
+  TextBox32.Text = address_sizes
+  TextBox32.Text = Replace(TextBox32.Text, "\n", "")
+  TextBox35.Text = cache_size
+  TextBox35.Text = Replace(TextBox35.Text, "\n", "")
+  TextBox33.Text = ldata
+  TextBox33.Text = Replace(TextBox33.Text, "\n", "")
+  TextBox34.Text = linstruction
+  TextBox34.Text = Replace(TextBox34.Text, "\n", "")
   TextBox1.Text = cpu_cores
   TextBox1.Text = Replace(TextBox1.Text, "\n", "")
   TextBox5.Text = physical_id
   TextBox5.Text = Replace(TextBox5.Text, "\n", "")
-  TextArea14.Text = level3cache
-  TextArea14.Text = Replace(TextArea14.Text, "\n", "")
+  TextBox36.Text = level3cache
+  TextBox36.Text = Replace(TextBox36.Text, "\n", "")
   Global.ikonaprocka()
 
 End
@@ -450,7 +449,7 @@ End
 
 Public Sub Button4_Click()
 
-  Desktop.Open("http://www.cpu-world.com/cgi-bin/SearchSite.pl?SEARCH=" & TextArea1.Text & "&PROCESS=Search")
+  Desktop.Open("http://www.cpu-world.com/cgi-bin/SearchSite.pl?SEARCH=" & TextBox29.Text & "&PROCESS=Search")
   Debug "Open website for more informations about your processor"
 End
 

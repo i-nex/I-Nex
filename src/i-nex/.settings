@@ -14,8 +14,8 @@ SearchString=True
 [OpenFile]
 Active=1
 File[1]=".src/Finfosys.form"
-File[2]=".src/Finfosys.class:517.18"
-File[3]=".src/Global.class:54.36"
+File[2]=".src/Finfosys.class:337.36"
+File[3]=".src/Global.class:69.7"
 File[4]=".src/About.form"
 File[5]=".src/About.class:29.47"
 File[6]=".src/Flicencja.form"
@@ -29,7 +29,9 @@ File[13]=".src/Brightness.class:13.85"
 File[14]=".src/Notify.module:4.8"
 File[15]=".src/MDBus.module:7.3"
 File[16]=".src/Disk_Drives.module:21.34"
-Count=16
+File[17]=".src/Form1.form"
+File[18]=".src/Form1.class:7.34"
+Count=18
 
 [Watches]
 Count=0

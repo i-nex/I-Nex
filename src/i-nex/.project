@@ -2,7 +2,7 @@
 # Compiled with Gambas 3.0.0
 Title=i-nex
 Startup=Finfosys
-Icon=i-nex.png
+Icon=logo/i-nex.0.4.x.png
 Version=0.4.0
 VersionFile=1
 Component=gb.image

@@ -16,50 +16,50 @@
     Text = ("CPU")
     Picture = Picture["Data/Tabs/cpu.png"]
     { Frame4 Frame
-      Move(7,308,462,133)
+      Move(6,312,462,132)
       Text = ("Cache")
       { Label13 Label
-        Move(7,49,98,21)
+        Move(6,42,96,24)
+        Font = Font["Bold"]
+        Padding = 3
         Text = ("L1 instruction:")
+        Alignment = Align.Center
       }
       { Label12 Label
-        Move(21,21,56,21)
+        Move(6,12,96,24)
+        Font = Font["Bold"]
+        Padding = 3
         Text = ("L1 Data:")
-      }
-      { TextArea11 TextArea
-        Move(105,49,112,21)
-        Text = ("N/A")
-        ReadOnly = True
-        ScrollBar = Scroll.None
-      }
-      { TextArea12 TextArea
-        Move(105,77,112,21)
-        Text = ("N/A")
-        ReadOnly = True
-        ScrollBar = Scroll.None
-      }
-      { TextArea13 TextArea
-        Move(105,21,112,21)
-        Text = ("N/A")
-        ReadOnly = True
-        ScrollBar = Scroll.None
-      }
-      { TextArea14 TextArea
-        Move(105,105,112,21)
-        Text = ("N/A")
-        ReadOnly = True
-        ScrollBar = Scroll.None
+        Alignment = Align.Center
       }
       { Label14 Label
-        Move(21,77,56,21)
+        Move(6,72,96,24)
+        Font = Font["Bold"]
+        Padding = 3
         Text = ("Level 2:")
+        Alignment = Align.Center
       }
       { Label15 Label
-        Move(21,105,56,21)
+        Move(6,102,96,24)
+        Font = Font["Bold"]
+        Padding = 3
         Text = ("Level 3:")
+        Alignment = Align.Center
+      }
+      { TextBox33 TextBox
+        Move(108,12,108,24)
+      }
+      { TextBox34 TextBox
+        Move(108,42,108,24)
+      }
+      { TextBox35 TextBox
+        Move(108,72,108,24)
+      }
+      { TextBox36 TextBox
+        Move(108,102,108,24)
       }
       { ComboBox1 ComboBox
-        Move(224,105,231,21)
+        Move(330,102,120,24)
         Text = ("Select core")
       }
     }
@@ -68,66 +68,68 @@
       Text = ("CPU")
       { Label6 Label
         Move(6,78,42,21)
+        Font = Font["Bold"]
+        Padding = 3
         Text = ("Flags:")
       }
       { Label7 Label
-        Move(6,18,56,21)
+        Move(6,18,54,24)
+        Font = Font["Bold"]
+        Padding = 3
         Text = ("Family:")
       }
       { Label10 Label
         Move(126,48,66,24)
+        Font = Font["Bold"]
+        Padding = 3
         Text = ("bogomips:")
       }
-      { TextArea3 TextArea
-        Move(48,78,406,21)
-        Text = ("N/A")
-        ReadOnly = True
-        ScrollBar = Scroll.None
-      }
       { Label8 Label
-        Move(96,18,42,21)
+        Move(102,18,42,21)
+        Font = Font["Bold"]
+        Padding = 3
         Text = ("Model:")
       }
       { Label11 Label
         Move(6,108,42,21)
+        Font = Font["Bold"]
+        Padding = 3
         Text = ("Width:")
       }
       { Label9 Label
-        Move(186,18,63,21)
+        Move(204,18,63,21)
+        Font = Font["Bold"]
+        Padding = 3
         Text = ("Stepping:")
-      }
-      { TextArea10 TextArea
-        Move(54,108,399,21)
-        Text = ("N/A")
-        ReadOnly = True
-        ScrollBar = Scroll.None
       }
       { Label3 Label
         Move(497,119,168,21)
         Text = ("Label3")
       }
       { TextBox2 TextBox
-        Move(246,18,42,24)
+        Move(276,18,42,24)
         Text = ("N/A")
         ReadOnly = True
       }
       { TextBox3 TextBox
-        Move(138,18,42,24)
+        Move(156,18,42,24)
         Text = ("N/A")
         ReadOnly = True
       }
       { TextBox4 TextBox
-        Move(48,18,42,24)
+        Move(54,18,42,24)
         Text = ("N/A")
         ReadOnly = True
       }
       { TextBox1 TextBox
-        Move(360,18,42,24)
+        Move(396,18,42,24)
         Text = ("N/A")
         ReadOnly = True
       }
       { Label18 Label
-        Move(294,18,66,24)
+        Move(324,18,66,24)
+        Font = Font["Bold"]
+        Padding = 3
         Text = ("CPU Cores:")
       }
       { TextBox5 TextBox
@@ -137,6 +139,8 @@
       }
       { Label19 Label
         Move(6,48,66,24)
+        Font = Font["Bold"]
+        Padding = 3
         Text = ("Physical id:")
       }
       { TextBox6 TextBox
@@ -144,23 +148,28 @@
         Text = ("N/A")
         ReadOnly = True
       }
+      { TextBox31 TextBox
+        Move(54,78,396,24)
+        Alignment = Align.Left
+      }
+      { TextBox32 TextBox
+        Move(54,108,396,24)
+      }
     }
     { Frame2 Frame
-      Move(7,7,462,147)
+      Move(6,0,462,156)
       Text = ("The main information\n")
       { Label2 Label
-        Move(7,49,63,21)
+        Move(6,54,78,24)
+        Font = Font["Bold"]
         Text = ("Model:")
+        Transparent = True
       }
       { Label1 Label
-        Move(7,21,70,21)
+        Move(6,24,84,24)
+        Font = Font["Bold"]
         Text = ("Manufacturer:")
-      }
-      { TextArea5 TextArea
-        Move(70,77,301,21)
-        Text = ("N/A")
-        ReadOnly = True
-        ScrollBar = Scroll.None
+        Transparent = True
       }
       { TextArea2 TextArea
         Move(84,364,301,21)
@@ -169,38 +178,37 @@
         ScrollBar = Scroll.None
       }
       { Label5 Label
-        Move(7,77,63,21)
-        Text = ("CPU MHz:")
-      }
-      { TextArea4 TextArea
-        Move(84,18,288,24)
-        Text = ("N/A")
-        ReadOnly = True
-        ScrollBar = Scroll.None
+        Move(6,84,78,24)
+        Font = Font["Bold"]
+        Text = ("CPU Speed:")
+        Transparent = True
       }
       { Button4 Button
-        Move(378,119,77,21)
+        Move(372,126,77,21)
         Text = ("Info")
       }
       { TextBox21 TextBox
-        Move(120,102,72,24)
+        Move(120,108,72,24)
         Visible = False
         Text = ("N/A")
       }
       { Label37 Label
-        Move(6,102,102,24)
+        Move(6,108,102,24)
         Visible = False
         Text = ("CPU Temperature:")
       }
-    }
-    { TextArea1 TextArea
-      Move(63,56,315,21)
-      Text = ("N/A")
-      ReadOnly = True
-      ScrollBar = Scroll.None
+      { TextBox28 TextBox
+        Move(90,24,276,24)
+      }
+      { TextBox29 TextBox
+        Move(90,54,276,24)
+      }
+      { TextBox30 TextBox
+        Move(90,84,276,24)
+      }
     }
     { PictureBox3 PictureBox
-      Move(385,21,80,95)
+      Move(378,24,80,95)
       Stretch = True
       Alignment = Align.Center
       Border = Border.Etched
@@ -420,9 +428,10 @@
     }
     { TextArea6 TextArea
       Move(102,156,360,24)
-      Alignment = Align.Center
+      Alignment = Align.Left
       ReadOnly = True
       Border = False
+      ScrollBar = Scroll.None
     }
     { TextArea7 TextArea
       Move(102,126,360,24)
