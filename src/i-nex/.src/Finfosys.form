@@ -217,30 +217,45 @@
     Text = ("Motherboard / Bios")
     Picture = Picture["icon:/16/hardware"]
     { Frame1 Frame
-      Move(7,147,462,108)
+      Move(6,150,462,144)
       Text = ("Bios")
       { TextLabel33 TextLabel
-        Move(7,21,77,21)
+        Move(7,21,90,24)
+        Font = Font["Bold"]
+        Padding = 3
         Text = ("Manufacturer:")
+        Alignment = Align.Justify
+        Wrap = False
+        Transparent = True
       }
       { TextLabel34 TextLabel
-        Move(7,49,56,21)
+        Move(7,49,90,24)
+        Font = Font["Bold"]
+        Padding = 3
         Text = ("Version:")
+        Alignment = Align.Justify
+        Wrap = False
+        Transparent = True
       }
       { TextLabel35 TextLabel
-        Move(7,77,42,21)
+        Move(7,77,90,24)
+        Font = Font["Bold"]
+        Padding = 3
         Text = ("Date:")
+        Alignment = Align.Justify
+        Wrap = False
+        Transparent = True
       }
       { TextBox25 TextBox
-        Move(96,12,360,24)
+        Move(102,18,354,24)
         ReadOnly = True
       }
       { TextBox26 TextBox
-        Move(96,42,360,24)
+        Move(102,48,354,24)
         ReadOnly = True
       }
       { TextBox27 TextBox
-        Move(96,72,360,24)
+        Move(102,78,354,24)
         ReadOnly = True
       }
     }
@@ -296,8 +311,10 @@
       Text = ("OpenGL")
       { TextLabel17 TextLabel
         Move(7,21,150,24)
+        Font = Font["Bold"]
         Padding = 3
         Text = ("OpenGL vendor string:")
+        Alignment = Align.Justify
       }
       { TextArea19 TextArea
         Move(161,21,294,21)
@@ -307,8 +324,10 @@
       }
       { TextLabel37 TextLabel
         Move(7,56,150,24)
+        Font = Font["Bold"]
         Padding = 3
         Text = ("OpenGL renderer string:")
+        Alignment = Align.Justify
       }
       { TextArea20 TextArea
         Move(161,56,294,21)
@@ -318,8 +337,10 @@
       }
       { TextLabel38 TextLabel
         Move(7,91,150,24)
+        Font = Font["Bold"]
         Padding = 3
         Text = ("OpenGL version string:")
+        Alignment = Align.Justify
       }
       { TextArea21 TextArea
         Move(161,91,294,21)
@@ -329,8 +350,10 @@
       }
       { TextLabel8 TextLabel
         Move(7,126,150,24)
+        Font = Font["Bold"]
         Padding = 3
         Text = ("Present resolution:")
+        Alignment = Align.Justify
       }
       { TextArea38 TextArea
         Move(161,126,294,21)
@@ -590,31 +613,45 @@
       }
       { TextLabel5 TextLabel
         Move(7,21,84,21)
+        Font = Font["Bold"]
         Text = ("User:")
+        Alignment = Align.Justify
       }
       { TextLabel11 TextLabel
         Move(7,49,84,21)
+        Font = Font["Bold"]
         Text = ("Distribution:")
+        Alignment = Align.Justify
       }
       { TextLabel14 TextLabel
         Move(7,77,84,21)
+        Font = Font["Bold"]
         Text = ("Edition:")
+        Alignment = Align.Justify
       }
       { TextLabel15 TextLabel
         Move(7,105,105,21)
+        Font = Font["Bold"]
         Text = ("Time zone:")
+        Alignment = Align.Justify
       }
       { TextLabel16 TextLabel
         Move(7,133,49,21)
+        Font = Font["Bold"]
         Text = ("GCC v:")
+        Alignment = Align.Justify
       }
       { TextLabel27 TextLabel
         Move(7,161,105,21)
+        Font = Font["Bold"]
         Text = ("X.org v:")
+        Alignment = Align.Justify
       }
       { TextLabel28 TextLabel
         Move(7,189,105,21)
+        Font = Font["Bold"]
         Text = ("GLX v:")
+        Alignment = Align.Justify
       }
       { TextArea35 TextArea
         Move(119,189,336,21)
@@ -632,11 +669,15 @@
       }
       { TextLabel29 TextLabel
         Move(7,217,91,21)
+        Font = Font["Bold"]
         Text = ("Architecture:")
+        Alignment = Align.Justify
       }
       { TextLabel10 TextLabel
         Move(7,245,105,21)
+        Font = Font["Bold"]
         Text = ("Shell:")
+        Alignment = Align.Justify
       }
       { TextArea48 TextArea
         Move(119,245,336,21)
@@ -646,12 +687,14 @@
         ScrollBar = Scroll.None
       }
       { Label4 Label
-        Move(6,276,144,24)
+        Move(6,276,150,24)
         Visible = False
+        Font = Font["Bold"]
         Text = ("Default Display Manager:")
+        Alignment = Align.Justify
       }
       { TextBox22 TextBox
-        Move(156,276,300,24)
+        Move(162,276,294,24)
         Visible = False
         ReadOnly = True
       }
