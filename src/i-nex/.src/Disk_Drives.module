@@ -92,7 +92,7 @@ Public Sub get_informations()
   Shell "cat /proc/mounts | grep " & Finfosys.ComboBox3.Text & " | awk {'print $4'}" Wait To mount_widtch
   Shell "ls -l /dev/disk/by-uuid/ | grep " & Finfosys.ComboBox3.Text & " | awk {'print $8'}" Wait To device_uuid
   Shell "swapon -s | sed -n '2p' | awk {'print $1'} | cut -d '/' -f 3" Wait To check_swap
-  Shell "df | grep '" & Finfosys.ComboBox3.Text & "' | awk {'print $5'}" Wait To used
+  Shell "df | grep '" & Finfosys.ComboBox3.Text & "' | awk {'print $5'} | sed -n '1p'" Wait To used
   rm_new_line()
  
 End
