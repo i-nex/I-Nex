@@ -192,17 +192,16 @@ Public Sub grafika()
   ComboBox2.List = lista
   ComboBox2.Index = 0
   'Koniec zmiany rozdzielczości
-  
+  opengl_vendor_string = Replace(opengl_vendor_string, "\n", "")
+  opengl_renderer_string = Replace(opengl_renderer_string, "\n", "")
+  opengl_version_string = Replace(opengl_version_string, "\n", "")
+  rozdzielczosc = Replace(rozdzielczosc, "\n", "")
+  gpu = Replace(gpu, "\n", "")
   TextArea17.Text = gpu
-  TextArea17.Text = Replace(TextArea17.Text, "\n", "")
-  TextArea19.Text = opengl_vendor_string
-  TextArea19.Text = Replace(TextArea19.Text, "\n", "")
-  TextArea20.Text = opengl_renderer_string
-  TextArea20.Text = Replace(TextArea20.Text, "\n", "")
-  TextArea21.Text = opengl_version_string
-  TextArea21.Text = Replace(TextArea21.Text, "\n", "")
-  TextArea38.Text = rozdzielczosc
-  TextArea38.Text = Replace(TextArea38.Text, "\n", "")
+  TextBox21.Text = opengl_vendor_string
+  TextBox37.Text = opengl_renderer_string
+  TextBox38.Text = opengl_version_string
+  TextBox39.Text = rozdzielczosc
   Global.kartagraficzna()
 End
 

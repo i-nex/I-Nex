@@ -12,9 +12,8 @@ SearchComment=False
 SearchString=True
 
 [OpenFile]
-Active=1
 File[1]=".src/Finfosys.form"
-File[2]=".src/Finfosys.class:321.25"
+File[2]=".src/Finfosys.class:3.2"
 File[3]=".src/Global.class:120.69"
 File[4]=".src/About.form"
 File[5]=".src/About.class:29.47"
@@ -24,14 +23,11 @@ File[8]=".src/Fzaslugi.class:35.0"
 File[9]=".src/Flicencja.class:4.11"
 File[10]=".src/distrodetect.class:7.35"
 File[11]=".src/battery.module:20.18"
-File[12]=".src/Brightness.form"
-File[13]=".src/Brightness.class:13.85"
-File[14]=".src/Notify.module:4.8"
-File[15]=".src/MDBus.module:7.3"
-File[16]=".src/Disk_Drives.module:21.34"
-File[17]=".src/Form1.form"
-File[18]=".src/Form1.class:7.34"
-Count=18
+File[12]=".src/Disk_Drives.module:2.0"
+Active=13
+File[13]=".src/Form1.form"
+File[14]=".src/Form1.class:7.20"
+Count=14
 
 [Watches]
 Count=0
