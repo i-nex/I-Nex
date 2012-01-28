@@ -490,14 +490,6 @@ msgstr ""
 msgid "Zamknij"
 msgstr ""
 
-#: Form1.form:29
-msgid "Bardzo i to bardzo długi i zajebisty tekst"
-msgstr ""
-
-#: Form1.form:43
-msgid "Jeszcze tak sobie zajebiście napisałem:   "
-msgstr ""
-
 #: Fzaslugi.form:36
 msgid "Application"
 msgstr ""
@@ -564,4 +556,24 @@ msgstr ""
 
 #: Fzaslugi.form:132
 msgid "Other"
+msgstr ""
+
+#: ScreenShot.form:27
+msgid "Save"
+msgstr ""
+
+#: ScreenShot.form:33
+msgid "Cancel"
+msgstr ""
+
+#: ScreenShot.form:40
+msgid "File name:"
+msgstr ""
+
+#: ScreenShot.form:46
+msgid "Save directory:"
+msgstr ""
+
+#: ScreenShot.form:73
+msgid "Picture quality:"
 msgstr ""

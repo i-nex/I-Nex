@@ -1,0 +1,54 @@
+' Gambas class file
+
+
+Public Sub Form_Resize()
+
+End
+
+Public Sub Form_Open()
+ Me.Center
+ PictureBox1.Picture = ScreenShotM.pic
+ TextBox1.Text = Date & Time
+ TextBox1.Text = Replace(TextBox1.Text, "/", "")
+ TextBox1.Text = Replace(TextBox1.Text, ":", "")
+ TextBox1.Text = Replace(TextBox1.Text, ".", "")
+ ComboBox1.Add(".png")
+ ComboBox1.Add(".jpg")
+ ComboBox1.Text = ".png"
+ SpinBox1.Value = 70
+ Slider1.Value = 70
+ ButtonBox1.Text = User.Home
+
+End
+
+Public Sub Button2_Click()
+
+ Me.Close
+
+End
+
+Public Sub Button1_Click()
+
+ScreenShotM.save(ButtonBox1.Text, TextBox1.Text, ComboBox1.Text, Slider1.Value)
+Me.Close
+End
+
+Public Sub ButtonBox1_Click()
+ 
+ Dialog.SelectDirectory
+ Dialog.Title = "Select dir"
+ ButtonBox1.Text = Dialog.Path
+ 
+End
+
+Public Sub Slider1_Change()
+
+ SpinBox1.Value = Slider1.Value
+
+End
+
+Public Sub SpinBox1_Change()
+
+ Slider1.Value = SpinBox1.Value
+
+End

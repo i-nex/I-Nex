@@ -1,17 +1,11 @@
 ' Gambas class file
 
 Public Sub Form_Open()
-  Dim gnome_screenshot As Boolean = Exist("/usr/bin/gnome-screenshot")
   Dim default_display_manager As Boolean = Exist("/etc/X11/default-display-manager")
   Dim cpuz0, cpuz1, cpuz2, cpuz3, cpuz4, cpuz5, cpuz6, cpuz7, cpuz8, cpuz9, cpuz10, cpuz11 As String
   Object.Call(Disk_Drives, "_init")
   Object.Call(Disk_Drives, "_init_2")
   Object.Call(Disk_Drives, "get_informations")
-  Debug "Check Gnome Screenshot"
-  If gnome_screenshot = True Then
-  Button2.Visible = True
-  Debug "Gnome Screenshot Exist = True"
-  Endif
   Debug "Check for default display manager"
   If default_display_manager = True Then
    Label4.Visible = True
@@ -166,7 +160,9 @@ Public Sub System()
 End
 
 Public Sub grafika()
-  Dim stringa, risultato, gpu, opengl_vendor_string, opengl_renderer_string, opengl_version_string, rozdzielczosc As String
+  Dim stringa, risultato, gpu As String
+  Dim opengl_vendor_string, opengl_renderer_string, opengl_version_string As String
+  Dim rozdzielczosc As String
   Dim righe As New String[]
   Dim count As Integer
   Dim riga As New String[]
@@ -224,7 +220,9 @@ End
 
 Public Sub Wykrywanie_procesorow()
   Dim eloaders, eloaders2, eloaders3 As String
-  Dim obrazekcpu, cpu, vendor_id, flags, cpu_MHz, model, stepping, cpu_family, bogomips, address_sizes, cache_size, ldata, linstruction As String
+  Dim obrazekcpu, cpu, vendor_id, flags, cpu_MHz As String
+  Dim model, stepping, cpu_family, bogomips As String
+  Dim address_sizes, cache_size, ldata, linstruction As String
   Dim physical_id, cpu_cores, level3cache As String
   
   If ComboBox1.Text = "Procesor0" Then
@@ -342,14 +340,14 @@ Public Sub Wykrywanie_procesorow()
   TextBox5.Text = physical_id
   TextBox36.Text = level3cache
   Global.ikonaprocka()
-
 End
 
 Public Sub Button2_Click()
-
-  Exec ["gnome-screenshot", "-w"]
-  Debug "Running Gnome Screenshot"
-
+  ' Exec ["gnome-screenshot", "-w"]
+  ' Debug "Running Gnome Screenshot"
+   ScreenShotM.pic = Desktop.Screenshot(Me.X, Me.Y, Me.W, Me.H + 30)
+   ScreenShot.Show
+   
 End
 
 Public Sub Button1_Click()
@@ -496,6 +494,7 @@ Public Sub ComboBox4_Click()
 End
 
 Public Sub refreshing()
+ Dim checking_device_uuid As String
  Label16.Text = "Device model: " & Disk_Drives.device_model & ""
  Label17.Text = "Device vendor: " & Disk_Drives.device_vendor & ""
  TextArea8.Text = Disk_Drives.mount_point
@@ -539,4 +538,11 @@ Public Sub refreshing()
  Else
  Label48.Visible = False
  Endif
+ ' If Disk_Drives.mount_point Not Like "*/media*" And Disk_Drives.device_uuid <> 0 Then
+ '  Debug "Not found mount point, maby mount piont id device uuid?"
+ '  Shell "ls /media/" & Disk_Drives.device_uuid & "" Wait To checking_device_uuid
+ ' Endif
+ ' If checking_device_uuid Like "" & Disk_Drives.device_uuid & "" Then
+ '  TextArea8.Text = checking_device_uuid
+ ' Endif
 End
