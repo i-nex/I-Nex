@@ -357,7 +357,7 @@ Public Sub Button1_Click()
 End
 
 Public Sub dospam_uptime()
-  Dim uptime, total, used, freee, shared, buffers, cached, usedonthistime, swaptotal As String
+  Dim total, used, freee, shared, buffers, cached, usedonthistime, swaptotal As String
   Dim dospam, totpam, totalswap, usedswap As Integer
   Dim dospam1, totpam1, totalswap1, usedswap1 As String
   Shell "free -m | grep 'Mem' | awk {'print $2'}" Wait To total
@@ -391,8 +391,7 @@ Public Sub dospam_uptime()
   TextArea45.Text = swaptotal & "MB"
   TextArea45.Text = Replace(TextArea45.Text, "\n", "")
   TextLabel24.Text = usedswap / 1000
-  Exec ["uptime"] Wait To uptime
-  TextArea37.Text = uptime
+  Exec ["uptime"] Wait To TextArea37.Text
   TextArea37.Text = Replace(TextArea37.Text, "\n", "")
   dospam1 = Replace(dospam1, "\n", "")
   dospam1 = Replace(dospam1, " ", "")
