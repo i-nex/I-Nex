@@ -528,9 +528,11 @@ Public Sub refreshing()
  Endif
  If Disk_Drives.Used <> 0 Then
  Try ProgressBar2.Value = Disk_Drives.Used / 100
+ ProgressBar2.ToolTip = Disk_Drives.Used & "%"
  Endif
  If Disk_Drives.Used = Null Then
  ProgressBar2.Value = 0
+ ProgressBar2.ToolTip = "Unknown"
  Endif
  If Disk_Drives.check_swap = ComboBox3.Text Then
  Label48.Visible = True
