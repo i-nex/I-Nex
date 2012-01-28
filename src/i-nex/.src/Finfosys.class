@@ -137,8 +137,8 @@ Public Sub bios()
   Exec ["cat", "/sys/devices/virtual/dmi/id/board_vendor"] Wait To TextBox23.Text
   Exec ["cat", "/sys/devices/virtual/dmi/id/board_name"] Wait To TextBox24.Text
   Exec ["cat", "/sys/devices/virtual/dmi/id/bios_vendor"] Wait To TextBox25.Text
-  Exec ["cat", "/sys/devices/virtual/dmi/id/bios_date"] Wait To TextBox26.Text
-  Exec ["cat", "/sys/devices/virtual/dmi/id/bios_vendor"] Wait To TextBox27.Text
+  Exec ["cat", "/sys/devices/virtual/dmi/id/bios_date"] Wait To TextBox27.Text
+  Exec ["cat", "/sys/devices/virtual/dmi/id/bios_version"] Wait To TextBox26.Text
   TextBox23.Text = Replace(TextBox23.Text, "\n", "")
   TextBox24.Text = Replace(TextBox24.Text, "\n", "")
   TextBox25.Text = Replace(TextBox25.Text, "\n", "")

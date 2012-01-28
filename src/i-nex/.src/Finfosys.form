@@ -74,7 +74,6 @@
     }
     { PictureBox3 PictureBox
       Move(378,24,80,95)
-      Stretch = True
       Alignment = Align.Justify
     }
     { Frame4 Frame
@@ -262,7 +261,7 @@
         }
       }
       { HBox5 HBox
-        Move(6,48,450,24)
+        Move(6,78,450,24)
         { Label60 Label
           Move(0,0,30,24)
           Font = Font["Bold,10"]
@@ -275,7 +274,7 @@
         }
       }
       { HBox6 HBox
-        Move(6,78,450,24)
+        Move(6,48,450,24)
         { Label61 Label
           Move(18,6,54,24)
           Font = Font["Bold,10"]
@@ -343,6 +342,12 @@
     Index = 3
     Text = ("Graphics")
     Picture = Picture["Data/Tabs/gpu.png"]
+    { Button9 Button
+      Move(318,258,96,24)
+      Visible = False
+      Text = ("Brightness")
+      Picture = Picture["icon:/16/sun"]
+    }
     { Frame9 Frame
       Move(7,7,462,49)
       Text = ("Graphics card:")
@@ -404,7 +409,7 @@
       }
     }
     { Frame10 Frame
-      Move(7,238,455,56)
+      Move(6,234,455,56)
       Text = ("Change resolution:")
     }
     { ComboBox2 ComboBox
@@ -418,12 +423,7 @@
     }
     { PictureBox1 PictureBox
       Move(6,300,160,147)
-    }
-    { Button9 Button
-      Move(318,258,96,24)
-      Visible = False
-      Text = ("Brightness")
-      Picture = Picture["icon:/16/sun"]
+      Stretch = True
     }
     Index = 4
     Text = ("Drives")
@@ -655,7 +655,7 @@
       { TextLabel5 TextLabel
         Move(7,21,84,21)
         Font = Font["Bold"]
-        Text = ("User:")
+        Text = ("Host name:")
         Alignment = Align.Justify
       }
       { TextLabel11 TextLabel
@@ -1021,27 +1021,25 @@
     Text = ("Take Screenshot")
     Picture = Picture["icon:/16/camera"]
   }
-  { Panel1 Panel
-    Move(222,498,252,30)
+  { Button3 Button
+    Move(354,498,24,24)
+    Font = Font["10"]
+    Picture = Picture["icon:/16/help"]
+  }
+  { Button1 Button
+    Move(384,498,84,24)
+    Font = Font["10"]
+    Text = ("Close")
+    Picture = Picture["icon:/16/quit"]
+  }
+  { HBox11 HBox
+    Move(150,492,198,36)
     { Label25 Label
-      Move(6,0,114,24)
-      Font = Font["10"]
-      Expand = True
+      Move(144,6,48,24)
+      Foreground = &HFF0000&
       AutoResize = True
-      Text = ("Label25")
-    }
-    { Button3 Button
-      Move(138,0,21,21)
-      Font = Font["10"]
-      Picture = Picture["icon:/16/help"]
-    }
-    { Button1 Button
-      Move(162,0,84,21)
-      Font = Font["10"]
-      Expand = True
-      AutoResize = True
-      Text = ("Close")
-      Picture = Picture["icon:/16/quit"]
+      Alignment = Align.Center
+      Transparent = True
     }
   }
 }
