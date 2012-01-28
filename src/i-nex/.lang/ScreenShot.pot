@@ -14,23 +14,27 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ScreenShot.form:27
+#: ScreenShot.form:18
+msgid "Screen Shot"
+msgstr ""
+
+#: ScreenShot.form:29
 msgid "Save"
 msgstr ""
 
-#: ScreenShot.form:33
+#: ScreenShot.form:35
 msgid "Cancel"
 msgstr ""
 
-#: ScreenShot.form:40
+#: ScreenShot.form:42
 msgid "File name:"
 msgstr ""
 
-#: ScreenShot.form:46
+#: ScreenShot.form:48
 msgid "Save directory:"
 msgstr ""
 
-#: ScreenShot.form:73
+#: ScreenShot.form:75
 msgid "Picture quality:"
 msgstr ""
 

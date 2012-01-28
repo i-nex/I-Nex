@@ -208,12 +208,12 @@ Public Sub internet()
   Shell "lspci | grep 'Network' | cut -d ':' -f 3 | cut -d '(' -f 1" Wait To network_controller
   Shell "lspci | grep 'Ethernet' | cut -d ':' -f 3 | cut -d '(' -f 1" Wait To ethernet_controller
   'SHELL "ss -a" WAIT TO ssa
+  default_web_browser = Replace(default_web_browser, "\n", " ")
+  network_controller = Replace(network_controller, "\n", " ")
+  ethernet_controller = Replace(ethernet_controller, "\n", " ")
   TextArea46.Text = default_web_browser
-  TextArea46.Text = Replace(TextArea46.Text, "\n", " ")
   TextArea22.Text = network_controller
-  TextArea22.Text = Replace(TextArea22.Text, "\n", " ")
   TextArea23.Text = ethernet_controller
-  TextArea23.Text = Replace(TextArea23.Text, "\n", " ")
   'TextArea48.Text = ssa
 End
 
