@@ -1,0 +1,79 @@
+' Gambas module file
+
+Public Product As String
+Public bMaxPower As String
+Public manufacturer As String
+Public Product2 As String
+Public bMaxPower2 As String
+Public manufacturer2 As String
+
+Public Sub _init()
+ 
+ Dim ListAllDiscs, risultato As String
+Dim righe As New String[]
+  Dim count As Integer
+  Dim riga As New String[]
+  Dim lista As New String[]
+Debug "Add Drives to ComboBox.."
+Shell "ls  /sys/bus/usb/devices/ --ignore='usb*' | grep [0-9]" To ListAllDiscs
+righe = Split(ListAllDiscs, "\n", "%%", True)
+For count = 0 To righe.Max
+  riga = Split(righe[count], " ", "%%", True)
+  risultato = Replace(riga[0], " ", "")
+  lista.add(risultato)
+Next
+  Finfosys.ComboBox5.List = lista
+  Finfosys.ComboBox5.Index = 0
+End
+
+Public Sub _init_2()
+ 
+  Dim ListAllDiscs, risultato As String
+Dim righe As New String[]
+  Dim count As Integer
+  Dim riga As New String[]
+  Dim lista As New String[]
+Debug "Add Drives to ComboBox.."
+Shell "ls  /sys/bus/usb/devices/ | grep usb" To ListAllDiscs
+righe = Split(ListAllDiscs, "\n", "%%", True)
+For count = 0 To righe.Max
+  riga = Split(righe[count], " ", "%%", True)
+  risultato = Replace(riga[0], " ", "")
+  lista.add(risultato)
+Next
+  Finfosys.ComboBox6.List = lista
+  Finfosys.ComboBox6.Index = 0
+ 
+End
+
+Public Sub get_informations()
+ Shell "cat /sys/bus/usb/devices/" & Finfosys.ComboBox5.Text & "/product" Wait To Product
+ Shell "cat /sys/bus/usb/devices/" & Finfosys.ComboBox5.Text & "/bMaxPower" Wait To bMaxPower
+ Shell "cat /sys/bus/usb/devices/" & Finfosys.ComboBox5.Text & "/manufacturer" Wait To manufacturer
+ export_informations()
+End
+
+Public Sub get_informations_2()
+ Shell "cat /sys/bus/usb/devices/" & Finfosys.ComboBox6.Text & "/product" Wait To Product2
+ Shell "cat /sys/bus/usb/devices/" & Finfosys.ComboBox6.Text & "/bMaxPower" Wait To bMaxPower2
+ Shell "cat /sys/bus/usb/devices/" & Finfosys.ComboBox6.Text & "/manufacturer" Wait To manufacturer2
+ export_informations_2()
+End
+
+Public Sub export_informations()
+ Product = Replace(Product, "\n", "")
+ bMaxPower = Replace(bMaxPower, "\n", "")
+ manufacturer = Replace(manufacturer, "\n", "")
+ Finfosys.TextBox40.Text = Product
+ Finfosys.TextBox41.Text = bMaxPower
+ Finfosys.TextBox42.Text = manufacturer
+End
+
+Public Sub export_informations_2()
+ Product2 = Replace(Product2, "\n", "")
+ bMaxPower2 = Replace(bMaxPower2, "\n", "")
+ manufacturer2 = Replace(manufacturer2, "\n", "")
+ Finfosys.TextBox43.Text = Product2
+ Finfosys.TextBox44.Text = bMaxPower2
+ Finfosys.TextBox45.Text = manufacturer2
+End

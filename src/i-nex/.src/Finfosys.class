@@ -3,9 +3,17 @@
 Public Sub Form_Open()
   Dim default_display_manager As Boolean = Exist("/etc/X11/default-display-manager")
   Dim cpuz0, cpuz1, cpuz2, cpuz3, cpuz4, cpuz5, cpuz6, cpuz7, cpuz8, cpuz9, cpuz10, cpuz11 As String
+  Debug "Check for Usb device plugged"
+  Object.Call(USB_Drives, "_init")
+   Debug "Check for The main USB devices"
+  Object.Call(USB_Drives, "_init_2")
+  Debug "Check for Drives"
   Object.Call(Disk_Drives, "_init")
+  Debug "Check for Drives.."
   Object.Call(Disk_Drives, "_init_2")
+  Debug "Check for Drives...."
   Object.Call(Disk_Drives, "get_informations")
+  Debug "End Check Drives"
   Debug "Check for default display manager"
   If default_display_manager = True Then
    Label4.Visible = True
@@ -544,4 +552,16 @@ Public Sub refreshing()
  ' If checking_device_uuid Like "" & Disk_Drives.device_uuid & "" Then
  '  TextArea8.Text = checking_device_uuid
  ' Endif
+End
+
+Public Sub ComboBox5_Click()
+
+ USB_Drives.get_informations()
+
+End
+
+Public Sub ComboBox6_Click()
+
+ USB_Drives.get_informations_2()
+
 End

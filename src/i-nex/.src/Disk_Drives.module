@@ -35,6 +35,7 @@ Dim righe As New String[]
   Dim count As Integer
   Dim riga As New String[]
   Dim lista As New String[]
+Debug "Add Drives to ComboBox"
 Shell "ls /sys/block/ | grep 'sd'" To ListAllDiscs
 righe = Split(ListAllDiscs, "\n", "%%", True)
 For count = 0 To righe.Max
@@ -53,6 +54,7 @@ Dim righe As New String[]
   Dim count As Integer
   Dim riga As New String[]
   Dim lista As New String[]
+Debug "Add Drives to ComboBox.."
 Shell "ls /sys/block/" & Finfosys.ComboBox4.Text & " | grep 'sd'" To ListAllDiscs
 righe = Split(ListAllDiscs, "\n", "%%", True)
 For count = 0 To righe.Max
@@ -65,7 +67,7 @@ Next
 End
 
 Public Sub get_informations()
- 
+  Debug "Get informations of Drives"
   Shell "cat /sys/block/" & Finfosys.ComboBox4.Text & "/device/model" Wait To device_model
   Shell "cat /sys/block/" & Finfosys.ComboBox4.Text & "/device/vendor" Wait To device_vendor
   Shell "cat /sys/block/" & Finfosys.ComboBox4.Text & "/device/rev" Wait To device_rev
@@ -93,6 +95,8 @@ Public Sub get_informations()
   Shell "ls -l /dev/disk/by-uuid/ | grep " & Finfosys.ComboBox3.Text & " | awk {'print $8'}" Wait To device_uuid
   Shell "swapon -s | sed -n '2p' | awk {'print $1'} | cut -d '/' -f 3" Wait To check_swap
   Shell "df | grep '" & Finfosys.ComboBox3.Text & "' | awk {'print $5'} | sed -n '1p'" Wait To used
+  Debug "Get informations of Drives Done" 
+  Debug "Replace new line to Null"
   rm_new_line()
  
 End
@@ -127,6 +131,7 @@ Public Sub rm_new_line()
   max_segment_size = Replace(max_segment_size, "\n", "")
   read_ahead_kb = Replace(read_ahead_kb, "\n", "")
   scheduler = Replace(scheduler, "\n", "")
+  Debug "Replace new line to Null Done"
  
 End
 
