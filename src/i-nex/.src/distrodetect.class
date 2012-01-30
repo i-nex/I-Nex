@@ -44,4 +44,8 @@ Static Public Sub distro_detect()
   Finfosys.TextArea29.Text = "OpenSUSE"
   Finfosys.TextArea32.Text = codename
   Endif
+  If Exist("/usr/bin/emerge") Then
+  Finfosys.TextArea29.Text = "gentoo"
+  Finfosys.TextArea32.Text = codename
+  Endif
 End
