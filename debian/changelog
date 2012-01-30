@@ -1,3 +1,65 @@
+i-nex (0.4.3) unstable; urgency=low
+
+  * Add detect removable
+    0 = No
+    1 = Yes
+  * Add Ext range, range
+  * Add detect:
+    add_random
+    discard_granularity
+    discard_max_bytes
+    discard_zeroes_data
+    hw_sector_size
+  * Add detect:
+    max_hw_sectors_kb
+    max_sectors_kb
+    max_segments
+    max_segment_size
+    read_ahead_kb
+    scheduler
+  * Add info to About window
+    Main developer
+    Main bug reporter
+  * Add new logo in about window.
+    Special thanks to: mmaciek12 http://mmaciek12.deviantart.com/art/CPU-Icon-281444281
+  * Fix icons in forms
+  * Add depends: 
+    dpkg (>= 1.16), grep (>= 2.9), mount (>= 2.19), procps, x11-xserver-utils (>= 7.6), lsb-release (>= 4.0), bash (>= 4.2), coreutils (>= 8.5), sed (>= 4.2), pciutils, x11-utils (>= 7.6), mesa-utils (>= 7.6), hostname
+  * Fix CPU tab TextArea to TextBox
+    Strings font = Bold
+  * Fix disable overlay-scrollbar
+    Add to debian/i-nex.desktop
+    Exec=env LIBOVERLAY_SCROLLBAR=0 /usr/bin/i-nex.gambas
+  * Add detect nVidia logo in Graphic tab
+  * Fix Motherboard / Bios, System Tab
+  * Fix CPU tab
+  * Fix Used
+    add sed -n '1p'
+  * Fix font CPU Tab 
+    Bold,10
+  * Add HPanel, HBox
+    Change size fonts, use system settings. Auto resize / expand
+    CPU, Frame = The Main Information
+    Graphic, Frame = OpenGl
+  * Fix Bios. Detect Vendor,Date and Version
+  * + 531 
+    ProgressBar2.ToolTip = Disk_Drives.Used & "%"
+    + 535
+    ProgressBar2.ToolTip = "Unknown"
+  * Fix debian/control Build-depends and Depends.
+    Screenshot not based on gnome-screenshot.
+    New modules and Forms for create screenshot.
+  * Fix ScreenShot.form
+    Set Icon and Text
+  * Fix internet()
+  * Fix uptime
+  * Update Depends: dpkg (>= 1.15), grep (>= 2.5), mount (>= 2.17), procps, x11-xserver-utils (>= 7.5), lsb-release (>= 4.0), bash (>= 4.1), coreutils (>= 7.4), sed (>= 4.2), pciutils, x11-utils (>= 7.5), mesa-utils (>= 7.6), hostname
+  * Add USB_Drives.module
+    Fix ComboBox Read Only = True
+  * Bzr 103 New Version 0.4.3
+
+ -- eloaders <eloaders@yahoo.com>  Mon, 30 Jan 2012 19:02:50 +0100
+
 i-nex (0.4.0) unstable; urgency=low
 
   * Add debian/control depends Gambas form stock icons
