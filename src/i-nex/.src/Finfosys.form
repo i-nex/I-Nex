@@ -77,18 +77,18 @@
       Alignment = Align.Justify
     }
     { Frame4 Frame
-      Move(6,312,462,132)
+      Move(6,312,462,138)
       Font = Font["10"]
       Text = ("Cache")
       { Label13 Label
-        Move(6,42,96,24)
+        Move(6,48,96,24)
         Font = Font["Bold,10"]
         Padding = 3
         Text = ("L1 instruction:")
         Alignment = Align.Center
       }
       { TextBox33 TextBox
-        Move(108,12,108,24)
+        Move(108,18,108,24)
         Font = Font["10"]
       }
       { ComboBox1 ComboBox
@@ -98,36 +98,36 @@
         Text = ("Select core")
       }
       { Label12 Label
-        Move(6,12,96,24)
+        Move(6,18,96,24)
         Font = Font["Bold,10"]
         Padding = 3
         Text = ("L1 Data:")
         Alignment = Align.Center
       }
       { Label14 Label
-        Move(6,72,96,24)
+        Move(6,78,96,24)
         Font = Font["Bold,10"]
         Padding = 3
         Text = ("Level 2:")
         Alignment = Align.Center
       }
       { Label15 Label
-        Move(6,102,96,24)
+        Move(6,108,96,24)
         Font = Font["Bold,10"]
         Padding = 3
         Text = ("Level 3:")
         Alignment = Align.Center
       }
       { TextBox34 TextBox
-        Move(108,42,108,24)
+        Move(108,48,108,24)
         Font = Font["10"]
       }
       { TextBox35 TextBox
-        Move(108,72,108,24)
+        Move(108,78,108,24)
         Font = Font["10"]
       }
       { TextBox36 TextBox
-        Move(108,102,108,24)
+        Move(108,108,108,24)
         Font = Font["10"]
       }
     }
