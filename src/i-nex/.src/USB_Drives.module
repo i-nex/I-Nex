@@ -3,9 +3,11 @@
 Public Product As String
 Public bMaxPower As String
 Public manufacturer As String
-Public Product2 As String
-Public bMaxPower2 As String
-Public manufacturer2 As String
+Public speed As String
+Public Version As String
+Public idProduct As String
+Public idVendor As String
+Public lsusb As String
 
 Public Sub _init()
  
@@ -15,7 +17,7 @@ Dim righe As New String[]
   Dim riga As New String[]
   Dim lista As New String[]
 Debug "Add Drives to ComboBox.."
-Shell "ls  /sys/bus/usb/devices/ --ignore='usb*' | grep [0-9]" To ListAllDiscs
+Shell "ls  /sys/bus/usb/devices/*/* | grep 'product' | grep [0-9] | cut -d '/' -f 6" To ListAllDiscs
 righe = Split(ListAllDiscs, "\n", "%%", True)
 For count = 0 To righe.Max
   riga = Split(righe[count], " ", "%%", True)
@@ -26,54 +28,36 @@ Next
   Finfosys.ComboBox5.Index = 0
 End
 
-Public Sub _init_2()
- 
-  Dim ListAllDiscs, risultato As String
-Dim righe As New String[]
-  Dim count As Integer
-  Dim riga As New String[]
-  Dim lista As New String[]
-Debug "Add Drives to ComboBox.."
-Shell "ls  /sys/bus/usb/devices/ | grep usb" To ListAllDiscs
-righe = Split(ListAllDiscs, "\n", "%%", True)
-For count = 0 To righe.Max
-  riga = Split(righe[count], " ", "%%", True)
-  risultato = Replace(riga[0], " ", "")
-  lista.add(risultato)
-Next
-  Finfosys.ComboBox6.List = lista
-  Finfosys.ComboBox6.Index = 0
- 
-End
-
 Public Sub get_informations()
  Shell "cat /sys/bus/usb/devices/" & Finfosys.ComboBox5.Text & "/product" Wait To Product
  Shell "cat /sys/bus/usb/devices/" & Finfosys.ComboBox5.Text & "/bMaxPower" Wait To bMaxPower
  Shell "cat /sys/bus/usb/devices/" & Finfosys.ComboBox5.Text & "/manufacturer" Wait To manufacturer
+ Shell "cat /sys/bus/usb/devices/" & Finfosys.ComboBox5.Text & "/speed" Wait To speed
+ Shell "cat /sys/bus/usb/devices/" & Finfosys.ComboBox5.Text & "/version" Wait To Version
+ Shell "cat /sys/bus/usb/devices/" & Finfosys.ComboBox5.Text & "/idProduct" Wait To idProduct
+ Shell "cat /sys/bus/usb/devices/" & Finfosys.ComboBox5.Text & "/idVendor" Wait To idVendor
+ Shell "lsusb -d " & idVendor & ":" & idProduct & "" Wait To lsusb
+ Debug lsusb
  export_informations()
-End
-
-Public Sub get_informations_2()
- Shell "cat /sys/bus/usb/devices/" & Finfosys.ComboBox6.Text & "/product" Wait To Product2
- Shell "cat /sys/bus/usb/devices/" & Finfosys.ComboBox6.Text & "/bMaxPower" Wait To bMaxPower2
- Shell "cat /sys/bus/usb/devices/" & Finfosys.ComboBox6.Text & "/manufacturer" Wait To manufacturer2
- export_informations_2()
 End
 
 Public Sub export_informations()
  Product = Replace(Product, "\n", "")
  bMaxPower = Replace(bMaxPower, "\n", "")
  manufacturer = Replace(manufacturer, "\n", "")
+ speed = Replace(speed, "\n", "")
+ Version = Replace(Version, "\n", "")
+ idProduct = Replace(idProduct, "\n", "")
+ idVendor = Replace(idVendor, "\n", "")
+ Shell "lsusb -d " & idVendor & ":" & idProduct & "" Wait To lsusb
+ lsusb = Replace(lsusb, "\n", "")
  Finfosys.TextBox40.Text = Product
  Finfosys.TextBox41.Text = bMaxPower
  Finfosys.TextBox42.Text = manufacturer
-End
-
-Public Sub export_informations_2()
- Product2 = Replace(Product2, "\n", "")
- bMaxPower2 = Replace(bMaxPower2, "\n", "")
- manufacturer2 = Replace(manufacturer2, "\n", "")
- Finfosys.TextBox43.Text = Product2
- Finfosys.TextBox44.Text = bMaxPower2
- Finfosys.TextBox45.Text = manufacturer2
+ Finfosys.TextBox46.Text = speed
+ Finfosys.TextBox49.Text = Version
+ Finfosys.TextBox50.Text = idProduct
+ Finfosys.TextBox51.Text = idVendor
+ Finfosys.TextBox43.Text = lsusb
+ 
 End

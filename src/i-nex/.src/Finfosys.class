@@ -5,8 +5,6 @@ Public Sub Form_Open()
   Dim cpuz0, cpuz1, cpuz2, cpuz3, cpuz4, cpuz5, cpuz6, cpuz7, cpuz8, cpuz9, cpuz10, cpuz11 As String
   Debug "Check for Usb device plugged"
   Object.Call(USB_Drives, "_init")
-   Debug "Check for The main USB devices"
-  Object.Call(USB_Drives, "_init_2")
   Debug "Check for Drives"
   Object.Call(Disk_Drives, "_init")
   Debug "Check for Drives.."
@@ -560,8 +558,9 @@ Public Sub ComboBox5_Click()
 
 End
 
-Public Sub ComboBox6_Click()
+Public Sub Button11_Click()
 
- USB_Drives.get_informations_2()
+ Shell "gksu update-usbids" Wait
+ USB_Drives.get_informations()
 
 End

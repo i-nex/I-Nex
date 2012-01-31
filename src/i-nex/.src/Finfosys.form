@@ -1021,7 +1021,7 @@
     Text = ("USB")
     Picture = Picture["icon:/16/connect"]
     { HBox12 HBox
-      Move(0,204,468,24)
+      Move(0,0,468,24)
       { Label70 Label
         Move(0,0,144,24)
         Font = Font["Bold,11"]
@@ -1034,61 +1034,8 @@
         ReadOnly = True
       }
     }
-    { HBox13 HBox
-      Move(0,6,468,24)
-      { Label71 Label
-        Move(0,0,84,24)
-        Font = Font["Bold,11"]
-        Padding = 4
-        AutoResize = True
-        Text = ("The main USB devices:   ")
-      }
-      { ComboBox6 ComboBox
-        Move(90,0,144,24)
-        ReadOnly = True
-      }
-    }
-    { HPanel2 HPanel
-      Move(0,30,468,162)
-      { Label72 Label
-        Move(0,0,144,24)
-        Font = Font["Bold,11"]
-        Padding = 4
-        AutoResize = True
-        Text = ("Product:   ")
-      }
-      { TextBox43 TextBox
-        Move(144,6,144,24)
-        Expand = True
-        ReadOnly = True
-      }
-      { Label73 Label
-        Move(0,24,144,24)
-        Font = Font["Bold,11"]
-        Padding = 4
-        AutoResize = True
-        Text = ("Max power:   ")
-      }
-      { TextBox44 TextBox
-        Move(144,36,144,24)
-        Expand = True
-        ReadOnly = True
-      }
-      { Label74 Label
-        Move(0,48,144,24)
-        Font = Font["Bold,11"]
-        Padding = 4
-        AutoResize = True
-        Text = ("Manufacturer:   ")
-      }
-      { TextBox45 TextBox
-        Move(144,66,144,24)
-        Expand = True
-        ReadOnly = True
-      }
-    }
     { HPanel3 HPanel
-      Move(0,228,468,222)
+      Move(0,24,330,126)
       { Label68 Label
         Move(0,0,66,24)
         Font = Font["Bold,11"]
@@ -1125,9 +1072,65 @@
         Expand = True
         ReadOnly = True
       }
+      { Label79 Label
+        Move(0,72,144,24)
+        Font = Font["Bold,11"]
+        Padding = 4
+        AutoResize = True
+        Text = ("Speed:   ")
+      }
+      { TextBox46 TextBox
+        Move(150,72,144,24)
+        Expand = True
+      }
+      { Label76 Label
+        Move(0,96,144,24)
+        Font = Font["Bold,11"]
+        Padding = 4
+        AutoResize = True
+        Text = ("Version:   ")
+      }
+      { TextBox49 TextBox
+        Move(150,96,144,24)
+        Expand = True
+        ReadOnly = True
+      }
     }
-    { Separator1 Separator
-      Move(0,192,468,12)
+    { HPanel4 HPanel
+      Move(330,24,138,126)
+      { Label81 Label
+        Move(0,0,78,24)
+        Font = Font["Bold,11"]
+        Padding = 4
+        AutoResize = True
+        Text = ("idVendor:   ")
+      }
+      { TextBox51 TextBox
+        Move(72,0,144,24)
+        Expand = True
+      }
+      { Label80 Label
+        Move(0,24,144,24)
+        Font = Font["Bold,11"]
+        Padding = 4
+        AutoResize = True
+        Text = ("idProduct:   ")
+      }
+      { TextBox50 TextBox
+        Move(90,24,144,24)
+        Expand = True
+      }
+    }
+    { HPanel2 HPanel
+      Move(0,150,468,24)
+      { TextBox43 TextBox
+        Move(0,0,144,24)
+        Expand = True
+      }
+    }
+    { Button11 Button
+      Move(156,180,144,24)
+      Text = ("Update usbids")
     }
     Index = 0
   }

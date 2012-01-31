@@ -17,7 +17,7 @@ SearchString=True
 [OpenFile]
 Active=1
 File[1]=".src/Finfosys.form"
-File[2]=".src/Finfosys.class:564.1"
+File[2]=".src/Finfosys.class:552.19"
 File[3]=".src/Global.class:120.69"
 File[4]=".src/About.form"
 File[5]=".src/About.class:29.47"
@@ -25,7 +25,7 @@ File[6]=".src/Flicencja.form"
 File[7]=".src/Fzaslugi.form"
 File[8]=".src/Fzaslugi.class:35.0"
 File[9]=".src/Flicencja.class:4.11"
-File[10]=".src/distrodetect.class:7.35"
+File[10]=".src/distrodetect.class:41.7"
 File[11]=".src/battery.module:20.18"
 File[12]=".src/Disk_Drives.module:53.22"
 File[13]=".src/ScreenShot.form"
