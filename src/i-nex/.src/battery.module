@@ -55,9 +55,7 @@ End
 
 Public Sub _replace_n()
  Present = Replace(LTrim$(Present), "\n", "")
- 'Present = LTrim$(Present)
- Design_capacity = LTrim$(Design_capacity)
- 'Design_capacity = 
+ Design_capacity = Replace(LTrim$(Design_capacity), "\n", "")
  last_full_capacity = Replace(LTrim$(last_full_capacity), "\n", "")
  battery_technology = Replace(LTrim$(battery_technology), "\n", "")
  design_voltage = Replace(LTrim$(design_voltage), "\n", "")

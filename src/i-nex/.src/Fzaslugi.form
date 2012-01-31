@@ -12,7 +12,7 @@
     Index = 0
     Text = ("Application")
     { Frame3 Frame
-      Move(6,96,348,78)
+      Move(6,72,348,126)
       Text = ("Main bug reporter")
       { Label3 Label
         Move(6,24,90,24)
@@ -27,9 +27,21 @@
         Move(222,24,96,24)
         Text = ("Mail")
       }
+      { Label5 Label
+        Move(6,72,156,24)
+        Text = ("Tomasz Przybył (FadeMind)")
+      }
+      { Button8 Button
+        Move(174,72,84,24)
+        Text = ("Home page")
+      }
+      { Button9 Button
+        Move(264,72,54,24)
+        Text = ("Mail")
+      }
     }
     { Frame4 Frame
-      Move(6,6,348,72)
+      Move(6,6,348,54)
       Text = ("Main developer")
       { Label4 Label
         Move(6,24,108,24)

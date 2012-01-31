@@ -47,3 +47,15 @@ Public Sub Button7_Click()
  Desktop.Open("mailto:eloaders@yahoo.com")
 
 End
+
+Public Sub Button8_Click()
+
+ Desktop.Open("http://www.gravatar.com/fademind")
+
+End
+
+Public Sub Button9_Click()
+
+  Desktop.Open("mailto:dj.m.freex@gmail.com")
+
+End

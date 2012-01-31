@@ -14,83 +14,87 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: Fzaslugi.form:28
+#: Fzaslugi.form:31
 msgid "Credits"
 msgstr ""
 
-#: Fzaslugi.form:36
+#: Fzaslugi.form:39
 msgid "Application"
 msgstr ""
 
-#: Fzaslugi.form:40
+#: Fzaslugi.form:43
 msgid "Main bug reporter"
 msgstr ""
 
-#: Fzaslugi.form:45
+#: Fzaslugi.form:48
 msgid "Dariusz Duma"
 msgstr ""
 
-#: Fzaslugi.form:50
+#: Fzaslugi.form:53
 msgid "Home page"
 msgstr ""
 
-#: Fzaslugi.form:55
+#: Fzaslugi.form:58
 msgid "Mail"
 msgstr ""
 
-#: Fzaslugi.form:61
+#: Fzaslugi.form:63
+msgid "Tomasz Przybył (FadeMind)"
+msgstr ""
+
+#: Fzaslugi.form:79
 msgid "Main developer"
 msgstr ""
 
-#: Fzaslugi.form:66
+#: Fzaslugi.form:84
 msgid "Michał Głowienka"
 msgstr ""
 
-#: Fzaslugi.form:80
+#: Fzaslugi.form:98
 msgid "Art and graphic"
 msgstr ""
 
-#: Fzaslugi.form:84
+#: Fzaslugi.form:102
 msgid "0.4.x Version"
 msgstr ""
 
-#: Fzaslugi.form:89
+#: Fzaslugi.form:107
 msgid "0.2.x Version"
 msgstr ""
 
-#: Fzaslugi.form:94
+#: Fzaslugi.form:112
 msgid "Daniel 'DaNieL' Pabis "
 msgstr ""
 
-#: Fzaslugi.form:99
+#: Fzaslugi.form:117
 msgid "daniel.pabis@interia.pl"
 msgstr ""
 
-#: Fzaslugi.form:104
+#: Fzaslugi.form:122
 msgid "Maciej Urmański"
 msgstr ""
 
-#: Fzaslugi.form:109
+#: Fzaslugi.form:127
 msgid "maciej14@gmail.com"
 msgstr ""
 
-#: Fzaslugi.form:114
+#: Fzaslugi.form:132
 msgid "I-Nex Logo by:"
 msgstr ""
 
-#: Fzaslugi.form:119
+#: Fzaslugi.form:137
 msgid "mmaciek12"
 msgstr ""
 
-#: Fzaslugi.form:124
+#: Fzaslugi.form:142
 msgid "DeviantArt"
 msgstr ""
 
-#: Fzaslugi.form:132
+#: Fzaslugi.form:150
 msgid "Other"
 msgstr ""
 
-#: Fzaslugi.form:143
+#: Fzaslugi.form:161
 msgid "Close"
 msgstr ""
 
