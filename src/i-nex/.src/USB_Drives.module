@@ -17,7 +17,7 @@ Dim righe As New String[]
   Dim riga As New String[]
   Dim lista As New String[]
 Debug "Add Drives to ComboBox.."
-Shell "ls  /sys/bus/usb/devices/*/* | grep 'product' | grep [0-9] | cut -d '/' -f 6" To ListAllDiscs
+Shell "ls /sys/bus/usb/devices/*/* | grep 'product' | grep [0-9] | cut -d '/' -f 6" To ListAllDiscs
 righe = Split(ListAllDiscs, "\n", "%%", True)
 For count = 0 To righe.Max
   riga = Split(righe[count], " ", "%%", True)

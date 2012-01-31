@@ -3,6 +3,8 @@
 Public Sub Form_Open()
   Dim default_display_manager As Boolean = Exist("/etc/X11/default-display-manager")
   Dim cpuz0, cpuz1, cpuz2, cpuz3, cpuz4, cpuz5, cpuz6, cpuz7, cpuz8, cpuz9, cpuz10, cpuz11 As String
+  Finfosys.TabStrip1[9].Visible = False
+  Object.Call(battery, "_init")
   Debug "Check for Usb device plugged"
   Object.Call(USB_Drives, "_init")
   Debug "Check for Drives"
@@ -20,7 +22,6 @@ Public Sub Form_Open()
    TextBox22.Text = Replace(TextBox22.Text, "\n", "")
    Debug "Default display manager is " & TextBox22.Text
   Endif
-  Object.Call(battery, "_init")
   TextLabel21.Visible = False
   'Procesor
   Debug "Check available procesors"
@@ -549,6 +550,7 @@ Public Sub refreshing()
  ' Endif
  ' If checking_device_uuid Like "" & Disk_Drives.device_uuid & "" Then
  '  TextArea8.Text = checking_device_uuid
+ '
  ' Endif
 End
 

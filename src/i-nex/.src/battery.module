@@ -1,7 +1,6 @@
 ' Gambas module file
 
-Public battery_exist As Boolean = Exist("/proc/acpi/battery/BAT1/info")
-Public addres_battery As String = "/proc/acpi/battery/BAT1/info"
+Public addres_battery As String
 Public Present As String
 Public Design_capacity As String
 Public last_full_capacity As String
@@ -19,14 +18,19 @@ Public OEM_info As String
 
 
 Public Sub _init()
-If battery_exist = True Then
- Debug "Battery found " & addres_battery & ""
- _get_inf()
- _replace_n()
- Object.Call(Finfosys, "battery_info")
-Else
- Finfosys.TabStrip1[9].Visible = False
- Debug "Battery not found in " & addres_battery & "" 
+If Exist("/proc/acpi/battery/BAT0", True) Then
+ addres_battery = "/proc/acpi/battery/BAT0/info"
+ Finfosys.TabStrip1[9].Visible = True
+ battery._get_inf()
+ battery._replace_n()
+ Finfosys.battery_info()
+Endif
+If Exist("/proc/acpi/battery/BAT1/info", True) Then
+ addres_battery = "/proc/acpi/battery/BAT1/info"
+ Finfosys.TabStrip1[9].Visible = True
+ battery._get_inf()
+ battery._replace_n()
+ Finfosys.battery_info()
 Endif
 End
 
@@ -51,18 +55,31 @@ End
 
 Public Sub _replace_n()
  Present = Replace(Present, "\n", "")
+ Present = Replace(Present, " ", "")
  Design_capacity = Replace(Design_capacity, "\n", "")
+ Design_capacity = Replace(Design_capacity, " ", "")
  last_full_capacity = Replace(last_full_capacity, "\n", "")
+ last_full_capacity = Replace(last_full_capacity, " ", "")
  battery_technology = Replace(battery_technology, "\n", "")
+ battery_technology = Replace(battery_technology, " ", "")
  design_voltage = Replace(design_voltage, "\n", "")
+ design_voltage = Replace(design_voltage, " ", "")
  design_capacity_warning = Replace(design_capacity_warning, "\n", "")
+ design_capacity_warning = Replace(design_capacity_warning, " ", "")
  design_capacity_low = Replace(design_capacity_low, "\n", "")
+ design_capacity_low = Replace(design_capacity_low, " ", "")
  cycle_count = Replace(cycle_count, "\n", "")
+ cycle_count = Replace(cycle_count, " ", "")
  capacity_granularity_1 = Replace(capacity_granularity_1, "\n", "")
+ capacity_granularity_1 = Replace(capacity_granularity_1, " ", "")
  capacity_granularity_2 = Replace(capacity_granularity_2, "\n", "")
+ capacity_granularity_2 = Replace(capacity_granularity_2, " ", "")
  model_number = Replace(model_number, "\n", "")
+ model_number = Replace(model_number, " ", "")
  serial_number = Replace(serial_number, "\n", "")
+ serial_number = Replace(serial_number, " ", "")
  battery_type = Replace(battery_type, "\n", "")
+ battery_type = Replace(battery_type, " ", "")
  OEM_info = Replace(OEM_info, "\n", "")
 End
 

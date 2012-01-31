@@ -15,9 +15,8 @@ SearchComment=False
 SearchString=True
 
 [OpenFile]
-Active=1
 File[1]=".src/Finfosys.form"
-File[2]=".src/Finfosys.class:552.19"
+File[2]=".src/Finfosys.class:550.41"
 File[3]=".src/Global.class:120.69"
 File[4]=".src/About.form"
 File[5]=".src/About.class:29.47"
@@ -34,7 +33,8 @@ File[15]=".src/ScreenShotM.module:2.21"
 File[16]=".src/DmidecodeM.module:8.37"
 File[17]=".src/GetPassword.form"
 File[18]=".src/GetPassword.class:15.3"
-File[19]=".src/USB_Drives.module:56.89"
+Active=19
+File[19]=".src/USB_Drives.module:13.38"
 Count=19
 
 [Watches]
