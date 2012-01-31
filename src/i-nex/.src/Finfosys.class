@@ -3,6 +3,7 @@
 Public Sub Form_Open()
   Dim default_display_manager As Boolean = Exist("/etc/X11/default-display-manager")
   Dim cpuz0, cpuz1, cpuz2, cpuz3, cpuz4, cpuz5, cpuz6, cpuz7, cpuz8, cpuz9, cpuz10, cpuz11 As String
+  
   Finfosys.TabStrip1[9].Visible = False
   Object.Call(battery, "_init")
   Debug "Check for Usb device plugged"
