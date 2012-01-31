@@ -18,11 +18,11 @@ msgstr ""
 msgid "About"
 msgstr ""
 
-#: About.form:19 Finfosys.form:1601 Fzaslugi.form:161
+#: About.form:19 Finfosys.form:1601 Fzaslugi.form:170
 msgid "Close"
 msgstr ""
 
-#: About.form:24 Fzaslugi.form:31
+#: About.form:24 Fzaslugi.form:32
 msgid "Credits"
 msgstr ""
 
@@ -37,7 +37,7 @@ msgid ""
 "temat zainstalowanego systemu."
 msgstr ""
 
-#: About.form:46 Fzaslugi.form:53
+#: About.form:46 Fzaslugi.form:54
 msgid "Home page"
 msgstr ""
 
@@ -522,75 +522,75 @@ msgstr ""
 msgid "Zamknij"
 msgstr ""
 
-#: Fzaslugi.form:39
+#: Fzaslugi.form:40
 msgid "Application"
 msgstr ""
 
-#: Fzaslugi.form:43
+#: Fzaslugi.form:44
 msgid "Main bug reporter"
 msgstr ""
 
-#: Fzaslugi.form:48
+#: Fzaslugi.form:49
 msgid "Dariusz Duma"
 msgstr ""
 
-#: Fzaslugi.form:58
+#: Fzaslugi.form:59
 msgid "Mail"
 msgstr ""
 
-#: Fzaslugi.form:63
-msgid "Tomasz Przybył (FadeMind)"
+#: Fzaslugi.form:69
+msgid "Tomasz Przybył (FadeMind)   "
 msgstr ""
 
-#: Fzaslugi.form:79
+#: Fzaslugi.form:88
 msgid "Main developer"
 msgstr ""
 
-#: Fzaslugi.form:84
+#: Fzaslugi.form:93
 msgid "Michał Głowienka"
 msgstr ""
 
-#: Fzaslugi.form:98
+#: Fzaslugi.form:107
 msgid "Art and graphic"
 msgstr ""
 
-#: Fzaslugi.form:102
+#: Fzaslugi.form:111
 msgid "0.4.x Version"
 msgstr ""
 
-#: Fzaslugi.form:107
+#: Fzaslugi.form:116
 msgid "0.2.x Version"
 msgstr ""
 
-#: Fzaslugi.form:112
+#: Fzaslugi.form:121
 msgid "Daniel 'DaNieL' Pabis "
 msgstr ""
 
-#: Fzaslugi.form:117
+#: Fzaslugi.form:126
 msgid "daniel.pabis@interia.pl"
 msgstr ""
 
-#: Fzaslugi.form:122
+#: Fzaslugi.form:131
 msgid "Maciej Urmański"
 msgstr ""
 
-#: Fzaslugi.form:127
+#: Fzaslugi.form:136
 msgid "maciej14@gmail.com"
 msgstr ""
 
-#: Fzaslugi.form:132
+#: Fzaslugi.form:141
 msgid "I-Nex Logo by:"
 msgstr ""
 
-#: Fzaslugi.form:137
+#: Fzaslugi.form:146
 msgid "mmaciek12"
 msgstr ""
 
-#: Fzaslugi.form:142
+#: Fzaslugi.form:151
 msgid "DeviantArt"
 msgstr ""
 
-#: Fzaslugi.form:150
+#: Fzaslugi.form:159
 msgid "Other"
 msgstr ""
 

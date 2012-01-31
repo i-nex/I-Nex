@@ -27,17 +27,24 @@
         Move(222,24,96,24)
         Text = ("Mail")
       }
-      { Label5 Label
-        Move(6,72,156,24)
-        Text = ("Tomasz Przybył (FadeMind)")
-      }
-      { Button8 Button
-        Move(174,72,84,24)
-        Text = ("Home page")
-      }
-      { Button9 Button
-        Move(264,72,54,24)
-        Text = ("Mail")
+      { HBox1 HBox
+        Move(6,78,336,24)
+        { Label5 Label
+          Move(0,0,144,24)
+          Padding = 3
+          AutoResize = True
+          Text = ("Tomasz Przybył (FadeMind)   ")
+        }
+        { Button9 Button
+          Move(144,0,84,24)
+          Expand = True
+          Text = ("Home page")
+        }
+        { Button8 Button
+          Move(234,0,96,24)
+          Expand = True
+          Text = ("Mail")
+        }
       }
     }
     { Frame4 Frame
