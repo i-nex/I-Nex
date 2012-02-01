@@ -66,3 +66,9 @@ Public Sub ScrollBar1_Change()
  Panel1.Y = - ScrollBar1.Value
 
 End
+
+Public Sub Button4_Click()
+
+ Desktop.Open("https://launchpad.net/i-nex")
+
+End

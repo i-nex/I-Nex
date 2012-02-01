@@ -1,14 +1,15 @@
 # Gambas Form File 3.0
 
 { Form Form
-  Move(0,0,252,402)
+  Move(0,0,252,390)
   #Scaled = False
   Text = ("About")
   Icon = Picture["logo/i-nex.0.4.x.png"]
   Resizable = False
   { Button1 Button
-    Move(174,372,77,28)
+    Move(174,366,78,24)
     Text = ("Close")
+    Picture = Picture["icon:/16/quit"]
   }
   { TabStrip1 TabStrip
     Move(0,0,252,366)
@@ -146,9 +147,10 @@
     }
     Index = 3
     Text = ("Other")
-    { Button4 Button
-      Move(78,306,96,24)
-    }
     Index = 0
+  }
+  { Button4 Button
+    Move(0,366,162,24)
+    Text = ("I-Nex Home page")
   }
 }

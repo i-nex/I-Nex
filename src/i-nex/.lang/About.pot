@@ -22,87 +22,91 @@ msgstr ""
 msgid "Close"
 msgstr ""
 
-#: About.form:52
+#: About.form:53
 msgid "Main"
 msgstr ""
 
-#: About.form:62
+#: About.form:63
 msgid "I-nex: System and hardware information tool."
 msgstr ""
 
-#: About.form:65
+#: About.form:66
 msgid "Credits"
 msgstr ""
 
-#: About.form:72
+#: About.form:73
 msgid "Main developer"
 msgstr ""
 
-#: About.form:77
+#: About.form:78
 msgid "Michał Głowienka"
 msgstr ""
 
-#: About.form:86
+#: About.form:87
 msgid "Home page"
 msgstr ""
 
-#: About.form:92
+#: About.form:93
 msgid "Mail"
 msgstr ""
 
-#: About.form:99
+#: About.form:100
 msgid "Main bug reporter"
 msgstr ""
 
-#: About.form:104
+#: About.form:105
 msgid "Dariusz Duma"
 msgstr ""
 
-#: About.form:127
+#: About.form:128
 msgid "Tomasz Przybył (FadeMind)   "
 msgstr ""
 
-#: About.form:149
+#: About.form:150
 msgid "Graphic in 0.4.x Version"
 msgstr ""
 
-#: About.form:154
+#: About.form:155
 msgid "mmaciek12"
 msgstr ""
 
-#: About.form:163
+#: About.form:164
 msgid "DeviantArt"
 msgstr ""
 
-#: About.form:176
+#: About.form:177
 msgid "Graphic in 0.2.x Version"
 msgstr ""
 
-#: About.form:180
+#: About.form:181
 msgid "Daniel 'DaNieL' Pabis "
 msgstr ""
 
-#: About.form:185
+#: About.form:186
 msgid "daniel.pabis@interia.pl"
 msgstr ""
 
-#: About.form:190
+#: About.form:191
 msgid "Maciej Urmański"
 msgstr ""
 
-#: About.form:195
+#: About.form:196
 msgid "maciej14@gmail.com"
 msgstr ""
 
-#: About.form:205
+#: About.form:206
 msgid "License"
 msgstr ""
 
-#: About.form:209
+#: About.form:210
 msgid "GNU GENERAL PUBLIC LICENSE\n     Version 3, 29 June 2007\n\nSee: http://www.gnu.org/licenses/gpl.txt"
 msgstr ""
 
-#: About.form:212
+#: About.form:213
 msgid "Other"
+msgstr ""
+
+#: About.form:219
+msgid "I-Nex Home page"
 msgstr ""
 

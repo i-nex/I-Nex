@@ -382,99 +382,99 @@ msgstr ""
 msgid "Battery"
 msgstr ""
 
-#: Finfosys.form:1369
+#: Finfosys.form:1383
 msgid "Present:"
 msgstr ""
 
-#: Finfosys.form:1374
+#: Finfosys.form:1388
 msgid "Design capacity:"
 msgstr ""
 
-#: Finfosys.form:1379
+#: Finfosys.form:1393
 msgid "Last full capacity:"
 msgstr ""
 
-#: Finfosys.form:1384
+#: Finfosys.form:1398
 msgid "Battery technology:"
 msgstr ""
 
-#: Finfosys.form:1389
+#: Finfosys.form:1403
 msgid "Design voltage:"
 msgstr ""
 
-#: Finfosys.form:1394
+#: Finfosys.form:1408
 msgid "Design capacity warning:"
 msgstr ""
 
-#: Finfosys.form:1399
+#: Finfosys.form:1413
 msgid "Design capacity low:"
 msgstr ""
 
-#: Finfosys.form:1404
+#: Finfosys.form:1418
 msgid "Cycle count:"
 msgstr ""
 
-#: Finfosys.form:1409
+#: Finfosys.form:1423
 msgid "Capacity granularity 1:"
 msgstr ""
 
-#: Finfosys.form:1414
+#: Finfosys.form:1428
 msgid "Capacity granularity 2:"
 msgstr ""
 
-#: Finfosys.form:1419
+#: Finfosys.form:1433
 msgid "Model number:"
 msgstr ""
 
-#: Finfosys.form:1424
+#: Finfosys.form:1438
 msgid "Serial number:"
 msgstr ""
 
-#: Finfosys.form:1429
+#: Finfosys.form:1443
 msgid "OEM info:"
 msgstr ""
 
-#: Finfosys.form:1434
+#: Finfosys.form:1448
 msgid "Battery type:"
 msgstr ""
 
-#: Finfosys.form:1442
+#: Finfosys.form:1456
 msgid "USB"
 msgstr ""
 
-#: Finfosys.form:1453
+#: Finfosys.form:1467
 msgid "Usb device plugged:   "
 msgstr ""
 
-#: Finfosys.form:1470
+#: Finfosys.form:1484
 msgid "Product:   "
 msgstr ""
 
-#: Finfosys.form:1484
+#: Finfosys.form:1498
 msgid "Max power:   "
 msgstr ""
 
-#: Finfosys.form:1512
+#: Finfosys.form:1526
 msgid "Speed:   "
 msgstr ""
 
-#: Finfosys.form:1543
+#: Finfosys.form:1557
 msgid "idVendor:   "
 msgstr ""
 
-#: Finfosys.form:1556
+#: Finfosys.form:1570
 msgid "idProduct:   "
 msgstr ""
 
-#: Finfosys.form:1576
+#: Finfosys.form:1590
 msgid "Update usbids"
 msgstr ""
 
-#: Finfosys.form:1584
+#: Finfosys.form:1598
 msgid "Take Screenshot"
 msgstr ""
 
-#: Finfosys.form:1609
+#: Finfosys.form:1623
 msgid "Close"
 msgstr ""
 
