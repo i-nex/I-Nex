@@ -14,31 +14,100 @@ msgstr ""
 msgid "i-nex"
 msgstr ""
 
-#: About.form:13
+#: About.form:39
 msgid "About"
 msgstr ""
 
-#: About.form:19 Finfosys.form:1609 Fzaslugi.form:170
+#: About.form:45 Finfosys.form:1609
 msgid "Close"
 msgstr ""
 
-#: About.form:24 Fzaslugi.form:32
+#: About.form:52
+msgid "Main"
+msgstr ""
+
+#: About.form:62
+msgid "I-nex: System and hardware information tool."
+msgstr ""
+
+#: About.form:65
 msgid "Credits"
 msgstr ""
 
-#: About.form:29
+#: About.form:72
+msgid "Main developer"
+msgstr ""
+
+#: About.form:77
+msgid "Michał Głowienka"
+msgstr ""
+
+#: About.form:86
+msgid "Home page"
+msgstr ""
+
+#: About.form:92
+msgid "Mail"
+msgstr ""
+
+#: About.form:99
+msgid "Main bug reporter"
+msgstr ""
+
+#: About.form:104
+msgid "Dariusz Duma"
+msgstr ""
+
+#: About.form:127
+msgid "Tomasz Przybył (FadeMind)   "
+msgstr ""
+
+#: About.form:149
+msgid "Graphic in 0.4.x Version"
+msgstr ""
+
+#: About.form:154
+msgid "mmaciek12"
+msgstr ""
+
+#: About.form:163
+msgid "DeviantArt"
+msgstr ""
+
+#: About.form:176
+msgid "Graphic in 0.2.x Version"
+msgstr ""
+
+#: About.form:180
+msgid "Daniel 'DaNieL' Pabis "
+msgstr ""
+
+#: About.form:185
+msgid "daniel.pabis@interia.pl"
+msgstr ""
+
+#: About.form:190
+msgid "Maciej Urmański"
+msgstr ""
+
+#: About.form:195
+msgid "maciej14@gmail.com"
+msgstr ""
+
+#: About.form:205
 msgid "License"
 msgstr ""
 
-#: About.form:41
+#: About.form:209
 msgid ""
-"I-nex to aplikacja mająca na celu danie użytkownikowi pełnego GUI "
-"wyświetlającego różne informacje o podzespołach komputera oraz informacje na "
-"temat zainstalowanego systemu."
+"GNU GENERAL PUBLIC LICENSE\n"
+"     Version 3, 29 June 2007\n"
+"\n"
+"See: http://www.gnu.org/licenses/gpl.txt"
 msgstr ""
 
-#: About.form:46 Fzaslugi.form:54
-msgid "Home page"
+#: About.form:212
+msgid "Other"
 msgstr ""
 
 #: Finfosys.form:245
@@ -495,99 +564,6 @@ msgstr ""
 
 #: Finfosys.form:1584
 msgid "Take Screenshot"
-msgstr ""
-
-#: Flicencja.form:9
-msgid "Licencja"
-msgstr ""
-
-#: Flicencja.form:15
-msgid ""
-"Program I-nex jest wolnym oprogramowaniem; można go rozprowadzać dalej i/lub "
-"modyfikować na warunkach Powszechnej Licencji Publicznej GNU, wydanej przez "
-"Fundację Wolnego Oprogramowania - według wersji drugiej tej Licencji lub "
-"którejś z późniejszych wersji.\n"
-"\n"
-"Program I-nex rozpowszechniany jest z nadzieją, iż będzie on użyteczny - "
-"jednak BEZ JAKIEJKOLWIEK GWARANCJI, nawet domyślnej gwarancji PRZYDATNOŚCI "
-"HANDLOWEJ albo PRZYDATNOŚCI DO OKREŚLONYCH ZASTOSOWAŃ. W celu uzyskania "
-"bliższych informacji należy zapoznać się z Powszechną Licencją Publiczną GNU."
-msgstr ""
-
-#: Flicencja.form:22
-msgid "Zamknij"
-msgstr ""
-
-#: Fzaslugi.form:40
-msgid "Application"
-msgstr ""
-
-#: Fzaslugi.form:44
-msgid "Main bug reporter"
-msgstr ""
-
-#: Fzaslugi.form:49
-msgid "Dariusz Duma"
-msgstr ""
-
-#: Fzaslugi.form:59
-msgid "Mail"
-msgstr ""
-
-#: Fzaslugi.form:69
-msgid "Tomasz Przybył (FadeMind)   "
-msgstr ""
-
-#: Fzaslugi.form:88
-msgid "Main developer"
-msgstr ""
-
-#: Fzaslugi.form:93
-msgid "Michał Głowienka"
-msgstr ""
-
-#: Fzaslugi.form:107
-msgid "Art and graphic"
-msgstr ""
-
-#: Fzaslugi.form:111
-msgid "0.4.x Version"
-msgstr ""
-
-#: Fzaslugi.form:116
-msgid "0.2.x Version"
-msgstr ""
-
-#: Fzaslugi.form:121
-msgid "Daniel 'DaNieL' Pabis "
-msgstr ""
-
-#: Fzaslugi.form:126
-msgid "daniel.pabis@interia.pl"
-msgstr ""
-
-#: Fzaslugi.form:131
-msgid "Maciej Urmański"
-msgstr ""
-
-#: Fzaslugi.form:136
-msgid "maciej14@gmail.com"
-msgstr ""
-
-#: Fzaslugi.form:141
-msgid "I-Nex Logo by:"
-msgstr ""
-
-#: Fzaslugi.form:146
-msgid "mmaciek12"
-msgstr ""
-
-#: Fzaslugi.form:151
-msgid "DeviantArt"
-msgstr ""
-
-#: Fzaslugi.form:159
-msgid "Other"
 msgstr ""
 
 #: GetPassword.form:9

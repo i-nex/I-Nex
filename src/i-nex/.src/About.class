@@ -4,7 +4,7 @@
 Public Sub Form_Open()
 
   Me.Center
-
+  ScrollBar1.MaxValue = Panel1.H
 End
 
 Public Sub Button1_Click()
@@ -13,20 +13,56 @@ Public Sub Button1_Click()
 
 End
 
+Public Sub Button6_Click()
+
+ Desktop.Open("https://launchpad.net/~eloaders")
+
+End
+
+Public Sub Button7_Click()
+
+ Desktop.Open("mailto:eloaders@yahoo.com")
+
+End
+
 Public Sub Button2_Click()
 
-  Fzaslugi.Show
+ Desktop.Open("http://404.g-net.pl/")
+
+End
+
+Public Sub Button5_Click()
+
+ Desktop.Open("mailto:dhor@toxic.net.pl")
+
+End
+
+Public Sub Button9_Click()
+
+ Desktop.Open("http://www.gravatar.com/fademind")
+
+End
+
+Public Sub Button8_Click()
+
+ Desktop.Open("mailto:dj.m.freex@gmail.com")
 
 End
 
 Public Sub Button3_Click()
 
-  Flicencja.Show
+ Desktop.Open("http://mmaciek12.deviantart.com/")
 
 End
 
-Public Sub Button4_Click()
+Public Sub Button10_Click()
 
-  Desktop.Open("http://code.google.com/p/lft/")
+ Desktop.Open("mailto:mmaciek123@gmail.com")
+
+End
+
+Public Sub ScrollBar1_Change()
+
+ Panel1.Y = - ScrollBar1.Value
 
 End

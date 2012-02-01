@@ -14,27 +14,95 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: About.form:13
+#: About.form:39
 msgid "About"
 msgstr ""
 
-#: About.form:19
+#: About.form:45
 msgid "Close"
 msgstr ""
 
-#: About.form:24
+#: About.form:52
+msgid "Main"
+msgstr ""
+
+#: About.form:62
+msgid "I-nex: System and hardware information tool."
+msgstr ""
+
+#: About.form:65
 msgid "Credits"
 msgstr ""
 
-#: About.form:29
+#: About.form:72
+msgid "Main developer"
+msgstr ""
+
+#: About.form:77
+msgid "Michał Głowienka"
+msgstr ""
+
+#: About.form:86
+msgid "Home page"
+msgstr ""
+
+#: About.form:92
+msgid "Mail"
+msgstr ""
+
+#: About.form:99
+msgid "Main bug reporter"
+msgstr ""
+
+#: About.form:104
+msgid "Dariusz Duma"
+msgstr ""
+
+#: About.form:127
+msgid "Tomasz Przybył (FadeMind)   "
+msgstr ""
+
+#: About.form:149
+msgid "Graphic in 0.4.x Version"
+msgstr ""
+
+#: About.form:154
+msgid "mmaciek12"
+msgstr ""
+
+#: About.form:163
+msgid "DeviantArt"
+msgstr ""
+
+#: About.form:176
+msgid "Graphic in 0.2.x Version"
+msgstr ""
+
+#: About.form:180
+msgid "Daniel 'DaNieL' Pabis "
+msgstr ""
+
+#: About.form:185
+msgid "daniel.pabis@interia.pl"
+msgstr ""
+
+#: About.form:190
+msgid "Maciej Urmański"
+msgstr ""
+
+#: About.form:195
+msgid "maciej14@gmail.com"
+msgstr ""
+
+#: About.form:205
 msgid "License"
 msgstr ""
 
-#: About.form:41
-msgid "I-nex to aplikacja mająca na celu danie użytkownikowi pełnego GUI wyświetlającego różne informacje o podzespołach komputera oraz informacje na temat zainstalowanego systemu."
+#: About.form:209
+msgid "GNU GENERAL PUBLIC LICENSE\n     Version 3, 29 June 2007\n\nSee: http://www.gnu.org/licenses/gpl.txt"
 msgstr ""
 
-#: About.form:46
-msgid "Home page"
+#: About.form:212
+msgid "Other"
 msgstr ""
 
