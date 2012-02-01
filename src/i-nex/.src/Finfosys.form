@@ -911,45 +911,59 @@
     Picture = Picture["icon:/16/battery"]
     { TextBox7 TextBox
       Move(144,12,318,24)
+      ReadOnly = True
     }
     { TextBox8 TextBox
       Move(144,42,318,24)
+      ReadOnly = True
     }
     { TextBox9 TextBox
       Move(144,72,318,24)
+      ReadOnly = True
     }
     { TextBox10 TextBox
       Move(144,102,318,24)
+      ReadOnly = True
     }
     { TextBox11 TextBox
       Move(144,132,318,24)
+      ReadOnly = True
     }
     { TextBox12 TextBox
       Move(144,162,318,24)
+      ReadOnly = True
     }
     { TextBox13 TextBox
       Move(144,192,318,24)
+      ReadOnly = True
     }
     { TextBox14 TextBox
       Move(144,222,318,24)
+      ReadOnly = True
     }
     { TextBox15 TextBox
       Move(144,252,318,24)
+      ReadOnly = True
     }
     { TextBox16 TextBox
       Move(144,282,318,24)
+      ReadOnly = True
     }
     { TextBox17 TextBox
       Move(144,312,318,24)
+      ReadOnly = True
     }
     { TextBox18 TextBox
       Move(144,342,318,24)
+      ReadOnly = True
     }
     { TextBox19 TextBox
       Move(144,372,318,24)
+      ReadOnly = True
     }
     { TextBox20 TextBox
       Move(144,402,318,24)
+      ReadOnly = True
     }
     { Label20 Label
       Move(6,12,102,24)
