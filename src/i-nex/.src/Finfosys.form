@@ -19,19 +19,6 @@
       Move(6,0,462,156)
       Font = Font["10"]
       Text = ("The main information\n")
-      { TextArea2 TextArea
-        Move(84,364,301,21)
-        Text = ("TextArea2")
-        ReadOnly = True
-        ScrollBar = Scroll.None
-      }
-      { Button4 Button
-        Move(378,126,72,21)
-        Font = Font["10"]
-        Text = ("Info")
-        Picture = Picture["icon:/16/info"]
-        Border = False
-      }
       { HBox1 HBox
         Move(6,24,360,24)
         { Label1 Label
@@ -44,6 +31,19 @@
           Move(78,0,144,24)
           Expand = True
         }
+      }
+      { TextArea2 TextArea
+        Move(84,364,301,21)
+        Text = ("TextArea2")
+        ReadOnly = True
+        ScrollBar = Scroll.None
+      }
+      { Button4 Button
+        Move(378,126,72,21)
+        Font = Font["10"]
+        Text = ("Info")
+        Picture = Picture["icon:/16/info"]
+        Border = False
       }
       { HBox2 HBox
         Move(6,54,360,24)
@@ -142,25 +142,12 @@
         Text = ("Flags:")
         Transparent = True
       }
-      { Label7 Label
-        Move(6,18,54,24)
-        Font = Font["Bold,10"]
-        Padding = 3
-        Text = ("Family:")
-        Transparent = True
-      }
       { Label19 Label
         Move(6,48,72,24)
         Font = Font["Bold,10"]
         Padding = 3
         Text = ("Physical id:")
         Transparent = True
-      }
-      { TextBox4 TextBox
-        Move(60,18,42,24)
-        Font = Font["10"]
-        Text = ("N/A")
-        ReadOnly = True
       }
       { TextBox31 TextBox
         Move(60,78,396,24)
@@ -174,13 +161,6 @@
         Text = ("N/A")
         ReadOnly = True
       }
-      { Label8 Label
-        Move(108,18,48,24)
-        Font = Font["Bold,10"]
-        Padding = 3
-        Text = ("Model:")
-        Transparent = True
-      }
       { Label10 Label
         Move(132,48,72,24)
         Font = Font["Bold,10"]
@@ -188,40 +168,8 @@
         Text = ("bogomips:")
         Transparent = True
       }
-      { TextBox3 TextBox
-        Move(156,18,42,24)
-        Font = Font["10"]
-        Text = ("N/A")
-        ReadOnly = True
-      }
-      { Label9 Label
-        Move(204,18,66,24)
-        Font = Font["Bold,10"]
-        Padding = 3
-        Text = ("Stepping:")
-        Transparent = True
-      }
       { TextBox6 TextBox
         Move(204,48,84,24)
-        Font = Font["10"]
-        Text = ("N/A")
-        ReadOnly = True
-      }
-      { TextBox2 TextBox
-        Move(276,18,42,24)
-        Font = Font["10"]
-        Text = ("N/A")
-        ReadOnly = True
-      }
-      { Label18 Label
-        Move(324,18,72,24)
-        Font = Font["Bold,10"]
-        Padding = 3
-        Text = ("CPU Cores:")
-        Transparent = True
-      }
-      { TextBox1 TextBox
-        Move(396,18,42,24)
         Font = Font["10"]
         Text = ("N/A")
         ReadOnly = True
@@ -240,6 +188,52 @@
       { TextBox32 TextBox
         Move(60,108,396,24)
         Font = Font["10"]
+      }
+      { HBox13 HBox
+        Move(9,18,384,24)
+        { Label71 Label
+          Move(0,0,54,24)
+          Font = Font["Bold,10"]
+          AutoResize = True
+          Text = ("Family:   ")
+        }
+        { TextBox4 TextBox
+          Move(42,0,60,24)
+          Expand = True
+        }
+        { Label7 Label
+          Move(102,0,42,24)
+          Font = Font["Bold,10"]
+          Padding = 4
+          AutoResize = True
+          Text = ("Model:   ")
+        }
+        { TextBox3 TextBox
+          Move(144,0,60,24)
+          Expand = True
+        }
+        { Label72 Label
+          Move(210,0,54,24)
+          Font = Font["Bold,10"]
+          Padding = 4
+          AutoResize = True
+          Text = ("Stepping:   ")
+        }
+        { TextBox2 TextBox
+          Move(264,0,60,24)
+          Expand = True
+        }
+        { Label8 Label
+          Move(324,0,66,24)
+          Font = Font["Bold,10"]
+          Padding = 4
+          AutoResize = True
+          Text = ("CPU Cores:   ")
+        }
+        { TextBox1 TextBox
+          Move(360,0,60,24)
+          Expand = True
+        }
       }
     }
     Index = 1
@@ -1140,6 +1134,16 @@
     Text = ("Take Screenshot")
     Picture = Picture["icon:/16/camera"]
   }
+  { HBox11 HBox
+    Move(150,492,198,36)
+    { Label25 Label
+      Move(144,6,48,24)
+      Foreground = &HFF0000&
+      AutoResize = True
+      Alignment = Align.Center
+      Transparent = True
+    }
+  }
   { Button3 Button
     Move(354,498,24,24)
     Font = Font["10"]
@@ -1150,15 +1154,5 @@
     Font = Font["10"]
     Text = ("Close")
     Picture = Picture["icon:/16/quit"]
-  }
-  { HBox11 HBox
-    Move(150,492,198,36)
-    { Label25 Label
-      Move(144,6,48,24)
-      Foreground = &HFF0000&
-      AutoResize = True
-      Alignment = Align.Center
-      Transparent = True
-    }
   }
 }
