@@ -1,6 +1,7 @@
 ' Gambas module file
 
 Public addres_battery As String
+Public addres_battery_2 As String
 Public Present As String
 Public Design_capacity As String
 Public last_full_capacity As String
@@ -15,11 +16,16 @@ Public model_number As String
 Public serial_number As String
 Public battery_type As String
 Public OEM_info As String
+Public calculate_percentage_max As String
+Public calculate_percentage As String
+Public cal_max As Float
+Public cal As Float
 
 
 Public Sub _init()
 If Exist("/proc/acpi/battery/BAT0", True) Then
  addres_battery = "/proc/acpi/battery/BAT0/info"
+ addres_battery_2 = "/proc/acpi/battery/BAT0/state"
  Finfosys.TabStrip1[9].Visible = True
  battery._get_inf()
  battery._replace_n()
@@ -27,6 +33,7 @@ If Exist("/proc/acpi/battery/BAT0", True) Then
 Endif
 If Exist("/proc/acpi/battery/BAT1/info", True) Then
  addres_battery = "/proc/acpi/battery/BAT1/info"
+ addres_battery_2 = "/proc/acpi/battery/BAT1/state"
  Finfosys.TabStrip1[9].Visible = True
  battery._get_inf()
  battery._replace_n()
@@ -50,6 +57,8 @@ Public Sub _get_inf()
  Shell "grep 'serial number:' " & addres_battery & " | cut -d ':' -f 2" Wait To serial_number
  Shell "grep 'battery type:' " & addres_battery & " | cut -d ':' -f 2" Wait To battery_type
  Shell "grep 'OEM info:' " & addres_battery & " | cut -d ':' -f 2" Wait To OEM_info
+ Shell "grep 'last full capacity:' " & addres_battery & " | cut -d ':' -f 2" Wait To calculate_percentage_max
+ Shell "grep 'remaining capacity:' " & addres_battery_2 & " | cut -d ':' -f 2" Wait To calculate_percentage
 
 End
 
@@ -68,5 +77,9 @@ Public Sub _replace_n()
  serial_number = Replace(LTrim$(serial_number), "\n", "")
  battery_type = Replace(LTrim$(battery_type), "\n", "")
  OEM_info = Replace(LTrim$(OEM_info), "\n", "")
+ 'Calculate battery
+ calculate_percentage = Replace(Replace(Replace(calculate_percentage, "mAh", ""), " ", ""), "\n", "")
+ calculate_percentage_max = Replace(Replace(Replace(calculate_percentage_max, "mAh", ""), " ", ""), "\n", "")
+ Try Finfosys.ProgressBar3.Value = calculate_percentage / calculate_percentage_max
 End
 

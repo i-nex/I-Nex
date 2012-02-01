@@ -87,8 +87,7 @@
         Text = ("Select core")
       }
       { HPanel6 HPanel
-        Move(12,18,162,114)
-        Spacing = True
+        Move(6,18,162,114)
         { Label12 Label
           Move(0,0,96,24)
           Font = Font["Bold,10"]
@@ -152,7 +151,7 @@
         Text = ("Label3")
       }
       { HBox13 HBox
-        Move(12,24,384,24)
+        Move(6,24,384,24)
         { Label71 Label
           Move(0,0,54,24)
           Font = Font["Bold,10"]
@@ -199,7 +198,7 @@
         }
       }
       { HBox14 HBox
-        Move(12,54,282,24)
+        Move(6,54,282,24)
         { Label19 Label
           Move(0,0,72,24)
           Font = Font["Bold,10"]
@@ -231,7 +230,7 @@
         }
       }
       { HPanel7 HPanel
-        Move(12,84,444,54)
+        Move(6,84,444,54)
         { Label6 Label
           Move(0,0,48,24)
           Font = Font["Bold,10"]
@@ -938,7 +937,6 @@
     Picture = Picture["icon:/16/battery"]
     { HPanel5 HPanel
       Move(0,6,468,420)
-      Spacing = True
       { Label20 Label
         Move(0,0,102,24)
         Font = Font["Bold,11"]
@@ -1111,6 +1109,9 @@
     { Button10 Button
       Move(438,426,24,24)
       Picture = Picture["icon:/16/refresh"]
+    }
+    { ProgressBar3 ProgressBar
+      Move(6,432,396,18)
     }
     Index = 10
     Text = ("USB")
