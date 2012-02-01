@@ -15,6 +15,7 @@ SearchComment=False
 SearchString=True
 
 [OpenFile]
+Active=1
 File[1]=".src/Finfosys.form"
 File[2]=".src/Finfosys.class:5.2"
 File[3]=".src/Global.class:120.69"
@@ -22,7 +23,6 @@ File[4]=".src/About.form"
 File[5]=".src/About.class:29.47"
 File[6]=".src/Flicencja.form"
 File[7]=".src/Fzaslugi.form"
-Active=8
 File[8]=".src/Fzaslugi.class:58.2"
 File[9]=".src/Flicencja.class:4.11"
 File[10]=".src/distrodetect.class:41.7"
