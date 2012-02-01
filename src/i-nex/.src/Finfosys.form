@@ -16,14 +16,14 @@
     Text = ("CPU")
     Picture = Picture["Data/Tabs/cpu.png"]
     { Frame2 Frame
-      Move(6,0,462,156)
+      Move(6,0,462,150)
       Font = Font["10"]
       Text = ("The main information\n")
       { HBox1 HBox
         Move(6,24,360,24)
         { Label1 Label
           Move(0,6,78,24)
-          Font = Font["Bold,11"]
+          Font = Font["Bold,10"]
           AutoResize = True
           Text = ("Manufacture:   ")
         }
@@ -80,120 +80,83 @@
       Move(6,312,462,138)
       Font = Font["10"]
       Text = ("Cache")
-      { Label13 Label
-        Move(6,48,96,24)
-        Font = Font["Bold,10"]
-        Padding = 3
-        Text = ("L1 instruction:")
-        Alignment = Align.Center
-      }
-      { TextBox33 TextBox
-        Move(108,18,108,24)
-        Font = Font["10"]
-      }
       { ComboBox1 ComboBox
         Move(330,102,120,24)
         Font = Font["10"]
         ReadOnly = True
         Text = ("Select core")
       }
-      { Label12 Label
-        Move(6,18,96,24)
-        Font = Font["Bold,10"]
-        Padding = 3
-        Text = ("L1 Data:")
-        Alignment = Align.Center
-      }
-      { Label14 Label
-        Move(6,78,96,24)
-        Font = Font["Bold,10"]
-        Padding = 3
-        Text = ("Level 2:")
-        Alignment = Align.Center
-      }
-      { Label15 Label
-        Move(6,108,96,24)
-        Font = Font["Bold,10"]
-        Padding = 3
-        Text = ("Level 3:")
-        Alignment = Align.Center
-      }
-      { TextBox34 TextBox
-        Move(108,48,108,24)
-        Font = Font["10"]
-      }
-      { TextBox35 TextBox
-        Move(108,78,108,24)
-        Font = Font["10"]
-      }
-      { TextBox36 TextBox
-        Move(108,108,108,24)
-        Font = Font["10"]
+      { HPanel6 HPanel
+        Move(12,18,162,114)
+        Spacing = True
+        { Label12 Label
+          Move(0,0,96,24)
+          Font = Font["Bold,10"]
+          Padding = 3
+          AutoResize = True
+          Text = ("L1 Data:          ")
+          Alignment = Align.Right
+        }
+        { TextBox33 TextBox
+          Move(102,0,108,24)
+          Font = Font["10"]
+          Expand = True
+        }
+        { Label13 Label
+          Move(0,30,96,24)
+          Font = Font["Bold,10"]
+          Padding = 3
+          AutoResize = True
+          Text = ("L1 instruction:")
+          Alignment = Align.Right
+        }
+        { TextBox34 TextBox
+          Move(102,30,108,24)
+          Font = Font["10"]
+          Expand = True
+        }
+        { Label14 Label
+          Move(0,60,96,24)
+          Font = Font["Bold,10"]
+          Padding = 3
+          AutoResize = True
+          Text = ("Level 2:           ")
+          Alignment = Align.Right
+        }
+        { TextBox35 TextBox
+          Move(102,60,108,24)
+          Font = Font["10"]
+          Expand = True
+        }
+        { Label15 Label
+          Move(0,90,96,24)
+          Font = Font["Bold,10"]
+          Padding = 3
+          AutoResize = True
+          Text = ("Level 3:           ")
+          Alignment = Align.Right
+        }
+        { TextBox36 TextBox
+          Move(102,90,108,24)
+          Font = Font["10"]
+          Expand = True
+        }
       }
     }
     { Frame3 Frame
-      Move(6,156,462,154)
+      Move(6,150,462,162)
       Font = Font["10"]
       Text = ("CPU")
-      { Label6 Label
-        Move(6,78,48,24)
-        Font = Font["Bold,10"]
-        Padding = 3
-        Text = ("Flags:")
-        Transparent = True
-      }
-      { Label19 Label
-        Move(6,48,72,24)
-        Font = Font["Bold,10"]
-        Padding = 3
-        Text = ("Physical id:")
-        Transparent = True
-      }
-      { TextBox31 TextBox
-        Move(60,78,396,24)
-        Font = Font["10"]
-        Alignment = Align.Left
-        ReadOnly = True
-      }
-      { TextBox5 TextBox
-        Move(84,48,42,24)
-        Font = Font["10"]
-        Text = ("N/A")
-        ReadOnly = True
-      }
-      { Label10 Label
-        Move(132,48,72,24)
-        Font = Font["Bold,10"]
-        Padding = 3
-        Text = ("bogomips:")
-        Transparent = True
-      }
-      { TextBox6 TextBox
-        Move(204,48,84,24)
-        Font = Font["10"]
-        Text = ("N/A")
-        ReadOnly = True
-      }
       { Label3 Label
-        Move(497,119,168,21)
+        Move(498,126,168,21)
         Text = ("Label3")
       }
-      { Label11 Label
-        Move(6,108,48,24)
-        Font = Font["Bold,10"]
-        Padding = 3
-        Text = ("Width:")
-        Transparent = True
-      }
-      { TextBox32 TextBox
-        Move(60,108,396,24)
-        Font = Font["10"]
-      }
       { HBox13 HBox
-        Move(9,18,384,24)
+        Move(12,24,384,24)
         { Label71 Label
           Move(0,0,54,24)
           Font = Font["Bold,10"]
+          Padding = 3
           AutoResize = True
           Text = ("Family:   ")
         }
@@ -233,6 +196,70 @@
         { TextBox1 TextBox
           Move(360,0,60,24)
           Expand = True
+        }
+      }
+      { HBox14 HBox
+        Move(12,54,282,24)
+        { Label19 Label
+          Move(0,0,72,24)
+          Font = Font["Bold,10"]
+          Padding = 3
+          AutoResize = True
+          Text = ("Physical id:   ")
+          Transparent = True
+        }
+        { TextBox5 TextBox
+          Move(78,0,42,24)
+          Font = Font["10"]
+          Text = ("N/A")
+          ReadOnly = True
+        }
+        { Label10 Label
+          Move(126,0,72,24)
+          Font = Font["Bold,10"]
+          Padding = 3
+          AutoResize = True
+          Text = ("bogomips:  ")
+          Transparent = True
+        }
+        { TextBox6 TextBox
+          Move(198,0,84,24)
+          Font = Font["10"]
+          Expand = True
+          Text = ("N/A")
+          ReadOnly = True
+        }
+      }
+      { HPanel7 HPanel
+        Move(12,84,444,54)
+        { Label6 Label
+          Move(0,0,48,24)
+          Font = Font["Bold,10"]
+          Padding = 3
+          AutoResize = True
+          Text = ("Flags:   ")
+          Transparent = True
+        }
+        { TextBox31 TextBox
+          Move(54,0,396,24)
+          Font = Font["10"]
+          Expand = True
+          Alignment = Align.Left
+          ReadOnly = True
+        }
+        { Label11 Label
+          Move(0,30,48,24)
+          Font = Font["Bold,10"]
+          Padding = 3
+          AutoResize = True
+          Text = ("Width:   ")
+          Transparent = True
+        }
+        { TextBox32 TextBox
+          Move(54,30,396,24)
+          Font = Font["10"]
+          Expand = True
+          ReadOnly = True
         }
       }
     }
@@ -909,117 +936,177 @@
     Index = 9
     Text = ("Battery")
     Picture = Picture["icon:/16/battery"]
-    { TextBox7 TextBox
-      Move(144,12,318,24)
-      ReadOnly = True
-    }
-    { TextBox8 TextBox
-      Move(144,42,318,24)
-      ReadOnly = True
-    }
-    { TextBox9 TextBox
-      Move(144,72,318,24)
-      ReadOnly = True
-    }
-    { TextBox10 TextBox
-      Move(144,102,318,24)
-      ReadOnly = True
-    }
-    { TextBox11 TextBox
-      Move(144,132,318,24)
-      ReadOnly = True
-    }
-    { TextBox12 TextBox
-      Move(144,162,318,24)
-      ReadOnly = True
-    }
-    { TextBox13 TextBox
-      Move(144,192,318,24)
-      ReadOnly = True
-    }
-    { TextBox14 TextBox
-      Move(144,222,318,24)
-      ReadOnly = True
-    }
-    { TextBox15 TextBox
-      Move(144,252,318,24)
-      ReadOnly = True
-    }
-    { TextBox16 TextBox
-      Move(144,282,318,24)
-      ReadOnly = True
-    }
-    { TextBox17 TextBox
-      Move(144,312,318,24)
-      ReadOnly = True
-    }
-    { TextBox18 TextBox
-      Move(144,342,318,24)
-      ReadOnly = True
-    }
-    { TextBox19 TextBox
-      Move(144,372,318,24)
-      ReadOnly = True
-    }
-    { TextBox20 TextBox
-      Move(144,402,318,24)
-      ReadOnly = True
-    }
-    { Label20 Label
-      Move(6,12,102,24)
-      Text = ("Present:")
-    }
-    { Label21 Label
-      Move(6,42,102,24)
-      Text = ("Design capacity:")
-    }
-    { Label22 Label
-      Move(6,72,102,24)
-      Text = ("Last full capacity:")
-    }
-    { Label23 Label
-      Move(6,102,108,24)
-      Text = ("Battery technology:")
-    }
-    { Label24 Label
-      Move(6,132,138,24)
-      Text = ("Design voltage:")
-    }
-    { Label28 Label
-      Move(6,162,138,24)
-      Text = ("Design capacity warning:")
-    }
-    { Label29 Label
-      Move(6,192,138,24)
-      Text = ("Design capacity low:")
-    }
-    { Label30 Label
-      Move(6,222,138,24)
-      Text = ("Cycle count:")
-    }
-    { Label31 Label
-      Move(6,252,138,24)
-      Text = ("Capacity granularity 1:")
-    }
-    { Label32 Label
-      Move(6,282,138,24)
-      Text = ("Capacity granularity 2:")
-    }
-    { Label33 Label
-      Move(6,312,138,24)
-      Text = ("Model number:")
-    }
-    { Label34 Label
-      Move(6,342,138,24)
-      Text = ("Serial number:")
-    }
-    { Label35 Label
-      Move(6,402,138,24)
-      Text = ("OEM info:")
-    }
-    { Label36 Label
-      Move(6,372,138,24)
-      Text = ("Battery type:")
+    { HPanel5 HPanel
+      Move(0,6,468,420)
+      Spacing = True
+      { Label20 Label
+        Move(0,0,102,24)
+        Font = Font["Bold,11"]
+        Padding = 4
+        AutoResize = True
+        Text = ("Present:   ")
+      }
+      { TextBox7 TextBox
+        Move(144,0,318,24)
+        Expand = True
+        ReadOnly = True
+      }
+      { Label21 Label
+        Move(0,30,102,24)
+        Font = Font["Bold,11"]
+        Padding = 4
+        AutoResize = True
+        Text = ("Design capacity:   ")
+      }
+      { TextBox8 TextBox
+        Move(144,30,318,24)
+        Expand = True
+        ReadOnly = True
+      }
+      { Label22 Label
+        Move(0,60,102,24)
+        Font = Font["Bold,11"]
+        Padding = 4
+        AutoResize = True
+        Text = ("Last full capacity:   ")
+      }
+      { TextBox9 TextBox
+        Move(144,60,318,24)
+        Expand = True
+        ReadOnly = True
+      }
+      { Label23 Label
+        Move(0,90,108,24)
+        Font = Font["Bold,11"]
+        Padding = 4
+        AutoResize = True
+        Text = ("Battery technology:   ")
+      }
+      { TextBox10 TextBox
+        Move(144,90,318,24)
+        Expand = True
+        ReadOnly = True
+      }
+      { Label24 Label
+        Move(0,120,138,24)
+        Font = Font["Bold,11"]
+        Padding = 4
+        AutoResize = True
+        Text = ("Design voltage:   ")
+      }
+      { TextBox11 TextBox
+        Move(144,120,318,24)
+        Expand = True
+        ReadOnly = True
+      }
+      { Label28 Label
+        Move(0,150,138,24)
+        Font = Font["Bold,11"]
+        Padding = 4
+        AutoResize = True
+        Text = ("Design capacity warning:   ")
+      }
+      { TextBox12 TextBox
+        Move(144,150,318,24)
+        Expand = True
+        ReadOnly = True
+      }
+      { Label29 Label
+        Move(0,180,138,24)
+        Font = Font["Bold,11"]
+        Padding = 4
+        AutoResize = True
+        Text = ("Design capacity low:   ")
+      }
+      { TextBox13 TextBox
+        Move(144,180,318,24)
+        Expand = True
+        ReadOnly = True
+      }
+      { Label30 Label
+        Move(0,210,138,24)
+        Font = Font["Bold,11"]
+        Padding = 4
+        AutoResize = True
+        Text = ("Cycle count:   ")
+      }
+      { TextBox14 TextBox
+        Move(144,210,318,24)
+        Expand = True
+        ReadOnly = True
+      }
+      { Label31 Label
+        Move(0,240,138,24)
+        Font = Font["Bold,11"]
+        Padding = 4
+        AutoResize = True
+        Text = ("Capacity granularity 1:   ")
+      }
+      { TextBox15 TextBox
+        Move(144,240,318,24)
+        Expand = True
+        ReadOnly = True
+      }
+      { Label32 Label
+        Move(0,270,138,24)
+        Font = Font["Bold,11"]
+        Padding = 4
+        AutoResize = True
+        Text = ("Capacity granularity 2:   ")
+      }
+      { TextBox16 TextBox
+        Move(144,270,318,24)
+        Expand = True
+        ReadOnly = True
+      }
+      { Label33 Label
+        Move(0,300,138,24)
+        Font = Font["Bold,11"]
+        Padding = 4
+        AutoResize = True
+        Text = ("Model number:   ")
+      }
+      { TextBox17 TextBox
+        Move(144,300,318,24)
+        Expand = True
+        ReadOnly = True
+      }
+      { Label34 Label
+        Move(0,330,138,24)
+        Font = Font["Bold,11"]
+        Padding = 4
+        AutoResize = True
+        Text = ("Serial number:   ")
+      }
+      { TextBox18 TextBox
+        Move(144,330,318,24)
+        Expand = True
+        ReadOnly = True
+      }
+      { Label36 Label
+        Move(0,360,138,24)
+        Font = Font["Bold,11"]
+        Padding = 4
+        AutoResize = True
+        Text = ("Battery type:   ")
+      }
+      { TextBox19 TextBox
+        Move(144,360,318,24)
+        Expand = True
+        ReadOnly = True
+      }
+      { Label35 Label
+        Move(0,390,138,24)
+        Font = Font["Bold,11"]
+        Padding = 4
+        AutoResize = True
+        Text = ("OEM info:   ")
+      }
+      { TextBox20 TextBox
+        Move(144,390,318,24)
+        Expand = True
+        ReadOnly = True
+      }
     }
     { Button10 Button
       Move(438,426,24,24)
