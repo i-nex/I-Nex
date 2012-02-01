@@ -1,8 +1,6 @@
 #!/usr/bin/make -f
 build: build-stamp
 build-stamp:
-	wget http://git.silverirc.com/cgit.cgi/screenfetch-dev.git/plain/screenfetch-dev
-	chmod +x screenfetch-dev
 	dh_testdir
 	touch build-stamp
 	/usr/bin/gbc3 -e -a -g -t -p -m  src/i-nex
