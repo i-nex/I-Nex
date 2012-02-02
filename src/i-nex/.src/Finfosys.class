@@ -366,55 +366,42 @@ End
 
 Public Sub dospam_uptime()
   Dim total, used, freee, shared, buffers, cached, usedonthistime, swaptotal As String
-  Dim dospam, totpam, totalswap, usedswap As Integer
-  Dim dospam1, totpam1, totalswap1, usedswap1 As String
+  Dim dospam, totpam, totalswap, usedswap As String
   Shell "free -m | grep 'Mem' | awk {'print $2'}" Wait To total
   Shell "free -m | awk {'print $3'} | sed -n '2p'" Wait To used
   Shell "free -m | awk {'print $4'} | sed -n '2p'" Wait To freee
   Shell "free -m | awk {'print $5'} | sed -n '2p'" Wait To shared
   Shell "free -m | awk {'print $6'} | sed -n '2p'" Wait To buffers
   Shell "free -m | awk {'print $7'} | sed -n '2p'" Wait To cached
-  Shell "free -m | grep - | awk {'print $3'}" To dospam1
+  Shell "free -m | grep - | awk {'print $3'}" To dospam
   Shell "free -m | grep - | awk {'print $3'}" To usedonthistime
-  Shell "free -m | grep Mem | awk {'print $2'}" Wait To totpam1
+  Shell "free -m | grep Mem | awk {'print $2'}" Wait To totpam
   Shell "free -m | grep 'Swap:' | awk {'print $2'}" Wait To swaptotal
   'Obliczanie zajętości swap
-  Shell "/sbin/swapon -s | awk {'print $3'} | sed -n '2p'" Wait To totalswap1
-  Shell "/sbin/swapon -s | awk {'print $4'} | sed -n '2p'" Wait To usedswap1
+  Shell "/sbin/swapon -s | awk {'print $3'} | sed -n '2p'" Wait To totalswap
+  Shell "/sbin/swapon -s | awk {'print $4'} | sed -n '2p'" Wait To usedswap
   
-  TextArea39.Text = total & "MB"
-  TextArea39.Text = Replace(TextArea39.Text, "\n", "")
-  TextArea40.Text = used & "MB"
-  TextArea40.Text = Replace(TextArea40.Text, "\n", "")
-  TextArea41.Text = freee & "MB"
-  TextArea41.Text = Replace(TextArea41.Text, "\n", "")
-  TextArea42.Text = shared & "MB"
-  TextArea42.Text = Replace(TextArea42.Text, "\n", "")
-  TextArea43.Text = buffers & "MB"
-  TextArea43.Text = Replace(TextArea43.Text, "\n", "")
-  TextArea44.Text = cached & "MB"
-  TextArea44.Text = Replace(TextArea44.Text, "\n", "")
-  TextLabel7.Text = usedonthistime & "MB"
-  TextLabel7.Text = Replace(TextLabel7.Text, "\n", "")
-  TextArea45.Text = swaptotal & "MB"
-  TextArea45.Text = Replace(TextArea45.Text, "\n", "")
-  TextLabel24.Text = usedswap / 1000
+  swaptotal = Replace(swaptotal, "\n", "")
+  usedonthistime = Replace(usedonthistime, "\n", "")
+  cached = Replace(cached, "\n", "")
+  buffers = Replace(buffers, "\n", "")
+  shared = Replace(shared, "\n", "")
+  freee = Replace(freee, "\n", "")
+  used = Replace(used, "\n", "")
+  total = Replace(total, "\n", "")
+  TextArea39.Text = total & " MB"
+  TextArea40.Text = used & " MB"
+  TextArea41.Text = freee & " MB"
+  TextArea42.Text = shared & " MB"
+  TextArea43.Text = buffers & " MB"
+  TextArea44.Text = cached & " MB"
+  TextLabel7.Text = usedonthistime & " MB"
+  TextArea45.Text = swaptotal & " MB"
+  Try TextLabel24.Text = (Replace(Replace(usedswap, " ", ""), "\n", "") / 1000) & " MB"
   Exec ["uptime"] Wait To TextArea37.Text
   TextArea37.Text = Replace(TextArea37.Text, "\n", "")
-  dospam1 = Replace(dospam1, "\n", "")
-  dospam1 = Replace(dospam1, " ", "")
-  totpam1 = Replace(totpam1, "\n", "")
-  totpam1 = Replace(totpam1, " ", "")
-  totalswap1 = Replace(totalswap1, "\n", "")
-  totalswap1 = Replace(totalswap1, " ", "")
-  usedswap1 = Replace(usedswap1, "\n", "")
-  usedswap1 = Replace(usedswap1, " ", "")
-  dospam = dospam1
-  totpam = totpam1
-  totalswap = totalswap1
-  usedswap = usedswap1
-  Try ProgressBar1.Value = dospam / totpam
-  Try ProgressBar4.Value = usedswap / totalswap
+  Try ProgressBar1.Value = Replace(Replace(dospam, " ", ""), "\n", "") / Replace(Replace(totpam, " ", ""), "\n", "")
+  Try ProgressBar4.Value = Replace(Replace(usedswap, " ", ""), "\n", "") / Replace(Replace(totalswap, " ", ""), "\n", "")
 
 End
 
