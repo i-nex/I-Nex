@@ -3,7 +3,7 @@
 Title=i-nex
 Startup=Finfosys
 Icon=logo/i-nex.0.4.x.png
-Version=0.4.3
+Version=0.4.4
 VersionFile=1
 Component=gb.image
 Component=gb.gtk
