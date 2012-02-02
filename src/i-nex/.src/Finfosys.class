@@ -401,7 +401,9 @@ Public Sub dospam_uptime()
   Exec ["uptime"] Wait To TextArea37.Text
   TextArea37.Text = Replace(TextArea37.Text, "\n", "")
   Try ProgressBar1.Value = Replace(Replace(dospam, " ", ""), "\n", "") / Replace(Replace(totpam, " ", ""), "\n", "")
+  If Error Then Print "Cannot calculate used RAM memory"; Error.Text
   Try ProgressBar4.Value = Replace(Replace(usedswap, " ", ""), "\n", "") / Replace(Replace(totalswap, " ", ""), "\n", "")
+  If Error Then Print "Cannot calculate used SWAP memory"; Error.Text
 
 End
 
