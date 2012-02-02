@@ -1,3 +1,28 @@
+i-nex (0.4.4) stable; urgency=low
+
+  * Fix Cache position
+  * Fix distrodetect.class
+  * Add gentoo
+  * Update USB_Drives.module
+  * Fix Bug in battery.module
+    Detect BAT0 & BAT1
+  * Battery Fix Spaces LTrim
+  * Add new bug reporter
+    Tomasz Przybył (FadeMind) dj.m.freex[at]gmail[dot]com www.gravatar.com/fademind
+  * Fix CPU Tab → Frame CPU → Text Size, Padding, Autoresize, Expand.
+  * New About dialog
+  * Fix battery tab, All TextBox = ReadOnly True
+  * Add botton to About: I-Nex home page
+  * Fix CPU Tab, Text size 10,Bold
+    Add HBox, → /Fix position
+  * Change CPU Tab: Spacing = True to False
+    Add to Battery tab: Progressbar for show XX%
+  * Add support: Intel(R) Core(TM) i3
+  * Fix bug dospam_uptime()
+    [6] Type mismatch: wanted Integer, got string instead. Finfosys.dospam_uptime.414
+
+ -- eloaders <eloaders@yahoo.com>  Thu, 02 Feb 2012 12:13:22 +0100
+
 i-nex (0.4.3) unstable; urgency=low
 
   * Add detect removable
