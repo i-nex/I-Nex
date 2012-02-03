@@ -132,6 +132,7 @@ Public Sub dzwiek()
   Dim kartadzwiekowa, kartadzwiekowa2 As String
   Shell "lspci | grep 'udio' | cut -d ':' -f 3 | cut -d '(' -f 1" Wait To kartadzwiekowa
   TextArea18.Text = kartadzwiekowa
+  TextBox44.Text = Asound_Drives.Version
 
 End
 

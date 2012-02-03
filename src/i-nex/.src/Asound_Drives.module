@@ -1,0 +1,17 @@
+' Gambas module file
+
+Public Version As String
+Public Modules As String
+Public Devices As String
+
+Public Sub _init()
+ 
+ Shell "cat /proc/asound/version" Wait To Version
+ Shell "cat /proc/asound/modules" Wait To Modules
+ Shell "cat /proc/asound/devices" Wait To Devices
+ Version = Replace(Version, "\n", "")
+ Modules = Replace(modules, "\n", "")
+ 'Devices = Replace(Devices, "\n", "")
+ 
+ 
+End

@@ -1,5 +1,4 @@
 # Gambas Form File 3.0
-#LOCKED
 
 { Form Form
   Move(0,0,474,528)
@@ -88,7 +87,7 @@
         Text = ("Select core")
       }
       { HPanel6 HPanel
-        Move(6,18,162,114)
+        Move(6,18,204,114)
         { Label12 Label
           Move(0,0,96,24)
           Font = Font["Bold,10"]
@@ -152,7 +151,7 @@
         Text = ("Label3")
       }
       { HBox13 HBox
-        Move(6,24,384,24)
+        Move(6,24,450,24)
         { Label71 Label
           Move(0,0,54,24)
           Font = Font["Bold,10"]
@@ -165,7 +164,7 @@
           Expand = True
         }
         { Label7 Label
-          Move(102,0,42,24)
+          Move(120,0,42,24)
           Font = Font["Bold,10"]
           Padding = 4
           AutoResize = True
@@ -199,7 +198,7 @@
         }
       }
       { HBox14 HBox
-        Move(6,54,282,24)
+        Move(6,54,150,24)
         { Label19 Label
           Move(0,0,72,24)
           Font = Font["Bold,10"]
@@ -214,8 +213,11 @@
           Text = ("N/A")
           ReadOnly = True
         }
+      }
+      { HBox16 HBox
+        Move(162,54,192,24)
         { Label10 Label
-          Move(126,0,72,24)
+          Move(0,0,72,24)
           Font = Font["Bold,10"]
           Padding = 3
           AutoResize = True
@@ -223,15 +225,32 @@
           Transparent = True
         }
         { TextBox6 TextBox
-          Move(198,0,84,24)
+          Move(72,0,84,24)
           Font = Font["10"]
           Expand = True
           Text = ("N/A")
           ReadOnly = True
         }
       }
-      { HPanel7 HPanel
-        Move(6,84,444,54)
+      { HBox17 HBox
+        Move(6,114,450,24)
+        { Label11 Label
+          Move(0,0,48,24)
+          Font = Font["Bold,10"]
+          Padding = 3
+          AutoResize = True
+          Text = ("Width:   ")
+          Transparent = True
+        }
+        { TextBox32 TextBox
+          Move(54,0,396,24)
+          Font = Font["10"]
+          Expand = True
+          ReadOnly = True
+        }
+      }
+      { HBox18 HBox
+        Move(6,84,450,24)
         { Label6 Label
           Move(0,0,48,24)
           Font = Font["Bold,10"]
@@ -245,20 +264,6 @@
           Font = Font["10"]
           Expand = True
           Alignment = Align.Left
-          ReadOnly = True
-        }
-        { Label11 Label
-          Move(0,30,48,24)
-          Font = Font["Bold,10"]
-          Padding = 3
-          AutoResize = True
-          Text = ("Width:   ")
-          Transparent = True
-        }
-        { TextBox32 TextBox
-          Move(54,30,396,24)
-          Font = Font["10"]
-          Expand = True
           ReadOnly = True
         }
       }
@@ -356,10 +361,23 @@
       Alignment = Align.TopLeft
     }
     { TextArea18 TextArea
-      Move(7,28,462,91)
+      Move(6,24,462,91)
       Text = ("N/A")
       ReadOnly = True
       ScrollBar = Scroll.None
+    }
+    { HBox15 HBox
+      Move(6,120,462,24)
+      { Label9 Label
+        Move(0,0,144,24)
+        Font = Font["Bold,10"]
+        AutoResize = True
+        Text = ("Version:   ")
+      }
+      { TextBox44 TextBox
+        Move(132,0,144,24)
+        Expand = True
+      }
     }
     Index = 3
     Text = ("Graphics")
