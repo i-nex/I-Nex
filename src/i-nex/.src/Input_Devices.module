@@ -1,0 +1,39 @@
+' Gambas module file
+
+Public Name As String
+Public Phys As String
+Public Modalias As String
+
+Public Sub _init()
+ 
+  Dim ListAllDiscs, risultato As String
+  Dim righe As New String[]
+  Dim count As Integer
+  Dim riga As New String[]
+  Dim lista As New String[]
+  Debug "Add Input Devices to ComboBox.."
+  Shell "ls /sys/class/input/input[0-9]/name | tail | cut -d '/' -f 5" To ListAllDiscs
+  righe = Split(ListAllDiscs, "\n", "%%", True)
+  For count = 0 To righe.Max
+  riga = Split(righe[count], " ", "%%", True)
+  risultato = Replace(riga[0], " ", "")
+  lista.add(risultato)
+  Next
+  Finfosys.ComboBox7.List = lista
+  Finfosys.ComboBox7.Index = 0
+ 
+End
+
+Public Sub _get_informations()
+ 
+ Shell "cat /sys/class/input/" & Finfosys.ComboBox7.Text & "/name" Wait To Name
+ Shell "cat /sys/class/input/" & Finfosys.ComboBox7.Text & "/phys" Wait To Phys
+ Shell "cat /sys/class/input/" & Finfosys.ComboBox7.Text & "/modalias" Wait To Modalias
+ Name = Replace(Name, "\n", "")
+ Phys = Replace(Phys, "\n", "")
+ Modalias = Replace(Modalias, "\n", "")
+ Finfosys.Label82.Text = "Name:   " & Name
+ Finfosys.Label83.Text = "Phys:   " & Phys
+ Finfosys.TextBox45.Text = Modalias
+End
+

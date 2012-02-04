@@ -3,8 +3,8 @@
 Public Sub Form_Open()
   Dim default_display_manager As Boolean = Exist("/etc/X11/default-display-manager")
   Dim cpuz0, cpuz1, cpuz2, cpuz3, cpuz4, cpuz5, cpuz6, cpuz7, cpuz8, cpuz9, cpuz10, cpuz11 As String
-  
   Finfosys.TabStrip1[9].Visible = False
+  Debug "Check for Battery"
   Object.Call(battery, "_init")
   Debug "Check for Usb device plugged"
   Object.Call(USB_Drives, "_init")
@@ -14,7 +14,8 @@ Public Sub Form_Open()
   Object.Call(Disk_Drives, "_init_2")
   Debug "Check for Drives...."
   Object.Call(Disk_Drives, "get_informations")
-  Debug "End Check Drives"
+  Debug "Check for Input Drives"
+  Object.Call(Input_Devices, "_init")
   Debug "Check for default display manager"
   If default_display_manager = True Then
    Label4.Visible = True
@@ -132,7 +133,7 @@ Public Sub dzwiek()
   TextArea18.Text = Asound_Drives.sound_cards
   TextBox44.Text = Asound_Drives.Version
   Label18.Text = "Codec:   " & Asound_Drives.Codec
-  Label73.Text = "ID:   " & Asound_Drives.Id
+  Label73.Text = "ID:   " & Asound_Drives.Id & "   "
   Label74.Text = "Modules:   " & Asound_Drives.Modules
   Label77.Text = "HWdep:   " & Asound_Drives.hwdep
   Label78.Text = "PCM:   " & Asound_Drives.pcm
@@ -565,5 +566,11 @@ End
 Public Sub ComboBox6_Click()
 
  Asound_Drives._get_informations()
+
+End
+
+Public Sub ComboBox7_Click()
+
+ Input_Devices._get_informations()
 
 End

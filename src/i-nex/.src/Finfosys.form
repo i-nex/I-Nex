@@ -11,7 +11,7 @@
     Move(0,0,474,486)
     Tag = "System"
     AutoResize = True
-    Count = 11
+    Count = 12
     Index = 0
     Text = ("CPU")
     Picture = Picture["Data/Tabs/cpu.png"]
@@ -23,7 +23,7 @@
         Move(6,24,360,24)
         { Label1 Label
           Move(0,6,78,24)
-          Font = Font["Bold,10"]
+          Font = Font["Bold"]
           AutoResize = True
           Text = ("Manufacture:   ")
         }
@@ -49,7 +49,7 @@
         Move(6,54,360,24)
         { Label2 Label
           Move(0,0,42,24)
-          Font = Font["Bold,10"]
+          Font = Font["Bold"]
           AutoResize = True
           Text = ("Model:   ")
         }
@@ -62,7 +62,7 @@
         Move(6,84,360,24)
         { Label5 Label
           Move(0,0,66,24)
-          Font = Font["Bold,10"]
+          Font = Font["Bold"]
           AutoResize = True
           Text = ("CPU Speed:   ")
         }
@@ -90,7 +90,7 @@
         Move(6,18,204,114)
         { Label12 Label
           Move(0,0,96,24)
-          Font = Font["Bold,10"]
+          Font = Font["Bold"]
           Padding = 3
           AutoResize = True
           Text = ("L1 Data:          ")
@@ -103,7 +103,7 @@
         }
         { Label13 Label
           Move(0,30,96,24)
-          Font = Font["Bold,10"]
+          Font = Font["Bold"]
           Padding = 3
           AutoResize = True
           Text = ("L1 instruction:")
@@ -116,7 +116,7 @@
         }
         { Label14 Label
           Move(0,60,96,24)
-          Font = Font["Bold,10"]
+          Font = Font["Bold"]
           Padding = 3
           AutoResize = True
           Text = ("Level 2:           ")
@@ -129,7 +129,7 @@
         }
         { Label15 Label
           Move(0,90,96,24)
-          Font = Font["Bold,10"]
+          Font = Font["Bold"]
           Padding = 3
           AutoResize = True
           Text = ("Level 3:           ")
@@ -154,7 +154,7 @@
         Move(6,24,450,24)
         { Label71 Label
           Move(0,0,54,24)
-          Font = Font["Bold,10"]
+          Font = Font["Bold,-1"]
           Padding = 3
           AutoResize = True
           Text = ("Family:   ")
@@ -165,7 +165,7 @@
         }
         { Label7 Label
           Move(120,0,42,24)
-          Font = Font["Bold,10"]
+          Font = Font["Bold,-1"]
           Padding = 4
           AutoResize = True
           Text = ("Model:   ")
@@ -176,7 +176,7 @@
         }
         { Label72 Label
           Move(210,0,54,24)
-          Font = Font["Bold,10"]
+          Font = Font["Bold,-1"]
           Padding = 4
           AutoResize = True
           Text = ("Stepping:   ")
@@ -187,7 +187,7 @@
         }
         { Label8 Label
           Move(324,0,66,24)
-          Font = Font["Bold,10"]
+          Font = Font["Bold"]
           Padding = 4
           AutoResize = True
           Text = ("CPU Cores:   ")
@@ -201,7 +201,7 @@
         Move(6,54,150,24)
         { Label19 Label
           Move(0,0,72,24)
-          Font = Font["Bold,10"]
+          Font = Font["Bold"]
           Padding = 3
           AutoResize = True
           Text = ("Physical id:   ")
@@ -218,7 +218,7 @@
         Move(162,54,192,24)
         { Label10 Label
           Move(0,0,72,24)
-          Font = Font["Bold,10"]
+          Font = Font["Bold"]
           Padding = 3
           AutoResize = True
           Text = ("bogomips:  ")
@@ -236,7 +236,7 @@
         Move(6,114,450,24)
         { Label11 Label
           Move(0,0,48,24)
-          Font = Font["Bold,10"]
+          Font = Font["Bold"]
           Padding = 3
           AutoResize = True
           Text = ("Width:   ")
@@ -253,7 +253,7 @@
         Move(6,84,450,24)
         { Label6 Label
           Move(0,0,48,24)
-          Font = Font["Bold,10"]
+          Font = Font["Bold"]
           Padding = 3
           AutoResize = True
           Text = ("Flags:   ")
@@ -355,19 +355,6 @@
     Index = 2
     Text = ("Sound")
     Picture = Picture["icon:/16/media-player"]
-    { HBox15 HBox
-      Move(6,36,462,24)
-      { Label9 Label
-        Move(0,0,144,24)
-        Font = Font["Bold,10"]
-        AutoResize = True
-        Text = ("Version:   ")
-      }
-      { TextBox44 TextBox
-        Move(132,0,144,24)
-        Expand = True
-      }
-    }
     { HBox21 HBox
       Move(6,6,156,24)
       { ComboBox6 ComboBox
@@ -375,26 +362,6 @@
         Expand = True
         ReadOnly = True
       }
-    }
-    { Label18 Label
-      Move(156,72,312,24)
-      Border = Border.Plain
-    }
-    { Label73 Label
-      Move(6,72,144,24)
-      Border = Border.Plain
-    }
-    { Label74 Label
-      Move(6,102,462,24)
-      Border = Border.Plain
-    }
-    { Label77 Label
-      Move(6,132,462,24)
-      Border = Border.Plain
-    }
-    { Label78 Label
-      Move(6,162,462,24)
-      Border = Border.Plain
     }
     { VSplit1 VSplit
       Move(6,192,462,258)
@@ -409,6 +376,47 @@
         Move(0,162,462,96)
         Expand = True
         ReadOnly = True
+      }
+    }
+    { HBox15 HBox
+      Move(6,36,462,24)
+      { Label9 Label
+        Move(0,0,144,24)
+        Font = Font["Bold,10"]
+        AutoResize = True
+        Text = ("Version:   ")
+      }
+      { TextBox44 TextBox
+        Move(132,0,144,24)
+        Expand = True
+      }
+    }
+    { HPanel7 HPanel
+      Move(6,66,462,126)
+      { Label73 Label
+        Move(0,0,144,24)
+        AutoResize = True
+        Border = Border.Plain
+      }
+      { Label18 Label
+        Move(150,0,312,24)
+        Expand = True
+        Border = Border.Plain
+      }
+      { Label74 Label
+        Move(0,30,462,24)
+        Expand = True
+        Border = Border.Plain
+      }
+      { Label77 Label
+        Move(0,60,462,24)
+        Expand = True
+        Border = Border.Plain
+      }
+      { Label78 Label
+        Move(0,90,462,24)
+        Expand = True
+        Border = Border.Plain
       }
     }
     Index = 3
@@ -1177,7 +1185,7 @@
       Move(0,0,468,24)
       { Label70 Label
         Move(0,0,144,24)
-        Font = Font["Bold,11"]
+        Font = Font["Bold"]
         Padding = 4
         AutoResize = True
         Text = ("Usb device plugged:   ")
@@ -1188,10 +1196,10 @@
       }
     }
     { HPanel3 HPanel
-      Move(0,24,330,126)
+      Move(0,36,330,126)
       { Label68 Label
         Move(0,0,66,24)
-        Font = Font["Bold,11"]
+        Font = Font["Bold"]
         Padding = 4
         AutoResize = True
         Text = ("Product:   ")
@@ -1203,7 +1211,7 @@
       }
       { Label69 Label
         Move(0,24,78,24)
-        Font = Font["Bold,11"]
+        Font = Font["Bold"]
         Padding = 4
         AutoResize = True
         Text = ("Max power:   ")
@@ -1215,7 +1223,7 @@
       }
       { Label75 Label
         Move(0,48,96,24)
-        Font = Font["Bold,11"]
+        Font = Font["Bold"]
         Padding = 4
         AutoResize = True
         Text = ("Manufacturer:   ")
@@ -1227,7 +1235,7 @@
       }
       { Label79 Label
         Move(0,72,144,24)
-        Font = Font["Bold,11"]
+        Font = Font["Bold"]
         Padding = 4
         AutoResize = True
         Text = ("Speed:   ")
@@ -1238,7 +1246,7 @@
       }
       { Label76 Label
         Move(0,96,144,24)
-        Font = Font["Bold,11"]
+        Font = Font["Bold"]
         Padding = 4
         AutoResize = True
         Text = ("Version:   ")
@@ -1250,10 +1258,10 @@
       }
     }
     { HPanel4 HPanel
-      Move(330,24,138,126)
+      Move(330,36,138,126)
       { Label81 Label
         Move(0,0,78,24)
-        Font = Font["Bold,11"]
+        Font = Font["Bold"]
         Padding = 4
         AutoResize = True
         Text = ("idVendor:   ")
@@ -1264,7 +1272,7 @@
       }
       { Label80 Label
         Move(0,24,144,24)
-        Font = Font["Bold,11"]
+        Font = Font["Bold"]
         Padding = 4
         AutoResize = True
         Text = ("idProduct:   ")
@@ -1275,15 +1283,45 @@
       }
     }
     { HPanel2 HPanel
-      Move(0,150,468,24)
+      Move(0,162,468,24)
       { TextBox43 TextBox
         Move(0,0,144,24)
         Expand = True
       }
     }
     { Button11 Button
-      Move(156,180,144,24)
+      Move(156,192,144,24)
       Text = ("Update usbids")
+    }
+    Index = 11
+    Text = ("Input")
+    { ComboBox7 ComboBox
+      Move(6,6,144,24)
+      ReadOnly = True
+    }
+    { Label82 Label
+      Move(6,36,456,24)
+      Padding = 4
+      Border = Border.Plain
+    }
+    { Label83 Label
+      Move(6,66,456,24)
+      Padding = 3
+      Border = Border.Plain
+    }
+    { HBox22 HBox
+      Move(6,96,456,24)
+      { Label84 Label
+        Move(0,0,114,24)
+        Padding = 3
+        AutoResize = True
+        Text = ("Modalias:   ")
+        Border = Border.Plain
+      }
+      { TextBox45 TextBox
+        Move(102,0,144,24)
+        Expand = True
+      }
     }
     Index = 0
   }

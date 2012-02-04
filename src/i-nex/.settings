@@ -17,19 +17,21 @@ SearchString=True
 [OpenFile]
 Active=1
 File[1]=".src/Finfosys.form"
-File[2]=".src/Finfosys.class:134.40"
+File[2]=".src/Finfosys.class:135.52"
 File[3]=".src/Global.class:50.56"
 File[4]=".src/About.form"
 File[5]=".src/About.class:63.30"
 File[6]=".src/distrodetect.class:41.7"
-File[7]=".src/battery.module:76.57"
+File[7]=".src/battery.module:73.50"
 File[8]=".src/Disk_Drives.module:68.2"
 File[9]=".src/ScreenShot.form"
 File[10]=".src/ScreenShot.class:8.10"
 File[11]=".src/ScreenShotM.module:2.21"
-File[12]=".src/USB_Drives.module:35.93"
-File[13]=".src/Asound_Drives.module:13.2"
-Count=13
+File[12]=".src/USB_Drives.module:28.30"
+File[13]=".src/Asound_Drives.module:13.0"
+File[14]=".src/HWmon_coretemp.module:3.18"
+File[15]=".src/Input_Devices.module:36.50"
+Count=15
 
 [Watches]
 Count=0
