@@ -355,19 +355,8 @@
     Index = 2
     Text = ("Sound")
     Picture = Picture["icon:/16/media-player"]
-    { TextLabel19 TextLabel
-      Move(7,7,462,21)
-      Text = ("Sound Equipment:")
-      Alignment = Align.TopLeft
-    }
-    { TextArea18 TextArea
-      Move(6,24,462,91)
-      Text = ("N/A")
-      ReadOnly = True
-      ScrollBar = Scroll.None
-    }
     { HBox15 HBox
-      Move(6,120,462,24)
+      Move(6,36,462,24)
       { Label9 Label
         Move(0,0,144,24)
         Font = Font["Bold,10"]
@@ -377,6 +366,49 @@
       { TextBox44 TextBox
         Move(132,0,144,24)
         Expand = True
+      }
+    }
+    { HBox21 HBox
+      Move(6,6,156,24)
+      { ComboBox6 ComboBox
+        Move(0,0,144,24)
+        Expand = True
+        ReadOnly = True
+      }
+    }
+    { Label18 Label
+      Move(156,72,312,24)
+      Border = Border.Plain
+    }
+    { Label73 Label
+      Move(6,72,144,24)
+      Border = Border.Plain
+    }
+    { Label74 Label
+      Move(6,102,462,24)
+      Border = Border.Plain
+    }
+    { Label77 Label
+      Move(6,132,462,24)
+      Border = Border.Plain
+    }
+    { Label78 Label
+      Move(6,162,462,24)
+      Border = Border.Plain
+    }
+    { VSplit1 VSplit
+      Move(6,192,462,258)
+      { TextArea18 TextArea
+        Move(0,18,462,91)
+        Expand = True
+        Text = ("N/A")
+        ReadOnly = True
+        ScrollBar = Scroll.None
+      }
+      { TextArea1 TextArea
+        Move(0,162,462,96)
+        Expand = True
+        ReadOnly = True
       }
     }
     Index = 3
@@ -469,44 +501,38 @@
     Index = 4
     Text = ("Drives")
     Picture = Picture["Data/Tabs/hdd.png"]
-    { ComboBox3 ComboBox
-      Move(120,6,108,24)
-      ReadOnly = True
+    { !ProgressBar2 ProgressBar
+      Move(6,426,456,24)
+      #Public = True
+      Tracking = True
     }
-    { ComboBox4 ComboBox
-      Move(6,6,108,24)
-      ReadOnly = True
+    { HBox19 HBox
+      Move(6,6,288,24)
+      { ComboBox4 ComboBox
+        Move(0,0,108,24)
+        Expand = True
+        ReadOnly = True
+      }
+      { ComboBox3 ComboBox
+        Move(114,0,108,24)
+        Expand = True
+        ReadOnly = True
+      }
+    }
+    { HBox20 HBox
+      Move(300,6,162,24)
+      { Label48 Label
+        Move(0,0,162,24)
+        Visible = False
+        Font = Font["+3"]
+        AutoResize = True
+        Text = ("SWAP")
+        Alignment = Align.Center
+        Transparent = True
+      }
     }
     { Label16 Label
       Move(6,36,288,24)
-      Padding = 3
-      Border = Border.Plain
-    }
-    { Label17 Label
-      Move(6,66,288,24)
-      Padding = 3
-      Border = Border.Plain
-    }
-    { Label26 Label
-      Move(6,96,90,24)
-      Padding = 3
-      Text = ("Mount point:")
-      Border = Border.Plain
-    }
-    { Label27 Label
-      Move(6,126,90,24)
-      Padding = 3
-      Text = ("Device uuid:")
-      Border = Border.Plain
-      Transparent = True
-    }
-    { Label38 Label
-      Move(6,186,288,24)
-      Padding = 3
-      Border = Border.Plain
-    }
-    { Label39 Label
-      Move(6,216,288,24)
       Padding = 3
       Border = Border.Plain
     }
@@ -515,8 +541,52 @@
       Padding = 3
       Border = Border.Plain
     }
+    { Label17 Label
+      Move(6,66,288,24)
+      Padding = 3
+      Border = Border.Plain
+    }
     { Label42 Label
       Move(300,66,162,24)
+      Padding = 3
+      Border = Border.Plain
+    }
+    { Label26 Label
+      Move(6,96,90,24)
+      Padding = 3
+      Text = ("Mount point:   ")
+      Border = Border.Plain
+    }
+    { TextArea8 TextArea
+      Move(102,96,360,24)
+      ReadOnly = True
+    }
+    { Label27 Label
+      Move(6,126,90,24)
+      Padding = 3
+      Text = ("Device uuid:   ")
+      Border = Border.Plain
+      Transparent = True
+    }
+    { TextArea7 TextArea
+      Move(102,126,360,24)
+      ReadOnly = True
+    }
+    { Label40 Label
+      Move(6,156,90,24)
+      Padding = 3
+      Text = ("Mount width:   ")
+      Alignment = Align.Left
+      Border = Border.Plain
+    }
+    { TextArea6 TextArea
+      Move(102,156,360,24)
+      Alignment = Align.Left
+      ReadOnly = True
+      ScrollBar = Scroll.None
+    }
+    { Label38 Label
+      Move(6,186,288,24)
       Padding = 3
       Border = Border.Plain
     }
@@ -525,50 +595,28 @@
       Padding = 3
       Border = Border.Plain
     }
+    { Label39 Label
+      Move(6,216,288,24)
+      Padding = 3
+      Border = Border.Plain
+    }
     { Label44 Label
       Move(300,216,162,24)
       Padding = 3
       Border = Border.Plain
     }
-    { Label40 Label
-      Move(6,156,90,24)
-      Padding = 3
-      Text = ("Mount width:")
-      Alignment = Align.Left
-      Border = Border.Plain
-    }
-    { TextArea6 TextArea
-      Move(102,156,360,24)
-      Alignment = Align.Left
-      ReadOnly = True
-      Border = False
-      ScrollBar = Scroll.None
-    }
-    { TextArea7 TextArea
-      Move(102,126,360,24)
-      ReadOnly = True
-      Border = False
-    }
-    { TextArea8 TextArea
-      Move(102,96,360,24)
-      ReadOnly = True
-      Border = False
-    }
-    { !ProgressBar2 ProgressBar
-      Move(6,426,456,24)
-      #Public = True
-      Tracking = True
-    }
-    { Label48 Label
-      Move(300,6,162,24)
-      Visible = False
-      Font = Font["+3"]
-      Text = ("SWAP")
-      Alignment = Align.Center
-      Transparent = True
-    }
     { Label45 Label
       Move(300,246,162,24)
+      Padding = 3
+      Border = Border.Plain
+    }
+    { Label51 Label
+      Move(300,276,162,24)
+      Padding = 3
+      Border = Border.Plain
+    }
+    { Label49 Label
+      Move(300,306,162,24)
       Padding = 3
       Border = Border.Plain
     }
@@ -582,18 +630,8 @@
       Padding = 3
       Border = Border.Plain
     }
-    { Label49 Label
-      Move(300,306,162,24)
-      Padding = 3
-      Border = Border.Plain
-    }
     { Label50 Label
       Move(6,276,144,24)
-      Padding = 3
-      Border = Border.Plain
-    }
-    { Label51 Label
-      Move(300,276,162,24)
       Padding = 3
       Border = Border.Plain
     }
@@ -607,13 +645,13 @@
       Padding = 3
       Border = Border.Plain
     }
-    { Label54 Label
-      Move(156,336,306,24)
+    { Label55 Label
+      Move(6,336,144,24)
       Padding = 3
       Border = Border.Plain
     }
-    { Label55 Label
-      Move(6,336,144,24)
+    { Label54 Label
+      Move(156,336,306,24)
       Padding = 3
       Border = Border.Plain
     }

@@ -128,11 +128,15 @@ Public Sub kernel()
 End
 
 Public Sub dzwiek()
-  
-  Dim kartadzwiekowa, kartadzwiekowa2 As String
-  Shell "lspci | grep 'udio' | cut -d ':' -f 3 | cut -d '(' -f 1" Wait To kartadzwiekowa
-  TextArea18.Text = kartadzwiekowa
+
+  TextArea18.Text = Asound_Drives.sound_cards
   TextBox44.Text = Asound_Drives.Version
+  Label18.Text = "Codec:   " & Asound_Drives.Codec
+  Label73.Text = "ID:   " & Asound_Drives.Id
+  Label74.Text = "Modules:   " & Asound_Drives.Modules
+  Label77.Text = "HWdep:   " & Asound_Drives.hwdep
+  Label78.Text = "PCM:   " & Asound_Drives.pcm
+  TextArea1.Text = Asound_Drives.Devices
 
 End
 
@@ -555,5 +559,11 @@ Public Sub Button11_Click()
 
  Shell "gksu update-usbids" Wait
  USB_Drives.get_informations()
+
+End
+
+Public Sub ComboBox6_Click()
+
+ Asound_Drives._get_informations()
 
 End
