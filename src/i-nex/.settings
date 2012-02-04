@@ -15,8 +15,8 @@ SearchComment=False
 SearchString=True
 
 [OpenFile]
+Active=1
 File[1]=".src/Finfosys.form"
-Active=2
 File[2]=".src/Finfosys.class:134.40"
 File[3]=".src/Global.class:50.56"
 File[4]=".src/About.form"
