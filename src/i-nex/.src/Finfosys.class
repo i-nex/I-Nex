@@ -402,14 +402,14 @@ Public Sub dospam_uptime()
   freee = Replace(freee, "\n", "")
   used = Replace(used, "\n", "")
   total = Replace(total, "\n", "")
-  TextArea39.Text = total & " MB"
-  TextArea40.Text = used & " MB"
-  TextArea41.Text = freee & " MB"
-  TextArea42.Text = shared & " MB"
-  TextArea43.Text = buffers & " MB"
-  TextArea44.Text = cached & " MB"
+  Label85.Text = "Total:   " & total & " MB"
+  Label86.Text = "Used:   " & used & " MB"
+  Label87.Text = "Free:   " & freee & " MB"
+  Label88.Text = "Shared:   " & shared & " MB"
+  Label89.Text = "Buffers:   " & buffers & " MB"
+  Label90.Text = "Cached:   " & cached & " MB"
   TextLabel7.Text = usedonthistime & " MB"
-  TextArea45.Text = swaptotal & " MB"
+  Label91.Text = "SWAP Total:   " & swaptotal & " MB " ""
   Try TextLabel24.Text = (Replace(Replace(usedswap, " ", ""), "\n", "") / 1000) & " MB"
   Exec ["uptime"] Wait To TextArea37.Text
   TextArea37.Text = Replace(TextArea37.Text, "\n", "")

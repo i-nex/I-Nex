@@ -885,76 +885,6 @@
     { ProgressBar1 ProgressBar
       Move(7,28,462,21)
     }
-    { TextArea39 TextArea
-      Move(63,119,259,21)
-      Text = ("N/A")
-      ReadOnly = True
-      ScrollBar = Scroll.None
-    }
-    { TextArea40 TextArea
-      Move(63,147,259,21)
-      Text = ("N/A")
-      ReadOnly = True
-      ScrollBar = Scroll.None
-    }
-    { TextArea41 TextArea
-      Move(63,175,259,21)
-      Text = ("N/A")
-      ReadOnly = True
-      ScrollBar = Scroll.None
-    }
-    { TextArea42 TextArea
-      Move(63,203,259,21)
-      Text = ("N/A")
-      ReadOnly = True
-      ScrollBar = Scroll.None
-    }
-    { TextArea43 TextArea
-      Move(63,231,259,21)
-      Text = ("N/A")
-      ReadOnly = True
-      ScrollBar = Scroll.None
-    }
-    { TextArea44 TextArea
-      Move(63,259,259,21)
-      Text = ("N/A")
-      ReadOnly = True
-      ScrollBar = Scroll.None
-    }
-    { TextLabel18 TextLabel
-      Move(7,119,42,21)
-      Text = ("Total:")
-    }
-    { TextLabel30 TextLabel
-      Move(7,147,42,21)
-      Text = ("Used:")
-    }
-    { TextLabel36 TextLabel
-      Move(7,175,42,21)
-      Text = ("Free:")
-    }
-    { TextLabel39 TextLabel
-      Move(7,203,56,21)
-      Text = ("Shared:")
-    }
-    { TextLabel40 TextLabel
-      Move(7,231,56,21)
-      Text = ("Buffers:")
-    }
-    { TextLabel41 TextLabel
-      Move(7,259,56,21)
-      Text = ("Cached:")
-    }
-    { TextArea45 TextArea
-      Move(91,287,231,21)
-      Text = ("N/A")
-      ReadOnly = True
-      ScrollBar = Scroll.None
-    }
-    { TextLabel32 TextLabel
-      Move(7,287,84,21)
-      Text = ("Swap total:")
-    }
     { ProgressBar4 ProgressBar
       Move(7,84,462,21)
     }
@@ -965,6 +895,51 @@
     { TextLabel24 TextLabel
       Move(147,56,154,21)
       Text = ("N/A")
+    }
+    { HPanel8 HPanel
+      Move(6,114,312,336)
+      { Label85 Label
+        Move(0,12,312,24)
+        Expand = True
+        Padding = 4
+        Border = Border.Plain
+      }
+      { Label86 Label
+        Move(0,42,312,24)
+        Expand = True
+        Padding = 4
+        Border = Border.Plain
+      }
+      { Label87 Label
+        Move(0,72,312,24)
+        Expand = True
+        Padding = 4
+        Border = Border.Plain
+      }
+      { Label88 Label
+        Move(0,102,312,24)
+        Expand = True
+        Padding = 4
+        Border = Border.Plain
+      }
+      { Label89 Label
+        Move(0,132,312,24)
+        Expand = True
+        Padding = 4
+        Border = Border.Plain
+      }
+      { Label90 Label
+        Move(0,162,312,24)
+        Expand = True
+        Padding = 4
+        Border = Border.Plain
+      }
+      { Label91 Label
+        Move(0,192,312,24)
+        Expand = True
+        Padding = 4
+        Border = Border.Plain
+      }
     }
     Index = 8
     Text = ("Network")
