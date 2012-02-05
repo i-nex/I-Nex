@@ -438,15 +438,15 @@ msgstr ""
 msgid "Input"
 msgstr ""
 
-#: Finfosys.form:1787
+#: Finfosys.form:1788
 msgid "Modalias:   "
 msgstr ""
 
-#: Finfosys.form:1814
+#: Finfosys.form:1815
 msgid "Take Screenshot"
 msgstr ""
 
-#: Finfosys.form:1827
+#: Finfosys.form:1828
 msgid "Close"
 msgstr ""
 

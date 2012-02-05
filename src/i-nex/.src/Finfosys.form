@@ -1272,6 +1272,7 @@
     }
     Index = 11
     Text = ("Input")
+    Picture = Picture["icon:/16/mouse"]
     { ComboBox7 ComboBox
       Move(6,6,144,24)
       ReadOnly = True
