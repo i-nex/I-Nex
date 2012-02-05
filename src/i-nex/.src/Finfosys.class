@@ -120,8 +120,15 @@ Public Sub ComboBox1_Click()
 End
 
 Public Sub kernel()
-  Dim found_kernels, cur_used As String
-  Shell "ls /boot/vmlinuz* | cut -d '/' -f 3 " Wait To TextArea47.Text
+  Dim found_kernels, cur_used, All_Kernels, for_add As String
+  Dim kernels, i As Integer
+  Shell "ls /boot | grep 'vmlinuz*' | wc -l" Wait To All_Kernels
+  kernels = Replace(Replace(All_Kernels, " ", ""), "\n", "")
+  For i = 1 To kernels
+   Shell "ls /boot | grep 'vmlinuz*' | cut -d '/' -f 3 | sed -n '" & i & "p'" Wait To for_add
+   for_add = Replace(Replace(for_add, " ", ""), "\n", "")
+   ListBox1.Add(for_add, i)
+  Next
   Shell "ls /boot/vmlinuz* | cut -d '/' -f 3 | wc -l" Wait To found_kernels
   Shell "uname -r" Wait To cur_used
   TextLabel25.Text = "Found " & found_kernels & " kernels:"

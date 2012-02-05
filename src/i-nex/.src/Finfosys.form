@@ -851,19 +851,21 @@
     Text = ("Kernel")
     Picture = Picture["icon:/16/linux"]
     { Frame22 Frame
-      Move(7,7,462,441)
+      Move(6,6,462,441)
       Text = ("Installed kernels:")
-      { TextLabel26 TextLabel
-        Move(7,238,444,24)
-      }
       { TextLabel25 TextLabel
-        Move(6,18,216,24)
+        Move(6,24,216,24)
       }
-    }
-    { TextArea47 TextArea
-      Move(12,48,448,182)
-      Text = ("TextArea47")
-      ReadOnly = True
+      { TextLabel26 TextLabel
+        Move(6,198,444,24)
+      }
+      { VBox1 VBox
+        Move(6,48,450,138)
+        { ListBox1 ListBox
+          Move(0,0,270,96)
+          Expand = True
+        }
+      }
     }
     Index = 7
     Text = ("Memory")
@@ -1325,12 +1327,6 @@
     }
     Index = 0
   }
-  { Button2 Button
-    Move(7,497,138,24)
-    Font = Font["10"]
-    Text = ("Take Screenshot")
-    Picture = Picture["icon:/16/camera"]
-  }
   { HBox11 HBox
     Move(150,492,198,36)
     { Label25 Label
@@ -1340,6 +1336,12 @@
       Alignment = Align.Center
       Transparent = True
     }
+  }
+  { Button2 Button
+    Move(7,497,138,24)
+    Font = Font["10"]
+    Text = ("Take Screenshot")
+    Picture = Picture["icon:/16/camera"]
   }
   { Button3 Button
     Move(354,498,24,24)
