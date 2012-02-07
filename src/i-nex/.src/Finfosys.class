@@ -587,9 +587,3 @@ Public Sub Button12_Click()
  FReport_Gen.Show
 
 End
-
-Public Sub Button13_Click()
-
- ComboBox1.Insert("Procesor1")
-
-End

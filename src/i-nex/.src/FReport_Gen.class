@@ -12,7 +12,7 @@ Public Sub Button1_Click()
   Message.Warning("Please select directory to save the report about your hardware")
  Else
  Shell "rm " & ButtonBox1.Text & ""
- Reportm._generate(CheckBox1.Value, CheckBox2.Value, CheckBox3.Value, ButtonBox1.Text)
+ Reportm._generate(CheckBox1.Value, CheckBox2.Value, CheckBox3.Value, CheckBox4.Value, ButtonBox1.Text)
  Me.Close
  Endif
 End
@@ -22,7 +22,7 @@ Public Sub ButtonBox1_Click()
  Dialog.Filter = ["*.txt", "Text files"]
  Dialog.SaveFile
  ButtonBox1.Text = Dialog.Path
- If Exist(Dialog.Path, True) Then
+ If Exist(ButtonBox1.Text, True) Then
  Shell "rm " & Dialog.Path & "" Wait
  Endif
 End

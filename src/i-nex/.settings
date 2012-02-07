@@ -16,7 +16,8 @@ SearchString=True
 
 [OpenFile]
 File[1]=".src/Finfosys.form"
-File[2]=".src/Finfosys.class:586.1"
+Active=2
+File[2]=".src/Finfosys.class:588.3"
 File[3]=".src/Global.class:50.56"
 File[4]=".src/About.form"
 File[5]=".src/About.class:63.30"
@@ -27,13 +28,12 @@ File[9]=".src/ScreenShot.form"
 File[10]=".src/ScreenShot.class:8.10"
 File[11]=".src/ScreenShotM.module:2.21"
 File[12]=".src/USB_Drives.module:28.30"
-File[13]=".src/Asound_Drives.module:13.0"
+File[13]=".src/Asound_Drives.module:36.32"
 File[14]=".src/HWmon_coretemp.module:3.18"
 File[15]=".src/Input_Devices.module:36.27"
-File[16]=".src/Reportm.module:97.76"
-Active=17
+File[16]=".src/Reportm.module:171.10"
 File[17]=".src/FReport_Gen.form"
-File[18]=".src/FReport_Gen.class:31.9"
+File[18]=".src/FReport_Gen.class:10.31"
 Count=18
 
 [Watches]

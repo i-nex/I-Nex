@@ -14,27 +14,31 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: FReport_Gen.form:16
+#: FReport_Gen.form:17
 msgid "Generate report"
 msgstr ""
 
-#: FReport_Gen.form:22
+#: FReport_Gen.form:23
 msgid "CPU Tab"
 msgstr ""
 
-#: FReport_Gen.form:27
+#: FReport_Gen.form:28
 msgid "Motherboard / Bios Tab"
 msgstr ""
 
-#: FReport_Gen.form:36
+#: FReport_Gen.form:37
 msgid "Graphics Tab"
 msgstr ""
 
-#: FReport_Gen.form:54
+#: FReport_Gen.form:55
 msgid "Generate"
 msgstr ""
 
-#: FReport_Gen.form:63
+#: FReport_Gen.form:64
 msgid "Close"
+msgstr ""
+
+#: FReport_Gen.form:71
+msgid "Sound Tab"
 msgstr ""
 

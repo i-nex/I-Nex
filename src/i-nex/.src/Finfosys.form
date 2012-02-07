@@ -272,10 +272,10 @@
     Text = ("Motherboard / Bios")
     Picture = Picture["icon:/16/hardware"]
     { Frame1 Frame
-      Move(6,150,462,144)
+      Move(6,162,462,144)
       Text = ("Bios")
       { HBox4 HBox
-        Move(6,18,450,24)
+        Move(6,30,450,24)
         { Label37 Label
           Move(0,0,60,24)
           Font = Font["Bold,10"]
@@ -288,7 +288,7 @@
         }
       }
       { HBox5 HBox
-        Move(6,78,450,24)
+        Move(6,90,450,24)
         { Label60 Label
           Move(0,0,30,24)
           Font = Font["Bold,10"]
@@ -301,7 +301,7 @@
         }
       }
       { HBox6 HBox
-        Move(6,48,450,24)
+        Move(6,60,450,24)
         { Label61 Label
           Move(18,6,54,24)
           Font = Font["Bold,10"]
@@ -315,10 +315,10 @@
       }
     }
     { Frame5 Frame
-      Move(6,6,462,133)
+      Move(6,6,462,144)
       Text = ("Motherboard")
       { HBox7 HBox
-        Move(6,18,450,24)
+        Move(6,30,450,24)
         { Label62 Label
           Move(0,0,48,24)
           Font = Font["Bold,10"]
@@ -327,14 +327,14 @@
         }
       }
       { HBox8 HBox
-        Move(6,42,450,24)
+        Move(6,54,450,24)
         { TextBox23 TextBox
           Move(0,0,144,24)
           Expand = True
         }
       }
       { HBox9 HBox
-        Move(6,66,450,24)
+        Move(6,78,450,24)
         { Label63 Label
           Move(0,12,144,24)
           Font = Font["Bold,10"]
@@ -344,7 +344,7 @@
         }
       }
       { HBox10 HBox
-        Move(6,90,450,24)
+        Move(6,102,450,24)
         { TextBox24 TextBox
           Move(0,0,144,24)
           Expand = True

@@ -18,7 +18,7 @@
     Move(6,204,426,24)
   }
   { CheckBox3 CheckBox
-    Move(6,54,144,24)
+    Move(6,78,144,24)
     Text = ("Graphics Tab")
   }
   { ProgressBar1 ProgressBar
@@ -44,5 +44,9 @@
       Text = ("Close")
       Picture = Picture["icon:/16/quit"]
     }
+  }
+  { CheckBox4 CheckBox
+    Move(6,54,420,24)
+    Text = ("Sound Tab")
   }
 }

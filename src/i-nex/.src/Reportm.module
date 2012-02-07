@@ -1,11 +1,11 @@
 ' Gambas module file
 
 ' 
-Public Sub _generate(cpu As Boolean, mobo As Boolean, graphic As Boolean, save_dir As String)
- Dim cpus As String
+Public Sub _generate(cpu As Boolean, mobo As Boolean, graphic As Boolean, sound As Boolean, save_dir As String)
  Dim i As Float
- For i = 0 To Finfosys.ComboBox1.Count - 1
+ Dim isnd As Float
   If cpu = True Then
+   For i = 0 To Finfosys.ComboBox1.Count - 1
   FReport_Gen.TextLabel1.Text = "Generate information about Procesor" & i
   Wait 0.1
   FReport_Gen.ProgressBar1.Value = 0.1
@@ -74,29 +74,106 @@ Public Sub _generate(cpu As Boolean, mobo As Boolean, graphic As Boolean, save_d
   Wait 0.1
   FReport_Gen.ProgressBar1.Value = 1
   Finfosys.ComboBox1.Text = "Procesor" & (Finfosys.ComboBox1.Count - 1)
- Endif
  Next
+ Endif
  If mobo = True Then
-  Shell "echo '======================Motherboard / Bios=====================' >>" & save_dir & "" Wait
-  Shell "echo '___ Motherboard ___' >>" & save_dir & "" Wait
-  Shell "echo 'Manufacturer: " & Finfosys.TextBox23.Text & "' >>" & save_dir & "" Wait
-  Shell "echo 'Model:        " & Finfosys.TextBox24.Text & "' >>" & save_dir & "" Wait
-  Shell "echo '______ Bios ______' >>" & save_dir & "" Wait
-  Shell "echo 'Manufacturer: " & Finfosys.TextBox25.Text & "' >>" & save_dir & "" Wait
-  Shell "echo 'Date:         " & Finfosys.TextBox27.Text & "' >>" & save_dir & "" Wait
-  Shell "echo 'Version:      " & Finfosys.TextBox26.Text & "' >>" & save_dir & "" Wait
-  Shell "echo '====================Motherboard / Bios End===================' >>" & save_dir & "" Wait
-  Shell "echo '' >>" & save_dir & "" Wait
+  Shell "echo '======================Motherboard / Bios=====================' >>" & save_dir & "" 
+  Wait 0.1
+  FReport_Gen.ProgressBar1.Value = 0.1
+  Shell "echo '___ Motherboard ___' >>" & save_dir & "" 
+  Wait 0.1
+  FReport_Gen.ProgressBar1.Value = 0.2
+  Shell "echo 'Manufacturer: " & Finfosys.TextBox23.Text & "' >>" & save_dir & ""
+  Wait 0.1
+  FReport_Gen.ProgressBar1.Value = 0.3
+  Shell "echo 'Model:        " & Finfosys.TextBox24.Text & "' >>" & save_dir & "" 
+  Wait 0.1
+  FReport_Gen.ProgressBar1.Value = 0.4
+  Shell "echo '______ Bios ______' >>" & save_dir & ""
+  Wait 0.1
+  FReport_Gen.ProgressBar1.Value = 0.5
+  Shell "echo 'Manufacturer: " & Finfosys.TextBox25.Text & "' >>" & save_dir & ""
+  Wait 0.1
+  FReport_Gen.ProgressBar1.Value = 0.6
+  Shell "echo 'Date:         " & Finfosys.TextBox27.Text & "' >>" & save_dir & ""
+  Wait 0.1
+  FReport_Gen.ProgressBar1.Value = 0.7
+  Shell "echo 'Version:      " & Finfosys.TextBox26.Text & "' >>" & save_dir & ""
+  Wait 0.1
+  FReport_Gen.ProgressBar1.Value = 0.8
+  Shell "echo '====================Motherboard / Bios End===================' >>" & save_dir & ""
+  Wait 0.1
+  FReport_Gen.ProgressBar1.Value = 0.9
+  Shell "echo '' >>" & save_dir & "" 
+  Wait 0.1
+  FReport_Gen.ProgressBar1.Value = 1
  Endif
  If graphic = True Then
-  Shell "echo '=========================Graphic Tab=========================' >>" & save_dir & "" Wait
-  Shell "echo 'Graphics card:      " & Finfosys.TextArea17.Text & "' >>" & save_dir & "" Wait
-  Shell "echo 'OpenGl Vendor:      " & Finfosys.TextBox21.Text & "' >>" & save_dir & "" Wait
-  Shell "echo 'OpenGl Renderer:    " & Finfosys.TextBox37.Text & "' >>" & save_dir & "" Wait
-  Shell "echo 'OpenGl Version:     " & Finfosys.TextBox38.Text & "' >>" & save_dir & "" Wait
-  Shell "echo 'Present resolution: " & Finfosys.TextBox39.Text & "' >>" & save_dir & "" Wait
-  Shell "echo '======================Graphic Tab End========================' >>" & save_dir & "" Wait
-  Shell "echo '' >>" & save_dir & "" Wait
+  Shell "echo '=========================Graphic Tab=========================' >>" & save_dir & ""
+  Wait 0.1
+  FReport_Gen.ProgressBar1.Value = 0.2
+  Shell "echo 'Graphics card:      " & Finfosys.TextArea17.Text & "' >>" & save_dir & ""
+  Wait 0.1
+  FReport_Gen.ProgressBar1.Value = 0.3
+  Shell "echo 'OpenGl Vendor:      " & Finfosys.TextBox21.Text & "' >>" & save_dir & ""
+  Wait 0.1
+  FReport_Gen.ProgressBar1.Value = 0.5
+  Shell "echo 'OpenGl Renderer:    " & Finfosys.TextBox37.Text & "' >>" & save_dir & ""
+  Wait 0.1
+  FReport_Gen.ProgressBar1.Value = 0.6
+  Shell "echo 'OpenGl Version:     " & Finfosys.TextBox38.Text & "' >>" & save_dir & ""
+  Wait 0.1
+  FReport_Gen.ProgressBar1.Value = 0.7
+  Shell "echo 'Present resolution: " & Finfosys.TextBox39.Text & "' >>" & save_dir & ""
+  Wait 0.1
+  FReport_Gen.ProgressBar1.Value = 0.8
+  Shell "echo '======================Graphic Tab End========================' >>" & save_dir & ""
+  Wait 0.1
+  FReport_Gen.ProgressBar1.Value = 0.9
+  Shell "echo '' >>" & save_dir & ""
+  Wait 0.1
+  FReport_Gen.ProgressBar1.Value = 1
+ Endif
+ If sound = True Then
+  For isnd = 0 To Finfosys.ComboBox6.Count - 1
+  Wait 0.1
+  FReport_Gen.ProgressBar1.Value = 0.5
+  Shell "echo '===================== Sound Tab " & Finfosys.ComboBox6.Text & " =======================' >>" & save_dir & ""
+  Wait 0.1
+  FReport_Gen.ProgressBar1.Value = 0.1
+  Shell "echo 'Version: " & Asound_Drives.Version & "' >>" & save_dir & ""
+  Wait 0.1
+  FReport_Gen.ProgressBar1.Value = 0.2
+  Shell "echo 'Id:      " & Asound_Drives.Id & "' >>" & save_dir & ""
+  Wait 0.1
+  FReport_Gen.ProgressBar1.Value = 0.3
+  Shell "echo 'Codec:   " & Asound_Drives.Codec & "' >>" & save_dir & ""
+  Wait 0.1
+  FReport_Gen.ProgressBar1.Value = 0.4
+  Shell "echo 'Modules: " & Asound_Drives.Modules & "' >>" & save_dir & ""
+  Wait 0.1
+  FReport_Gen.ProgressBar1.Value = 0.5
+  Shell "echo 'HWdep:   " & Asound_Drives.hwdep & "' >>" & save_dir & ""
+  Wait 0.1
+  FReport_Gen.ProgressBar1.Value = 0.6
+  Shell "echo 'PCM:     " & Asound_Drives.pcm & "' >>" & save_dir & ""
+  Wait 0.1
+  FReport_Gen.ProgressBar1.Value = 0.7
+  Shell "echo 'Cards:   " & Asound_Drives.sound_cards & "' >>" & save_dir & ""
+  Wait 0.1
+  FReport_Gen.ProgressBar1.Value = 0.8
+  Shell "echo 'Devices: " & Asound_Drives.Devices & "' >>" & save_dir & ""
+  Wait 0.1
+  FReport_Gen.ProgressBar1.Value = 0.9
+  Shell "echo '===================== Sound Tab " & Finfosys.ComboBox6.Text & " End ===================' >>" & save_dir & ""
+  Wait 0.1
+  FReport_Gen.ProgressBar1.Value = 0.95
+  Shell "echo '' >>" & save_dir & ""
+  Wait 0.1
+  FReport_Gen.ProgressBar1.Value = 1
+  Finfosys.ComboBox6.Text = "card" & (Finfosys.ComboBox6.Count - 1)
+  Wait 0.1
+  Next
  Endif
  'Motherboard
 End

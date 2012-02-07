@@ -18,7 +18,7 @@ msgstr ""
 msgid "About"
 msgstr ""
 
-#: About.form:45 FReport_Gen.form:63 Finfosys.form:1829
+#: About.form:45 FReport_Gen.form:64 Finfosys.form:1829
 msgid "Close"
 msgstr ""
 
@@ -114,24 +114,28 @@ msgstr ""
 msgid "I-Nex Home page"
 msgstr ""
 
-#: FReport_Gen.form:16
+#: FReport_Gen.form:17
 msgid "Generate report"
 msgstr ""
 
-#: FReport_Gen.form:22
+#: FReport_Gen.form:23
 msgid "CPU Tab"
 msgstr ""
 
-#: FReport_Gen.form:27
+#: FReport_Gen.form:28
 msgid "Motherboard / Bios Tab"
 msgstr ""
 
-#: FReport_Gen.form:36
+#: FReport_Gen.form:37
 msgid "Graphics Tab"
 msgstr ""
 
-#: FReport_Gen.form:54
+#: FReport_Gen.form:55
 msgid "Generate"
+msgstr ""
+
+#: FReport_Gen.form:71
+msgid "Sound Tab"
 msgstr ""
 
 #: Finfosys.form:268
