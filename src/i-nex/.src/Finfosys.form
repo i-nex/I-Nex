@@ -1297,16 +1297,16 @@
         Border = Border.Plain
       }
       { TextBox45 TextBox
-        Move(102,0,144,24)
+        Move(108,0,144,24)
         Expand = True
       }
     }
     Index = 0
   }
   { HBox11 HBox
-    Move(150,492,198,36)
+    Move(150,492,168,36)
     { Label25 Label
-      Move(144,6,48,24)
+      Move(78,6,48,24)
       Foreground = &HFF0000&
       AutoResize = True
       Alignment = Align.Center
@@ -1329,5 +1329,9 @@
     Font = Font["10"]
     Text = ("Close")
     Picture = Picture["icon:/16/quit"]
+  }
+  { Button12 Button
+    Move(324,498,24,24)
+    Picture = Picture["icon:/16/printer"]
   }
 }

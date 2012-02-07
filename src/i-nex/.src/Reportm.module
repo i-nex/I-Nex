@@ -1,0 +1,104 @@
+' Gambas module file
+
+' 
+Public Sub _generate(cpu As Boolean, mobo As Boolean, graphic As Boolean, save_dir As String)
+ Dim cpus As String
+ Dim i As Float
+ For i = 0 To Finfosys.ComboBox1.Count - 1
+  If cpu = True Then
+  FReport_Gen.TextLabel1.Text = "Generate information about Procesor" & i
+  Wait 0.1
+  FReport_Gen.ProgressBar1.Value = 0.1
+  Shell "echo '======================CPU Tab " & Finfosys.ComboBox1.Text & "======================' >>" & save_dir & "" Wait
+  Wait 0.1
+  FReport_Gen.ProgressBar1.Value = 0.15
+  Shell "echo 'Manufacture: " & Finfosys.TextBox28.Text & "' >>" & save_dir & "" 
+  Wait 0.1
+  FReport_Gen.ProgressBar1.Value = 0.2
+  Shell "echo 'Model:       " & Finfosys.TextBox29.Text & "' >>" & save_dir & "" 
+  Wait 0.1
+  FReport_Gen.ProgressBar1.Value = 0.25
+  Shell "echo 'CPU Speed:   " & Finfosys.TextBox30.Text & "' >>" & save_dir & "" 
+  Wait 0.1
+  FReport_Gen.TextLabel1.Text = "Generate information about Procesor" & (i) & "..."
+  FReport_Gen.ProgressBar1.Value = 0.3
+  Shell "echo '' >>" & save_dir & "" 
+  Wait 0.1
+  FReport_Gen.ProgressBar1.Value = 0.35
+  Shell "echo 'Family:      " & Finfosys.TextBox4.Text & "' >>" & save_dir & "" 
+  Wait 0.1
+  FReport_Gen.ProgressBar1.Value = 0.4
+  Shell "echo 'Model:       " & Finfosys.TextBox3.Text & "' >>" & save_dir & "" 
+  Wait 0.1
+  FReport_Gen.ProgressBar1.Value = 0.45
+  Shell "echo 'Stepping:    " & Finfosys.TextBox2.Text & "' >>" & save_dir & "" 
+  Wait 0.1
+  FReport_Gen.ProgressBar1.Value = 0.5
+  FReport_Gen.TextLabel1.Text = "Generate information about Procesor" & (i) & "... ..."
+  Shell "echo 'CPU Cores:   " & Finfosys.TextBox1.Text & "' >>" & save_dir & "" 
+  Wait 0.1
+  FReport_Gen.ProgressBar1.Value = 0.55
+  Shell "echo 'Physical Id: " & Finfosys.TextBox5.Text & "' >>" & save_dir & "" 
+  Wait 0.1
+  FReport_Gen.ProgressBar1.Value = 0.6
+  Shell "echo 'Bogomips:    " & Finfosys.TextBox6.Text & "' >>" & save_dir & "" 
+  Wait 0.1
+  FReport_Gen.ProgressBar1.Value = 0.65
+  Shell "echo 'Flags:       " & Finfosys.TextBox31.Text & "' >>" & save_dir & "" 
+  Wait 0.1
+  FReport_Gen.ProgressBar1.Value = 0.7
+  Shell "echo 'Width:       " & Finfosys.TextBox32.Text & "' >>" & save_dir & "" 
+  Wait 0.1
+  FReport_Gen.ProgressBar1.Value = 0.75
+  FReport_Gen.TextLabel1.Text = "Generate information about Procesor" & (i) & "... ... ..."
+  Shell "echo '' >>" & save_dir & "" 
+  Wait 0.1
+  FReport_Gen.ProgressBar1.Value = 0.8
+  Shell "echo 'L1 Data:        " & Finfosys.TextBox33.Text & "' >>" & save_dir & "" 
+  Wait 0.1
+  FReport_Gen.ProgressBar1.Value = 0.85
+  Shell "echo 'L1 Instruction: " & Finfosys.TextBox34.Text & "' >>" & save_dir & "" 
+  Wait 0.1
+  FReport_Gen.ProgressBar1.Value = 0.87
+  Shell "echo 'Level 2:        " & Finfosys.TextBox35.Text & "' >>" & save_dir & "" 
+  Wait 0.1
+  FReport_Gen.ProgressBar1.Value = 0.9
+  Shell "echo 'Level 3:        " & Finfosys.TextBox36.Text & "' >>" & save_dir & "" 
+  Wait 0.1
+  FReport_Gen.ProgressBar1.Value = 0.93
+  Shell "echo '====================CPU Tab End " & Finfosys.ComboBox1.Text & "====================' >>" & save_dir & "" 
+  Wait 0.1
+  FReport_Gen.ProgressBar1.Value = 0.97
+  FReport_Gen.TextLabel1.Text = "Generate information about Procesor" & (i) & "... ... ... Done"
+  Shell "echo '' >>" & save_dir & "" 
+  Wait 0.1
+  FReport_Gen.ProgressBar1.Value = 1
+  Finfosys.ComboBox1.Text = "Procesor" & (Finfosys.ComboBox1.Count - 1)
+ Endif
+ Next
+ If mobo = True Then
+  Shell "echo '======================Motherboard / Bios=====================' >>" & save_dir & "" Wait
+  Shell "echo '___ Motherboard ___' >>" & save_dir & "" Wait
+  Shell "echo 'Manufacturer: " & Finfosys.TextBox23.Text & "' >>" & save_dir & "" Wait
+  Shell "echo 'Model:        " & Finfosys.TextBox24.Text & "' >>" & save_dir & "" Wait
+  Shell "echo '______ Bios ______' >>" & save_dir & "" Wait
+  Shell "echo 'Manufacturer: " & Finfosys.TextBox25.Text & "' >>" & save_dir & "" Wait
+  Shell "echo 'Date:         " & Finfosys.TextBox27.Text & "' >>" & save_dir & "" Wait
+  Shell "echo 'Version:      " & Finfosys.TextBox26.Text & "' >>" & save_dir & "" Wait
+  Shell "echo '====================Motherboard / Bios End===================' >>" & save_dir & "" Wait
+  Shell "echo '' >>" & save_dir & "" Wait
+ Endif
+ If graphic = True Then
+  Shell "echo '=========================Graphic Tab=========================' >>" & save_dir & "" Wait
+  Shell "echo 'Graphics card:      " & Finfosys.TextArea17.Text & "' >>" & save_dir & "" Wait
+  Shell "echo 'OpenGl Vendor:      " & Finfosys.TextBox21.Text & "' >>" & save_dir & "" Wait
+  Shell "echo 'OpenGl Renderer:    " & Finfosys.TextBox37.Text & "' >>" & save_dir & "" Wait
+  Shell "echo 'OpenGl Version:     " & Finfosys.TextBox38.Text & "' >>" & save_dir & "" Wait
+  Shell "echo 'Present resolution: " & Finfosys.TextBox39.Text & "' >>" & save_dir & "" Wait
+  Shell "echo '======================Graphic Tab End========================' >>" & save_dir & "" Wait
+  Shell "echo '' >>" & save_dir & "" Wait
+ Endif
+ 'Motherboard
+End
+
+

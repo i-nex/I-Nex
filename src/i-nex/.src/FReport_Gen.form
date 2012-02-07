@@ -1,0 +1,48 @@
+# Gambas Form File 3.0
+
+{ Form Form
+  Move(0,0,438,270)
+  #Scaled = False
+  Text = ("Generate report")
+  Icon = Picture["logo/i-nex.0.4.x.png"]
+  Resizable = False
+  { CheckBox1 CheckBox
+    Move(6,6,348,24)
+    Text = ("CPU Tab")
+  }
+  { CheckBox2 CheckBox
+    Move(6,30,348,24)
+    Text = ("Motherboard / Bios Tab")
+  }
+  { ButtonBox1 ButtonBox
+    Move(6,204,426,24)
+  }
+  { CheckBox3 CheckBox
+    Move(6,54,144,24)
+    Text = ("Graphics Tab")
+  }
+  { ProgressBar1 ProgressBar
+    Move(6,174,426,24)
+  }
+  { TextLabel1 TextLabel
+    Move(12,144,414,24)
+  }
+  { HBox1 HBox
+    Move(174,240,258,24)
+    { Button1 Button
+      Move(0,0,96,24)
+      Expand = True
+      AutoResize = True
+      Text = ("Generate")
+      Picture = Picture["icon:/16/apply"]
+    }
+    { Button2 Button
+      Move(96,0,96,24)
+      Drop = True
+      Expand = True
+      AutoResize = True
+      Text = ("Close")
+      Picture = Picture["icon:/16/quit"]
+    }
+  }
+}

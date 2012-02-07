@@ -1,0 +1,34 @@
+' Gambas class file
+
+
+Public Sub Form_Open()
+
+ Me.Center
+
+End
+
+Public Sub Button1_Click()
+ If ButtonBox1.Text = Null Then
+  Message.Warning("Please select directory to save the report about your hardware")
+ Else
+ Shell "rm " & ButtonBox1.Text & ""
+ Reportm._generate(CheckBox1.Value, CheckBox2.Value, CheckBox3.Value, ButtonBox1.Text)
+ Me.Close
+ Endif
+End
+
+Public Sub ButtonBox1_Click()
+ Dialog.Title = "Choose a file"
+ Dialog.Filter = ["*.txt", "Text files"]
+ Dialog.SaveFile
+ ButtonBox1.Text = Dialog.Path
+ If Exist(Dialog.Path, True) Then
+ Shell "rm " & Dialog.Path & "" Wait
+ Endif
+End
+
+Public Sub Button2_Click()
+
+ Me.Close
+
+End
