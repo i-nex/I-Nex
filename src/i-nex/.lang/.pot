@@ -601,3 +601,7 @@ msgstr ""
 #: ScreenShot.form:75
 msgid "Picture quality:"
 msgstr ""
+
+#: Start_App_Args.form:19
+msgid "Invalid Arguments!!"
+msgstr ""

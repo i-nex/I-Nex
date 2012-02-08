@@ -14,3 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
+#: Start_App_Args.form:19
+msgid "Invalid Arguments!!"
+msgstr ""
+

@@ -16,7 +16,6 @@ Public Sub Form_Open()
    Print "Usage: " & Application.name & ".gambas [Options]"
    Print "Options:"
    Print "--help                  (Chow Help)"
-   Print "--show           (Show Main dialog)"
    Print "--about         (Show About dialog)"
    Print "--gen_report   (Show Report dialog)"
    Print ""
@@ -29,6 +28,7 @@ Public Sub Form_Open()
   If Application.Args[1] = "devel" Then
    root()
   Endif
+  Me.Center
 End
 
 Public Sub root()
