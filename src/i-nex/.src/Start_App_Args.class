@@ -28,7 +28,7 @@ Public Sub Form_Open()
   If Application.Args[1] = "devel" Then
    root()
   Endif
-  Me.Center
+  Try Me.Center
 End
 
 Public Sub root()

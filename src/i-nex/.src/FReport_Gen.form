@@ -73,6 +73,11 @@
       Expand = True
       Text = ("Include lsusb")
     }
+    { CheckBox8 CheckBox
+      Move(0,48,144,24)
+      Expand = True
+      Text = ("Include /proc/scsi/scsi")
+    }
   }
   { Separator1 Separator
     Move(216,0,6,186)

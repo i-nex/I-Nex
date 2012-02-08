@@ -213,7 +213,7 @@ Public Sub PBV(ProgressBar_Value As Float)
  
 End
 
-Public Sub include(lspci As Boolean, lsusb As Boolean, save_dir As String)
+Public Sub include(lspci As Boolean, lsusb As Boolean, scsi As Boolean, save_dir As String)
  If lspci = True Then
   TextInfo("Include lspci information")
   Wait 0.1
@@ -264,7 +264,28 @@ Public Sub include(lspci As Boolean, lsusb As Boolean, save_dir As String)
   TextInfo("Include lsusb information ... ... ... Done")
   PBV(1)
  Endif
- 
+ If scsi = True Then
+  Shell "echo '' >>" & save_dir & ""
+  Wait 0.1
+  PBV(0.2)
+  TextInfo("Include SCSI information")
+  Shell "echo '========================== SCSI ==============================' >>" & save_dir & ""
+  Wait 0.1
+  PBV(0.4)
+  TextInfo("Include SCSI information...")
+  Shell "cat /proc/scsi/scsi >>" & save_dir & "" Wait
+  Wait 0.1
+  PBV(0.6)
+  TextInfo("Include SCSI information... ...")
+  Shell "echo '======================== SCSI END ============================' >>" & save_dir & ""
+  Wait 0.1
+  PBV(0.8)
+  TextInfo("Include SCSI information... ... ...")
+  Shell "echo '' >>" & save_dir & ""
+  Wait 0.1
+  PBV(1)
+  TextInfo("Include SCSI information... ... ... Done")
+ Endif
 End
 
 
