@@ -1,7 +1,7 @@
 # Gambas Project File 3.0
 # Compiled with Gambas 3.0.0
 Title=i-nex
-Startup=Finfosys
+Startup=Start_App_Args
 Icon=logo/i-nex.0.4.x.png
 Version=0.4.4
 VersionFile=1

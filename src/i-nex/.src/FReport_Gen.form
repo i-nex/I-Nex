@@ -6,29 +6,17 @@
   Text = ("Generate report")
   Icon = Picture["logo/i-nex.0.4.x.png"]
   Resizable = False
-  { CheckBox1 CheckBox
-    Move(6,6,348,24)
-    Text = ("CPU Tab")
-  }
-  { CheckBox2 CheckBox
-    Move(6,30,348,24)
-    Text = ("Motherboard / Bios Tab")
-  }
   { ButtonBox1 ButtonBox
-    Move(6,204,426,24)
-  }
-  { CheckBox3 CheckBox
-    Move(6,78,144,24)
-    Text = ("Graphics Tab")
+    Move(6,240,228,24)
   }
   { ProgressBar1 ProgressBar
-    Move(6,174,426,24)
+    Move(6,222,426,12)
   }
   { TextLabel1 TextLabel
-    Move(12,144,414,24)
+    Move(12,192,414,24)
   }
   { HBox1 HBox
-    Move(174,240,258,24)
+    Move(234,240,198,24)
     { Button1 Button
       Move(0,0,96,24)
       Expand = True
@@ -45,8 +33,48 @@
       Picture = Picture["icon:/16/quit"]
     }
   }
-  { CheckBox4 CheckBox
-    Move(6,54,420,24)
-    Text = ("Sound Tab")
+  { HPanel1 HPanel
+    Move(6,6,210,180)
+    { CheckBox1 CheckBox
+      Move(0,0,156,24)
+      Expand = True
+      Text = ("CPU Tab")
+    }
+    { CheckBox2 CheckBox
+      Move(0,24,156,24)
+      Expand = True
+      Text = ("Motherboard / Bios Tab")
+    }
+    { CheckBox4 CheckBox
+      Move(0,48,156,24)
+      Expand = True
+      Text = ("Sound Tab")
+    }
+    { CheckBox3 CheckBox
+      Move(0,72,156,24)
+      Expand = True
+      Text = ("Graphics Tab")
+    }
+    { CheckBox5 CheckBox
+      Move(0,96,156,24)
+      Expand = True
+      Text = ("System Tab")
+    }
+  }
+  { HPanel2 HPanel
+    Move(222,6,210,180)
+    { CheckBox6 CheckBox
+      Move(0,0,144,24)
+      Expand = True
+      Text = ("Include lspci")
+    }
+    { CheckBox7 CheckBox
+      Move(0,24,144,24)
+      Expand = True
+      Text = ("Include lsusb")
+    }
+  }
+  { Separator1 Separator
+    Move(216,0,6,186)
   }
 }

@@ -6,176 +6,267 @@ Public Sub _generate(cpu As Boolean, mobo As Boolean, graphic As Boolean, sound 
  Dim isnd As Float
   If cpu = True Then
    For i = 0 To Finfosys.ComboBox1.Count - 1
-  FReport_Gen.TextLabel1.Text = "Generate information about Procesor" & i
+  TextInfo("Generate information about Procesor" & i)
   Wait 0.1
-  FReport_Gen.ProgressBar1.Value = 0.1
+  PBV(0.1)
   Shell "echo '======================CPU Tab " & Finfosys.ComboBox1.Text & "======================' >>" & save_dir & "" Wait
   Wait 0.1
-  FReport_Gen.ProgressBar1.Value = 0.15
+  PBV(0.15)
   Shell "echo 'Manufacture: " & Finfosys.TextBox28.Text & "' >>" & save_dir & "" 
   Wait 0.1
-  FReport_Gen.ProgressBar1.Value = 0.2
+  PBV(0.2)
   Shell "echo 'Model:       " & Finfosys.TextBox29.Text & "' >>" & save_dir & "" 
   Wait 0.1
-  FReport_Gen.ProgressBar1.Value = 0.25
+  PBV(0.25)
   Shell "echo 'CPU Speed:   " & Finfosys.TextBox30.Text & "' >>" & save_dir & "" 
   Wait 0.1
-  FReport_Gen.TextLabel1.Text = "Generate information about Procesor" & (i) & "..."
-  FReport_Gen.ProgressBar1.Value = 0.3
+  TextInfo("Generate information about Procesor" & (i) & "...")
+  PBV(0.3)
   Shell "echo '' >>" & save_dir & "" 
   Wait 0.1
-  FReport_Gen.ProgressBar1.Value = 0.35
+  PBV(0.35)
   Shell "echo 'Family:      " & Finfosys.TextBox4.Text & "' >>" & save_dir & "" 
   Wait 0.1
-  FReport_Gen.ProgressBar1.Value = 0.4
+  PBV(0.4)
   Shell "echo 'Model:       " & Finfosys.TextBox3.Text & "' >>" & save_dir & "" 
   Wait 0.1
-  FReport_Gen.ProgressBar1.Value = 0.45
+  PBV(0.45)
   Shell "echo 'Stepping:    " & Finfosys.TextBox2.Text & "' >>" & save_dir & "" 
   Wait 0.1
-  FReport_Gen.ProgressBar1.Value = 0.5
-  FReport_Gen.TextLabel1.Text = "Generate information about Procesor" & (i) & "... ..."
+  PBV(0.5)
+  TextInfo("Generate information about Procesor" & (i) & "... ...")
   Shell "echo 'CPU Cores:   " & Finfosys.TextBox1.Text & "' >>" & save_dir & "" 
   Wait 0.1
-  FReport_Gen.ProgressBar1.Value = 0.55
+  PBV(0.55)
   Shell "echo 'Physical Id: " & Finfosys.TextBox5.Text & "' >>" & save_dir & "" 
   Wait 0.1
-  FReport_Gen.ProgressBar1.Value = 0.6
+  PBV(0.6)
   Shell "echo 'Bogomips:    " & Finfosys.TextBox6.Text & "' >>" & save_dir & "" 
   Wait 0.1
-  FReport_Gen.ProgressBar1.Value = 0.65
+  PBV(0.65)
   Shell "echo 'Flags:       " & Finfosys.TextBox31.Text & "' >>" & save_dir & "" 
   Wait 0.1
-  FReport_Gen.ProgressBar1.Value = 0.7
+  PBV(0.7)
   Shell "echo 'Width:       " & Finfosys.TextBox32.Text & "' >>" & save_dir & "" 
   Wait 0.1
-  FReport_Gen.ProgressBar1.Value = 0.75
-  FReport_Gen.TextLabel1.Text = "Generate information about Procesor" & (i) & "... ... ..."
+  PBV(0.75)
+  TextInfo("Generate information about Procesor" & (i) & "... ... ...")
   Shell "echo '' >>" & save_dir & "" 
   Wait 0.1
-  FReport_Gen.ProgressBar1.Value = 0.8
+  PBV(0.8)
   Shell "echo 'L1 Data:        " & Finfosys.TextBox33.Text & "' >>" & save_dir & "" 
   Wait 0.1
-  FReport_Gen.ProgressBar1.Value = 0.85
+  PBV(0.85)
   Shell "echo 'L1 Instruction: " & Finfosys.TextBox34.Text & "' >>" & save_dir & "" 
   Wait 0.1
-  FReport_Gen.ProgressBar1.Value = 0.87
+  PBV(0.87)
   Shell "echo 'Level 2:        " & Finfosys.TextBox35.Text & "' >>" & save_dir & "" 
   Wait 0.1
-  FReport_Gen.ProgressBar1.Value = 0.9
+  PBV(0.9)
   Shell "echo 'Level 3:        " & Finfosys.TextBox36.Text & "' >>" & save_dir & "" 
   Wait 0.1
-  FReport_Gen.ProgressBar1.Value = 0.93
+  PBV(0.93)
   Shell "echo '====================CPU Tab End " & Finfosys.ComboBox1.Text & "====================' >>" & save_dir & "" 
   Wait 0.1
-  FReport_Gen.ProgressBar1.Value = 0.97
-  FReport_Gen.TextLabel1.Text = "Generate information about Procesor" & (i) & "... ... ... Done"
+  PBV(0.97)
+  TextInfo("Generate information about Procesor" & (i) & "... ... ... Done")
   Shell "echo '' >>" & save_dir & "" 
   Wait 0.1
-  FReport_Gen.ProgressBar1.Value = 1
+  PBV(1)
   Finfosys.ComboBox1.Text = "Procesor" & (Finfosys.ComboBox1.Count - 1)
  Next
  Endif
  If mobo = True Then
   Shell "echo '======================Motherboard / Bios=====================' >>" & save_dir & "" 
   Wait 0.1
-  FReport_Gen.ProgressBar1.Value = 0.1
+  TextInfo("Generate Motherboard / Bios information")
+  PBV(0.1)
   Shell "echo '___ Motherboard ___' >>" & save_dir & "" 
   Wait 0.1
-  FReport_Gen.ProgressBar1.Value = 0.2
+  TextInfo("Generate Motherboard / Bios information...")
+  PBV(0.2)
   Shell "echo 'Manufacturer: " & Finfosys.TextBox23.Text & "' >>" & save_dir & ""
   Wait 0.1
-  FReport_Gen.ProgressBar1.Value = 0.3
+  TextInfo("Generate Motherboard / Bios information... ...")
+  PBV(0.3)
   Shell "echo 'Model:        " & Finfosys.TextBox24.Text & "' >>" & save_dir & "" 
   Wait 0.1
-  FReport_Gen.ProgressBar1.Value = 0.4
+  TextInfo("Generate Motherboard / Bios information... ... ...")
+  PBV(0.4)
   Shell "echo '______ Bios ______' >>" & save_dir & ""
   Wait 0.1
-  FReport_Gen.ProgressBar1.Value = 0.5
+  TextInfo("Generate Motherboard / Bios information... ... ... ...")
+  PBV(0.5)
   Shell "echo 'Manufacturer: " & Finfosys.TextBox25.Text & "' >>" & save_dir & ""
   Wait 0.1
-  FReport_Gen.ProgressBar1.Value = 0.6
+  TextInfo("Generate Motherboard / Bios information... ... ... ...")
+  PBV(0.6)
   Shell "echo 'Date:         " & Finfosys.TextBox27.Text & "' >>" & save_dir & ""
   Wait 0.1
-  FReport_Gen.ProgressBar1.Value = 0.7
+  TextInfo("Generate Motherboard / Bios information... ... ... ... ...")
+  PBV(0.7)
   Shell "echo 'Version:      " & Finfosys.TextBox26.Text & "' >>" & save_dir & ""
   Wait 0.1
-  FReport_Gen.ProgressBar1.Value = 0.8
+  TextInfo("Generate Motherboard / Bios information... ... ... ... ...")
+  PBV(0.8)
   Shell "echo '====================Motherboard / Bios End===================' >>" & save_dir & ""
   Wait 0.1
-  FReport_Gen.ProgressBar1.Value = 0.9
+  TextInfo("Generate Motherboard / Bios information... ... ... ... ... ...")
+  PBV(0.9)
   Shell "echo '' >>" & save_dir & "" 
   Wait 0.1
-  FReport_Gen.ProgressBar1.Value = 1
+  TextInfo("Generate Motherboard / Bios information... ... ... ... ... ... Done")
+  PBV(1)
  Endif
  If graphic = True Then
   Shell "echo '=========================Graphic Tab=========================' >>" & save_dir & ""
   Wait 0.1
-  FReport_Gen.ProgressBar1.Value = 0.2
+  TextInfo("Generate Graphic Tab information")
+  PBV(0.2)
   Shell "echo 'Graphics card:      " & Finfosys.TextArea17.Text & "' >>" & save_dir & ""
   Wait 0.1
-  FReport_Gen.ProgressBar1.Value = 0.3
+  TextInfo("Generate Graphic Tab information...")
+  PBV(0.3)
   Shell "echo 'OpenGl Vendor:      " & Finfosys.TextBox21.Text & "' >>" & save_dir & ""
   Wait 0.1
-  FReport_Gen.ProgressBar1.Value = 0.5
+  TextInfo("Generate Graphic Tab information... ...")
+  PBV(0.5)
   Shell "echo 'OpenGl Renderer:    " & Finfosys.TextBox37.Text & "' >>" & save_dir & ""
   Wait 0.1
-  FReport_Gen.ProgressBar1.Value = 0.6
+  TextInfo("Generate Graphic Tab information... ... ...")
+  PBV(0.6)
   Shell "echo 'OpenGl Version:     " & Finfosys.TextBox38.Text & "' >>" & save_dir & ""
   Wait 0.1
-  FReport_Gen.ProgressBar1.Value = 0.7
+  TextInfo("Generate Graphic Tab information... ... ... ...")
+  PBV(0.7)
   Shell "echo 'Present resolution: " & Finfosys.TextBox39.Text & "' >>" & save_dir & ""
   Wait 0.1
-  FReport_Gen.ProgressBar1.Value = 0.8
+  TextInfo("Generate Graphic Tab information... ... ... ... ...")
+  PBV(0.8)
   Shell "echo '======================Graphic Tab End========================' >>" & save_dir & ""
   Wait 0.1
-  FReport_Gen.ProgressBar1.Value = 0.9
+  TextInfo("Generate Graphic Tab information... ... ... ... ... ...")
+  PBV(0.9)
   Shell "echo '' >>" & save_dir & ""
   Wait 0.1
-  FReport_Gen.ProgressBar1.Value = 1
+  TextInfo("Generate Graphic Tab information... ... ... ... ... ... Done")
+  PBV(1)
  Endif
  If sound = True Then
   For isnd = 0 To Finfosys.ComboBox6.Count - 1
   Wait 0.1
-  FReport_Gen.ProgressBar1.Value = 0.5
+  TextInfo("Generate information about Sound card" & isnd)
+  PBV(0.5)
   Shell "echo '===================== Sound Tab " & Finfosys.ComboBox6.Text & " =======================' >>" & save_dir & ""
   Wait 0.1
-  FReport_Gen.ProgressBar1.Value = 0.1
+  PBV(0.1)
   Shell "echo 'Version: " & Asound_Drives.Version & "' >>" & save_dir & ""
   Wait 0.1
-  FReport_Gen.ProgressBar1.Value = 0.2
+  PBV(0.2)
   Shell "echo 'Id:      " & Asound_Drives.Id & "' >>" & save_dir & ""
   Wait 0.1
-  FReport_Gen.ProgressBar1.Value = 0.3
+  TextInfo("Generate information about Sound card" & isnd & "...")
+  PBV(0.3)
   Shell "echo 'Codec:   " & Asound_Drives.Codec & "' >>" & save_dir & ""
   Wait 0.1
-  FReport_Gen.ProgressBar1.Value = 0.4
+  PBV(0.4)
   Shell "echo 'Modules: " & Asound_Drives.Modules & "' >>" & save_dir & ""
   Wait 0.1
-  FReport_Gen.ProgressBar1.Value = 0.5
+  PBV(0.5)
+  TextInfo("Generate information about Sound card" & isnd & "... ...")
   Shell "echo 'HWdep:   " & Asound_Drives.hwdep & "' >>" & save_dir & ""
   Wait 0.1
-  FReport_Gen.ProgressBar1.Value = 0.6
+  PBV(0.6)
   Shell "echo 'PCM:     " & Asound_Drives.pcm & "' >>" & save_dir & ""
   Wait 0.1
-  FReport_Gen.ProgressBar1.Value = 0.7
+  PBV(0.7)
   Shell "echo 'Cards:   " & Asound_Drives.sound_cards & "' >>" & save_dir & ""
   Wait 0.1
-  FReport_Gen.ProgressBar1.Value = 0.8
+  PBV(0.8)
+  TextInfo("Generate information about Sound card" & isnd & "... ... ...")
   Shell "echo 'Devices: " & Asound_Drives.Devices & "' >>" & save_dir & ""
   Wait 0.1
-  FReport_Gen.ProgressBar1.Value = 0.9
+  PBV(0.9)
   Shell "echo '===================== Sound Tab " & Finfosys.ComboBox6.Text & " End ===================' >>" & save_dir & ""
   Wait 0.1
-  FReport_Gen.ProgressBar1.Value = 0.95
+  PBV(0.95)
   Shell "echo '' >>" & save_dir & ""
   Wait 0.1
-  FReport_Gen.ProgressBar1.Value = 1
+  PBV(1)
+  TextInfo("Generate information about Sound card" & isnd & "... ... ... Done")
   Finfosys.ComboBox6.Text = "card" & (Finfosys.ComboBox6.Count - 1)
   Wait 0.1
   Next
  Endif
  'Motherboard
 End
+
+Public Sub TextInfo(Text As String)
+ 
+ FReport_Gen.TextLabel1.Text = Text
+ 
+End
+
+Public Sub PBV(ProgressBar_Value As Float)
+ 
+ FReport_Gen.ProgressBar1.Value = ProgressBar_Value
+ 
+End
+
+Public Sub include(lspci As Boolean, lsusb As Boolean, save_dir As String)
+ If lspci = True Then
+  TextInfo("Include lspci information")
+  Wait 0.1
+  PBV(0.1)
+  TextInfo("Include lspci information ...")
+  Shell "echo '' >>" & save_dir & ""
+  Wait 0.1
+  PBV(0.2)
+  TextInfo("Include lspci information ... ...")
+  Shell "echo '============================ LSPCI ==========================' >>" & save_dir & ""
+  Wait 0.1
+  PBV(0.4)
+  TextInfo("Include lspci information ... ...")
+  Shell "lspci >>" & save_dir & "" Wait
+  Wait 0.1
+  PBV(0.5)
+  TextInfo("Include lspci information ... ...")
+  Shell "echo '========================== LSPCI END =========================' >>" & save_dir & ""
+  Wait 0.1
+  PBV(0.7)
+  TextInfo("Include lspci information ... ... ...")
+  Shell "echo '' >>" & save_dir & ""
+  Wait 0.1
+  PBV(0.8)
+  TextInfo("Include lspci information ... ... ... Done")
+  PBV(1)
+ Endif
+ If lsusb = True Then
+  TextInfo("Include lsusb information")
+  Wait 0.1
+  PBV(0.2)
+  TextInfo("Include lsusb information ...")
+  Shell "echo '' >>" & save_dir & ""
+  Wait 0.1
+  PBV(0.5)
+  TextInfo("Include lsusb information ... ...")
+  Shell "echo '============================ LSUSB ==========================' >>" & save_dir & ""
+  Wait 0.1
+  Shell "lsusb >>" & save_dir & "" Wait
+  Wait 0.1
+  PBV(0.7)
+  TextInfo("Include lsusb information ... ... ...")
+  Shell "echo '========================== LSUSB END =========================' >>" & save_dir & ""
+  Wait 0.1
+  Shell "echo '' >>" & save_dir & ""
+  Wait 0.1
+  PBV(0.8)
+  TextInfo("Include lsusb information ... ... ... Done")
+  PBV(1)
+ Endif
+ 
+End
+
+
 
 

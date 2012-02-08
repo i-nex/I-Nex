@@ -1,0 +1,40 @@
+' Gambas class file
+
+Public Sub Form_Open()
+  Dim s As String
+  If (Application.Args[1] = "--about") Then
+   About.Show
+   Me.Close
+  Endif
+  If (Application.Args[1] = "--gen_report") Then
+   FReport_Gen.Show
+   Me.Close
+  Endif
+  If (Application.Args[1] = "--help") Then
+   Print ""
+   Print Application.name & " " & Application.version
+   Print "Usage: " & Application.name & ".gambas [Options]"
+   Print "Options:"
+   Print "--help                  (Chow Help)"
+   Print "--show           (Show Main dialog)"
+   Print "--about         (Show About dialog)"
+   Print "--gen_report   (Show Report dialog)"
+   Print ""
+   Me.Close
+  Endif
+  If (Application.Args[1] = Null) Then
+   Finfosys.Show
+   Me.Close
+  Endif
+  If Application.Args[1] = "devel" Then
+   root()
+  Endif
+End
+
+Public Sub root()
+  If Application.Env["USER"] = "root" Then
+   Shell "dmidecode" Wait To TextArea1.Text
+   Print TextArea1.Text
+   Me.Close
+  Endif
+End

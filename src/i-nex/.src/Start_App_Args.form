@@ -1,0 +1,8 @@
+# Gambas Form File 3.0
+
+{ Form Form
+  MoveScaled(0,0,71,37)
+  { TextArea1 TextArea
+    MoveScaled(0,0,71,37)
+  }
+}
