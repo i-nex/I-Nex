@@ -312,6 +312,7 @@ Public Sub include(lspci As Boolean, lsusb As Boolean, scsi As Boolean, dmesg As
 End
 
 Public Sub desktop_support(unity As Boolean, save_dir As String)
+  If unity = True Then
   TextInfo("Include Unity Support Test")
   Shell "echo '' >>" & save_dir & ""
   Wait 0.1
@@ -333,6 +334,7 @@ Public Sub desktop_support(unity As Boolean, save_dir As String)
   Wait 0.1
   PBV(1)
   TextInfo("Include Unity Support Test... ... ... ... Done")
+  Endif
 End
 
 

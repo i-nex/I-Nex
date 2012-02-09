@@ -18,6 +18,9 @@ Public Sub Button1_Click()
  Reportm._generate(CheckBox1.Value, CheckBox2.Value, CheckBox3.Value, CheckBox4.Value, ButtonBox1.Text)
  Reportm.desktop_support(CheckBox10.Value, ButtonBox1.Text)
  Reportm.include(CheckBox6.Value, CheckBox7.Value, CheckBox8.Value, CheckBox9.Value, ButtonBox1.Text)
+ If (Application.Args[1] = "--gen_report") Then
+  Finfosys.Close
+ Endif
  Me.Close
  Endif
 End
@@ -33,7 +36,9 @@ Public Sub ButtonBox1_Click()
 End
 
 Public Sub Button2_Click()
-
+ If (Application.Args[1] = "--gen_report") Then
+  Finfosys.Close
+ Endif
  Me.Close
 
 End

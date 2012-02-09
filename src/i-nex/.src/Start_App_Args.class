@@ -7,6 +7,8 @@ Public Sub Form_Open()
    Me.Close
   Endif
   If (Application.Args[1] = "--gen_report") Then
+   Finfosys.Show
+   Finfosys.Hide
    FReport_Gen.Show
    Me.Close
   Endif
