@@ -311,6 +311,30 @@ Public Sub include(lspci As Boolean, lsusb As Boolean, scsi As Boolean, dmesg As
  Endif
 End
 
+Public Sub desktop_support(unity As Boolean, save_dir As String)
+  TextInfo("Include Unity Support Test")
+  Shell "echo '' >>" & save_dir & ""
+  Wait 0.1
+  PBV(0.2)
+  TextInfo("Include Unity Support Test...")
+  Shell "echo '==================== Unity Support Test ======================' >>" & save_dir & ""
+  Wait 0.1
+  PBV(0.4)
+  TextInfo("Include Unity Support Test... ...")
+  Shell "/usr/lib/nux/unity_support_test -p >>" & save_dir & "" Wait
+  Wait 0.1
+  PBV(0.6)
+  TextInfo("Include Unity Support Test... ... ...")
+  Shell "echo '================== Unity Support Test End=====================' >>" & save_dir & ""
+  Wait 0.1
+  PBV(0.8)
+  TextInfo("Include Unity Support Test... ... ... ...")
+  Shell "echo '' >>" & save_dir & ""
+  Wait 0.1
+  PBV(1)
+  TextInfo("Include Unity Support Test... ... ... ... Done")
+End
+
 
 
 
