@@ -13,7 +13,7 @@ Public Sub Button1_Click()
  Else
  Shell "rm " & ButtonBox1.Text & ""
  Reportm._generate(CheckBox1.Value, CheckBox2.Value, CheckBox3.Value, CheckBox4.Value, ButtonBox1.Text)
- Reportm.include(CheckBox6.Value, CheckBox7.Value, CheckBox8.Value, ButtonBox1.Text)
+ Reportm.include(CheckBox6.Value, CheckBox7.Value, CheckBox8.Value, CheckBox9.Value, ButtonBox1.Text)
  Me.Close
  Endif
 End

@@ -14,47 +14,51 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: FReport_Gen.form:24
+#: FReport_Gen.form:25
 msgid "Generate report"
 msgstr ""
 
-#: FReport_Gen.form:47
+#: FReport_Gen.form:48
 msgid "Generate"
 msgstr ""
 
-#: FReport_Gen.form:56
+#: FReport_Gen.form:57
 msgid "Close"
 msgstr ""
 
-#: FReport_Gen.form:67
+#: FReport_Gen.form:68
 msgid "CPU Tab"
 msgstr ""
 
-#: FReport_Gen.form:73
+#: FReport_Gen.form:74
 msgid "Motherboard / Bios Tab"
 msgstr ""
 
-#: FReport_Gen.form:79
+#: FReport_Gen.form:80
 msgid "Sound Tab"
 msgstr ""
 
-#: FReport_Gen.form:85
+#: FReport_Gen.form:86
 msgid "Graphics Tab"
 msgstr ""
 
-#: FReport_Gen.form:91
+#: FReport_Gen.form:92
 msgid "System Tab"
 msgstr ""
 
-#: FReport_Gen.form:101
+#: FReport_Gen.form:102
 msgid "Include lspci"
 msgstr ""
 
-#: FReport_Gen.form:107
+#: FReport_Gen.form:108
 msgid "Include lsusb"
 msgstr ""
 
-#: FReport_Gen.form:113
+#: FReport_Gen.form:114
 msgid "Include /proc/scsi/scsi"
+msgstr ""
+
+#: FReport_Gen.form:120
+msgid "Include dmesg"
 msgstr ""
 

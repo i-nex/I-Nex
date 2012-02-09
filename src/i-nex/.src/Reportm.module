@@ -213,7 +213,7 @@ Public Sub PBV(ProgressBar_Value As Float)
  
 End
 
-Public Sub include(lspci As Boolean, lsusb As Boolean, scsi As Boolean, save_dir As String)
+Public Sub include(lspci As Boolean, lsusb As Boolean, scsi As Boolean, dmesg As Boolean, save_dir As String)
  If lspci = True Then
   TextInfo("Include lspci information")
   Wait 0.1
@@ -285,6 +285,29 @@ Public Sub include(lspci As Boolean, lsusb As Boolean, scsi As Boolean, save_dir
   Wait 0.1
   PBV(1)
   TextInfo("Include SCSI information... ... ... Done")
+ Endif
+ If dmesg = True Then
+  TextInfo("Include dmesg information")
+  Shell "echo '' >>" & save_dir & ""
+  Wait 0.1
+  PBV(0.2)
+  TextInfo("Include dmesg information...")
+  Shell "echo '======================== DMESG ===============================' >>" & save_dir & ""
+  Wait 0.1
+  PBV(0.4)
+  TextInfo("Include dmesg information... ...")
+  Shell "dmesg >>" & save_dir & "" Wait
+  Wait 0.1
+  PBV(0.6)
+  TextInfo("Include dmesg information... ... ...")
+  Shell "echo '======================== DMESG END ===========================' >>" & save_dir & ""
+  Wait 0.1
+  PBV(0.8)
+  TextInfo("Include dmesg information... ... ... ...")
+  Shell "echo '' >>" & save_dir & ""
+  Wait 0.1
+  PBV(1)
+  TextInfo("Include dmesg information... ... ... ... Done")
  Endif
 End
 

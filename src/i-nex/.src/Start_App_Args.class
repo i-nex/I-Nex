@@ -38,3 +38,10 @@ Public Sub root()
    Me.Close
   Endif
 End
+
+Public Sub TextLabel1_Enter()
+ 
+ Wait 0.5
+ Me.Close
+
+End
