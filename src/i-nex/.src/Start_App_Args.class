@@ -1,49 +1,46 @@
 ' Gambas class file
 
 Public Sub Form_Open()
-  Dim s As String
-  If (Application.Args[1] = "--about") Then
-   About.Show
+  Dim S As Boolean = True
+  If (Application.Args[1] = "--help") Then
+   Print Application.name & " " & Application.version & " running on:\n\nArchitecture: " & System.Architecture
+   Print "System Family:  " & System.Family & ""
+   Print "Gambas Version: " & System.FullVersion & ""
+   Print "System Charset: " & System.Charset & ""
+   Print "Hostname:       " & System.Host & ""
+   Print ""
+   Print "Usage: " & Application.name & ".gambas [Options]"
+   Print "Options:"
+   Print "--help                           (Chow Help)"
+   Print "--about                  (Show About dialog)"
+   Print "--gen_report            (Show Report dialog)"
+   S = False
    Me.Close
   Endif
+  
+  If (Application.Args[1] = "--about") Then
+   About.Show
+   S = False
+   Me.Close
+  Endif
+  
   If (Application.Args[1] = "--gen_report") Then
    Finfosys.Show
    Finfosys.Hide
    FReport_Gen.Show
+   S = False
    Me.Close
   Endif
-  If (Application.Args[1] = "--help") Then
-   Print ""
-   Print Application.name & " " & Application.version
-   Print "Usage: " & Application.name & ".gambas [Options]"
-   Print "Options:"
-   Print "--help                  (Chow Help)"
-   Print "--about         (Show About dialog)"
-   Print "--gen_report   (Show Report dialog)"
-   Print ""
-   Me.Close
-  Endif
+  
   If (Application.Args[1] = Null) Then
    Finfosys.Show
+   S = False
    Me.Close
   Endif
-  If Application.Args[1] = "devel" Then
-   root()
-  Endif
-  Try Me.Center
-End
 
-Public Sub root()
-  If Application.Env["USER"] = "root" Then
-   Shell "dmidecode" Wait To TextArea1.Text
-   Print TextArea1.Text
+  If S = True Then
+   Message.Warning("Bad Arguments!!\nUsage: i-nex.gambas [Options]\nOptions:\n--help  (Chow Help)\n--about  (Show About dialog)\n--gen_report  (Show Report dialog)")
    Me.Close
   Endif
-End
-
-Public Sub TextLabel1_Enter()
- 
- Wait 0.5
- Me.Close
 
 End

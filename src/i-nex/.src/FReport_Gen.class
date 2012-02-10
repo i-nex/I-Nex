@@ -3,6 +3,7 @@
 
 Public Sub Form_Open()
  Dim unity_support_test As Boolean = Exist("/usr/lib/nux/unity_support_test")
+ ButtonBox1.Text = Desktop.Path & "/report.txt"
  If unity_support_test = True Then
   CheckBox10.Visible = True
  Endif
@@ -11,6 +12,7 @@ Public Sub Form_Open()
 End
 
 Public Sub Button1_Click()
+ Dim URL As String
  If ButtonBox1.Text = Null Then
   Message.Warning("Please select directory to save the report about your hardware")
  Else
@@ -18,11 +20,11 @@ Public Sub Button1_Click()
  Reportm._generate(CheckBox1.Value, CheckBox2.Value, CheckBox3.Value, CheckBox4.Value, ButtonBox1.Text)
  Reportm.desktop_support(CheckBox10.Value, ButtonBox1.Text)
  Reportm.include(CheckBox6.Value, CheckBox7.Value, CheckBox8.Value, CheckBox9.Value, ButtonBox1.Text)
+ Endif
  If (Application.Args[1] = "--gen_report") Then
   Finfosys.Close
  Endif
- Me.Close
- Endif
+ Try Me.Close
 End
 
 Public Sub ButtonBox1_Click()

@@ -13,7 +13,8 @@
     Move(6,222,426,12)
   }
   { TextLabel1 TextLabel
-    Move(12,192,414,24)
+    Move(6,192,426,24)
+    Alignment = Align.Left
   }
   { HBox1 HBox
     Move(234,240,198,24)
@@ -90,6 +91,9 @@
     }
   }
   { Separator1 Separator
-    Move(216,0,6,186)
+    Move(216,0,6,192)
+  }
+  { Separator2 Separator
+    Move(6,186,426,12)
   }
 }
