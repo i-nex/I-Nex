@@ -163,7 +163,7 @@ try:
     # Display usage instructions
     def Usage():
         print "pastebinit v" + version
-        print "Reads on stdin for input or takes a filename as first parameter"
+        print _("Reads on stdin for input or takes a filename as first parameter")
         print _("Optional arguments (not supported by all pastebins):")
         print _("\t-a <author:default is '%s'>") % user
         print _("\t-b <pastebin url:default is '%s'>") % website
@@ -224,7 +224,6 @@ try:
         except KeyboardInterrupt:
             sys.exit(_("KeyboardInterrupt caught."))
         except:
-            raise
             print _("Error parsing configuration file!")
             print _("Please ensure that your configuration file looks similar to the following:")
             print configexample
@@ -350,7 +349,6 @@ try:
     except KeyboardInterrupt:
         sys.exit(_("KeyboardInterrupt caught."))
     except:
-        raise
         sys.exit(_("Unable to read or parse the result page, it could be a server timeout or a change server side, try with another pastebin."))
 
 except KeyboardInterrupt:
