@@ -1,0 +1,67 @@
+.TH pbput 1 "6 Oct 2010" bikeshed "bikeshed"
+.SH NAME
+pbput - compress and encode arbitrary files to pastebin.com
+
+pbputs - compress, encrypt, encode arbitrary files to pastebin.com
+
+pbget - decode and decompress arbitrary files from pastebin.com
+
+.SH SYNOPSIS
+\fBpbput\fP [FILENAME]
+
+cat foo | \fBpbput\fP
+
+\fBpbputs\fP [FILENAME] [GPG_USER]
+
+cat foo | \fBpbputs [GPG_USER]\fP
+
+\fBpbget\fP URL [DIRECTORY]
+
+.SH DESCRIPTION
+\fBpbput\fP is a program that can upload text files, binary files or entire directory structures to a pastebin, such as pastebin.com.
+
+\fBpbget\fP is a program that be used to retrieve content uploaded to a pastebin by \fBpbput\fP.
+
+\fBpbputs\fP operates exactly like \fBpbput\fP, except it encrypts the data.  An optional GPG_USER argument is allowed, which will sign and encrypt the data to the target user in one's keyring (which could be oneself!).  Otherwise, the user is prompted for a symmetric passphrase for encrypting the content with \fBgpg\fP(1) before uploading.  \fBpbget\fP will automatically prompt the receiving user for the pre-shared passphrase.
+
+\fBpbput\fP and \fBpbputs\fP can take its input either on STDIN, or as a FILENAME argument.
+  - If STDIN is used, then the receiving user's \fBpbget\fP will simply paste the input on STDOUT.
+  - If a FILENAME or DIRECTORY is passed as an argument, then it is first archived using \fBtar\fP(1) to preserve the file and directory attributes
+
+\fBpbget\fP takes a URL as its first, mandatory argument.  Optionally, it takes a DIRECTORY as a second parameter.  If the incoming data is in fact a file or file structure in a \fBtar\fP(1) archive, then that data will be extracted in the specified DIRECTORY.  If no DIRECTORY is specified, then a temporary directory is created using \fBmktemp\fP(1).
+
+In any case the uploaded/downloaded data is optionally \fBtar\fP(1) archived, always \fBlzma\fP(1) compressed, optionally \fBgpg\fP(1) encrypted, and always \fBbase64\fP(1) encoded.  \fIhttp://pastebin.com\fP is used by default.
+
+.SH EXAMPLES
+  $ pbput /sbin/init
+  http://pastebin.com/BstNzasK
+  $ pbget http://pastebin.com/BstNzasK
+  sbin/init
+  INFO: Output is in [/tmp/pbget.bG67DwY6Zl]
+
+  $ cat /etc/lsb-release | pbput
+  http://pastebin.com/p43gJv6Z
+  $ pbget http://pastebin.com/p43gJv6Z
+  DISTRIB_ID=Ubuntu
+  DISTRIB_RELEASE=11.04
+  DISTRIB_CODENAME=natty
+  DISTRIB_DESCRIPTION="Ubuntu 11.04"
+
+  $ pbputs /etc/shadow
+  Enter passphrase:
+  http://pastebin.com/t2ZaCYr3
+  $ pbget http://pastebin.com/t2ZaCYr3
+  Enter passphrase:
+  root:09cc6d2d9d63371a425076e217f77698:15096:0:99999:7:::
+  daemon:*:15089:0:99999:7:::
+  bin:*:15089:0:99999:7:::
+  sys:*:15089:0:99999:7:::
+  ....
+
+.SH SEE ALSO
+\fBpastebinit\fP(1)\fP, \fBlzma\fP(1), \fBbase64\fP(1), \fBtar\fP(1), \fBgpg\fP(1), \fBmktemp\fP(1)
+
+.SH AUTHOR
+This manpage and the utility was written by Dustin Kirkland <kirkland@ubuntu.com> for Ubuntu systems (but may be used by others).  Permission is granted to copy, distribute and/or modify this document under the terms of the GNU General Public License, Version 2 or later published by the Free Software Foundation.
+
+On Debian systems, the complete text of the GNU General Public License can be found in /usr/share/common-licenses/GPL, or on the web at \fIhttp://www.gnu.org/licenses/gpl.txt\fP.
