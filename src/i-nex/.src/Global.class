@@ -109,6 +109,10 @@ Static Public Sub ikonaprocka()
   Finfosys.PictureBox3.Picture = Picture["Processors/amd_athlon_2_x3.png"]
   Endif
 
+  If Finfosys.TextBox29.Text Like "*AMD Athlon(tm) X2 Dual-Core*" Then
+  Finfosys.PictureBox3.Picture = Picture["Processors/amd_athlon_x2_dual_core_processors.png"]
+  Endif
+  
 End
 
 Static Public Sub kartagraficzna()

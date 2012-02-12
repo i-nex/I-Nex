@@ -17,7 +17,8 @@ SearchString=True
 [OpenFile]
 File[1]=".src/Finfosys.form"
 File[2]=".src/Finfosys.class:581.0"
-File[3]=".src/Global.class:50.56"
+Active=3
+File[3]=".src/Global.class:111.36"
 File[4]=".src/About.form"
 File[5]=".src/About.class:63.30"
 File[6]=".src/distrodetect.class:41.7"
@@ -31,11 +32,10 @@ File[13]=".src/Asound_Drives.module:36.32"
 File[14]=".src/HWmon_coretemp.module:3.18"
 File[15]=".src/Input_Devices.module:36.27"
 File[16]=".src/Reportm.module:337.3"
-Active=17
 File[17]=".src/FReport_Gen.form"
 File[18]=".src/FReport_Gen.class:5.47"
 File[19]=".src/Start_App_Args.form"
-File[20]=".src/Start_App_Args.class:34.7"
+File[20]=".src/Start_App_Args.class:3.25"
 File[21]=".src/ChkPrm.module:7.48"
 Count=21
 
