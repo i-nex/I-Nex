@@ -58,6 +58,7 @@ try:
         #  - for source checkout, config in the checkout
         #  - user's overrides in ~/.pastebin.d
         # Files found later override files found earlier.
+        pastebind = {}
         for confdir in ['/usr/share/pastebin.d','/etc/pastebin.d',
                         os.path.join(os.path.dirname(__file__), 'pastebin.d'),
                         os.path.expanduser('~/.pastebin.d')]:
@@ -65,26 +66,30 @@ try:
                 confdirlist = os.listdir(confdir)
             except OSError:
                 continue
-            pastebind = {}
+
             for fileitem in confdirlist:
                 if fileitem.startswith('.'):
                     continue
+
                 filename = os.path.join(confdir, fileitem)
                 try:
                     bininstance = configobj.ConfigObj(filename)
                 except configobj.ConfigObjError, e:
                     print >> sys.stderr, '%s: %s' % (filename, e)
                     continue
+
                 try:
                     section = bininstance['pastebin']
                 except KeyError:
                     print >> sys.stderr, _('%s: no section [pastebin]') % filename
                     continue
+
                 try:
                     basename = section['basename']
                 except KeyError:
                     print >> sys.stderr, _("%s: no 'basename' in [pastebin]") % filename
                     continue
+
                 pastebind[basename] = bininstance
         return pastebind
 
