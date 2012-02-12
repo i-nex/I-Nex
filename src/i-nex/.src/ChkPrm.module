@@ -1,0 +1,15 @@
+' Gambas module file
+
+Public Function ChkExec(executable As String) As Boolean
+
+  Dim i As Integer
+
+  i = InStr(executable, " ")
+  If i Then executable = Left(executable, i - 1)
+
+  Shell "which " & executable & " >/dev/null 2>&1" Wait
+
+  If Process.LastValue Then Return False
+  Return True
+
+End
