@@ -59,7 +59,7 @@ try:
         #  - user's overrides in ~/.pastebin.d
         # Files found later override files found earlier.
         pastebind = {}
-        for confdir in ['/usr/share/pastebin.d','/etc/pastebin.d',
+        for confdir in ['/usr/share/pastebin.d','/etc/pastebin.d','/usr/local/etc/pastebin.d',
                         os.path.join(os.path.dirname(__file__), 'pastebin.d'),
                         os.path.expanduser('~/.pastebin.d')]:
             try:
