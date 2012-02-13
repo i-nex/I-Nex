@@ -14,99 +14,103 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: About.form:39
+#: About.form:40
 msgid "About"
 msgstr ""
 
-#: About.form:45
+#: About.form:46
 msgid "Close"
 msgstr ""
 
-#: About.form:53
+#: About.form:54
 msgid "Main"
 msgstr ""
 
-#: About.form:63
+#: About.form:64
 msgid "I-nex: System and hardware information tool."
 msgstr ""
 
-#: About.form:66
+#: About.form:67
 msgid "Credits"
 msgstr ""
 
-#: About.form:73
+#: About.form:74
 msgid "Main developer"
 msgstr ""
 
-#: About.form:78
+#: About.form:79
 msgid "Michał Głowienka"
 msgstr ""
 
-#: About.form:87
+#: About.form:88
 msgid "Home page"
 msgstr ""
 
-#: About.form:93
+#: About.form:94
 msgid "Mail"
 msgstr ""
 
-#: About.form:100
+#: About.form:101
 msgid "Main bug reporter"
 msgstr ""
 
-#: About.form:105
+#: About.form:106
 msgid "Dariusz Duma"
 msgstr ""
 
-#: About.form:128
+#: About.form:129
 msgid "Tomasz Przybył (FadeMind)   "
 msgstr ""
 
-#: About.form:150
+#: About.form:151
 msgid "Graphic in 0.4.x Version"
 msgstr ""
 
-#: About.form:155
+#: About.form:156
 msgid "mmaciek12"
 msgstr ""
 
-#: About.form:164
+#: About.form:165
 msgid "DeviantArt"
 msgstr ""
 
-#: About.form:177
+#: About.form:178
 msgid "Graphic in 0.2.x Version"
 msgstr ""
 
-#: About.form:181
+#: About.form:182
 msgid "Daniel 'DaNieL' Pabis "
 msgstr ""
 
-#: About.form:186
+#: About.form:187
 msgid "daniel.pabis@interia.pl"
 msgstr ""
 
-#: About.form:191
+#: About.form:192
 msgid "Maciej Urmański"
 msgstr ""
 
-#: About.form:196
+#: About.form:197
 msgid "maciej14@gmail.com"
 msgstr ""
 
-#: About.form:206
+#: About.form:207
 msgid "License"
 msgstr ""
 
-#: About.form:210
+#: About.form:211
 msgid "GNU GENERAL PUBLIC LICENSE\n     Version 3, 29 June 2007\n\nSee: http://www.gnu.org/licenses/gpl.txt"
 msgstr ""
 
-#: About.form:213
+#: About.form:214
 msgid "Other"
 msgstr ""
 
-#: About.form:219
+#: About.form:218
+msgid "Pastebinit script for send reports to more services:\n\nThanks to: Stéphane Graber\n\nHomepage: http://www.stgraber.org/"
+msgstr ""
+
+#: About.form:226
 msgid "I-Nex Home page"
 msgstr ""
 

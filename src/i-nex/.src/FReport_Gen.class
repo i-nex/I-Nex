@@ -2,17 +2,31 @@
 
 
 Public Sub Form_Open()
- Dim unity_support_test As Boolean = Exist("/usr/lib/nux/unity_support_test")
- ButtonBox1.Text = Desktop.Path & "/report.txt"
- If unity_support_test = True Then
+  Dim unity_support_test As Boolean = Exist("/usr/lib/nux/unity_support_test")
+  ButtonBox1.Text = Desktop.Path & "/report.txt"
+  If unity_support_test = True Then
   CheckBox10.Visible = True
- Endif
- If ChkPrm.ChkExec("curl") = False Then
-  CheckBox11.Visible = False
-  TextBox1.Visible = False
-  Button3.Visible = False
- Endif
- Me.Center
+  Endif
+  ComboBox1.Add("cxg.de")
+  ComboBox1.Add("fpaste.org")
+  ComboBox1.Add("p.defau.lt")
+  ComboBox1.Add("paste.debian.net")
+  ComboBox1.Add("paste.drizzle.org")
+  ComboBox1.Add("paste.kde.org")
+  ComboBox1.Add("paste.openstack.org")
+  ComboBox1.Add("paste.pocoo.org")
+  ComboBox1.Add("paste.pound-python.org")
+  ComboBox1.Add("paste.ubuntu.com")
+  ComboBox1.Add("paste.ubuntu.org.cn")
+  ComboBox1.Add("paste2.org")
+  ComboBox1.Add("pastebin.com")
+  ComboBox1.Add("pastie.org")
+  ComboBox1.Add("pb.daviey.com")
+  ComboBox1.Add("slexy.org")
+  ComboBox1.Add("sprunge.us")
+  ComboBox1.Add("yourpaste.net")
+  ComboBox1.Add("")
+Me.Center
 
 End
 
@@ -25,7 +39,7 @@ Public Sub Button1_Click()
  Reportm._generate(CheckBox1.Value, CheckBox2.Value, CheckBox3.Value, CheckBox4.Value, ButtonBox1.Text)
  Reportm.desktop_support(CheckBox10.Value, ButtonBox1.Text)
  Reportm.include(CheckBox6.Value, CheckBox7.Value, CheckBox8.Value, CheckBox9.Value, ButtonBox1.Text)
- TextBox1.Text = Reportm.pastebin(CheckBox11.Value, ButtonBox1.Text)
+ TextBox1.Text = Reportm.pastebin(CheckBox11.Value, ButtonBox1.Text, ComboBox1.Text)
  Endif
  If (Application.Args[1] = "--gen_report") Then
   Finfosys.Close
@@ -60,6 +74,4 @@ Public Sub Button3_Click()
   Debug "Pastebin link not detect"
   Message.Warning("Please select the Send to pastebin and then click on the  generate button.\nThis will take you to pastebin site. ")
  Endif
- 
-
 End

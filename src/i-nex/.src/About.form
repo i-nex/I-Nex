@@ -147,6 +147,11 @@
     }
     Index = 3
     Text = ("Other")
+    { TextArea2 TextArea
+      Move(0,0,246,186)
+      Text = ("Pastebinit script for send reports to more services:\n\nThanks to: Stéphane Graber\n\nHomepage: http://www.stgraber.org/")
+      ReadOnly = True
+    }
     Index = 0
   }
   { Button4 Button

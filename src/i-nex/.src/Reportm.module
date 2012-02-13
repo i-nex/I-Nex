@@ -337,13 +337,13 @@ Public Sub desktop_support(unity As Boolean, save_dir As String)
   Endif
 End
 
-Public Function pastebin(Send As Boolean, Directory As String) As String
+Public Function pastebin(Send As Boolean, Directory As String, Service As String) As String
   Dim links As String
   If Send = True Then
-  Shell "cat " & Directory & " | /usr/share/i-nex/pastebin -t text" Wait To links
+  Shell "cat " & Directory & " | /usr/share/i-nex/pastebinit/pastebinit -b http://" & Service & "" Wait To links
   links = Replace(links, "\n", "")
   Return links
   Else
-  Debug "Report not be send to pastebin.com"
+  Debug "Report not be send to nopaste service"
   Endif
 End

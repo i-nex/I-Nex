@@ -1,23 +1,23 @@
 # Gambas Form File 3.0
 
 { Form Form
-  Move(0,0,438,270)
+  Move(0,0,438,318)
   #Scaled = False
   Text = ("Generate report")
   Icon = Picture["logo/i-nex.0.4.x.png"]
   Resizable = False
   { ButtonBox1 ButtonBox
-    Move(6,240,228,24)
+    Move(6,288,228,24)
   }
   { ProgressBar1 ProgressBar
-    Move(6,222,426,12)
+    Move(6,270,426,12)
   }
   { TextLabel1 TextLabel
-    Move(6,192,426,24)
+    Move(6,240,426,24)
     Alignment = Align.Left
   }
   { HBox1 HBox
-    Move(234,240,198,24)
+    Move(234,288,198,24)
     { Button1 Button
       Move(0,0,96,24)
       Expand = True
@@ -94,30 +94,33 @@
     Move(216,0,6,150)
   }
   { Separator2 Separator
-    Move(0,186,438,12)
+    Move(0,234,438,12)
   }
   { Separator3 Separator
     Move(0,150,438,12)
   }
+  { Button3 Button
+    Move(408,192,24,24)
+    ToolTip = ("Open link in default web browser")
+    Picture = Picture["icon:/16/network"]
+  }
+  { TextBox1 TextBox
+    Move(6,192,396,24)
+    Expand = True
+    ReadOnly = True
+  }
   { HBox2 HBox
-    Move(6,162,396,24)
+    Move(6,162,426,24)
     { CheckBox11 CheckBox paste
       Name = "CheckBox11"
-      Move(0,0,144,24)
+      Move(0,0,186,24)
       AutoResize = True
-      Text = ("Send report to pastebin.com   ")
+      Text = ("Send report to nopaste service:   ")
     }
-    { TextBox1 TextBox paste
-      Name = "TextBox1"
-      Move(180,0,144,24)
+    { ComboBox1 ComboBox
+      Move(282,0,144,24)
       Expand = True
       ReadOnly = True
     }
-  }
-  { Button3 Button paste
-    Name = "Button3"
-    Move(408,162,24,24)
-    ToolTip = ("Open link in default web browser")
-    Picture = Picture["icon:/16/network"]
   }
 }
