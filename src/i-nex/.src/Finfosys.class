@@ -172,12 +172,12 @@ Public Sub System()
   Shell "echo $SHELL" Wait To TextArea48.Text
   distrodetect.distro_detect()
   
-  TextArea31.Text = gcc
-  TextArea33.Text = hostname
-  TextArea36.Text = arch
-  TextArea30.Text = timezone
-  TextArea34.Text = xorg_version
-  TextArea35.Text = glx_version
+  TextArea31.Text = Replace(gcc, "\n", "")
+  TextArea33.Text = Replace(hostname, "\n", "")
+  TextArea36.Text = Replace(arch, "\n", "")
+  TextArea30.Text = Replace(timezone, "\n", "")
+  TextArea34.Text = Replace(xorg_version, "\n", "")
+  TextArea35.Text = Replace(glx_version, "\n", "")
 End
 
 Public Sub grafika()
@@ -495,14 +495,11 @@ Public Sub ComboBox4_Click()
 End
 
 Public Sub refreshing()
- Dim checking_device_uuid As String
+ Dim realmount, realwith As String
  Label16.Text = "Device model: " & Disk_Drives.device_model & ""
  Label17.Text = "Device vendor: " & Disk_Drives.device_vendor & ""
- TextArea8.Text = Disk_Drives.mount_point
- TextArea7.Text = Disk_Drives.device_uuid
  Label38.Text = "Device real size: " & Disk_Drives.real_size & ""
  Label39.Text = "Filesystem type: " & Disk_Drives.filesystem_type & ""
- TextArea6.Text = Disk_Drives.mount_widtch
  Label41.Text = "Device rev: " & Disk_Drives.device_rev & ""
  Label42.Text = "Max sectors: " & Disk_Drives.max_sectors & ""
  Label43.Text = "State: " & Disk_Drives.device_state & ""
@@ -520,6 +517,7 @@ Public Sub refreshing()
  Label57.Text = "Max segment size: " & Disk_Drives.max_segment_size & ""
  Label58.Text = "Read ahead kb: " & Disk_Drives.read_ahead_kb & ""
  Label59.Text = "Scheduler: " & Disk_Drives.scheduler & ""
+ 
  If Disk_Drives.removable Like "0" Then
  Label45.Text = "Removable: No"
  Endif
@@ -534,19 +532,22 @@ Public Sub refreshing()
  ProgressBar2.Value = 0
  ProgressBar2.ToolTip = "Unknown"
  Endif
- If Disk_Drives.check_swap = ComboBox3.Text Then
+ If Disk_Drives.check_swap Like "*" & ComboBox3.Text & "*" Then
  Label48.Visible = True
  Else
  Label48.Visible = False
  Endif
- ' If Disk_Drives.mount_point Not Like "*/media*" And Disk_Drives.device_uuid <> 0 Then
- '  Debug "Not found mount point, maby mount piont id device uuid?"
- '  Shell "ls /media/" & Disk_Drives.device_uuid & "" Wait To checking_device_uuid
- ' Endif
- ' If checking_device_uuid Like "" & Disk_Drives.device_uuid & "" Then
- '  TextArea8.Text = checking_device_uuid
- '
- ' Endif
+ If Disk_Drives.mount_point = Null And Disk_Drives.device_uuid Not Null And Exist("/media/" & Disk_Drives.device_uuid & "", True) Then
+ Shell "ls /media | grep '" & Disk_Drives.device_uuid & "'" Wait To realmount
+ Disk_Drives.mount_point = "/media/" & realmount & ""
+ Endif
+ If Disk_Drives.mount_widtch = Null And Disk_Drives.device_uuid = Not Null Then
+ Shell "grep '" & Disk_Drives.device_uuid & "' /proc/mounts | awk {'print $4'}" Wait To realwith
+ Disk_Drives.mount_widtch = realwith
+ Endif
+ TextArea8.Text = Disk_Drives.mount_point
+ TextArea7.Text = Disk_Drives.device_uuid
+ TextArea6.Text = Disk_Drives.mount_widtch
 End
 
 Public Sub ComboBox5_Click()

@@ -4,6 +4,8 @@ Static Public Sub distro_detect()
   Dim distro, codename As String
   Shell "lsb_release -i | sed -e 's/Distributor ID://' -e 's/\t//g'" Wait To distro
   Shell "lsb_release -c | sed -e 's/Codename://' -e 's/\t//g'" Wait To codename
+  codename = Replace(codename, "\n", "")
+  distro = Replace(distro, "\n", "")
   If distro Like "*Ubuntu*" Then
   Finfosys.TextArea29.Text = distro
   Finfosys.TextArea32.Text = codename
