@@ -101,18 +101,21 @@
   }
   { HBox2 HBox
     Move(6,162,396,24)
-    { CheckBox11 CheckBox
+    { CheckBox11 CheckBox paste
+      Name = "CheckBox11"
       Move(0,0,144,24)
       AutoResize = True
       Text = ("Send report to pastebin.com   ")
     }
-    { TextBox1 TextBox
+    { TextBox1 TextBox paste
+      Name = "TextBox1"
       Move(180,0,144,24)
       Expand = True
       ReadOnly = True
     }
   }
-  { Button3 Button
+  { Button3 Button paste
+    Name = "Button3"
     Move(408,162,24,24)
     ToolTip = ("Open link in default web browser")
     Picture = Picture["icon:/16/network"]

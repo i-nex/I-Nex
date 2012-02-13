@@ -66,11 +66,11 @@ msgstr ""
 msgid "Include unity support test"
 msgstr ""
 
-#: FReport_Gen.form:156
+#: FReport_Gen.form:157
 msgid "Send report to pastebin.com   "
 msgstr ""
 
-#: FReport_Gen.form:168
+#: FReport_Gen.form:171
 msgid "Open link in default web browser"
 msgstr ""
 

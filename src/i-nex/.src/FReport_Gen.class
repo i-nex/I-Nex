@@ -7,6 +7,11 @@ Public Sub Form_Open()
  If unity_support_test = True Then
   CheckBox10.Visible = True
  Endif
+ If ChkPrm.ChkExec("curl") = False Then
+  CheckBox11.Visible = False
+  TextBox1.Visible = False
+  Button3.Visible = False
+ Endif
  Me.Center
 
 End
