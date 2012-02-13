@@ -60,8 +60,8 @@ try:
         # Files found later override files found earlier.
         pastebind = {}
         for confdir in ['/usr/share/pastebin.d','/etc/pastebin.d','/usr/local/etc/pastebin.d',
-                        os.path.join(os.path.dirname(__file__), 'pastebin.d'),
-                        os.path.expanduser('~/.pastebin.d')]:
+                        os.path.expanduser('~/.pastebin.d'),
+                        os.path.join(os.path.dirname(__file__), 'pastebin.d')]:
             try:
                 confdirlist = os.listdir(confdir)
             except OSError:
@@ -264,7 +264,7 @@ try:
             jabberid = opt[1]
         elif opt[0] == "-l":
             print _("Supported pastebins:")
-            for pastebin in pastebind:
+            for pastebin in sorted(pastebind):
                 print "- %s" % pastebin
             sys.exit(0)
         elif opt[0] == "-t":
