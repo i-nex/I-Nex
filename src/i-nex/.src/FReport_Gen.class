@@ -20,11 +20,14 @@ Public Sub Button1_Click()
  Reportm._generate(CheckBox1.Value, CheckBox2.Value, CheckBox3.Value, CheckBox4.Value, ButtonBox1.Text)
  Reportm.desktop_support(CheckBox10.Value, ButtonBox1.Text)
  Reportm.include(CheckBox6.Value, CheckBox7.Value, CheckBox8.Value, CheckBox9.Value, ButtonBox1.Text)
+ TextBox1.Text = Reportm.pastebin(CheckBox11.Value, ButtonBox1.Text)
  Endif
  If (Application.Args[1] = "--gen_report") Then
   Finfosys.Close
  Endif
+ If CheckBox11.Value = False Then
  Try Me.Close
+ Endif
 End
 
 Public Sub ButtonBox1_Click()
@@ -42,5 +45,16 @@ Public Sub Button2_Click()
   Finfosys.Close
  Endif
  Me.Close
+
+End
+
+Public Sub Button3_Click()
+ If TextBox1.Text Like "*http*" Then
+  Desktop.Open(TextBox1.Text)
+ Else 
+  Debug "Pastebin link not detect"
+  Message.Warning("Please select the Send to pastebin and then click on the  generate button.\nThis will take you to pastebin site. ")
+ Endif
+ 
 
 End

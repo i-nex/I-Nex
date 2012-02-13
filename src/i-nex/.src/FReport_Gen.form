@@ -35,7 +35,7 @@
     }
   }
   { HPanel1 HPanel
-    Move(6,6,210,180)
+    Move(6,6,210,144)
     { CheckBox1 CheckBox
       Move(0,0,156,24)
       Expand = True
@@ -63,7 +63,7 @@
     }
   }
   { HPanel2 HPanel
-    Move(222,6,210,180)
+    Move(222,6,210,144)
     { CheckBox6 CheckBox
       Move(0,0,144,24)
       Expand = True
@@ -91,9 +91,30 @@
     }
   }
   { Separator1 Separator
-    Move(216,0,6,192)
+    Move(216,0,6,150)
   }
   { Separator2 Separator
-    Move(6,186,426,12)
+    Move(0,186,438,12)
+  }
+  { Separator3 Separator
+    Move(0,150,438,12)
+  }
+  { HBox2 HBox
+    Move(6,162,396,24)
+    { CheckBox11 CheckBox
+      Move(0,0,144,24)
+      AutoResize = True
+      Text = ("Send report to pastebin.com   ")
+    }
+    { TextBox1 TextBox
+      Move(180,0,144,24)
+      Expand = True
+      ReadOnly = True
+    }
+  }
+  { Button3 Button
+    Move(408,162,24,24)
+    ToolTip = ("Open link in default web browser")
+    Picture = Picture["icon:/16/network"]
   }
 }
