@@ -29,7 +29,7 @@ Public max_segment_size As String
 Public read_ahead_kb As String
 Public scheduler As String
 
-Public Sub _init()
+Public Sub _inits()
   Dim sdx As String
   Dim Avail_HDD As Integer 
   Dim Max_HDD As Integer

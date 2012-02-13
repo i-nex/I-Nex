@@ -5,17 +5,17 @@ Public Sub Form_Open()
   Dim cpuz0, cpuz1, cpuz2, cpuz3, cpuz4, cpuz5, cpuz6, cpuz7, cpuz8, cpuz9, cpuz10, cpuz11 As String
   Finfosys.TabStrip1[9].Visible = False
   Debug "Check for Battery"
-  Object.Call(battery, "_init")
+  Object.Call(battery, "_inits")
   Debug "Check for Usb device plugged"
-  Object.Call(USB_Drives, "_init")
+  Object.Call(USB_Drives, "_inits")
   Debug "Check for Drives"
-  Object.Call(Disk_Drives, "_init")
+  Object.Call(Disk_Drives, "_inits")
   Debug "Check for Drives.."
   Object.Call(Disk_Drives, "_init_2")
   Debug "Check for Drives...."
   Object.Call(Disk_Drives, "get_informations")
   Debug "Check for Input Drives"
-  Object.Call(Input_Devices, "_init")
+  Object.Call(Input_Devices, "_inits")
   Debug "Check for default display manager"
   If default_display_manager = True Then
    Label4.Visible = True
@@ -324,14 +324,8 @@ Public Sub Wykrywanie_procesorow()
   Shell "grep 'cpu cores' /proc/cpuinfo | sed -n '" & eloaders & "' | cut -d ':' -f 2" Wait To cpu_cores
   Shell "grep 'physical id' /proc/cpuinfo | sed -n '" & eloaders & "' | cut -d ':' -f 2" Wait To physical_id
   
-  TextBox29.Alignment = 1
-  TextBox31.Alignment = 1
   TextBox29.Text = cpu
   TextBox29.Text = Replace(TextBox29.Text, "\n", "")
-  'New
-  'TextArea1.Text = cpu
-  'TextArea1.Text = Replace(TextArea1.Text, "\n", "")
-  'new
   level3cache = Replace(level3cache, "\n", "")
   physical_id = Replace(physical_id, "\n", "")
   cpu_cores = Replace(cpu_cores, "\n", "")
@@ -364,8 +358,6 @@ Public Sub Wykrywanie_procesorow()
 End
 
 Public Sub Button2_Click()
-  ' Exec ["gnome-screenshot", "-w"]
-  ' Debug "Running Gnome Screenshot"
    ScreenShotM.pic = Desktop.Screenshot(Me.X, Me.Y, Me.W, Me.H + 30)
    ScreenShot.Show
    
@@ -481,7 +473,7 @@ End
 
 Public Sub Button10_Click()
 
- Object.Call(battery, "_init")
+ Object.Call(battery, "_inits")
  Debug "Battery initial"
 End
 

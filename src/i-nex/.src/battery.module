@@ -22,7 +22,7 @@ Public cal_max As Float
 Public cal As Float
 
 
-Public Sub _init()
+Public Sub _inits()
 If Exist("/proc/acpi/battery/BAT0", True) Then
  addres_battery = "/proc/acpi/battery/BAT0/info"
  addres_battery_2 = "/proc/acpi/battery/BAT0/state"

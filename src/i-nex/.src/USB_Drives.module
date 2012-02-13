@@ -9,7 +9,7 @@ Public idProduct As String
 Public idVendor As String
 Public lsusb As String
 
-Public Sub _init()
+Public Sub _inits()
   Dim ListAllDiscs, risultato As String
   Dim righe As New String[]
   Dim count As Integer

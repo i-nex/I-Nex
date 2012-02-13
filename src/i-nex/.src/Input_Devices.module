@@ -4,7 +4,7 @@ Public Name As String
 Public Phys As String
 Public Modalias As String
 
-Public Sub _init()
+Public Sub _inits()
  
   Dim ListAllDiscs, risultato As String
   Dim righe As New String[]
