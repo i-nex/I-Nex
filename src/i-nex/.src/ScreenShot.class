@@ -17,7 +17,7 @@ Public Sub Form_Open()
  ComboBox1.Text = ".png"
  SpinBox1.Value = 70
  Slider1.Value = 70
- ButtonBox1.Text = User.Home
+ ButtonBox1.Text = Desktop.Path
 
 End
 
