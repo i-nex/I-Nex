@@ -122,7 +122,7 @@ Public Sub ComboBox1_Click()
 End
 
 Public Sub kernel()
-  Dim found_kernels, cur_used, All_Kernels, for_add As String
+  Dim found_kernels, cur_used, All_Kernels, for_add, Kernel_command_line As String
   Dim kernels, i As Integer
   Shell "ls /boot | grep 'vmlinuz*' | wc -l" Wait To All_Kernels
   kernels = Replace(Replace(All_Kernels, " ", ""), "\n", "")
@@ -133,8 +133,10 @@ Public Sub kernel()
   Next
   Shell "ls /boot/vmlinuz* | cut -d '/' -f 3 | wc -l" Wait To found_kernels
   Shell "uname -r" Wait To cur_used
+  Shell "grep 'Kernel command line:' /var/log/dmesg | cut -d ':' -f 2" Wait To Kernel_command_line
   TextLabel25.Text = "Found " & found_kernels & " kernels:"
   TextLabel26.Text = "Currently used: " & cur_used & ""
+  TextArea3.Text = Kernel_command_line
 End
 
 Public Sub dzwiek()

@@ -867,6 +867,13 @@
           Expand = True
         }
       }
+      { Frame14 Frame
+        Move(0,240,462,72)
+        Text = ("Kernel command line:")
+        { TextArea3 TextArea
+          Move(6,24,450,30)
+        }
+      }
     }
     Index = 7
     Text = ("Memory")
