@@ -4,8 +4,14 @@ Count=0
 [DebugWindow]
 Count=0
 
+[DebugWindow/Me]
+Geometry=[423,203,180,180]
+
 [DebugWindow/Picture]
 Geometry=[-9,212,180,180]
+
+[DebugWindow/User]
+Geometry=[236,249,180,180]
 
 [FFind]
 SearchIn="Module"
@@ -17,7 +23,7 @@ SearchString=True
 [OpenFile]
 Active=1
 File[1]=".src/Finfosys.form"
-File[2]=".src/Finfosys.class:548.10"
+File[2]=".src/Finfosys.class:137.26"
 File[3]=".src/Global.class:127.23"
 File[4]=".src/About.form"
 File[5]=".src/About.class:63.30"
@@ -25,8 +31,8 @@ File[6]=".src/distrodetect.class:12.30"
 File[7]=".src/battery.module:24.17"
 File[8]=".src/Disk_Drives.module:132.46"
 File[9]=".src/ScreenShot.form"
-File[10]=".src/ScreenShot.class:19.19"
-File[11]=".src/ScreenShotM.module:2.21"
+File[10]=".src/ScreenShot.class:12.63"
+File[11]=".src/ScreenShotM.module:6.5"
 File[12]=".src/USB_Drives.module:56.37"
 File[13]=".src/Asound_Drives.module:36.32"
 File[14]=".src/HWmon_coretemp.module:3.18"

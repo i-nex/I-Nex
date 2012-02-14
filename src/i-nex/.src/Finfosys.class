@@ -135,7 +135,7 @@ Public Sub kernel()
   Next
   Shell "ls /boot/vmlinuz* | cut -d '/' -f 3 | wc -l" Wait To found_kernels
   Shell "uname -r" Wait To cur_used
-  Shell "grep 'Kernel command line:' /var/log/dmesg | cut -d ':' -f 2" Wait To Kernel_command_line
+  Shell "cat /proc/cmdline" Wait To Kernel_command_line
   TextLabel25.Text = "Found " & found_kernels & " kernels:"
   TextLabel26.Text = "Currently used: " & cur_used & ""
   TextArea3.Text = Kernel_command_line

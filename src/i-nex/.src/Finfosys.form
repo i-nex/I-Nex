@@ -859,26 +859,32 @@
     Text = ("Kernel")
     Picture = Picture["icon:/16/linux"]
     { Frame22 Frame
-      Move(6,6,462,441)
+      Move(6,6,462,222)
       Text = ("Installed kernels:")
       { TextLabel25 TextLabel
         Move(6,24,216,24)
       }
       { TextLabel26 TextLabel
-        Move(6,198,444,24)
+        Move(6,186,444,24)
       }
       { VBox1 VBox
-        Move(6,48,450,138)
+        Move(6,42,450,138)
         { ListBox1 ListBox
           Move(0,0,270,96)
           Expand = True
         }
       }
-      { Frame14 Frame
-        Move(0,240,462,72)
-        Text = ("Kernel command line:")
+    }
+    { Frame14 Frame
+      Move(6,240,462,120)
+      Text = ("Kernel command line:")
+      { HBox26 HBox
+        Move(6,24,450,78)
         { TextArea3 TextArea
-          Move(6,24,450,30)
+          Move(0,0,450,54)
+          Expand = True
+          ReadOnly = True
+          Wrap = True
         }
       }
     }
