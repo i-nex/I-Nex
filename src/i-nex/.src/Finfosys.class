@@ -214,7 +214,7 @@ Public Sub grafika()
   opengl_version_string = Replace(opengl_version_string, "\n", "")
   rozdzielczosc = Replace(rozdzielczosc, "\n", "")
   gpu = Replace(gpu, "\n", "")
-  TextArea17.Text = gpu
+  TextBox47.Text = gpu
   TextBox21.Text = opengl_vendor_string
   TextBox37.Text = opengl_renderer_string
   TextBox38.Text = opengl_version_string

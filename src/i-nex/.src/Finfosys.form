@@ -1,14 +1,14 @@
 # Gambas Form File 3.0
 
 { Form Form
-  Move(0,0,474,528)
+  Move(0,0,486,528)
   #Scaled = False
   Text = ("i-nex")
   Icon = Picture["logo/i-nex.0.4.x.png"]
   Resizable = False
   Margin = True
   { TabStrip1 TabStrip
-    Move(0,0,474,486)
+    Move(6,0,474,486)
     Tag = "System"
     AutoResize = True
     Count = 12
@@ -429,14 +429,11 @@
       Picture = Picture["icon:/16/sun"]
     }
     { Frame9 Frame
-      Move(7,7,462,49)
+      Move(6,6,462,49)
       Text = ("Graphics card:")
-    }
-    { TextArea17 TextArea
-      Move(14,28,448,21)
-      Text = ("N/A")
-      ReadOnly = True
-      ScrollBar = Scroll.None
+      { TextBox47 TextBox
+        Move(6,18,450,24)
+      }
     }
     { Frame6 Frame
       Move(7,70,462,161)
@@ -489,7 +486,7 @@
       }
     }
     { Frame10 Frame
-      Move(6,234,455,56)
+      Move(6,234,462,54)
       Text = ("Change resolution:")
     }
     { ComboBox2 ComboBox
@@ -1173,39 +1170,39 @@
       }
     }
     { HPanel3 HPanel
-      Move(0,36,330,126)
-      { Label68 Label
-        Move(0,0,66,24)
-        Font = Font["Bold"]
-        Padding = 4
-        AutoResize = True
-        Text = ("Product:   ")
-      }
-      { TextBox40 TextBox
-        Move(150,0,144,24)
-        Expand = True
-        ReadOnly = True
-      }
-      { Label69 Label
-        Move(0,24,78,24)
-        Font = Font["Bold"]
-        Padding = 4
-        AutoResize = True
-        Text = ("Max power:   ")
-      }
-      { TextBox41 TextBox
-        Move(150,24,144,24)
-        Expand = True
-        ReadOnly = True
-      }
+      Move(0,36,468,126)
       { Label75 Label
-        Move(0,48,96,24)
+        Move(0,0,96,24)
         Font = Font["Bold"]
         Padding = 4
         AutoResize = True
         Text = ("Manufacturer:   ")
       }
       { TextBox42 TextBox
+        Move(150,0,144,24)
+        Expand = True
+        ReadOnly = True
+      }
+      { Label68 Label
+        Move(0,24,66,24)
+        Font = Font["Bold"]
+        Padding = 4
+        AutoResize = True
+        Text = ("Product:   ")
+      }
+      { TextBox40 TextBox
+        Move(150,24,144,24)
+        Expand = True
+        ReadOnly = True
+      }
+      { Label69 Label
+        Move(0,48,78,24)
+        Font = Font["Bold"]
+        Padding = 4
+        AutoResize = True
+        Text = ("Max power:   ")
+      }
+      { TextBox41 TextBox
         Move(150,48,144,24)
         Expand = True
         ReadOnly = True
@@ -1234,8 +1231,19 @@
         ReadOnly = True
       }
     }
-    { HPanel4 HPanel
-      Move(330,36,138,126)
+    { HPanel2 HPanel
+      Move(0,198,468,24)
+      { TextBox43 TextBox
+        Move(0,0,144,24)
+        Expand = True
+      }
+    }
+    { Button11 Button
+      Move(156,228,144,24)
+      Text = ("Update usbids")
+    }
+    { HBox23 HBox
+      Move(0,168,468,24)
       { Label81 Label
         Move(0,0,78,24)
         Font = Font["Bold"]
@@ -1248,27 +1256,16 @@
         Expand = True
       }
       { Label80 Label
-        Move(0,24,144,24)
+        Move(222,0,144,24)
         Font = Font["Bold"]
         Padding = 4
         AutoResize = True
         Text = ("idProduct:   ")
       }
       { TextBox50 TextBox
-        Move(90,24,144,24)
+        Move(324,0,144,24)
         Expand = True
       }
-    }
-    { HPanel2 HPanel
-      Move(0,162,468,24)
-      { TextBox43 TextBox
-        Move(0,0,144,24)
-        Expand = True
-      }
-    }
-    { Button11 Button
-      Move(156,192,144,24)
-      Text = ("Update usbids")
     }
     Index = 11
     Text = ("Input")
@@ -1304,7 +1301,7 @@
     Index = 0
   }
   { HBox11 HBox
-    Move(150,492,168,36)
+    Move(150,492,180,36)
     { Label25 Label
       Move(78,6,48,24)
       Foreground = &HFF0000&
@@ -1320,18 +1317,18 @@
     Picture = Picture["icon:/16/camera"]
   }
   { Button3 Button
-    Move(354,498,24,24)
+    Move(366,498,24,24)
     Font = Font["10"]
     Picture = Picture["icon:/16/help"]
   }
   { Button1 Button
-    Move(384,498,84,24)
+    Move(396,498,84,24)
     Font = Font["10"]
     Text = ("Close")
     Picture = Picture["icon:/16/quit"]
   }
   { Button12 Button
-    Move(324,498,24,24)
+    Move(336,498,24,24)
     Picture = Picture["icon:/16/printer"]
   }
 }

@@ -117,15 +117,15 @@ End
 
 Static Public Sub kartagraficzna()
   
-  If Finfosys.TextArea17.Text Like "*intel*" Then
+  If Finfosys.TextBox47.Text Like "*intel*" Then
   Finfosys.PictureBox1.Picture = Picture["Data/Karta_graficzna/intel.png"]
   Endif
   
-  If Finfosys.TextArea17.Text Like "*ATI Technologies*" Then
+  If Finfosys.TextBox47.Text Like "*ATI Technologies*" Then
   Finfosys.PictureBox1.Picture = Picture["Data/Karta_graficzna/ati.png"]
   Endif
   
-  If Finfosys.TextArea17.Text Like "*nVidia*" Then
+  If Finfosys.TextBox47.Text Like "*nVidia*" Then
   Finfosys.PictureBox1.Picture = Picture["Data/Karta_graficzna/nvidia.png"]
   Endif
 
