@@ -99,7 +99,7 @@ msgid "bogomips:  "
 msgstr ""
 
 #: Finfosys.form:563
-msgid "Width:   "
+msgid "Address sizes:   "
 msgstr ""
 
 #: Finfosys.form:583

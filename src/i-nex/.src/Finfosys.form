@@ -255,7 +255,7 @@
           Font = Font["Bold"]
           Padding = 3
           AutoResize = True
-          Text = ("Width:   ")
+          Text = ("Address sizes:   ")
           Transparent = True
         }
         { TextBox32 TextBox

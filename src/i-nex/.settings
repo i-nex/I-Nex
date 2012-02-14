@@ -16,14 +16,14 @@ SearchString=True
 
 [OpenFile]
 File[1]=".src/Finfosys.form"
-File[2]=".src/Finfosys.class:493.3"
+File[2]=".src/Finfosys.class:548.10"
 File[3]=".src/Global.class:127.23"
 File[4]=".src/About.form"
 File[5]=".src/About.class:63.30"
 File[6]=".src/distrodetect.class:12.30"
 File[7]=".src/battery.module:24.17"
 Active=8
-File[8]=".src/Disk_Drives.module:146.23"
+File[8]=".src/Disk_Drives.module:132.46"
 File[9]=".src/ScreenShot.form"
 File[10]=".src/ScreenShot.class:19.19"
 File[11]=".src/ScreenShotM.module:2.21"
