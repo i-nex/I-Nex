@@ -544,9 +544,9 @@ Public Sub refreshing()
  Label48.Visible = False
  Endif
  
- TextArea8.Text = Disk_Drives.mount_point
- TextArea7.Text = Disk_Drives.device_uuid
- TextArea6.Text = Disk_Drives.mount_widtch
+ TextBox48.Text = Disk_Drives.mount_point
+ TextBox52.Text = Disk_Drives.device_uuid
+ TextBox53.Text = Disk_Drives.mount_widtch
 End
 
 Public Sub ComboBox5_Click()

@@ -578,10 +578,6 @@
       Text = ("Mount point:   ")
       Border = Border.Plain
     }
-    { TextArea8 TextArea
-      Move(102,96,360,24)
-      ReadOnly = True
-    }
     { Label27 Label
       Move(6,126,90,24)
       Padding = 3
@@ -589,22 +585,12 @@
       Border = Border.Plain
       Transparent = True
     }
-    { TextArea7 TextArea
-      Move(102,126,360,24)
-      ReadOnly = True
-    }
     { Label40 Label
       Move(6,156,90,24)
       Padding = 3
       Text = ("Mount width:   ")
       Alignment = Align.Left
       Border = Border.Plain
-    }
-    { TextArea6 TextArea
-      Move(102,156,360,24)
-      Alignment = Align.Left
-      ReadOnly = True
-      ScrollBar = Scroll.None
     }
     { Label38 Label
       Move(6,186,288,24)
@@ -695,6 +681,15 @@
       Move(156,396,306,24)
       Padding = 3
       Border = Border.Plain
+    }
+    { TextBox48 TextBox
+      Move(102,96,360,24)
+    }
+    { TextBox52 TextBox
+      Move(102,126,360,24)
+    }
+    { TextBox53 TextBox
+      Move(102,156,360,24)
     }
     Index = 5
     Text = ("System")

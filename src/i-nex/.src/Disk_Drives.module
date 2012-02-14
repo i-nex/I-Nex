@@ -98,7 +98,6 @@ Public Sub rm_new_line()
  
   device_model = Replace(device_model, "\n", "")
   device_vendor = Replace(device_vendor, "\n", "")
-  mount_point = Replace(mount_point, "\n", "")
   device_uuid = Replace(device_uuid, "\n", "")
   real_size = Replace(real_size, "\n", "")
   filesystem_type = Replace(filesystem_type, "\n", "")
@@ -131,6 +130,7 @@ End
 Public Sub disks()
   Shell "grep '" & Finfosys.ComboBox3.Text & "' /proc/mounts | awk {'print $4'}" Wait To mount_widtch
   Shell "df | grep '" & Finfosys.ComboBox3.Text & "' | awk {'print $6'} | sed -n '1p'" Wait To mount_point
+  mount_point = Replace(mount_point, "\n", "")
   Shell "ls -l /dev/disk/by-uuid/ | grep " & Finfosys.ComboBox3.Text & " | awk {'print $8'}" Wait To device_uuid
   device_uuid = Replace(Replace(device_uuid, " ", ""), "\n", "")
   Shell "grep '" & Finfosys.ComboBox3.Text & "' /proc/mounts | awk {'print $3'}" Wait To filesystem_type
