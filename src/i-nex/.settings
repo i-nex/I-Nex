@@ -15,7 +15,6 @@ SearchComment=False
 SearchString=True
 
 [OpenFile]
-Active=1
 File[1]=".src/Finfosys.form"
 File[2]=".src/Finfosys.class:216.11"
 File[3]=".src/Global.class:127.23"
@@ -31,9 +30,10 @@ File[12]=".src/USB_Drives.module:56.37"
 File[13]=".src/Asound_Drives.module:36.32"
 File[14]=".src/HWmon_coretemp.module:3.18"
 File[15]=".src/Input_Devices.module:6.17"
-File[16]=".src/Reportm.module:342.74"
+Active=16
+File[16]=".src/Reportm.module:341.8"
 File[17]=".src/FReport_Gen.form"
-File[18]=".src/FReport_Gen.class:75.6"
+File[18]=".src/FReport_Gen.class:33.1"
 File[19]=".src/Start_App_Args.form"
 File[20]=".src/Start_App_Args.class:3.25"
 File[21]=".src/ChkPrm.module:14.3"
