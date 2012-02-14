@@ -6,6 +6,8 @@ Public Sub Form_Open()
   Finfosys.TabStrip1[9].Visible = False
   Debug "Check for BIOS microcode update recommended"
   Object.Call(BIOS_microcode_update_recommended, "_inits")
+  Debug "Check Thermal"
+  Object.Call(thermal_zone, "_inits")
   Debug "Check for Battery"
   Object.Call(battery, "_inits")
   Debug "Check for Usb device plugged"
@@ -541,14 +543,7 @@ Public Sub refreshing()
  Else
  Label48.Visible = False
  Endif
- If Disk_Drives.mount_point = Null And Disk_Drives.device_uuid Not Null And Exist("/media/" & Disk_Drives.device_uuid & "", True) Then
- Shell "ls /media | grep '" & Disk_Drives.device_uuid & "'" Wait To realmount
- Disk_Drives.mount_point = "/media/" & realmount & ""
- Endif
- If Disk_Drives.mount_widtch = Null And Disk_Drives.device_uuid = Not Null Then
- Shell "grep '" & Disk_Drives.device_uuid & "' /proc/mounts | awk {'print $4'}" Wait To realwith
- Disk_Drives.mount_widtch = realwith
- Endif
+ 
  TextArea8.Text = Disk_Drives.mount_point
  TextArea7.Text = Disk_Drives.device_uuid
  TextArea6.Text = Disk_Drives.mount_widtch

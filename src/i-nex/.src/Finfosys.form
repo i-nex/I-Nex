@@ -71,9 +71,21 @@
           Expand = True
         }
       }
-      { Label92 Label
-        Move(6,108,360,24)
-        Foreground = &HFF0000&
+      { HBox24 HBox
+        Move(6,114,252,24)
+        { Label92 Label
+          Move(0,0,204,24)
+          Foreground = &HFF0000&
+          AutoResize = True
+        }
+      }
+      { HBox25 HBox
+        Move(264,114,102,24)
+        { Label93 Label
+          Move(0,0,84,24)
+          Font = Font["Bold"]
+          AutoResize = True
+        }
       }
     }
     { PictureBox3 PictureBox

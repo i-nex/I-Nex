@@ -16,13 +16,14 @@ SearchString=True
 
 [OpenFile]
 File[1]=".src/Finfosys.form"
-File[2]=".src/Finfosys.class:136.12"
+File[2]=".src/Finfosys.class:545.1"
 File[3]=".src/Global.class:127.23"
 File[4]=".src/About.form"
 File[5]=".src/About.class:63.30"
 File[6]=".src/distrodetect.class:12.30"
 File[7]=".src/battery.module:24.17"
-File[8]=".src/Disk_Drives.module:88.101"
+Active=8
+File[8]=".src/Disk_Drives.module:130.0"
 File[9]=".src/ScreenShot.form"
 File[10]=".src/ScreenShot.class:19.19"
 File[11]=".src/ScreenShotM.module:2.21"
@@ -36,9 +37,9 @@ File[18]=".src/FReport_Gen.class:33.1"
 File[19]=".src/Start_App_Args.form"
 File[20]=".src/Start_App_Args.class:3.25"
 File[21]=".src/ChkPrm.module:14.3"
-Active=22
-File[22]=".src/Reports/BIOS_microcode_update_recommended.module:9.96"
-Count=22
+File[22]=".src/BIOS_microcode_update_recommended.module:9.96"
+File[23]=".src/thermal_zone.module:8.32"
+Count=23
 
 [Watches]
 Count=0

@@ -1,0 +1,16 @@
+' Gambas module file
+
+Public Sub _inits()
+ Dim Temperature As String
+ Dim calculate As Float
+ If Exist("/sys/bus/acpi/devices/LNXTHERM:00/thermal_zone/") Then
+ Shell "cat /sys/bus/acpi/devices/LNXTHERM:00/thermal_zone/temp" Wait To Temperature
+ calculate = Replace(Replace(Temperature, " ", ""), "\n", "")
+ Finfosys.Label93.Text = "Temp: " & (calculate / 1000) & " C"
+ Else
+ Finfosys.Label93.Visible = False
+ Endif
+ 
+ 
+End
+
