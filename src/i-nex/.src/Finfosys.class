@@ -171,7 +171,7 @@ Public Sub System()
   Shell "glxinfo | grep 'GLX version:' | sed -n '1p' | cut -d ':' -f 2" Wait To glx_version
   Shell "echo $SHELL" Wait To TextArea48.Text
   distrodetect.distro_detect()
-  
+  TextArea48.Text = Replace(TextArea48.Text, "\n", "")
   TextArea31.Text = Replace(gcc, "\n", "")
   TextArea33.Text = Replace(hostname, "\n", "")
   TextArea36.Text = Replace(arch, "\n", "")
