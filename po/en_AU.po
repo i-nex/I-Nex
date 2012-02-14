@@ -8,13 +8,13 @@ msgstr ""
 "Project-Id-Version: pastebinit\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2012-02-13 00:42+0000\n"
-"PO-Revision-Date: 2011-12-19 13:51+0000\n"
+"PO-Revision-Date: 2012-02-13 09:47+0000\n"
 "Last-Translator: Joel Pickett <jlkpcktt@gmail.com>\n"
 "Language-Team: English (Australia) <en_AU@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-02-13 04:32+0000\n"
+"X-Launchpad-Export-Date: 2012-02-14 05:18+0000\n"
 "X-Generator: Launchpad (build 14781)\n"
 
 #: ../pastebinit:84
@@ -40,7 +40,7 @@ msgstr ""
 
 #: ../pastebinit:171
 msgid "Reads on stdin for input or takes a filename as first parameter"
-msgstr ""
+msgstr "Reads on stdin for input or takes a filename as first parameter"
 
 #: ../pastebinit:172
 msgid "Optional arguments (not supported by all pastebins):"
@@ -107,7 +107,7 @@ msgstr ""
 
 #: ../pastebinit:243
 msgid "Invalid arguments!\n"
-msgstr "nvalid arguments!\n"
+msgstr "Invalid arguments!\n"
 
 #: ../pastebinit:266
 msgid "Supported pastebins:"
@@ -128,7 +128,7 @@ msgstr ""
 
 #: ../pastebinit:335
 msgid "Could not find any json library."
-msgstr ""
+msgstr "Could not find any json library."
 
 #: ../pastebinit:357
 msgid ""

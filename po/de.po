@@ -8,22 +8,22 @@ msgstr ""
 "Project-Id-Version: pastebinit 0.8.1\n"
 "Report-Msgid-Bugs-To: pastebinit@packages.debian.org\n"
 "POT-Creation-Date: 2012-02-13 00:42+0000\n"
-"PO-Revision-Date: 2011-01-10 14:31+0000\n"
+"PO-Revision-Date: 2012-02-13 16:22+0000\n"
 "Last-Translator: Rolf Leggewie <Unknown>\n"
 "Language-Team: German <debian-l10n-german@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-02-13 04:32+0000\n"
+"X-Launchpad-Export-Date: 2012-02-14 05:18+0000\n"
 "X-Generator: Launchpad (build 14781)\n"
 
 #: ../pastebinit:84
 msgid "%s: no section [pastebin]"
-msgstr ""
+msgstr "%s: Keine [pastebin] Sektion"
 
 #: ../pastebinit:90
 msgid "%s: no 'basename' in [pastebin]"
-msgstr ""
+msgstr "%s: Kein 'basename' in [pastebin]"
 
 #: ../pastebinit:115
 #, docstring
@@ -40,7 +40,7 @@ msgstr ""
 
 #: ../pastebinit:171
 msgid "Reads on stdin for input or takes a filename as first parameter"
-msgstr ""
+msgstr "Liest Standardeingabe oder von Datei als erstem Parameter"
 
 #: ../pastebinit:172
 msgid "Optional arguments (not supported by all pastebins):"
@@ -96,7 +96,7 @@ msgstr "\t-u <Benutzername> -p <Passwort>"
 #: ../pastebinit:215 ../pastebinit:230 ../pastebinit:241 ../pastebinit:291
 #: ../pastebinit:355 ../pastebinit:360
 msgid "KeyboardInterrupt caught."
-msgstr "Manueller Abbruch, beende."
+msgstr "Beendet durch manuellen Abbruch."
 
 #: ../pastebinit:232
 msgid "Error parsing configuration file!"
@@ -132,7 +132,7 @@ msgstr ""
 
 #: ../pastebinit:335
 msgid "Could not find any json library."
-msgstr ""
+msgstr "Konnte keine JSON-Bibliothek finden."
 
 #: ../pastebinit:357
 msgid ""

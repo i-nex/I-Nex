@@ -1,0 +1,140 @@
+# Ukrainian translation for pastebinit
+# Copyright (c) 2012 Rosetta Contributors and Canonical Ltd 2012
+# This file is distributed under the same license as the pastebinit package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2012.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: pastebinit\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2012-02-13 00:42+0000\n"
+"PO-Revision-Date: 2012-02-13 09:40+0000\n"
+"Last-Translator: Roman Yepishev <Unknown>\n"
+"Language-Team: Ukrainian <uk@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2012-02-14 05:18+0000\n"
+"X-Generator: Launchpad (build 14781)\n"
+
+#: ../pastebinit:84
+msgid "%s: no section [pastebin]"
+msgstr "%s: відсутня секція [pastebin]"
+
+#: ../pastebinit:90
+msgid "%s: no 'basename' in [pastebin]"
+msgstr "%s: відсутнє 'basename' в [pastebin]"
+
+#: ../pastebinit:115
+#, docstring
+msgid "Return the parameters array for the selected pastebin"
+msgstr "Повертає масив параметрів для обраного сервісу pastebin"
+
+#: ../pastebinit:149
+msgid ""
+"Unknown website, please post a bugreport to request this pastebin to be "
+"added (%s)"
+msgstr ""
+"Невідомий сайт. Будь ласка, створіть запит про додавання цього сервісу "
+"pastebin (%s) через повідомлення про помилку"
+
+#: ../pastebinit:171
+msgid "Reads on stdin for input or takes a filename as first parameter"
+msgstr ""
+"Читає на стандартному вводі або очікує на ім’я файлу у першому параметрі"
+
+#: ../pastebinit:172
+msgid "Optional arguments (not supported by all pastebins):"
+msgstr ""
+"Додаткові аргументи (можуть не підтримуватися всіма сервісами pastebin)"
+
+#: ../pastebinit:173
+msgid "\t-a <author:default is '%s'>"
+msgstr "\t-a <автор: типовий - '%s'>"
+
+#: ../pastebinit:174
+msgid "\t-b <pastebin url:default is '%s'>"
+msgstr "\t-b <адреса pastebin: типова - '%s'>"
+
+#: ../pastebinit:175
+msgid "\t-f <format of paste:default is '%s'>"
+msgstr "\t-f <формат запису:типовий - '%s'>"
+
+#: ../pastebinit:176
+msgid "\t-h This help screen"
+msgstr "\t-h Цей екран допомоги"
+
+#: ../pastebinit:177
+msgid "\t-i <input file>"
+msgstr ""
+
+#: ../pastebinit:178
+msgid "\t-l List all supported pastebins"
+msgstr "\t-l Вивести список усіх сервісів pastebin, що підтримуються"
+
+#: ../pastebinit:179
+msgid "\t-j <jabberid for notifications:default is '%s'>"
+msgstr "\t-j <ідентифікатор jabber для повідомлень: типовий - '%s'>"
+
+#: ../pastebinit:180
+msgid "\t-m <permatag for all versions of a post:default is blank>"
+msgstr "\t-m <permatag для всіх версій запису: типово порожній>"
+
+#: ../pastebinit:181
+msgid "\t-r <parent posts ID:defaults to none>"
+msgstr "\t-r <ідентифікатор \"батьківського\" запису: типово відсутній>"
+
+#: ../pastebinit:182
+msgid "\t-t <title of paste:default is blank>"
+msgstr "\t-t <назва запису: типово порожня>"
+
+#: ../pastebinit:183
+msgid "\t-u <username> -p <password>"
+msgstr "\t-u <ім’я користувача> -p <пароль>"
+
+#: ../pastebinit:215 ../pastebinit:230 ../pastebinit:241 ../pastebinit:291
+#: ../pastebinit:355 ../pastebinit:360
+msgid "KeyboardInterrupt caught."
+msgstr "Отримано переривання з клавіатури"
+
+#: ../pastebinit:232
+msgid "Error parsing configuration file!"
+msgstr "Помилка під час розбору конфігураційного файлу!"
+
+#: ../pastebinit:233
+msgid ""
+"Please ensure that your configuration file looks similar to the following:"
+msgstr ""
+"Будь ласка, перевірте, що ваш конфігураційний файл схожий на наступне:"
+
+#: ../pastebinit:243
+msgid "Invalid arguments!\n"
+msgstr "Помилкові аргументи!\n"
+
+#: ../pastebinit:266
+msgid "Supported pastebins:"
+msgstr "Сервіси pastebin, що підтримуються:"
+
+#: ../pastebinit:293
+msgid "Unable to read from: %s"
+msgstr "Неможливо прочитати %s"
+
+#: ../pastebinit:295
+msgid "You are trying to send an empty document, exiting."
+msgstr "Ви намагаєтесь надіслати порожній документ, зупиняю роботу."
+
+#: ../pastebinit:304
+msgid "The content you are trying to send exceeds the pastebin's size limit."
+msgstr "Розмір вашого запису перевищує ліміт сервісу pastebin."
+
+#: ../pastebinit:335
+msgid "Could not find any json library."
+msgstr "Відсутня бібліотека json"
+
+#: ../pastebinit:357
+msgid ""
+"Unable to read or parse the result page, it could be a server timeout or a "
+"change server side, try with another pastebin."
+msgstr ""
+"Неможливо розібрати відповідь серверу. Можливо, сервер не відповів вчасно "
+"або змінився формат відповіді. Спробуйте інший сервіс pastebin."

@@ -8,13 +8,13 @@ msgstr ""
 "Project-Id-Version: pastebinit\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2012-02-13 00:42+0000\n"
-"PO-Revision-Date: 2011-03-14 22:54+0000\n"
-"Last-Translator: Rachid <Unknown>\n"
+"PO-Revision-Date: 2012-02-13 18:12+0000\n"
+"Last-Translator: Redmar <redmar@ubuntu-nl.org>\n"
 "Language-Team: Dutch <nl@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-02-13 04:32+0000\n"
+"X-Launchpad-Export-Date: 2012-02-14 05:18+0000\n"
 "X-Generator: Launchpad (build 14781)\n"
 
 #: ../pastebinit:84
@@ -23,24 +23,25 @@ msgstr "%s: geen sectie [pastebin]"
 
 #: ../pastebinit:90
 msgid "%s: no 'basename' in [pastebin]"
-msgstr "%s: geen 'basisnaam' in [pastebin]"
+msgstr "%s: geen ‘basisnaam’ in [pastebin]"
 
 #: ../pastebinit:115
 #, docstring
 msgid "Return the parameters array for the selected pastebin"
-msgstr "Geef de array van parameters voor de geselecteerde pastebin"
+msgstr "Geeft de array van parameters voor de geselecteerde pastebin"
 
 #: ../pastebinit:149
 msgid ""
 "Unknown website, please post a bugreport to request this pastebin to be "
 "added (%s)"
 msgstr ""
-"Onbekende website. Maak een bugreport met een verzoek om deze site toe te "
+"Onbekende website. Maak een bug-rapport met een verzoek om deze site toe te "
 "voegen (%s)"
 
 #: ../pastebinit:171
 msgid "Reads on stdin for input or takes a filename as first parameter"
 msgstr ""
+"Lees invoer van stdin, of accepteer een bestandsnaam als eerste parameter"
 
 #: ../pastebinit:172
 msgid "Optional arguments (not supported by all pastebins):"
@@ -48,19 +49,19 @@ msgstr "Optionele argumenten (niet ondersteund door alle pastebins):"
 
 #: ../pastebinit:173
 msgid "\t-a <author:default is '%s'>"
-msgstr "\t-a <Auteur:standaard is '%s'>"
+msgstr "\t-a <Auteur:standaard is ‘%s’>"
 
 #: ../pastebinit:174
 msgid "\t-b <pastebin url:default is '%s'>"
-msgstr "\t-b <pastebin url:standaard is '%s'>"
+msgstr "\t-b <pastebin url:standaard is ‘%s’>"
 
 #: ../pastebinit:175
 msgid "\t-f <format of paste:default is '%s'>"
-msgstr "\t-f <formaat van de paste:standaard is '%s'>"
+msgstr "\t-f <indeling van de paste:standaard is ‘%s’>"
 
 #: ../pastebinit:176
 msgid "\t-h This help screen"
-msgstr "\t-h Dit help venster"
+msgstr "\t-h Dit hulpvenster"
 
 #: ../pastebinit:177
 msgid "\t-i <input file>"
@@ -97,14 +98,14 @@ msgstr "KeyboardInterrupt ontvangen"
 
 #: ../pastebinit:232
 msgid "Error parsing configuration file!"
-msgstr "Foutmelding tijdens het verwerken van het configuratiebestand!"
+msgstr "Fout tijdens het verwerken van het configuratiebestand!"
 
 #: ../pastebinit:233
 msgid ""
 "Please ensure that your configuration file looks similar to the following:"
 msgstr ""
-"Controleer of uw configuratie bestand eruit ziet zoals in het volgende "
-"voorbeeld:"
+"Controleer of uw configuratiebestand er zoals  het volgende voorbeeld "
+"uitziet:"
 
 #: ../pastebinit:243
 msgid "Invalid arguments!\n"
@@ -120,17 +121,17 @@ msgstr "Kan niet lezen van: %s"
 
 #: ../pastebinit:295
 msgid "You are trying to send an empty document, exiting."
-msgstr "U probeert een leeg document te verzenden, bezig met beëindigen."
+msgstr "U probeert een leeg document te verzenden, afsluiten."
 
 #: ../pastebinit:304
 msgid "The content you are trying to send exceeds the pastebin's size limit."
 msgstr ""
-"De inhoud die u probeert te versturen overschrijdt pastebins maximale "
-"grootte."
+"De inhoud die u probeert te versturen overschrijdt de maximale grootte van "
+"de pastebin."
 
 #: ../pastebinit:335
 msgid "Could not find any json library."
-msgstr ""
+msgstr "Kan geen json-library vinden."
 
 #: ../pastebinit:357
 msgid ""
@@ -138,5 +139,5 @@ msgid ""
 "change server side, try with another pastebin."
 msgstr ""
 "Het was niet mogelijk om de pagina te lezen of te verwerken. Dit kan een "
-"server-timeout zijn of een verandering aan de server kant. Probeer het met "
+"server-timeout zijn of een verandering aan de server zelf. Probeer het met "
 "een andere pastebin."
