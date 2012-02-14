@@ -54,7 +54,7 @@ Public Sub export_informations()
  Finfosys.TextBox40.Text = Product
  Finfosys.TextBox41.Text = bMaxPower
  Finfosys.TextBox42.Text = manufacturer
- Finfosys.TextBox46.Text = speed
+ Finfosys.TextBox46.Text = speed & " MB"
  Finfosys.TextBox49.Text = Version
  Finfosys.TextBox50.Text = idProduct
  Finfosys.TextBox51.Text = idVendor
