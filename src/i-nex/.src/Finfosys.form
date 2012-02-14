@@ -71,6 +71,10 @@
           Expand = True
         }
       }
+      { Label92 Label
+        Move(6,108,360,24)
+        Foreground = &HFF0000&
+      }
     }
     { PictureBox3 PictureBox
       Move(378,24,80,95)
