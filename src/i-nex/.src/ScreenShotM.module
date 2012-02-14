@@ -4,6 +4,6 @@ Public pic As Picture
 
 Public Sub save(directory As String, filename As String, fileformat As String, filequality As Integer)
  
- pic.Save("" & directory & "/" & filename & "" & fileformat & "", filequality)
- 
+ Try pic.Save("" & directory & "/" & filename & "" & fileformat & "", filequality)
+
 End

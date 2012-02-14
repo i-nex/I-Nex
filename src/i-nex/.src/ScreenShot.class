@@ -6,6 +6,14 @@ Public Sub Form_Resize()
 End
 
 Public Sub Form_Open()
+ If Not Exist(User.Home & "/.i-nex") Then
+ Mkdir User.Home & "/.i-nex"
+ Endif
+ If Exist(User.Home & "/.i-nex/lastsave") Then
+ ButtonBox1.Text = File.Load("" & User.Home & "/.i-nex/lastsave")
+ Else
+ ButtonBox1.Text = Desktop.Path 
+ Endif
  Me.Center
  PictureBox1.Picture = ScreenShotM.pic
  TextBox1.Text = Date & Time
@@ -17,7 +25,6 @@ Public Sub Form_Open()
  ComboBox1.Text = ".png"
  SpinBox1.Value = 70
  Slider1.Value = 70
- ButtonBox1.Text = Desktop.Path
 
 End
 
@@ -30,6 +37,7 @@ End
 Public Sub Button1_Click()
 
 ScreenShotM.save(ButtonBox1.Text, TextBox1.Text, ComboBox1.Text, Slider1.Value)
+File.Save("" & User.Home & "/.i-nex/lastsave", ButtonBox1.Text)
 Me.Close
 End
 
