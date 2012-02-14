@@ -7,7 +7,7 @@ Public Sub _inits()
  Shell "grep 'BIOS microcode update recommended' /var/log/dmesg" Wait To update_reccomended
  Shell "grep 'Microcode Update Driver:' /var/log/dmesg" Wait To update_driver
  Endif
- If update_reccomended Like "*BIOS microcode update recommended*" And update_driver Not Like "*Microcode Update Driver*" Then
+ If update_reccomended Like "*BIOS microcode update recommended*" And update_driver Not Like "*microcode:*" Then
  Finfosys.Label92.Text = "BIOS microcode update recommended !!!"
  Else
  Finfosys.Label92.Visible = False
