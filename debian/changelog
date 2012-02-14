@@ -1,3 +1,9 @@
+i-nex (0.4.5) unstable; urgency=low
+
+  * Change version to 0.4.5 Unstable
+
+ -- eloaders <eloaders@yahoo.com>  Tue, 14 Feb 2012 14:03:52 +0100
+
 i-nex (0.4.4) stable; urgency=low
 
   * Fix Cache position
