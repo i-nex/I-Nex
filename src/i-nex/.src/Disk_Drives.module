@@ -90,9 +90,8 @@ Public Sub get_informations()
   Shell "df | grep '" & Finfosys.ComboBox3.Text & "' | awk {'print $5'} | sed -n '1p'" Wait To used
   Debug "Get informations of Drives Done" 
   Debug "Replace new line to Null"
-  disks()
   rm_new_line()
- 
+  disks()
 End
 
 Public Sub rm_new_line()
@@ -133,8 +132,18 @@ Public Sub disks()
   Shell "grep '" & Finfosys.ComboBox3.Text & "' /proc/mounts | awk {'print $4'}" Wait To mount_widtch
   Shell "df | grep '" & Finfosys.ComboBox3.Text & "' | awk {'print $6'} | sed -n '1p'" Wait To mount_point
   Shell "ls -l /dev/disk/by-uuid/ | grep " & Finfosys.ComboBox3.Text & " | awk {'print $8'}" Wait To device_uuid
+  device_uuid = Replace(Replace(device_uuid, " ", ""), "\n", "")
   Shell "grep '" & Finfosys.ComboBox3.Text & "' /proc/mounts | awk {'print $3'}" Wait To filesystem_type
-  If mount_widtch = Null And device_uuid Not Null Then
+  filesystem_type = Replace(Replace(filesystem_type, " ", ""), "\n", "")
+  If mount_widtch = Null Then
   Shell "grep '" & device_uuid & "' /proc/mounts | awk {'print $4'}" Wait To mount_widtch
+  Endif
+  mount_widtch = Replace(mount_widtch, "\n", "")
+  If filesystem_type = Null Then
+  Shell "grep '" & device_uuid & "' /proc/mounts | awk {'print $3'}" Wait To filesystem_type
+  Endif
+  filesystem_type = Replace(Replace(filesystem_type, " ", ""), "\n", "")
+  If device_uuid = Null Then
+  filesystem_type = Null
   Endif
 End

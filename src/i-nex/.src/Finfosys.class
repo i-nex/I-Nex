@@ -497,7 +497,7 @@ Public Sub ComboBox4_Click()
 
  Disk_Drives._init_2()
  Disk_Drives.get_informations()
- Finfosys.refreshing()
+ refreshing()
 End
 
 Public Sub refreshing()
