@@ -8,13 +8,13 @@ msgstr ""
 "Project-Id-Version: pastebinit\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2012-02-13 00:42+0000\n"
-"PO-Revision-Date: 2012-02-13 18:12+0000\n"
-"Last-Translator: Redmar <redmar@ubuntu-nl.org>\n"
+"PO-Revision-Date: 2012-02-15 15:09+0000\n"
+"Last-Translator: Hannie Dumoleyn <Unknown>\n"
 "Language-Team: Dutch <nl@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-02-14 05:18+0000\n"
+"X-Launchpad-Export-Date: 2012-02-15 21:04+0000\n"
 "X-Generator: Launchpad (build 14781)\n"
 
 #: ../pastebinit:84
@@ -28,7 +28,7 @@ msgstr "%s: geen ‘basisnaam’ in [pastebin]"
 #: ../pastebinit:115
 #, docstring
 msgid "Return the parameters array for the selected pastebin"
-msgstr "Geeft de array van parameters voor de geselecteerde pastebin"
+msgstr "Geef de reeks parameters voor de geselecteerde pastebin"
 
 #: ../pastebinit:149
 msgid ""
@@ -81,7 +81,7 @@ msgstr "\t-m <permatag voor alle versies van een post:standaard is leeg>"
 
 #: ../pastebinit:181
 msgid "\t-r <parent posts ID:defaults to none>"
-msgstr "\t-r <bovenliggende post's ID:is standaard to none>"
+msgstr "\t-r <ID van bovenliggende posts:standaard is geen>"
 
 #: ../pastebinit:182
 msgid "\t-t <title of paste:default is blank>"
