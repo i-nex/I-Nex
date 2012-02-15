@@ -8,13 +8,13 @@ msgstr ""
 "Project-Id-Version: pastebinit\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2012-02-13 00:42+0000\n"
-"PO-Revision-Date: 2011-01-26 21:32+0000\n"
+"PO-Revision-Date: 2012-02-14 21:24+0000\n"
 "Last-Translator: Fitoschido <fitoschido@gmail.com>\n"
 "Language-Team: Spanish <es@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-02-14 05:18+0000\n"
+"X-Launchpad-Export-Date: 2012-02-15 05:21+0000\n"
 "X-Generator: Launchpad (build 14781)\n"
 
 #: ../pastebinit:84
@@ -42,10 +42,12 @@ msgstr ""
 #: ../pastebinit:171
 msgid "Reads on stdin for input or takes a filename as first parameter"
 msgstr ""
+"Lee en la biblioteca stdin para gestión o toma el nombre de un archivo como "
+"primer parámetro"
 
 #: ../pastebinit:172
 msgid "Optional arguments (not supported by all pastebins):"
-msgstr "Argumentos opcionales (no soportado por todos los pastebins):"
+msgstr "Argumentos opcionales (no compatible con todos los pastebins):"
 
 #: ../pastebinit:173
 msgid "\t-a <author:default is '%s'>"
@@ -57,7 +59,7 @@ msgstr "\t-b <pastebin url:el predeterminado es «%s»>"
 
 #: ../pastebinit:175
 msgid "\t-f <format of paste:default is '%s'>"
-msgstr "\t-f <formato de pegado: el predeterminado es '%s'>"
+msgstr "\t-f <formato de pegado: el predeterminado es «%s»>"
 
 #: ../pastebinit:176
 msgid "\t-h This help screen"
@@ -130,7 +132,7 @@ msgstr ""
 
 #: ../pastebinit:335
 msgid "Could not find any json library."
-msgstr ""
+msgstr "No se pudo encontrar ninguna biblioteca json"
 
 #: ../pastebinit:357
 msgid ""

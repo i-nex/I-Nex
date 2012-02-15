@@ -1,16 +1,16 @@
-# Brazilian Portuguese translation for pastebinit
-# Copyright (c) 2007 Rosetta Contributors and Canonical Ltd 2007
+# Galician translation for pastebinit
+# Copyright (c) 2012 Rosetta Contributors and Canonical Ltd 2012
 # This file is distributed under the same license as the pastebinit package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2007.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2012.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: pastebinit\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2012-02-13 00:42+0000\n"
-"PO-Revision-Date: 2012-02-14 10:06+0000\n"
-"Last-Translator: Vitor Pacheco <vitor-p.c@hotmail.com>\n"
-"Language-Team: Brazilian Portuguese <pt_BR@li.org>\n"
+"PO-Revision-Date: 2012-02-14 10:29+0000\n"
+"Last-Translator: Miguel Anxo Bouzada <mbouzada@gmail.com>\n"
+"Language-Team: Galician <gl@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -19,123 +19,126 @@ msgstr ""
 
 #: ../pastebinit:84
 msgid "%s: no section [pastebin]"
-msgstr "%s: sem seção [pastebin]"
+msgstr "%s: sen sección [pastebin]"
 
 #: ../pastebinit:90
 msgid "%s: no 'basename' in [pastebin]"
-msgstr "%s: sem 'basename' no [pastebin]"
+msgstr "%s: non hai «nome base» en [pastebin]"
 
 #: ../pastebinit:115
 #, docstring
 msgid "Return the parameters array for the selected pastebin"
-msgstr "Retorna o vetor de parâmetros para o pastebin selecionado"
+msgstr "Retornar á matriz de parámetros para o pastebin seleccionado"
 
 #: ../pastebinit:149
 msgid ""
 "Unknown website, please post a bugreport to request this pastebin to be "
 "added (%s)"
 msgstr ""
-"Site desconhecido, por favor publique um relato de falha para solicitar que "
-"este pastebin seja adicionado (%s)"
+"Sitio web descoñecido, envíe un informe de erro para solicitar que este "
+"pastebin sexa engadido (%s)"
 
 #: ../pastebinit:171
 msgid "Reads on stdin for input or takes a filename as first parameter"
 msgstr ""
+"Lea a entrada estándar para a entrada ou tome un nome de ficheiro como "
+"primeiro parámetro"
 
 #: ../pastebinit:172
 msgid "Optional arguments (not supported by all pastebins):"
-msgstr "Argumentos opcionais (não suportados por todos os pastebins):"
+msgstr "Argumentos opcionais (non admitido por todos os pastebins):"
 
 #: ../pastebinit:173
 msgid "\t-a <author:default is '%s'>"
-msgstr "\t-a <author:default é '%s'>"
+msgstr "\t-a <autor: o predeterminado é «%s»>"
 
 #: ../pastebinit:174
 msgid "\t-b <pastebin url:default is '%s'>"
-msgstr "\t-b <pastebin url:default é '%s'>"
+msgstr "\t-b <url pastebin: o predeterminado é «%s»>"
 
 #: ../pastebinit:175
 msgid "\t-f <format of paste:default is '%s'>"
-msgstr "\t-f <formato do paste:default é '%s'>"
+msgstr "\t-f <formato de pegado: o predeterminado é «%s»>"
 
 #: ../pastebinit:176
 msgid "\t-h This help screen"
-msgstr "\t-h Essa tela de ajuda"
+msgstr "\t-h Esta pantalla de axuda"
 
 #: ../pastebinit:177
 msgid "\t-i <input file>"
-msgstr "\t-i <arquivo>"
+msgstr "\t-i <ficheiro de entrada>"
 
 #: ../pastebinit:178
 msgid "\t-l List all supported pastebins"
-msgstr "\t-l Lista todos os pastebins suportados"
+msgstr "\t-l Listar todos los pastebins admitidos"
 
 #: ../pastebinit:179
 msgid "\t-j <jabberid for notifications:default is '%s'>"
-msgstr "\t-j <jabberid para notificações:default é '%s'>"
+msgstr "\t-j <id de jabber para avisos: o predeterminado é «%s»>"
 
 #: ../pastebinit:180
 msgid "\t-m <permatag for all versions of a post:default is blank>"
-msgstr "\t-m <permatag para todas versões de um post:default é vazio>"
+msgstr ""
+"\t-m <permatag para todas as versións da mensaxe: o predeterminado é un "
+"baleiro>"
 
 #: ../pastebinit:181
 msgid "\t-r <parent posts ID:defaults to none>"
-msgstr "\t-r <parent posts ID:o padrão é ninguém>"
+msgstr "\t-r <ID da mensaxes principal: o predeterminado é «ningún»>"
 
 #: ../pastebinit:182
 msgid "\t-t <title of paste:default is blank>"
-msgstr "\t-t <título da colagem:o padrão é vazio>"
+msgstr "\t-t <titulo de pegado: o predeterminado é «baleiro»>"
 
 #: ../pastebinit:183
 msgid "\t-u <username> -p <password>"
-msgstr "\t-u <nome de usuário> -p <senha>"
+msgstr "\t-u <nome de usuario> -p <contrasinal>"
 
 #: ../pastebinit:215 ../pastebinit:230 ../pastebinit:241 ../pastebinit:291
 #: ../pastebinit:355 ../pastebinit:360
 msgid "KeyboardInterrupt caught."
-msgstr "KeyboardInterrupt pega."
+msgstr "Interrupción de teclado capturada."
 
 #: ../pastebinit:232
 msgid "Error parsing configuration file!"
-msgstr "Erro ao analisar arquivo de configuração!"
+msgstr "Produciuse un erro ao parchear o ficheiro de configuración!"
 
 #: ../pastebinit:233
 msgid ""
 "Please ensure that your configuration file looks similar to the following:"
 msgstr ""
-"Por favor, certifique-se que seu arquivo de configuração pareça com o "
-"seguinte:"
+"Asegúrese que o seu ficheiro de configuración sexa semellante ao seguinte:"
 
 #: ../pastebinit:243
 msgid "Invalid arguments!\n"
-msgstr "Argumentos inválidos!\n"
+msgstr "Argumentos incorrectos!\n"
 
 #: ../pastebinit:266
 msgid "Supported pastebins:"
-msgstr "Pastebins suportados:"
+msgstr "Pastebins admitidos:"
 
 #: ../pastebinit:293
 msgid "Unable to read from: %s"
-msgstr "Não foi possível ler de: %s"
+msgstr "Nón é posíbel ler desde: %s"
 
 #: ../pastebinit:295
 msgid "You are trying to send an empty document, exiting."
-msgstr "Você está tentando enviar um documento vazio, saindo."
+msgstr "Está tentando enviar un documento baleiro, saíndo."
 
 #: ../pastebinit:304
 msgid "The content you are trying to send exceeds the pastebin's size limit."
 msgstr ""
-"O conteúdo que você está tentando enviar excede o limite de tamanho do "
-"pastebin."
+"O contido que está tentando enviar excede o límite de tamaño do pastebin."
 
 #: ../pastebinit:335
 msgid "Could not find any json library."
-msgstr "Não foi possível encontrar alguma biblioteca json."
+msgstr "Non foi posíbel atopar ningunha biblioteca json"
 
 #: ../pastebinit:357
 msgid ""
 "Unable to read or parse the result page, it could be a server timeout or a "
 "change server side, try with another pastebin."
 msgstr ""
-"Não foi possível ler ou analisar o resultado da página, pode ter sido "
-"timeout ou um mudança no servidor, tente com outro pastebin."
+"Non foi posíbel ler ou analizar a páxina de resultados, é probábel que sexa "
+"debido ao vencemento do tempo ou a un cambio no servidor, tente empregar "
+"outro pastebin."
