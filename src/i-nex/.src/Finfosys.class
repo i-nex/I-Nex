@@ -1,5 +1,6 @@
 ' Gambas class file
 
+Public flags As String
 Public Sub Form_Open()
   Dim default_display_manager As Boolean = Exist("/etc/X11/default-display-manager")
   Dim cpuz0, cpuz1, cpuz2, cpuz3, cpuz4, cpuz5, cpuz6, cpuz7, cpuz8, cpuz9, cpuz10, cpuz11 As String
@@ -247,7 +248,7 @@ End
 
 Public Sub Wykrywanie_procesorow()
   Dim eloaders, eloaders2, eloaders3 As String
-  Dim obrazekcpu, cpu, vendor_id, flags, cpu_MHz As String
+  Dim obrazekcpu, cpu, vendor_id, cpu_MHz As String
   Dim model, stepping, cpu_family, bogomips As String
   Dim address_sizes, cache_size, ldata, linstruction As String
   Dim physical_id, cpu_cores, level3cache As String

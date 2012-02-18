@@ -36,12 +36,12 @@ Static Public Sub ikonaprocka()
   Finfosys.PictureBox3.Picture = Picture["intelp4.png"]
   Endif
   
-  If Finfosys.TextBox29.Text Like "*Intel(R) Atom(TM)*" Then
-  Finfosys.PictureBox3.Picture = Picture["atom.png"]
+  If Finfosys.TextBox29.Text Like "*Intel(R) Atom(TM) CPU*" Then
+  Finfosys.PictureBox3.Picture = Picture["Processors/Intel-Atom.png"]
   Endif
   
   If Finfosys.TextBox29.Text Like "*Intel(R) Core(TM) i7*" Then
-  Finfosys.PictureBox3.Picture = Picture["Processors/intel_core_i7.png"]
+  Finfosys.PictureBox3.Picture = Picture["Processors/Intel-Core-i7.png"]
   Endif
   
   If Finfosys.TextBox29.Text Like "*Intel(R) Core(TM) i5*" Then
@@ -69,24 +69,12 @@ Static Public Sub ikonaprocka()
   Finfosys.PictureBox3.Picture = Picture["amdsempron.png"]
   Endif
   
-  If Finfosys.TextBox29.Text Like "*Mobile AMD Sempron*" Then
-  Finfosys.PictureBox3.Picture = Picture["amdsempronmobile.png"]
-  Endif
-  
-  If Finfosys.TextBox29.Text Like "*AMD Opteron(tm)*" Then
-  Finfosys.PictureBox3.Picture = Picture["amdopteron.png"]
-  Endif
-  
   If Finfosys.TextBox29.Text Like "*AMD Athlon(tm) XP*" Then
   Finfosys.PictureBox3.Picture = Picture["amdathlonxp.png"]
   Endif
   
   If Finfosys.TextBox29.Text Like "*AMD Athlon(tm) 64 Processor*" Then
   Finfosys.PictureBox3.Picture = Picture["amdathlon64.png"]
-  Endif
-  
-  If Finfosys.TextBox29.Text Like "*AMD Phenom(tm)*" Then
-  Finfosys.PictureBox3.Picture = Picture["amdphenom.png"]
   Endif
   
   If Finfosys.TextBox29.Text Like "*AMD Athlon(tm) II X2*" Then
@@ -101,10 +89,6 @@ Static Public Sub ikonaprocka()
   Finfosys.PictureBox3.Picture = Picture["Processors/amd_fx_eight_core_processor.png"]
   Endif
   
-  If Finfosys.TextBox29.Text Like "*AMD Opteron*6*" Then
-  Finfosys.PictureBox3.Picture = Picture["Processors/amd_opteron_processor_6xxx.png"]
-  Endif
-  
   If Finfosys.TextBox29.Text Like "*AMD Athlon(tm) II X3*" Then
   Finfosys.PictureBox3.Picture = Picture["Processors/amd_athlon_2_x3.png"]
   Endif
@@ -113,6 +97,60 @@ Static Public Sub ikonaprocka()
   Finfosys.PictureBox3.Picture = Picture["Processors/amd_athlon_x2_dual_core_processors.png"]
   Endif
   
+  'AMD APU
+  If Finfosys.TextBox29.Text Like "*AMD E-450.*" Then
+  Finfosys.PictureBox3.Picture = Picture["Processors/AMD-E2-Vision.jpg"]
+  Endif
+  
+  If Finfosys.TextBox29.Text Like "*AMD E-350.*" Then
+  Finfosys.PictureBox3.Picture = Picture["Processors/AMD-Vision.jpg"]
+  Endif
+  'Sempron / Duron
+  If Finfosys.TextBox29.Text Like "*Mobile AMD Sempron*" Then
+  Finfosys.PictureBox3.Picture = Picture["Processors/AMD-Sempron-Mobile.png"]
+  Endif
+  
+  If Finfosys.TextBox29.Text Like "*AMD Sempron (tm)*" And If Finfosys.flags Like "*lm*" Then
+  Finfosys.PictureBox3.Picture = Picture["Processors/AMD-Sempron_K8.png"]
+  Else If Finfosys.TextBox29.Text Like "*AMD Sempron (tm)*" Then
+  Finfosys.PictureBox3.Picture = Picture["Processors/AMD-Sempron_K7.png"]
+  Endif
+  
+  If Finfosys.TextBox29.Text Like "*AMD Duron (tm)*" Then
+  Finfosys.PictureBox3.Picture = Picture["Processors/AMD-Duron.png"]
+  Endif
+  'Opteron
+  If Finfosys.TextBox29.Text Like "*Quad-Core AMD Opteron (tm)*" Then
+  Finfosys.PictureBox3.Picture = Picture["Processors/AMD-Opteron_K10.png"]
+  Else If Finfosys.TextBox29.Text Like "*Six-Core AMD Opteron (tm)*" Then
+  Finfosys.PictureBox3.Picture = Picture["Processors/AMD-Opteron_K10.png"]
+  Endif
+  
+  If Finfosys.TextBox29.Text Like "*AMD Opteron(tm)*" Then
+  Finfosys.PictureBox3.Picture = Picture["Processors/AMD-Opteron_K8.png"]
+  Else If Finfosys.TextBox29.Text Like "*Dual-Core AMD Opteron (tm)*" Then
+  Finfosys.PictureBox3.Picture = Picture["Processors/AMD-Opteron_K8.png"]
+  Endif
+  'Turion
+  If Finfosys.TextBox29.Text Like "*AMD Turion (tm) 64*" Then
+  Finfosys.PictureBox3.Picture = Picture["Processors/Intel-Core-i7.png"]
+  Endif
+  
+  If Finfosys.TextBox29.Text Like "*AMD Turion (tm) 64 X2" Then
+  Finfosys.PictureBox3.Picture = Picture["Processors/AMD-Turion64-X2.png"]
+  Endif
+  
+  If Finfosys.TextBox29.Text Like "*AMD Turion (tm) X2*" Then
+  Finfosys.PictureBox3.Picture = Picture["Processors/AMD-Turion-X2.png"]
+  Endif
+  
+  If Finfosys.TextBox29.Text Like "*AMD Turion (tm) X2 Ultra*" Then
+  Finfosys.PictureBox3.Picture = Picture["Processors/AMD-Turion-X2Ultra.png"]
+  Endif
+  'Phenom/Phenom II
+  If Finfosys.TextBox29.Text Like "*AMD Phenom(tm)*" Then
+  Finfosys.PictureBox3.Picture = Picture["amdphenom.png"]
+  Endif
 End
 
 Static Public Sub kartagraficzna()

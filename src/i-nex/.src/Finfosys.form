@@ -19,78 +19,93 @@
       Move(6,0,462,150)
       Font = Font["10"]
       Text = ("The main information\n")
-      { HBox1 HBox
-        Move(6,24,360,24)
-        { Label1 Label
-          Move(0,6,78,24)
-          Font = Font["Bold"]
-          AutoResize = True
-          Text = ("Manufacture:   ")
-        }
-        { TextBox28 TextBox
-          Move(78,0,144,24)
-          Expand = True
-        }
-      }
       { TextArea2 TextArea
         Move(84,364,301,21)
         Text = ("TextArea2")
         ReadOnly = True
         ScrollBar = Scroll.None
       }
+      { HBox1 HBox
+        Move(6,18,450,126)
+        { HPanel4 HPanel
+          Move(0,0,306,120)
+          Expand = True
+          { HBox2 HBox
+            Move(0,0,306,24)
+            Expand = True
+            { Label1 Label
+              Move(0,6,78,24)
+              Font = Font["Bold"]
+              AutoResize = True
+              Text = ("Manufacture:   ")
+            }
+            { TextBox28 TextBox
+              Move(78,0,144,24)
+              Expand = True
+            }
+          }
+          { HBox3 HBox
+            Move(0,30,306,24)
+            Expand = True
+            { Label2 Label
+              Move(0,0,42,24)
+              Font = Font["Bold"]
+              AutoResize = True
+              Text = ("Model:   ")
+            }
+            { TextBox29 TextBox
+              Move(78,0,144,24)
+              Expand = True
+            }
+          }
+          { HBox24 HBox
+            Move(0,60,306,24)
+            Expand = True
+            { Label5 Label
+              Move(0,0,66,24)
+              Font = Font["Bold"]
+              AutoResize = True
+              Text = ("CPU Speed:   ")
+            }
+            { TextBox30 TextBox
+              Move(72,0,144,24)
+              Expand = True
+            }
+          }
+          { HBox25 HBox
+            Move(0,90,252,24)
+            { Label92 Label
+              Move(0,0,204,24)
+              Foreground = &HFF0000&
+              AutoResize = True
+            }
+          }
+          { HBox28 HBox
+            Move(258,90,102,24)
+            { Label93 Label
+              Move(0,0,84,24)
+              Font = Font["Bold"]
+              AutoResize = True
+            }
+          }
+        }
+        { HBox27 HBox
+          Move(312,0,150,90)
+          AutoResize = True
+          { PictureBox3 PictureBox
+            Move(0,0,60,60)
+            AutoResize = True
+            Alignment = Align.Justify
+          }
+        }
+      }
       { Button4 Button
-        Move(378,126,72,21)
+        Move(384,126,72,21)
         Font = Font["10"]
         Text = ("Info")
         Picture = Picture["icon:/16/info"]
         Border = False
       }
-      { HBox2 HBox
-        Move(6,54,360,24)
-        { Label2 Label
-          Move(0,0,42,24)
-          Font = Font["Bold"]
-          AutoResize = True
-          Text = ("Model:   ")
-        }
-        { TextBox29 TextBox
-          Move(78,0,144,24)
-          Expand = True
-        }
-      }
-      { HBox3 HBox
-        Move(6,84,360,24)
-        { Label5 Label
-          Move(0,0,66,24)
-          Font = Font["Bold"]
-          AutoResize = True
-          Text = ("CPU Speed:   ")
-        }
-        { TextBox30 TextBox
-          Move(72,0,144,24)
-          Expand = True
-        }
-      }
-      { HBox24 HBox
-        Move(6,114,252,24)
-        { Label92 Label
-          Move(0,0,204,24)
-          Foreground = &HFF0000&
-          AutoResize = True
-        }
-      }
-      { HBox25 HBox
-        Move(264,114,102,24)
-        { Label93 Label
-          Move(0,0,84,24)
-          Font = Font["Bold"]
-          AutoResize = True
-        }
-      }
-    }
-    { PictureBox3 PictureBox
-      Move(378,24,80,95)
-      Alignment = Align.Justify
     }
     { Frame4 Frame
       Move(6,312,462,138)
