@@ -56,11 +56,6 @@
       Expand = True
       Text = ("Graphics Tab")
     }
-    { CheckBox5 CheckBox
-      Move(0,96,156,24)
-      Expand = True
-      Text = ("System Tab")
-    }
   }
   { HPanel2 HPanel
     Move(222,6,210,144)

@@ -21,18 +21,18 @@ SearchComment=False
 SearchString=True
 
 [OpenFile]
+Active=1
 File[1]=".src/Finfosys.form"
-Active=2
-File[2]=".src/Finfosys.class:197.27"
-File[3]=".src/Global.class:152.7"
+File[2]=".src/Finfosys.class:2.22"
+File[3]=".src/Global.class:6.65"
 File[4]=".src/About.form"
 File[5]=".src/About.class:63.30"
 File[6]=".src/distrodetect.class:12.30"
 File[7]=".src/battery.module:24.17"
-File[8]=".src/Disk_Drives.module:132.46"
+File[8]=".src/Disk_Drives.module:31.17"
 File[9]=".src/ScreenShot.form"
 File[10]=".src/ScreenShot.class:12.63"
-File[11]=".src/ScreenShotM.module:6.5"
+File[11]=".src/ScreenShotM.module:7.0"
 File[12]=".src/USB_Drives.module:56.37"
 File[13]=".src/Asound_Drives.module:36.32"
 File[14]=".src/HWmon_coretemp.module:3.18"

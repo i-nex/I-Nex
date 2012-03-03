@@ -3,3 +3,4 @@ src/i-nex/logo/i-nex.0.4.x.png usr/share/pixmaps
 debian/i-nex.desktop usr/share/applications
 debian/check_kernel usr/bin
 debian/pastebinit usr/share/i-nex
+debian/changelog-0.4.6 /usr/share/doc/i-nex

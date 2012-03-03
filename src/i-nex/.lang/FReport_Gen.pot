@@ -14,63 +14,59 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: FReport_Gen.form:33
+#: FReport_Gen.form:32
 msgid "Generate report"
 msgstr ""
 
-#: FReport_Gen.form:57
+#: FReport_Gen.form:56
 msgid "Generate"
 msgstr ""
 
-#: FReport_Gen.form:66
+#: FReport_Gen.form:65
 msgid "Close"
 msgstr ""
 
-#: FReport_Gen.form:77
+#: FReport_Gen.form:76
 msgid "CPU Tab"
 msgstr ""
 
-#: FReport_Gen.form:83
+#: FReport_Gen.form:82
 msgid "Motherboard / Bios Tab"
 msgstr ""
 
-#: FReport_Gen.form:89
+#: FReport_Gen.form:88
 msgid "Sound Tab"
 msgstr ""
 
-#: FReport_Gen.form:95
+#: FReport_Gen.form:94
 msgid "Graphics Tab"
 msgstr ""
 
-#: FReport_Gen.form:101
-msgid "System Tab"
-msgstr ""
-
-#: FReport_Gen.form:111
+#: FReport_Gen.form:104
 msgid "Include lspci"
 msgstr ""
 
-#: FReport_Gen.form:117
+#: FReport_Gen.form:110
 msgid "Include lsusb"
 msgstr ""
 
-#: FReport_Gen.form:123
+#: FReport_Gen.form:116
 msgid "Include /proc/scsi/scsi"
 msgstr ""
 
-#: FReport_Gen.form:129
+#: FReport_Gen.form:122
 msgid "Include dmesg"
 msgstr ""
 
-#: FReport_Gen.form:135
+#: FReport_Gen.form:128
 msgid "Include unity support test"
 msgstr ""
 
-#: FReport_Gen.form:153
+#: FReport_Gen.form:146
 msgid "Open link in default web browser"
 msgstr ""
 
-#: FReport_Gen.form:170
+#: FReport_Gen.form:163
 msgid "Send report to nopaste service:   "
 msgstr ""
 

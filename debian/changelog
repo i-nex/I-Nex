@@ -1,3 +1,9 @@
+i-nex (0.4.6) stable; urgency=low
+
+  * Chengelog for version 0.4.6 see file /usr/share/doc/i-nex/changelog-0.4.6
+
+ -- eloaders <eloaders@yahoo.com>  Sat, 03 Mar 2012 14:37:35 +0100
+
 i-nex (0.4.5) unstable; urgency=low
 
   * Change version to 0.4.5 Unstable
