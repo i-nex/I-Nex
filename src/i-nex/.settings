@@ -21,9 +21,9 @@ SearchComment=False
 SearchString=True
 
 [OpenFile]
-Active=1
 File[1]=".src/Finfosys.form"
-File[2]=".src/Finfosys.class:2.22"
+Active=2
+File[2]=".src/Finfosys.class:588.23"
 File[3]=".src/Global.class:6.65"
 File[4]=".src/About.form"
 File[5]=".src/About.class:63.30"
@@ -44,7 +44,7 @@ File[19]=".src/Start_App_Args.form"
 File[20]=".src/Start_App_Args.class:3.25"
 File[21]=".src/ChkPrm.module:14.3"
 File[22]=".src/BIOS_microcode_update_recommended.module:9.96"
-File[23]=".src/thermal_zone.module:8.32"
+File[23]=".src/thermal_zone.module:13.11"
 Count=23
 
 [Watches]

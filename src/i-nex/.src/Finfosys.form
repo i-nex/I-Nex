@@ -172,6 +172,10 @@
           Expand = True
         }
       }
+      { Timer1 #Timer
+        #Move(342,42)
+        Delay = 1500
+      }
     }
     { Frame3 Frame
       Move(6,150,462,162)

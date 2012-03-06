@@ -29,6 +29,10 @@ Public Sub Form_Open()
    TextBox22.Text = Replace(TextBox22.Text, "\n", "")
    Debug "Default display manager is " & TextBox22.Text
   Endif
+  'Check temperature. If temterature is OK then timer start 1500/ms. Check temp 1500/ms
+  If thermal_zone.OK = True Then
+   Timer1.Start
+  Endif
   TextLabel21.Visible = False
   'Procesor
   Debug "Check available procesors"
@@ -579,4 +583,10 @@ Public Sub Button12_Click()
 
  FReport_Gen.Show
 
+End
+
+Public Sub Timer1_Timer()
+  'Refresh temp 1500/ms
+  Object.Call(thermal_zone, "_inits")
+  Print "Temp: " & (thermal_zone.calculate / 1000) & " C"
 End
