@@ -22,8 +22,6 @@ Public Sub _inits()
   riga = Split(righe[count], " ", "%%", True)
   risultato = Replace(riga[0], " ", "")
   lista.add(risultato)
-  Debug lista
-  Debug risultato
   Next
   Finfosys.ComboBox5.List = lista
   Finfosys.ComboBox5.Index = 0
