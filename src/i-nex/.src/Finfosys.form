@@ -1213,7 +1213,7 @@
       }
     }
     { HPanel3 HPanel
-      Move(0,36,468,126)
+      Move(0,36,468,156)
       { Label75 Label
         Move(0,0,96,24)
         Font = Font["Bold"]
@@ -1273,20 +1273,31 @@
         Expand = True
         ReadOnly = True
       }
+      { Label94 Label
+        Move(6,120,144,24)
+        Font = Font["Bold"]
+        Padding = 4
+        AutoResize = True
+        Text = ("Serial")
+      }
+      { TextBox54 TextBox
+        Move(150,120,144,24)
+        Expand = True
+      }
     }
     { HPanel2 HPanel
-      Move(0,198,468,24)
+      Move(0,228,468,24)
       { TextBox43 TextBox
         Move(0,0,144,24)
         Expand = True
       }
     }
     { Button11 Button
-      Move(156,228,144,24)
+      Move(156,258,144,24)
       Text = ("Update usbids")
     }
     { HBox23 HBox
-      Move(0,168,468,24)
+      Move(0,198,468,24)
       { Label81 Label
         Move(0,0,78,24)
         Font = Font["Bold"]
