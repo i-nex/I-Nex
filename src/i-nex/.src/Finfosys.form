@@ -918,10 +918,6 @@
       Move(7,7,126,21)
       Text = ("Ram used:")
     }
-    { Button6 Button
-      Move(441,119,28,21)
-      Picture = Picture["icon:/16/refresh"]
-    }
     { ProgressBar1 ProgressBar
       Move(7,28,462,21)
     }

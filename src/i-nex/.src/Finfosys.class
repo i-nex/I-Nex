@@ -450,18 +450,6 @@ Public Sub Button3_Click()
 
 End
 
-Public Sub Button5_Click()
-
-  dospam_uptime()
-
-End
-
-Public Sub Button6_Click()
-
-  dospam_uptime()
-
-End
-
 Public Sub Button4_Click()
 
   Desktop.Open("http://www.cpu-world.com/cgi-bin/SearchSite.pl?SEARCH=" & TextBox29.Text & "&PROCESS=Search")
@@ -587,6 +575,7 @@ End
 
 Public Sub Timer1_Timer()
   'Refresh temp 1500/ms
+  dospam_uptime()
   Object.Call(thermal_zone, "_inits")
   Print "Temp: " & (thermal_zone.calculate / 1000) & " C"
 End
