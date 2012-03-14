@@ -21,7 +21,6 @@ SearchComment=False
 SearchString=True
 
 [OpenFile]
-Active=1
 File[1]=".src/Finfosys.form"
 File[2]=".src/Finfosys.class:576.23"
 File[3]=".src/Global.class:6.65"
@@ -41,7 +40,8 @@ File[16]=".src/Reportm.module:341.8"
 File[17]=".src/FReport_Gen.form"
 File[18]=".src/FReport_Gen.class:33.1"
 File[19]=".src/Start_App_Args.form"
-File[20]=".src/Start_App_Args.class:3.25"
+Active=20
+File[20]=".src/Start_App_Args.class:8.12"
 File[21]=".src/ChkPrm.module:14.3"
 File[22]=".src/BIOS_microcode_update_recommended.module:9.96"
 File[23]=".src/thermal_zone.module:13.11"

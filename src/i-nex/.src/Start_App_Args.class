@@ -2,45 +2,51 @@
 
 Public Sub Form_Open()
   Dim S As Boolean = True
-  If (Application.Args[1] = "--help") Then
-   Print Application.name & " " & Application.version & " running on:\n\nArchitecture: " & System.Architecture
-   Print "System Family:  " & System.Family & ""
-   Print "Gambas Version: " & System.FullVersion & ""
-   Print "System Charset: " & System.Charset & ""
-   Print "Hostname:       " & System.Host & ""
-   Print ""
-   Print "Usage: " & Application.name & ".gambas [Options]"
-   Print "Options:"
-   Print "--help                           (Chow Help)"
-   Print "--about                  (Show About dialog)"
-   Print "--gen_report            (Show Report dialog)"
-   S = False
-   Me.Close
-  Endif
   
-  If (Application.Args[1] = "--about") Then
-   About.Show
-   S = False
-   Me.Close
-  Endif
+  Select Case Application.Args[1]
+   
+   Case "--help"
+    Print ("" & Application.name & "" & Application.version & " running on:\n\nArchitecture: " & System.Architecture & ""
+           "\nSystem Family:  " & System.Family & ""
+           "\nGambas Version: " & System.FullVersion & ""
+           "\nSystem Charset: " & System.Charset & ""
+           "\nHostname:       " & System.Host & ""
+           "\n"
+           "\nUsage: " & Application.name & ".gambas [Options]"
+           "\nOptions:"
+           "\n--help                           (Chow Help)"
+           "\n--about                  (Show About dialog)"
+           "\n--gen_report            (Show Report dialog)")
+    S = False
+    Me.Close
+   
+   Case "--about"
+    About.Show
+    S = False
+    Me.Close
+   
+   Case "--gen_report"
+    Finfosys.Show
+    Finfosys.Hide
+    FReport_Gen.Show
+    S = False
+    Me.Close
+   
+   Case Null
+    Finfosys.Show
+    S = False
+    Me.Close
   
-  If (Application.Args[1] = "--gen_report") Then
-   Finfosys.Show
-   Finfosys.Hide
-   FReport_Gen.Show
-   S = False
-   Me.Close
-  Endif
-  
-  If (Application.Args[1] = Null) Then
-   Finfosys.Show
-   S = False
-   Me.Close
-  Endif
+  End Select
 
   If S = True Then
-   Message.Warning("Bad Arguments!!\nUsage: i-nex.gambas [Options]\nOptions:\n--help  (Chow Help)\n--about  (Show About dialog)\n--gen_report  (Show Report dialog)")
+   Message.Warning("Bad Arguments!!\n"
+                   "Usage: i-nex.gambas [Options]\n"
+                   "Options:\n" 
+                   "--help                (Chow Help)\n"
+                   "--about       (Show About dialog)\n"
+                   "--gen_report   (Show Report dialog)")
    Me.Close
   Endif
 
-End
+  End
