@@ -2,5 +2,13 @@ src/i-nex/i-nex.gambas usr/bin
 src/i-nex/logo/i-nex.0.4.x.png usr/share/pixmaps
 debian/i-nex.desktop usr/share/applications
 debian/check_kernel usr/bin
-debian/pastebinit usr/share/i-nex
 debian/changelog-0.4.6 /usr/share/doc/i-nex
+COPYING usr/share/i-nex/pastebinit
+pastebin.d usr/share/i-nex/pastebinit
+pastebinit usr/share/i-nex/pastebinit
+pastebinit.xml usr/share/i-nex/pastebinit
+po usr/share/i-nex/pastebinit
+README usr/share/i-nex/pastebinit
+release.conf usr/share/i-nex/pastebinit
+test.sh usr/share/i-nex/pastebinit
+utils usr/share/i-nex/pastebinit
