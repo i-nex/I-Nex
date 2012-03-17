@@ -579,3 +579,9 @@ Public Sub Timer1_Timer()
   Object.Call(thermal_zone, "_inits")
   Print "Temp: " & (thermal_zone.calculate / 1000) & " C"
 End
+
+Public Sub Button6_Click()
+
+ FModules.Show
+
+End

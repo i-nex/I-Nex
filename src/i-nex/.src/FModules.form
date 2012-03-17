@@ -1,0 +1,33 @@
+# Gambas Form File 3.0
+
+{ Form Form
+  MoveScaled(0,0,64,64)
+  Expand = True
+  Text = ("Modules information")
+  Icon = Picture["logo/i-nex.0.4.x.png"]
+  { HBox1 HBox
+    MoveScaled(0,0,64,4)
+    { ComboBox1 ComboBox
+      MoveScaled(0,0,24,4)
+      Expand = True
+      ReadOnly = True
+    }
+  }
+  { HBox3 HBox
+    MoveScaled(0,5,64,54)
+    { TextArea1 TextArea
+      MoveScaled(0,0,11,11)
+      Expand = True
+      ReadOnly = True
+    }
+  }
+  { HBox2 HBox
+    MoveScaled(0,60,64,4)
+    { Button1 Button
+      MoveScaled(0,0,16,4)
+      Expand = True
+      Text = ("Close")
+      Cancel = True
+    }
+  }
+}

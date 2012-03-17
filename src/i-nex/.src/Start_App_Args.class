@@ -2,6 +2,7 @@
 
 Public Sub Form_Open()
   Dim S As Boolean = True
+  Dim sPath As String
   
   Select Case Application.Args[1]
    
@@ -16,7 +17,8 @@ Public Sub Form_Open()
            "\nOptions:"
            "\n--help                           (Chow Help)"
            "\n--about                  (Show About dialog)"
-           "\n--gen_report            (Show Report dialog)")
+           "\n--gen_report            (Show Report dialog)"
+           "\n--modules          (Show info about modules)")
     S = False
     Me.Close
    
@@ -35,6 +37,22 @@ Public Sub Form_Open()
    Case Null
     Finfosys.Show
     S = False
+    Me.Close
+   
+   Case "--modules"
+    FModules.Show
+    S = False
+    Me.Close
+    
+   Case "-acces"
+    sPath = "/usr/share/i-nex/pastebinit/pastebinit"
+    Print sPath; " RW "; Access(sPath, gb.Read Or gb.write)
+    Print sPath; " R  "; Access(sPath, gb.Read)
+    Print sPath; "  W "; Access(sPath, gb.write)
+    Print sPath; "    "; Access(sPath)
+    Print sPath; " EX "; Access(sPath, gb.Exec)
+    S = False
+    
     Me.Close
   
   End Select

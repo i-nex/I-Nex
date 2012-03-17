@@ -1,0 +1,40 @@
+' Gambas class file
+
+Public All_Found_Modules As Float
+Public All_Found_Modules_String As String
+Public Actual_Module As String
+
+Public Sub Form_Resize()
+ 
+ HBox3.Move(0, Me.Y + 10, Me.W, Me.H - 64)
+ HBox2.Move(0, Me.H - 25)
+ 
+End
+
+Public Sub Form_Open()
+ Dim i As Integer
+ If ChkPrm.ChkExec("modinfo") = True Then
+ Shell "cat /proc/modules | awk {'print $1'} | wc -l" Wait To All_Found_Modules_String
+ All_Found_Modules = Replace(Replace(All_Found_Modules_String, " ", ""), "\n", "")
+ For i = 1 To All_Found_Modules
+  Shell "cat /proc/modules | awk {'print $1'} | sed -n '" & i & "p'" Wait To Actual_Module
+  Actual_Module = Replace(Replace(Actual_Module, " ", ""), "\n", "")
+  ComboBox1.Add(Actual_Module)
+ Next
+  ComboBox1.Text = Actual_Module
+ Else
+  Me.Close
+ Endif
+End
+
+Public Sub ComboBox1_Click()
+
+ Shell "modinfo " & ComboBox1.Text & "" Wait To TextArea1.Text
+
+End
+
+Public Sub Button1_Click()
+
+ Me.Close
+
+End

@@ -907,6 +907,10 @@
         }
       }
     }
+    { Button6 Button
+      Move(192,366,96,24)
+      Text = ("Show modules")
+    }
     Index = 7
     Text = ("Memory")
     Picture = Picture["Data/Tabs/RAM-Drive-64.png"]

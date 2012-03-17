@@ -22,11 +22,10 @@ SearchString=True
 
 [OpenFile]
 File[1]=".src/Finfosys.form"
-File[2]=".src/Finfosys.class:576.23"
+File[2]=".src/Finfosys.class:584.14"
 File[3]=".src/Global.class:6.65"
 File[4]=".src/About.form"
 File[5]=".src/About.class:63.30"
-Active=6
 File[6]=".src/distrodetect.class:12.30"
 File[7]=".src/battery.module:24.17"
 File[8]=".src/Disk_Drives.module:31.17"
@@ -36,16 +35,18 @@ File[11]=".src/ScreenShotM.module:7.0"
 File[12]=".src/USB_Drives.module:62.33"
 File[13]=".src/Asound_Drives.module:36.32"
 File[14]=".src/HWmon_coretemp.module:3.18"
-File[15]=".src/Input_Devices.module:7.1"
-File[16]=".src/Reportm.module:341.8"
-File[17]=".src/FReport_Gen.form"
-File[18]=".src/FReport_Gen.class:33.1"
-File[19]=".src/Start_App_Args.form"
-File[20]=".src/Start_App_Args.class:13.15"
-File[21]=".src/ChkPrm.module:14.3"
-File[22]=".src/BIOS_microcode_update_recommended.module:9.96"
-File[23]=".src/thermal_zone.module:13.11"
-Count=23
+File[15]=".src/Reportm.module:336.71"
+File[16]=".src/FReport_Gen.form"
+File[17]=".src/FReport_Gen.class:33.1"
+File[18]=".src/Start_App_Args.form"
+File[19]=".src/Start_App_Args.class:45.4"
+File[20]=".src/ChkPrm.module:14.3"
+File[21]=".src/BIOS_microcode_update_recommended.module:9.96"
+File[22]=".src/thermal_zone.module:13.11"
+Active=23
+File[23]=".src/FModules.form"
+File[24]=".src/FModules.class:15.28"
+Count=24
 
 [Watches]
 Count=0
