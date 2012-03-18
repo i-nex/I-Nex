@@ -2,6 +2,7 @@ src/i-nex/i-nex.gambas usr/bin
 src/i-nex/logo/i-nex.0.4.x.png usr/share/pixmaps
 debian/i-nex.desktop usr/share/applications
 debian/check_kernel usr/bin
+debian/inex-crashdb.conf /etc/apport/crashdb.conf.d/
 debian/i-nex.py /usr/share/apport/package-hooks
 debian/changelog-0.4.6 /usr/share/doc/i-nex
 COPYING usr/share/i-nex/pastebinit

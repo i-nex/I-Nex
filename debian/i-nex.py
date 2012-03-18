@@ -8,6 +8,7 @@ from apport.hookutils import *
 
 
 def add_info(report):
+    report['CrashDB'] = 'inex'
     attach_file_if_exists(report, '/sys/bus/acpi/devices/LNXTHERM:00/thermal_zone/temp', 'ThermalZone')
     attach_file_if_exists(report, '/proc/acpi/battery/BAT1/info', 'BAT1_Info')
     attach_file_if_exists(report, '/proc/acpi/battery/BAT0/info', 'BAT0_Info')
