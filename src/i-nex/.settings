@@ -22,7 +22,8 @@ SearchString=True
 
 [OpenFile]
 File[1]=".src/Finfosys.form"
-File[2]=".src/Finfosys.class:178.14"
+Active=2
+File[2]=".src/Finfosys.class:4.16"
 File[3]=".src/Global.class:6.65"
 File[4]=".src/About.form"
 File[5]=".src/About.class:63.30"
@@ -38,7 +39,6 @@ File[14]=".src/HWmon_coretemp.module:7.1"
 File[15]=".src/Reportm.module:336.71"
 File[16]=".src/FReport_Gen.form"
 File[17]=".src/FReport_Gen.class:33.1"
-Active=18
 File[18]=".src/Start_App_Args.form"
 File[19]=".src/Start_App_Args.class:45.4"
 File[20]=".src/ChkPrm.module:14.3"

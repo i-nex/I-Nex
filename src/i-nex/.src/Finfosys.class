@@ -5,6 +5,7 @@ Public Sub Form_Open()
   Dim default_display_manager As Boolean = Exist("/etc/X11/default-display-manager")
   Dim cpuz0, cpuz1, cpuz2, cpuz3, cpuz4, cpuz5, cpuz6, cpuz7, cpuz8, cpuz9, cpuz10, cpuz11 As String
   Finfosys.TabStrip1[9].Visible = False
+  Button13.Visible = ChkPrm.ChkExec("apport-bug")
   Debug "Check for BIOS microcode update recommended"
   Object.Call(BIOS_microcode_update_recommended, "_inits")
   Debug "Check Thermal"
@@ -583,5 +584,11 @@ End
 Public Sub Button6_Click()
 
  FModules.Show
+
+End
+
+Public Sub Button13_Click()
+
+ Exec ["apport-bug", "i-nex"]
 
 End

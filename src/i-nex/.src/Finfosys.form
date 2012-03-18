@@ -1355,7 +1355,7 @@
     Index = 0
   }
   { HBox11 HBox
-    Move(150,492,180,36)
+    Move(150,492,156,36)
     { Label25 Label
       Move(78,6,48,24)
       Foreground = &HFF0000&
@@ -1384,5 +1384,11 @@
   { Button12 Button
     Move(336,498,24,24)
     Picture = Picture["icon:/16/printer"]
+  }
+  { Button13 Button
+    Move(306,498,24,24)
+    Visible = False
+    ToolTip = ("Report a bug")
+    Picture = Picture["icon:/16/important"]
   }
 }
