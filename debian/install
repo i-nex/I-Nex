@@ -5,6 +5,7 @@ debian/check_kernel usr/bin
 debian/inex-crashdb.conf /etc/apport/crashdb.conf.d/
 debian/i-nex.py /usr/share/apport/package-hooks
 debian/changelog-0.4.6 /usr/share/doc/i-nex
+debian/changelog-0.4.8 /usr/share/doc/i-nex
 COPYING usr/share/i-nex/pastebinit
 pastebin.d usr/share/i-nex/pastebinit
 pastebinit usr/share/i-nex/pastebinit
