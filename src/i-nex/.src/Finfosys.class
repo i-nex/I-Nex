@@ -589,6 +589,6 @@ End
 
 Public Sub Button13_Click()
 
- Exec ["apport-bug", "i-nex"]
+ Exec ["apport-bug", "i-nex"] Wait
 
 End

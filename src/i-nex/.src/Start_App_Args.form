@@ -1,13 +1,9 @@
 # Gambas Form File 3.0
 
 { Form Form
-  Move(0,0,228,66)
+  Move(0,0,234,66)
   #Scaled = False
   Resizable = False
-  { TextArea1 TextArea
-    Move(210,84,60,102)
-    Border = False
-  }
   { TextLabel1 TextLabel
     Move(0,0,228,66)
     Font = Font["Bold,11"]
