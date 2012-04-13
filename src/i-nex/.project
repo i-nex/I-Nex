@@ -1,5 +1,5 @@
 # Gambas Project File 3.0
-# Compiled with Gambas 3.0.0
+# Compiled with Gambas 3.1.0
 Title=i-nex
 Startup=Start_App_Args
 Icon=logo/i-nex.0.4.x.png
@@ -26,9 +26,8 @@ Url=http://code.google.com/p/lft/
 License=General Public Licence
 UseRelease=1
 PackageName=i-nex-0.4.0
+Packager=1
 Systems=ubuntu
-Menus=Applications/System/Hardware
-Categories=System
-Groups=gnome
-ExtraDependencies=
-ExtraFiles=
+Menus=ubuntu:"Applications/System/Hardware"
+Categories=ubuntu:"System"
+Groups=ubuntu:"gnome"

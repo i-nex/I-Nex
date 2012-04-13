@@ -14,4 +14,3 @@ Public Sub _inits()
  Debug "BIOS microcode update not recommended"
  Endif
 End
-
