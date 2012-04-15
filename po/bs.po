@@ -1,0 +1,138 @@
+# Bosnian translation for pastebinit
+# Copyright (c) 2012 Rosetta Contributors and Canonical Ltd 2012
+# This file is distributed under the same license as the pastebinit package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2012.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: pastebinit\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2012-02-13 00:42+0000\n"
+"PO-Revision-Date: 2012-04-12 20:11+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: Bosnian <bs@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2012-04-13 05:17+0000\n"
+"X-Generator: Launchpad (build 15070)\n"
+
+#: ../pastebinit:84
+msgid "%s: no section [pastebin]"
+msgstr "%s: nema sekcije [pastebin]"
+
+#: ../pastebinit:90
+msgid "%s: no 'basename' in [pastebin]"
+msgstr "%s: nema 'basename' u [pastebin]"
+
+#: ../pastebinit:115
+#, docstring
+msgid "Return the parameters array for the selected pastebin"
+msgstr "Vraća niz parametara za odabrani pastebin"
+
+#: ../pastebinit:149
+msgid ""
+"Unknown website, please post a bugreport to request this pastebin to be "
+"added (%s)"
+msgstr "Nepoznat web sajt, prijavite grešku da se ovaj pastebin doda (%s)"
+
+#: ../pastebinit:171
+msgid "Reads on stdin for input or takes a filename as first parameter"
+msgstr "Čita stdin za ulaz ili uzima ime datoteke kao prvi parametar"
+
+#: ../pastebinit:172
+msgid "Optional arguments (not supported by all pastebins):"
+msgstr "Opcioni argumenti (svaki pastebin ih ne podržava):"
+
+#: ../pastebinit:173
+msgid "\t-a <author:default is '%s'>"
+msgstr "\t-a <autor:podrazumijevano '%s'>"
+
+#: ../pastebinit:174
+msgid "\t-b <pastebin url:default is '%s'>"
+msgstr "\t-b <pastebin url:podrazumijevano '%s'>"
+
+#: ../pastebinit:175
+msgid "\t-f <format of paste:default is '%s'>"
+msgstr "\t-f <format umetanja:podrazumijevano '%s'>"
+
+#: ../pastebinit:176
+msgid "\t-h This help screen"
+msgstr "\t-h Ovaj ekran pomoći"
+
+#: ../pastebinit:177
+msgid "\t-i <input file>"
+msgstr "\t-i <ulazna datoteka>"
+
+#: ../pastebinit:178
+msgid "\t-l List all supported pastebins"
+msgstr "\t-l Lista svih podržanih pastebin"
+
+#: ../pastebinit:179
+msgid "\t-j <jabberid for notifications:default is '%s'>"
+msgstr "\t-j <jabberid za napomene:podrazumijevano '%s'>"
+
+#: ../pastebinit:180
+msgid "\t-m <permatag for all versions of a post:default is blank>"
+msgstr "\t-m <permatag za sve verzije umetanja:podrazumijevano blank>"
+
+#: ../pastebinit:181
+msgid "\t-r <parent posts ID:defaults to none>"
+msgstr "\t-r <roditeljski post ID:podrazumijevano prazno>"
+
+#: ../pastebinit:182
+msgid "\t-t <title of paste:default is blank>"
+msgstr "\t-t <naziv umetanja:podrazumijevano prazno>"
+
+#: ../pastebinit:183
+msgid "\t-u <username> -p <password>"
+msgstr "\t-u <ime> -p <lozinka>"
+
+#: ../pastebinit:215 ../pastebinit:230 ../pastebinit:241 ../pastebinit:291
+#: ../pastebinit:355 ../pastebinit:360
+msgid "KeyboardInterrupt caught."
+msgstr "Uhvaćen interapt tastature"
+
+#: ../pastebinit:232
+msgid "Error parsing configuration file!"
+msgstr "Greška u analizi konfiguracijske datoteke"
+
+#: ../pastebinit:233
+msgid ""
+"Please ensure that your configuration file looks similar to the following:"
+msgstr ""
+"Molim obezbijedite da vam konfiguracijska datoteka izgleda slično ovom:"
+
+#: ../pastebinit:243
+msgid "Invalid arguments!\n"
+msgstr "Pogrešni argumenti!\n"
+
+#: ../pastebinit:266
+msgid "Supported pastebins:"
+msgstr "Podržani pastebin:"
+
+#: ../pastebinit:293
+msgid "Unable to read from: %s"
+msgstr "Ne mogu čitati iz: %s"
+
+#: ../pastebinit:295
+msgid "You are trying to send an empty document, exiting."
+msgstr "Pokušavate poslati prazan dokument, izlazim"
+
+#: ../pastebinit:304
+msgid "The content you are trying to send exceeds the pastebin's size limit."
+msgstr ""
+"Sadržaj koji pokušavate poslati prevazilazi pastebin ograničenja na veličinu."
+
+#: ../pastebinit:335
+msgid "Could not find any json library."
+msgstr "Ne mogu naći json biblioteku."
+
+#: ../pastebinit:357
+msgid ""
+"Unable to read or parse the result page, it could be a server timeout or a "
+"change server side, try with another pastebin."
+msgstr ""
+"Ne mogu čitati ili analizirati stranicu rezultata. To može biti isteklo "
+"vrijeme na serveru ili promijenite stranu servera te probajte s drugim "
+"pastebin."
