@@ -99,7 +99,7 @@ Public Sub rm_new_line()
   device_model = Replace(device_model, "\n", "")
   device_vendor = Replace(device_vendor, "\n", "")
   device_uuid = Replace(device_uuid, "\n", "")
-  real_size = Replace(real_size, "\n", "")
+  real_size = ((Replace(real_size, "\n", "") / 1024000) / 2) & " GB"
   filesystem_type = Replace(filesystem_type, "\n", "")
   mount_widtch = Replace(mount_widtch, "\n", "")
   device_rev = Replace(device_rev, "\n", "")

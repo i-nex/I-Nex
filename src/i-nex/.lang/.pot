@@ -647,6 +647,6 @@ msgstr ""
 msgid "Picture quality:"
 msgstr ""
 
-#: Start_App_Args.form:13 Start_App_ArgsOld.form:13
+#: Start_App_Args.form:13
 msgid "Invalid Arguments!!"
 msgstr ""
