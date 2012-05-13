@@ -200,24 +200,28 @@ Public Sub grafika()
   Dim count As Integer
   Dim riga As New String[]
   Dim lista As New String[]
+  If ChkPrm.chkExec("glxinfo") = True Then
   Shell "lspci | grep 'VGA' | cut -d ':' -f3 | cut -d '(' -f 1" Wait To gpu
   Shell "glxinfo | grep 'OpenGL vendor string:' | sed -n '1p' | cut -d ':' -f 2" Wait To opengl_vendor_string
   Shell "glxinfo | grep 'OpenGL renderer string:' | sed -n '1p' | cut -d ':' -f 2" Wait To opengl_renderer_string
   Shell "glxinfo | grep 'OpenGL version string:' | sed -n '1p' | cut -d ':' -f 2" Wait To opengl_version_string
+  Else
+  Message.Warning("Not found glxinfobe")
+  Endif
   Shell "xdpyinfo | grep 'dimensions:' | cut -d ':' -f 2" Wait To rozdzielczosc
   'Zmiana rozdzielczości 
   Shell "xrandr" To stringa
- 
+
   righe = Split(stringa, "\n", "%%", True)
-  
+
   For count = 0 To righe.Max
-     
+
      riga = Split(righe[count], " ", "%%", True)
-     
+
      risultato = Replace(riga[0], " ", "")
      lista.add(risultato)
   Next
-  
+
   ComboBox2.List = lista
   ComboBox2.Index = 0
   'Koniec zmiany rozdzielczości
