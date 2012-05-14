@@ -340,8 +340,7 @@ Public Sub Wykrywanie_procesorow()
   Shell "grep 'cpu cores' /proc/cpuinfo | sed -n '" & eloaders & "' | cut -d ':' -f 2" Wait To cpu_cores
   Shell "grep 'physical id' /proc/cpuinfo | sed -n '" & eloaders & "' | cut -d ':' -f 2" Wait To physical_id
   
-  TextBox29.Text = cpu
-  TextBox29.Text = Replace(TextBox29.Text, "\n", "")
+  TextBox29.Text = Replace(cpu, "\n", "")
   level3cache = Replace(level3cache, "\n", "")
   physical_id = Replace(physical_id, "\n", "")
   cpu_cores = Replace(cpu_cores, "\n", "")
@@ -594,5 +593,6 @@ End
 Public Sub Button13_Click()
 
  Exec ["apport-bug", "i-nex"] Wait
+ Debug "Reporting bug to launchpad"
 
 End

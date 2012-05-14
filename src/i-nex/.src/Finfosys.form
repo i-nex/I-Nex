@@ -542,7 +542,7 @@
     Text = ("Drives")
     Picture = Picture["Data/Tabs/hdd.png"]
     { !ProgressBar2 ProgressBar
-      Move(6,426,456,24)
+      Move(6,432,456,18)
       #Public = True
       Tracking = True
     }
@@ -622,82 +622,82 @@
       Border = Border.Plain
     }
     { Label39 Label
-      Move(6,216,288,24)
+      Move(6,222,288,24)
       Padding = 3
       Border = Border.Plain
     }
     { Label44 Label
-      Move(300,216,162,24)
+      Move(300,222,162,24)
       Padding = 3
       Border = Border.Plain
     }
     { Label45 Label
-      Move(300,246,162,24)
+      Move(300,252,162,24)
       Padding = 3
       Border = Border.Plain
     }
     { Label51 Label
-      Move(300,276,162,24)
+      Move(300,282,162,24)
       Padding = 3
       Border = Border.Plain
     }
     { Label49 Label
-      Move(300,306,162,24)
+      Move(300,312,162,24)
       Padding = 3
       Border = Border.Plain
     }
     { Label46 Label
-      Move(6,246,144,24)
+      Move(6,252,144,24)
       Padding = 3
       Border = Border.Plain
     }
     { Label47 Label
-      Move(156,246,138,24)
+      Move(156,252,138,24)
       Padding = 3
       Border = Border.Plain
     }
     { Label50 Label
-      Move(6,276,144,24)
+      Move(6,282,144,24)
       Padding = 3
       Border = Border.Plain
     }
     { Label52 Label
-      Move(156,276,138,24)
+      Move(156,282,138,24)
       Padding = 3
       Border = Border.Plain
     }
     { Label53 Label
-      Move(6,306,144,24)
+      Move(6,312,144,24)
       Padding = 3
       Border = Border.Plain
     }
     { Label55 Label
-      Move(6,336,144,24)
+      Move(6,342,144,24)
       Padding = 3
       Border = Border.Plain
     }
     { Label54 Label
-      Move(156,336,306,24)
+      Move(156,342,306,24)
       Padding = 3
       Border = Border.Plain
     }
     { Label56 Label
-      Move(6,366,144,24)
+      Move(6,372,144,24)
       Padding = 3
       Border = Border.Plain
     }
     { Label57 Label
-      Move(156,366,306,24)
+      Move(156,372,306,24)
       Padding = 3
       Border = Border.Plain
     }
     { Label58 Label
-      Move(6,396,144,24)
+      Move(6,402,144,24)
       Padding = 3
       Border = Border.Plain
     }
     { Label59 Label
-      Move(156,396,306,24)
+      Move(156,402,306,24)
       Padding = 3
       Border = Border.Plain
     }
@@ -709,6 +709,9 @@
     }
     { TextBox53 TextBox
       Move(102,156,360,24)
+    }
+    { Separator1 Separator
+      Move(0,210,468,12)
     }
     Index = 5
     Text = ("System")

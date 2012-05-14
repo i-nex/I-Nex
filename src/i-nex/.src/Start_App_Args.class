@@ -44,17 +44,6 @@ Public Sub Form_Open()
     S = False
     Me.Close
     
-   Case "-acces"
-    sPath = "/usr/share/i-nex/pastebinit/pastebinit"
-    Print sPath; " RW "; Access(sPath, gb.Read Or gb.write)
-    Print sPath; " R  "; Access(sPath, gb.Read)
-    Print sPath; "  W "; Access(sPath, gb.write)
-    Print sPath; "    "; Access(sPath)
-    Print sPath; " EX "; Access(sPath, gb.Exec)
-    S = False
-    
-    Me.Close
-  
   End Select
 
   If S = True Then
