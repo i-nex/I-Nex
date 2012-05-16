@@ -43,7 +43,12 @@ Public Sub Form_Open()
     FModules.Show
     S = False
     Me.Close
-    
+   
+   Case "--dev"
+    FinfosysNew.Show
+    S = False
+    Me.Close
+        
   End Select
 
   If S = True Then

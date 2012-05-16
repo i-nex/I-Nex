@@ -1,0 +1,34 @@
+' Gambas class file
+
+
+Public Sub Form_Open()
+
+ TreeView1.Add("First", "CPU",, "", "")
+ TreeView1.Add("Two", "CPU1",, "First", "")
+ TreeView1.Add("Dyski", "Dyski / Partycje",, "", "")
+ Devices()
+End
+
+Public Sub Devices()
+ 
+  Dim sdx, sdz As String
+  Dim Avail_HDD, Drives_in_sdx As Integer 
+  Dim Max_HDD, Max_Drives_in_sdx As Integer
+  Dim cache, cache2 As String
+  Debug "Add Drives to ComboBox"
+  Shell "ls /sys/block/ | grep 'sd' | wc -l" Wait To cache
+  Max_HDD = Replace(Replace(cache, " ", ""), "\n", "")
+  For Avail_HDD = 1 To Max_HDD
+   Shell "ls /sys/block/ | grep 'sd' | sed -n '" & Avail_HDD & "p'" Wait To sdx
+   sdx = Replace(sdx, "\n", "")
+   TreeView1.Add("" & sdx & "", "" & sdx & "",, "Dyski", "")
+   Shell "ls /sys/block/$(ls /sys/block/ | grep " & sdx & ") | grep  " & sdx & "| wc -l" Wait To cache2 
+   Max_Drives_in_sdx = Replace(Replace(cache2, " ", ""), "\n", "")
+   For Drives_in_sdx = 1 To Max_Drives_in_sdx
+    Shell "ls /sys/block/$(ls /sys/block/ | grep " & sdx & ") | grep  " & sdx & " | sed -n '" & Drives_in_sdx & "p'" Wait To sdz
+    sdz = Replace(sdz, "\n", "")
+    TreeView1.Add("" & sdz & "", "" & sdz & "",, "" & sdx & "")
+   Next
+  Next
+ 
+End
