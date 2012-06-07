@@ -535,7 +535,7 @@ Public Sub refreshing()
  ProgressBar2.Value = 0
  ProgressBar2.ToolTip = "Unknown"
  Endif
- If Disk_Drives.check_swap Like "*" & ComboBox3.Text & "*" Then
+ If Disk_Drives.check_swap Like "" & ComboBox3.Text & "" Then
  Label48.Visible = True
  Else
  Label48.Visible = False

@@ -5,4 +5,7 @@
   { TreeView1 TreeView
     MoveScaled(0,0,21,67)
   }
+  { VBox1 VBox
+    MoveScaled(22,0,83,67)
+  }
 }

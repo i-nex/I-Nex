@@ -30,5 +30,10 @@ Public Sub Devices()
     TreeView1.Add("" & sdz & "", "" & sdz & "",, "" & sdx & "")
    Next
   Next
- 
+  mbn()
+End
+
+Public Sub mbn() 
+        Dim Form2Insert As New Form
+        Form2Insert = Finfosys
 End
