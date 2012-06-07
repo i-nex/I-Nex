@@ -1138,7 +1138,7 @@ int main(int argc, char **argv)
 	y = x * 4 / 5;
 	break;
       case 0x03:
-	y = x * 9 / 15;
+	y = x * 9 / 16;
 	break;
       }
       refresh = 60 + (b2 & 0x3f);
