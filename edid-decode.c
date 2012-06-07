@@ -1129,7 +1129,10 @@ int main(int argc, char **argv)
       x = (b1 + 31) * 8;
       switch ((b2 >> 6) & 0x3) {
       case 0x00:
-	y = x * 10 / 16;
+	if (claims_one_point_three)
+	  y = x * 10 / 16;
+	else
+	  y = x;
 	break;
       case 0x01:
 	y = x * 3 / 4;
