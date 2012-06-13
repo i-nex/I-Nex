@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/python3
 # Written by Stephane Graber <stgraber@stgraber.org>
 #            Daniel Bartlett <dan@f-box.org>
 # Last modification : Mon Jan 28 22:33:23 CET 2008
@@ -17,6 +17,23 @@
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
+from __future__ import print_function
+
+try:
+    from configparser import SafeConfigParser
+except ImportError:
+    from ConfigParser import SafeConfigParser
+
+try:
+    from urllib.parse import urlencode
+except ImportError:
+    from urllib import urlencode
+
+try:
+    from urllib.request import FancyURLopener
+except ImportError:
+    from urllib import FancyURLopener
+
 defaultPB = "http://pastebin.com" #Default pastebin
 try:
     import lsb_release
@@ -31,7 +48,7 @@ except ImportError:
     pass
 
 try:
-    import urllib, os, sys, re, getopt, xml.dom.minidom, gettext
+    import os, sys, re, getopt, xml.dom.minidom, gettext
     try:
         import json # For python 2.6 and newer
     except ImportError:
@@ -40,7 +57,6 @@ try:
         except ImportError:
             json = None
     from gettext import gettext as _
-    import configobj
 
     gettext.textdomain("pastebinit")
 
@@ -48,7 +64,7 @@ try:
     configfile = os.path.expanduser("~/.pastebinit.xml")
 
     # Custom urlopener to handle 401's
-    class pasteURLopener(urllib.FancyURLopener):
+    class pasteURLopener(FancyURLopener):
         def http_error_401(self, url, fp, errcode, errmsg, headers, data=None):
             return None
 
@@ -72,25 +88,18 @@ try:
                     continue
 
                 filename = os.path.join(confdir, fileitem)
-                try:
-                    bininstance = configobj.ConfigObj(filename)
-                except configobj.ConfigObjError, e:
-                    print >> sys.stderr, '%s: %s' % (filename, e)
+                bininstance = SafeConfigParser()
+                bininstance.read(filename)
+
+                if not bininstance.has_section('pastebin'):
+                    print(_('%s: no section [pastebin]') % filename, file=sys.stderr)
                     continue
 
-                try:
-                    section = bininstance['pastebin']
-                except KeyError:
-                    print >> sys.stderr, _('%s: no section [pastebin]') % filename
+                if not bininstance.has_option('pastebin', 'basename'):
+                    print(_("%s: no 'basename' in [pastebin]") % filename, file=sys.stderr)
                     continue
 
-                try:
-                    basename = section['basename']
-                except KeyError:
-                    print >> sys.stderr, _("%s: no 'basename' in [pastebin]") % filename
-                    continue
-
-                pastebind[basename] = bininstance
+                pastebind[bininstance.get('pastebin', 'basename')] = bininstance
         return pastebind
 
     # pastey.net obfuscates parent ids for replies.  Rather than taking the
@@ -115,12 +124,12 @@ try:
         "Return the parameters array for the selected pastebin"
         params = {}
         for pastebin in pastebind:
-            if re.search(pastebind[pastebin]['pastebin']['regexp'], website):
-                if "sizelimit" in pastebind[pastebin]['pastebin']:
-                    params['sizelimit'] = pastebind[pastebin]['pastebin']['sizelimit']
+            if re.search(pastebind[pastebin].get('pastebin', 'regexp'), website):
+                if pastebind[pastebin].has_option('pastebin', 'sizelimit'):
+                    params['sizelimit'] = pastebind[pastebin].get('pastebin', 'sizelimit')
 
-                for param in pastebind[pastebin]['format'].keys():
-                    paramname = pastebind[pastebin]['format'][param]
+                for param in pastebind[pastebin].options('format'):
+                    paramname = pastebind[pastebin].get('format', param)
                     if param == 'user':
                         params[paramname] = user
                     elif param == 'content':
@@ -142,7 +151,7 @@ try:
                     elif param == 'jabberid':
                         params[paramname] = jabberid
                     else:
-                        params[paramname] = pastebind[pastebin]['defaults'][param]
+                        params[paramname] = pastebind[pastebin].get('defaults', param)
         if params:
             return params
         else:
@@ -167,20 +176,20 @@ try:
 
     # Display usage instructions
     def Usage():
-        print "pastebinit v" + version
-        print _("Reads on stdin for input or takes a filename as first parameter")
-        print _("Optional arguments (not supported by all pastebins):")
-        print _("\t-a <author:default is '%s'>") % user
-        print _("\t-b <pastebin url:default is '%s'>") % website
-        print _("\t-f <format of paste:default is '%s'>") % format
-        print _("\t-h This help screen")
-        print _("\t-i <input file>")
-        print _("\t-l List all supported pastebins")
-        print _("\t-j <jabberid for notifications:default is '%s'>") % jabberid
-        print _("\t-m <permatag for all versions of a post:default is blank>")
-        print _("\t-r <parent posts ID:defaults to none>")
-        print _("\t-t <title of paste:default is blank>")
-        print _("\t-u <username> -p <password>")
+        print("pastebinit v" + version)
+        print(_("Reads on stdin for input or takes a filename as first parameter"))
+        print(_("Optional arguments (not supported by all pastebins):"))
+        print(_("\t-a <author:default is '%s'>") % user)
+        print(_("\t-b <pastebin url:default is '%s'>") % website)
+        print(_("\t-f <format of paste:default is '%s'>") % format)
+        print(_("\t-h This help screen"))
+        print(_("\t-i <input file>"))
+        print(_("\t-l List all supported pastebins"))
+        print(_("\t-j <jabberid for notifications:default is '%s'>") % jabberid)
+        print(_("\t-m <permatag for all versions of a post:default is blank>"))
+        print(_("\t-r <parent posts ID:defaults to none>"))
+        print(_("\t-t <title of paste:default is blank>"))
+        print(_("\t-u <username> -p <password>"))
 
     # Set defaults
     website = defaultPB
@@ -229,9 +238,9 @@ try:
         except KeyboardInterrupt:
             sys.exit(_("KeyboardInterrupt caught."))
         except:
-            print _("Error parsing configuration file!")
-            print _("Please ensure that your configuration file looks similar to the following:")
-            print configexample
+            print(_("Error parsing configuration file!"))
+            print(_("Please ensure that your configuration file looks similar to the following:"))
+            print(configexample)
             sys.exit(1)
 
     # Get options
@@ -240,7 +249,7 @@ try:
     except KeyboardInterrupt:
         sys.exit(_("KeyboardInterrupt caught."))
     except getopt.GetoptError:
-        print _("Invalid arguments!\n")
+        print(_("Invalid arguments!\n"))
         Usage()
         sys.exit(1)
 
@@ -263,9 +272,9 @@ try:
         elif opt[0] == "-j":
             jabberid = opt[1]
         elif opt[0] == "-l":
-            print _("Supported pastebins:")
+            print(_("Supported pastebins:"))
             for pastebin in sorted(pastebind):
-                print "- %s" % pastebin
+                print("- %s" % pastebin)
             sys.exit(0)
         elif opt[0] == "-t":
             title = opt[1]
@@ -330,11 +339,11 @@ try:
     if post_format == 'json':
         if json:
             params = json.dumps(params)
-            url_opener.addheader('Content-type: text/json')
+            url_opener.addheader('Content-type', 'text/json')
         else:
             sys.exit(_("Could not find any json library."))
     else:
-        params = urllib.urlencode(params) #Convert to a format usable with the HTML POST
+        params = urlencode(params) #Convert to a format usable with the HTML POST
 
     page = url_opener.open(website, params) #Send the informations and be redirected to the final page
 
@@ -346,11 +355,11 @@ try:
                 website = website.replace(tmp_page, "")
 
             if reLink == '(.*)':
-                print page.read().strip()
+                print(page.read().decode('utf-8').strip())
             else:
-                print website + re.split(reLink, page.read())[1] #Print the result of the Regexp
+                print(website + re.split(reLink, page.read().decode('utf-8'))[1]) #Print the result of the Regexp
         else:
-            print page.url #Get the final page and show the ur
+            print(page.url) #Get the final page and show the ur
     except KeyboardInterrupt:
         sys.exit(_("KeyboardInterrupt caught."))
     except:
