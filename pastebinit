@@ -38,19 +38,23 @@ except ImportError:
     pass
 
 try:
-    import os, sys, re, getopt, xml.dom.minidom, gettext
-    try:
-        import json # For python 2.6 and newer
-    except ImportError:
-        try:
-            import simplejson as json
-        except ImportError:
-            json = None
-    from gettext import gettext as _
+    import getopt
+    import gettext
+    import os
+    import re
+    import sys
+    import xml.dom.minidom
 
+    try:
+        import json
+    except ImportError:
+        json = None
+
+    _ = gettext
     gettext.textdomain("pastebinit")
 
-    version = "1.3.1" #Version number to show in the usage
+    # Version number to show in the usage
+    version = "1.3.1"
     configfile = os.path.expanduser("~/.pastebinit.xml")
 
     # Custom urlopener to handle 401's
@@ -65,7 +69,8 @@ try:
         #  - user's overrides in ~/.pastebin.d
         # Files found later override files found earlier.
         pastebind = {}
-        for confdir in ['/usr/share/pastebin.d','/etc/pastebin.d','/usr/local/etc/pastebin.d',
+        for confdir in ['/usr/share/pastebin.d', '/etc/pastebin.d',
+                        '/usr/local/etc/pastebin.d',
                         os.path.expanduser('~/.pastebin.d'),
                         os.path.join(os.path.dirname(__file__), 'pastebin.d')]:
             try:
@@ -78,18 +83,20 @@ try:
                     continue
 
                 filename = os.path.join(confdir, fileitem)
-                bininstance = SafeConfigParser()
-                bininstance.read(filename)
+                instance = SafeConfigParser()
+                instance.read(filename)
 
-                if not bininstance.has_section('pastebin'):
-                    print(_('%s: no section [pastebin]') % filename, file=sys.stderr)
+                if not instance.has_section('pastebin'):
+                    print(_('%s: no section [pastebin]') % filename,
+                            file=sys.stderr)
                     continue
 
-                if not bininstance.has_option('pastebin', 'basename'):
-                    print(_("%s: no 'basename' in [pastebin]") % filename, file=sys.stderr)
+                if not instance.has_option('pastebin', 'basename'):
+                    print(_("%s: no 'basename' in [pastebin]") % filename,
+                            file=sys.stderr)
                     continue
 
-                pastebind[bininstance.get('pastebin', 'basename')] = bininstance
+                pastebind[instance.get('pastebin', 'basename')] = instance
         return pastebind
 
     # pastey.net obfuscates parent ids for replies.  Rather than taking the
@@ -101,7 +108,8 @@ try:
             return ""
         url_opener = pasteURLopener()
         page = url_opener.open(website + '/' + parentid, None)
-        matches = re.split('<input.*?name="' + paramname + '".*?value="(.*?)"', page.read())
+        matches = re.split('<input.*?name="' + paramname + '".*?value="(.*?)"',
+                            page.read())
         if len(matches) <= 1 or re.match(parentid, matches[1]) == None:
             # The obfuscated version didn't begin with the partial version,
             # or unable to find the obfuscated version for some reason!
@@ -110,13 +118,18 @@ try:
         return matches[1]
 
     #Return the parameters depending of the pastebin used
-    def getParameters(website, pastebind, content, user, jabberid, version, format, parentpid, permatag, title, username, password):
+    def getParameters(website, pastebind, content, user, jabberid, version,
+                        format, parentpid, permatag, title, username,
+                        password):
         "Return the parameters array for the selected pastebin"
         params = {}
         for pastebin in pastebind:
-            if re.search(pastebind[pastebin].get('pastebin', 'regexp'), website):
+            if re.search(pastebind[pastebin].get('pastebin', 'regexp'),
+              website):
+
                 if pastebind[pastebin].has_option('pastebin', 'sizelimit'):
-                    params['sizelimit'] = pastebind[pastebin].get('pastebin', 'sizelimit')
+                    params['sizelimit'] = pastebind[pastebin].get('pastebin',
+                                                                'sizelimit')
 
                 for param in pastebind[pastebin].options('format'):
                     paramname = pastebind[pastebin].get('format', param)
@@ -131,7 +144,8 @@ try:
                     elif param == 'format':
                         params[paramname] = format
                     elif param == 'parentpid':
-                        params[paramname] = doParentFixup(website, paramname, parentpid)
+                        params[paramname] = doParentFixup(website, paramname,
+                                                            parentpid)
                     elif param == 'permatag':
                         params[paramname] = permatag
                     elif param == 'username':
@@ -141,11 +155,13 @@ try:
                     elif param == 'jabberid':
                         params[paramname] = jabberid
                     else:
-                        params[paramname] = pastebind[pastebin].get('defaults', param)
+                        params[paramname] = pastebind[pastebin].get('defaults',
+                                                                        param)
         if params:
             return params
         else:
-            sys.exit(_("Unknown website, please post a bugreport to request this pastebin to be added (%s)") % website)
+            sys.exit(_("Unknown website, please post a bugreport to request "
+                        "this pastebin to be added (%s)") % website)
 
     #XML Handling methods
     def getText(nodelist):
@@ -167,7 +183,8 @@ try:
     # Display usage instructions
     def Usage():
         print("pastebinit v" + version)
-        print(_("Reads on stdin for input or takes a filename as first parameter"))
+        print(_(
+            "Reads on stdin for input or takes a filename as first parameter"))
         print(_("Optional arguments (not supported by all pastebins):"))
         print(_("\t-a <author:default is '%s'>") % user)
         print(_("\t-b <pastebin url:default is '%s'>") % website)
@@ -175,7 +192,8 @@ try:
         print(_("\t-h This help screen"))
         print(_("\t-i <input file>"))
         print(_("\t-l List all supported pastebins"))
-        print(_("\t-j <jabberid for notifications:default is '%s'>") % jabberid)
+        print(_("\t-j <jabberid for notifications:default is '%s'>") %
+                    jabberid)
         print(_("\t-m <permatag for all versions of a post:default is blank>"))
         print(_("\t-r <parent posts ID:defaults to none>"))
         print(_("\t-t <title of paste:default is blank>"))
@@ -219,17 +237,20 @@ try:
     if gotconfigxml:
         try:
             configxml = xml.dom.minidom.parseString(configtext)
-            for variable,key in (('pastebin','website'),('author','user'),('format','format'),('jabberid','jabberid')):
+            for variable, key in (('pastebin', 'website'), ('author', 'user'),
+                                ('format', 'format'),
+                                ('jabberid', 'jabberid')):
                 try:
                     value = getFirstNodeText(configxml, variable)
-                    vars()[key]=value
+                    vars()[key] = value
                 except:
                     pass
         except KeyboardInterrupt:
             sys.exit(_("KeyboardInterrupt caught."))
         except:
             print(_("Error parsing configuration file!"))
-            print(_("Please ensure that your configuration file looks similar to the following:"))
+            print(_(
+"Please ensure that your configuration file looks similar to the following:"))
             print(configexample)
             sys.exit(1)
 
@@ -243,7 +264,9 @@ try:
         Usage()
         sys.exit(1)
 
-    pastebind = preloadPastebins() #get the config from /etc/pastebin.d/
+    # Get the config
+    pastebind = preloadPastebins()
+
     # Iterate through options
     for opt in optlist:
         if opt[0] == "-h":
@@ -278,7 +301,8 @@ try:
     if filename == "" and len(list) >= 1:
         filename = list[0]
 
-    #If - is specified as a filename read from stdin, otherwise load the specified file.
+    # If - is specified as a filename read from stdin
+    # otherwise load the specified file.
     if (filename == "" or filename == "-") and content == "":
         content = sys.stdin.read()
     elif content == "":
@@ -293,14 +317,18 @@ try:
     if not content:
         sys.exit(_("You are trying to send an empty document, exiting."))
 
-    params = getParameters(website, pastebind, content, user, jabberid, version, format, parentpid, permatag, title, username, password) #Get the parameters array
+    # Get the parameter array
+    params = getParameters(website, pastebind, content, user, jabberid,
+                                version, format, parentpid, permatag, title,
+                                username, password)
 
     if not website.endswith("/"):
         website += "/"
 
     if "sizelimit" in params:
         if len(content) > int(params['sizelimit']):
-            sys.exit(_("The content you are trying to send exceeds the pastebin's size limit."))
+            sys.exit(_(
+"The content you are trying to send exceeds the pastebin's size limit."))
         else:
             del params['sizelimit']
 
@@ -333,12 +361,15 @@ try:
         else:
             sys.exit(_("Could not find any json library."))
     else:
-        params = urlencode(params) #Convert to a format usable with the HTML POST
+        # Convert to a format usable with the HTML POST
+        params = urlencode(params)
 
-    page = url_opener.open(website, params) #Send the informations and be redirected to the final page
+    # Send the informations and be redirected to the final page
+    page = url_opener.open(website, params)
 
     try:
-        if reLink: #Check if we have to apply a regexp
+        # Check if we have to apply a regexp
+        if reLink:
             if target_url:
                 website = target_url
             else:
@@ -347,13 +378,18 @@ try:
             if reLink == '(.*)':
                 print(page.read().decode('utf-8').strip())
             else:
-                print(website + re.split(reLink, page.read().decode('utf-8'))[1]) #Print the result of the Regexp
+                # Print the result of the regexp
+                print(website + re.split(reLink,
+                        page.read().decode('utf-8'))[1])
         else:
-            print(page.url) #Get the final page and show the ur
+            # Get the final page and show the url
+            print(page.url)
     except KeyboardInterrupt:
         sys.exit(_("KeyboardInterrupt caught."))
     except:
-        sys.exit(_("Unable to read or parse the result page, it could be a server timeout or a change server side, try with another pastebin."))
+        sys.exit(_("Unable to read or parse the result page, it could be a "
+                   "server timeout or a change server side, "
+                   "try with another pastebin."))
 
 except KeyboardInterrupt:
     sys.exit(_("KeyboardInterrupt caught."))
