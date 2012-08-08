@@ -17,24 +17,14 @@
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
-from __future__ import print_function
+from configparser import SafeConfigParser
+from urllib.parse import urlencode
+from urllib.request import FancyURLopener
 
-try:
-    from configparser import SafeConfigParser
-except ImportError:
-    from ConfigParser import SafeConfigParser
+# Set the default pastebin
+defaultPB = "http://pastebin.com"
 
-try:
-    from urllib.parse import urlencode
-except ImportError:
-    from urllib import urlencode
-
-try:
-    from urllib.request import FancyURLopener
-except ImportError:
-    from urllib import FancyURLopener
-
-defaultPB = "http://pastebin.com" #Default pastebin
+# Now try to override it with a distributor pastebin
 try:
     import lsb_release
     release = lsb_release.get_distro_information()['ID'].lower()
