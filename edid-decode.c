@@ -141,7 +141,7 @@ detailed_block(unsigned char *x, int in_extension)
     static unsigned char name[53];
     int ha, hbl, hso, hspw, hborder, va, vbl, vso, vspw, vborder;
     int i;
-    char phsync, pvsync, *syncmethod;
+    char phsync, pvsync, *syncmethod, *stereo;
 
 #if 0
     printf("Hex of detail: ");
@@ -406,17 +406,41 @@ detailed_block(unsigned char *x, int in_extension)
     }
     pvsync = (x[17] & (1 << 2)) ? '+' : '-';
     phsync = (x[17] & (1 << 1)) ? '+' : '-';
+    switch (x[17] & 0x61) {
+    case 0x20:
+	stereo = "field sequential L/R";
+	break;
+    case 0x40:
+	stereo = "field sequential R/L";
+	break;
+    case 0x21:
+	stereo = "interleaved right even";
+	break;
+    case 0x41:
+	stereo = "interleaved left even";
+	break;
+    case 0x60:
+	stereo = "four way interleaved";
+	break;
+    case 0x61:
+	stereo = "side by side interleaved";
+	break;
+    default:
+	stereo = "";
+	break;
+    }
 
     printf("Detailed mode: Clock %.3f MHz, %d mm x %d mm\n"
 	   "               %4d %4d %4d %4d hborder %d\n"
 	   "               %4d %4d %4d %4d vborder %d\n"
-	   "               %chsync %cvsync%s%s\n",
+	   "               %chsync %cvsync%s%s %s\n",
 	    (x[0] + (x[1] << 8)) / 100.0,
 	    (x[12] + ((x[14] & 0xF0) << 4)),
 	    (x[13] + ((x[14] & 0x0F) << 8)),
 	   ha, ha + hso, ha + hso + hspw, ha + hbl, hborder,
 	   va, va + vso, va + vso + vspw, va + vbl, vborder,
-	   phsync, pvsync, syncmethod, x[17] & 0x80 ? " interlaced" : ""
+	   phsync, pvsync, syncmethod, x[17] & 0x80 ? " interlaced" : "",
+	   stereo
 	  );
     /* XXX flag decode */
     
