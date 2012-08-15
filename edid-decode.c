@@ -228,6 +228,7 @@ detailed_block(unsigned char *x, int in_extension)
 	    int v_max_offset = 0, v_min_offset = 0;
 	    int is_cvt = 0;
 	    has_range_descriptor = 1;
+	    char *range_class = "";
 	    /* 
 	     * XXX todo: implement feature flags, vtd blocks
 	     * XXX check: ranges are well-formed; block termination if no vtd
@@ -255,15 +256,20 @@ detailed_block(unsigned char *x, int in_extension)
 	     */
 	    switch (x[10]) {
 	    case 0x00: /* default gtf */
+		range_class = "GTF";
 		break;
 	    case 0x01: /* range limits only */
+		range_class = "bare limits";
 		break;
 	    case 0x02: /* secondary gtf curve */
+		range_class = "GTF with icing";
 		break;
 	    case 0x04: /* cvt */
+		range_class = "CVT";
 		is_cvt = 1;
 		break;
 	    default: /* invalid */
+		range_class = "invalid";
 		break;
 	    }
 
@@ -271,7 +277,8 @@ detailed_block(unsigned char *x, int in_extension)
 		has_valid_range_descriptor = 0;
 	    if (x[7] + h_min_offset > x[8] + h_max_offset)
 		has_valid_range_descriptor = 0;
-	    printf("Monitor ranges: %d-%dHz vertical, %d-%dkHz horizontal",
+	    printf("Monitor ranges (%s): %d-%dHz V, %d-%dkHz H",
+		   range_class,
 		   x[5] + v_min_offset, x[6] + v_max_offset,
 		   x[7] + h_min_offset, x[8] + h_max_offset);
 	    if (x[9])
