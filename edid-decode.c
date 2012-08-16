@@ -511,7 +511,93 @@ cea_hdmi_block(unsigned char *x)
     if (length > 6)
 	printf("    Maximum TMDS clock: %dMHz\n", x[7] * 5);
 
-    /* latency info */
+    /* XXX the walk here is really ugly, and needs to be length-checked */
+    if (length > 7) {
+	int b = 0;
+
+	if (x[8] & 0x80) {
+	    printf("    Video latency: %d\n", x[9 + b]);
+	    printf("    Audio latency: %d\n", x[10 + b]);
+	    b += 2;
+	}
+
+	if (x[8] & 0x40) {
+	    printf("    Interlaced video latency: %d\n", x[9 + b]);
+	    printf("    Interlaced audio latency: %d\n", x[10 + b]);
+	    b += 2;
+	}
+	
+	if (x[8] & 0x20) {
+	    int mask = 0, formats = 0;
+	    int len_xx, len_3d;
+	    printf("    Extended HDMI video details:\n");
+	    if (x[9 + b] & 0x80)
+		printf("      3D present\n");
+	    if ((x[9 + b] & 0x60) == 0x20) {
+		printf("      All advertised VICs are 3D-capable\n");
+		formats = 1;
+	    }
+	    if ((x[9 + b] & 0x60) == 0x40) {
+		printf("      3D-capable-VIC mask present\n");
+		formats = 1;
+		mask = 1;
+	    }
+	    switch (x[9 + b] & 0x18) {
+	    case 0x00: break;
+	    case 0x08:
+		printf("      Base EDID image size is aspect ratio\n");
+		break;
+	    case 0x10:
+		printf("      Base EDID image size is in units of 1cm\n");
+		break;
+	    case 0x18:
+		printf("      Base EDID image size is in units of 5cm\n");
+		break;
+	    }
+	    len_xx = (x[10 + b] & 0xe0) >> 5;
+	    len_3d = (x[10 + b] & 0x1f) >> 0;
+	    b += 2;
+
+	    if (len_xx) {
+		printf("      Skipping %d bytes that HDMI refuses to publicly"
+		       " document\n", len_xx);
+		b += len_xx;
+	    }
+
+	    if (len_3d) {
+		if (formats) {
+		    if (x[9 + b] & 0x01)
+			printf("      Side-by-side 3D supported\n");
+		    if (x[10 + b] & 0x40)
+			printf("      Top-and-bottom 3D supported\n");
+		    if (x[10 + b] & 0x01)
+			printf("      Frame-packing 3D supported\n");
+		    b += 2;
+		}
+		if (mask) {
+		    int i;
+		    printf("      3D VIC indices:");
+		    /* worst bit ordering ever */
+		    for (i = 0; i < 8; i++)
+			if (x[10 + b] & (1 << i))
+			    printf(" %d", i);
+		    for (i = 0; i < 8; i++)
+			if (x[9 + b] & (1 << i))
+			    printf(" %d", i + 8);
+		    printf("\n");
+		    b += 2;
+		}
+
+		/*
+		 * XXX list of nibbles:
+		 * 2D_VIC_Order_X
+		 * 3D_Structure_X
+		 * (optionally: 3D_Detail_X and reserved)
+		 */
+	    }
+
+	}
+    }
 }
 
 static void
