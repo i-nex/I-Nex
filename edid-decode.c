@@ -1,5 +1,5 @@
 /*
- * Copyright 2006-2009 Red Hat, Inc.
+ * Copyright 2006-2012 Red Hat, Inc.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a
  * copy of this software and associated documentation files (the "Software"),
@@ -252,7 +252,6 @@ detailed_block(unsigned char *x, int in_extension)
 
 	    /*
 	     * despite the values, this is not a bitfield.
-	     * XXX only 0x00 and 0x02 are legal for pre-1.4
 	     */
 	    switch (x[10]) {
 	    case 0x00: /* default gtf */
@@ -260,6 +259,8 @@ detailed_block(unsigned char *x, int in_extension)
 		break;
 	    case 0x01: /* range limits only */
 		range_class = "bare limits";
+		if (!claims_one_point_four)
+		    has_valid_range_descriptor = 0;
 		break;
 	    case 0x02: /* secondary gtf curve */
 		range_class = "GTF with icing";
@@ -267,8 +268,11 @@ detailed_block(unsigned char *x, int in_extension)
 	    case 0x04: /* cvt */
 		range_class = "CVT";
 		is_cvt = 1;
+		if (!claims_one_point_four)
+		    has_valid_range_descriptor = 0;
 		break;
 	    default: /* invalid */
+		has_valid_range_descriptor = 0;
 		range_class = "invalid";
 		break;
 	    }
