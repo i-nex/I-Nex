@@ -54,6 +54,7 @@ static int has_valid_descriptor_ordering = 1;
 static int has_valid_descriptor_pad = 1;
 static int has_valid_range_descriptor = 1;
 static int has_valid_max_dotclock = 1;
+static int has_valid_string_termination = 1;
 static int manufacturer_name_well_formed = 0;
 static int seen_non_detailed_descriptor = 0;
 
@@ -132,6 +133,36 @@ detailed_cvt_descriptor(unsigned char *x, int first)
     }
 
     return valid;
+}
+
+/* extract a string from a detailed subblock, checking for termination */
+static char *
+extract_string(unsigned char *x, int *valid_termination)
+{
+    static char ret[14];
+    int i, seen_newline = 0;
+
+    memset(ret, 0, sizeof(ret));
+
+    for (i = 0; i < 13; i++) {
+	if (isalnum(x[i])) {
+	    ret[i] = x[i];
+	} else if (!seen_newline) {
+	    if (x[i] == 0x0a) {
+		seen_newline = 1;
+	    } else {
+		*valid_termination = 0;
+		return ret;
+	    }
+	} else {
+	    if (x[i] != 0x20) {
+		*valid_termination = 0;
+		return ret;
+	    }
+	}
+    }
+
+    return ret;
 }
 
 /* 1 means valid data */
@@ -373,12 +404,12 @@ detailed_block(unsigned char *x, int in_extension)
              * TODO: Two of these in a row, in the third and fourth slots,
              * seems to be specified by SPWG: http://www.spwg.org/
              */
-	    /* XXX check: terminated with 0x0A, padded with 0x20 */
-	    printf("ASCII string: %s\n", x+5);
+	    printf("ASCII string: %s\n",
+		   extract_string(x + 5, &has_valid_string_termination));
 	    return 1;
 	case 0xFF:
-	    /* XXX check: terminated with 0x0A, padded with 0x20 */
-	    printf("Serial number: %s\n", x+5);
+	    printf("Serial number: %s\n",
+		   extract_string(x + 5, &has_valid_string_termination));
 	    return 1;
 	default:
 	    printf("Unknown monitor description type %d\n", x[3]);
@@ -1298,6 +1329,7 @@ int main(int argc, char **argv)
 
     if (claims_one_point_three) {
 	if (nonconformant_digital_display ||
+	    !has_valid_string_termination ||
 	    !has_valid_descriptor_pad ||
 	    !has_name_descriptor ||
 	    !name_descriptor_terminated ||
@@ -1319,6 +1351,8 @@ int main(int argc, char **argv)
 	    printf("\tMissing monitor ranges\n");
 	if (!has_valid_descriptor_pad) /* Might be more than just 1.3 */
 	    printf("\tInvalid descriptor block padding\n");
+	if (!has_valid_string_termination) /* Likewise */
+	    printf("\tDetailed block string not properly terminated\n");
     } else if (claims_one_point_two) {
 	if (nonconformant_digital_display ||
 	    (has_name_descriptor && !name_descriptor_terminated))
