@@ -137,14 +137,14 @@ detailed_cvt_descriptor(unsigned char *x, int first)
 
 /* extract a string from a detailed subblock, checking for termination */
 static char *
-extract_string(unsigned char *x, int *valid_termination)
+extract_string(unsigned char *x, int *valid_termination, int len)
 {
-    static char ret[14];
+    static char ret[128];
     int i, seen_newline = 0;
 
     memset(ret, 0, sizeof(ret));
 
-    for (i = 0; i < 13; i++) {
+    for (i = 0; i < len; i++) {
 	if (isalnum(x[i])) {
 	    ret[i] = x[i];
 	} else if (!seen_newline) {
@@ -250,7 +250,9 @@ detailed_block(unsigned char *x, int in_extension)
 	    strncat((char *)name, (char *)x + 5, 13);
 	    if (strchr((char *)name, '\n')) {
 		name_descriptor_terminated = 1;
-		printf("Monitor name: %s ", name);
+		printf("Monitor name: %s\n",
+		       extract_string(name, &has_valid_string_termination,
+				      strlen((char *)name)));
 	    }
 	    return 1;
 	case 0xFD:
@@ -405,11 +407,11 @@ detailed_block(unsigned char *x, int in_extension)
              * seems to be specified by SPWG: http://www.spwg.org/
              */
 	    printf("ASCII string: %s\n",
-		   extract_string(x + 5, &has_valid_string_termination));
+		   extract_string(x + 5, &has_valid_string_termination, 13));
 	    return 1;
 	case 0xFF:
 	    printf("Serial number: %s\n",
-		   extract_string(x + 5, &has_valid_string_termination));
+		   extract_string(x + 5, &has_valid_string_termination, 13));
 	    return 1;
 	default:
 	    printf("Unknown monitor description type %d\n", x[3]);
