@@ -1326,7 +1326,7 @@ int main(int argc, char **argv)
     x = edid;
     for (edid_lines /= 8; edid_lines > 1; edid_lines--) {
 	x += 128;
-	nonconformant_digital_display += parse_extension(x);
+	nonconformant_extension += parse_extension(x);
     }
 
     if (claims_one_point_three) {
@@ -1389,7 +1389,8 @@ int main(int argc, char **argv)
 	conformant = 0;
 	printf("EDID block does not conform at all!\n");
 	if (nonconformant_extension)
-	    printf("\tHas at least one nonconformant extension block\n");
+	    printf("\tHas %d nonconformant extension block(s)\n",
+		   nonconformant_extension);
 	if (!has_valid_checksum)
 	    printf("\tBlock has broken checksum\n");
 	if (!has_valid_cvt)
