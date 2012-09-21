@@ -8,6 +8,7 @@
   { PictureBox1 PictureBox
     MoveScaled(0,0,21,26)
     Stretch = True
+    Border = Border.Plain
   }
   { Button1 Button
     MoveScaled(66,27,13,4)
@@ -41,6 +42,7 @@
   }
   { ComboBox1 ComboBox
     MoveScaled(55,16,24,4)
+    ReadOnly = True
   }
   { SpinBox1 SpinBox
     MoveScaled(42,23,9,4)

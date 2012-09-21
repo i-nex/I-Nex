@@ -18,23 +18,23 @@ msgstr ""
 msgid "Screen Shot"
 msgstr ""
 
-#: ScreenShot.form:29
+#: ScreenShot.form:30
 msgid "Save"
 msgstr ""
 
-#: ScreenShot.form:35
+#: ScreenShot.form:36
 msgid "Cancel"
 msgstr ""
 
-#: ScreenShot.form:42
+#: ScreenShot.form:43
 msgid "File name:"
 msgstr ""
 
-#: ScreenShot.form:48
+#: ScreenShot.form:49
 msgid "Save directory:"
 msgstr ""
 
-#: ScreenShot.form:75
+#: ScreenShot.form:77
 msgid "Picture quality:"
 msgstr ""
 

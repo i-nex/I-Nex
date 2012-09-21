@@ -7,16 +7,50 @@
   Icon = Picture["logo/i-nex.0.4.x.png"]
   Resizable = False
   Margin = True
+  { HBox11 HBox
+    Move(150,492,156,36)
+    { Label25 Label
+      Move(78,6,48,24)
+      Foreground = &HFF0000&
+      AutoResize = True
+      Alignment = Align.Center
+      Transparent = True
+    }
+  }
+  { Button2 Button
+    Move(7,497,138,24)
+    Font = Font["10"]
+    Text = ("Take Screenshot")
+    Picture = Picture["icon:/16/camera"]
+  }
+  { Button3 Button
+    Move(366,498,24,24)
+    Font = Font["10"]
+    Picture = Picture["icon:/16/help"]
+  }
+  { Button1 Button
+    Move(396,498,84,24)
+    Font = Font["10"]
+    Text = ("Close")
+    Picture = Picture["icon:/16/quit"]
+  }
+  { Button12 Button
+    Move(336,498,24,24)
+    Picture = Picture["icon:/16/printer"]
+  }
+  { Button13 Button
+    Move(306,498,24,24)
+    Visible = False
+    ToolTip = ("Report a bug")
+    Picture = Picture["icon:/16/important"]
+  }
   { TabStrip1 TabStrip
-    Move(6,0,474,486)
-    Tag = "System"
-    AutoResize = True
+    Move(6,6,474,486)
     Count = 12
     Index = 0
     Text = ("CPU")
-    Picture = Picture["Data/Tabs/cpu.png"]
     { Frame2 Frame
-      Move(6,0,462,150)
+      Move(0,0,462,150)
       Font = Font["10"]
       Text = ("The main information\n")
       { TextArea2 TextArea
@@ -107,78 +141,8 @@
         Border = False
       }
     }
-    { Frame4 Frame
-      Move(6,312,462,138)
-      Font = Font["10"]
-      Text = ("Cache")
-      { ComboBox1 ComboBox
-        Move(330,102,120,24)
-        Font = Font["10"]
-        ReadOnly = True
-        Text = ("Select core")
-      }
-      { HPanel6 HPanel
-        Move(6,18,204,114)
-        { Label12 Label
-          Move(0,0,96,24)
-          Font = Font["Bold"]
-          Padding = 3
-          AutoResize = True
-          Text = ("L1 Data:          ")
-          Alignment = Align.Right
-        }
-        { TextBox33 TextBox
-          Move(102,0,108,24)
-          Font = Font["10"]
-          Expand = True
-        }
-        { Label13 Label
-          Move(0,30,96,24)
-          Font = Font["Bold"]
-          Padding = 3
-          AutoResize = True
-          Text = ("L1 instruction:")
-          Alignment = Align.Right
-        }
-        { TextBox34 TextBox
-          Move(102,30,108,24)
-          Font = Font["10"]
-          Expand = True
-        }
-        { Label14 Label
-          Move(0,60,96,24)
-          Font = Font["Bold"]
-          Padding = 3
-          AutoResize = True
-          Text = ("Level 2:           ")
-          Alignment = Align.Right
-        }
-        { TextBox35 TextBox
-          Move(102,60,108,24)
-          Font = Font["10"]
-          Expand = True
-        }
-        { Label15 Label
-          Move(0,90,96,24)
-          Font = Font["Bold"]
-          Padding = 3
-          AutoResize = True
-          Text = ("Level 3:           ")
-          Alignment = Align.Right
-        }
-        { TextBox36 TextBox
-          Move(102,90,108,24)
-          Font = Font["10"]
-          Expand = True
-        }
-      }
-      { Timer1 #Timer
-        #Move(342,42)
-        Delay = 1500
-      }
-    }
     { Frame3 Frame
-      Move(6,150,462,162)
+      Move(0,150,462,162)
       Font = Font["10"]
       Text = ("CPU")
       { Label3 Label
@@ -303,11 +267,118 @@
         }
       }
     }
+    { Frame4 Frame
+      Move(0,312,462,138)
+      Font = Font["10"]
+      Text = ("Cache")
+      { ComboBox1 ComboBox
+        Move(330,102,120,24)
+        Font = Font["10"]
+        ReadOnly = True
+        Text = ("Select core")
+      }
+      { HPanel6 HPanel
+        Move(6,18,204,114)
+        { Label12 Label
+          Move(0,0,96,24)
+          Font = Font["Bold"]
+          Padding = 3
+          AutoResize = True
+          Text = ("L1 Data:          ")
+          Alignment = Align.Right
+        }
+        { TextBox33 TextBox
+          Move(102,0,108,24)
+          Font = Font["10"]
+          Expand = True
+        }
+        { Label13 Label
+          Move(0,30,96,24)
+          Font = Font["Bold"]
+          Padding = 3
+          AutoResize = True
+          Text = ("L1 instruction:")
+          Alignment = Align.Right
+        }
+        { TextBox34 TextBox
+          Move(102,30,108,24)
+          Font = Font["10"]
+          Expand = True
+        }
+        { Label14 Label
+          Move(0,60,96,24)
+          Font = Font["Bold"]
+          Padding = 3
+          AutoResize = True
+          Text = ("Level 2:           ")
+          Alignment = Align.Right
+        }
+        { TextBox35 TextBox
+          Move(102,60,108,24)
+          Font = Font["10"]
+          Expand = True
+        }
+        { Label15 Label
+          Move(0,90,96,24)
+          Font = Font["Bold"]
+          Padding = 3
+          AutoResize = True
+          Text = ("Level 3:           ")
+          Alignment = Align.Right
+        }
+        { TextBox36 TextBox
+          Move(102,90,108,24)
+          Font = Font["10"]
+          Expand = True
+        }
+      }
+      { Timer1 #Timer
+        #Move(342,42)
+        Delay = 1500
+      }
+    }
     Index = 1
-    Text = ("Motherboard / Bios")
-    Picture = Picture["icon:/16/hardware"]
+    Text = ("Motherboard")
+    { Frame5 Frame
+      Move(0,0,462,144)
+      Text = ("Motherboard")
+      { HBox7 HBox
+        Move(6,30,450,24)
+        { Label62 Label
+          Move(0,0,48,24)
+          Font = Font["Bold,10"]
+          AutoResize = True
+          Text = ("Manufacturer:")
+        }
+      }
+      { HBox8 HBox
+        Move(6,54,450,24)
+        { TextBox23 TextBox
+          Move(0,0,144,24)
+          Expand = True
+        }
+      }
+      { HBox9 HBox
+        Move(6,78,450,24)
+        { Label63 Label
+          Move(0,12,144,24)
+          Font = Font["Bold,10"]
+          AutoResize = True
+          Text = ("Model")
+          Alignment = Align.Left
+        }
+      }
+      { HBox10 HBox
+        Move(6,102,450,24)
+        { TextBox24 TextBox
+          Move(0,0,144,24)
+          Expand = True
+          Alignment = Align.Left
+        }
+      }
+    }
     { Frame1 Frame
-      Move(6,162,462,144)
+      Move(0,156,462,144)
       Text = ("Bios")
       { HBox4 HBox
         Move(6,30,450,24)
@@ -349,72 +420,18 @@
         }
       }
     }
-    { Frame5 Frame
-      Move(6,6,462,144)
-      Text = ("Motherboard")
-      { HBox7 HBox
-        Move(6,30,450,24)
-        { Label62 Label
-          Move(0,0,48,24)
-          Font = Font["Bold,10"]
-          AutoResize = True
-          Text = ("Manufacturer:")
-        }
-      }
-      { HBox8 HBox
-        Move(6,54,450,24)
-        { TextBox23 TextBox
-          Move(0,0,144,24)
-          Expand = True
-        }
-      }
-      { HBox9 HBox
-        Move(6,78,450,24)
-        { Label63 Label
-          Move(0,12,144,24)
-          Font = Font["Bold,10"]
-          AutoResize = True
-          Text = ("Model")
-          Alignment = Align.Left
-        }
-      }
-      { HBox10 HBox
-        Move(6,102,450,24)
-        { TextBox24 TextBox
-          Move(0,0,144,24)
-          Expand = True
-          Alignment = Align.Left
-        }
-      }
-    }
     Index = 2
     Text = ("Sound")
-    Picture = Picture["icon:/16/media-player"]
     { HBox21 HBox
-      Move(6,6,156,24)
+      Move(0,0,156,24)
       { ComboBox6 ComboBox
         Move(0,0,144,24)
         Expand = True
         ReadOnly = True
       }
     }
-    { VSplit1 VSplit
-      Move(6,192,462,258)
-      { TextArea18 TextArea
-        Move(0,18,462,91)
-        Expand = True
-        Text = ("N/A")
-        ReadOnly = True
-        ScrollBar = Scroll.None
-      }
-      { TextArea1 TextArea
-        Move(0,162,462,96)
-        Expand = True
-        ReadOnly = True
-      }
-    }
     { HBox15 HBox
-      Move(6,36,462,24)
+      Move(0,30,462,24)
       { Label9 Label
         Move(0,0,144,24)
         Font = Font["Bold,10"]
@@ -427,7 +444,7 @@
       }
     }
     { HPanel7 HPanel
-      Move(6,66,462,126)
+      Move(0,60,462,126)
       { Label73 Label
         Move(0,0,144,24)
         AutoResize = True
@@ -454,24 +471,32 @@
         Border = Border.Plain
       }
     }
-    Index = 3
-    Text = ("Graphics")
-    Picture = Picture["Data/Tabs/gpu.png"]
-    { Button9 Button
-      Move(318,258,96,24)
-      Visible = False
-      Text = ("Brightness")
-      Picture = Picture["icon:/16/sun"]
+    { VSplit1 VSplit
+      Move(0,186,462,258)
+      { TextArea18 TextArea
+        Move(0,18,462,91)
+        Expand = True
+        Text = ("N/A")
+        ReadOnly = True
+        ScrollBar = Scroll.None
+      }
+      { TextArea1 TextArea
+        Move(0,162,462,96)
+        Expand = True
+        ReadOnly = True
+      }
     }
+    Index = 3
+    Text = ("GPU")
     { Frame9 Frame
-      Move(6,6,462,49)
+      Move(0,0,462,49)
       Text = ("Graphics card:")
       { TextBox47 TextBox
         Move(6,18,450,24)
       }
     }
     { Frame6 Frame
-      Move(7,70,462,161)
+      Move(1,64,462,161)
       Text = ("OpenGL")
       { HPanel1 HPanel
         Move(6,18,450,138)
@@ -521,33 +546,33 @@
       }
     }
     { Frame10 Frame
-      Move(6,234,462,54)
+      Move(0,228,462,54)
       Text = ("Change resolution:")
     }
-    { ComboBox2 ComboBox
-      Move(14,259,217,21)
-      ReadOnly = True
-      Text = ("Wybierz rozdzielczość")
-    }
     { Button8 Button
-      Move(246,258,66,24)
+      Move(240,252,66,24)
       Text = ("Set")
       Picture = Picture["icon:/16/screen"]
     }
+    { ComboBox2 ComboBox
+      Move(8,253,217,21)
+      ReadOnly = True
+      Text = ("Wybierz rozdzielczość")
+    }
     { PictureBox1 PictureBox
-      Move(6,300,160,147)
+      Move(0,294,160,147)
       Stretch = True
+    }
+    { Button9 Button
+      Move(312,252,96,24)
+      Visible = False
+      Text = ("Brightness")
+      Picture = Picture["icon:/16/sun"]
     }
     Index = 4
     Text = ("Drives")
-    Picture = Picture["Data/Tabs/hdd.png"]
-    { !ProgressBar2 ProgressBar
-      Move(6,432,456,18)
-      #Public = True
-      Tracking = True
-    }
     { HBox19 HBox
-      Move(6,6,288,24)
+      Move(6,0,288,24)
       { ComboBox4 ComboBox
         Move(0,0,108,24)
         Expand = True
@@ -559,8 +584,94 @@
         ReadOnly = True
       }
     }
+    { Label41 Label
+      Move(300,30,162,24)
+      Padding = 3
+      Border = Border.Plain
+    }
+    { Label16 Label
+      Move(6,60,288,24)
+      Padding = 3
+      Border = Border.Plain
+    }
+    { Label26 Label
+      Move(6,90,90,24)
+      Padding = 3
+      Text = ("Mount point:   ")
+      Border = Border.Plain
+    }
+    { Label27 Label
+      Move(6,120,90,24)
+      Padding = 3
+      Text = ("Device uuid:   ")
+      Border = Border.Plain
+      Transparent = True
+    }
+    { Label40 Label
+      Move(6,150,90,24)
+      Padding = 3
+      Text = ("Mount width:   ")
+      Alignment = Align.Left
+      Border = Border.Plain
+    }
+    { Label38 Label
+      Move(6,180,288,24)
+      Padding = 3
+      Border = Border.Plain
+    }
+    { Separator1 Separator
+      Move(0,204,468,12)
+    }
+    { Label39 Label
+      Move(6,216,288,24)
+      Padding = 3
+      Border = Border.Plain
+    }
+    { Label46 Label
+      Move(6,246,144,24)
+      Padding = 3
+      Border = Border.Plain
+    }
+    { Label51 Label
+      Move(300,276,162,24)
+      Padding = 3
+      Border = Border.Plain
+    }
+    { Label49 Label
+      Move(300,306,162,24)
+      Padding = 3
+      Border = Border.Plain
+    }
+    { Label54 Label
+      Move(156,336,306,24)
+      Padding = 3
+      Border = Border.Plain
+    }
+    { Label56 Label
+      Move(6,366,144,24)
+      Padding = 3
+      Border = Border.Plain
+    }
+    { Label58 Label
+      Move(6,396,144,24)
+      Padding = 3
+      Border = Border.Plain
+    }
+    { !ProgressBar2 ProgressBar
+      Move(6,426,456,18)
+      #Public = True
+      Tracking = True
+    }
+    { TextBox48 TextBox
+      Move(102,90,360,24)
+    }
+    { Label47 Label
+      Move(156,246,138,24)
+      Padding = 3
+      Border = Border.Plain
+    }
     { HBox20 HBox
-      Move(300,6,162,24)
+      Move(300,0,162,24)
       { Label48 Label
         Move(0,0,162,24)
         Visible = False
@@ -571,163 +682,71 @@
         Transparent = True
       }
     }
-    { Label16 Label
-      Move(6,36,288,24)
-      Padding = 3
-      Border = Border.Plain
-    }
-    { Label41 Label
-      Move(300,36,162,24)
-      Padding = 3
-      Border = Border.Plain
-    }
     { Label17 Label
-      Move(6,66,288,24)
+      Move(6,30,288,24)
       Padding = 3
       Border = Border.Plain
     }
     { Label42 Label
-      Move(300,66,162,24)
-      Padding = 3
-      Border = Border.Plain
-    }
-    { Label26 Label
-      Move(6,96,90,24)
-      Padding = 3
-      Text = ("Mount point:   ")
-      Border = Border.Plain
-    }
-    { Label27 Label
-      Move(6,126,90,24)
-      Padding = 3
-      Text = ("Device uuid:   ")
-      Border = Border.Plain
-      Transparent = True
-    }
-    { Label40 Label
-      Move(6,156,90,24)
-      Padding = 3
-      Text = ("Mount width:   ")
-      Alignment = Align.Left
-      Border = Border.Plain
-    }
-    { Label38 Label
-      Move(6,186,288,24)
+      Move(300,60,162,24)
       Padding = 3
       Border = Border.Plain
     }
     { Label43 Label
-      Move(300,186,162,24)
-      Padding = 3
-      Border = Border.Plain
-    }
-    { Label39 Label
-      Move(6,222,288,24)
+      Move(300,180,162,24)
       Padding = 3
       Border = Border.Plain
     }
     { Label44 Label
-      Move(300,222,162,24)
+      Move(300,216,162,24)
       Padding = 3
       Border = Border.Plain
     }
     { Label45 Label
-      Move(300,252,162,24)
-      Padding = 3
-      Border = Border.Plain
-    }
-    { Label51 Label
-      Move(300,282,162,24)
-      Padding = 3
-      Border = Border.Plain
-    }
-    { Label49 Label
-      Move(300,312,162,24)
-      Padding = 3
-      Border = Border.Plain
-    }
-    { Label46 Label
-      Move(6,252,144,24)
-      Padding = 3
-      Border = Border.Plain
-    }
-    { Label47 Label
-      Move(156,252,138,24)
+      Move(300,246,162,24)
       Padding = 3
       Border = Border.Plain
     }
     { Label50 Label
-      Move(6,282,144,24)
+      Move(6,276,144,24)
       Padding = 3
       Border = Border.Plain
     }
     { Label52 Label
-      Move(156,282,138,24)
+      Move(156,276,138,24)
       Padding = 3
       Border = Border.Plain
     }
     { Label53 Label
-      Move(6,312,144,24)
+      Move(6,306,144,24)
       Padding = 3
       Border = Border.Plain
     }
     { Label55 Label
-      Move(6,342,144,24)
-      Padding = 3
-      Border = Border.Plain
-    }
-    { Label54 Label
-      Move(156,342,306,24)
-      Padding = 3
-      Border = Border.Plain
-    }
-    { Label56 Label
-      Move(6,372,144,24)
+      Move(6,336,144,24)
       Padding = 3
       Border = Border.Plain
     }
     { Label57 Label
-      Move(156,372,306,24)
-      Padding = 3
-      Border = Border.Plain
-    }
-    { Label58 Label
-      Move(6,402,144,24)
+      Move(156,366,306,24)
       Padding = 3
       Border = Border.Plain
     }
     { Label59 Label
-      Move(156,402,306,24)
+      Move(156,396,306,24)
       Padding = 3
       Border = Border.Plain
     }
-    { TextBox48 TextBox
-      Move(102,96,360,24)
-    }
     { TextBox52 TextBox
-      Move(102,126,360,24)
+      Move(102,120,360,24)
     }
     { TextBox53 TextBox
-      Move(102,156,360,24)
-    }
-    { Separator1 Separator
-      Move(0,210,468,12)
+      Move(102,150,360,24)
     }
     Index = 5
     Text = ("System")
-    Picture = Picture["System.png"]
-    { Frame8 Frame
-      Move(6,390,462,56)
-      Text = ("System uptime:")
-      { TextArea37 TextArea
-        Move(12,24,406,21)
-        Text = ("TextArea37")
-        ReadOnly = True
-        ScrollBar = Scroll.None
-      }
-    }
     { Frame7 Frame
-      Move(7,0,462,312)
+      Move(1,0,462,312)
       Text = ("Main:")
       { TextArea29 TextArea
         Move(119,49,336,21)
@@ -859,12 +878,8 @@
         ReadOnly = True
       }
     }
-    { Button5 Button
-      Move(432,414,28,21)
-      Picture = Picture["icon:/16/refresh"]
-    }
     { Frame23 Frame
-      Move(6,324,462,56)
+      Move(0,324,462,56)
       Text = ("Number of installed packages:")
       { Button7 Button
         Move(7,21,72,24)
@@ -877,11 +892,24 @@
         Border = Border.Etched
       }
     }
+    { Frame8 Frame
+      Move(0,390,462,56)
+      Text = ("System uptime:")
+      { TextArea37 TextArea
+        Move(12,24,406,21)
+        Text = ("TextArea37")
+        ReadOnly = True
+        ScrollBar = Scroll.None
+      }
+    }
+    { Button5 Button
+      Move(426,414,28,21)
+      Picture = Picture["icon:/16/refresh"]
+    }
     Index = 6
     Text = ("Kernel")
-    Picture = Picture["icon:/16/linux"]
     { Frame22 Frame
-      Move(6,6,462,222)
+      Move(0,0,462,222)
       Text = ("Installed kernels:")
       { TextLabel25 TextLabel
         Move(6,24,216,24)
@@ -898,7 +926,7 @@
       }
     }
     { Frame14 Frame
-      Move(6,240,462,120)
+      Move(0,234,462,120)
       Text = ("Kernel command line:")
       { HBox26 HBox
         Move(6,24,450,78)
@@ -911,36 +939,27 @@
       }
     }
     { Button6 Button
-      Move(192,366,96,24)
+      Move(186,360,96,24)
       Text = ("Show modules")
     }
     Index = 7
     Text = ("Memory")
-    Picture = Picture["Data/Tabs/RAM-Drive-64.png"]
-    { TextLabel7 TextLabel
-      Move(140,7,77,21)
-      Text = ("N/A")
-    }
     { TextLabel31 TextLabel
-      Move(7,7,126,21)
+      Move(1,0,126,21)
       Text = ("Ram used:")
     }
     { ProgressBar1 ProgressBar
-      Move(7,28,462,21)
-    }
-    { ProgressBar4 ProgressBar
-      Move(7,84,462,21)
+      Move(1,21,462,21)
     }
     { TextLabel23 TextLabel
-      Move(7,56,168,21)
+      Move(1,49,168,21)
       Text = ("SWAP memory used:")
     }
-    { TextLabel24 TextLabel
-      Move(147,56,154,21)
-      Text = ("N/A")
+    { ProgressBar4 ProgressBar
+      Move(1,77,462,21)
     }
     { HPanel8 HPanel
-      Move(6,114,312,336)
+      Move(0,107,312,336)
       { Label85 Label
         Move(0,12,312,24)
         Expand = True
@@ -984,11 +1003,18 @@
         Border = Border.Plain
       }
     }
+    { TextLabel7 TextLabel
+      Move(134,0,77,21)
+      Text = ("N/A")
+    }
+    { TextLabel24 TextLabel
+      Move(141,49,154,21)
+      Text = ("N/A")
+    }
     Index = 8
-    Text = ("Network")
-    Picture = Picture["icon:/16/network"]
+    Text = ("Web")
     { Frame11 Frame
-      Move(7,0,462,56)
+      Move(0,0,462,56)
       Text = ("Default web browser")
       { TextArea46 TextArea
         Move(7,21,448,21)
@@ -998,7 +1024,7 @@
       }
     }
     { Frame12 Frame
-      Move(7,63,462,56)
+      Move(0,63,462,56)
       Text = ("Network controller:")
       { TextArea22 TextArea
         Move(7,21,448,21)
@@ -1008,7 +1034,7 @@
       }
     }
     { Frame13 Frame
-      Move(7,126,462,56)
+      Move(0,126,462,56)
       Text = ("Ethernet controller:")
       { TextArea23 TextArea
         Move(7,21,448,21)
@@ -1019,9 +1045,8 @@
     }
     Index = 9
     Text = ("Battery")
-    Picture = Picture["icon:/16/battery"]
     { HPanel5 HPanel
-      Move(0,6,468,420)
+      Move(0,0,468,420)
       { Label20 Label
         Move(0,0,102,24)
         Font = Font["Bold,11"]
@@ -1192,15 +1217,14 @@
       }
     }
     { Button10 Button
-      Move(438,426,24,24)
+      Move(438,420,24,24)
       Picture = Picture["icon:/16/refresh"]
     }
     { ProgressBar3 ProgressBar
-      Move(6,432,396,18)
+      Move(6,426,396,18)
     }
     Index = 10
-    Text = ("USB")
-    Picture = Picture["icon:/16/connect"]
+    Text = ("Usb")
     { HBox12 HBox
       Move(0,0,468,24)
       { Label70 Label
@@ -1288,17 +1312,6 @@
         Expand = True
       }
     }
-    { HPanel2 HPanel
-      Move(0,228,468,24)
-      { TextBox43 TextBox
-        Move(0,0,144,24)
-        Expand = True
-      }
-    }
-    { Button11 Button
-      Move(156,258,144,24)
-      Text = ("Update usbids")
-    }
     { HBox23 HBox
       Move(0,198,468,24)
       { Label81 Label
@@ -1324,25 +1337,35 @@
         Expand = True
       }
     }
+    { HPanel2 HPanel
+      Move(0,228,468,24)
+      { TextBox43 TextBox
+        Move(0,0,144,24)
+        Expand = True
+      }
+    }
+    { Button11 Button
+      Move(156,258,144,24)
+      Text = ("Update usbids")
+    }
     Index = 11
     Text = ("Input")
-    Picture = Picture["icon:/16/mouse"]
     { ComboBox7 ComboBox
-      Move(6,6,144,24)
+      Move(0,0,144,24)
       ReadOnly = True
     }
     { Label82 Label
-      Move(6,36,456,24)
+      Move(0,30,456,24)
       Padding = 4
       Border = Border.Plain
     }
     { Label83 Label
-      Move(6,66,456,24)
+      Move(0,60,456,24)
       Padding = 3
       Border = Border.Plain
     }
     { HBox22 HBox
-      Move(6,96,456,24)
+      Move(0,90,456,24)
       { Label84 Label
         Move(0,0,114,24)
         Padding = 3
@@ -1356,42 +1379,5 @@
       }
     }
     Index = 0
-  }
-  { HBox11 HBox
-    Move(150,492,156,36)
-    { Label25 Label
-      Move(78,6,48,24)
-      Foreground = &HFF0000&
-      AutoResize = True
-      Alignment = Align.Center
-      Transparent = True
-    }
-  }
-  { Button2 Button
-    Move(7,497,138,24)
-    Font = Font["10"]
-    Text = ("Take Screenshot")
-    Picture = Picture["icon:/16/camera"]
-  }
-  { Button3 Button
-    Move(366,498,24,24)
-    Font = Font["10"]
-    Picture = Picture["icon:/16/help"]
-  }
-  { Button1 Button
-    Move(396,498,84,24)
-    Font = Font["10"]
-    Text = ("Close")
-    Picture = Picture["icon:/16/quit"]
-  }
-  { Button12 Button
-    Move(336,498,24,24)
-    Picture = Picture["icon:/16/printer"]
-  }
-  { Button13 Button
-    Move(306,498,24,24)
-    Visible = False
-    ToolTip = ("Report a bug")
-    Picture = Picture["icon:/16/important"]
   }
 }

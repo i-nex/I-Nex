@@ -1,5 +1,5 @@
 # Gambas Project File 3.0
-# Compiled with Gambas 3.1.1
+# Compiled with Gambas 3.2.1
 Title=i-nex
 Startup=Start_App_Args
 Icon=logo/i-nex.0.4.x.png
@@ -24,7 +24,6 @@ Vendor=i-nex
 Address=eloaders@yahoo.com
 Url=http://code.google.com/p/lft/
 License=General Public Licence
-UseRelease=1
 PackageName=i-nex-0.4.0
 Packager=1
 Systems=ubuntu
