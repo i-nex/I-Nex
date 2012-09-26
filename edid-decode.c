@@ -510,6 +510,65 @@ do_checksum(unsigned char *x)
 
 /* CEA extension */
 
+static const char *
+audio_format(unsigned char x)
+{
+    switch (x) {
+    case 0: return "RESERVED";
+    case 1: return "Linear PCM";
+    case 2: return "AC-3";
+    case 3: return "MPEG 1 (Layers 1 & 2)";
+    case 4: return "MPEG 1 Layer 3 (MP3)";
+    case 5: return "MPEG2 (multichannel)";
+    case 6: return "AAC";
+    case 7: return "DTS";
+    case 8: return "ATRAC";
+    case 9: return "One Bit Audio";
+    case 10: return "Dolby Digital+";
+    case 11: return "DTS-HD";
+    case 12: return "MAT (MLP)";
+    case 13: return "DST";
+    case 14: return "WMA Pro";
+    case 15: return "RESERVED";
+    }
+    return "BROKEN"; /* can't happen */
+}
+
+static void
+cea_audio_block(unsigned char *x)
+{
+    int i, format;
+    int length = x[0] & 0x1f;
+
+    if (length % 3) {
+	printf("Broken CEA audio block length %d\n", length);
+	/* XXX non-conformant */
+	return;
+    }
+
+    for (i = 1; i < length; i += 3) {
+	format = (x[i] & 0x78) >> 3;
+	printf("    %s, max channels %d\n", audio_format(format),
+	       x[i] & 0x07);
+	printf("    Supported sample rates (kHz):%s%s%s%s%s%s%s\n",
+	       (x[i+1] & 0x40) ? " 192" : "",
+	       (x[i+1] & 0x20) ? " 176.4" : "",
+	       (x[i+1] & 0x10) ? " 96" : "",
+	       (x[i+1] & 0x08) ? " 88.2" : "",
+	       (x[i+1] & 0x04) ? " 48" : "",
+	       (x[i+1] & 0x02) ? " 44.1" : "",
+	       (x[i+1] & 0x01) ? " 32" : "");
+	if (format == 1) {
+	    printf("    Supported sample sizes (bits):%s%s%s\n",
+		  (x[2] & 0x04) ? " 24" : "",
+		  (x[2] & 0x02) ? " 20" : "",
+		  (x[2] & 0x01) ? " 16" : "");
+	} else if (format <= 8) {
+	    printf("    Maximum bit rate: %d kHz\n", x[2] * 8);
+	}
+    }
+}
+
 static void
 cea_video_block(unsigned char *x)
 {
@@ -645,6 +704,7 @@ cea_block(unsigned char *x)
     switch ((x[0] & 0xe0) >> 5) {
 	case 0x01:
 	    printf("  Audio data block\n");
+	    cea_audio_block(x);
 	    break;
 	case 0x02:
 	    printf("  Video data block\n");
