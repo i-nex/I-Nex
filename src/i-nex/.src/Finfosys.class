@@ -193,48 +193,43 @@ Public Sub System()
 End
 
 Public Sub grafika()
-  Dim stringa, risultato, gpu As String
+  Dim available_resolutions As String
+  Dim rozdzielczosc, gpu As String
   Dim opengl_vendor_string, opengl_renderer_string, opengl_version_string As String
-  Dim rozdzielczosc As String
-  Dim righe As New String[]
-  Dim count As Integer
-  Dim riga As New String[]
-  Dim lista As New String[]
+  
   If ChkPrm.chkExec("glxinfo") = True Then
-  Shell "lspci | grep 'VGA' | cut -d ':' -f3 | cut -d '(' -f 1" Wait To gpu
-  Shell "glxinfo | grep 'OpenGL vendor string:' | sed -n '1p' | cut -d ':' -f 2" Wait To opengl_vendor_string
-  Shell "glxinfo | grep 'OpenGL renderer string:' | sed -n '1p' | cut -d ':' -f 2" Wait To opengl_renderer_string
-  Shell "glxinfo | grep 'OpenGL version string:' | sed -n '1p' | cut -d ':' -f 2" Wait To opengl_version_string
+    Shell "lspci | grep 'VGA' | cut -d ':' -f3 | cut -d '(' -f 1" Wait To gpu
+    Shell "glxinfo | grep 'OpenGL vendor string:' | sed -n '1p' | cut -d ':' -f 2" Wait To opengl_vendor_string
+    Shell "glxinfo | grep 'OpenGL renderer string:' | sed -n '1p' | cut -d ':' -f 2" Wait To opengl_renderer_string
+    Shell "glxinfo | grep 'OpenGL version string:' | sed -n '1p' | cut -d ':' -f 2" Wait To opengl_version_string
   Else
-  Message.Warning("Not found glxinfobe")
+    Message.Warning("Not found glxinfo")
   Endif
+  
   Shell "xdpyinfo | grep 'dimensions:' | cut -d ':' -f 2" Wait To rozdzielczosc
-  'Zmiana rozdzielczości 
-  Shell "xrandr" To stringa
-
-  righe = Split(stringa, "\n", "%%", True)
-
-  For count = 0 To righe.Max
-
-     riga = Split(righe[count], " ", "%%", True)
-
-     risultato = Replace(riga[0], " ", "")
-     lista.add(risultato)
-  Next
-
-  ComboBox2.List = lista
-  ComboBox2.Index = 0
-  'Koniec zmiany rozdzielczości
+  
+  'Rozdzielczość
+  If ChkPrm.ChkExec("xrandr") = True Then
+    Shell "xrandr | grep current | grep 'Screen 0:' | cut -d ':' -f 2" Wait To available_resolutions
+    'Koniec sprawdzenia dostępnych rozdzielczości.
+    'Sprawdzane są tylko rozdzielczości dla Screen 0.
+    'W przyszłości trzeba będzie dać Combobox w którym będzie do wyboru Creen 0, Screen 1 itd.
+  Else
+    Message.Warning("Not found xrandr")
+  Endif
+  
   opengl_vendor_string = Replace(opengl_vendor_string, "\n", "")
   opengl_renderer_string = Replace(opengl_renderer_string, "\n", "")
   opengl_version_string = Replace(opengl_version_string, "\n", "")
   rozdzielczosc = Replace(rozdzielczosc, "\n", "")
   gpu = Replace(gpu, "\n", "")
+  available_resolutions = Replace(available_resolutions, "\n", "")
   TextBox47.Text = gpu
   TextBox21.Text = opengl_vendor_string
   TextBox37.Text = opengl_renderer_string
   TextBox38.Text = opengl_version_string
   TextBox39.Text = rozdzielczosc
+  TextBox55.Text = available_resolutions
   Global.kartagraficzna()
 End
 
@@ -467,22 +462,10 @@ Public Sub Button7_Click()
   TextLabel21.Text = "" & dpkg & " Packages are installed"
 End
 
-Public Sub Button8_Click()
-
-  Shell "xrandr -s " & ComboBox2.Text & "" Wait
-  grafika()
-
-End
-
 Public Sub Button10_Click()
 
  Object.Call(battery, "_inits")
  Debug "Battery initial"
-End
-
-Public Sub Button9_Click()
- 'Brightness.Show
- Debug "Show brightness window"
 End
 
 Public Sub ComboBox3_Click()

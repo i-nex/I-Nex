@@ -546,28 +546,15 @@
       }
     }
     { Frame10 Frame
-      Move(0,228,462,54)
-      Text = ("Change resolution:")
-    }
-    { Button8 Button
-      Move(240,252,66,24)
-      Text = ("Set")
-      Picture = Picture["icon:/16/screen"]
-    }
-    { ComboBox2 ComboBox
-      Move(8,253,217,21)
-      ReadOnly = True
-      Text = ("Wybierz rozdzielczość")
+      Move(0,234,462,54)
+      Text = ("Available resolutions:")
+      { TextBox55 TextBox
+        Move(6,24,450,24)
+      }
     }
     { PictureBox1 PictureBox
-      Move(0,294,160,147)
+      Move(12,300,160,147)
       Stretch = True
-    }
-    { Button9 Button
-      Move(312,252,96,24)
-      Visible = False
-      Text = ("Brightness")
-      Picture = Picture["icon:/16/sun"]
     }
     Index = 4
     Text = ("Drives")
