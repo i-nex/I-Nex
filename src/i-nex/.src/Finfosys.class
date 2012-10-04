@@ -579,3 +579,9 @@ Public Sub Button13_Click()
  Debug "Reporting bug to launchpad"
 
 End
+
+Public Sub TabStrip1_Click()
+
+ 
+
+End

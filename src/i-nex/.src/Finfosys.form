@@ -46,7 +46,7 @@
   }
   { TabStrip1 TabStrip
     Move(6,6,474,486)
-    Count = 12
+    Count = 11
     Index = 0
     Text = ("CPU")
     { Frame2 Frame
@@ -338,165 +338,16 @@
       }
     }
     Index = 1
-    Text = ("Motherboard")
-    { Frame5 Frame
-      Move(0,0,462,144)
-      Text = ("Motherboard")
-      { HBox7 HBox
-        Move(6,30,450,24)
-        { Label62 Label
-          Move(0,0,48,24)
-          Font = Font["Bold,10"]
-          AutoResize = True
-          Text = ("Manufacturer:")
-        }
-      }
-      { HBox8 HBox
-        Move(6,54,450,24)
-        { TextBox23 TextBox
-          Move(0,0,144,24)
-          Expand = True
-        }
-      }
-      { HBox9 HBox
-        Move(6,78,450,24)
-        { Label63 Label
-          Move(0,12,144,24)
-          Font = Font["Bold,10"]
-          AutoResize = True
-          Text = ("Model")
-          Alignment = Align.Left
-        }
-      }
-      { HBox10 HBox
-        Move(6,102,450,24)
-        { TextBox24 TextBox
-          Move(0,0,144,24)
-          Expand = True
-          Alignment = Align.Left
-        }
-      }
-    }
-    { Frame1 Frame
-      Move(0,156,462,144)
-      Text = ("Bios")
-      { HBox4 HBox
-        Move(6,30,450,24)
-        { Label37 Label
-          Move(0,0,60,24)
-          Font = Font["Bold,10"]
-          AutoResize = True
-          Text = ("Manufacturer:   ")
-        }
-        { TextBox25 TextBox
-          Move(66,0,144,24)
-          Expand = True
-        }
-      }
-      { HBox5 HBox
-        Move(6,90,450,24)
-        { Label60 Label
-          Move(0,0,30,24)
-          Font = Font["Bold,10"]
-          AutoResize = True
-          Text = ("Version:   ")
-        }
-        { TextBox26 TextBox
-          Move(30,0,144,24)
-          Expand = True
-        }
-      }
-      { HBox6 HBox
-        Move(6,60,450,24)
-        { Label61 Label
-          Move(18,6,54,24)
-          Font = Font["Bold,10"]
-          AutoResize = True
-          Text = ("Date:   ")
-        }
-        { TextBox27 TextBox
-          Move(36,0,144,24)
-          Expand = True
-        }
-      }
-    }
-    Index = 2
-    Text = ("Sound")
-    { HBox21 HBox
-      Move(0,0,156,24)
-      { ComboBox6 ComboBox
-        Move(0,0,144,24)
-        Expand = True
-        ReadOnly = True
-      }
-    }
-    { HBox15 HBox
-      Move(0,30,462,24)
-      { Label9 Label
-        Move(0,0,144,24)
-        Font = Font["Bold,10"]
-        AutoResize = True
-        Text = ("Version:   ")
-      }
-      { TextBox44 TextBox
-        Move(132,0,144,24)
-        Expand = True
-      }
-    }
-    { HPanel7 HPanel
-      Move(0,60,462,126)
-      { Label73 Label
-        Move(0,0,144,24)
-        AutoResize = True
-        Border = Border.Plain
-      }
-      { Label18 Label
-        Move(150,0,312,24)
-        Expand = True
-        Border = Border.Plain
-      }
-      { Label74 Label
-        Move(0,30,462,24)
-        Expand = True
-        Border = Border.Plain
-      }
-      { Label77 Label
-        Move(0,60,462,24)
-        Expand = True
-        Border = Border.Plain
-      }
-      { Label78 Label
-        Move(0,90,462,24)
-        Expand = True
-        Border = Border.Plain
-      }
-    }
-    { VSplit1 VSplit
-      Move(0,186,462,258)
-      { TextArea18 TextArea
-        Move(0,18,462,91)
-        Expand = True
-        Text = ("N/A")
-        ReadOnly = True
-        ScrollBar = Scroll.None
-      }
-      { TextArea1 TextArea
-        Move(0,162,462,96)
-        Expand = True
-        ReadOnly = True
-      }
-    }
-    Index = 3
     Text = ("GPU")
     { Frame9 Frame
-      Move(0,0,462,49)
+      Move(6,6,462,49)
       Text = ("Graphics card:")
       { TextBox47 TextBox
         Move(6,18,450,24)
       }
     }
     { Frame6 Frame
-      Move(1,64,462,161)
+      Move(6,72,462,161)
       Text = ("OpenGL")
       { HPanel1 HPanel
         Move(6,18,450,138)
@@ -546,7 +397,7 @@
       }
     }
     { Frame10 Frame
-      Move(0,234,462,54)
+      Move(6,240,462,54)
       Text = ("Available resolutions:")
       { TextBox55 TextBox
         Move(6,24,450,24)
@@ -555,6 +406,155 @@
     { PictureBox1 PictureBox
       Move(12,300,160,147)
       Stretch = True
+    }
+    Index = 2
+    Text = ("Mobo")
+    { Frame5 Frame
+      Move(6,6,462,144)
+      Text = ("Motherboard")
+      { HBox7 HBox
+        Move(6,30,450,24)
+        { Label62 Label
+          Move(0,0,48,24)
+          Font = Font["Bold,10"]
+          AutoResize = True
+          Text = ("Manufacturer:")
+        }
+      }
+      { HBox8 HBox
+        Move(6,54,450,24)
+        { TextBox23 TextBox
+          Move(0,0,144,24)
+          Expand = True
+        }
+      }
+      { HBox9 HBox
+        Move(6,78,450,24)
+        { Label63 Label
+          Move(0,12,144,24)
+          Font = Font["Bold,10"]
+          AutoResize = True
+          Text = ("Model")
+          Alignment = Align.Left
+        }
+      }
+      { HBox10 HBox
+        Move(6,102,450,24)
+        { TextBox24 TextBox
+          Move(0,0,144,24)
+          Expand = True
+          Alignment = Align.Left
+        }
+      }
+    }
+    { Frame1 Frame
+      Move(6,162,462,144)
+      Text = ("Bios")
+      { HBox4 HBox
+        Move(6,30,450,24)
+        { Label37 Label
+          Move(0,0,60,24)
+          Font = Font["Bold,10"]
+          AutoResize = True
+          Text = ("Manufacturer:   ")
+        }
+        { TextBox25 TextBox
+          Move(66,0,144,24)
+          Expand = True
+        }
+      }
+      { HBox5 HBox
+        Move(6,90,450,24)
+        { Label60 Label
+          Move(0,0,30,24)
+          Font = Font["Bold,10"]
+          AutoResize = True
+          Text = ("Version:   ")
+        }
+        { TextBox26 TextBox
+          Move(30,0,144,24)
+          Expand = True
+        }
+      }
+      { HBox6 HBox
+        Move(6,60,450,24)
+        { Label61 Label
+          Move(18,6,54,24)
+          Font = Font["Bold,10"]
+          AutoResize = True
+          Text = ("Date:   ")
+        }
+        { TextBox27 TextBox
+          Move(36,0,144,24)
+          Expand = True
+        }
+      }
+    }
+    Index = 3
+    Text = ("Sound")
+    { HBox21 HBox
+      Move(6,6,156,24)
+      { ComboBox6 ComboBox
+        Move(0,0,144,24)
+        Expand = True
+        ReadOnly = True
+      }
+    }
+    { HBox15 HBox
+      Move(6,36,462,24)
+      { Label9 Label
+        Move(0,0,144,24)
+        Font = Font["Bold,10"]
+        AutoResize = True
+        Text = ("Version:   ")
+      }
+      { TextBox44 TextBox
+        Move(132,0,144,24)
+        Expand = True
+      }
+    }
+    { HPanel7 HPanel
+      Move(6,66,462,126)
+      { Label73 Label
+        Move(0,0,144,24)
+        AutoResize = True
+        Border = Border.Plain
+      }
+      { Label18 Label
+        Move(150,0,312,24)
+        Expand = True
+        Border = Border.Plain
+      }
+      { Label74 Label
+        Move(0,30,462,24)
+        Expand = True
+        Border = Border.Plain
+      }
+      { Label77 Label
+        Move(0,60,462,24)
+        Expand = True
+        Border = Border.Plain
+      }
+      { Label78 Label
+        Move(0,90,462,24)
+        Expand = True
+        Border = Border.Plain
+      }
+    }
+    { VSplit1 VSplit
+      Move(6,192,462,258)
+      { TextArea18 TextArea
+        Move(0,18,462,91)
+        Expand = True
+        Text = ("N/A")
+        ReadOnly = True
+        ScrollBar = Scroll.None
+      }
+      { TextArea1 TextArea
+        Move(0,162,462,96)
+        Expand = True
+        ReadOnly = True
+      }
     }
     Index = 4
     Text = ("Drives")
@@ -1211,7 +1211,7 @@
       Move(6,426,396,18)
     }
     Index = 10
-    Text = ("Usb")
+    Text = ("USB | Input")
     { HBox12 HBox
       Move(0,0,468,24)
       { Label70 Label
@@ -1335,24 +1335,8 @@
       Move(156,258,144,24)
       Text = ("Update usbids")
     }
-    Index = 11
-    Text = ("Input")
-    { ComboBox7 ComboBox
-      Move(0,0,144,24)
-      ReadOnly = True
-    }
-    { Label82 Label
-      Move(0,30,456,24)
-      Padding = 4
-      Border = Border.Plain
-    }
-    { Label83 Label
-      Move(0,60,456,24)
-      Padding = 3
-      Border = Border.Plain
-    }
     { HBox22 HBox
-      Move(0,90,456,24)
+      Move(6,420,456,24)
       { Label84 Label
         Move(0,0,114,24)
         Padding = 3
@@ -1364,6 +1348,20 @@
         Move(108,0,144,24)
         Expand = True
       }
+    }
+    { Label83 Label
+      Move(6,390,456,24)
+      Padding = 3
+      Border = Border.Plain
+    }
+    { Label82 Label
+      Move(6,360,456,24)
+      Padding = 4
+      Border = Border.Plain
+    }
+    { ComboBox7 ComboBox
+      Move(6,330,144,24)
+      ReadOnly = True
     }
     Index = 0
   }

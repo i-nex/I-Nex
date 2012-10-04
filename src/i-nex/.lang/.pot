@@ -276,67 +276,71 @@ msgid "Level 3:           "
 msgstr ""
 
 #: Finfosys.form:667
-msgid "Motherboard"
-msgstr ""
-
-#: Finfosys.form:680
-msgid "Manufacturer:"
-msgstr ""
-
-#: Finfosys.form:700
-msgid "Model"
-msgstr ""
-
-#: Finfosys.form:718
-msgid "Bios"
-msgstr ""
-
-#: Finfosys.form:727
-msgid "Manufacturer:   "
-msgstr ""
-
-#: Finfosys.form:743
-msgid "Version:   "
-msgstr ""
-
-#: Finfosys.form:759
-msgid "Date:   "
-msgstr ""
-
-#: Finfosys.form:769
-msgid "Sound"
-msgstr ""
-
-#: Finfosys.form:849
 msgid "GPU"
 msgstr ""
 
-#: Finfosys.form:853
+#: Finfosys.form:671
 msgid "Graphics card:"
 msgstr ""
 
-#: Finfosys.form:862
+#: Finfosys.form:680
 msgid "OpenGL"
 msgstr ""
 
-#: Finfosys.form:873
+#: Finfosys.form:691
 msgid "OpenGl Vendor:   "
 msgstr ""
 
-#: Finfosys.form:886
+#: Finfosys.form:704
 msgid "OpenGl Renderer:   "
 msgstr ""
 
-#: Finfosys.form:898
+#: Finfosys.form:716
 msgid "OpenGl Version:   "
 msgstr ""
 
-#: Finfosys.form:910
+#: Finfosys.form:728
 msgid "Present resolution:   "
 msgstr ""
 
-#: Finfosys.form:922
+#: Finfosys.form:740
 msgid "Available resolutions:"
+msgstr ""
+
+#: Finfosys.form:752
+msgid "Mobo"
+msgstr ""
+
+#: Finfosys.form:756
+msgid "Motherboard"
+msgstr ""
+
+#: Finfosys.form:765
+msgid "Manufacturer:"
+msgstr ""
+
+#: Finfosys.form:785
+msgid "Model"
+msgstr ""
+
+#: Finfosys.form:803
+msgid "Bios"
+msgstr ""
+
+#: Finfosys.form:812
+msgid "Manufacturer:   "
+msgstr ""
+
+#: Finfosys.form:828
+msgid "Version:   "
+msgstr ""
+
+#: Finfosys.form:844
+msgid "Date:   "
+msgstr ""
+
+#: Finfosys.form:854
+msgid "Sound"
 msgstr ""
 
 #: Finfosys.form:934
@@ -564,7 +568,7 @@ msgid "OEM info:   "
 msgstr ""
 
 #: Finfosys.form:1709
-msgid "Usb"
+msgid "USB | Input"
 msgstr ""
 
 #: Finfosys.form:1719
@@ -599,11 +603,7 @@ msgstr ""
 msgid "Update usbids"
 msgstr ""
 
-#: Finfosys.form:1858
-msgid "Input"
-msgstr ""
-
-#: Finfosys.form:1884
+#: Finfosys.form:1865
 msgid "Modalias:   "
 msgstr ""
 
