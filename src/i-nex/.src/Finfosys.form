@@ -18,13 +18,12 @@
     }
   }
   { Button2 Button
-    Move(7,497,138,24)
+    Move(7,497,24,24)
     Font = Font["10"]
-    Text = ("Take Screenshot")
     Picture = Picture["icon:/16/camera"]
   }
   { Button3 Button
-    Move(366,498,24,24)
+    Move(96,498,24,24)
     Font = Font["10"]
     Picture = Picture["icon:/16/help"]
   }
@@ -35,11 +34,11 @@
     Picture = Picture["icon:/16/quit"]
   }
   { Button12 Button
-    Move(336,498,24,24)
+    Move(66,498,24,24)
     Picture = Picture["icon:/16/printer"]
   }
   { Button13 Button
-    Move(306,498,24,24)
+    Move(36,498,24,24)
     Visible = False
     ToolTip = ("Report a bug")
     Picture = Picture["icon:/16/important"]
@@ -50,7 +49,7 @@
     Index = 0
     Text = ("CPU")
     { Frame2 Frame
-      Move(0,0,462,150)
+      Move(6,0,462,150)
       Font = Font["10"]
       Text = ("The main information\n")
       { TextArea2 TextArea
@@ -142,7 +141,7 @@
       }
     }
     { Frame3 Frame
-      Move(0,150,462,162)
+      Move(6,150,462,162)
       Font = Font["10"]
       Text = ("CPU")
       { Label3 Label
@@ -268,7 +267,7 @@
       }
     }
     { Frame4 Frame
-      Move(0,312,462,138)
+      Move(6,312,462,138)
       Font = Font["10"]
       Text = ("Cache")
       { ComboBox1 ComboBox
@@ -278,7 +277,7 @@
         Text = ("Select core")
       }
       { HPanel6 HPanel
-        Move(6,18,204,114)
+        Move(6,18,210,114)
         { Label12 Label
           Move(0,0,96,24)
           Font = Font["Bold"]

@@ -2,7 +2,7 @@
 
 Public Sub Form_Open()
   Dim S As Boolean = True
-  Dim sPath As String
+ 
   
   Select Case Application.Args[1]
    

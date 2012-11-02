@@ -114,12 +114,12 @@ Public Sub Form_Open()
  dzwiek()
  Debug "Check graphic card"
  grafika()
- 'END Uruchomienie instrukcji dla poszczególnych zakładek w celu wydobycia informacji z systemu
+ ''END Uruchomienie instrukcji dla poszczególnych zakładek w celu wydobycia informacji z systemu
  Debug "Set Combobox to Procesor0"
- ComboBox1.Text = "Procesor0" 'Ustawienie combobox na Procesor0 / W przeciwnym wypadku nie pokaże nic
+ ComboBox1.Text = "Procesor0" ''Ustawienie combobox na Procesor0 / W przeciwnym wypadku nie pokaże nic
  Label25.Text = Application.Name & " v: " & Application.version
  Debug Label25.Text
- 'Okno na środku
+ ''Okno na środku
  Me.Center
 End
 
@@ -174,7 +174,7 @@ Public Sub bios()
 End
 
 Public Sub System()
-  Dim hostname, dist, release, arch, gcc, timezone, xorg_version, glx_version As String
+  Dim hostname, arch, gcc, timezone, xorg_version, glx_version As String
   Shell "cat /etc/timezone" Wait To timezone
   Shell "hostname" Wait To hostname
   Shell "uname -m" Wait To arch
@@ -211,9 +211,9 @@ Public Sub grafika()
   'Rozdzielczość
   If ChkPrm.ChkExec("xrandr") = True Then
     Shell "xrandr | grep current | grep 'Screen 0:' | cut -d ':' -f 2" Wait To available_resolutions
-    'Koniec sprawdzenia dostępnych rozdzielczości.
-    'Sprawdzane są tylko rozdzielczości dla Screen 0.
-    'W przyszłości trzeba będzie dać Combobox w którym będzie do wyboru Creen 0, Screen 1 itd.
+    ''Koniec sprawdzenia dostępnych rozdzielczości.
+    ''Sprawdzane są tylko rozdzielczości dla Screen 0.
+    ''W przyszłości trzeba będzie dać Combobox w którym będzie do wyboru Creen 0, Screen 1 itd.
   Else
     Message.Warning("Not found xrandr")
   Endif
@@ -239,14 +239,14 @@ Public Sub internet()
   Shell "x-www-browser -version" Wait To default_web_browser
   Shell "lspci | grep 'Network' | cut -d ':' -f 3 | cut -d '(' -f 1" Wait To network_controller
   Shell "lspci | grep 'Ethernet' | cut -d ':' -f 3 | cut -d '(' -f 1" Wait To ethernet_controller
-  'SHELL "ss -a" WAIT TO ssa
+  ''SHELL "ss -a" WAIT TO ssa
   default_web_browser = Replace(default_web_browser, "\n", " ")
   network_controller = Replace(network_controller, "\n", " ")
   ethernet_controller = Replace(ethernet_controller, "\n", " ")
   TextArea46.Text = default_web_browser
   TextArea22.Text = network_controller
   TextArea23.Text = ethernet_controller
-  'TextArea48.Text = ssa
+  ''TextArea48.Text = ssa
 End
 
 
@@ -368,7 +368,7 @@ Public Sub Wykrywanie_procesorow()
 End
 
 Public Sub Button2_Click()
-   ScreenShotM.pic = Desktop.Screenshot(Me.X, Me.Y, Me.W, Me.H + 30)
+   ScreenShotM.pic = Desktop.Screenshot(Me.X, Me.Y, Me.W + 4, Me.H + 30)
    ScreenShot.Show
    
 End
@@ -481,7 +481,7 @@ Public Sub ComboBox4_Click()
 End
 
 Public Sub refreshing()
- Dim realmount, realwith As String
+ 
  Label16.Text = "Device model: " & Disk_Drives.device_model & ""
  Label17.Text = "Device vendor: " & Disk_Drives.device_vendor & ""
  Label38.Text = "Device real size: " & Disk_Drives.real_size & ""
@@ -561,7 +561,7 @@ Public Sub Button12_Click()
 End
 
 Public Sub Timer1_Timer()
-  'Refresh temp 1500/ms
+  ''Refresh temp 1500/ms
   dospam_uptime()
   Object.Call(thermal_zone, "_inits")
   Print "Temp: " & (thermal_zone.calculate / 1000) & " C"
@@ -577,11 +577,5 @@ Public Sub Button13_Click()
 
  Exec ["apport-bug", "i-nex"] Wait
  Debug "Reporting bug to launchpad"
-
-End
-
-Public Sub TabStrip1_Click()
-
- 
 
 End

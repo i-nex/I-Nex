@@ -27,7 +27,7 @@ Me.Center
 End
 
 Public Sub Button1_Click()
- Dim URL As String
+
  If ButtonBox1.Text = Null Then
   Message.Warning("Please select directory to save the report about your hardware")
  Else
