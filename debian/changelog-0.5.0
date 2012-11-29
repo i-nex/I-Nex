@@ -1,0 +1,107 @@
+------------------------------------------------------------
+revno: 200
+committer: eloaders <eloaders@yahoo.com>
+branch nick: i-nex
+timestamp: Thu 2012-11-29 09:07:44 +0100
+message:
+  Repair Bug in USB_Drives.module
+  New WEB tab
+  Update GUI
+------------------------------------------------------------
+revno: 199 [merge]
+committer: eloaders <eloaders@yahoo.com>
+branch nick: i-nex
+timestamp: Fri 2012-11-02 13:05:39 +0100
+message:
+  Update pastebinit
+------------------------------------------------------------
+revno: 198
+committer: eloaders <eloaders@yahoo.com>
+branch nick: i-nex
+timestamp: Fri 2012-11-02 13:04:31 +0100
+message:
+  Remove some graphic.
+  Remove text above icons
+------------------------------------------------------------
+revno: 197 [merge]
+committer: eloaders <eloaders@yahoo.com>
+branch nick: i-nex
+timestamp: Thu 2012-10-04 11:39:22 +0200
+message:
+  The new card layout
+------------------------------------------------------------
+revno: 196
+committer: eloaders <eloaders@yahoo.com>
+branch nick: i-nex
+timestamp: Wed 2012-10-03 18:29:17 +0200
+message:
+  Remove change resolution in GPU tab.
+  Add view only max & min resolution of screen
+------------------------------------------------------------
+revno: 195 [merge]
+committer: eloaders <eloaders@yahoo.com>
+branch nick: i-nex
+timestamp: Fri 2012-09-21 18:39:08 +0200
+message:
+  Update Pastebinit.
+  Update generate report window. (Pages)
+------------------------------------------------------------
+revno: 194
+committer: eloaders <eloaders@yahoo.com>
+branch nick: i-nex
+timestamp: Thu 2012-06-07 21:21:55 +0200
+message:
+  Fix Bug device only sdb, sdc, sdx = partition master. Check swap replace Like *sdx* to Like sdx.
+  Fix Bug if partition = New Wolume, fix display as only "New", fix to New Wolume mounted in media.
+------------------------------------------------------------
+revno: 193
+committer: eloaders <eloaders@yahoo.com>
+branch nick: i-nex
+timestamp: Wed 2012-05-16 15:10:51 +0200
+message:
+  Add new Experimental GUI, Test run i-nex.gambas --dev
+------------------------------------------------------------
+revno: 192 [merge]
+committer: eloaders <eloaders@yahoo.com>
+branch nick: i-nex
+timestamp: Tue 2012-05-15 13:29:25 +0200
+message:
+  Update pastebinit script
+------------------------------------------------------------
+revno: 191
+committer: eloaders <eloaders@yahoo.com>
+branch nick: i-nex
+timestamp: Mon 2012-05-14 19:44:18 +0200
+message:
+  Some Fixes
+------------------------------------------------------------
+revno: 190
+committer: eloaders <eloaders@yahoo.com>
+branch nick: i-nex
+timestamp: Sun 2012-05-13 22:09:14 +0200
+message:
+  Fix detect device_uuid
+------------------------------------------------------------
+revno: 189
+committer: eloaders <eloaders@yahoo.com>
+branch nick: i-nex
+timestamp: Mon 2012-04-23 23:12:40 +0200
+message:
+  Fix Device real size to show in GB
+------------------------------------------------------------
+revno: 188 [merge]
+committer: eloaders <eloaders@yahoo.com>
+branch nick: i-nex
+timestamp: Sun 2012-04-15 11:31:41 +0200
+message:
+  Update pastebinit
+------------------------------------------------------------
+revno: 187
+tags: 0.4.8.1
+committer: eloaders <eloaders@yahoo.com>
+branch nick: i-nex
+timestamp: Fri 2012-04-13 22:32:23 +0200
+message:
+  New 0.4.8.1
+------------------------------------------------------------
+Use --include-merged or -n0 to see merged revisions.
