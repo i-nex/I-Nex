@@ -20,21 +20,25 @@
   { Button2 Button
     Move(7,497,24,24)
     Font = Font["10"]
+    ToolTip = ("Take a screenshot")
     Picture = Picture["icon:/16/camera"]
   }
   { Button3 Button
     Move(96,498,24,24)
     Font = Font["10"]
+    ToolTip = ("About this app")
     Picture = Picture["icon:/16/help"]
   }
   { Button1 Button
     Move(396,498,84,24)
     Font = Font["10"]
+    ToolTip = ("Close this program")
     Text = ("Close")
     Picture = Picture["icon:/16/quit"]
   }
   { Button12 Button
     Move(66,498,24,24)
+    ToolTip = ("Generate report")
     Picture = Picture["icon:/16/printer"]
   }
   { Button13 Button
@@ -999,34 +1003,42 @@
     }
     Index = 8
     Text = ("Web")
-    { Frame11 Frame
-      Move(0,0,462,56)
-      Text = ("Default web browser")
-      { TextArea46 TextArea
-        Move(7,21,448,21)
-        Text = ("N/A")
-        ReadOnly = True
-        ScrollBar = Scroll.None
-      }
+    { TextArea4 TextArea
+      Move(6,36,456,24)
+      Text = ("TextArea4")
+      Alignment = Align.Left
+      ReadOnly = True
+      ScrollBar = Scroll.None
     }
-    { Frame12 Frame
-      Move(0,63,462,56)
-      Text = ("Network controller:")
-      { TextArea22 TextArea
-        Move(7,21,448,21)
-        Text = ("N/A")
+    { HBox29 HBox
+      Move(6,6,456,24)
+      { ComboBox2 ComboBox
+        Move(0,0,60,24)
+        Expand = True
         ReadOnly = True
-        ScrollBar = Scroll.None
+        Text = ("ComboBox2")
       }
-    }
-    { Frame13 Frame
-      Move(0,126,462,56)
-      Text = ("Ethernet controller:")
-      { TextArea23 TextArea
-        Move(7,21,448,21)
-        Text = ("N/A")
-        ReadOnly = True
-        ScrollBar = Scroll.None
+      { Label95 Label
+        Move(84,0,144,24)
+        Padding = 4
+        AutoResize = True
+        Text = ("Vendor:")
+      }
+      { TextBox57 TextBox
+        Move(228,0,72,24)
+        Expand = True
+        Text = ("TextBox57")
+      }
+      { Label96 Label
+        Move(306,0,78,24)
+        Padding = 4
+        AutoResize = True
+        Text = ("Device:")
+      }
+      { TextBox56 TextBox
+        Move(390,0,66,24)
+        Expand = True
+        Text = ("TextBox56")
       }
     }
     Index = 9

@@ -22,6 +22,8 @@ Public Sub Form_Open()
   Object.Call(Disk_Drives, "get_informations")
   Debug "Check for Input Drives"
   Object.Call(Input_Devices, "_inits")
+  Debug "Check available network devices"
+  Object.Call(net, "inits")
   Debug "Check for default display manager"
   If default_display_manager = True Then
    Label4.Visible = True
@@ -108,8 +110,6 @@ Public Sub Form_Open()
  bios()
  Debug "Check Kernels"
  kernel()
- Debug "Check network"
- internet()
  Debug "Check sound cards"
  dzwiek()
  Debug "Check graphic card"
@@ -232,23 +232,6 @@ Public Sub grafika()
   TextBox55.Text = available_resolutions
   Global.kartagraficzna()
 End
-
-
-Public Sub internet()
-  Dim default_web_browser, network_controller, ethernet_controller As String
-  Shell "x-www-browser -version" Wait To default_web_browser
-  Shell "lspci | grep 'Network' | cut -d ':' -f 3 | cut -d '(' -f 1" Wait To network_controller
-  Shell "lspci | grep 'Ethernet' | cut -d ':' -f 3 | cut -d '(' -f 1" Wait To ethernet_controller
-  ''SHELL "ss -a" WAIT TO ssa
-  default_web_browser = Replace(default_web_browser, "\n", " ")
-  network_controller = Replace(network_controller, "\n", " ")
-  ethernet_controller = Replace(ethernet_controller, "\n", " ")
-  TextArea46.Text = default_web_browser
-  TextArea22.Text = network_controller
-  TextArea23.Text = ethernet_controller
-  ''TextArea48.Text = ssa
-End
-
 
 Public Sub Wykrywanie_procesorow()
   Dim eloaders, eloaders2, eloaders3 As String
@@ -578,4 +561,11 @@ Public Sub Button13_Click()
  Exec ["apport-bug", "i-nex"] Wait
  Debug "Reporting bug to launchpad"
 
+End
+
+Public Sub ComboBox2_Click()
+ net.get_informations_about_net_interface()
+ TextBox56.Text = net.subsystem_device
+ TextBox57.Text = net.subsystem_vendor
+ TextArea4.Text = net.lspci
 End

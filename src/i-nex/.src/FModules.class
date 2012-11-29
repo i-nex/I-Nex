@@ -4,13 +4,6 @@ Public All_Found_Modules As Float
 Public All_Found_Modules_String As String
 Public Actual_Module As String
 
-Public Sub Form_Resize()
- 
- HBox3.Move(0, Me.Y + 10, Me.W, Me.H - 64)
- HBox2.Move(0, Me.H - 25)
- 
-End
-
 Public Sub Form_Open()
  Dim i As Integer
  If ChkPrm.ChkExec("modinfo") = True Then

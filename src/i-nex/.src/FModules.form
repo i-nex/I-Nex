@@ -5,6 +5,7 @@
   Expand = True
   Text = ("Modules information")
   Icon = Picture["logo/i-nex.0.4.x.png"]
+  Resizable = False
   { HBox1 HBox
     MoveScaled(0,0,64,4)
     { ComboBox1 ComboBox
