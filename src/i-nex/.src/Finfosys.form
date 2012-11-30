@@ -3,7 +3,7 @@
 { Form Form
   Move(0,0,486,528)
   #Scaled = False
-  Text = ("i-nex")
+  Text = ("I-Nex")
   Icon = Picture["logo/i-nex.0.4.x.png"]
   Resizable = False
   Margin = True
@@ -56,12 +56,6 @@
       Move(6,0,462,150)
       Font = Font["10"]
       Text = ("The main information\n")
-      { TextArea2 TextArea
-        Move(84,364,301,21)
-        Text = ("TextArea2")
-        ReadOnly = True
-        ScrollBar = Scroll.None
-      }
       { HBox1 HBox
         Move(6,18,450,126)
         { HPanel4 HPanel
@@ -1341,10 +1335,6 @@
         Move(0,0,144,24)
         Expand = True
       }
-    }
-    { Button11 Button
-      Move(156,258,144,24)
-      Text = ("Update usbids")
     }
     { HBox22 HBox
       Move(6,420,456,24)

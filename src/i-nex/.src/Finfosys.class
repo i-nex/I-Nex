@@ -66,40 +66,40 @@ Public Sub Form_Open()
   cpuz11 = Replace(cpuz11, "\n", "")
 
   If (cpuz0 = "cpu0") = True Then
-      ComboBox1.Add("Procesor0")
+      ComboBox1.Add("Processor0")
   Endif
      If (cpuz1 = "cpu1") = True Then
-         ComboBox1.Add("Procesor1")
+         ComboBox1.Add("Processor1")
      Endif
         If (cpuz2 = "cpu2") = True Then
-            ComboBox1.Add("Procesor2")
+            ComboBox1.Add("Processor2")
         Endif
            If (cpuz3 = "cpu3") = True Then
-               ComboBox1.Add("Procesor3")
+               ComboBox1.Add("Processor3")
            Endif
               If (cpuz4 = "cpu4") = True Then
-                  ComboBox1.Add("Procesor4")
+                  ComboBox1.Add("Processor4")
               Endif
                  If (cpuz5 = "cpu5") = True Then
-                     ComboBox1.Add("Procesor5")
+                     ComboBox1.Add("Processor5")
                  Endif
                  If (cpuz6 = "cpu6") = True Then
-                     ComboBox1.Add("Procesor6")
+                     ComboBox1.Add("Processor6")
                  Endif
               If (cpuz7 = "cpu7") = True Then
-                  ComboBox1.Add("Procesor7")
+                  ComboBox1.Add("Processor7")
               Endif
            If (cpuz8 = "cpu8") = True Then
-               ComboBox1.Add("Procesor8")
+               ComboBox1.Add("Processor8")
            Endif
         If (cpuz9 = "cpu9") = True Then
-            ComboBox1.Add("Procesor9")
+            ComboBox1.Add("Processor9")
         Endif
      If (cpuz10 = "cpu10") = True Then
-         ComboBox1.Add("Procesor10")
+         ComboBox1.Add("Processor10")
      Endif
   If (cpuz11 = "cpu11") = True Then
-      ComboBox1.Add("Procesor11")
+      ComboBox1.Add("Processor11")
   Endif
 'Uruchomienie instrukcji dla poszczególnych zakładek w celu wydobycia informacji z systemu
  Debug "Check Dospam uptime"
@@ -115,8 +115,8 @@ Public Sub Form_Open()
  Debug "Check graphic card"
  grafika()
  ''END Uruchomienie instrukcji dla poszczególnych zakładek w celu wydobycia informacji z systemu
- Debug "Set Combobox to Procesor0"
- ComboBox1.Text = "Procesor0" ''Ustawienie combobox na Procesor0 / W przeciwnym wypadku nie pokaże nic
+ Debug "Set Combobox to Processor0"
+ ComboBox1.Text = "Processor0" ''Ustawienie combobox na Procesor0 / W przeciwnym wypadku nie pokaże nic
  Label25.Text = Application.Name & " v: " & Application.version
  Debug Label25.Text
  ''Okno na środku
@@ -240,62 +240,62 @@ Public Sub Wykrywanie_procesorow()
   Dim address_sizes, cache_size, ldata, linstruction As String
   Dim physical_id, cpu_cores, level3cache As String
   
-  If ComboBox1.Text = "Procesor0" Then
+  If ComboBox1.Text = "Processor0" Then
   eloaders = "1p"
   eloaders2 = "cpu0"
   eloaders3 = "1p"
   Endif
-  If ComboBox1.Text = "Procesor1" Then
+  If ComboBox1.Text = "Processor1" Then
   eloaders = "2p"
   eloaders2 = "cpu1"
   eloaders3 = "3p"
   Endif
-  If ComboBox1.Text = "Procesor2" Then
+  If ComboBox1.Text = "Processor2" Then
   eloaders = "3p"
   eloaders2 = "cpu2"
   eloaders3 = "5p"
   Endif
-  If ComboBox1.Text = "Procesor3" Then
+  If ComboBox1.Text = "Processor3" Then
   eloaders = "4p"
   eloaders2 = "cpu3"
   eloaders3 = "7p"
   Endif
-  If ComboBox1.Text = "Procesor4" Then
+  If ComboBox1.Text = "Processor4" Then
   eloaders = "5p"
   eloaders2 = "cpu4"
   eloaders3 = "9p"
   Endif
-  If ComboBox1.Text = "Procesor5" Then
+  If ComboBox1.Text = "Processor5" Then
   eloaders = "6p"
   eloaders2 = "cpu5"
   eloaders3 = "11p"
   Endif
-  If ComboBox1.Text = "Procesor6" Then
+  If ComboBox1.Text = "Processor6" Then
   eloaders = "7p"
   eloaders2 = "cpu6"
   eloaders3 = "13p"
   Endif
-  If ComboBox1.Text = "Procesor7" Then
+  If ComboBox1.Text = "Processor7" Then
   eloaders = "8p"
   eloaders2 = "cpu7"
   eloaders3 = "15p"
   Endif
-  If ComboBox1.Text = "Procesor8" Then
+  If ComboBox1.Text = "Processor8" Then
   eloaders = "9p"
   eloaders2 = "cpu8"
   eloaders3 = "17p"
   Endif
-  If ComboBox1.Text = "Procesor9" Then
+  If ComboBox1.Text = "Processor9" Then
   eloaders = "10p"
   eloaders2 = "cpu9"
   eloaders3 = "19p"
   Endif
-  If ComboBox1.Text = "Procesor10" Then
+  If ComboBox1.Text = "Processor10" Then
   eloaders = "11p"
   eloaders2 = "cpu10"
   eloaders3 = "21p"
   Endif
-  If ComboBox1.Text = "Procesor11" Then
+  If ComboBox1.Text = "Processor11" Then
   eloaders = "12p"
   eloaders2 = "cpu11"
   eloaders3 = "23p"
@@ -514,13 +514,6 @@ End
 
 Public Sub ComboBox5_Click()
 
- USB_Drives.get_informations()
-
-End
-
-Public Sub Button11_Click()
-
- Shell "gksu update-usbids" Wait
  USB_Drives.get_informations()
 
 End
