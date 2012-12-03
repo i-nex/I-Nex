@@ -8,6 +8,7 @@
   Resizable = False
   { ButtonBox1 ButtonBox
     Move(6,288,228,24)
+    ReadOnly = True
   }
   { ProgressBar1 ProgressBar
     Move(6,270,426,12)

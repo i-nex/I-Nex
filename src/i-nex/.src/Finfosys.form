@@ -73,6 +73,7 @@
             { TextBox28 TextBox
               Move(78,0,144,24)
               Expand = True
+              ReadOnly = True
             }
           }
           { HBox3 HBox
@@ -87,6 +88,7 @@
             { TextBox29 TextBox
               Move(78,0,144,24)
               Expand = True
+              ReadOnly = True
             }
           }
           { HBox24 HBox
@@ -101,6 +103,7 @@
             { TextBox30 TextBox
               Move(72,0,144,24)
               Expand = True
+              ReadOnly = True
             }
           }
           { HBox25 HBox
@@ -158,6 +161,7 @@
         { TextBox4 TextBox
           Move(42,0,60,24)
           Expand = True
+          ReadOnly = True
         }
         { Label7 Label
           Move(120,0,42,24)
@@ -169,6 +173,7 @@
         { TextBox3 TextBox
           Move(144,0,60,24)
           Expand = True
+          ReadOnly = True
         }
         { Label72 Label
           Move(210,0,54,24)
@@ -180,6 +185,7 @@
         { TextBox2 TextBox
           Move(264,0,60,24)
           Expand = True
+          ReadOnly = True
         }
         { Label8 Label
           Move(324,0,66,24)
@@ -191,6 +197,7 @@
         { TextBox1 TextBox
           Move(360,0,60,24)
           Expand = True
+          ReadOnly = True
         }
       }
       { HBox14 HBox
@@ -288,6 +295,7 @@
           Move(102,0,108,24)
           Font = Font["10"]
           Expand = True
+          ReadOnly = True
         }
         { Label13 Label
           Move(0,30,96,24)
@@ -301,6 +309,7 @@
           Move(102,30,108,24)
           Font = Font["10"]
           Expand = True
+          ReadOnly = True
         }
         { Label14 Label
           Move(0,60,96,24)
@@ -314,6 +323,7 @@
           Move(102,60,108,24)
           Font = Font["10"]
           Expand = True
+          ReadOnly = True
         }
         { Label15 Label
           Move(0,90,96,24)
@@ -327,6 +337,7 @@
           Move(102,90,108,24)
           Font = Font["10"]
           Expand = True
+          ReadOnly = True
         }
       }
       { Timer1 #Timer
@@ -341,6 +352,7 @@
       Text = ("Graphics card:")
       { TextBox47 TextBox
         Move(6,18,450,24)
+        ReadOnly = True
       }
     }
     { Frame6 Frame
@@ -360,6 +372,7 @@
         { TextBox21 TextBox
           Move(48,0,144,24)
           Expand = True
+          ReadOnly = True
         }
         { Label65 Label
           Move(0,24,60,24)
@@ -370,6 +383,7 @@
         { TextBox37 TextBox
           Move(66,24,144,24)
           Expand = True
+          ReadOnly = True
         }
         { Label67 Label
           Move(0,54,48,24)
@@ -380,6 +394,7 @@
         { TextBox38 TextBox
           Move(102,54,144,24)
           Expand = True
+          ReadOnly = True
         }
         { Label66 Label
           Move(0,84,144,24)
@@ -390,6 +405,7 @@
         { TextBox39 TextBox
           Move(102,84,144,24)
           Expand = True
+          ReadOnly = True
         }
       }
     }
@@ -398,6 +414,7 @@
       Text = ("Available resolutions:")
       { TextBox55 TextBox
         Move(6,24,450,24)
+        ReadOnly = True
       }
     }
     { PictureBox1 PictureBox
@@ -423,6 +440,7 @@
         { TextBox23 TextBox
           Move(0,0,144,24)
           Expand = True
+          ReadOnly = True
         }
       }
       { HBox9 HBox
@@ -441,6 +459,7 @@
           Move(0,0,144,24)
           Expand = True
           Alignment = Align.Left
+          ReadOnly = True
         }
       }
     }
@@ -458,6 +477,7 @@
         { TextBox25 TextBox
           Move(66,0,144,24)
           Expand = True
+          ReadOnly = True
         }
       }
       { HBox5 HBox
@@ -471,6 +491,7 @@
         { TextBox26 TextBox
           Move(30,0,144,24)
           Expand = True
+          ReadOnly = True
         }
       }
       { HBox6 HBox
@@ -484,6 +505,7 @@
         { TextBox27 TextBox
           Move(36,0,144,24)
           Expand = True
+          ReadOnly = True
         }
       }
     }
@@ -508,6 +530,7 @@
       { TextBox44 TextBox
         Move(132,0,144,24)
         Expand = True
+        ReadOnly = True
       }
     }
     { HPanel7 HPanel
@@ -648,6 +671,7 @@
     }
     { TextBox48 TextBox
       Move(102,90,360,24)
+      ReadOnly = True
     }
     { Label47 Label
       Move(156,246,138,24)
@@ -723,9 +747,11 @@
     }
     { TextBox52 TextBox
       Move(102,120,360,24)
+      ReadOnly = True
     }
     { TextBox53 TextBox
       Move(102,150,360,24)
+      ReadOnly = True
     }
     Index = 5
     Text = ("System")
@@ -1022,6 +1048,7 @@
         Move(228,0,72,24)
         Expand = True
         Text = ("TextBox57")
+        ReadOnly = True
       }
       { Label96 Label
         Move(306,0,78,24)
@@ -1033,6 +1060,7 @@
         Move(390,0,66,24)
         Expand = True
         Text = ("TextBox56")
+        ReadOnly = True
       }
     }
     Index = 9
@@ -1279,6 +1307,7 @@
       { TextBox46 TextBox
         Move(150,72,144,24)
         Expand = True
+        ReadOnly = True
       }
       { Label76 Label
         Move(0,96,144,24)
@@ -1302,6 +1331,7 @@
       { TextBox54 TextBox
         Move(150,120,144,24)
         Expand = True
+        ReadOnly = True
       }
     }
     { HBox23 HBox
@@ -1316,6 +1346,7 @@
       { TextBox51 TextBox
         Move(72,0,144,24)
         Expand = True
+        ReadOnly = True
       }
       { Label80 Label
         Move(222,0,144,24)
@@ -1327,6 +1358,7 @@
       { TextBox50 TextBox
         Move(324,0,144,24)
         Expand = True
+        ReadOnly = True
       }
     }
     { HPanel2 HPanel
@@ -1334,6 +1366,7 @@
       { TextBox43 TextBox
         Move(0,0,144,24)
         Expand = True
+        ReadOnly = True
       }
     }
     { HBox22 HBox
@@ -1348,6 +1381,7 @@
       { TextBox45 TextBox
         Move(108,0,144,24)
         Expand = True
+        ReadOnly = True
       }
     }
     { Label83 Label

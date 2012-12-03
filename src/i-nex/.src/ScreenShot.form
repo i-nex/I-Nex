@@ -36,6 +36,7 @@
   }
   { ButtonBox1 ButtonBox
     MoveScaled(43,10,36,4)
+    ReadOnly = True
   }
   { TextBox1 TextBox
     MoveScaled(43,4,36,4)
