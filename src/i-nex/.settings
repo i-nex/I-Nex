@@ -21,10 +21,10 @@ SearchComment=False
 SearchString=True
 
 [OpenFile]
-Active=1
 File[1]=".src/Finfosys.form"
 File[2]=".src/Finfosys.class:518.3"
 File[3]=".src/Global.class:6.65"
+Active=4
 File[4]=".src/About.form"
 File[5]=".src/About.class:63.30"
 File[6]=".src/distrodetect.class:18.8"

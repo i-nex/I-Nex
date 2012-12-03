@@ -34,7 +34,7 @@ msgstr ""
 msgid "Save directory:"
 msgstr ""
 
-#: ScreenShot.form:77
+#: ScreenShot.form:78
 msgid "Picture quality:"
 msgstr ""
 

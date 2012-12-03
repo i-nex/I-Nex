@@ -18,55 +18,55 @@ msgstr ""
 msgid "Generate report"
 msgstr ""
 
-#: FReport_Gen.form:56
+#: FReport_Gen.form:57
 msgid "Generate"
 msgstr ""
 
-#: FReport_Gen.form:65
+#: FReport_Gen.form:66
 msgid "Close"
 msgstr ""
 
-#: FReport_Gen.form:76
+#: FReport_Gen.form:77
 msgid "CPU Tab"
 msgstr ""
 
-#: FReport_Gen.form:82
+#: FReport_Gen.form:83
 msgid "Motherboard / Bios Tab"
 msgstr ""
 
-#: FReport_Gen.form:88
+#: FReport_Gen.form:89
 msgid "Sound Tab"
 msgstr ""
 
-#: FReport_Gen.form:94
+#: FReport_Gen.form:95
 msgid "Graphics Tab"
 msgstr ""
 
-#: FReport_Gen.form:104
+#: FReport_Gen.form:105
 msgid "Include lspci"
 msgstr ""
 
-#: FReport_Gen.form:110
+#: FReport_Gen.form:111
 msgid "Include lsusb"
 msgstr ""
 
-#: FReport_Gen.form:116
+#: FReport_Gen.form:117
 msgid "Include /proc/scsi/scsi"
 msgstr ""
 
-#: FReport_Gen.form:122
+#: FReport_Gen.form:123
 msgid "Include dmesg"
 msgstr ""
 
-#: FReport_Gen.form:128
+#: FReport_Gen.form:129
 msgid "Include unity support test"
 msgstr ""
 
-#: FReport_Gen.form:146
+#: FReport_Gen.form:147
 msgid "Open link in default web browser"
 msgstr ""
 
-#: FReport_Gen.form:163
+#: FReport_Gen.form:164
 msgid "Send report to nopaste service:   "
 msgstr ""
 

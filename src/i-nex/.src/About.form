@@ -143,7 +143,7 @@
     Text = ("License")
     { TextArea1 TextArea
       Move(0,0,246,336)
-      Text = ("GNU GENERAL PUBLIC LICENSE\n     Version 3, 29 June 2007\n\nSee: http://www.gnu.org/licenses/gpl.txt")
+      Text = ("GNU LESSER GENERAL PUBLIC LICENSE\n                  Version 3, 29 June 2007\n\nSee: http://www.gnu.org/licenses/lgpl.txt")
     }
     Index = 3
     Text = ("Other")
