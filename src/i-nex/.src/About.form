@@ -1,13 +1,13 @@
 # Gambas Form File 3.0
 
 { Form Form
-  Move(0,0,252,390)
+  Move(0,0,252,402)
   #Scaled = False
   Text = ("About")
   Icon = Picture["logo/i-nex.0.4.x.png"]
   Resizable = False
   { Button1 Button
-    Move(174,366,78,24)
+    Move(174,372,78,24)
     Text = ("Close")
     Picture = Picture["icon:/16/quit"]
   }
@@ -28,7 +28,7 @@
     Index = 1
     Text = ("Credits")
     { Panel1 Panel
-      Move(0,0,234,450)
+      Move(0,0,234,522)
       { Frame4 Frame
         Move(0,0,234,96)
         Text = ("Main developer")
@@ -52,7 +52,7 @@
         }
       }
       { Frame3 Frame
-        Move(0,102,234,138)
+        Move(0,102,234,192)
         Text = ("Main bug reporter")
         { Label3 Label
           Move(60,18,90,24)
@@ -91,9 +91,26 @@
             Text = ("Mail")
           }
         }
+        { Label1 Label
+          Move(30,132,144,24)
+          Text = ("Marcin (Netbit73) Mach")
+        }
+        { HBox5 HBox
+          Move(6,156,198,24)
+          { Button11 Button
+            Move(0,0,96,24)
+            Expand = True
+            Text = ("Home page")
+          }
+          { Button12 Button
+            Move(102,0,96,24)
+            Expand = True
+            Text = ("Mail")
+          }
+        }
       }
       { Frame2 Frame
-        Move(0,246,234,78)
+        Move(0,300,234,78)
         Text = ("Graphic in 0.4.x Version")
         { Label2 Label
           Move(60,18,72,24)
@@ -115,7 +132,7 @@
         }
       }
       { Frame1 Frame
-        Move(0,324,234,120)
+        Move(0,390,234,120)
         Text = ("Graphic in 0.2.x Version")
         { TextLabel2 TextLabel
           Move(36,24,150,24)
@@ -155,7 +172,7 @@
     Index = 0
   }
   { Button4 Button
-    Move(0,366,162,24)
+    Move(0,372,162,24)
     Text = ("I-Nex Home page")
   }
 }

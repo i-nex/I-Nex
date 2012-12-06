@@ -72,3 +72,15 @@ Public Sub Button4_Click()
  Desktop.Open("https://launchpad.net/i-nex")
 
 End
+
+Public Sub Button11_Click()
+
+ Desktop.Open("http://netbit73.blogspot.com/")
+
+End
+
+Public Sub Button12_Click()
+
+ Desktop.Open("mailto:netbit73@gmail.com")
+
+End
