@@ -21,6 +21,7 @@ SearchComment=False
 SearchString=True
 
 [OpenFile]
+Active=1
 File[1]=".src/Finfosys.form"
 File[2]=".src/Finfosys.class:518.3"
 File[3]=".src/Global.class:6.65"
@@ -32,7 +33,6 @@ File[8]=".src/Disk_Drives.module:31.19"
 File[9]=".src/ScreenShot.form"
 File[10]=".src/ScreenShot.class:12.63"
 File[11]=".src/ScreenShotM.module:7.0"
-Active=12
 File[12]=".src/USB_Drives.module:39.66"
 File[13]=".src/Asound_Drives.module:33.27"
 File[14]=".src/HWmon_coretemp.module:4.1"
@@ -40,7 +40,7 @@ File[15]=".src/Reportm.module:319.10"
 File[16]=".src/FReport_Gen.form"
 File[17]=".src/FReport_Gen.class:23.27"
 File[18]=".src/Start_App_Args.form"
-File[19]=".src/Start_App_Args.class:2.0"
+File[19]=".src/Start_App_Args.class:38.13"
 File[20]=".src/ChkPrm.module:15.0"
 File[21]=".src/BIOS_microcode_update_recommended.module:2.19"
 File[22]=".src/thermal_zone.module:8.8"
