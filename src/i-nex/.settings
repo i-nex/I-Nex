@@ -23,12 +23,12 @@ SearchString=True
 [OpenFile]
 File[1]=".src/Finfosys.form"
 File[2]=".src/Finfosys.class:7.49"
-File[3]=".src/Global.class:6.65"
+Active=3
+File[3]=".src/Global.class:12.7"
 File[4]=".src/About.form"
 File[5]=".src/About.class:83.22"
 File[6]=".src/distrodetect.class:18.8"
 File[7]=".src/battery.module:70.77"
-Active=8
 File[8]=".src/Disk_Drives.module:53.34"
 File[9]=".src/ScreenShot.form"
 File[10]=".src/ScreenShot.class:12.63"
