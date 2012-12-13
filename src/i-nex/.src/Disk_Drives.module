@@ -35,10 +35,10 @@ Public Sub _inits()
   Dim Max_HDD As Integer
   Dim cache As String
   Debug "Add Drives to ComboBox"
-  Shell "ls /sys/block/ | grep 'sd' | wc -l" Wait To cache
+  Shell "ls /sys/block/ | grep -e 'sd' -e 'sr' | tr ' ' '\n' | wc -l" Wait To cache
   Max_HDD = Replace(Replace(cache, " ", ""), "\n", "")
   For Avail_HDD = 1 To Max_HDD
-   Shell "ls /sys/block/ | grep 'sd' | sed -n '" & Avail_HDD & "p'" Wait To sdx
+   Shell "ls /sys/block/ | grep -e 'sd' -e 'sr' | tr ' ' '\n' | sed -n '" & Avail_HDD & "p'" Wait To sdx
    sdx = Replace(sdx, "\n", "")
    Finfosys.ComboBox4.Add(sdx)
   Next
