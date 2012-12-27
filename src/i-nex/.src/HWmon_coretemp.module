@@ -1,9 +1,0 @@
-' Gambas module file
-
-Public lsmod_check_hwmon_coretemp As String
-Public Sub _init()
- 
- Shell "lsmod | grep hwmon | awk {'print $4'}" Wait To lsmod_check_hwmon_coretemp
- lsmod_check_hwmon_coretemp = Replace(Replace(lsmod_check_hwmon_coretemp, " ", ""), "\n", "")
- 
-End

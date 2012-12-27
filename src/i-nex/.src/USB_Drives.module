@@ -9,9 +9,10 @@ Public idProduct As String
 Public idVendor As String
 Public Serial As String
 Public lsusb As String
+Public ListAllDiscs As String
 
 Public Sub _inits()
-  Dim ListAllDiscs, risultato As String
+  Dim risultato As String
   Dim righe As New String[]
   Dim count As Integer
   Dim riga As New String[]
@@ -26,9 +27,11 @@ Public Sub _inits()
   Next
   Finfosys.ComboBox5.List = lista
   Finfosys.ComboBox5.Index = 0
+ 
 End
 
 Public Sub get_informations()
+ 'Product = File.Load("/sys/bus/usb/devices/usb1/product")
  Shell "cat /sys/bus/usb/devices/" & Finfosys.ComboBox5.Text & "/product" Wait To Product
  Shell "cat /sys/bus/usb/devices/" & Finfosys.ComboBox5.Text & "/bMaxPower" Wait To bMaxPower
  Shell "cat /sys/bus/usb/devices/" & Finfosys.ComboBox5.Text & "/manufacturer" Wait To manufacturer
@@ -61,5 +64,4 @@ Public Sub export_informations()
  Finfosys.TextBox51.Text = idVendor
  Finfosys.TextBox43.Text = lsusb
  Finfosys.TextBox54.Text = Serial
- 
 End

@@ -6,7 +6,7 @@ Public Sub _generate(cpu As Boolean, mobo As Boolean, graphic As Boolean, sound 
  Dim isnd As Float
   If cpu = True Then
    For i = 0 To Finfosys.ComboBox1.Count - 1
-  TextInfo("Generate information about Procesor" & i)
+  TextInfo("Generate information about Processor" & i)
   Wait 0.1
   PBV(0.1)
   Shell "echo '======================CPU Tab " & Finfosys.ComboBox1.Text & "======================' >>" & save_dir & "" Wait
@@ -20,7 +20,7 @@ Public Sub _generate(cpu As Boolean, mobo As Boolean, graphic As Boolean, sound 
   PBV(0.25)
   Shell "echo 'CPU Speed:   " & Finfosys.TextBox30.Text & "' >>" & save_dir & "" 
   Wait 0.1
-  TextInfo("Generate information about Procesor" & (i) & "...")
+  TextInfo("Generate information about Processor" & (i) & "...")
   PBV(0.3)
   Shell "echo '' >>" & save_dir & "" 
   Wait 0.1
@@ -34,7 +34,7 @@ Public Sub _generate(cpu As Boolean, mobo As Boolean, graphic As Boolean, sound 
   Shell "echo 'Stepping:    " & Finfosys.TextBox2.Text & "' >>" & save_dir & "" 
   Wait 0.1
   PBV(0.5)
-  TextInfo("Generate information about Procesor" & (i) & "... ...")
+  TextInfo("Generate information about Processor" & (i) & "... ...")
   Shell "echo 'CPU Cores:   " & Finfosys.TextBox1.Text & "' >>" & save_dir & "" 
   Wait 0.1
   PBV(0.55)
@@ -50,7 +50,7 @@ Public Sub _generate(cpu As Boolean, mobo As Boolean, graphic As Boolean, sound 
   Shell "echo 'Width:       " & Finfosys.TextBox32.Text & "' >>" & save_dir & "" 
   Wait 0.1
   PBV(0.75)
-  TextInfo("Generate information about Procesor" & (i) & "... ... ...")
+  TextInfo("Generate information about Processor" & (i) & "... ... ...")
   Shell "echo '' >>" & save_dir & "" 
   Wait 0.1
   PBV(0.8)
@@ -69,11 +69,11 @@ Public Sub _generate(cpu As Boolean, mobo As Boolean, graphic As Boolean, sound 
   Shell "echo '====================CPU Tab End " & Finfosys.ComboBox1.Text & "====================' >>" & save_dir & "" 
   Wait 0.1
   PBV(0.97)
-  TextInfo("Generate information about Procesor" & (i) & "... ... ... Done")
+  TextInfo("Generate information about Processor" & (i) & "... ... ... Done")
   Shell "echo '' >>" & save_dir & "" 
   Wait 0.1
   PBV(1)
-  Finfosys.ComboBox1.Text = "Procesor" & (Finfosys.ComboBox1.Count - 1)
+  Finfosys.ComboBox1.Text = "Processor" & (Finfosys.ComboBox1.Count - 1)
  Next
  Endif
  If mobo = True Then

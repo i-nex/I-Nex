@@ -8,8 +8,6 @@ Public Sub Form_Open()
   Button13.Visible = ChkPrm.ChkExec("apport-bug")
   Debug "Check for BIOS microcode update recommended"
   Object.Call(BIOS_microcode_update_recommended, "_inits")
-  Debug "Check Thermal"
-  Object.Call(thermal_zone, "_inits")
   Debug "Check for Battery"
   Object.Call(battery, "_inits")
   Debug "Check for Usb device plugged"
@@ -33,9 +31,7 @@ Public Sub Form_Open()
    Debug "Default display manager is " & TextBox22.Text
   Endif
   'Check temperature. If temterature is OK then timer start 1500/ms. Check temp 1500/ms
-  If thermal_zone.OK = True Then
-   Timer1.Start
-  Endif
+  Timer1.Start
   TextLabel21.Visible = False
   'Procesor
   Debug "Check available procesors"
@@ -176,20 +172,22 @@ End
 Public Sub System()
   Dim hostname, arch, gcc, timezone, xorg_version, glx_version As String
   Shell "cat /etc/timezone" Wait To timezone
-  Shell "hostname" Wait To hostname
-  Shell "uname -m" Wait To arch
+  hostname = System.Host
+  arch = System.Architecture
   Shell "gcc -dumpversion" Wait To gcc
-  Shell "xdpyinfo | grep 'X.Org version:' | sed -n '1p' | cut -d ':' -f 2" Wait To xorg_version
+  Shell "cat /var/log/Xorg.0.log | grep 'X.Org X Server' | awk {'print $4'}" Wait To xorg_version
   Shell "glxinfo | grep 'GLX version:' | sed -n '1p' | cut -d ':' -f 2" Wait To glx_version
-  Shell "echo $SHELL" Wait To TextArea48.Text
-  distrodetect.distro_detect()
-  TextArea48.Text = Replace(TextArea48.Text, "\n", "")
-  TextArea31.Text = Replace(gcc, "\n", "")
-  TextArea33.Text = Replace(hostname, "\n", "")
-  TextArea36.Text = Replace(arch, "\n", "")
-  TextArea30.Text = Replace(timezone, "\n", "")
-  TextArea34.Text = Replace(xorg_version, "\n", "")
-  TextArea35.Text = Replace(glx_version, "\n", "")
+  'Shell "echo $SHELL" Wait To TextBox67.Text
+  TextBox67.Text = System.Shell
+  TextBox59.Text = Replace(TextBox59.Text, "\n", "")
+  TextBox63.Text = Replace(gcc, "\n", "")
+  TextBox59.Text = Replace(hostname, "\n", "")
+  TextBox66.Text = Replace(arch, "\n", "")
+  TextBox62.Text = Replace(timezone, "\n", "")
+  TextBox64.Text = Replace(xorg_version, "\n", "")
+  TextBox65.Text = Replace(glx_version, "\n", "")
+  TextBox60.Text = File.Load("" & User.Home & "/.i-nex/DistributionVendor.conf")
+  TextBox61.Text = File.Load("" & User.Home & "/.i-nex/DistributionRelease.conf")
 End
 
 Public Sub grafika()
@@ -378,7 +376,8 @@ Public Sub dospam_uptime()
   'Obliczanie zajętości swap
   Shell "/sbin/swapon -s | awk {'print $3'} | sed -n '2p'" Wait To totalswap
   Shell "/sbin/swapon -s | awk {'print $4'} | sed -n '2p'" Wait To usedswap
-  
+  'Exec ["/sbin/swapon -s ", "awk {'print $3'}", "sed -n '2p'"] Wait To totalswap
+  'Exec ["/sbin/swapon -s", "awk {'print $4'}", "sed -n '2p'"] Wait To usedswap
   swaptotal = Replace(swaptotal, "\n", "")
   usedonthistime = Replace(usedonthistime, "\n", "")
   cached = Replace(cached, "\n", "")
@@ -396,12 +395,10 @@ Public Sub dospam_uptime()
   TextLabel7.Text = usedonthistime & " MB"
   Label91.Text = "SWAP Total:   " & swaptotal & " MB " ""
   Try TextLabel24.Text = (Replace(Replace(usedswap, " ", ""), "\n", "") / 1000) & " MB"
-  Exec ["uptime"] Wait To TextArea37.Text
-  TextArea37.Text = Replace(TextArea37.Text, "\n", "")
+  Exec ["/usr/bin/uptime"] Wait To TextBox58.Text
+  TextBox58.Text = Replace(TextBox58.Text, "\n", "")
   Try ProgressBar1.Value = Replace(Replace(dospam, " ", ""), "\n", "") / Replace(Replace(totpam, " ", ""), "\n", "")
-  If Error Then Print "Cannot calculate used RAM memory"; Error.Text
   Try ProgressBar4.Value = Replace(Replace(usedswap, " ", ""), "\n", "") / Replace(Replace(totalswap, " ", ""), "\n", "")
-  If Error Then Print "Cannot calculate used SWAP memory"; Error.Text
 
 End
 
@@ -539,8 +536,8 @@ End
 Public Sub Timer1_Timer()
   ''Refresh temp 1500/ms
   dospam_uptime()
-  Object.Call(thermal_zone, "_inits")
-  Print "Temp: " & (thermal_zone.calculate / 1000) & " C"
+  thermal_zone._inits
+  Label93.Text = "Temp: " & (thermal_zone.calculate / 1000) & " C"
 End
 
 Public Sub Button6_Click()
@@ -561,4 +558,10 @@ Public Sub ComboBox2_Click()
  TextBox56.Text = net.subsystem_device
  TextBox57.Text = net.subsystem_vendor
  TextArea4.Text = net.lspci
+End
+
+Public Sub Button5_Click()
+
+ 
+
 End

@@ -36,7 +36,7 @@ Public Sub _inits()
   Dim cache As String
   Debug "Add Drives to ComboBox"
   Shell "ls /sys/block/ | grep -e 'sd' -e 'sr' | tr ' ' '\n' | wc -l" Wait To cache
-  Max_HDD = Replace(Replace(cache, " ", ""), "\n", "")
+  Max_HDD = Val(cache)
   For Avail_HDD = 1 To Max_HDD
    Shell "ls /sys/block/ | grep -e 'sd' -e 'sr' | tr ' ' '\n' | sed -n '" & Avail_HDD & "p'" Wait To sdx
    sdx = Replace(sdx, "\n", "")

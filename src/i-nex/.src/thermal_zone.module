@@ -5,16 +5,13 @@ Public calculate As Float
 Public OK As Boolean
 
 Public Sub _inits()
+ 
  If Exist("/sys/bus/acpi/devices/LNXTHERM:00/thermal_zone/") Then
  Shell "cat /sys/bus/acpi/devices/LNXTHERM:00/thermal_zone/temp" Wait To Temperature
- OK = True
- calculate = Replace(Replace(Temperature, " ", ""), "\n", "")
- Finfosys.Label93.Text = "Temp: " & (calculate / 1000) & " C"
- Else
- OK = False 
- Finfosys.Label93.Visible = False
  Endif
- 
+ If Exist("/sys/class/hwmon/hwmon0/device/temp2_input") Then
+ Shell "cat /sys/class/hwmon/hwmon0/device/temp2_input" Wait To Temperature
+ Endif
+ calculate = Replace(Replace(Temperature, " ", ""), "\n", "")
  
 End
-

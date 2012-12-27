@@ -1,0 +1,18 @@
+' Gambas module file
+
+Public distven As String
+Public distrel As String
+
+Public Sub _init()
+
+ If Exist("~/.i-nex/report-ng.sh") Then
+  Shell "rm ~/.i-nex/report-ng.sh" Wait
+ Endif
+ Copy "Data/report-ng.sh" To User.Home &/ ".i-nex/report-ng.sh"
+ Shell "/bin/bash " & User.Home &/ ".i-nex/report-ng.sh" Wait
+ 
+ 'echo "[System] \
+'DistributionVendor = $vendor \
+'DistributionRelease = $release " > ~/.i-nex/dist.conf"
+End
+

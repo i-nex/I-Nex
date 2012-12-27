@@ -48,7 +48,7 @@
     Picture = Picture["icon:/16/important"]
   }
   { TabStrip1 TabStrip
-    Move(6,6,474,486)
+    Move(6,6,473,486)
     Count = 11
     Index = 0
     Text = ("CPU")
@@ -341,7 +341,7 @@
         }
       }
       { Timer1 #Timer
-        #Move(342,42)
+        #Move(344,40)
         Delay = 1500
       }
     }
@@ -758,122 +758,59 @@
     { Frame7 Frame
       Move(1,0,462,312)
       Text = ("Main:")
-      { TextArea29 TextArea
-        Move(119,49,336,21)
-        Text = ("TextArea29")
-        ReadOnly = True
-        Border = False
-        ScrollBar = Scroll.None
-      }
-      { TextArea30 TextArea
-        Move(119,105,336,21)
-        Text = ("TextArea30")
-        ReadOnly = True
-        Border = False
-        ScrollBar = Scroll.None
-      }
-      { TextArea31 TextArea
-        Move(119,133,336,21)
-        Text = ("TextArea31")
-        ReadOnly = True
-        Border = False
-        ScrollBar = Scroll.None
-      }
-      { TextArea32 TextArea
-        Move(119,77,336,21)
-        Text = ("TextArea32")
-        ReadOnly = True
-        Border = False
-        ScrollBar = Scroll.None
-      }
-      { TextArea33 TextArea
-        Move(119,21,336,21)
-        Text = ("TextArea33")
-        ReadOnly = True
-        Border = False
-        ScrollBar = Scroll.None
-      }
-      { TextArea34 TextArea
-        Move(119,161,336,21)
-        Text = ("TextArea34")
-        ReadOnly = True
-        Border = False
-        ScrollBar = Scroll.None
-      }
       { TextLabel5 TextLabel
-        Move(7,21,84,21)
+        Move(7,21,98,28)
         Font = Font["Bold"]
         Text = ("Host name:")
         Alignment = Align.Justify
       }
       { TextLabel11 TextLabel
-        Move(7,49,84,21)
+        Move(7,49,84,28)
         Font = Font["Bold"]
         Text = ("Distribution:")
         Alignment = Align.Justify
       }
       { TextLabel14 TextLabel
-        Move(7,77,84,21)
+        Move(7,77,84,28)
         Font = Font["Bold"]
         Text = ("Edition:")
         Alignment = Align.Justify
       }
       { TextLabel15 TextLabel
-        Move(7,105,105,21)
+        Move(7,105,105,28)
         Font = Font["Bold"]
         Text = ("Time zone:")
         Alignment = Align.Justify
       }
       { TextLabel16 TextLabel
-        Move(7,133,49,21)
+        Move(7,133,49,28)
         Font = Font["Bold"]
         Text = ("GCC v:")
         Alignment = Align.Justify
       }
       { TextLabel27 TextLabel
-        Move(7,161,105,21)
+        Move(7,161,105,28)
         Font = Font["Bold"]
         Text = ("X.org v:")
         Alignment = Align.Justify
       }
       { TextLabel28 TextLabel
-        Move(7,189,105,21)
+        Move(7,189,105,28)
         Font = Font["Bold"]
         Text = ("GLX v:")
         Alignment = Align.Justify
       }
-      { TextArea35 TextArea
-        Move(119,189,336,21)
-        Text = ("TextArea35")
-        ReadOnly = True
-        Border = False
-        ScrollBar = Scroll.None
-      }
-      { TextArea36 TextArea
-        Move(119,217,336,21)
-        Text = ("TextArea36")
-        ReadOnly = True
-        Border = False
-        ScrollBar = Scroll.None
-      }
       { TextLabel29 TextLabel
-        Move(7,217,91,21)
+        Move(7,217,91,28)
         Font = Font["Bold"]
         Text = ("Architecture:")
         Alignment = Align.Justify
       }
       { TextLabel10 TextLabel
-        Move(7,245,105,21)
+        Move(7,245,105,28)
         Font = Font["Bold"]
         Text = ("Shell:")
         Alignment = Align.Justify
-      }
-      { TextArea48 TextArea
-        Move(119,245,336,21)
-        Text = ("TextArea48")
-        ReadOnly = True
-        Border = False
-        ScrollBar = Scroll.None
       }
       { Label4 Label
         Move(6,276,150,24)
@@ -886,6 +823,42 @@
         Move(162,276,294,24)
         Visible = False
         ReadOnly = True
+      }
+      { TextBox59 TextBox
+        Move(112,21,336,28)
+        Text = ("TextBox59")
+      }
+      { TextBox60 TextBox
+        Move(112,49,336,28)
+        Text = ("TextBox60")
+      }
+      { TextBox61 TextBox
+        Move(112,77,336,28)
+        Text = ("TextBox61")
+      }
+      { TextBox62 TextBox
+        Move(112,105,336,28)
+        Text = ("TextBox62")
+      }
+      { TextBox63 TextBox
+        Move(112,133,336,28)
+        Text = ("TextBox63")
+      }
+      { TextBox64 TextBox
+        Move(112,161,336,28)
+        Text = ("TextBox64")
+      }
+      { TextBox65 TextBox
+        Move(112,189,336,28)
+        Text = ("TextBox65")
+      }
+      { TextBox66 TextBox
+        Move(112,217,336,28)
+        Text = ("TextBox66")
+      }
+      { TextBox67 TextBox
+        Move(112,245,336,28)
+        Text = ("TextBox67")
       }
     }
     { Frame23 Frame
@@ -905,11 +878,9 @@
     { Frame8 Frame
       Move(0,390,462,56)
       Text = ("System uptime:")
-      { TextArea37 TextArea
-        Move(12,24,406,21)
-        Text = ("TextArea37")
-        ReadOnly = True
-        ScrollBar = Scroll.None
+      { TextBox58 TextBox
+        Move(8,24,416,24)
+        Text = ("TextBox58")
       }
     }
     { Button5 Button
