@@ -1,12 +1,14 @@
 ' Gambas module file
 
-Public distven As String
-Public distrel As String
-
 Public Sub _init()
 
  If Exist("~/.i-nex/report-ng.sh") Then
   Shell "rm ~/.i-nex/report-ng.sh" Wait
+ Endif
+ If Exist("~/.i-nex") Then
+  Print "i-nex in home folder is exist"
+ Else
+  Shell "mkdir -p ~/.i-nex/" Wait
  Endif
  Copy "Data/report-ng.sh" To User.Home &/ ".i-nex/report-ng.sh"
  Shell "/bin/bash " & User.Home &/ ".i-nex/report-ng.sh" Wait

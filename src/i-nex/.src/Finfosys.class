@@ -186,6 +186,7 @@ Public Sub System()
   TextBox62.Text = Replace(timezone, "\n", "")
   TextBox64.Text = Replace(xorg_version, "\n", "")
   TextBox65.Text = Replace(glx_version, "\n", "")
+  Distribution_Detect._init
   TextBox60.Text = File.Load("" & User.Home & "/.i-nex/DistributionVendor.conf")
   TextBox61.Text = File.Load("" & User.Home & "/.i-nex/DistributionRelease.conf")
 End
@@ -537,7 +538,12 @@ Public Sub Timer1_Timer()
   ''Refresh temp 1500/ms
   dospam_uptime()
   thermal_zone._inits
-  Label93.Text = "Temp: " & (thermal_zone.calculate / 1000) & " C"
+  If thermal_zone.notsupporttemp = 0 Then
+   Label93.Text = "Temp: " & (thermal_zone.calculate / 1000) & " C"
+  Else
+   Label93.Visible = False
+  Endif
+  
 End
 
 Public Sub Button6_Click()
