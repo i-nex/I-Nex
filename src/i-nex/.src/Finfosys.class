@@ -314,7 +314,7 @@ Public Sub Wykrywanie_procesorow()
   Shell "cat /sys/devices/system/cpu/" & eloaders2 & "/cache/index0/size" Wait To ldata
   Shell "cat /sys/devices/system/cpu/" & eloaders2 & "/cache/index1/size" Wait To linstruction
   Shell "cat /sys/devices/system/cpu/" & eloaders2 & "/cache/index3/size" Wait To level3cache
-  Shell "cat /proc/cpuinfo | grep 'physical id' | sort | uniq | wc -l" Wait To cpu_cores
+  Shell "grep 'siblings' /proc/cpuinfo | sed -n '1p' | cut -d ':' -f 2" Wait To cpu_cores
   Shell "grep 'physical id' /proc/cpuinfo | sed -n '" & eloaders & "' | cut -d ':' -f 2" Wait To physical_id
   
   TextBox29.Text = Replace(cpu, "\n", "")
