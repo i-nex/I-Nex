@@ -21,7 +21,6 @@ SearchComment=False
 SearchString=True
 
 [OpenFile]
-Active=1
 File[1]=".src/Finfosys.form"
 File[2]=".src/Finfosys.class:322.46"
 File[3]=".src/Global.class:11.61"
@@ -34,7 +33,8 @@ File[9]=".src/ScreenShot.class:12.65"
 File[10]=".src/ScreenShotM.module:7.0"
 File[11]=".src/USB_Drives.module:13.0"
 File[12]=".src/Asound_Drives.module:33.27"
-File[13]=".src/Reportm.module:38.10"
+Active=13
+File[13]=".src/Reportm.module:270.21"
 File[14]=".src/FReport_Gen.form"
 File[15]=".src/FReport_Gen.class:28.0"
 File[16]=".src/Start_App_Args.form"

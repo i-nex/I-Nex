@@ -5,77 +5,18 @@ Public Sub _generate(cpu As Boolean, mobo As Boolean, graphic As Boolean, sound 
  Dim i As Float
  Dim isnd As Float
   If cpu = True Then
-   For i = 0 To Finfosys.ComboBox1.Count - 1
-  TextInfo("Generate information about Processor" & i)
-  Wait 0.1
-  PBV(0.1)
-  Shell "echo '======================CPU Tab " & Finfosys.ComboBox1.Text & "======================' >>" & save_dir & "" Wait
-  Wait 0.1
-  PBV(0.15)
-  Shell "echo 'Manufacture: " & Finfosys.TextBox28.Text & "' >>" & save_dir & "" 
-  Wait 0.1
-  PBV(0.2)
-  Shell "echo 'Model:       " & Finfosys.TextBox29.Text & "' >>" & save_dir & "" 
-  Wait 0.1
-  PBV(0.25)
-  Shell "echo 'CPU Speed:   " & Finfosys.TextBox30.Text & "' >>" & save_dir & "" 
-  Wait 0.1
-  TextInfo("Generate information about Processor" & (i) & "...")
-  PBV(0.3)
-  Shell "echo '' >>" & save_dir & "" 
-  Wait 0.1
-  PBV(0.35)
-  Shell "echo 'Family:      " & Finfosys.TextBox4.Text & "' >>" & save_dir & "" 
-  Wait 0.1
-  PBV(0.4)
-  Shell "echo 'Model:       " & Finfosys.TextBox3.Text & "' >>" & save_dir & "" 
-  Wait 0.1
-  PBV(0.45)
-  Shell "echo 'Stepping:    " & Finfosys.TextBox2.Text & "' >>" & save_dir & "" 
-  Wait 0.1
-  PBV(0.5)
-  TextInfo("Generate information about Processor" & (i) & "... ...")
-  Shell "echo 'CPU Cores:   " & Finfosys.TextBox1.Text & "' >>" & save_dir & "" 
-  Wait 0.1
-  PBV(0.55)
-  Shell "echo 'Physical Id: " & Finfosys.TextBox5.Text & "' >>" & save_dir & "" 
-  Wait 0.1
-  PBV(0.6)
-  Shell "echo 'Bogomips:    " & Finfosys.TextBox6.Text & "' >>" & save_dir & "" 
-  Wait 0.1
-  PBV(0.65)
-  Shell "echo 'Flags:       " & Finfosys.TextBox31.Text & "' >>" & save_dir & "" 
-  Wait 0.1
-  PBV(0.7)
-  Shell "echo 'Width:       " & Finfosys.TextBox32.Text & "' >>" & save_dir & "" 
-  Wait 0.1
-  PBV(0.75)
-  TextInfo("Generate information about Processor" & (i) & "... ... ...")
-  Shell "echo '' >>" & save_dir & "" 
-  Wait 0.1
-  PBV(0.8)
-  Shell "echo 'L1 Data:        " & Finfosys.TextBox33.Text & "' >>" & save_dir & "" 
-  Wait 0.1
-  PBV(0.85)
-  Shell "echo 'L1 Instruction: " & Finfosys.TextBox34.Text & "' >>" & save_dir & "" 
-  Wait 0.1
-  PBV(0.87)
-  Shell "echo 'Level 2:        " & Finfosys.TextBox35.Text & "' >>" & save_dir & "" 
-  Wait 0.1
-  PBV(0.9)
-  Shell "echo 'Level 3:        " & Finfosys.TextBox36.Text & "' >>" & save_dir & "" 
-  Wait 0.1
-  PBV(0.93)
-  Shell "echo '====================CPU Tab End " & Finfosys.ComboBox1.Text & "====================' >>" & save_dir & "" 
-  Wait 0.1
-  PBV(0.97)
-  TextInfo("Generate information about Processor" & (i) & "... ... ... Done")
-  Shell "echo '' >>" & save_dir & "" 
-  Wait 0.1
-  PBV(1)
-  Finfosys.ComboBox1.Text = "Processor" & (Finfosys.ComboBox1.Count - 1)
- Next
- Endif
+   TextInfo("Generate information about Processor")
+   PBV(0.3)
+   Wait 0.1
+   TextInfo("Generate information about Processor")
+   PBV(0.5)
+   Shell "cat /proc/cpuinfo >>" & save_dir & ""
+   TextInfo("Generate information about Processor")
+   PBV(0.7)
+   Wait 0.1
+   TextInfo("Generate information about Processor")
+   PBV(0.9)
+  Endif
  If mobo = True Then
   Shell "echo '======================Motherboard / Bios=====================' >>" & save_dir & "" 
   Wait 0.1
