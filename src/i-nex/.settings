@@ -21,10 +21,10 @@ SearchComment=False
 SearchString=True
 
 [OpenFile]
+Active=1
 File[1]=".src/Finfosys.form"
-Active=2
-File[2]=".src/Finfosys.class:316.70"
-File[3]=".src/Global.class:12.7"
+File[2]=".src/Finfosys.class:322.46"
+File[3]=".src/Global.class:11.61"
 File[4]=".src/About.form"
 File[5]=".src/About.class:83.22"
 File[6]=".src/battery.module:70.77"
@@ -50,7 +50,8 @@ File[25]=".src/FinfosysNew.class:37.30"
 File[26]=".src/net.module:49.66"
 File[27]="Data/report-ng.sh:27.44"
 File[28]=".src/Distribution_Detect.module:20.0"
-Count=28
+File[29]=".src/FFlags.module:57.22"
+Count=29
 
 [Watches]
 Count=0

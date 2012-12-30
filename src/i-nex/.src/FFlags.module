@@ -1,0 +1,67 @@
+' Gambas module file
+
+Public instructions As String
+Public dec_instructions As String
+Public Sub _init()
+ 
+ Shell "grep 'flags' /proc/cpuinfo | sed -n '1p'" Wait To dec_instructions
+ If dec_instructions Like "*mmxext*" Then
+  instructions = instructions & "MMX(+), "
+ Endif
+ If dec_instructions Like "*mmx*" Then
+  instructions = instructions & "MMX, " 
+ Endif
+ If dec_instructions Like "*3dnowext*" Then
+  instructions = instructions & "3DNow!(+), "
+ Endif
+ If dec_instructions Like "*sse*" Then
+  instructions = instructions & "SSE, " 
+ Endif
+ If dec_instructions Like "*3dnow*" Then
+  instructions = instructions & "3DNow!, "
+ Endif
+ If dec_instructions Like "*sse2*" Then
+  instructions = instructions & "SSE2, "
+ Endif
+ If dec_instructions Like "*pni*" Then
+  instructions = instructions & "SSE3, "
+ Endif
+ If dec_instructions Like "*ssse3*" Then
+  instructions = instructions & "SSSE3, "
+ Endif
+ If dec_instructions Like "*sse4_2*" Then
+  instructions = instructions & "SSE4.2, "
+ Endif
+ If dec_instructions Like "*sse4_1*" Then
+  instructions = instructions & "SSE4.1, "
+ Endif
+ If dec_instructions Like "*sse4a*" Then
+  instructions = instructions & "SSE4a, "
+ Endif
+ If dec_instructions Like "*nx*" And Finfosys.vendor_id Like "*GenuineIntel*" Then
+  instructions = instructions & "XD-Bit, "
+ Else
+  instructions = instructions & "NX-Bit, "
+ Endif
+ 'Instructions for detect AMD64,vmx, ht
+ If dec_instructions Like "*lm*" Then
+  Finfosys.ToolButton1.Picture = Picture["Data/check_true.png"]
+ Else
+  Finfosys.ToolButton1.Picture = Picture["Data/check_false.png"]
+ Endif
+ If dec_instructions Like "*ht*" Then
+  Finfosys.ToolButton3.Picture = Picture["Data/check_true.png"]
+ Else
+  Finfosys.ToolButton3.Picture = Picture["Data/check_false.png"]
+ Endif
+ If dec_instructions Like "*svm*" Then
+  Finfosys.ToolButton2.Picture = Picture["Data/check_true.png"]
+ Else
+  Finfosys.ToolButton2.Picture = Picture["Data/check_false.png"]
+ Endif
+ If dec_instructions Like "*vmx*" Then
+  Finfosys.ToolButton2.Picture = Picture["Data/check_true.png"]
+ Else
+  Finfosys.ToolButton2.Picture = Picture["Data/check_false.png"]
+ Endif
+End

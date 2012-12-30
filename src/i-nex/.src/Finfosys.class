@@ -1,6 +1,7 @@
 ' Gambas class file
 
 Public flags As String
+Public vendor_id As String
 Public Sub Form_Open()
   Dim default_display_manager As Boolean = Exist("/etc/X11/default-display-manager")
   Dim cpuz0, cpuz1, cpuz2, cpuz3, cpuz4, cpuz5, cpuz6, cpuz7, cpuz8, cpuz9, cpuz10, cpuz11 As String
@@ -234,7 +235,7 @@ End
 
 Public Sub Wykrywanie_procesorow()
   Dim eloaders, eloaders2, eloaders3 As String
-  Dim obrazekcpu, cpu, vendor_id, cpu_MHz As String
+  Dim obrazekcpu, cpu, cpu_MHz As String
   Dim model, stepping, cpu_family, bogomips As String
   Dim address_sizes, cache_size, ldata, linstruction As String
   Dim physical_id, cpu_cores, level3cache As String
@@ -301,7 +302,7 @@ Public Sub Wykrywanie_procesorow()
   Endif
   
   Shell "grep 'vendor_id' /proc/cpuinfo | sed -n '" & eloaders & "' | cut -d ':' -f 2" Wait To obrazekcpu
-  Shell "grep 'model name' /proc/cpuinfo | sed -n '" & eloaders & "' | cut -d ':' -f 2" Wait To cpu
+  Shell "grep 'model name' /proc/cpuinfo | sed -n '" & eloaders & "' | cut -d ':' -f 2 | cut -d '@' -f 1" Wait To cpu
   Shell "grep 'vendor_id' /proc/cpuinfo | sed -n '" & eloaders & "' | cut -d ':' -f 2" Wait To vendor_id
   Shell "grep 'flags' /proc/cpuinfo | sed -n '" & eloaders & "' | cut -d ':' -f 2" Wait To flags
   Shell "grep 'cpu MHz' /proc/cpuinfo | sed -n '" & eloaders & "' | cut -d ':' -f 2" Wait To cpu_MHz
@@ -332,20 +333,21 @@ Public Sub Wykrywanie_procesorow()
   cpu_MHz = Replace(cpu_MHz, "\n", "")
   vendor_id = Replace(vendor_id, "\n", "")
   flags = Replace(flags, "\n", "")
-  TextBox31.Text = flags
+  'FFlags._init
+  Label71.Text = "Flags: " & FFlags.instructions
   TextBox28.Text = vendor_id
   TextBox30.Text = cpu_MHz & " MHz"
-  TextBox3.Text = model
-  TextBox2.Text = stepping
-  TextBox4.Text = cpu_family
-  TextBox6.Text = bogomips
-  TextBox32.Text = address_sizes
   TextBox35.Text = cache_size
   TextBox33.Text = ldata
   TextBox34.Text = linstruction
-  TextBox1.Text = cpu_cores
-  TextBox5.Text = physical_id
   TextBox36.Text = level3cache
+  Label97.Text = "Family: " & cpu_family
+  Label6.Text = "Model: " & model
+  Label7.Text = "Stepping: " & stepping
+  Label8.Text = "Cores: " & cpu_cores
+  Label19.Text = "Phy id: " & physical_id
+  Label10.Text = "Bogomips: " & bogomips
+  Label11.Text = "Address sizes: " & address_sizes
   Global.ikonaprocka()
 End
 

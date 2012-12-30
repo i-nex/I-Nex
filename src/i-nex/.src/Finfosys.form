@@ -149,126 +149,80 @@
         Move(498,126,168,21)
         Text = ("Label3")
       }
-      { HBox13 HBox
-        Move(6,24,450,24)
-        { Label71 Label
-          Move(0,0,54,24)
-          Font = Font["Bold,-1"]
-          Padding = 3
-          AutoResize = True
-          Text = ("Family:   ")
-        }
-        { TextBox4 TextBox
-          Move(42,0,60,24)
-          Expand = True
-          ReadOnly = True
-        }
-        { Label7 Label
-          Move(120,0,42,24)
-          Font = Font["Bold,-1"]
-          Padding = 4
-          AutoResize = True
-          Text = ("Model:   ")
-        }
-        { TextBox3 TextBox
-          Move(144,0,60,24)
-          Expand = True
-          ReadOnly = True
-        }
-        { Label72 Label
-          Move(210,0,54,24)
-          Font = Font["Bold,-1"]
-          Padding = 4
-          AutoResize = True
-          Text = ("Stepping:   ")
-        }
-        { TextBox2 TextBox
-          Move(264,0,60,24)
-          Expand = True
-          ReadOnly = True
-        }
-        { Label8 Label
-          Move(324,0,66,24)
-          Font = Font["Bold"]
-          Padding = 4
-          AutoResize = True
-          Text = ("CPU Cores:   ")
-        }
-        { TextBox1 TextBox
-          Move(360,0,60,24)
-          Expand = True
-          ReadOnly = True
-        }
+      { Label97 Label
+        Move(7,28,84,21)
+        Font = Font["Bold,8"]
+        Text = ("Label97")
+        Border = Border.Plain
       }
-      { HBox14 HBox
-        Move(6,54,150,24)
-        { Label19 Label
-          Move(0,0,72,24)
-          Font = Font["Bold"]
-          Padding = 3
-          AutoResize = True
-          Text = ("Physical id:   ")
-          Transparent = True
-        }
-        { TextBox5 TextBox
-          Move(78,0,42,24)
-          Font = Font["10"]
-          Text = ("N/A")
-          ReadOnly = True
-        }
+      { Label6 Label
+        Move(91,28,84,21)
+        Font = Font["Bold,8"]
+        Text = ("Label6")
+        Border = Border.Plain
       }
-      { HBox16 HBox
-        Move(162,54,192,24)
-        { Label10 Label
-          Move(0,0,72,24)
-          Font = Font["Bold"]
-          Padding = 3
-          AutoResize = True
-          Text = ("bogomips:  ")
-          Transparent = True
-        }
-        { TextBox6 TextBox
-          Move(72,0,84,24)
-          Font = Font["10"]
-          Expand = True
-          Text = ("N/A")
-          ReadOnly = True
-        }
+      { Label7 Label
+        Move(175,28,98,21)
+        Font = Font["Bold,8"]
+        Text = ("Label7")
+        Border = Border.Plain
       }
-      { HBox17 HBox
-        Move(6,114,450,24)
-        { Label11 Label
-          Move(0,0,48,24)
-          Font = Font["Bold"]
-          Padding = 3
-          AutoResize = True
-          Text = ("Address sizes:   ")
-          Transparent = True
-        }
-        { TextBox32 TextBox
-          Move(54,0,396,24)
-          Font = Font["10"]
-          Expand = True
-          ReadOnly = True
-        }
+      { Label8 Label
+        Move(273,28,84,21)
+        Font = Font["Bold,8"]
+        Text = ("Label8")
+        Border = Border.Plain
       }
-      { HBox18 HBox
-        Move(6,84,450,24)
-        { Label6 Label
-          Move(0,0,48,24)
-          Font = Font["Bold"]
-          Padding = 3
-          AutoResize = True
-          Text = ("Flags:   ")
-          Transparent = True
-        }
-        { TextBox31 TextBox
-          Move(54,0,396,24)
-          Font = Font["10"]
-          Expand = True
-          Alignment = Align.Left
-          ReadOnly = True
-        }
+      { Label10 Label
+        Move(315,56,140,21)
+        Font = Font["Bold,8"]
+        Text = ("Label10")
+        Border = Border.Plain
+      }
+      { Label11 Label
+        Move(7,56,308,21)
+        Font = Font["Bold,8"]
+        Text = ("Label11")
+        Border = Border.Plain
+      }
+      { Label19 Label
+        Move(357,28,98,21)
+        Font = Font["Bold,8"]
+        Text = ("Label19")
+        Border = Border.Plain
+      }
+      { Label71 Label
+        Move(7,84,448,21)
+        Font = Font["Bold,8"]
+        Text = ("Label71")
+        Border = Border.Plain
+      }
+      { ToolButton1 ToolButton
+        Move(154,112,21,21)
+      }
+      { ToolButton2 ToolButton
+        Move(336,112,21,21)
+      }
+      { ToolButton3 ToolButton
+        Move(427,112,21,21)
+      }
+      { Label72 Label
+        Move(7,112,168,21)
+        Font = Font["Bold,8"]
+        Text = ("x86 64-Bit Extensions:")
+        Border = Border.Plain
+      }
+      { Label98 Label
+        Move(175,112,182,21)
+        Font = Font["Bold,8"]
+        Text = ("Hardware Virtualization:")
+        Border = Border.Plain
+      }
+      { Label99 Label
+        Move(357,112,98,21)
+        Font = Font["Bold,8"]
+        Text = ("HT:")
+        Border = Border.Plain
       }
     }
     { Frame4 Frame
