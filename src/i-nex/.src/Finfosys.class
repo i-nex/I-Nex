@@ -190,6 +190,8 @@ Public Sub System()
   Distribution_Detect._init
   TextBox60.Text = File.Load("" & User.Home & "/.i-nex/DistributionVendor.conf")
   TextBox61.Text = File.Load("" & User.Home & "/.i-nex/DistributionRelease.conf")
+  Replace(TextBox60.Text, "\n", "")
+  Replace(TextBox61.Text, "\n", "")
 End
 
 Public Sub grafika()
