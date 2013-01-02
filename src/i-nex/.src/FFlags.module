@@ -49,11 +49,6 @@ Public Sub _init()
  Else
   Finfosys.ToolButton1.Picture = Picture["Data/check_false.png"]
  Endif
- If dec_instructions Like "*ht*" Then
-  Finfosys.ToolButton3.Picture = Picture["Data/check_true.png"]
- Else
-  Finfosys.ToolButton3.Picture = Picture["Data/check_false.png"]
- Endif
  If dec_instructions Like "*svm*" Then
   Finfosys.ToolButton2.Picture = Picture["Data/check_true.png"]
  Else
@@ -64,4 +59,23 @@ Public Sub _init()
  Else
   Finfosys.ToolButton2.Picture = Picture["Data/check_false.png"]
  Endif
+ ht()
+End
+
+Public Sub ht()
+  Dim NUMLOG, NUMPHY As String
+  Dim NUMLOGF, NUMPHYF As Float
+  Shell "grep 'physical id' /proc/cpuinfo | sort -u | wc -l" Wait To NUMPHY
+  Shell "grep 'processor' /proc/cpuinfo | wc -l" Wait To NUMLOG
+  NUMLOG = Replace(Replace(NUMLOG, " ", ""), "\n", "")
+  NUMPHY = Replace(Replace(NUMPHY, " ", ""), "\n", "")
+  NUMLOGF = CFloat(Val(NUMLOG))
+  NUMPHYF = CFloat(Val(NUMPHY))
+  If NUMPHY = NUMLOG Then
+   Finfosys.ToolButton3.Picture = Picture["Data/check_false.png"]
+   Debug "Not detect HT"
+  Else
+   Finfosys.ToolButton3.Picture = Picture["Data/check_true.png"]
+   Debug "Detected HT"
+  Endif
 End

@@ -22,7 +22,7 @@ SearchString=True
 
 [OpenFile]
 File[1]=".src/Finfosys.form"
-File[2]=".src/Finfosys.class:197.37"
+File[2]=".src/Finfosys.class:238.2"
 File[3]=".src/Global.class:11.61"
 File[4]=".src/About.form"
 File[5]=".src/About.class:83.22"
@@ -40,8 +40,7 @@ File[16]=".src/Start_App_Args.form"
 File[17]=".src/Start_App_Args.class:2.0"
 File[18]=".src/ChkPrm.module:13.0"
 File[19]=".src/BIOS_microcode_update_recommended.module:2.19"
-Active=20
-File[20]=".src/thermal_zone.module:53.2"
+File[20]=".src/thermal_zone.module:45.38"
 File[21]=".src/FModules.form"
 File[22]=".src/FModules.class:4.30"
 File[23]=".src/Input_Devices.module:8.1"
@@ -50,7 +49,8 @@ File[25]=".src/FinfosysNew.class:37.30"
 File[26]=".src/net.module:49.66"
 File[27]="Data/report-ng.sh:27.44"
 File[28]=".src/Distribution_Detect.module:20.0"
-File[29]=".src/FFlags.module:57.22"
+Active=29
+File[29]=".src/FFlags.module:78.22"
 Count=29
 
 [Watches]
