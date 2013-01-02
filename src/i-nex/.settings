@@ -27,7 +27,8 @@ File[3]=".src/Global.class:11.61"
 File[4]=".src/About.form"
 File[5]=".src/About.class:83.22"
 File[6]=".src/battery.module:70.77"
-File[7]=".src/Disk_Drives.module:100.31"
+Active=7
+File[7]=".src/Disk_Drives.module:88.32"
 File[8]=".src/ScreenShot.form"
 File[9]=".src/ScreenShot.class:12.65"
 File[10]=".src/ScreenShotM.module:7.0"
@@ -49,7 +50,6 @@ File[25]=".src/FinfosysNew.class:37.30"
 File[26]=".src/net.module:49.66"
 File[27]="Data/report-ng.sh:27.44"
 File[28]=".src/Distribution_Detect.module:20.0"
-Active=29
 File[29]=".src/FFlags.module:78.22"
 Count=29
 

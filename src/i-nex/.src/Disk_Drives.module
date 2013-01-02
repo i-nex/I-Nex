@@ -86,7 +86,7 @@ Public Sub get_informations()
   Shell "cat /sys/block/" & Finfosys.ComboBox4.Text & "/queue/read_ahead_kb" Wait To read_ahead_kb
   Shell "cat /sys/block/" & Finfosys.ComboBox4.Text & "/queue/scheduler" Wait To scheduler
   Shell "cat /sys/block/" & Finfosys.ComboBox4.Text & "/" & Finfosys.ComboBox3.Text & "/size" Wait To real_size
-  Shell "" & ChkPrm.ChkExecDir("swapon") & " -s | sed -n '2p' | awk {'print $1'} | cut -d '/' -f 3" Wait To check_swap
+  Shell "sed -n '2p' /proc/swaps | awk {'print $1'} | cut -d '/' -f 3" Wait To check_swap
   Shell "df | grep '" & Finfosys.ComboBox3.Text & "' | awk {'print $5'} | sed -n '1p'" Wait To used
   Debug "Get informations of Drives Done" 
   Debug "Replace new line to Null"
