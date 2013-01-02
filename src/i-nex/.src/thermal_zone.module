@@ -1,32 +1,70 @@
 ' Gambas module file
 
+Public temp_acpi As Boolean = Exist("/sys/bus/acpi/devices/LNXTHERM:00/thermal_zone/temp")
+Public temp_acpi_thm As Boolean = Exist("/proc/acpi/thermal_zone/THM0/temperature")
+Public temp_hwmon As Boolean = Exist("/sys/class/hwmon/hwmon0/device/temp2_input")
+Public temp_coretemp As Boolean = Exist("/sys/devices/platform/coretemp.0/temp2_input")
 Public Temperature As String
 Public calculate As Float
-Public OK As Boolean
-Public notsupporttemp As Float
+Public supporttemp As Boolean = False
+Public hFile As File
+Public sLine As String
 
 Public Sub _inits()
  
- If Exist("/sys/bus/acpi/devices/LNXTHERM:00/thermal_zone/") Then
+ If temp_acpi_thm = True Then
+ Shell "cat /proc/acpi/thermal_zone/THM0/temperature" Wait To Temperature
+ supporttemp = True
+ Else
+  supporttemp = False
+ Endif
+ 
+ If temp_acpi = True Then
  Shell "cat /sys/bus/acpi/devices/LNXTHERM:00/thermal_zone/temp" Wait To Temperature
- If Temperature = Null Then
-  notsupporttemp = 1
+ supporttemp = True
  Else
-  notsupporttemp = 0
-  calculate = CFloat(Val(Temperature))
- Endif
+  supporttemp = False
  Endif
  
- If Exist("/sys/class/hwmon/hwmon0/device/temp2_input") Then
+ If temp_hwmon = True Then
  Shell "cat /sys/class/hwmon/hwmon0/device/temp2_input" Wait To Temperature
- If Temperature = Null Then
-  notsupporttemp = 1
+ supporttemp = True
  Else
-  notsupporttemp = 0
+  supporttemp = False
+ Endif
+ 
+ If temp_coretemp = True Then
+ Shell "cat /sys/devices/platform/coretemp.0/temp2_input" Wait To Temperature
+ supporttemp = True
+ Else
+  supporttemp = False
+ Endif
+ 
+ If Temperature = Null Then
+ Debug "Not found temp"
+ Else
   calculate = CFloat(Val(Temperature))
  Endif
- Endif
+
+ 'hFile = Open "/sys/devices/platform/coretemp.0/temp2_input" For Input
+
+ 'While Not Eof(hFile)
+ 'Line Input #hFile, sLine
+ 'Print sLine
+ 'Wend
  'calculate = Replace(Replace(Temperature, " ", ""), "\n", "")
- 
+ 'hwmon For New 2.6.39, 3. x linux kernels
+        '/sys/class/hwmon/hwmon0/temp1_input',
+        '/sys/devices/platform/coretemp.0/temp1_input',
+        '/sys/bus/acpi/devices/LNXTHERM\:00/thermal_zone/temp',
+        '/sys/devices/virtual/thermal/thermal_zone0/temp',
+        '/sys/bus/acpi/drivers/ATK0110/ATK0110:00/hwmon/hwmon0/temp1_input',
+        'old kernels With proc fs
+        '/proc/acpi/thermal_zone/THM0/temperature',
+        '/proc/acpi/thermal_zone/THRM/temperature',
+        '/proc/acpi/thermal_zone/THR0/temperature',
+        '/proc/acpi/thermal_zone/TZ0/temperature',
+        'Debian Sid / Experimental On AMD - 64
+        '/sys/class/hwmon/hwmon0/device/temp1_input'
  
 End

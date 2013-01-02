@@ -994,7 +994,7 @@
       Move(0,0,468,420)
       { Label20 Label
         Move(0,0,102,24)
-        Font = Font["Bold,11"]
+        Font = Font["Bold,8"]
         Padding = 4
         AutoResize = True
         Text = ("Present:   ")
@@ -1006,7 +1006,7 @@
       }
       { Label21 Label
         Move(0,30,102,24)
-        Font = Font["Bold,11"]
+        Font = Font["Bold,8"]
         Padding = 4
         AutoResize = True
         Text = ("Design capacity:   ")
@@ -1018,7 +1018,7 @@
       }
       { Label22 Label
         Move(0,60,102,24)
-        Font = Font["Bold,11"]
+        Font = Font["Bold,8"]
         Padding = 4
         AutoResize = True
         Text = ("Last full capacity:   ")
@@ -1030,7 +1030,7 @@
       }
       { Label23 Label
         Move(0,90,108,24)
-        Font = Font["Bold,11"]
+        Font = Font["Bold,8"]
         Padding = 4
         AutoResize = True
         Text = ("Battery technology:   ")
@@ -1042,7 +1042,7 @@
       }
       { Label24 Label
         Move(0,120,138,24)
-        Font = Font["Bold,11"]
+        Font = Font["Bold,8"]
         Padding = 4
         AutoResize = True
         Text = ("Design voltage:   ")
@@ -1054,7 +1054,7 @@
       }
       { Label28 Label
         Move(0,150,138,24)
-        Font = Font["Bold,11"]
+        Font = Font["Bold,8"]
         Padding = 4
         AutoResize = True
         Text = ("Design capacity warning:   ")
@@ -1066,7 +1066,7 @@
       }
       { Label29 Label
         Move(0,180,138,24)
-        Font = Font["Bold,11"]
+        Font = Font["Bold,8"]
         Padding = 4
         AutoResize = True
         Text = ("Design capacity low:   ")
@@ -1078,7 +1078,7 @@
       }
       { Label30 Label
         Move(0,210,138,24)
-        Font = Font["Bold,11"]
+        Font = Font["Bold,8"]
         Padding = 4
         AutoResize = True
         Text = ("Cycle count:   ")
@@ -1090,7 +1090,7 @@
       }
       { Label31 Label
         Move(0,240,138,24)
-        Font = Font["Bold,11"]
+        Font = Font["Bold,8"]
         Padding = 4
         AutoResize = True
         Text = ("Capacity granularity 1:   ")
@@ -1102,7 +1102,7 @@
       }
       { Label32 Label
         Move(0,270,138,24)
-        Font = Font["Bold,11"]
+        Font = Font["Bold,8"]
         Padding = 4
         AutoResize = True
         Text = ("Capacity granularity 2:   ")
@@ -1114,7 +1114,7 @@
       }
       { Label33 Label
         Move(0,300,138,24)
-        Font = Font["Bold,11"]
+        Font = Font["Bold,8"]
         Padding = 4
         AutoResize = True
         Text = ("Model number:   ")
@@ -1126,7 +1126,7 @@
       }
       { Label34 Label
         Move(0,330,138,24)
-        Font = Font["Bold,11"]
+        Font = Font["Bold,8"]
         Padding = 4
         AutoResize = True
         Text = ("Serial number:   ")
@@ -1138,7 +1138,7 @@
       }
       { Label36 Label
         Move(0,360,138,24)
-        Font = Font["Bold,11"]
+        Font = Font["Bold,8"]
         Padding = 4
         AutoResize = True
         Text = ("Battery type:   ")
@@ -1150,7 +1150,7 @@
       }
       { Label35 Label
         Move(0,390,138,24)
-        Font = Font["Bold,11"]
+        Font = Font["Bold,8"]
         Padding = 4
         AutoResize = True
         Text = ("OEM info:   ")

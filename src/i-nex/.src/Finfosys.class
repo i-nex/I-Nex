@@ -200,7 +200,7 @@ Public Sub grafika()
   Dim opengl_vendor_string, opengl_renderer_string, opengl_version_string As String
   
   If ChkPrm.chkExec("glxinfo") = True Then
-    Shell "lspci | grep 'VGA' | cut -d ':' -f3 | cut -d '(' -f 1" Wait To gpu
+    Shell "" & ChkPrm.ChkExecDir("lspci") & " | grep 'VGA' | cut -d ':' -f3 | cut -d '(' -f 1" Wait To gpu
     Shell "glxinfo | grep 'OpenGL vendor string:' | sed -n '1p' | cut -d ':' -f 2" Wait To opengl_vendor_string
     Shell "glxinfo | grep 'OpenGL renderer string:' | sed -n '1p' | cut -d ':' -f 2" Wait To opengl_renderer_string
     Shell "glxinfo | grep 'OpenGL version string:' | sed -n '1p' | cut -d ':' -f 2" Wait To opengl_version_string
@@ -542,7 +542,7 @@ Public Sub Timer1_Timer()
   ''Refresh temp 1500/ms
   dospam_uptime()
   thermal_zone._inits
-  If thermal_zone.notsupporttemp = 0 Then
+  If thermal_zone.supporttemp = True Then
    Label93.Text = "Temp: " & (thermal_zone.calculate / 1000) & " C"
   Else
    Label93.Visible = False
