@@ -33,7 +33,7 @@
         Move(0,0,234,96)
         Text = ("Main developer")
         { Label4 Label
-          Move(54,24,108,24)
+          Move(7,28,196,21)
           Padding = 3
           Text = ("Michał Głowienka")
         }
@@ -55,9 +55,10 @@
         Move(0,102,234,192)
         Text = ("Main bug reporter")
         { Label3 Label
-          Move(60,18,90,24)
+          Move(7,21,196,21)
           Padding = 3
           Text = ("Dariusz Duma")
+          Alignment = Align.Center
         }
         { HBox1 HBox
           Move(6,102,198,24)
@@ -73,10 +74,11 @@
           }
         }
         { Label5 Label
-          Move(24,78,144,24)
+          Move(7,77,196,21)
           Padding = 3
           AutoResize = True
           Text = ("Tomasz Przybył (FadeMind)   ")
+          Alignment = Align.Center
         }
         { HBox2 HBox
           Move(6,48,198,24)
@@ -92,8 +94,9 @@
           }
         }
         { Label1 Label
-          Move(30,132,144,24)
+          Move(7,133,196,21)
           Text = ("Marcin (Netbit73) Mach")
+          Alignment = Align.Center
         }
         { HBox5 HBox
           Move(6,156,198,24)
