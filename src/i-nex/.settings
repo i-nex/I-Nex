@@ -22,7 +22,7 @@ SearchString=True
 
 [OpenFile]
 File[1]=".src/Finfosys.form"
-File[2]=".src/Finfosys.class:238.2"
+File[2]=".src/Finfosys.class:571.3"
 File[3]=".src/Global.class:11.61"
 File[4]=".src/About.form"
 File[5]=".src/About.class:83.22"
@@ -33,6 +33,7 @@ File[9]=".src/ScreenShot.class:12.65"
 File[10]=".src/ScreenShotM.module:7.0"
 File[11]=".src/USB_Drives.module:13.0"
 File[12]=".src/Asound_Drives.module:33.27"
+Active=13
 File[13]=".src/Reportm.module:4.15"
 File[14]=".src/FReport_Gen.form"
 File[15]=".src/FReport_Gen.class:28.0"
@@ -40,17 +41,16 @@ File[16]=".src/Start_App_Args.form"
 File[17]=".src/Start_App_Args.class:2.0"
 File[18]=".src/ChkPrm.module:13.0"
 File[19]=".src/BIOS_microcode_update_recommended.module:2.19"
-File[20]=".src/thermal_zone.module:45.38"
+File[20]=".src/thermal_zone.module:14.18"
 File[21]=".src/FModules.form"
 File[22]=".src/FModules.class:4.30"
 File[23]=".src/Input_Devices.module:8.1"
 File[24]=".src/FinfosysNew.form"
 File[25]=".src/FinfosysNew.class:37.30"
-File[26]=".src/net.module:49.66"
+File[26]=".src/net.module:103.20"
 File[27]="Data/report-ng.sh:27.44"
 File[28]=".src/Distribution_Detect.module:20.0"
-Active=29
-File[29]=".src/FFlags.module:78.22"
+File[29]=".src/FFlags.module:65.30"
 Count=29
 
 [Watches]

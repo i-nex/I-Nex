@@ -295,8 +295,8 @@
         }
       }
       { Timer1 #Timer
-        #Move(344,40)
-        Delay = 1500
+        #Move(343,42)
+        Delay = 2000
       }
     }
     Index = 1
@@ -986,6 +986,30 @@
         Expand = True
         Text = ("TextBox56")
         ReadOnly = True
+      }
+    }
+    { Frame11 Frame
+      Move(7,63,455,175)
+      Text = ("Receive")
+      { !GridView1 GridView
+        Move(7,28,441,126)
+        #Public = True
+        Mode = Select.Single
+        Header = GridView.Vertical
+        Border = False
+        Sorted = True
+      }
+    }
+    { Frame12 Frame
+      Move(7,245,455,182)
+      Text = ("Transmit")
+      { !GridView2 GridView
+        Move(7,28,441,133)
+        #Public = True
+        Mode = Select.Single
+        Header = GridView.Vertical
+        Border = False
+        Sorted = True
       }
     }
     Index = 9

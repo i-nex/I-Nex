@@ -36,6 +36,7 @@
           Move(7,28,196,21)
           Padding = 3
           Text = ("Michał Głowienka")
+          Alignment = Align.Center
         }
         { HBox4 HBox
           Move(6,66,198,24)

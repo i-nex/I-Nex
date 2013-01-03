@@ -540,6 +540,7 @@ End
 
 Public Sub Timer1_Timer()
   ''Refresh temp 1500/ms
+  net.net_dev()
   dospam_uptime()
   thermal_zone._inits
   If thermal_zone.supporttemp = True Then
@@ -568,10 +569,4 @@ Public Sub ComboBox2_Click()
  TextBox56.Text = net.subsystem_device
  TextBox57.Text = net.subsystem_vendor
  TextArea4.Text = net.lspci
-End
-
-Public Sub Button5_Click()
-
- 
-
 End
