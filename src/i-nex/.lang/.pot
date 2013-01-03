@@ -58,51 +58,51 @@ msgstr ""
 msgid "Dariusz Duma"
 msgstr ""
 
-#: About.form:133
+#: About.form:134
 msgid "Tomasz Przybył (FadeMind)   "
 msgstr ""
 
-#: About.form:154
+#: About.form:156
 msgid "Marcin (Netbit73) Mach"
 msgstr ""
 
-#: About.form:176
+#: About.form:179
 msgid "Graphic in 0.4.x Version"
 msgstr ""
 
-#: About.form:181
+#: About.form:184
 msgid "mmaciek12"
 msgstr ""
 
-#: About.form:190
+#: About.form:193
 msgid "DeviantArt"
 msgstr ""
 
-#: About.form:203
+#: About.form:206
 msgid "Graphic in 0.2.x Version"
 msgstr ""
 
-#: About.form:207
+#: About.form:210
 msgid "Daniel 'DaNieL' Pabis "
 msgstr ""
 
-#: About.form:212
+#: About.form:215
 msgid "daniel.pabis@interia.pl"
 msgstr ""
 
-#: About.form:217
+#: About.form:220
 msgid "Maciej Urmański"
 msgstr ""
 
-#: About.form:222
+#: About.form:225
 msgid "maciej14@gmail.com"
 msgstr ""
 
-#: About.form:232
+#: About.form:235
 msgid "License"
 msgstr ""
 
-#: About.form:236
+#: About.form:239
 msgid ""
 "GNU LESSER GENERAL PUBLIC LICENSE\n"
 "                  Version 3, 29 June 2007\n"
@@ -110,11 +110,11 @@ msgid ""
 "See: http://www.gnu.org/licenses/lgpl.txt"
 msgstr ""
 
-#: About.form:239
+#: About.form:242
 msgid "Other"
 msgstr ""
 
-#: About.form:243
+#: About.form:246
 msgid ""
 "Pastebinit script for send reports to more services:\n"
 "\n"
@@ -123,7 +123,7 @@ msgid ""
 "Homepage: http://www.stgraber.org/"
 msgstr ""
 
-#: About.form:251
+#: About.form:254
 msgid "I-Nex Home page"
 msgstr ""
 

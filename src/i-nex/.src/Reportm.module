@@ -156,7 +156,7 @@ Public Sub include(lspci As Boolean, lsusb As Boolean, scsi As Boolean, dmesg As
   Wait 0.1
   PBV(0.4)
   TextInfo("Include lspci information ... ...")
-  Shell "lspci >>" & save_dir & "" Wait
+  Shell "" & ChkPrm.ChkExecDir("lspci") & " >>" & save_dir & "" Wait
   Wait 0.1
   PBV(0.5)
   TextInfo("Include lspci information ... ...")
