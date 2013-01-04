@@ -3,7 +3,7 @@
 Title=I-Nex
 Startup=Start_App_Args
 Icon=logo/i-nex.0.4.x.png
-Version=0.5.1
+Version=0.5.2
 VersionFile=1
 Component=gb.image
 Component=gb.gui
@@ -24,7 +24,7 @@ Vendor=i-nex
 Address=eloaders@yahoo.com
 Url=http://code.google.com/p/lft/
 License=General Public Licence
-PackageName=i-nex-0.5.1
+PackageName=i-nex-0.5.2
 Packager=1
 Systems=suse
 Menus=suse:"Settings/Hardware Settings"

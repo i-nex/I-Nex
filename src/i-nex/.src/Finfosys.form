@@ -700,63 +700,63 @@
       Text = ("Main:")
       { TextLabel5 TextLabel
         Move(7,21,98,28)
-        Font = Font["Bold"]
+        Font = Font["Bold,8"]
         Text = ("Host name:")
         Alignment = Align.Justify
       }
       { TextLabel11 TextLabel
         Move(7,49,84,28)
-        Font = Font["Bold"]
+        Font = Font["Bold,8"]
         Text = ("Distribution:")
         Alignment = Align.Justify
       }
       { TextLabel14 TextLabel
         Move(7,77,84,28)
-        Font = Font["Bold"]
+        Font = Font["Bold,8"]
         Text = ("Edition:")
         Alignment = Align.Justify
       }
       { TextLabel15 TextLabel
         Move(7,105,105,28)
-        Font = Font["Bold"]
+        Font = Font["Bold,8"]
         Text = ("Time zone:")
         Alignment = Align.Justify
       }
       { TextLabel16 TextLabel
         Move(7,133,49,28)
-        Font = Font["Bold"]
+        Font = Font["Bold,8"]
         Text = ("GCC v:")
         Alignment = Align.Justify
       }
       { TextLabel27 TextLabel
         Move(7,161,105,28)
-        Font = Font["Bold"]
+        Font = Font["Bold,8"]
         Text = ("X.org v:")
         Alignment = Align.Justify
       }
       { TextLabel28 TextLabel
         Move(7,189,105,28)
-        Font = Font["Bold"]
+        Font = Font["Bold,8"]
         Text = ("GLX v:")
         Alignment = Align.Justify
       }
       { TextLabel29 TextLabel
         Move(7,217,91,28)
-        Font = Font["Bold"]
+        Font = Font["Bold,8"]
         Text = ("Architecture:")
         Alignment = Align.Justify
       }
       { TextLabel10 TextLabel
         Move(7,245,105,28)
-        Font = Font["Bold"]
+        Font = Font["Bold,8"]
         Text = ("Shell:")
         Alignment = Align.Justify
       }
       { Label4 Label
-        Move(6,276,150,24)
+        Move(7,273,154,28)
         Visible = False
-        Font = Font["Bold"]
-        Text = ("Default Display Manager:")
+        Font = Font["Bold,8"]
+        Text = ("Default LM/DM:")
         Alignment = Align.Justify
       }
       { TextBox22 TextBox

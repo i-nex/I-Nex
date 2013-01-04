@@ -440,7 +440,7 @@ msgid "Shell:"
 msgstr ""
 
 #: Finfosys.form:1159
-msgid "Default Display Manager:"
+msgid "Default LM/DM:"
 msgstr ""
 
 #: Finfosys.form:1171

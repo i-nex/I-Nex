@@ -10,7 +10,7 @@ Public Sub Form_Open()
  GridView1.Columns.Count = 6
  GridView1.Rows.Count = CFloat(Val(allfilesystems)) 
  GridView1.Columns.Width = 80
- GridView1.Columns[5].Width = 150
+ GridView1.Columns[5].Width = 250
  GridView1[0, 0].Text = "Filesystem"
  GridView1[0, 1].Text = "1K-blocks"
  GridView1[0, 2].Text = "Used"
@@ -26,7 +26,7 @@ Public Sub Form_Open()
  Next
  For i = 2 To Maximum
  For ty = 6 To 6
-   Shell "LC_ALL=C df | awk {'print $" & ty & ", $7, $8'} | sed -n '" & i & "p'" To Face
+   Shell "LC_ALL=C df | awk {'print $" & ty & ", $7, $8, $9, $10, $11'} | sed -n '" & i & "p'" To Face
    GridView1[i - 1, ty - 1].Text = Replace(Face, "\n", "")
  Next
  Next
