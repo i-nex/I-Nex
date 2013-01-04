@@ -689,6 +689,10 @@
       Move(102,150,360,24)
       ReadOnly = True
     }
+    { Button8 Button
+      Move(154,301,35,35)
+      Text = ("DF")
+    }
     Index = 5
     Text = ("System")
     { Frame7 Frame

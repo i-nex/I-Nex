@@ -570,3 +570,9 @@ Public Sub ComboBox2_Click()
  TextBox57.Text = net.subsystem_vendor
  TextArea4.Text = net.lspci
 End
+
+Public Sub Button8_Click()
+
+ FDF.Show
+
+End

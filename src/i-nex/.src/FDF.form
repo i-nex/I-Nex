@@ -1,0 +1,24 @@
+# Gambas Form File 3.0
+
+{ Form Form
+  MoveScaled(0,0,86,30)
+  Expand = True
+  Text = ("I-Nex GUI for DF")
+  Icon = Picture["logo/i-nex.png"]
+  Arrangement = Arrange.Vertical
+  Margin = True
+  { !HBox1 HBox
+    MoveScaled(0,0,78,24)
+    #Public = True
+    Expand = True
+    { !GridView1 GridView
+      MoveScaled(0,0,44,21)
+      #Public = True
+      Drop = True
+      Expand = True
+      Mode = Select.Single
+      Header = GridView.Vertical
+      AutoResize = False
+    }
+  }
+}

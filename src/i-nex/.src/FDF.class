@@ -1,0 +1,43 @@
+' Gambas class file
+
+
+Public Sub Form_Open()
+ Dim i, Maximum, ty As Float
+ Dim allfilesystems, Face As String
+ Me.Center
+ 'Shell "LC_ALL=C df"
+ Shell "LC_ALL=C df | awk {'print $1'} | wc -l" Wait To allfilesystems
+ GridView1.Columns.Count = 6
+ GridView1.Rows.Count = CFloat(Val(allfilesystems)) 
+ GridView1.Columns.Width = 80
+ GridView1.Columns[5].Width = 150
+ GridView1[0, 0].Text = "Filesystem"
+ GridView1[0, 1].Text = "1K-blocks"
+ GridView1[0, 2].Text = "Used"
+ GridView1[0, 3].Text = "Available"
+ GridView1[0, 4].Text = "Use % "
+ GridView1[0, 5].Text = "Mounted on"
+ Maximum = CFloat(Val(allfilesystems))
+ For i = 2 To Maximum
+  For ty = 1 To 5
+   Shell "LC_ALL=C df | awk {'print $" & ty & "'} | sed -n '" & i & "p'" To Face
+   GridView1[i - 1, ty - 1].Text = Replace(Face, "\n", "")
+  Next
+ Next
+ For i = 2 To Maximum
+ For ty = 6 To 6
+   Shell "LC_ALL=C df | awk {'print $" & ty & ", $7, $8'} | sed -n '" & i & "p'" To Face
+   GridView1[i - 1, ty - 1].Text = Replace(Face, "\n", "")
+ Next
+ Next
+  ' For ty = 1 To 9
+  '  Shell "awk {'print $" & ty & "'} /proc/net/dev | sed -n '" & i & "p'" To Face
+  '  Finfosys.GridView1[i - 2, ty - 1].Text = Replace(Face, "\n", "")
+  ' Next
+ 'Filesystem     1K-blocks      Used Available Use% Mounted on
+ 
+End
+
+Public Sub Form_Resize()
+
+End
