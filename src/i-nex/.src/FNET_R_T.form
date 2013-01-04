@@ -1,0 +1,41 @@
+# Gambas Form File 3.0
+
+{ Form Form
+  MoveScaled(0,0,88,56)
+  Expand = True
+  Text = ("Receive and Transmit")
+  Icon = Picture["logo/i-nex.png"]
+  Resizable = False
+  { Frame1 Frame
+    MoveScaled(0,0,88,27)
+    Text = ("Receive")
+    { !GridView1 GridView
+      MoveScaled(2,4,85,18)
+      #Public = True
+      Mode = Select.Single
+      Header = GridView.Vertical
+      Border = False
+      AutoResize = False
+      Sorted = True
+    }
+  }
+  { Frame2 Frame
+    MoveScaled(0,28,88,27)
+    Text = ("Transmit")
+    { !GridView2 GridView
+      MoveScaled(2,4,85,19)
+      #Public = True
+      Mode = Select.Single
+      Header = GridView.Vertical
+      Border = False
+      AutoResize = False
+      Sorted = True
+    }
+  }
+  { !Timer1 #Timer
+    #MoveScaled(53,25)
+    #Public = True
+    Enabled = True
+    Delay = 1500
+  }
+}

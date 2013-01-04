@@ -102,54 +102,7 @@ Public Sub _replace()
 End
 
 Public Sub net_dev()
- Dim total_interfaces As String
- Dim Face, Face2 As String
- Dim Maximum, i, ty, i2, ty2 As Integer
- Shell "ls /sys/class/net | tr ' ' '\n' | wc -l" To total_interfaces
- Finfosys.GridView1.Columns.Count = 9
- Finfosys.GridView1.Rows.Count = CFloat(Val(total_interfaces)) + 1
- Finfosys.GridView2.Columns.Count = 9
- Finfosys.GridView2.Rows.Count = CFloat(Val(total_interfaces)) + 1
- Maximum = CInteger(Val(total_interfaces)) + 2
- For i = 3 To Maximum
-  Shell "awk {'print $1'} /proc/net/dev | sed -n '" & i & "p'" To Face
-  Finfosys.GridView1[i - 2, 0].Text = Replace(Face, "\n", "")
-  For ty = 1 To 9
-   Shell "awk {'print $" & ty & "'} /proc/net/dev | sed -n '" & i & "p'" To Face
-   Finfosys.GridView1[i - 2, ty - 1].Text = Replace(Face, "\n", "")
-  Next
- Next
- For i2 = 3 To Maximum
-  Shell "cat /proc/net/dev | awk {'print $1'} | sed -n '" & i2 & "p'" Wait To Face2
-  Finfosys.GridView2[i2 - 2, 0].Text = Replace(Face2, "\n", "")
-  For ty2 = 10 To 17
-   Shell "cat /proc/net/dev | awk {'print $" & ty2 & "'} | sed -n '" & i2 & "p'" Wait To Face2
-   Finfosys.GridView2[i2 - 2, ty2 - 9].Text = Replace(Face2, "\n", "")
-  Next
- Next
- Finfosys.GridView1.Columns[1].Width = 75
- Finfosys.GridView1.Columns[2].Width = 75
- Finfosys.GridView1.Columns[8].Width = 75
- Finfosys.GridView1[0, 0].Text = "Face"
- Finfosys.GridView1[0, 1].Text = "Bytes"
- Finfosys.GridView1[0, 2].Text = "Packets"
- Finfosys.GridView1[0, 3].Text = "Errs"
- Finfosys.GridView1[0, 4].Text = "Drop"
- Finfosys.GridView1[0, 5].Text = "Fifo"
- Finfosys.GridView1[0, 6].Text = "Frame"
- Finfosys.GridView1[0, 7].Text = "Comp"
- Finfosys.GridView1[0, 8].Text = "Multicast"
- Finfosys.GridView2.Columns[1].Width = 75
- Finfosys.GridView1.Columns[2].Width = 75
- Finfosys.GridView2[0, 0].Text = "Face"
- Finfosys.GridView2[0, 1].Text = "Bytes"
- Finfosys.GridView2[0, 2].Text = "Packets"
- Finfosys.GridView2[0, 3].Text = "Errs"
- Finfosys.GridView2[0, 4].Text = "Drop"
- Finfosys.GridView2[0, 5].Text = "Fifo"
- Finfosys.GridView2[0, 6].Text = "Colls"
- Finfosys.GridView2[0, 7].Text = "Carrier"
- Finfosys.GridView2[0, 8].Text = "Comp"
+ 
 End
 
 

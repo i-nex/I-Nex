@@ -540,7 +540,6 @@ End
 
 Public Sub Timer1_Timer()
   ''Refresh temp 1500/ms
-  net.net_dev()
   dospam_uptime()
   thermal_zone._inits
   If thermal_zone.supporttemp = True Then
@@ -574,5 +573,11 @@ End
 Public Sub Button8_Click()
 
  FDF.Show
+
+End
+
+Public Sub Button9_Click()
+
+ FNET_R_T.Show
 
 End
