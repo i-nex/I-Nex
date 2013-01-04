@@ -64,8 +64,8 @@ End
 
 Public Sub ht()
   Dim NUMLOG, NUMPHY As String
-  Shell "grep 'physical id' /proc/cpuinfo | sort -u | wc -l" Wait To NUMPHY
-  Shell "grep 'processor' /proc/cpuinfo | wc -l" Wait To NUMLOG
+  Shell "grep 'processor' /proc/cpuinfo | wc -l" Wait To NUMPHY
+  Shell "grep 'cpu cores' /proc/cpuinfo | sed -n '1p' | cut -d ':' -f 2" Wait To NUMLOG
   NUMLOG = CFloat(Val(Replace(Replace(NUMLOG, " ", ""), "\n", "")))
   NUMPHY = CFloat(Val(Replace(Replace(NUMPHY, " ", ""), "\n", "")))
   If NUMPHY = NUMLOG Then
