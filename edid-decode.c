@@ -705,7 +705,7 @@ cea_hdmi_block(unsigned char *x)
 	
 	if (x[8] & 0x20) {
 	    int mask = 0, formats = 0;
-	    int len_xx, len_3d;
+	    int len_vic, len_3d;
 	    printf("    Extended HDMI video details:\n");
 	    if (x[9 + b] & 0x80)
 		printf("      3D present\n");
@@ -730,14 +730,17 @@ cea_hdmi_block(unsigned char *x)
 		printf("      Base EDID image size is in units of 5cm\n");
 		break;
 	    }
-	    len_xx = (x[10 + b] & 0xe0) >> 5;
+	    len_vic = (x[10 + b] & 0xe0) >> 5;
 	    len_3d = (x[10 + b] & 0x1f) >> 0;
 	    b += 2;
 
-	    if (len_xx) {
-		printf("      Skipping %d bytes that HDMI refuses to publicly"
-		       " document\n", len_xx);
-		b += len_xx;
+	    if (len_vic) {
+		int i;
+
+		for (i = 0; i < len_vic; i++)
+		    printf("      HDMI VIC %d\n", x[9 + b + i]);
+
+		b += len_vic;
 	    }
 
 	    if (len_3d) {
