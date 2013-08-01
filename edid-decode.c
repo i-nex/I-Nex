@@ -32,6 +32,8 @@
 #include <time.h>
 #include <ctype.h>
 
+#define ARRAY_SIZE(x) (sizeof(x) / sizeof(*(x)))
+
 static int claims_one_point_oh = 0;
 static int claims_one_point_two = 0;
 static int claims_one_point_three = 0;
@@ -569,14 +571,92 @@ cea_audio_block(unsigned char *x)
     }
 }
 
+static const char *edid_cea_modes[] = {
+    "640x480@60Hz",
+    "720x480@60Hz",
+    "720x480@60Hz",
+    "1280x720@60Hz",
+    "1920x1080i@60Hz",
+    "1440x480i@60Hz",
+    "1440x480i@60Hz",
+    "1440x240@60Hz",
+    "1440x240@60Hz",
+    "2880x480i@60Hz",
+    "2880x480i@60Hz"
+    "2880x240@60Hz",
+    "2880x240@60Hz",
+    "1440x480@60Hz",
+    "1440x480@60Hz",
+    "1920x1080@60Hz",
+    "720x576@50Hz",
+    "720x576@50Hz",
+    "1280x720@50Hz",
+    "1920x1080i@50Hz",
+    "1440x576i@50Hz",
+    "1440x576i@50Hz",
+    "1440x288@50Hz",
+    "1440x288@50Hz",
+    "2880x576i@50Hz",
+    "2880x576i@50Hz",
+    "2880x288@50Hz",
+    "2880x288@50Hz",
+    "1440x576@50Hz",
+    "1440x576@50Hz",
+    "1920x1080@50Hz",
+    "1920x1080@24Hz",
+    "1920x1080@25Hz",
+    "1920x1080@30Hz",
+    "2880x480@60Hz",
+    "2880x480@60Hz",
+    "2880x576@50Hz",
+    "2880x576@50Hz",
+    "1920x1080i@50Hz",
+    "1920x1080i@100Hz",
+    "1280x720@100Hz",
+    "720x576@100Hz",
+    "720x576@100Hz",
+    "1440x576@100Hz",
+    "1440x576@100Hz",
+    "1920x1080i@120Hz",
+    "1280x720@120Hz",
+    "720x480@120Hz",
+    "720x480@120Hz",
+    "1440x480i@120Hz",
+    "1440x480i@120Hz",
+    "720x576@200Hz",
+    "720x576@200Hz",
+    "1440x576i@200Hz",
+    "1440x576i@200Hz",
+    "720x480@240Hz",
+    "720x480@240Hz",
+    "1440x480i@240Hz",
+    "1440x480i@240Hz",
+    "1280x720@24Hz",
+    "1280x720@25Hz",
+    "1280x720@30Hz",
+    "1920x1080@120Hz",
+    "1920x1080@100Hz",
+};
+
 static void
 cea_video_block(unsigned char *x)
 {
     int i;
     int length = x[0] & 0x1f;
 
-    for (i = 1; i < length; i++)
-	printf("    VIC %02d %s\n", x[i] & 0x7f, x[i] & 0x80 ? "(native)" : "");
+    for (i = 1; i < length; i++)  {
+	unsigned char vic = x[i] & 0x7f;
+	unsigned char native = x[i] & 0x80;
+	const char *mode;
+
+	vic--;
+	if (vic < ARRAY_SIZE(edid_cea_modes))
+	    mode = edid_cea_modes[vic];
+	else
+	    mode = "Unknown mode";
+
+	printf("    VIC %02d %s %s\n", vic, mode, native ? "(native)" : "");
+    }
 }
 
 static void
