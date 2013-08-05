@@ -65,6 +65,73 @@ static int warning_zero_preferred_refresh = 0;
 
 static int conformant = 1;
 
+struct value {
+    int value;
+    const char *description;
+};
+
+struct field {
+    const char *name;
+    int start, end;
+    struct value *values;
+    int n_values;
+};
+
+#define DEFINE_FIELD(n, var, s, e, ...)				\
+    static struct value var##_values[] =  {			\
+        __VA_ARGS__						\
+    };								\
+    static struct field var = {					\
+        .name = n,						\
+        .start = s,		        			\
+        .end = e,						\
+        .values = var##_values,	        			\
+        .n_values = ARRAY_SIZE(var##_values),			\
+    }
+
+static void
+decode_value(struct field *field, int val, const char *prefix)
+{
+    struct value *v;
+    int i;
+
+    for (i = 0; i < field->n_values; i++) {
+        v = &field->values[i];
+
+        if (v->value == val)
+           break;
+    }
+
+    if (i == field->n_values) {
+       printf("%s%s: %d\n", prefix, field->name, val);
+       return;
+    }
+
+    printf("%s%s: %s (%d)\n", prefix, field->name, v->description, val);
+}
+
+static void
+_decode(struct field **fields, int n_fields, int data, const char *prefix)
+{
+    int i;
+
+    for (i = 0; i < n_fields; i++) {
+	struct field *f = fields[i];
+	int field_length = f->end - f->start + 1;
+	int val;
+
+        if (field_length == 32)
+            val = data;
+        else
+            val = (data >> f->start) & ((1 << field_length) - 1);
+
+        decode_value(f, val, prefix);
+    }
+}
+
+#define decode(fields, data, prefix)    \
+    _decode(fields, ARRAY_SIZE(fields), data, prefix)
+
 static char *manufacturer_name(unsigned char *x)
 {
     static char name[4];
