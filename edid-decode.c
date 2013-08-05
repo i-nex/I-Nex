@@ -863,6 +863,44 @@ cea_hdmi_block(unsigned char *x)
     }
 }
 
+DEFINE_FIELD("YCbCr quantization", YCbCr_quantization, 7, 7,
+             { 0, "No Data" },
+             { 1, "Selectable (via AVI YQ)" });
+DEFINE_FIELD("RGB quantization", RGB_quantization, 6, 6,
+             { 0, "No Data" },
+             { 1, "Selectable (via AVI Q)" });
+DEFINE_FIELD("PT scan behaviour", PT_scan, 4, 5,
+             { 0, "No Data" },
+             { 1, "Always Overscannned" },
+             { 2, "Always Underscanned" },
+             { 3, "Support both over- and underscan" });
+DEFINE_FIELD("IT scan behaviour", IT_scan, 2, 3,
+             { 0, "IT video formats not supported" },
+             { 1, "Always Overscannned" },
+             { 2, "Always Underscanned" },
+             { 3, "Support both over- and underscan" });
+DEFINE_FIELD("CE scan behaviour", CE_scan, 0, 1,
+             { 0, "CE video formats not supported" },
+             { 1, "Always Overscannned" },
+             { 2, "Always Underscanned" },
+             { 3, "Support both over- and underscan" });
+
+static struct field *vcdb_fields[] = {
+    &YCbCr_quantization,
+    &RGB_quantization,
+    &PT_scan,
+    &IT_scan,
+    &CE_scan,
+};
+
+static void
+cea_vcdb(unsigned char *x)
+{
+    unsigned char d = x[2];
+
+    decode(vcdb_fields, d, "    ");
+}
+
 static void
 cea_block(unsigned char *x)
 {
@@ -897,6 +935,7 @@ cea_block(unsigned char *x)
 	    switch (x[1]) {
 		case 0x00:
 		    printf("video capability data block\n");
+		    cea_vcdb(x);
 		    break;
 		case 0x01:
 		    printf("vendor-specific video data block\n");
