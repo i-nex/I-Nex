@@ -659,6 +659,13 @@ cea_video_block(unsigned char *x)
     }
 }
 
+static const char *edid_cea_hdmi_modes[] = {
+    "3840x2160@30Hz",
+    "3840x2160@25Hz",
+    "3840x2160@24Hz",
+    "4096x2160@24Hz",
+};
+
 static void
 cea_hdmi_block(unsigned char *x)
 {
@@ -737,8 +744,18 @@ cea_hdmi_block(unsigned char *x)
 	    if (len_vic) {
 		int i;
 
-		for (i = 0; i < len_vic; i++)
-		    printf("      HDMI VIC %d\n", x[9 + b + i]);
+		for (i = 0; i < len_vic; i++) {
+                    unsigned char vic = x[9 + b + i];
+                    const char *mode;
+
+                    vic--;
+                    if (vic < ARRAY_SIZE(edid_cea_hdmi_modes))
+                            mode = edid_cea_hdmi_modes[vic];
+                    else
+                            mode = "Unknown mode";
+
+		    printf("      HDMI VIC %d %s\n", vic, mode);
+                }
 
 		b += len_vic;
 	    }
