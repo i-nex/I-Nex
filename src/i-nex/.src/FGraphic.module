@@ -1,0 +1,37 @@
+' Gambas module file
+
+' 
+Public Sub _inits()
+  Dim Interfaces_X As String
+  Dim Avail_Interfaces As Integer 
+  Dim Max_Interfaces As Integer
+  Dim all_interfaces As String
+  Debug "Add Interfaces to ComboBox"
+  Shell "ls /sys/class/drm/ | grep 'card[0-9]-' | wc -l" Wait To all_interfaces
+  Max_Interfaces = Val(all_interfaces)
+  For Avail_Interfaces = 1 To Max_Interfaces
+   Shell "ls /sys/class/drm/ | grep 'card[0-9]-' | sed -n '" & Avail_Interfaces & "p'" Wait To Interfaces_X
+   Interfaces_X = Replace(Interfaces_X, "\n", "")
+   Finfosys.ComboBox8.Add(Interfaces_X)
+  Next
+
+End
+
+Public Sub _check()
+ Dim status, enabled, dpms, edidd As String
+ Shell "cat /sys/class/drm/" & Finfosys.ComboBox8.Text & "/status" Wait To status
+ Shell "cat /sys/class/drm/" & Finfosys.ComboBox8.Text & "/enabled" Wait To enabled
+ Shell "cat /sys/class/drm/" & Finfosys.ComboBox8.Text & "/dpms" Wait To dpms
+ 
+ If ChkPrm.ChkExec("edid-decode") = True
+ Shell "edid-decode /sys/class/drm/" & Finfosys.ComboBox8.Text & "/edid | grep 'Monitor name' | cut -d ':' -f 2" Wait To edidd
+ Finfosys.Label100.Text = "EDID: " & Replace(edidd, "\n", "")
+ Else
+ Finfosys.Label100.Text = "Not faund edid-decode"
+ Endif
+ 
+ '/sys/class/drm/card0-VGA-1/dpms
+ Finfosys.Label65.Text = "Status: " & Replace(status, "\n", "")
+ Finfosys.Label66.Text = "Enabled: " & Replace(enabled, "\n", "")
+ Finfosys.Label67.Text = "DPMS: " & Replace(dpms, "\n", "")
+End
