@@ -69,7 +69,7 @@ End
 
 Public Sub Button4_Click()
 
- Desktop.Open("https://launchpad.net/i-nex")
+ Desktop.Open("http://tuxportal.pl/")
 
 End
 

@@ -23,6 +23,10 @@ Public Sub Form_Open()
   Object.Call(Input_Devices, "_inits")
   Debug "Check available network devices"
   Object.Call(net, "inits")
+  Debug "Check available graphic DSub, DVI etc"
+  Object.Call(FGraphic, "_inits")
+  Debug "blabla"
+  Object.Call(FGraphic, "_check")
   Debug "Check for default display manager"
   If default_display_manager = True Then
    Label4.Visible = True
@@ -172,7 +176,7 @@ End
 
 Public Sub System()
   Dim hostname, arch, gcc, timezone, xorg_version, glx_version As String
-  Shell "cat /etc/timezone" Wait To timezone
+  Shell "cat /etc/timezone || grep ^TIMEZONE= /etc/sysconfig/clock | cut -d '=' -f 2" Wait To timezone
   hostname = System.Host
   arch = System.Architecture
   Shell "gcc -dumpversion" Wait To gcc
@@ -196,7 +200,7 @@ End
 
 Public Sub grafika()
   Dim available_resolutions As String
-  Dim rozdzielczosc, gpu As String
+  Dim rozdzielczosc, gpu, memory_prefetchable As String
   Dim opengl_vendor_string, opengl_renderer_string, opengl_version_string As String
   
   If ChkPrm.chkExec("glxinfo") = True Then
@@ -209,6 +213,7 @@ Public Sub grafika()
   Endif
   
   Shell "xdpyinfo | grep 'dimensions:' | cut -d ':' -f 2" Wait To rozdzielczosc
+  Shell "/usr/bin/i-nex-lspci" Wait To memory_prefetchable
   
   'Rozdzielczość
   If ChkPrm.ChkExec("xrandr") = True Then
@@ -219,25 +224,19 @@ Public Sub grafika()
   Else
     Message.Warning("Not found xrandr")
   Endif
-  
-  opengl_vendor_string = Replace(opengl_vendor_string, "\n", "")
-  opengl_renderer_string = Replace(opengl_renderer_string, "\n", "")
-  opengl_version_string = Replace(opengl_version_string, "\n", "")
-  rozdzielczosc = Replace(rozdzielczosc, "\n", "")
-  gpu = Replace(gpu, "\n", "")
-  available_resolutions = Replace(available_resolutions, "\n", "")
-  TextBox47.Text = gpu
-  TextBox21.Text = opengl_vendor_string
-  TextBox37.Text = opengl_renderer_string
-  TextBox38.Text = opengl_version_string
-  TextBox39.Text = rozdzielczosc
-  TextBox55.Text = available_resolutions
+  Label64.Text = "Total Memory: " & Replace(memory_prefetchable, "\n", "")
+  Label105.Text = "OpenGl Vendor: " & Replace(opengl_vendor_string, "\n", "")
+  Label106.Text = "OpenGl Renderer: " & Replace(opengl_renderer_string, "\n", "")
+  Label107.Text = "OpenGl Version: " & Replace(opengl_version_string, "\n", "")
+  Label108.Text = "Present resolution: " & Replace(rozdzielczosc, "\n", "")
+  TextBox1.Text = RTrim(Replace(gpu, "\n", ""))
+  Label109.Text = Replace(available_resolutions, "\n", "")
   Global.kartagraficzna()
 End
 
 Public Sub Wykrywanie_procesorow()
   Dim eloaders, eloaders2, eloaders3 As String
-  Dim obrazekcpu, cpu, cpu_MHz As String
+  Dim obrazekcpu, cpu, cpu_MHz, power_management As String
   Dim model, stepping, cpu_family, bogomips As String
   Dim address_sizes, cache_size, ldata, linstruction As String
   Dim physical_id, cpu_cores, level3cache As String
@@ -319,37 +318,25 @@ Public Sub Wykrywanie_procesorow()
   Shell "cat /sys/devices/system/cpu/" & eloaders2 & "/cache/index3/size" Wait To level3cache
   Shell "grep 'siblings' /proc/cpuinfo | sed -n '1p' | cut -d ':' -f 2" Wait To cpu_cores
   Shell "grep 'physical id' /proc/cpuinfo | sed -n '" & eloaders & "' | cut -d ':' -f 2" Wait To physical_id
-  
-  TextBox29.Text = Replace(cpu, "\n", "")
-  level3cache = Replace(level3cache, "\n", "")
-  physical_id = Replace(physical_id, "\n", "")
-  cpu_cores = Replace(cpu_cores, "\n", "")
-  linstruction = Replace(linstruction, "\n", "")
-  ldata = Replace(ldata, "\n", "")
-  cache_size = Replace(cache_size, "\n", "")
-  address_sizes = Replace(address_sizes, "\n", "")
-  bogomips = Replace(bogomips, "\n", "")
-  cpu_family = Replace(cpu_family, "\n", "")
-  stepping = Replace(stepping, "\n", "")
-  model = Replace(model, "\n", "")
-  cpu_MHz = Replace(cpu_MHz, "\n", "")
-  vendor_id = Replace(vendor_id, "\n", "")
+  Shell "grep 'power management' /proc/cpuinfo | sed -n '" & eloaders & "' | cut -d ':' -f 2" Wait To power_management
+  Label14.Text = Replace(cpu, "\n", "")
   flags = Replace(flags, "\n", "")
   'FFlags._init
   Label71.Text = "Flags: " & FFlags.instructions
-  TextBox28.Text = vendor_id
-  TextBox30.Text = cpu_MHz & " MHz"
-  TextBox35.Text = cache_size
-  TextBox33.Text = ldata
-  TextBox34.Text = linstruction
-  TextBox36.Text = level3cache
-  Label97.Text = "Family: " & cpu_family
-  Label6.Text = "Model: " & model
-  Label7.Text = "Stepping: " & stepping
-  Label8.Text = "Cores: " & cpu_cores
-  Label19.Text = "Phy id: " & physical_id
-  Label10.Text = "Bogomips: " & bogomips
-  Label11.Text = "Address sizes: " & address_sizes
+  Label13.Text = Replace(vendor_id, "\n", "")
+  Label12.Text = Replace(cpu_MHz, "\n", "") & " MHz"
+  Label1.Text = "L1 Data:        " & Replace(ldata, "\n", "")
+  Label2.Text = "L1 instruction: " & Replace(linstruction, "\n", "")
+  Label3.Text = "Level 2:        " & Replace(cache_size, "\n", "")
+  Label5.Text = "Level 3:        " & Replace(level3cache, "\n", "")
+  Label97.Text = "Family: " & Replace(cpu_family, "\n", "")
+  Label6.Text = "Model: " & Replace(model, "\n", "")
+  Label7.Text = "Stepping: " & Replace(stepping, "\n", "")
+  Label8.Text = "Cores: " & Replace(cpu_cores, "\n", "")
+  Label19.Text = "Phy id: " & Replace(physical_id, "\n", "")
+  Label10.Text = "Bogomips: " & Replace(bogomips, "\n", "")
+  Label11.Text = "Address sizes: " & Replace(address_sizes, "\n", "")
+  Label15.Text = "Power mangament: " & Replace(power_management, "\n", "")
   Global.ikonaprocka()
 End
 
@@ -436,15 +423,17 @@ End
 
 Public Sub Button4_Click()
 
-  Desktop.Open("http://www.cpu-world.com/cgi-bin/SearchSite.pl?SEARCH=" & TextBox29.Text & "&PROCESS=Search")
+  Desktop.Open("http://www.cpu-world.com/cgi-bin/SearchSite.pl?SEARCH=" & Label14.Text & "&PROCESS=Search")
   Debug "Open website for more informations about your processor"
 End
 
 Public Sub Button7_Click()
   Dim dpkg As String
+  Dim rpm As String
   Shell "grep '^Status: install ok installed' /var/lib/dpkg/status | wc -l" Wait To dpkg
+  Shell "rpm -qa | wc -l" Wait To rpm
   TextLabel21.Visible = True
-  TextLabel21.Text = "" & dpkg & " Packages are installed"
+  TextLabel21.Text = "" & dpkg & " deb, " & rpm & " rpm Packages are installed"
 End
 
 Public Sub Button10_Click()
@@ -579,5 +568,11 @@ End
 Public Sub Button9_Click()
 
  FNET_R_T.Show
+
+End
+
+Public Sub ComboBox8_Click()
+
+ Object.Call(FGraphic, "_check")
 
 End

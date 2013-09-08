@@ -26,7 +26,7 @@ Public Sub Form_Open()
   ComboBox1.Add("slexy.org")
   ComboBox1.Add("sprunge.us")
   ComboBox1.Add("yourpaste.net")
-
+  ComboBox1.Add("paste.opensuse.org")
 Me.Center
 
 End

@@ -2,8 +2,5 @@
 Icon=./.icon.png
 
 [Dolphin]
-Timestamp=2013,1,2,16,15,27
+Timestamp=2013,4,1,16,18,9
 Version=3
-
-[Settings]
-HiddenFilesShown=true

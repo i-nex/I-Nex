@@ -34,18 +34,13 @@ Public Sub Form_Open()
     S = False
     Me.Close
    
-   Case Null
+   Case ""
     Finfosys.Show
     S = False
     Me.Close
    
    Case "--modules"
     FModules.Show
-    S = False
-    Me.Close
-   
-   Case "--dev"
-    FinfosysNew.Show
     S = False
     Me.Close
         
