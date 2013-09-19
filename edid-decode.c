@@ -830,12 +830,26 @@ cea_hdmi_block(unsigned char *x)
 
 	    if (len_3d) {
 		if (formats) {
+		    /* 3D_Structure_ALL_15..8 */
+		    if (x[9 + b] & 0x80)
+			printf("      3D: Side-by-side (half, quincunx)\n");
 		    if (x[9 + b] & 0x01)
-			printf("      Side-by-side 3D supported\n");
+			printf("      3D: Side-by-side (half, horizontal)\n");
+		    /* 3D_Structure_ALL_7..0 */
 		    if (x[10 + b] & 0x40)
-			printf("      Top-and-bottom 3D supported\n");
+			printf("      3D: Top-and-bottom\n");
+		    if (x[10 + b] & 0x20)
+			printf("      3D: L + depth + gfx + gfx-depth\n");
+		    if (x[10 + b] & 0x10)
+			printf("      3D: L + depth\n");
+		    if (x[10 + b] & 0x08)
+			printf("      3D: Side-by-side (full)\n");
+		    if (x[10 + b] & 0x04)
+			printf("      3D: Line-alternative\n");
+		    if (x[10 + b] & 0x02)
+			printf("      3D: Field-alternative\n");
 		    if (x[10 + b] & 0x01)
-			printf("      Frame-packing 3D supported\n");
+			printf("      3D: Frame-packing\n");
 		    b += 2;
 		}
 		if (mask) {
