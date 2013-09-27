@@ -711,7 +711,7 @@ cea_video_block(unsigned char *x)
     int i;
     int length = x[0] & 0x1f;
 
-    for (i = 1; i < length; i++)  {
+    for (i = 1; i <= length; i++)  {
 	unsigned char vic = x[i] & 0x7f;
 	unsigned char native = x[i] & 0x80;
 	const char *mode;
