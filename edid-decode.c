@@ -715,10 +715,11 @@ cea_video_block(unsigned char *x)
 	unsigned char vic = x[i] & 0x7f;
 	unsigned char native = x[i] & 0x80;
 	const char *mode;
+	int index;
 
-	vic--;
-	if (vic < ARRAY_SIZE(edid_cea_modes))
-	    mode = edid_cea_modes[vic];
+	index = vic - 1;
+	if (index < ARRAY_SIZE(edid_cea_modes))
+	    mode = edid_cea_modes[index];
 	else
 	    mode = "Unknown mode";
 
