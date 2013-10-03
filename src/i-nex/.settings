@@ -32,7 +32,7 @@ File[8]=".src/ScreenShot.class:12.65"
 File[9]=".src/ScreenShotM.module:7.0"
 File[10]=".src/USB_Drives.module:13.0"
 File[11]=".src/Asound_Drives.module:33.27"
-File[12]=".src/Reportm.module:259.10"
+File[12]=".src/Reportm.module:90.59"
 File[13]=".src/FReport_Gen.form"
 File[14]=".src/FReport_Gen.class:28.37"
 File[15]=".src/Start_App_Args.form"
@@ -47,13 +47,13 @@ File[23]=".src/net.module:104.1"
 File[24]="Data/report-ng.sh:27.44"
 File[25]=".src/Distribution_Detect.module:13.20"
 File[26]=".src/FFlags.module:71.6"
-Active=27
-File[27]=".src/Finfosys.class:23.18"
+File[27]=".src/Finfosys.class:201.2"
 File[28]=".src/FDF.form"
 File[29]=".src/FDF.class:28.69"
 File[30]=".src/FNET_R_T.form"
 File[31]=".src/FNET_R_T.class:60.10"
-File[32]=".src/FGraphic.module:19.17"
+Active=32
+File[32]=".src/FGraphic.module:27.61"
 Count=32
 
 [Watches]

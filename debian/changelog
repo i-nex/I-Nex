@@ -1,3 +1,9 @@
+i-nex (0.5.4) unstable; urgency=low
+
+  * Fix Graphic report
+
+ -- eloaders <eloaders@yahoo.com>  Fri, 04 Oct 2013 00:09:14 +0200
+ 
 i-nex (0.5.2) stable; urgency=low
 
   * Chengelog for version 0.5.0 see file /usr/share/doc/i-nex/changelog-0.5.2

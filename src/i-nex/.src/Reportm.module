@@ -64,24 +64,31 @@ Public Sub _generate(cpu As Boolean, mobo As Boolean, graphic As Boolean, sound 
   Wait 0.1
   TextInfo("Generate Graphic Tab information")
   PBV(0.2)
-  Shell "echo 'Graphics card:      " & Finfosys.TextBox47.Text & "' >>" & save_dir & ""
+  Shell "echo 'Graphics card:      " & Finfosys.TextBox1.Text & "' >>" & save_dir & ""
+  Wait 0.1
+  TextInfo("Generate Graphic Tab information...")
+  PBV(0.5)
+  Shell "echo 'Total Memory:    " & Finfosys.Label64.Text & "' >>" & save_dir & ""
   Wait 0.1
   TextInfo("Generate Graphic Tab information...")
   PBV(0.3)
-  Shell "echo 'OpenGl Vendor:      " & Finfosys.TextBox21.Text & "' >>" & save_dir & ""
+  Shell "echo 'OpenGl Vendor:      " & Finfosys.Label105.Text & "' >>" & save_dir & ""
   Wait 0.1
   TextInfo("Generate Graphic Tab information... ...")
   PBV(0.5)
-  Shell "echo 'OpenGl Renderer:    " & Finfosys.TextBox37.Text & "' >>" & save_dir & ""
+  Shell "echo 'OpenGl Renderer:    " & Finfosys.Label106.Text & "' >>" & save_dir & ""
   Wait 0.1
   TextInfo("Generate Graphic Tab information... ... ...")
   PBV(0.6)
-  Shell "echo 'OpenGl Version:     " & Finfosys.TextBox38.Text & "' >>" & save_dir & ""
+  Shell "echo 'OpenGl Version:     " & Finfosys.Label107.Text & "' >>" & save_dir & ""
   Wait 0.1
   TextInfo("Generate Graphic Tab information... ... ... ...")
   PBV(0.7)
-  Shell "echo 'Present resolution: " & Finfosys.TextBox39.Text & "' >>" & save_dir & ""
+  Shell "echo 'Present resolution: " & Finfosys.Label108.Text & "' >>" & save_dir & ""
   Wait 0.1
+  TextInfo("Generate Graphic Tab information... ... ... ...")
+  PBV(0.7)
+  Shell "echo 'Min / Max resolutions: " & Finfosys.Label109.Text & "' >>" & save_dir & ""
   TextInfo("Generate Graphic Tab information... ... ... ... ...")
   PBV(0.8)
   Shell "echo '======================Graphic Tab End========================' >>" & save_dir & ""
