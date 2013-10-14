@@ -1,3 +1,6 @@
+[Bookmarks]
+Finfosys=[]
+
 [Breakpoints]
 Count=0
 
@@ -26,7 +29,7 @@ File[2]=".src/Global.class:55.70"
 File[3]=".src/About.form"
 File[4]=".src/About.class:71.35"
 File[5]=".src/battery.module:70.77"
-File[6]=".src/Disk_Drives.module:44.3"
+File[6]=".src/Disk_Drives.module:49.27"
 File[7]=".src/ScreenShot.form"
 File[8]=".src/ScreenShot.class:12.65"
 File[9]=".src/ScreenShotM.module:7.0"
@@ -38,23 +41,22 @@ File[14]=".src/FReport_Gen.class:28.37"
 File[15]=".src/Start_App_Args.form"
 File[16]=".src/Start_App_Args.class:45.8"
 File[17]=".src/ChkPrm.module:2.16"
-File[18]=".src/BIOS_microcode_update_recommended.module:2.19"
-File[19]=".src/thermal_zone.module:21.25"
-File[20]=".src/FModules.form"
-File[21]=".src/FModules.class:4.30"
-File[22]=".src/Input_Devices.module:8.1"
-File[23]=".src/net.module:104.1"
-File[24]="Data/report-ng.sh:27.44"
-File[25]=".src/Distribution_Detect.module:13.20"
-File[26]=".src/FFlags.module:71.6"
-File[27]=".src/Finfosys.class:201.2"
-File[28]=".src/FDF.form"
-File[29]=".src/FDF.class:28.69"
-File[30]=".src/FNET_R_T.form"
-File[31]=".src/FNET_R_T.class:60.10"
-Active=32
-File[32]=".src/FGraphic.module:27.61"
-Count=32
+File[18]=".src/thermal_zone.module:21.25"
+File[19]=".src/FModules.form"
+File[20]=".src/FModules.class:4.30"
+File[21]=".src/Input_Devices.module:8.1"
+Active=22
+File[22]=".src/net.module:104.1"
+File[23]="Data/report-ng.sh:27.44"
+File[24]=".src/Distribution_Detect.module:13.20"
+File[25]=".src/FFlags.module:71.6"
+File[26]=".src/Finfosys.class:8.49"
+File[27]=".src/FDF.form"
+File[28]=".src/FDF.class:28.69"
+File[29]=".src/FNET_R_T.form"
+File[30]=".src/FNET_R_T.class:60.10"
+File[31]=".src/FGraphic.module:27.61"
+Count=31
 
 [Watches]
 Count=0
