@@ -89,6 +89,23 @@ Static Public Sub ikonaprocka()
   Finfosys.PictureBox3.Picture = Picture["Processors/amd_athlon_x4.png"]
   Endif
   
+  '"Kuma"(B3, 65 nm)
+  If Finfosys.Label14.Text Like "*AMD Athlon(tm) 7*" Then
+  Finfosys.PictureBox3.Picture = Picture["Processors/amd_athlon_x2.png"]
+  Endif
+' Model Number   Stepping Frequency L2 Cache    L3 Cache HT      Multi 1 VCore TDP Socket Release Date Part Number(s)
+' Athlon X2 6500
+' Black Edition3          2300 MHz                               11.5× 1.10 - 1.25 V 95 W Socket AM2+  AD6500WCJ2BGH
+' Athlon X2 7450          2400 MHz                               12 × 1.05 - 1.325 V December 15, 2008 AD7450WCJ2BGH
+' Athlon X2 7550          2500 MHz                               12.5 × 1.05 - 1.325 V December 15, 2008 AD7550WCJ2BGH
+' Athlon X2 7750 B3       2700 MHz 2 × 512 kB   2 MB   1.8 GHz   13.5 × 1.05 - 1.325 V April 28, 2009 AD7750WCJ2BGH
+' Athlon X2 7750
+' Black Edition3          2700 MHz                               13.5 × 1.05 - 1.325 V December 15, 2008 AD775ZWCJ2BGH
+' Athlon X2 7850
+' Black Edition3          2800 MHz                               14 × 1.2 - 1.25 V April 28, 2009 AD785ZWCJ2BGH
+ 
+  
+  
   If Finfosys.Label14.Text Like "*AMD FX*" Then
   Finfosys.PictureBox3.Picture = Picture["Processors/amd_fx_eight_core_processor.png"]
   Endif

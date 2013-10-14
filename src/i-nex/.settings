@@ -1,6 +1,3 @@
-[Bookmarks]
-Finfosys=[]
-
 [Breakpoints]
 Count=0
 
@@ -39,13 +36,13 @@ File[12]=".src/Reportm.module:90.59"
 File[13]=".src/FReport_Gen.form"
 File[14]=".src/FReport_Gen.class:28.37"
 File[15]=".src/Start_App_Args.form"
-File[16]=".src/Start_App_Args.class:45.8"
+Active=16
+File[16]=".src/Start_App_Args.class:2.0"
 File[17]=".src/ChkPrm.module:2.16"
 File[18]=".src/thermal_zone.module:21.25"
 File[19]=".src/FModules.form"
 File[20]=".src/FModules.class:4.30"
 File[21]=".src/Input_Devices.module:8.1"
-Active=22
 File[22]=".src/net.module:104.1"
 File[23]="Data/report-ng.sh:27.44"
 File[24]=".src/Distribution_Detect.module:13.20"
