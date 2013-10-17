@@ -29,20 +29,24 @@ install: build
 
 binary-arch: build install
 	dh_testdir
-
-binary-indep: build install
-	dh_testdir -i
-	dh_testroot -i
-	dh_installdocs -i
-	dh_installchangelogs -i
+	dh_testroot
+	dh_installchangelogs
+	dh_installdocs
 	dh_install -i
-	dh_installmenu
-	dh_compress -i
-	dh_fixperms -i
-	dh_installdeb -i
-	dh_gencontrol -i
-	dh_md5sums -i
-	dh_builddeb -i
+	dh_installman
+	dh_installudev
+	dh_link
+	dh_strip -pedid-decode
+	dh_compress
+	dh_fixperms
+	dh_installdeb
+	dh_shlibdeps -- --warnings=6
+	dh_gencontrol
+	dh_md5sums
+	dh_builddeb
+	
+binary-indep: build install
+	
 
 binary: binary-indep binary-arch
 .PHONY: build clean binary-indep binary-arch binary install
