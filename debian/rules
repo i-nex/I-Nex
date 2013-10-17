@@ -28,25 +28,34 @@ install: build
 	touch install-stamp
 
 binary-arch: build install
-	dh_testdir
-	dh_testroot
-	dh_installchangelogs
+	dh_testdir 
+	dh_testroot 
 	dh_installdocs
-	dh_install -i
-	dh_installman
-	dh_installudev
-	dh_link
-	dh_strip -pedid-decode
+	dh_installchangelogs
+	dh_install
+	dh_installmenu
 	dh_compress
 	dh_fixperms
 	dh_installdeb
-	dh_shlibdeps -- --warnings=6
 	dh_gencontrol
 	dh_md5sums
 	dh_builddeb
+	dh_gencontrol
+	dh_md5sums
 	
 binary-indep: build install
+	dh_testdir -i
+	dh_testroot -i
+	dh_installdocs -i
+	dh_installchangelogs -i
+	dh_install -i
+	dh_installmenu -i
+	dh_compress -i
+	dh_fixperms -i
+	dh_installdeb -i
+	dh_gencontrol -i
+	dh_md5sums -i
+	dh_builddeb -i
 	
-
 binary: binary-indep binary-arch
 .PHONY: build clean binary-indep binary-arch binary install
