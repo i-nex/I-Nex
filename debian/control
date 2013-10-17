@@ -2,7 +2,7 @@ Source: i-nex
 Section: contrib/gnome
 Priority: optional
 Maintainer: eloaders <eloaders@yahoo.com>
-Build-Depends: debhelper (>= 5.0.0), gambas3-dev (>= 3.4.0), gambas3-gb-image (>= 3.4.0), gambas3-gb-gtk (>= 3.4.0), gambas3-gb-form (>= 3.4.0), gambas3-gb-desktop (>= 3.4.0), gambas3-gb-form-dialog (>= 3.4.0), gambas3-gb-settings (>= 3.4.0), gambas3-gb-form-stock (>= 3.4.0), dpkg (>= 1.15), grep (>= 2.5), mount (>= 2.17), procps, x11-xserver-utils (>= 7.5), lsb-release (>= 4.0), bash (>= 4.1), coreutils (>= 7.4), sed (>= 4.2), pciutils, x11-utils (>= 7.5), mesa-utils (>= 7.6), hostname
+Build-Depends: debhelper (>= 7), pkg-config, dpkg-dev (>= 1.14.17), gambas3-dev (>= 3.4.0), gambas3-gb-image (>= 3.4.0), gambas3-gb-gtk (>= 3.4.0), gambas3-gb-form (>= 3.4.0), gambas3-gb-desktop (>= 3.4.0), gambas3-gb-form-dialog (>= 3.4.0), gambas3-gb-settings (>= 3.4.0), gambas3-gb-form-stock (>= 3.4.0), dpkg (>= 1.15), grep (>= 2.5), mount (>= 2.17), procps, x11-xserver-utils (>= 7.5), lsb-release (>= 4.0), bash (>= 4.1), coreutils (>= 7.4), sed (>= 4.2), pciutils, x11-utils (>= 7.5), mesa-utils (>= 7.6), hostname
 Standards-Version: 3.7.2
 
 Package: i-nex
