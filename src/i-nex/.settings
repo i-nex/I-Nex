@@ -22,7 +22,7 @@ SearchString=True
 
 [OpenFile]
 File[1]=".src/Finfosys.form"
-File[2]=".src/Global.class:55.70"
+File[2]=".src/Global.class:92.57"
 File[3]=".src/About.form"
 File[4]=".src/About.class:71.35"
 File[5]=".src/battery.module:70.77"
@@ -36,7 +36,6 @@ File[12]=".src/Reportm.module:90.59"
 File[13]=".src/FReport_Gen.form"
 File[14]=".src/FReport_Gen.class:28.37"
 File[15]=".src/Start_App_Args.form"
-Active=16
 File[16]=".src/Start_App_Args.class:2.0"
 File[17]=".src/ChkPrm.module:2.16"
 File[18]=".src/thermal_zone.module:21.25"
@@ -52,7 +51,8 @@ File[27]=".src/FDF.form"
 File[28]=".src/FDF.class:28.69"
 File[29]=".src/FNET_R_T.form"
 File[30]=".src/FNET_R_T.class:60.10"
-File[31]=".src/FGraphic.module:27.61"
+Active=31
+File[31]=".src/FGraphic.module:31.50"
 Count=31
 
 [Watches]

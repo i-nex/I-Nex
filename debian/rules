@@ -5,6 +5,7 @@ build-stamp:
 	touch build-stamp
 	/usr/bin/gbc3 -e -a -g -t -p -m  src/i-nex
 	gba3 src/i-nex
+	gcc edid-decode.c -g -Wall -o inex-edid
 
 clean:
 	dh_testdir
@@ -12,7 +13,8 @@ clean:
 	rm -Rf `find . -name ".gambas"`
 	rm -Rf `find . -name "*.gambas"`
 	rm -Rf `find . -name "screenfetch-dev"`
-
+	rm -Rf `find . -name "inex-edid"`
+	
 	rm -f build-stamp install-stamp
 	dh_clean
 

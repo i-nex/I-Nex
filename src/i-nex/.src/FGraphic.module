@@ -23,12 +23,8 @@ Public Sub _check()
  Shell "cat /sys/class/drm/" & Finfosys.ComboBox8.Text & "/enabled" Wait To enabled
  Shell "cat /sys/class/drm/" & Finfosys.ComboBox8.Text & "/dpms" Wait To dpms
  
- If ChkPrm.ChkExec("edid-decode") = True
- Shell "edid-decode /sys/class/drm/" & Finfosys.ComboBox8.Text & "/edid | grep 'Monitor name' | cut -d ':' -f 2" Wait To edidd
+ Shell "/usr/bin/inex-edid /sys/class/drm/" & Finfosys.ComboBox8.Text & "/edid | grep 'Monitor name' | cut -d ':' -f 2" Wait To edidd
  Finfosys.Label100.Text = "EDID: " & Replace(edidd, "\n", "")
- Else
- Finfosys.Label100.Text = "Not faund edid-decode"
- Endif
  
  '/sys/class/drm/card0-VGA-1/dpms
  Finfosys.Label65.Text = "Status: " & Replace(status, "\n", "")
