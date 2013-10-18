@@ -21,4 +21,4 @@ README usr/share/i-nex/pastebinit
 release.conf usr/share/i-nex/pastebinit
 test.sh usr/share/i-nex/pastebinit
 utils usr/share/i-nex/pastebinit
-inex-edid usr/bin
+edid-decode usr/bin
