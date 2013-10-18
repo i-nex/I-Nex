@@ -18,16 +18,20 @@ Public Sub _inits()
 End
 
 Public Sub _check()
- Dim status, enabled, dpms, edidd As String
+ Dim status, enabled, dpms, monitor_name, manufacturer, serial_number As String
  Shell "cat /sys/class/drm/" & Finfosys.ComboBox8.Text & "/status" Wait To status
  Shell "cat /sys/class/drm/" & Finfosys.ComboBox8.Text & "/enabled" Wait To enabled
  Shell "cat /sys/class/drm/" & Finfosys.ComboBox8.Text & "/dpms" Wait To dpms
  
- Shell "/usr/bin/inex-edid /sys/class/drm/" & Finfosys.ComboBox8.Text & "/edid | grep 'Monitor name' | cut -d ':' -f 2" Wait To edidd
- Finfosys.Label100.Text = "EDID: " & Replace(edidd, "\n", "")
+ Shell "/usr/bin/inex-edid /sys/class/drm/" & Finfosys.ComboBox8.Text & "/edid | grep 'Monitor name' | cut -d ':' -f 2" Wait To monitor_name
+ Shell "/usr/bin/inex-edid /sys/class/drm/" & Finfosys.ComboBox8.Text & "/edid | grep 'Manufacturer' | cut -d ':' -f 2" Wait To manufacturer
+ Shell "/usr/bin/inex-edid /sys/class/drm/" & Finfosys.ComboBox8.Text & "/edid | grep 'Serial number' | cut -d ':' -f 2" Wait To serial_number
+ Finfosys.Label100.Text = "Monitor name: " & Replace(monitor_name, "\n", "")
  
  '/sys/class/drm/card0-VGA-1/dpms
  Finfosys.Label65.Text = "Status: " & Replace(status, "\n", "")
  Finfosys.Label66.Text = "Enabled: " & Replace(enabled, "\n", "")
  Finfosys.Label67.Text = "DPMS: " & Replace(dpms, "\n", "")
+ Finfosys.Label101.Text = "Manufacturer: " & Replace(manufacturer, "\n", "")
+ Finfosys.Label102.Text = "Serial number: " & Replace(serial_number, "\n", "")
 End

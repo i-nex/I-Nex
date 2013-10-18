@@ -285,8 +285,16 @@
       Text = ("Label67")
     }
     { Label100 Label
-      Move(14,126,168,21)
+      Move(14,126,441,21)
       Text = ("Label100")
+    }
+    { Label101 Label
+      Move(14,154,441,21)
+      Text = ("Label101")
+    }
+    { Label102 Label
+      Move(14,182,441,21)
+      Text = ("Label102")
     }
     Index = 2
     Text = ("Mobo")
