@@ -24,7 +24,7 @@
     Picture = Picture["icon:/16/camera"]
   }
   { Button3 Button
-    Move(96,498,24,24)
+    Move(84,497,24,24)
     Font = Font["10"]
     ToolTip = ("About this app")
     Picture = Picture["icon:/16/help"]
@@ -37,12 +37,12 @@
     Picture = Picture["icon:/16/quit"]
   }
   { Button12 Button
-    Move(66,498,24,24)
+    Move(56,497,24,24)
     ToolTip = ("Generate report")
     Picture = Picture["icon:/16/printer"]
   }
   { Button13 Button
-    Move(36,498,24,24)
+    Move(35,497,24,24)
     Visible = False
     ToolTip = ("Report a bug")
     Picture = Picture["icon:/16/important"]
@@ -1254,5 +1254,9 @@
       ReadOnly = True
     }
     Index = 0
+  }
+  { Button11 Button
+    Move(112,497,24,24)
+    Picture = Picture["logo/fb.png"]
   }
 }

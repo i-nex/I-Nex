@@ -574,3 +574,9 @@ Public Sub ComboBox8_Click()
  Object.Call(FGraphic, "_check")
 
 End
+
+Public Sub Button11_Click()
+
+ Desktop.Open("https://www.facebook.com/pages/I-Nex/199567416807891")
+
+End
