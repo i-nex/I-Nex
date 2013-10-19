@@ -21,9 +21,9 @@ SearchComment=False
 SearchString=True
 
 [OpenFile]
-Active=1
 File[1]=".src/Finfosys.form"
 File[2]=".src/Global.class:92.57"
+Active=3
 File[3]=".src/About.form"
 File[4]=".src/About.class:41.49"
 File[5]=".src/battery.module:70.77"
