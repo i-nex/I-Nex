@@ -1,0 +1,19 @@
+#!/bin/bash
+
+DATE=$(date -R)
+BZR_RV=$(awk {'print $1'} ./.bzr/branch/last-revision)
+INEX_VERSION=$(grep "Version=" src/i-nex/.project | cut -d "=" -f 2)
+DATE_Y_M_D=$(date +%Y%m%d)
+
+echo "i-nex ($INEX_VERSION-0~$BZR_RV~$DATE_Y_M_D) unstable; urgency=low
+
+  * next unstable
+
+ -- eloaders <eloaders@yahoo.com>  $DATE
+" >debian/changelog1
+ 
+cp debian/changelog debian/changelog_bak
+cat debian/changelog >> debian/changelog1
+mv debian/changelog1 >> debian/changelog
+dpkg-buildpackage
+mv debian/changelog_bak debian/changelog

@@ -23,3 +23,4 @@ release.conf usr/share/i-nex/pastebinit
 test.sh usr/share/i-nex/pastebinit
 utils usr/share/i-nex/pastebinit
 inex-edid usr/bin
+i-nex usr/bin
