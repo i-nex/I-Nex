@@ -1,0 +1,93 @@
+#!/bin/bash
+bindir="/usr/bin/"
+ 
+	mkdir -p $bindir
+	mkdir -p /usr/lib/gambas3/
+	mkdir -p /usr/share/pixmaps/
+	mkdir -p /usr/share/applications/
+	mkdir -p /etc/apport/crashdb.conf.d/
+	mkdir -p /usr/share/apport/package-hooks/
+	mkdir -p /usr/share/doc/i-nex/
+	mkdir -p /usr/share/i-nex/pastebinit/
+	mkdir -p /usr/share/i-nex/pastebinit/pastebin.d/
+	mkdir -p /usr/share/i-nex/pastebinit/po/
+	mkdir -p /usr/share/i-nex/pastebinit/utils/
+	install -m 0755 usr/bin/i-nex $bindir
+	install -m 0755 usr/bin/inex-edid $bindir
+	install -m 0755 usr/bin/i-nex.gambas $bindir
+	install -m 0755 usr/share/pixmaps/i-nex.0.4.x.png /usr/share/pixmaps/
+	install -m 0755 usr/share/applications/i-nex.desktop /usr/share/applications/
+	install -m 0755 usr/bin/check_kernel /usr/bin/
+	install -m 0755 usr/bin/i-nex-lspci /usr/bin/
+	install -m 0755 etc/apport/crashdb.conf.d/inex-crashdb.conf /etc/apport/crashdb.conf.d/
+	install -m 0755 usr/share/apport/package-hooks/i-nex.py /usr/share/apport/package-hooks/
+	install -m 0755 usr/share/doc/i-nex/changelog-0.4.6 /usr/share/doc/i-nex/
+	install -m 0755 usr/share/doc/i-nex/changelog-0.4.8 /usr/share/doc/i-nex/
+	install -m 0755 usr/share/doc/i-nex/changelog-0.4.8.1 /usr/share/doc/i-nex/
+	install -m 0755 usr/share/doc/i-nex/changelog-0.5.0 /usr/share/doc/i-nex/
+	install -m 0755 usr/share/doc/i-nex/changelog-0.5.1 /usr/share/doc/i-nex/
+	install -m 0755 usr/share/doc/i-nex/changelog-0.5.2 /usr/share/doc/i-nex/
+	install -m 0755 usr/share/doc/i-nex/changelog-0.5.4 /usr/share/doc/i-nex/
+	install -m 0755 usr/share/doc/i-nex/LICENSE /usr/share/doc/i-nex/
+	install -m 0755 usr/share/i-nex/pastebinit/COPYING /usr/share/i-nex/pastebinit/
+	install -m 0755 usr/share/i-nex/pastebinit/pastebin.d/* /usr/share/i-nex/pastebinit/pastebin.d/
+	install -m 0755 usr/share/i-nex/pastebinit/pastebinit /usr/share/i-nex/pastebinit/
+	install -m 0755 usr/share/i-nex/pastebinit/pastebinit.xml /usr/share/i-nex/pastebinit/
+	install -m 0755 usr/share/i-nex/pastebinit/po/* /usr/share/i-nex/pastebinit/po/
+	install -m 0755 usr/share/i-nex/pastebinit/README /usr/share/i-nex/pastebinit/
+	install -m 0755 usr/share/i-nex/pastebinit/release.conf /usr/share/i-nex/pastebinit/
+	install -m 0755 usr/share/i-nex/pastebinit/test.sh /usr/share/i-nex/pastebinit/
+	install -m 0755 usr/share/i-nex/pastebinit/utils/* /usr/share/i-nex/pastebinit/utils/
+	install -m 0775 usr/bin/gbx3 /usr/bin/gbx3
+	install -m 0775 usr/bin/gbr3 /usr/bin/gbr3
+	install -m 0775 usr/lib/gambas3/gb.component /usr/lib/gambas3/
+	install -m 0775 usr/lib/gambas3/gb.debug.component /usr/lib/gambas3/
+	install -m 0775 usr/lib/gambas3/gb.debug.so /usr/lib/gambas3/
+	install -m 0775 usr/lib/gambas3/gb.debug.so.0 /usr/lib/gambas3/
+	install -m 0775 usr/lib/gambas3/gb.debug.so.0.0.0 /usr/lib/gambas3/
+	install -m 0775 usr/lib/gambas3/gb.desktop.component /usr/lib/gambas3/
+	install -m 0775 usr/lib/gambas3/gb.desktop.gambas /usr/lib/gambas3/
+	install -m 0775 usr/lib/gambas3/gb.desktop.gnome.so /usr/lib/gambas3/
+	install -m 0775 usr/lib/gambas3/gb.desktop.gnome.so.0 /usr/lib/gambas3/
+	install -m 0775 usr/lib/gambas3/gb.desktop.gnome.so.0.0.0 /usr/lib/gambas3/
+	install -m 0775 usr/lib/gambas3/gb.desktop.so /usr/lib/gambas3/
+	install -m 0775 usr/lib/gambas3/gb.desktop.so.0 /usr/lib/gambas3/
+	install -m 0775 usr/lib/gambas3/gb.desktop.so.0.0.0 /usr/lib/gambas3/
+	install -m 0775 usr/lib/gambas3/gb.draw.so /usr/lib/gambas3/
+	install -m 0775 usr/lib/gambas3/gb.draw.so.0 /usr/lib/gambas3/
+	install -m 0775 usr/lib/gambas3/gb.draw.so.0.0.0 /usr/lib/gambas3/
+	install -m 0775 usr/lib/gambas3/gb.eval.component /usr/lib/gambas3/
+	install -m 0775 usr/lib/gambas3/gb.eval.so /usr/lib/gambas3/
+	install -m 0775 usr/lib/gambas3/gb.eval.so.0 /usr/lib/gambas3/
+	install -m 0775 usr/lib/gambas3/gb.eval.so.0.0.0 /usr/lib/gambas3/
+	install -m 0775 usr/lib/gambas3/gb.form.component /usr/lib/gambas3/
+	install -m 0775 usr/lib/gambas3/gb.form.dialog.component /usr/lib/gambas3/
+	install -m 0775 usr/lib/gambas3/gb.form.dialog.gambas /usr/lib/gambas3/
+	install -m 0775 usr/lib/gambas3/gb.form.gambas /usr/lib/gambas3/
+	install -m 0775 usr/lib/gambas3/gb.form.stock.component /usr/lib/gambas3/
+	install -m 0775 usr/lib/gambas3/gb.form.stock.gambas /usr/lib/gambas3/
+	install -m 0775 usr/lib/gambas3/gb.geom.so /usr/lib/gambas3/
+	install -m 0775 usr/lib/gambas3/gb.geom.so.0 /usr/lib/gambas3/
+	install -m 0775 usr/lib/gambas3/gb.geom.so.0.0.0 /usr/lib/gambas3/
+	install -m 0775 usr/lib/gambas3/gb.gtk.component /usr/lib/gambas3/
+	install -m 0775 usr/lib/gambas3/gb.gtk.so /usr/lib/gambas3/
+	install -m 0775 usr/lib/gambas3/gb.gtk.so.0 /usr/lib/gambas3/
+	install -m 0775 usr/lib/gambas3/gb.gtk.so.0.0.0 /usr/lib/gambas3/
+	install -m 0775 usr/lib/gambas3/gb.gui.base.component /usr/lib/gambas3/
+	install -m 0775 usr/lib/gambas3/gb.gui.base.gambas /usr/lib/gambas3/
+	install -m 0775 usr/lib/gambas3/gb.image.component /usr/lib/gambas3/
+	install -m 0775 usr/lib/gambas3/gb.image.so /usr/lib/gambas3/
+	install -m 0775 usr/lib/gambas3/gb.image.so.0 /usr/lib/gambas3/
+	install -m 0775 usr/lib/gambas3/gb.image.so.0.0.0 /usr/lib/gambas3/
+	install -m 0775 usr/lib/gambas3/gb.settings.component /usr/lib/gambas3/
+	install -m 0775 usr/lib/gambas3/gb.settings.gambas /usr/lib/gambas3/
+	install -m 0775 usr/lib/gambas3/gb.so /usr/lib/gambas3/
+	install -m 0775 usr/lib/gambas3/gb.so.0 /usr/lib/gambas3/
+	install -m 0775 usr/lib/gambas3/gb.so.0.0.0 /usr/lib/gambas3/
+	install -m 0775 usr/lib/gambas3/gb.gui.component /usr/lib/gambas3/
+	install -m 0775 usr/lib/gambas3/gb.gui.so.0.0.0 /usr/lib/gambas3/
+	install -m 0775 usr/lib/gambas3/gb.gui.so /usr/lib/gambas3/
+	install -m 0775 usr/lib/gambas3/gb.gui.so.0 /usr/lib/gambas3/
+	install -m 0775 usr/lib/gambas3/gb.qt4.so.0.0.0 /usr/lib/gambas3/
+	install -m 0775 usr/lib/gambas3/gb.qt4.so /usr/lib/gambas3/
+	install -m 0775 usr/lib/gambas3/gb.qt4.so.0 /usr/lib/gambas3/

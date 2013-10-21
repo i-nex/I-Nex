@@ -37,12 +37,116 @@ deb:
 	apt-get install $(dependency_build)
 	./build-deb
 	
+self:
+
+	./build-selfexecutable
+	mkdir -p inex
+	mkdir -p inex$(bindir)
+	mkdir -p inex/usr/lib/gambas3/
+	mkdir -p inex/usr/share/pixmaps/
+	mkdir -p inex/usr/share/applications/
+	mkdir -p inex/etc/apport/crashdb.conf.d/
+	mkdir -p inex/usr/share/apport/package-hooks/
+	mkdir -p inex/usr/share/doc/i-nex/
+	mkdir -p inex/usr/share/i-nex/pastebinit/
+	mkdir -p inex/usr/share/i-nex/pastebinit/pastebin.d/
+	mkdir -p inex/usr/share/i-nex/pastebinit/po/
+	mkdir -p inex/usr/share/i-nex/pastebinit/utils/
+	chmod +x i-nex
+	chmod +x inex-edid
+	chmod +x debian/check_kernel
+	chmod +x debian/i-nex-lspci
+	install -m 0755 i-nex inex$(bindir)
+	install -m 0755 inex-edid inex$(bindir)
+	install -m 0755 src/i-nex/i-nex.gambas inex$(bindir)
+	install -m 0755 src/i-nex/logo/i-nex.0.4.x.png inex/usr/share/pixmaps/
+	install -m 0755 debian/i-nex.desktop inex/usr/share/applications/
+	install -m 0755 debian/check_kernel inex/usr/bin/
+	install -m 0755 debian/i-nex-lspci inex/usr/bin/
+	install -m 0755 debian/inex-crashdb.conf inex/etc/apport/crashdb.conf.d/
+	install -m 0755 debian/i-nex.py inex/usr/share/apport/package-hooks/
+	install -m 0755 debian/changelog-0.4.6 inex/usr/share/doc/i-nex/
+	install -m 0755 debian/changelog-0.4.8 inex/usr/share/doc/i-nex/
+	install -m 0755 debian/changelog-0.4.8.1 inex/usr/share/doc/i-nex/
+	install -m 0755 debian/changelog-0.5.0 inex/usr/share/doc/i-nex/
+	install -m 0755 debian/changelog-0.5.1 inex/usr/share/doc/i-nex/
+	install -m 0755 debian/changelog-0.5.2 inex/usr/share/doc/i-nex/
+	install -m 0755 debian/changelog-0.5.4 inex/usr/share/doc/i-nex/
+	install -m 0755 LICENSE inex/usr/share/doc/i-nex/
+	install -m 0755 COPYING inex/usr/share/i-nex/pastebinit/
+	install -m 0755 pastebin.d/* inex/usr/share/i-nex/pastebinit/pastebin.d/
+	install -m 0755 pastebinit inex/usr/share/i-nex/pastebinit/
+	install -m 0755 pastebinit.xml inex/usr/share/i-nex/pastebinit/
+	install -m 0755 po/* inex/usr/share/i-nex/pastebinit/po/
+	install -m 0755 README inex/usr/share/i-nex/pastebinit/
+	install -m 0755 release.conf inex/usr/share/i-nex/pastebinit/
+	install -m 0755 test.sh inex/usr/share/i-nex/pastebinit/
+	install -m 0755 utils/* inex/usr/share/i-nex/pastebinit/utils/
+	install -m 0775 usr/bin/gbx3 inex/usr/bin/gbx3
+	install -m 0775 usr/bin/gbr3 inex/usr/bin/gbr3
+	install -m 0775 usr/lib/gambas3/gb.component inex/usr/lib/gambas3/
+	install -m 0775 usr/lib/gambas3/gb.debug.component inex/usr/lib/gambas3/
+	install -m 0775 usr/lib/gambas3/gb.debug.so inex/usr/lib/gambas3/
+	install -m 0775 usr/lib/gambas3/gb.debug.so.0 inex/usr/lib/gambas3/
+	install -m 0775 usr/lib/gambas3/gb.debug.so.0.0.0 inex/usr/lib/gambas3/
+	install -m 0775 usr/lib/gambas3/gb.desktop.component inex/usr/lib/gambas3/
+	install -m 0775 usr/lib/gambas3/gb.desktop.gambas inex/usr/lib/gambas3/
+	install -m 0775 usr/lib/gambas3/gb.desktop.gnome.so inex/usr/lib/gambas3/
+	install -m 0775 usr/lib/gambas3/gb.desktop.gnome.so.0 inex/usr/lib/gambas3/
+	install -m 0775 usr/lib/gambas3/gb.desktop.gnome.so.0.0.0 inex/usr/lib/gambas3/
+	install -m 0775 usr/lib/gambas3/gb.desktop.so inex/usr/lib/gambas3/
+	install -m 0775 usr/lib/gambas3/gb.desktop.so.0 inex/usr/lib/gambas3/
+	install -m 0775 usr/lib/gambas3/gb.desktop.so.0.0.0 inex/usr/lib/gambas3/
+	install -m 0775 usr/lib/gambas3/gb.draw.so inex/usr/lib/gambas3/
+	install -m 0775 usr/lib/gambas3/gb.draw.so.0 inex/usr/lib/gambas3/
+	install -m 0775 usr/lib/gambas3/gb.draw.so.0.0.0 inex/usr/lib/gambas3/
+	install -m 0775 usr/lib/gambas3/gb.eval.component inex/usr/lib/gambas3/
+	install -m 0775 usr/lib/gambas3/gb.eval.so inex/usr/lib/gambas3/
+	install -m 0775 usr/lib/gambas3/gb.eval.so.0 inex/usr/lib/gambas3/
+	install -m 0775 usr/lib/gambas3/gb.eval.so.0.0.0 inex/usr/lib/gambas3/
+	install -m 0775 usr/lib/gambas3/gb.form.component inex/usr/lib/gambas3/
+	install -m 0775 usr/lib/gambas3/gb.form.dialog.component inex/usr/lib/gambas3/
+	install -m 0775 usr/lib/gambas3/gb.form.dialog.gambas inex/usr/lib/gambas3/
+	install -m 0775 usr/lib/gambas3/gb.form.gambas inex/usr/lib/gambas3/
+	install -m 0775 usr/lib/gambas3/gb.form.stock.component inex/usr/lib/gambas3/
+	install -m 0775 usr/lib/gambas3/gb.form.stock.gambas inex/usr/lib/gambas3/
+	install -m 0775 usr/lib/gambas3/gb.geom.so inex/usr/lib/gambas3/
+	install -m 0775 usr/lib/gambas3/gb.geom.so.0 inex/usr/lib/gambas3/
+	install -m 0775 usr/lib/gambas3/gb.geom.so.0.0.0 inex/usr/lib/gambas3/
+	install -m 0775 usr/lib/gambas3/gb.gtk.component inex/usr/lib/gambas3/
+	install -m 0775 usr/lib/gambas3/gb.gtk.so inex/usr/lib/gambas3/
+	install -m 0775 usr/lib/gambas3/gb.gtk.so.0 inex/usr/lib/gambas3/
+	install -m 0775 usr/lib/gambas3/gb.gtk.so.0.0.0 inex/usr/lib/gambas3/
+	install -m 0775 usr/lib/gambas3/gb.gui.base.component inex/usr/lib/gambas3/
+	install -m 0775 usr/lib/gambas3/gb.gui.base.gambas inex/usr/lib/gambas3/
+	install -m 0775 usr/lib/gambas3/gb.image.component inex/usr/lib/gambas3/
+	install -m 0775 usr/lib/gambas3/gb.image.so inex/usr/lib/gambas3/
+	install -m 0775 usr/lib/gambas3/gb.image.so.0 inex/usr/lib/gambas3/
+	install -m 0775 usr/lib/gambas3/gb.image.so.0.0.0 inex/usr/lib/gambas3/
+	install -m 0775 usr/lib/gambas3/gb.settings.component inex/usr/lib/gambas3/
+	install -m 0775 usr/lib/gambas3/gb.settings.gambas inex/usr/lib/gambas3/
+	install -m 0775 usr/lib/gambas3/gb.so inex/usr/lib/gambas3/
+	install -m 0775 usr/lib/gambas3/gb.so.0 inex/usr/lib/gambas3/
+	install -m 0775 usr/lib/gambas3/gb.so.0.0.0 inex/usr/lib/gambas3/
+	install -m 0775 usr/lib/gambas3/gb.gui.component inex/usr/lib/gambas3/
+	install -m 0775 usr/lib/gambas3/gb.gui.so.0.0.0 inex/usr/lib/gambas3/
+	install -m 0775 usr/lib/gambas3/gb.gui.so inex/usr/lib/gambas3/
+	install -m 0775 usr/lib/gambas3/gb.gui.so.0 inex/usr/lib/gambas3/
+	install -m 0775 usr/lib/gambas3/gb.qt4.so.0.0.0 inex/usr/lib/gambas3/
+	install -m 0775 usr/lib/gambas3/gb.qt4.so inex/usr/lib/gambas3/
+	install -m 0775 usr/lib/gambas3/gb.qt4.so.0 inex/usr/lib/gambas3/
+	install -m 0775 install-self inex/install-self 
+	chmod +x inex/install-self
+	./makeself.sh --nowait --nox11 ./inex i-nex.run I-Nex ./install-self
 clean:
 	rm -f inex-edid
 	rm -Rf `find . -name ".gambas"`
 	rm -Rf `find . -name "*.gambas"`
 	rm -Rf `find . -name "screenfetch-dev"`
 	rm -Rf `find . -name ".directory"`
+	rm -Rf `find . -name "*.deb"`
+	rm -f index.html
+	rm -f i-nex.run
 	rm -Rf debian/files
 	rm -Rf debian/i-nex
 	rm -Rf debian/i-nex.debhelper.log
@@ -50,51 +154,54 @@ clean:
 	rm -Rf debian/i-nex.postrm.debhelper
 	rm -Rf debian/i-nex.substvars
 	rm -Rf debian/changelog1
+	rm -Rf inex
+	rm -Rf usr
 
 	
 install:
-	mkdir -p $(DESTDIR)$(bindir)
-	mkdir -p $(DESTDIR)/usr/share/pixmaps/
-	mkdir -p $(DESTDIR)/usr/share/applications/
-	mkdir -p $(DESTDIR)/etc/apport/crashdb.conf.d/
-	mkdir -p $(DESTDIR)/usr/share/apport/package-hooks/
-	mkdir -p $(DESTDIR)/usr/share/doc/i-nex/
-	mkdir -p $(DESTDIR)/usr/share/i-nex/pastebinit/
-	mkdir -p $(DESTDIR)/usr/share/i-nex/pastebinit/pastebin.d/
-	mkdir -p $(DESTDIR)/usr/share/i-nex/pastebinit/po/
-	mkdir -p $(DESTDIR)/usr/share/i-nex/pastebinit/utils/
+	mkdir -p inex$(bindir)
+	mkdir -p inex/usr/share/pixmaps/
+	mkdir -p inex/usr/share/applications/
+	mkdir -p inex/etc/apport/crashdb.conf.d/
+	mkdir -p inex/usr/share/apport/package-hooks/
+	mkdir -p inex/usr/share/doc/i-nex/
+	mkdir -p inex/usr/share/i-nex/pastebinit/
+	mkdir -p inex/usr/share/i-nex/pastebinit/pastebin.d/
+	mkdir -p inex/usr/share/i-nex/pastebinit/po/
+	mkdir -p inex/usr/share/i-nex/pastebinit/utils/
 	chmod +x i-nex
 	chmod +x inex-edid
 	chmod +x debian/check_kernel
 	chmod +x debian/i-nex-lspci
-	install -m 0755 i-nex $(DESTDIR)$(bindir)
-	install -m 0755 inex-edid $(DESTDIR)$(bindir)
-	install -m 0755 src/i-nex/i-nex.gambas $(DESTDIR)$(bindir)
-	install -m 0755 src/i-nex/logo/i-nex.0.4.x.png $(DESTDIR)/usr/share/pixmaps/
-	install -m 0755 debian/i-nex.desktop $(DESTDIR)/usr/share/applications/
-	install -m 0755 debian/check_kernel $(DESTDIR)/usr/bin/
-	install -m 0755 debian/i-nex-lspci $(DESTDIR)/usr/bin/
-	install -m 0755 debian/inex-crashdb.conf $(DESTDIR)/etc/apport/crashdb.conf.d/
-	install -m 0755 debian/i-nex.py $(DESTDIR)/usr/share/apport/package-hooks/
-	install -m 0755 debian/changelog-0.4.6 $(DESTDIR)/usr/share/doc/i-nex/
-	install -m 0755 debian/changelog-0.4.8 $(DESTDIR)/usr/share/doc/i-nex/
-	install -m 0755 debian/changelog-0.4.8.1 $(DESTDIR)/usr/share/doc/i-nex/
-	install -m 0755 debian/changelog-0.5.0 $(DESTDIR)/usr/share/doc/i-nex/
-	install -m 0755 debian/changelog-0.5.1 $(DESTDIR)/usr/share/doc/i-nex/
-	install -m 0755 debian/changelog-0.5.2 $(DESTDIR)/usr/share/doc/i-nex/
-	install -m 0755 debian/changelog-0.5.4 $(DESTDIR)/usr/share/doc/i-nex/
-	install -m 0755 LICENSE $(DESTDIR)/usr/share/doc/i-nex/
-	install -m 0755 COPYING $(DESTDIR)/usr/share/i-nex/pastebinit/
-	install -m 0755 pastebin.d/* $(DESTDIR)/usr/share/i-nex/pastebinit/pastebin.d/
-	install -m 0755 pastebinit $(DESTDIR)/usr/share/i-nex/pastebinit/
-	install -m 0755 pastebinit.xml $(DESTDIR)/usr/share/i-nex/pastebinit/
-	install -m 0755 po/* $(DESTDIR)/usr/share/i-nex/pastebinit/po/
-	install -m 0755 README $(DESTDIR)/usr/share/i-nex/pastebinit/
-	install -m 0755 release.conf $(DESTDIR)/usr/share/i-nex/pastebinit/
-	install -m 0755 test.sh $(DESTDIR)/usr/share/i-nex/pastebinit/
-	install -m 0755 utils/* $(DESTDIR)/usr/share/i-nex/pastebinit/utils/
+	install -m 0755 i-nex inex$(bindir)
+	install -m 0755 inex-edid inex$(bindir)
+	install -m 0755 src/i-nex/i-nex.gambas inex$(bindir)
+	install -m 0755 src/i-nex/logo/i-nex.0.4.x.png inex/usr/share/pixmaps/
+	install -m 0755 debian/i-nex.desktop inex/usr/share/applications/
+	install -m 0755 debian/check_kernel inex/usr/bin/
+	install -m 0755 debian/i-nex-lspci inex/usr/bin/
+	install -m 0755 debian/inex-crashdb.conf inex/etc/apport/crashdb.conf.d/
+	install -m 0755 debian/i-nex.py inex/usr/share/apport/package-hooks/
+	install -m 0755 debian/changelog-0.4.6 inex/usr/share/doc/i-nex/
+	install -m 0755 debian/changelog-0.4.8 inex/usr/share/doc/i-nex/
+	install -m 0755 debian/changelog-0.4.8.1 inex/usr/share/doc/i-nex/
+	install -m 0755 debian/changelog-0.5.0 inex/usr/share/doc/i-nex/
+	install -m 0755 debian/changelog-0.5.1 inex/usr/share/doc/i-nex/
+	install -m 0755 debian/changelog-0.5.2 inex/usr/share/doc/i-nex/
+	install -m 0755 debian/changelog-0.5.4 inex/usr/share/doc/i-nex/
+	install -m 0755 LICENSE inex/usr/share/doc/i-nex/
+	install -m 0755 COPYING inex/usr/share/i-nex/pastebinit/
+	install -m 0755 pastebin.d/* inex/usr/share/i-nex/pastebinit/pastebin.d/
+	install -m 0755 pastebinit inex/usr/share/i-nex/pastebinit/
+	install -m 0755 pastebinit.xml inex/usr/share/i-nex/pastebinit/
+	install -m 0755 po/* inex/usr/share/i-nex/pastebinit/po/
+	install -m 0755 README inex/usr/share/i-nex/pastebinit/
+	install -m 0755 release.conf inex/usr/share/i-nex/pastebinit/
+	install -m 0755 test.sh inex/usr/share/i-nex/pastebinit/
+	install -m 0755 utils/* inex/usr/share/i-nex/pastebinit/utils/
 	update-desktop-database
 	update-menus
+	
 uninstall:
 
 	rm $(bindir)/i-nex
