@@ -40,54 +40,20 @@ bindir="/usr/bin/"
 	install -m 0755 usr/share/i-nex/pastebinit/utils/* /usr/share/i-nex/pastebinit/utils/
 	install -m 0775 usr/bin/gbx3 /usr/bin/gbx3
 	install -m 0775 usr/bin/gbr3 /usr/bin/gbr3
-	install -m 0775 usr/lib/gambas3/gb.component /usr/lib/gambas3/
-	install -m 0775 usr/lib/gambas3/gb.debug.component /usr/lib/gambas3/
 	install -m 0775 usr/lib/gambas3/gb.debug.so /usr/lib/gambas3/
-	install -m 0775 usr/lib/gambas3/gb.debug.so.0 /usr/lib/gambas3/
-	install -m 0775 usr/lib/gambas3/gb.debug.so.0.0.0 /usr/lib/gambas3/
-	install -m 0775 usr/lib/gambas3/gb.desktop.component /usr/lib/gambas3/
 	install -m 0775 usr/lib/gambas3/gb.desktop.gambas /usr/lib/gambas3/
 	install -m 0775 usr/lib/gambas3/gb.desktop.gnome.so /usr/lib/gambas3/
-	install -m 0775 usr/lib/gambas3/gb.desktop.gnome.so.0 /usr/lib/gambas3/
-	install -m 0775 usr/lib/gambas3/gb.desktop.gnome.so.0.0.0 /usr/lib/gambas3/
 	install -m 0775 usr/lib/gambas3/gb.desktop.so /usr/lib/gambas3/
-	install -m 0775 usr/lib/gambas3/gb.desktop.so.0 /usr/lib/gambas3/
-	install -m 0775 usr/lib/gambas3/gb.desktop.so.0.0.0 /usr/lib/gambas3/
 	install -m 0775 usr/lib/gambas3/gb.draw.so /usr/lib/gambas3/
-	install -m 0775 usr/lib/gambas3/gb.draw.so.0 /usr/lib/gambas3/
-	install -m 0775 usr/lib/gambas3/gb.draw.so.0.0.0 /usr/lib/gambas3/
-	install -m 0775 usr/lib/gambas3/gb.eval.component /usr/lib/gambas3/
 	install -m 0775 usr/lib/gambas3/gb.eval.so /usr/lib/gambas3/
-	install -m 0775 usr/lib/gambas3/gb.eval.so.0 /usr/lib/gambas3/
-	install -m 0775 usr/lib/gambas3/gb.eval.so.0.0.0 /usr/lib/gambas3/
-	install -m 0775 usr/lib/gambas3/gb.form.component /usr/lib/gambas3/
-	install -m 0775 usr/lib/gambas3/gb.form.dialog.component /usr/lib/gambas3/
 	install -m 0775 usr/lib/gambas3/gb.form.dialog.gambas /usr/lib/gambas3/
 	install -m 0775 usr/lib/gambas3/gb.form.gambas /usr/lib/gambas3/
-	install -m 0775 usr/lib/gambas3/gb.form.stock.component /usr/lib/gambas3/
 	install -m 0775 usr/lib/gambas3/gb.form.stock.gambas /usr/lib/gambas3/
 	install -m 0775 usr/lib/gambas3/gb.geom.so /usr/lib/gambas3/
-	install -m 0775 usr/lib/gambas3/gb.geom.so.0 /usr/lib/gambas3/
-	install -m 0775 usr/lib/gambas3/gb.geom.so.0.0.0 /usr/lib/gambas3/
-	install -m 0775 usr/lib/gambas3/gb.gtk.component /usr/lib/gambas3/
 	install -m 0775 usr/lib/gambas3/gb.gtk.so /usr/lib/gambas3/
-	install -m 0775 usr/lib/gambas3/gb.gtk.so.0 /usr/lib/gambas3/
-	install -m 0775 usr/lib/gambas3/gb.gtk.so.0.0.0 /usr/lib/gambas3/
-	install -m 0775 usr/lib/gambas3/gb.gui.base.component /usr/lib/gambas3/
 	install -m 0775 usr/lib/gambas3/gb.gui.base.gambas /usr/lib/gambas3/
-	install -m 0775 usr/lib/gambas3/gb.image.component /usr/lib/gambas3/
 	install -m 0775 usr/lib/gambas3/gb.image.so /usr/lib/gambas3/
-	install -m 0775 usr/lib/gambas3/gb.image.so.0 /usr/lib/gambas3/
-	install -m 0775 usr/lib/gambas3/gb.image.so.0.0.0 /usr/lib/gambas3/
-	install -m 0775 usr/lib/gambas3/gb.settings.component /usr/lib/gambas3/
 	install -m 0775 usr/lib/gambas3/gb.settings.gambas /usr/lib/gambas3/
 	install -m 0775 usr/lib/gambas3/gb.so /usr/lib/gambas3/
-	install -m 0775 usr/lib/gambas3/gb.so.0 /usr/lib/gambas3/
-	install -m 0775 usr/lib/gambas3/gb.so.0.0.0 /usr/lib/gambas3/
-	install -m 0775 usr/lib/gambas3/gb.gui.component /usr/lib/gambas3/
-	install -m 0775 usr/lib/gambas3/gb.gui.so.0.0.0 /usr/lib/gambas3/
 	install -m 0775 usr/lib/gambas3/gb.gui.so /usr/lib/gambas3/
-	install -m 0775 usr/lib/gambas3/gb.gui.so.0 /usr/lib/gambas3/
-	install -m 0775 usr/lib/gambas3/gb.qt4.so.0.0.0 /usr/lib/gambas3/
 	install -m 0775 usr/lib/gambas3/gb.qt4.so /usr/lib/gambas3/
-	install -m 0775 usr/lib/gambas3/gb.qt4.so.0 /usr/lib/gambas3/
