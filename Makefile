@@ -166,8 +166,6 @@ install:
 	install -m 0755 release.conf inex/usr/share/i-nex/pastebinit/
 	install -m 0755 test.sh inex/usr/share/i-nex/pastebinit/
 	install -m 0755 utils/* inex/usr/share/i-nex/pastebinit/utils/
-	update-desktop-database
-	update-menus
 	
 uninstall:
 
