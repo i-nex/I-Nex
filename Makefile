@@ -103,7 +103,9 @@ self:
 	install -m 0775 usr/lib/gambas3/gb.gui.so inex/usr/lib/gambas3/
 	install -m 0775 usr/lib/gambas3/gb.qt4.so inex/usr/lib/gambas3/
 	install -m 0775 install-self inex/install-self 
+	install -m 0775 install-self-inex inex/install-self-inex
 	chmod +x inex/install-self
+	chmod +x inex/install-self-inex
 	./makeself.sh --nowait --nox11 ./inex i-nex.run I-Nex ./install-self
 clean:
 	rm -f inex-edid

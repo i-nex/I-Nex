@@ -192,8 +192,8 @@ Public Sub System()
   Distribution_Detect._init
   TextBox60.Text = File.Load("" & User.Home & "/.i-nex/DistributionVendor.conf")
   TextBox61.Text = File.Load("" & User.Home & "/.i-nex/DistributionRelease.conf")
-  Replace(TextBox60.Text, "\n", "")
-  Replace(TextBox61.Text, "\n", "")
+  Replace(Replace(TextBox60.Text, " ", ""), "\n", "")
+  Replace(Replace(TextBox61.Text, " ", ""), "\n", "")
 End
 
 Public Sub grafika()
@@ -223,9 +223,9 @@ Public Sub grafika()
     Message.Warning("Not found xrandr")
   Endif
   Label64.Text = "Total Memory: " & Replace(memory_prefetchable, "\n", "")
-  Label105.Text = "OpenGl Vendor: " & Replace(opengl_vendor_string, "\n", "")
-  Label106.Text = "OpenGl Renderer: " & Replace(opengl_renderer_string, "\n", "")
-  Label107.Text = "OpenGl Version: " & Replace(opengl_version_string, "\n", "")
+  Label105.Text = "OpenGL Vendor: " & Replace(opengl_vendor_string, "\n", "")
+  Label106.Text = "OpenGL Renderer: " & Replace(opengl_renderer_string, "\n", "")
+  Label107.Text = "OpenGL Version: " & Replace(opengl_version_string, "\n", "")
   Label108.Text = "Present resolution: " & Replace(rozdzielczosc, "\n", "")
   TextBox1.Text = RTrim(Replace(gpu, "\n", ""))
   Label109.Text = Replace(available_resolutions, "\n", "")

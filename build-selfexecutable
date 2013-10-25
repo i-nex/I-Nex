@@ -2,25 +2,25 @@
 URL_DOWN="http://ppa.launchpad.net/nemh/gambas3/ubuntu/pool/main/g/gambas3/"
 wget -c $URL_DOWN
 ARCHITECTURE=$(dpkg --print-architecture)
-GB3_GB_IMAGE=$(cat ./index.html | egrep gambas3-gb-image_ | egrep $ARCHITECTURE.deb | sed -n '1p' | awk {'print $6'} | cut -d ">" -f 2 | cut -d '<' -f 1)
+GB3_GB_IMAGE=$(cat ./index.html | egrep gambas3-gb-image_ | egrep saucy | egrep $ARCHITECTURE.deb | sed -n '1p' | awk {'print $6'} | cut -d ">" -f 2 | cut -d '<' -f 1)
 
-GB3_GB_GTK=$(cat ./index.html | egrep gambas3-gb-gtk_ | egrep $ARCHITECTURE.deb | sed -n '1p' | awk {'print $6'} | cut -d ">" -f 2 | cut -d '<' -f 1)
+GB3_GB_GTK=$(cat ./index.html | egrep gambas3-gb-gtk_ | egrep saucy | egrep $ARCHITECTURE.deb | sed -n '1p' | awk {'print $6'} | cut -d ">" -f 2 | cut -d '<' -f 1)
 
-GB3_GB_FORM=$(cat ./index.html | egrep gambas3-gb-form_ | egrep all.deb | sed -n '1p' | awk {'print $6'} | cut -d ">" -f 2 | cut -d '<' -f 1)
+GB3_GB_FORM=$(cat ./index.html | egrep gambas3-gb-form_ | egrep saucy | egrep all.deb | sed -n '1p' | awk {'print $6'} | cut -d ">" -f 2 | cut -d '<' -f 1)
 
-GB3_GB_DESKTOP=$(cat ./index.html | egrep gambas3-gb-desktop_ | egrep $ARCHITECTURE.deb | sed -n '1p' | awk {'print $6'} | cut -d ">" -f 2 | cut -d '<' -f 1)
+GB3_GB_DESKTOP=$(cat ./index.html | egrep gambas3-gb-desktop_ | egrep saucy | egrep $ARCHITECTURE.deb | sed -n '1p' | awk {'print $6'} | cut -d ">" -f 2 | cut -d '<' -f 1)
 
-GB3_GB_FORM_DIALOG=$(cat ./index.html | egrep gambas3-gb-form-dialog_ | egrep all.deb | sed -n '1p' | awk {'print $6'} | cut -d ">" -f 2 | cut -d '<' -f 1)
+GB3_GB_FORM_DIALOG=$(cat ./index.html | egrep gambas3-gb-form-dialog_ | egrep saucy | egrep all.deb | sed -n '1p' | awk {'print $6'} | cut -d ">" -f 2 | cut -d '<' -f 1)
 
-GB3_GB_SETTINGS=$(cat ./index.html | egrep gambas3-gb-settings_ | egrep all.deb | sed -n '1p' | awk {'print $6'} | cut -d ">" -f 2 | cut -d '<' -f 1)
+GB3_GB_SETTINGS=$(cat ./index.html | egrep gambas3-gb-settings_ | egrep saucy | egrep all.deb | sed -n '1p' | awk {'print $6'} | cut -d ">" -f 2 | cut -d '<' -f 1)
 
-GB3_GB_FORM_STOCK=$(cat ./index.html | egrep gambas3-gb-form-stock_ | egrep all.deb | sed -n '1p' | awk {'print $6'} | cut -d ">" -f 2 | cut -d '<' -f 1)
+GB3_GB_FORM_STOCK=$(cat ./index.html | egrep gambas3-gb-form-stock_ | egrep saucy | egrep all.deb | sed -n '1p' | awk {'print $6'} | cut -d ">" -f 2 | cut -d '<' -f 1)
 
-GB3_RUNTIME=$(cat ./index.html | egrep gambas3-runtime_ | egrep $ARCHITECTURE.deb | sed -n '1p' | awk {'print $6'} | cut -d ">" -f 2 | cut -d '<' -f 1)
+GB3_RUNTIME=$(cat ./index.html | egrep gambas3-runtime_ | egrep saucy | egrep $ARCHITECTURE.deb | sed -n '1p' | awk {'print $6'} | cut -d ">" -f 2 | cut -d '<' -f 1)
 
-GB3_GB_GUI=$(cat ./index.html | egrep gambas3-gb-gui_ | egrep $ARCHITECTURE.deb | sed -n '1p' | awk {'print $6'} | cut -d ">" -f 2 | cut -d '<' -f 1)
+GB3_GB_GUI=$(cat ./index.html | egrep gambas3-gb-gui_ | egrep saucy | egrep $ARCHITECTURE.deb | sed -n '1p' | awk {'print $6'} | cut -d ">" -f 2 | cut -d '<' -f 1)
 
-GB3_GB_QT4=$(cat ./index.html | egrep gambas3-gb-qt4_ | egrep $ARCHITECTURE.deb | sed -n '1p' | awk {'print $6'} | cut -d ">" -f 2 | cut -d '<' -f 1)
+GB3_GB_QT4=$(cat ./index.html | egrep gambas3-gb-qt4_ | egrep saucy | egrep $ARCHITECTURE.deb | sed -n '1p' | awk {'print $6'} | cut -d ">" -f 2 | cut -d '<' -f 1)
 
 wget -c "$URL_DOWN$GB3_GB_IMAGE"
 wget -c "$URL_DOWN$GB3_GB_GTK"
