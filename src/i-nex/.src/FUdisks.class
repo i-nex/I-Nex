@@ -60,5 +60,46 @@ Public Sub Udisks_get_info()
  Shell "grep 'system internal:' /tmp/udisks_inex | awk {'print $3'}" Wait To system_internal
  Shell "grep 'removable:' /tmp/udisks_inex | awk {'print $2'}" Wait To removable
  Shell "grep 'has media:' /tmp/udisks_inex | cut -d ':' -f 2" Wait To has_media
+
+ GridView1.Columns.Count = 2
+ GridView1.Rows.Count = 12
+ GridView1.Columns[0].Width = 110
+ GridView1.Columns[1].Width = 750
+ GridView1[0, 1].Text = Replace(native_path, "\n", "")
+ GridView1[1, 1].Text = Replace(device, "\n", "")
+ GridView1[2, 1].Text = Replace(device_file, "\n", "")
+ GridView1[3, 1].Text = Replace(presentation, "\n", "")
+ GridView1[4, 1].Text = Replace(by_id_1, "\n", "")
+ GridView1[5, 1].Text = Replace(by_id_2, "\n", "")
+ GridView1[6, 1].Text = Replace(by_id_3, "\n", "")
+ GridView1[7, 1].Text = Replace(by_path, "\n", "")
+ GridView1[8, 1].Text = Replace(detected_at, "\n", "")
+ GridView1[9, 1].Text = Replace(system_internal, "\n", "")
+ GridView1[10, 1].Text = Replace(removable, "\n", "")
+ GridView1[11, 1].Text = Replace(has_media, "\n", "")
  
+ GridView1[0, 0].Text = "Native Path: "
+ GridView1[1, 0].Text = "Device: "
+ GridView1[2, 0].Text = "Device file: "
+ GridView1[3, 0].Text = "Presentation: "
+ GridView1[4, 0].Text = "By ID: "
+ GridView1[5, 0].Text = "By ID: "
+ GridView1[6, 0].Text = "By ID: "
+ GridView1[7, 0].Text = "By Path: "
+ GridView1[8, 0].Text = "Detected at: "
+ GridView1[9, 0].Text = "System internal: "
+ GridView1[10, 0].Text = "Removable: "
+ GridView1[11, 0].Text = "Has media: "
+ 
+ 
+ 
+ 
+ 
+ 
+End
+
+Public Sub ComboBox1_Click()
+
+ Udisks_get_info
+
 End

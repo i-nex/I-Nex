@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: .project:1 Finfosys.form:247
+#: .project:1 Finfosys.form:248
 msgid "I-Nex"
 msgstr ""
 
@@ -18,7 +18,8 @@ msgstr ""
 msgid "About"
 msgstr ""
 
-#: About.form:50 FModules.form:44 FReport_Gen.form:66 Finfosys.form:282
+#: About.form:50 FModules.form:44 FReport_Gen.form:66 FUdisks.form:30
+#: Finfosys.form:283
 msgid "Close"
 msgstr ""
 
@@ -147,7 +148,7 @@ msgstr ""
 msgid "Transmit"
 msgstr ""
 
-#: FReport_Gen.form:32 Finfosys.form:288
+#: FReport_Gen.form:32 FUdisks.form:60 Finfosys.form:289
 msgid "Generate report"
 msgstr ""
 
@@ -199,496 +200,512 @@ msgstr ""
 msgid "Send report to nopaste service:   "
 msgstr ""
 
-#: Finfosys.form:267
-msgid "Take a screenshot"
+#: FUdisks.form:17
+msgid "UDisks"
 msgstr ""
 
-#: Finfosys.form:274
-msgid "About this app"
-msgstr ""
-
-#: Finfosys.form:281
+#: FUdisks.form:29 Finfosys.form:282
 msgid "Close this program"
 msgstr ""
 
-#: Finfosys.form:295
+#: FUdisks.form:54 Finfosys.form:275
+msgid "About this app"
+msgstr ""
+
+#: FUdisks.form:67 Finfosys.form:296
 msgid "Report a bug"
 msgstr ""
 
-#: Finfosys.form:303
+#: FUdisks.form:74
+msgid "ComboBox1"
+msgstr ""
+
+#: Finfosys.form:268
+msgid "Take a screenshot"
+msgstr ""
+
+#: Finfosys.form:304
 msgid "CPU"
 msgstr ""
 
-#: Finfosys.form:309
+#: Finfosys.form:310
 msgid "Select core"
 msgstr ""
 
-#: Finfosys.form:319
+#: Finfosys.form:320
 msgid "x86 64-Bit Extensions:"
 msgstr ""
 
-#: Finfosys.form:330
+#: Finfosys.form:331
 msgid "Hardware Virtualization:"
 msgstr ""
 
-#: Finfosys.form:341
+#: Finfosys.form:342
 msgid "HT:"
 msgstr ""
 
-#: Finfosys.form:352
+#: Finfosys.form:353
 msgid "Label71"
 msgstr ""
 
-#: Finfosys.form:359
+#: Finfosys.form:360
 msgid "Label10"
 msgstr ""
 
-#: Finfosys.form:366
+#: Finfosys.form:367
 msgid "Label19"
 msgstr ""
 
-#: Finfosys.form:373
+#: Finfosys.form:374
 msgid "Label11"
 msgstr ""
 
-#: Finfosys.form:380
+#: Finfosys.form:381
 msgid "Label97"
 msgstr ""
 
-#: Finfosys.form:387
+#: Finfosys.form:388
 msgid "Label6"
 msgstr ""
 
-#: Finfosys.form:394
+#: Finfosys.form:395
 msgid "Label7"
 msgstr ""
 
-#: Finfosys.form:401
+#: Finfosys.form:402
 msgid "Label8"
 msgstr ""
 
-#: Finfosys.form:408
+#: Finfosys.form:409
 msgid "Label1"
 msgstr ""
 
-#: Finfosys.form:415
+#: Finfosys.form:416
 msgid "Label2"
 msgstr ""
 
-#: Finfosys.form:422
+#: Finfosys.form:423
 msgid "Label3"
 msgstr ""
 
-#: Finfosys.form:429
+#: Finfosys.form:430
 msgid "Label5"
 msgstr ""
 
-#: Finfosys.form:449
+#: Finfosys.form:450
 msgid "Info"
 msgstr ""
 
-#: Finfosys.form:469
+#: Finfosys.form:470
 msgid "Label12"
 msgstr ""
 
-#: Finfosys.form:476
+#: Finfosys.form:477
 msgid "Label13"
 msgstr ""
 
-#: Finfosys.form:483
+#: Finfosys.form:484
 msgid "Label14"
 msgstr ""
 
-#: Finfosys.form:490
+#: Finfosys.form:491
 msgid "Label15"
 msgstr ""
 
-#: Finfosys.form:494
+#: Finfosys.form:495
 msgid "GPU"
 msgstr ""
 
-#: Finfosys.form:505
+#: Finfosys.form:506
 msgid "Label105"
 msgstr ""
 
-#: Finfosys.form:544
+#: Finfosys.form:545
 msgid "Label64"
 msgstr ""
 
-#: Finfosys.form:551
+#: Finfosys.form:552
 msgid "TextBox1"
 msgstr ""
 
-#: Finfosys.form:559
+#: Finfosys.form:560
 msgid "ComboBox8"
 msgstr ""
 
-#: Finfosys.form:564
+#: Finfosys.form:565
 msgid "Label65"
 msgstr ""
 
-#: Finfosys.form:569
+#: Finfosys.form:570
 msgid "Label66"
 msgstr ""
 
-#: Finfosys.form:574
+#: Finfosys.form:575
 msgid "Label67"
 msgstr ""
 
-#: Finfosys.form:579
+#: Finfosys.form:580
 msgid "Label100"
 msgstr ""
 
-#: Finfosys.form:584
+#: Finfosys.form:585
 msgid "Label101"
 msgstr ""
 
-#: Finfosys.form:589
+#: Finfosys.form:590
 msgid "Label102"
 msgstr ""
 
-#: Finfosys.form:592
+#: Finfosys.form:593
 msgid "Mobo"
 msgstr ""
 
-#: Finfosys.form:596
+#: Finfosys.form:597
 msgid "Motherboard"
 msgstr ""
 
-#: Finfosys.form:605
+#: Finfosys.form:606
 msgid "Manufacturer:"
 msgstr ""
 
-#: Finfosys.form:626
+#: Finfosys.form:627
 msgid "Model"
 msgstr ""
 
-#: Finfosys.form:645
+#: Finfosys.form:646
 msgid "Bios"
 msgstr ""
 
-#: Finfosys.form:654
+#: Finfosys.form:655
 msgid "Manufacturer:   "
 msgstr ""
 
-#: Finfosys.form:671
+#: Finfosys.form:672
 msgid "Version:   "
 msgstr ""
 
-#: Finfosys.form:688
+#: Finfosys.form:689
 msgid "Date:   "
 msgstr ""
 
-#: Finfosys.form:699
+#: Finfosys.form:700
 msgid "Audio"
 msgstr ""
 
-#: Finfosys.form:768
+#: Finfosys.form:769
 msgid "N/A"
 msgstr ""
 
-#: Finfosys.form:780
+#: Finfosys.form:781
 msgid "Drives"
 msgstr ""
 
-#: Finfosys.form:813
+#: Finfosys.form:814
 msgid "Mount point:   "
 msgstr ""
 
-#: Finfosys.form:820
+#: Finfosys.form:821
 msgid "Device uuid:   "
 msgstr ""
 
-#: Finfosys.form:828
+#: Finfosys.form:829
 msgid "Mount width:   "
 msgstr ""
 
-#: Finfosys.form:909
+#: Finfosys.form:910
 msgid "SWAP"
 msgstr ""
 
-#: Finfosys.form:993
+#: Finfosys.form:994
 msgid "DF"
 msgstr ""
 
-#: Finfosys.form:996
+#: Finfosys.form:1000
+msgid "udisks"
+msgstr ""
+
+#: Finfosys.form:1003
 msgid "System"
 msgstr ""
 
-#: Finfosys.form:1000
+#: Finfosys.form:1007
 msgid "Main:"
 msgstr ""
 
-#: Finfosys.form:1005
+#: Finfosys.form:1012
 msgid "Host name:"
 msgstr ""
 
-#: Finfosys.form:1012
+#: Finfosys.form:1019
 msgid "Distribution:"
 msgstr ""
 
-#: Finfosys.form:1019
+#: Finfosys.form:1026
 msgid "Edition:"
 msgstr ""
 
-#: Finfosys.form:1026
+#: Finfosys.form:1033
 msgid "Time zone:"
 msgstr ""
 
-#: Finfosys.form:1033
+#: Finfosys.form:1040
 msgid "GCC v:"
 msgstr ""
 
-#: Finfosys.form:1040
+#: Finfosys.form:1047
 msgid "X.org v:"
 msgstr ""
 
-#: Finfosys.form:1047
+#: Finfosys.form:1054
 msgid "GLX v:"
 msgstr ""
 
-#: Finfosys.form:1054
+#: Finfosys.form:1061
 msgid "Architecture:"
 msgstr ""
 
-#: Finfosys.form:1061
+#: Finfosys.form:1068
 msgid "Shell:"
 msgstr ""
 
-#: Finfosys.form:1069
+#: Finfosys.form:1076
 msgid "Default LM/DM:"
 msgstr ""
 
-#: Finfosys.form:1081
+#: Finfosys.form:1088
 msgid "TextBox59"
 msgstr ""
 
-#: Finfosys.form:1086
+#: Finfosys.form:1093
 msgid "TextBox60"
 msgstr ""
 
-#: Finfosys.form:1091
+#: Finfosys.form:1098
 msgid "TextBox61"
 msgstr ""
 
-#: Finfosys.form:1096
+#: Finfosys.form:1103
 msgid "TextBox62"
 msgstr ""
 
-#: Finfosys.form:1101
+#: Finfosys.form:1108
 msgid "TextBox63"
 msgstr ""
 
-#: Finfosys.form:1106
+#: Finfosys.form:1113
 msgid "TextBox64"
 msgstr ""
 
-#: Finfosys.form:1111
+#: Finfosys.form:1118
 msgid "TextBox65"
 msgstr ""
 
-#: Finfosys.form:1116
+#: Finfosys.form:1123
 msgid "TextBox66"
 msgstr ""
 
-#: Finfosys.form:1121
+#: Finfosys.form:1128
 msgid "TextBox67"
 msgstr ""
 
-#: Finfosys.form:1127
+#: Finfosys.form:1134
 msgid "Number of installed packages:"
 msgstr ""
 
-#: Finfosys.form:1131
+#: Finfosys.form:1138
 msgid "Check"
 msgstr ""
 
-#: Finfosys.form:1144
+#: Finfosys.form:1151
 msgid "System uptime:"
 msgstr ""
 
-#: Finfosys.form:1148
+#: Finfosys.form:1155
 msgid "TextBox58"
 msgstr ""
 
-#: Finfosys.form:1157
+#: Finfosys.form:1164
 msgid "Kernel"
 msgstr ""
 
-#: Finfosys.form:1161
+#: Finfosys.form:1168
 msgid "Installed kernels:"
 msgstr ""
 
-#: Finfosys.form:1183
+#: Finfosys.form:1190
 msgid "Kernel command line:"
 msgstr ""
 
-#: Finfosys.form:1199
+#: Finfosys.form:1206
 msgid "Show modules"
 msgstr ""
 
-#: Finfosys.form:1202
+#: Finfosys.form:1209
 msgid "Memory"
 msgstr ""
 
-#: Finfosys.form:1206
+#: Finfosys.form:1213
 msgid "Ram used:"
 msgstr ""
 
-#: Finfosys.form:1215
+#: Finfosys.form:1222
 msgid "SWAP memory used:"
 msgstr ""
 
-#: Finfosys.form:1285
+#: Finfosys.form:1292
 msgid "Network"
 msgstr ""
 
-#: Finfosys.form:1289
+#: Finfosys.form:1296
 msgid "TextArea4"
 msgstr ""
 
-#: Finfosys.form:1302
+#: Finfosys.form:1309
 msgid "ComboBox2"
 msgstr ""
 
-#: Finfosys.form:1309
+#: Finfosys.form:1316
 msgid "Vendor:"
 msgstr ""
 
-#: Finfosys.form:1315
+#: Finfosys.form:1322
 msgid "TextBox57"
 msgstr ""
 
-#: Finfosys.form:1323
+#: Finfosys.form:1330
 msgid "Device:"
 msgstr ""
 
-#: Finfosys.form:1329
+#: Finfosys.form:1336
 msgid "TextBox56"
 msgstr ""
 
-#: Finfosys.form:1337
+#: Finfosys.form:1344
 msgid "Show Receive and Transmit"
 msgstr ""
 
-#: Finfosys.form:1340
+#: Finfosys.form:1347
 msgid "Battery"
 msgstr ""
 
-#: Finfosys.form:1350
+#: Finfosys.form:1357
 msgid "Present:   "
 msgstr ""
 
-#: Finfosys.form:1364
+#: Finfosys.form:1371
 msgid "Design capacity:   "
 msgstr ""
 
-#: Finfosys.form:1378
+#: Finfosys.form:1385
 msgid "Last full capacity:   "
 msgstr ""
 
-#: Finfosys.form:1392
+#: Finfosys.form:1399
 msgid "Battery technology:   "
 msgstr ""
 
-#: Finfosys.form:1406
+#: Finfosys.form:1413
 msgid "Design voltage:   "
 msgstr ""
 
-#: Finfosys.form:1420
+#: Finfosys.form:1427
 msgid "Design capacity warning:   "
 msgstr ""
 
-#: Finfosys.form:1434
+#: Finfosys.form:1441
 msgid "Design capacity low:   "
 msgstr ""
 
-#: Finfosys.form:1448
+#: Finfosys.form:1455
 msgid "Cycle count:   "
 msgstr ""
 
-#: Finfosys.form:1462
+#: Finfosys.form:1469
 msgid "Capacity granularity 1:   "
 msgstr ""
 
-#: Finfosys.form:1476
+#: Finfosys.form:1483
 msgid "Capacity granularity 2:   "
 msgstr ""
 
-#: Finfosys.form:1490
+#: Finfosys.form:1497
 msgid "Model number:   "
 msgstr ""
 
-#: Finfosys.form:1504
+#: Finfosys.form:1511
 msgid "Serial number:   "
 msgstr ""
 
-#: Finfosys.form:1518
+#: Finfosys.form:1525
 msgid "Battery type:   "
 msgstr ""
 
-#: Finfosys.form:1532
+#: Finfosys.form:1539
 msgid "OEM info:   "
 msgstr ""
 
-#: Finfosys.form:1551
+#: Finfosys.form:1558
 msgid "USB | Input"
 msgstr ""
 
-#: Finfosys.form:1561
+#: Finfosys.form:1568
 msgid "Usb device plugged:   "
 msgstr ""
 
-#: Finfosys.form:1592
+#: Finfosys.form:1599
 msgid "Product:   "
 msgstr ""
 
-#: Finfosys.form:1606
+#: Finfosys.form:1613
 msgid "Max power:   "
 msgstr ""
 
-#: Finfosys.form:1620
+#: Finfosys.form:1627
 msgid "Speed:   "
 msgstr ""
 
-#: Finfosys.form:1648
+#: Finfosys.form:1655
 msgid "Serial"
 msgstr ""
 
-#: Finfosys.form:1666
+#: Finfosys.form:1673
 msgid "idVendor:   "
 msgstr ""
 
-#: Finfosys.form:1680
+#: Finfosys.form:1687
 msgid "idProduct:   "
 msgstr ""
 
-#: Finfosys.form:1707
+#: Finfosys.form:1714
 msgid "Modalias:   "
 msgstr ""
 
-#: ScreenShot.form:18
+#: Finfosys.class:10
+msgid "Running as root is not allowed!"
+msgstr ""
+
+#: ScreenShot.form:16
 msgid "Screen Shot"
 msgstr ""
 
-#: ScreenShot.form:30
+#: ScreenShot.form:28
 msgid "Save"
 msgstr ""
 
-#: ScreenShot.form:36
+#: ScreenShot.form:34
 msgid "Cancel"
 msgstr ""
 
-#: ScreenShot.form:43
+#: ScreenShot.form:41
 msgid "File name:"
 msgstr ""
 
-#: ScreenShot.form:49
+#: ScreenShot.form:47
 msgid "Save directory:"
 msgstr ""
 
-#: ScreenShot.form:78
-msgid "Picture quality:"
+#: ScreenShot.form:66
+msgid "Picture quality"
 msgstr ""
 
 #: Start_App_Args.form:13

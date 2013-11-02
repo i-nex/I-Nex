@@ -47,6 +47,7 @@ Public Sub Button1_Click()
  Endif
  If CheckBox11.Value = False Then
  Try Me.Close
+ Finfosys.Show
  Endif
 End
 
@@ -65,7 +66,7 @@ Public Sub Button2_Click()
   Finfosys.Close
  Endif
  Me.Close
-
+ Finfosys.Show
 End
 
 Public Sub Button3_Click()

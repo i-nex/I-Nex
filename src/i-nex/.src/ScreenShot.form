@@ -1,56 +1,48 @@
 # Gambas Form File 3.0
 
 { Form Form
-  MoveScaled(0,0,80,32)
+  MoveScaled(0,0,70,75)
   Text = ("Screen Shot")
   Icon = Picture["logo/i-nex.0.4.x.png"]
   Resizable = False
   { PictureBox1 PictureBox
-    MoveScaled(0,0,21,26)
+    MoveScaled(10,0,50,59)
     Stretch = True
     Border = Border.Plain
   }
   { Button1 Button
-    MoveScaled(66,27,13,4)
+    MoveScaled(56,70,13,4)
     Text = ("Save")
     Picture = Picture["icon:/16/save"]
   }
   { Button2 Button
-    MoveScaled(52,27,13,4)
+    MoveScaled(43,70,13,4)
     Text = ("Cancel")
     Picture = Picture["icon:/16/quit"]
   }
   { Label1 Label
-    MoveScaled(22,4,18,4)
+    MoveScaled(1,60,18,4)
     Font = Font["Bold,11"]
     Text = ("File name:")
   }
   { Label2 Label
-    MoveScaled(22,10,17,4)
+    MoveScaled(1,65,20,4)
     Font = Font["Bold,11"]
     Text = ("Save directory:")
   }
-  { Slider1 Slider
-    MoveScaled(0,27,51,4)
-    MinValue = 1
-  }
   { ButtonBox1 ButtonBox
-    MoveScaled(43,10,36,4)
+    MoveScaled(20,65,49,4)
     ReadOnly = True
   }
   { TextBox1 TextBox
-    MoveScaled(43,4,36,4)
+    MoveScaled(20,60,49,4)
   }
   { ComboBox1 ComboBox
-    MoveScaled(55,16,24,4)
+    MoveScaled(34,70,9,4)
     ReadOnly = True
   }
-  { SpinBox1 SpinBox
-    MoveScaled(42,23,9,4)
-    MinValue = 1
-  }
-  { Label3 Label
-    MoveScaled(22,23,19,4)
-    Text = ("Picture quality:")
+  { SliderBox1 SliderBox
+    MoveScaled(1,70,32,4)
+    ToolTip = ("Picture quality")
   }
 }

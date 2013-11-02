@@ -1,10 +1,5 @@
 ' Gambas class file
 
-
-Public Sub Form_Resize()
-
-End
-
 Public Sub Form_Open()
  If Not Exist(User.Home & "/.i-nex") Then
  Mkdir User.Home & "/.i-nex"
@@ -23,22 +18,28 @@ Public Sub Form_Open()
  ComboBox1.Add(".png")
  ComboBox1.Add(".jpg")
  ComboBox1.Text = ".png"
- SpinBox1.Value = 70
- Slider1.Value = 70
+ SliderBox1.Value = 70
 
 End
 
 Public Sub Button2_Click()
-
+ If FUdisks.Above = 0 Then
+    FUdisks.Show
+   Endif
+   If Finfosys.Above = 1 Then
+    Finfosys.Show
+ Endif
  Me.Close
 
 End
 
 Public Sub Button1_Click()
 
-ScreenShotM.save(ButtonBox1.Text, TextBox1.Text, ComboBox1.Text, Slider1.Value)
+ScreenShotM.save(ButtonBox1.Text, TextBox1.Text, ComboBox1.Text, SliderBox1.Value)
 File.Save("" & User.Home & "/.i-nex/lastsave", ButtonBox1.Text)
+
 Me.Close
+Finfosys.Show
 End
 
 Public Sub ButtonBox1_Click()
@@ -49,14 +50,9 @@ Public Sub ButtonBox1_Click()
  
 End
 
-Public Sub Slider1_Change()
+Public Sub Form_Close()
 
- SpinBox1.Value = Slider1.Value
-
-End
-
-Public Sub SpinBox1_Change()
-
- Slider1.Value = SpinBox1.Value
+ Me.Close
+ Finfosys.Show
 
 End

@@ -1,12 +1,17 @@
 ' Gambas class file
 
+Public cpu As String
 Public flags As String
 Public vendor_id As String
 Public Sub Form_Open()
   Dim default_display_manager As Boolean = Exist("/etc/X11/default-display-manager")
   Dim cpuz0, cpuz1, cpuz2, cpuz3, cpuz4, cpuz5, cpuz6, cpuz7, cpuz8, cpuz9, cpuz10, cpuz11 As String
+  If User.Name = "root" Then
+    Message.Error(("Running as root is not allowed!"))
+  Endif
   Finfosys.TabStrip1[9].Visible = False
   Button13.Visible = ChkPrm.ChkExec("apport-bug")
+  Button14.Visible = ChkPrm.ChkExec("udisks")
   Debug "Check for Battery"
   Object.Call(battery, "_inits")
   Debug "Check for Usb device plugged"
@@ -234,7 +239,7 @@ End
 
 Public Sub Wykrywanie_procesorow()
   Dim eloaders, eloaders2, eloaders3 As String
-  Dim obrazekcpu, cpu, cpu_MHz, power_management As String
+  Dim obrazekcpu, cpu_MHz, power_management As String
   Dim model, stepping, cpu_family, bogomips As String
   Dim address_sizes, cache_size, ldata, linstruction As String
   Dim physical_id, cpu_cores, level3cache As String
@@ -340,6 +345,12 @@ End
 
 Public Sub Button2_Click()
    ScreenShotM.pic = Desktop.Screenshot(Me.X, Me.Y, Me.W + 4, Me.H + 30)
+   If FUdisks.Above = 1 Then
+    FUdisks.Hide
+   Endif
+   If Finfosys.Above = 1 Then
+    Finfosys.Hide
+   Endif
    ScreenShot.Show
    
 End
@@ -520,7 +531,7 @@ Public Sub ComboBox7_Click()
 End
 
 Public Sub Button12_Click()
-
+ Me.Hide
  FReport_Gen.Show
 
 End
@@ -578,5 +589,11 @@ End
 Public Sub Button11_Click()
 
  Desktop.Open("https://www.facebook.com/pages/I-Nex/199567416807891")
+
+End
+
+Public Sub Button14_Click()
+
+ FUdisks.Show
 
 End

@@ -2,7 +2,6 @@
 
 { Form Form
   MoveScaled(0,0,70,75)
-  ToolTip = ("UDisks")
   Text = ("UDisks")
   Icon = Picture["logo/i-nex.0.4.x.png"]
   Resizable = False
@@ -11,7 +10,7 @@
     Picture = Picture["icon:/16/camera"]
   }
   { Button2 Button
-    MoveScaled(56,71,12,3.4286)
+    MoveScaled(57,71,12,3.4286)
     Font = Font["10"]
     ToolTip = ("Close this program")
     Text = ("Close")
@@ -52,5 +51,12 @@
     MoveScaled(48,71,9,4)
     ReadOnly = True
     Text = ("ComboBox1")
+  }
+  { GridView1 GridView
+    MoveScaled(0,0,70,71)
+    Tracking = True
+    Expand = True
+    ShowCursor = True
+    ScrollBar = Scroll.Horizontal
   }
 }

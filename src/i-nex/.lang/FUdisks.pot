@@ -14,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: FUdisks.form:16
+#: FUdisks.form:17
 msgid "UDisks"
 msgstr ""
 

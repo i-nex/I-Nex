@@ -632,6 +632,11 @@
       Move(154,301,35,35)
       Text = ("DF")
     }
+    { Button14 Button
+      Move(189,301,56,35)
+      Visible = False
+      Text = ("udisks")
+    }
     Index = 5
     Text = ("System")
     { Frame7 Frame

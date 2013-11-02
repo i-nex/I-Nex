@@ -1,24 +1,24 @@
 # Gambas Form File 3.0
 
 { Form Form
-  Move(0,0,438,318)
+  Move(0,0,490,525)
   #Scaled = False
   Text = ("Generate report")
   Icon = Picture["logo/i-nex.0.4.x.png"]
   Resizable = False
   { ButtonBox1 ButtonBox
-    Move(6,288,228,24)
+    Move(7,497,228,24)
     ReadOnly = True
   }
   { ProgressBar1 ProgressBar
-    Move(6,270,426,12)
+    Move(7,434,476,14)
   }
   { TextLabel1 TextLabel
-    Move(6,240,426,24)
+    Move(7,448,476,28)
     Alignment = Align.Left
   }
   { HBox1 HBox
-    Move(234,288,198,24)
+    Move(238,497,245,28)
     { Button1 Button
       Move(0,0,96,24)
       Expand = True
@@ -27,7 +27,7 @@
       Picture = Picture["icon:/16/apply"]
     }
     { Button2 Button
-      Move(96,0,96,24)
+      Move(147,0,96,24)
       Drop = True
       Expand = True
       AutoResize = True
@@ -36,7 +36,7 @@
     }
   }
   { HPanel1 HPanel
-    Move(6,6,210,144)
+    Move(7,7,224,322)
     { CheckBox1 CheckBox
       Move(0,0,156,24)
       Expand = True
@@ -59,7 +59,7 @@
     }
   }
   { HPanel2 HPanel
-    Move(222,6,210,144)
+    Move(245,7,238,322)
     { CheckBox6 CheckBox
       Move(0,0,144,24)
       Expand = True
@@ -87,26 +87,26 @@
     }
   }
   { Separator1 Separator
-    Move(216,0,6,150)
+    Move(231,0,14,329)
   }
   { Separator2 Separator
-    Move(0,234,438,12)
+    Move(0,413,490,14)
   }
   { Separator3 Separator
-    Move(0,150,438,12)
+    Move(0,371,490,14)
   }
   { Button3 Button
-    Move(408,192,24,24)
+    Move(462,385,24,24)
     ToolTip = ("Open link in default web browser")
     Picture = Picture["icon:/16/network"]
   }
   { TextBox1 TextBox
-    Move(6,192,396,24)
+    Move(7,385,455,28)
     Expand = True
     ReadOnly = True
   }
   { HBox2 HBox
-    Move(6,162,426,24)
+    Move(7,336,476,28)
     { CheckBox11 CheckBox paste
       Name = "CheckBox11"
       Move(0,0,186,24)
@@ -114,7 +114,7 @@
       Text = ("Send report to nopaste service:   ")
     }
     { ComboBox1 ComboBox
-      Move(282,0,144,24)
+      Move(329,0,144,24)
       Expand = True
       ReadOnly = True
     }
