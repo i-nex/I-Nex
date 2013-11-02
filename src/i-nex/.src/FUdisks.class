@@ -1,0 +1,64 @@
+' Gambas class file
+
+
+Public Sub Form_Open()
+  Udisks
+  Finfosys.Hide
+  Me.Center
+End
+
+Public Sub Button1_Click()
+
+ ScreenShotM.pic = Desktop.Screenshot(Me.X, Me.Y, Me.W + 4, Me.H + 30)
+ ScreenShot.Show
+
+End
+
+Public Sub Button2_Click()
+
+ Me.Close
+ Finfosys.Show
+End
+
+Public Sub Form_Close()
+
+ Me.Close
+ Finfosys.Show
+
+End
+
+Public Sub Udisks()
+ 
+  Dim sdx As String
+  Dim Avail_HDD As Integer 
+  Dim Max_HDD As Integer
+  Dim cache As String
+  Debug "Add Drives to ComboBox"
+  Shell "ls /sys/block/ | grep -e 'sd' -e 'sr' | tr ' ' '\n' | wc -l" Wait To cache
+  Max_HDD = Val(cache)
+  For Avail_HDD = 1 To Max_HDD
+   Shell "ls /sys/block/ | grep -e 'sd' -e 'sr' | tr ' ' '\n' | sed -n '" & Avail_HDD & "p'" Wait To sdx
+   sdx = Replace(sdx, "\n", "")
+   ComboBox1.Add(sdx)
+  Next
+  Debug "Get information from udisks --show-info" 
+  Udisks_get_info
+End
+
+Public Sub Udisks_get_info()
+ Dim native_path, device, device_file, presentation, by_id_1, by_id_2, by_id_3, by_path, detected_at, system_internal, removable, has_media As String
+ Shell "udisks --show-info /dev/" & ComboBox1.Text & " >/tmp/udisks_inex"
+ Shell "grep 'native-path' /tmp/udisks_inex | awl {'print $2'}" Wait To native_path
+ Shell "sed -n '3p' /tmp/udisks_inex | awk {'print $2'}" Wait To device
+ Shell "grep 'device-file' /tmp/udisks_inex | awk {'print $2'}" Wait To device_file
+ Shell "sed -n '5p' /tmp/udisks_inex | awk {'print $2'}" Wait To presentation
+ Shell "grep 'by-id' /tmp/udisks_inex | sed -n '1p' | awk {'print $2'}" Wait To by_id_1
+ Shell "grep 'by-id' /tmp/udisks_inex | sed -n '2p' | awk {'print $2'}" Wait To by_id_2
+ Shell "grep 'by-id' /tmp/udisks_inex | sed -n '3p' | awk {'print $2'}" Wait To by_id_3
+ Shell "grep 'by-path' /tmp/udisks_inex | awk {'print $2'}" Wait To by_path
+ Shell "grep 'detected at:' /tmp/udisks_inex | cut -d ':' -f 2" Wait To detected_at
+ Shell "grep 'system internal:' /tmp/udisks_inex | awk {'print $3'}" Wait To system_internal
+ Shell "grep 'removable:' /tmp/udisks_inex | awk {'print $2'}" Wait To removable
+ Shell "grep 'has media:' /tmp/udisks_inex | cut -d ':' -f 2" Wait To has_media
+ 
+End

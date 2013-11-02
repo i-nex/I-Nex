@@ -805,70 +805,70 @@
     Index = 7
     Text = ("Memory")
     { TextLabel31 TextLabel
-      Move(1,0,126,21)
+      Move(7,364,126,21)
       Text = ("Ram used:")
     }
     { ProgressBar1 ProgressBar
-      Move(1,21,462,21)
+      Move(7,434,259,21)
     }
     { TextLabel23 TextLabel
-      Move(1,49,168,21)
+      Move(7,413,168,21)
       Text = ("SWAP memory used:")
     }
     { ProgressBar4 ProgressBar
-      Move(1,77,462,21)
+      Move(7,385,259,21)
     }
     { HPanel8 HPanel
-      Move(0,107,312,336)
+      Move(273,308,189,147)
       { Label85 Label
-        Move(0,12,312,24)
+        Move(0,0,189,21)
         Expand = True
         Padding = 4
         Border = Border.Plain
       }
       { Label86 Label
-        Move(0,42,312,24)
+        Move(0,21,189,21)
         Expand = True
         Padding = 4
         Border = Border.Plain
       }
       { Label87 Label
-        Move(0,72,312,24)
+        Move(0,42,189,21)
         Expand = True
         Padding = 4
         Border = Border.Plain
       }
       { Label88 Label
-        Move(0,102,312,24)
+        Move(0,63,189,21)
         Expand = True
         Padding = 4
         Border = Border.Plain
       }
       { Label89 Label
-        Move(0,132,312,24)
+        Move(0,84,189,21)
         Expand = True
         Padding = 4
         Border = Border.Plain
       }
       { Label90 Label
-        Move(0,162,312,24)
+        Move(0,105,189,21)
         Expand = True
         Padding = 4
         Border = Border.Plain
       }
       { Label91 Label
-        Move(0,192,312,24)
+        Move(0,126,189,21)
         Expand = True
         Padding = 4
         Border = Border.Plain
       }
     }
     { TextLabel7 TextLabel
-      Move(134,0,77,21)
+      Move(140,364,77,21)
       Text = ("N/A")
     }
     { TextLabel24 TextLabel
-      Move(141,49,154,21)
+      Move(147,413,119,21)
       Text = ("N/A")
     }
     Index = 8

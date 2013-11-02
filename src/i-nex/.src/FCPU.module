@@ -1,0 +1,10 @@
+' Gambas module file
+
+' 
+Public Sub _init()
+ 
+ Dim central_processor_unit As String = Finfosys.cpu
+ central_processor_unit = Replace(Replace(Replace(central_processor_unit, "(", ""), "(", ""), "\n", "")
+ central_processor_unit = Replace(Replace(central_processor_unit, "TM", ""), "R", "")
+ 
+End
