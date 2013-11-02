@@ -20,13 +20,6 @@ Public Sub Button2_Click()
  Finfosys.Show
 End
 
-Public Sub Form_Close()
-
- Me.Close
- Finfosys.Show
-
-End
-
 Public Sub Udisks()
  
   Dim sdx As String
@@ -91,15 +84,17 @@ Public Sub Udisks_get_info()
  GridView1[10, 0].Text = "Removable: "
  GridView1[11, 0].Text = "Has media: "
  
- 
- 
- 
- 
- 
 End
 
 Public Sub ComboBox1_Click()
 
  Udisks_get_info
+
+End
+
+Public Sub Form_Close()
+
+ Me.Close
+ Finfosys.Show
 
 End
