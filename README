@@ -1,124 +1,65 @@
+Inventory
 
-USING PASTEBIN.D FILES
+By Vincze-Aron Szabo
+Thanks to I-Nex, users can see an overview of all their important hardware inventory information, such as graphics cards, processors, and hard drives.
 
-To enable support for private pastebins, first you will need to know the fields
-that are in use by the pastebin when posting data.
+Details generated about a system often can look disorganized. Sometimes information about processors, disks, and interfaces is only available through a collection of unrelated tools. Even if you have a unified system utility, it might not provide sufficient detail for productive troubleshooting.
 
-Add a file in the ~/pastebin.d or /etc/pastebin.d/ directory with the following
-format:
+I-Nex is a powerful alternative to other graphical system information utilities. The I-Nex system tool bundles a useful collection of device data in an easy-to-use interface. (Similar tools in the Linux space include utilities such as CPU-G and HardInfo.)
 
-[pastebin]
-basename = domain.name
-regexp = "http://(.*)\.?domain.name/"
+Installation
 
-[format]
-reserved_keyword = pastebin_site_field
-custom_keyword = pastebin_site_field
+With the use of sudo and the right PPAs, installation is easy. I-Nex relies on the Gambas programming language, an object-oriented Basic dialect that acts as a replacement for Visual Basic under Linux. The name “Gambas” is a recursive acronym for “Gambas Almost Means Basic.”
 
-[defaults]
-custom_keyword = value
+I-Nex needs current Gambas3 packages that cannot be found either in the LTS version of Ubuntu 12.04 or in 12.10, so you need to add the PPA for the current version manually to access the required packages needed to install I-Nex (Listing 1).
 
+Listing 1: Installing I-Nex
 
-THE PASTEBIN SECTION
+$ sudo add-apt-repository ppa:nemh/gambas3
+$ sudo add-apt-repository ppa:i-nex-development-team/stable
+$ sudo apt-get update
+$ sudo apt-get install i-nex
 
-Under "[pastebin]", you will want to keep the very basic information to
-identify the pastebin. Only two fields are used in that section:
+For Ubuntu derivatives, follow the same steps for the I-Nex installation.
 
-	basename - 	the generic domain name for the pastebin.
-			this domain name should not contain
-			possible sub-domains in use.
+After the installation, you can start I-Nex with the i-nex.gambas command, or you can launch the program from the Start menu. I-Nex needs a moment to gather hardware data before outputting the results in 10 tabs of a graphical user interface.
 
-	regexp -	a regular expression that matches the
-			basename, as well as any sub-domains that
-			may be in use.
+Detailed Info
 
+The first two tabs contain processor data. The CPU section designates the type, frequency, number of cores, and cache size (Figure 1).
 
-THE FORMAT SECTION
+ 
+Figure 1: I-Nex provides an overview of all major hardware and system information in 10 tabs.
+A click on Info opens the matching entry for the processor on the CPU World website, which provides more information on the processor and its associated family. The Cache subsection displays the cache data for each core, which you can select in the drop-down at bottom right.
 
-Under "[format]", identify the various fields in use in the pastebin you want
-to setup. Identify any fields used to publish data on the pastebin, and add
-them to the configuration file.
+Helpful data about the graphics card and the installed chipsets are listed under the GPU tab. Under Graphics card in this tab, you can see the GPU name and model number. The Available resolutions section includes a quick overview of supported resolutions: In addition to the minimum and current resolution, I-Nex also lists the highest possible resolution.
 
-The "[format]" section expects reserved and custom keywords matched to the real
-name for the field for the pastebin you are setting up. In other words, the
-data that a reserved or custom keyword (the left-hand side) refers to will be
-put in the named field assigned to it (the right-hand side).
+By moving from tab to tab, you can sift through the most important information, all in one place and with just a few clicks. The program is slightly more terse in the Mobo (information about the motherboard) and Sound sections. In contrast, I-Nex presents extensive information about the system’s mounted drives and storage media in the Drives tab (Figure 2).
 
-A number of reserved keywords can be used, but are optional:
+ 
+Figure 2: Information about drives is dense.
+In addition to specifying the manufacturer, model, size, and current free capacity, I-Nex shows all kinds of information about the state of the selected drive. The two drop-down lists let you change to a different drive or another disk partition as needed.
 
-	user - 		contains the username for the user
-			calling the pastebinit utility.
+Apart from the bare facts of your hardware, the I-Nex tool provides additional details about the name of your distribution and the kernel. For example, the System tab provides important basic data about the Linux environment, such as the hostname, distribution, version, architecture, and desktop version. Pressing the Check button reveals how many packages are currently installed on the system.
 
-	content -	contains the data that will be posted.
+The Kernel tab lists all the identifiable operating system kernels, highlighting the currently active kernel. The Modules button offered here opens a window in which you can view information about each kernel module.
 
-	title -		contains the title if set at the command
-			line.
+Generating Reports
 
-	version -	contains the version as set at the
-			command line.
+I-Nex has some other useful features for sharing collected data using the tool buttons across the bottom left of the window. The button with the camera icon lets you take a screenshot of the current tab and save it as a PNG or JPG file to a location of your choice.
 
-	format -	contains the format setting:
-			usually used for syntax highlighting.
+Alternatively, the program generates a comprehensive written report when you click on the printer icon, which lets you open the Generate Report dialog box and select the data to add to the report. Although the software does not list all the tabs, the properties that you can select on the right side of the dialog contain command-line tools that provide the data for the missing tabs.
 
-	parentpid -	contains the parent post ID for 
-			pastebins that use it.
+After selecting all the desired content, you can check the Generate Report box to choose whether to send the report to a nopaste service. These services remove the need to paste long texts into forums or chats; instead, you post a link where the stored text is available.
 
-	permatag -	contains permatag as set at the command
-			line.
+If you want to use such a service, simply check the box and select the appropriate service. After clicking Generate, the software uploads the report to the selected service but also stores a text file locally in the specified folder. The link where you can reach the report on the Internet appears in the previously empty textbox (Figure 3).
 
-	username -	contains the pastebin username if 
-			required.
+ 
+Figure 3: Detailed reports support troubleshooting and an exchange of information with other users.
+Conclusions
 
-	password -	contains the pastebin user's password
-			if required.
+Thanks to I-Nex, you can quickly and easily collect information about your devices and system, without clicking around in the system settings of Ubuntu or typing complex commands at the command line.
 
-	jabberid -	contains the jabberid for the poster
-			as set at the command line.
+The information view is clear in most tabs but looks somewhat overloaded for disk drives. At this point, the fixed window size of I-Nex proves to be an annoying drawback.
 
-Two additional special parameters are available for use:
-
-	page -		used to specify a page from which to
-			post data. It is the actual URL of
-			the pastebin's form.
-
-	regexp -	used to specify a regexp to execute
-			on the resulting page after posting.
-			This is useful to deal with special
-			pastebins that don't redirect you
-			to the new post's URL.
-
-Add any other fields in use for the specific pastebin you are setting up may be
-added to the "[format]" section using the same syntax.
-
-An easy way to deal with special parameters that need to be passed to the
-pastebin, such as expiry time for a post, is to assign the pastebin's field
-name to a variable, and set the correct value for that variable under the 
-"[defaults]" section later, as such:
-
-[format]
-expire = expiry
-
-[defaults]
-expire = 365
-
-Where 'expire' can then be reused as the keyword to retrieve a static value in
-the '[defaults]' section. See below for an example.
-
-
-THE DEFAULTS SECTION
-
-The '[defaults]' section is used to set static values for custom fields. 
-
-Some pastebins require setting fields such as expiry time for posts, or 
-whether to use cookies. Such values are set using a custom field, followed by
-the value to give it. 
-
-To reuse the example above, statically set a post to be expire after 365 days:
-
-[defaults]
-expire = 365
-
-Here, the value 365 will be assigned to the expire keyword. In the "[format]"
-section, the value in the expire keyword is applied to the field called
-"expiry".
-
+However, the program does provide all the basic information about your hardware and distribution. Thus, I-Nex is useful both for debugging and – thanks to the unassuming report function – is can be a valuable aid for communicating via email, forums, or social networks.
