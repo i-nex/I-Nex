@@ -1,6 +1,3 @@
-[Bookmarks]
-FUdisks=[]
-
 [Breakpoints]
 Count=0
 
@@ -59,7 +56,7 @@ File[32]="logo/fb.png"
 File[33]=".src/FCPU.module:8.1"
 File[34]=".src/FUdisks.form"
 Active=35
-File[35]=".src/FUdisks.class:43.48"
+File[35]=".src/FUdisks.class:99.3"
 Count=35
 
 [Watches]
