@@ -41,7 +41,6 @@ bindir="/usr/bin/"
 	install -m 0775 usr/bin/gbr3 /usr/bin/gbr3
 	install -m 0775 usr/lib/gambas3/gb.debug.so /usr/lib/gambas3/
 	install -m 0775 usr/lib/gambas3/gb.desktop.gambas /usr/lib/gambas3/
-	install -m 0775 usr/lib/gambas3/gb.desktop.gnome.so /usr/lib/gambas3/
 	install -m 0775 usr/lib/gambas3/gb.desktop.so /usr/lib/gambas3/
 	install -m 0775 usr/lib/gambas3/gb.draw.so /usr/lib/gambas3/
 	install -m 0775 usr/lib/gambas3/gb.eval.so /usr/lib/gambas3/
@@ -51,8 +50,8 @@ bindir="/usr/bin/"
 	install -m 0775 usr/lib/gambas3/gb.geom.so /usr/lib/gambas3/
 	install -m 0775 usr/lib/gambas3/gb.gtk.so /usr/lib/gambas3/
 	install -m 0775 usr/lib/gambas3/gb.gui.base.gambas /usr/lib/gambas3/
-	install -m 0775 usr/lib/gambas3/gb.image.so /usr/lib/gambas3/
-	install -m 0775 usr/lib/gambas3/gb.settings.gambas /usr/lib/gambas3/
-	install -m 0775 usr/lib/gambas3/gb.so /usr/lib/gambas3/
+	install -m 0775 usr/lib/gambas3/gb.gui.opengl.so /usr/lib/gambas3/
 	install -m 0775 usr/lib/gambas3/gb.gui.so /usr/lib/gambas3/
-	install -m 0775 usr/lib/gambas3/gb.qt4.so /usr/lib/gambas3/ 
+	install -m 0775 usr/lib/gambas3/gb.image.so /usr/lib/gambas3/
+	install -m 0775 usr/lib/gambas3/gb.qt4.so /usr/lib/gambas3/
+	install -m 0775 usr/lib/gambas3/gb.settings.gambas /usr/lib/gambas3/ 

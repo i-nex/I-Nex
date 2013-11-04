@@ -5,7 +5,7 @@ I-Nex
 0.5.6
 
 gb.image
-gb.gui
+gb.qt4
 gb.form
 gb.desktop
 gb.form.dialog
