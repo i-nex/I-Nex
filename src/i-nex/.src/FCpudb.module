@@ -1,0 +1,23 @@
+' Gambas module file
+
+Public i As Integer
+Public database As Collection
+Public Sub _init()
+  Dim buffer, cpucache As String
+  Dim processorscount, za, z As Integer
+  buffer = File.Load("Database/db")
+  database = JSON.Decode(buffer)
+  cpucache = Finfosys.Label14.Text
+  cpucache = Replace(Replace(Replace(Replace(Replace(Replace(Replace(cpucache, "Intel", ""), " ", "*"), "R", ""), "CPU", ""), "TM", ""), ")", ""), "(", "")
+  Print database["DATABASE"].Count
+  For z = 0 To database["DATABASE"].Count - 1
+    If database["DATABASE"][z]["PROCESSOR_MODEL_NAME"] Like "*" & cpucache & "*" Then
+      Finfosys.Label103.Text = "Integrated GPU: " & database["DATABASE"][z]["PROCESSOR_INTEGRATEDGRAPHIC"]
+      Finfosys.Label104.Text = "TDP: " & database["DATABASE"][z]["PROCESSOR_TDP"]
+      Finfosys.Label110.Text = "PPS: " & database["DATABASE"][z]["PROCESSOR_PROCESS_SIZE"]
+      i = z
+    Endif
+  Next
+  Print cpucache
+End
+

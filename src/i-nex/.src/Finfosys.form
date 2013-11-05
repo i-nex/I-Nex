@@ -138,25 +138,25 @@
       Border = Border.Plain
     }
     { Label1 Label
-      Move(7,322,168,21)
+      Move(7,329,168,21)
       Font = Font["Bold"]
       Text = ("Label1")
       Border = Border.Plain
     }
     { Label2 Label
-      Move(7,350,168,21)
+      Move(7,357,168,21)
       Font = Font["Bold"]
       Text = ("Label2")
       Border = Border.Plain
     }
     { Label3 Label
-      Move(7,378,168,21)
+      Move(7,385,168,21)
       Font = Font["Bold"]
       Text = ("Label3")
       Border = Border.Plain
     }
     { Label5 Label
-      Move(7,406,168,21)
+      Move(7,413,168,21)
       Font = Font["Bold"]
       Text = ("Label5")
       Border = Border.Plain
@@ -211,6 +211,24 @@
       Move(7,273,448,21)
       Font = Font["Bold,8"]
       Text = ("Label15")
+      Border = Border.Plain
+    }
+    { Label103 Label
+      Move(7,98,308,21)
+      Font = Font["Bold"]
+      Text = ("Label103")
+      Border = Border.Plain
+    }
+    { Label104 Label
+      Move(7,301,98,21)
+      Font = Font["Bold"]
+      Text = ("Label104")
+      Border = Border.Plain
+    }
+    { Label110 Label
+      Move(112,301,105,21)
+      Font = Font["Bold"]
+      Text = ("Label110")
       Border = Border.Plain
     }
     Index = 1
