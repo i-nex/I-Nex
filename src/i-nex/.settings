@@ -46,7 +46,8 @@ File[22]=".src/net.module:104.1"
 File[23]="Data/report-ng.sh:27.44"
 File[24]=".src/Distribution_Detect.module:13.20"
 File[25]=".src/FFlags.module:71.6"
-File[26]=".src/Finfosys.class:328.58"
+Active=26
+File[26]=".src/Finfosys.class:345.3"
 File[27]=".src/FDF.form"
 File[28]=".src/FDF.class:28.69"
 File[29]=".src/FNET_R_T.form"
@@ -56,7 +57,6 @@ File[32]="logo/fb.png"
 File[33]=".src/FCPU.module:8.1"
 File[34]=".src/FUdisks.form"
 File[35]=".src/FUdisks.class:49.51"
-Active=36
 File[36]=".src/FCpudb.module:17.11"
 Count=36
 

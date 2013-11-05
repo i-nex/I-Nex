@@ -326,7 +326,7 @@ Public Sub Wykrywanie_procesorow()
   flags = Replace(flags, "\n", "")
   'FFlags._init
   Label71.Text = "Flags: " & FFlags.instructions
-  Label13.Text = Replace(Replace(vendor_id, "Genuine", ""), "\n", "")
+  Label13.Text = Replace(Replace(Replace(vendor_id, "Authentic", ""), "Genuine", ""), "\n", "")
   Label12.Text = Replace(cpu_MHz, "\n", "") & " MHz"
   Label1.Text = "L1 Data:        " & Replace(ldata, "\n", "")
   Label2.Text = "L1 instruction: " & Replace(linstruction, "\n", "")
