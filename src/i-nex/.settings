@@ -21,7 +21,6 @@ SearchComment=False
 SearchString=True
 
 [OpenFile]
-Active=1
 File[1]=".src/Finfosys.form"
 File[2]=".src/Global.class:88.35"
 File[3]=".src/About.form"
@@ -58,7 +57,10 @@ File[33]=".src/FCPU.module:8.1"
 File[34]=".src/FUdisks.form"
 File[35]=".src/FUdisks.class:49.51"
 File[36]=".src/FCpudb.module:29.33"
-Count=36
+File[37]=".src/JSON.module:18.2"
+Active=38
+File[38]=".src/JSONCollection.class:16.48"
+Count=38
 
 [Watches]
 Count=0

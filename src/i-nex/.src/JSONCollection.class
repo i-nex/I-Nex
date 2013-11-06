@@ -1,0 +1,29 @@
+' Gambas class file
+
+Export
+
+Inherits Collection
+
+Public Sub _get(Key As String) As Variant
+  
+  Dim vVal As Variant
+  
+  vVal = Super[Key]
+  If TypeOf(vVal) = gb.Pointer And If vVal = JSON.Null Then vVal = Null
+  Return vVal
+  
+End
+
+Public Sub _put(Value As Variant, Key As String)
+  
+  If IsNull(Value) Then Value = JSON.Null
+  Super[Key] = Value
+  
+End
+
+Public Sub _next() As Variant
+  
+  Super._next()
+  If Not Enum.Stopped Then Return _get(Me.Key)
+  
+End

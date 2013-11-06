@@ -1,0 +1,265 @@
+' Gambas module file
+
+Export
+
+Public {Null} As Variant
+
+Private $sStr As String
+Private $iPos As Integer
+Private $bUseNull As Boolean
+
+Private Sub GetChar() As String
+  
+  Dim sCar As String
+  
+  If $iPos > Len($sStr) Then Return
+  sCar = Mid$($sStr, $iPos, 1)
+  Inc $iPos
+  Return sCar
+  
+End
+
+
+Private Sub ReadChar() As String
+  
+  Dim sCar As String
+
+  Do
+    sCar = GetChar()
+    If Not sCar Then Return
+    If sCar > " " Then Return sCar
+  Loop
+  
+End
+
+
+Private Sub ReadToken() As String
+  
+  Dim sToken As String
+  Dim sCar As String
+
+  sCar = ReadChar()
+  If Not IsLetter(sCar) Then Return sCar
+  
+  sToken = sCar
+  Do
+    sCar = GetChar()
+    If Not sCar Then Break
+    If Not IsLetter(sCar) Then 
+      Dec $iPos
+      Break
+    Endif
+    sToken &= sCar
+  Loop
+  
+  Return sToken
+  
+End
+
+Private Sub ReadString() As String
+  
+  Dim sCar As String
+  Dim sString As String
+  Dim iPos As Integer
+  
+  Do
+    sCar = GetChar()
+    If Not sCar Then Error.Raise("Non terminated string")
+    If sCar = Chr$(34) Then Return sString
+    If sCar = "\\" Then
+      sCar = GetChar()
+      If Not sCar Then Error.Raise("Non terminated string")
+      iPos = InStr("bfrtn", sCar)
+      If iPos Then
+        sCar = Mid$("\b\f\r\t\n", iPos, 1)
+      Else If sCar = "u" Then
+        Try sCar = String.Chr$(Val("&H" & Mid$($sStr, $iPos, 4)))
+        If Not Error Then $iPos += 4
+      Else
+        ' Keep character
+      Endif
+    Endif
+    sString &= sCar
+  Loop
+  
+End
+
+Private Sub ReadObject() As Collection
+  
+  Dim sCar As String
+  Dim cObject As Collection
+  Dim sKey As String
+  
+  If $bUseNull Then
+    cObject = New JSONCollection
+  Else
+    cObject = New Collection
+  Endif
+  
+  Do
+    sCar = ReadChar()
+    If sCar = "}" Then Return cObject
+    If sCar <> Chr$(34) Then Error.Raise("String expected")
+    sKey = ReadString()
+    sCar = ReadChar()
+    If sCar <> ":" Then Error.Raise("Colon expected")
+    cObject[sKey] = ReadValue()
+    sCar = ReadChar()
+    If sCar = "}" Then Return cObject
+    If sCar <> "," Then Error.Raise("Comma expected")
+  Loop
+  
+End
+
+Private Sub ReadArray() As Variant[]
+  
+  Dim sCar As String
+  Dim aArray As New Variant[]
+  
+  Do
+    sCar = ReadChar()
+    If sCar = "]" Then Return aArray
+    Dec $iPos
+    aArray.Add(ReadValue())
+    sCar = ReadChar()
+    If sCar = "]" Then Return aArray
+    If sCar <> "," Then Error.Raise("Comma expected")
+  Loop
+  
+End
+
+Private Sub ReadNumber(sNumber As String) As Variant
+  
+  Dim sCar As String
+  Dim vNumber As Variant
+  
+  Do
+    sCar = GetChar()
+    If Not sCar Then Break
+    If InStr("-+0123456789eE.", sCar) = 0 Then 
+      Dec $iPos
+      Break
+    Endif
+    sNumber &= sCar
+  Loop
+  
+  Try vNumber = CFloat(sNumber)
+  If IsNull(vNumber) Then Error.Raise("Incorrect number")
+  Return vNumber
+  
+End
+
+Private Sub ReadValue() As Variant
+  
+  Dim sCar As String
+  
+  sCar = ReadToken()
+  
+  If sCar = "{" Then
+    Return ReadObject()
+  Else If sCar = "[" Then
+    Return ReadArray()
+  Else If sCar = Chr$(34) Then
+    Return ReadString()
+  Else If sCar = "-" Or If IsDigit(sCar) Then
+    Return ReadNumber(sCar)
+  Else If sCar = "null" Then
+    Return Null
+  Else If sCar = "true" Then
+    Return True
+  Else If sCar = "false" Then
+    Return False
+  Else If Not sCar Then
+    Return
+  Else
+    Error.Raise("Incorrect token: " & Quote(sCar))
+  Endif
+  
+End
+
+Private Sub WriteValue(vVal As Variant)
+  
+  Dim sStr As String
+  Dim iPos As Integer
+  Dim aArray As Array
+  Dim cCol As Collection
+  
+  Select Case TypeOf(vVal)
+    
+    Case gb.Null
+      $sStr &= "null"
+    
+    Case gb.Boolean
+      If vVal Then
+        $sStr &= "true"
+      Else
+        $sStr &= "false"
+      Endif
+    
+    Case gb.Byte, gb.Short, gb.Integer, gb.Long, gb.Float
+      $sStr &= CStr(vVal)
+    
+    Case gb.Date
+      $sStr &= Chr$(34) & CStr(vVal) & Chr$(34)
+    
+    Case gb.String
+      sStr = Quote(vVal)
+      Do
+        iPos = InStr(sStr, "\\", iPos + 1)
+        If iPos = 0 Then Break
+        If Mid$(sStr, iPos + 1, 1) = "x" Then
+          Mid$(sStr, iPos, 4) = "\\u00" & Mid$(sStr, iPos + 2, 2)
+        Else
+          Inc iPos
+        Endif
+      Loop
+      $sStr &= sStr
+    
+    Case Else
+      If vVal Is Array Then
+        aArray = vVal
+        $sStr &= "["
+        For iPos = 0 To vVal.Max
+          If iPos Then $sStr &= ", "
+          WriteValue(vVal[iPos])
+        Next
+        $sStr &= "]"
+      Else If vVal Is Collection Then
+        cCol = vVal
+        $sStr &= "{"
+        For Each vVal In cCol
+          If iPos Then $sStr &= ", "
+          WriteValue(cCol.Key)
+          $sStr &= ": "
+          WriteValue(vVal)
+          Inc iPos
+        Next
+        $sStr &= "}"
+      Endif
+    
+  End Select
+    
+End
+
+
+Public Sub Decode(JSONString As String, Optional bUseNull As Boolean) As Variant
+  
+  Dim vVal As Variant
+  $sStr = JSONString
+  $iPos = 1
+  $bUseNull = bUseNull
+  If bUseNull And If IsNull({Null}) Then {Null} = VarPtr({Null})
+  vVal = ReadValue()
+  $bUseNull = False
+  $sStr = ""
+  Return vVal
+  
+End
+
+Public Sub Encode(Value As Variant) As String
+  
+  $sStr = ""
+  WriteValue(Value)
+  Return $sStr
+  
+End
