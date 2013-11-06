@@ -10,7 +10,7 @@ Public Sub Form_Open()
     Message.Error(("Running as root is not allowed!"))
   Endif
   Finfosys.TabStrip1[9].Visible = False
-  Button13.Visible = ChkPrm.ChkExec("apport-bug")
+  
   Button14.Visible = ChkPrm.ChkExec("udisks")
   Debug "Check for Battery"
   Object.Call(battery, "_inits")
@@ -558,8 +558,8 @@ End
 
 Public Sub Button13_Click()
 
- Exec ["apport-bug", "i-nex"] Wait
- Debug "Reporting bug to launchpad"
+ Desktop.Open("http://tuxportal.pl/forum/")
+ Debug "Reporting bug to http://tuxportal.pl/forum/"
 
 End
 

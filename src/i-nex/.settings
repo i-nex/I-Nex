@@ -21,8 +21,8 @@ SearchComment=False
 SearchString=True
 
 [OpenFile]
+Active=1
 File[1]=".src/Finfosys.form"
-Active=2
 File[2]=".src/Global.class:88.35"
 File[3]=".src/About.form"
 File[4]=".src/About.class:41.49"
@@ -47,7 +47,7 @@ File[22]=".src/net.module:104.1"
 File[23]="Data/report-ng.sh:27.44"
 File[24]=".src/Distribution_Detect.module:13.20"
 File[25]=".src/FFlags.module:71.6"
-File[26]=".src/Finfosys.class:345.3"
+File[26]=".src/Finfosys.class:436.2"
 File[27]=".src/FDF.form"
 File[28]=".src/FDF.class:28.69"
 File[29]=".src/FNET_R_T.form"
@@ -57,7 +57,7 @@ File[32]="logo/fb.png"
 File[33]=".src/FCPU.module:8.1"
 File[34]=".src/FUdisks.form"
 File[35]=".src/FUdisks.class:49.51"
-File[36]=".src/FCpudb.module:24.0"
+File[36]=".src/FCpudb.module:29.33"
 Count=36
 
 [Watches]

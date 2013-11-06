@@ -43,7 +43,6 @@
   }
   { Button13 Button
     Move(35,497,24,24)
-    Visible = False
     ToolTip = ("Report a bug")
     Picture = Picture["icon:/16/important"]
   }
@@ -53,7 +52,7 @@
     Index = 0
     Text = ("CPU")
     { ComboBox1 ComboBox
-      Move(343,434,120,24)
+      Move(364,434,98,28)
       Font = Font["10"]
       ReadOnly = True
       Text = ("Select core")
@@ -63,106 +62,106 @@
       Delay = 2000
     }
     { Label72 Label
-      Move(7,245,168,21)
+      Move(7,168,168,21)
       Font = Font["Bold,8"]
       Text = ("x86 64-Bit Extensions:")
       Border = Border.Plain
     }
     { ToolButton1 ToolButton
-      Move(154,245,21,21)
+      Move(154,168,21,21)
     }
     { Label98 Label
-      Move(175,245,182,21)
+      Move(175,168,182,21)
       Font = Font["Bold,8"]
       Text = ("Hardware Virtualization:")
       Border = Border.Plain
     }
     { ToolButton2 ToolButton
-      Move(336,245,21,21)
+      Move(336,168,21,21)
     }
     { Label99 Label
-      Move(357,245,98,21)
+      Move(357,168,98,21)
       Font = Font["Bold,8"]
       Text = ("HT:")
       Border = Border.Plain
     }
     { ToolButton3 ToolButton
-      Move(434,245,21,21)
+      Move(434,168,21,21)
     }
     { Label71 Label
-      Move(7,217,448,21)
+      Move(7,147,448,21)
       Font = Font["Bold,8"]
       Text = ("Label71")
       Border = Border.Plain
     }
     { Label10 Label
-      Move(315,189,140,21)
+      Move(315,126,140,21)
       Font = Font["Bold,8"]
       Text = ("Label10")
       Border = Border.Plain
     }
     { Label19 Label
-      Move(357,161,98,21)
+      Move(357,105,98,21)
       Font = Font["Bold,8"]
       Text = ("Label19")
       Border = Border.Plain
     }
     { Label11 Label
-      Move(7,189,308,21)
+      Move(7,126,308,21)
       Font = Font["Bold,8"]
       Text = ("Label11")
       Border = Border.Plain
     }
     { Label97 Label
-      Move(7,161,84,21)
+      Move(7,105,84,21)
       Font = Font["Bold,8"]
       Text = ("Label97")
       Border = Border.Plain
     }
     { Label6 Label
-      Move(91,161,84,21)
+      Move(91,105,84,21)
       Font = Font["Bold,8"]
       Text = ("Label6")
       Border = Border.Plain
     }
     { Label7 Label
-      Move(175,161,98,21)
+      Move(175,105,98,21)
       Font = Font["Bold,8"]
       Text = ("Label7")
       Border = Border.Plain
     }
     { Label8 Label
-      Move(273,161,84,21)
+      Move(273,105,84,21)
       Font = Font["Bold,8"]
       Text = ("Label8")
       Border = Border.Plain
     }
     { Label1 Label
-      Move(7,329,168,21)
-      Font = Font["Bold"]
+      Move(7,350,168,21)
+      Font = Font["Bold,8"]
       Text = ("Label1")
       Border = Border.Plain
     }
     { Label2 Label
-      Move(7,357,168,21)
-      Font = Font["Bold"]
+      Move(7,371,168,21)
+      Font = Font["Bold,8"]
       Text = ("Label2")
       Border = Border.Plain
     }
     { Label3 Label
-      Move(7,385,168,21)
-      Font = Font["Bold"]
+      Move(7,392,168,21)
+      Font = Font["Bold,8"]
       Text = ("Label3")
       Border = Border.Plain
     }
     { Label5 Label
       Move(7,413,168,21)
-      Font = Font["Bold"]
+      Font = Font["Bold,8"]
       Text = ("Label5")
       Border = Border.Plain
     }
     { Label93 Label
-      Move(7,126,84,21)
+      Move(7,77,91,21)
       Font = Font["Bold"]
       AutoResize = True
       Border = Border.Plain
@@ -173,64 +172,134 @@
       AutoResize = True
     }
     { Button4 Button
-      Move(273,434,72,21)
+      Move(287,434,72,21)
       Font = Font["10"]
       Text = ("Info")
       Picture = Picture["icon:/16/info"]
       Border = False
     }
-    { HBox27 HBox
-      Move(322,7,133,147)
-      Expand = True
-      Spacing = True
-      { PictureBox3 PictureBox
-        Move(0,0,60,60)
-        Expand = True
-        Stretch = True
-        Alignment = Align.Center
-      }
-    }
     { Label12 Label
-      Move(7,42,308,21)
+      Move(98,35,259,21)
       Font = Font["Bold"]
       Text = ("Label12")
       Border = Border.Plain
     }
     { Label13 Label
-      Move(7,14,308,21)
+      Move(7,14,91,21)
       Font = Font["Bold"]
       Text = ("Label13")
       Border = Border.Plain
     }
     { Label14 Label
-      Move(7,70,308,21)
+      Move(98,14,259,21)
       Font = Font["Bold"]
       Text = ("Label14")
       Border = Border.Plain
     }
     { Label15 Label
-      Move(7,273,448,21)
+      Move(7,189,448,21)
       Font = Font["Bold,8"]
       Text = ("Label15")
       Border = Border.Plain
     }
     { Label103 Label
-      Move(7,98,308,21)
+      Move(98,56,259,21)
       Font = Font["Bold"]
       Text = ("Label103")
       Border = Border.Plain
     }
     { Label104 Label
-      Move(7,301,98,21)
-      Font = Font["Bold"]
+      Move(7,217,91,21)
+      Font = Font["Bold,8"]
       Text = ("Label104")
       Border = Border.Plain
     }
     { Label110 Label
-      Move(112,301,105,21)
-      Font = Font["Bold"]
+      Move(98,217,98,21)
+      Font = Font["Bold,8"]
       Text = ("Label110")
       Border = Border.Plain
+    }
+    { PictureBox3 PictureBox
+      Move(364,7,91,91)
+      Stretch = True
+      AutoResize = True
+      Alignment = Align.Center
+    }
+    { Label111 Label
+      Move(196,217,259,21)
+      Font = Font["Bold,8"]
+      Text = ("Label111")
+      Border = Border.Plain
+    }
+    { Label112 Label
+      Move(196,238,259,21)
+      Font = Font["Bold,8"]
+      Text = ("Label112")
+      Border = Border.Plain
+    }
+    { Label113 Label
+      Move(7,238,189,21)
+      Font = Font["Bold,8"]
+      Text = ("Label113")
+      Border = Border.Plain
+    }
+    { Label114 Label
+      Move(7,259,189,21)
+      Font = Font["Bold,8"]
+      Text = ("Label114")
+      Border = Border.Plain
+    }
+    { Label115 Label
+      Move(196,259,259,21)
+      Font = Font["Bold,8"]
+      Text = ("Label115")
+      Border = Border.Plain
+    }
+    { Label116 Label
+      Move(7,280,189,21)
+      Font = Font["Bold,8"]
+      Text = ("Label116")
+      Border = Border.Plain
+    }
+    { Label117 Label
+      Move(196,280,259,21)
+      Font = Font["Bold,8"]
+      Text = ("Label117")
+      Border = Border.Plain
+    }
+    { Label118 Label
+      Move(7,301,189,21)
+      Font = Font["Bold,8"]
+      Text = ("Label118")
+      Border = Border.Plain
+    }
+    { Label119 Label
+      Move(196,301,259,21)
+      Font = Font["Bold,8"]
+      Text = ("Label119")
+      Border = Border.Plain
+    }
+    { Label120 Label
+      Move(7,322,189,21)
+      Font = Font["Bold,8"]
+      Text = ("Label120")
+      Border = Border.Plain
+    }
+    { Label121 Label
+      Move(196,322,259,21)
+      Font = Font["Bold,8"]
+      Text = ("Label121")
+      Border = Border.Plain
+    }
+    { Separator2 Separator
+      Move(0,203,469,21)
+    }
+    { Separator3 Separator
+      Move(0,91,469,21)
+    }
+    { Separator4 Separator
+      Move(0,336,469,21)
     }
     Index = 1
     Text = ("GPU")
@@ -239,81 +308,93 @@
       Stretch = True
     }
     { Label105 Label
-      Move(7,280,455,28)
+      Move(7,343,455,21)
       Font = Font["Bold,8"]
       Padding = 3
       Text = ("Label105")
       Border = Border.Plain
     }
     { Label107 Label
-      Move(7,350,455,28)
+      Move(7,385,455,21)
       Font = Font["Bold,8"]
       Padding = 3
       Text = ("Label105")
       Border = Border.Plain
     }
     { Label108 Label
-      Move(7,385,455,28)
+      Move(7,406,455,21)
       Font = Font["Bold,8"]
       Padding = 3
       Text = ("Label105")
       Border = Border.Plain
     }
     { Label106 Label
-      Move(7,315,455,28)
+      Move(7,364,455,21)
       Font = Font["Bold,8"]
       Padding = 3
       Text = ("Label105")
       Border = Border.Plain
     }
     { Label109 Label
-      Move(7,420,455,28)
+      Move(7,427,455,21)
       Font = Font["Bold,8"]
       Text = ("Label105")
       Border = Border.Plain
     }
     { Label64 Label
-      Move(7,245,455,28)
+      Move(7,322,455,21)
       Font = Font["Bold,8"]
       Padding = 3
       Text = ("Label64")
       Border = Border.Plain
     }
     { TextBox1 TextBox
-      Move(7,210,455,28)
+      Move(7,294,455,28)
       Font = Font["Bold,8"]
       Text = ("TextBox1")
       Alignment = Align.Left
       Border = False
     }
     { ComboBox8 ComboBox
-      Move(7,7,105,28)
+      Move(7,7,84,28)
       ReadOnly = True
       Text = ("ComboBox8")
     }
     { Label65 Label
-      Move(14,42,168,21)
+      Move(7,35,168,21)
+      Font = Font["Bold,8"]
       Text = ("Label65")
+      Border = Border.Plain
     }
     { Label66 Label
-      Move(14,70,168,21)
+      Move(7,56,168,21)
+      Font = Font["Bold,8"]
       Text = ("Label66")
+      Border = Border.Plain
     }
     { Label67 Label
-      Move(14,98,168,21)
+      Move(7,77,168,21)
+      Font = Font["Bold,8"]
       Text = ("Label67")
+      Border = Border.Plain
     }
     { Label100 Label
-      Move(14,126,441,21)
+      Move(7,126,455,21)
+      Font = Font["Bold,8"]
       Text = ("Label100")
+      Border = Border.Plain
     }
     { Label101 Label
-      Move(14,154,441,21)
+      Move(7,147,455,21)
+      Font = Font["Bold,8"]
       Text = ("Label101")
+      Border = Border.Plain
     }
     { Label102 Label
-      Move(14,182,441,21)
+      Move(7,168,455,21)
+      Font = Font["Bold,8"]
       Text = ("Label102")
+      Border = Border.Plain
     }
     Index = 2
     Text = ("Mobo")
