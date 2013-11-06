@@ -1,0 +1,50 @@
+' Gambas class file
+
+Export
+Create Static
+
+Public _Slot As Collection
+Public _Parent As String
+
+Private $aKeys As String[]
+
+Public Sub _get(Parent As String) As _Settings_Keys
+  
+  _Parent &/= Parent
+  Return _Settings_Keys
+  
+End
+
+Public Sub _next() As String
+  
+  Dim vVal As Variant
+  Dim cCol As Collection
+  Dim sKey As String
+  
+  If IsNull(Enum.Index) Then
+    If _Parent Then
+      Try cCol = _Slot[_Parent]
+    Else
+      cCol = _Slot
+    Endif
+    If Not cCol Then 
+      Enum.Stop
+      Return
+    Endif
+    $aKeys = New String[]
+    For Each vVal In cCol
+      $aKeys.Add(cCol.Key)
+    Next
+    $aKeys.Sort
+    Enum.Index = 0
+  Endif
+  
+  If Enum.Index >= $aKeys.Count Then
+    Enum.Stop
+  Else
+    sKey = $aKeys[Enum.Index]
+    Inc Enum.Index
+    Return sKey
+  Endif
+  
+End

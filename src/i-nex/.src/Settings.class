@@ -1,0 +1,496 @@
+' Gambas class file
+
+Export
+Create Static
+
+Class Window
+Class Desktop
+Class Screens
+
+Static Property Read DefaultDir As String
+
+Private $sPath As String
+Private $sTitle As String
+Private $cSlot As Collection
+Private $bModify As Boolean
+
+Property Read Keys As _Settings_Keys
+Property Read Path As String
+
+Private Sub Load()
+  
+  Dim hFile As File
+  Dim iLine As Integer
+  Dim sLine As String
+  Dim sSlot As String
+  Dim iPos As Integer
+  Dim hCol As Collection
+
+  $cSlot = New Collection
+  If Not Exist($sPath) Then Return
+
+  hFile = Open $sPath
+
+  While Not Eof(hFile)
+
+    Inc iLine
+    Line Input #hFile, sLine
+    sLine = Trim(sLine)
+    If Not sLine Then Continue
+    If InStr("#;'", Left$(sLine)) Then Continue
+
+    If Left$(sLine) = "[" Then
+      If Right$(sLine) = "]" Then
+        sSlot = Mid$(sLine, 2, -1)
+        hCol = New Collection
+        $cSlot[sSlot] = hCol
+        Continue
+      Else
+        sSlot = False
+      Endif
+    Endif
+
+    If Not sSlot Then Continue
+
+    iPos = InStr(sLine, "=")
+
+    $cSlot[sSlot][Trim(Left$(sLine, iPos - 1))] = Main.FromString(Trim(Mid$(sLine, iPos + 1)))
+
+  Wend
+
+  Close #hFile
+
+Catch
+
+  If iLine Then
+    Error.Raise("Syntax error in settings file at line #" & iLine & ": " & Error.Where & ": " & Error.Text)
+  Else
+    Error.Raise(Error.Text)
+  Endif
+  
+End
+
+
+Public Sub _new(Optional Path As String, Optional Title As String)
+
+  Dim sDir As String
+  Dim sPath As String
+  Dim sElt As String
+
+  If Left(Path) <> "/" And If Left(Path) <> "~" Then 
+    If Not Path Then
+      Path = Settings.DefaultDir &/ Application.Name & ".conf"
+    Else If Path Begins "./" Then
+      Path = "." & Path
+    Else If Path Begins "../" Then
+    Else
+      Path = Settings.DefaultDir &/ Path & ".conf"
+    Endif
+    If Left(Path) = "/" Then
+      For Each sElt In Split(Settings.DefaultDir, "/")
+        sPath &/= sElt
+        Try Mkdir "/" & sPath
+      Next
+    Endif
+  Endif
+
+  $sTitle = Title
+
+  $sPath = Path
+  
+  Load()
+
+End
+
+
+Public Sub _free()
+
+  Try Me.Save
+
+End
+
+
+Public Sub Save()
+
+  Dim aKey As New String[]
+  Dim cSlot As Collection
+  Dim sKey As String
+  Dim hFile As File
+  Dim vVal As Variant
+  Dim iInd As Integer
+  Dim hLock As File
+
+  If Not $bModify Then Return
+
+  For Each cSlot In $cSlot
+    aKey.Add($cSlot.Key)
+  Next
+
+  aKey.Sort
+
+  $bModify = False
+  
+  For iInd = 1 To 10
+    Try hLock = Lock $sPath & ".lock"
+    If Error And If iInd = 10 Then Error.Propagate
+    If Not Error Then Break
+    Sleep 0.2
+  Next
+  
+  hFile = Open $sPath & "#" For Create 
+
+  If $sTitle Then
+    Print #hFile, "# "; $sTitle
+  Endif
+
+  For Each sKey In aKey
+    cSlot = $cSlot[sKey]
+    If cSlot.Count Then
+      Print #hFile, "[" & sKey & "]"
+      For Each vVal In cSlot
+        Print #hFile, cSlot.Key; "="; Main.ToString(vVal)
+      Next
+      Print #hFile
+    Endif
+  Next
+
+  Close #hFile
+  Try Kill $sPath & "~"
+  Try Move $sPath To $sPath & "~"
+  Try Move $sPath & "#" To $sPath
+  Try Kill $sPath & ".lock"
+  Try Kill $sPath & "~"
+  Unlock #hLock
+
+'CATCH
+'
+'  PRINT #File.Err, "Cannot write "; $sPath
+'  PRINT #File.Err, Error.Text
+
+End
+
+
+Private Function GetSlot(sKey As String) As String
+
+  Dim sSlot As String
+
+  sSlot = File.Dir(sKey)
+  If Not sSlot Then sSlot = "/"
+  If sSlot = "/" Then
+    sSlot = "General"
+  Endif
+  If Left(sSlot) = "/" Then sSlot = Mid$(sSlot, 2)
+
+  Return sSlot
+
+End
+
+
+Public Function _get(Key As String, Optional {Default} As Variant) As Variant
+
+  Dim sSlot As String
+
+  sSlot = GetSlot(Key)
+  If $cSlot.Exist(sSlot) Then
+    Key = File.Name(Key)
+    If $cSlot[sSlot].Exist(Key) Then
+      Return $cSlot[sSlot][Key]
+    Endif
+  Endif
+
+  Return {Default}
+
+End
+
+
+Public Sub _put(Value As Variant, Key As String)
+
+  Dim sSlot As String
+
+  sSlot = GetSlot(Key)
+  If Not $cSlot.Exist(sSlot) Then $cSlot[sSlot] = New Collection
+
+  Key = File.Name(Key)
+  'IF $cSlot[sSlot].Exist(Key) THEN
+  '  IF $cSlot[sSlot][Key] = sVal THEN RETURN
+  'ENDIF
+
+  $cSlot[sSlot][Key] = Value
+  $bModify = True
+
+End
+
+
+Public Sub Clear(Optional ParentKey As String)
+
+  Dim sSlot As String
+
+  If Not ParentKey Then
+    $cSlot.Clear
+  Else
+    sSlot = GetSlot(ParentKey &/ "g")
+    $cSlot.Remove(sSlot)
+  Endif
+
+  $bModify = True
+
+End
+
+
+' PUBLIC FUNCTION MakeWindowKey(sWin AS String, sKey AS String) AS String
+' 
+'   RETURN "Window" &/ sWin &/ sKey
+' 
+' END
+' 
+' 
+' PUBLIC SUB LoadWindowPos(hForm AS Form, sKey AS String)
+' 
+'   DIM sPos AS String
+'   DIM cPos AS String[]
+' 
+'   'Dump($cData)
+' 
+'   sPos = ReadString(MakeWindowKey(sKey, "Pos"))
+'   IF Not sPos THEN RETURN
+' 
+'   'PRINT "LoadWindowPos: "; sKey; ": "; sPos
+' 
+'   cPos = Split(sPos, ",")
+'   IF cPos.Count = 4 THEN
+'     hForm.Move(cPos[0], cPos[1], cPos[2], cPos[3])
+'   ELSE
+'     hForm.Move(cPos[0], cPos[1])
+'   ENDIF
+' 
+' END
+' 
+' 
+' PUBLIC SUB SaveWindowPos(hWindow AS Form, sKey AS String, OPTIONAL bSaveSize AS Boolean = TRUE)
+' 
+'   DIM sPos AS String
+' 
+'   sPos = CStr(hWindow.X) & "," & CStr(hWindow.Y)
+'   IF bSaveSize THEN
+'     sPos = sPos & "," & CStr(hWindow.Width) & "," & CStr(hWindow.Height)
+'   ENDIF
+' 
+'   WriteString(MakeWindowKey(sKey, "Pos"), sPos)
+'   'PRINT "SaveWindowPos: "; sKey; ": "; sPos
+' 
+' END
+' 
+' 
+' PUBLIC SUB LoadWindowSize(hForm AS Form, sKey AS String)
+' 
+'   DIM sPos AS String
+'   DIM cPos AS String[]
+' 
+'   'Dump($cData)
+' 
+'   sPos = ReadString(MakeWindowKey(sKey, "Pos"))
+'   IF Not sPos THEN RETURN
+' 
+'   'PRINT "LoadWindowPos: "; sKey; ": "; sPos
+' 
+'   cPos = Split(sPos, ",")
+'   hForm.Resize(cPos[0], cPos[1])
+' 
+' END
+' 
+' 
+' PUBLIC SUB SaveWindowSize(hWindow AS Form, sKey AS String)
+' 
+'   DIM sPos AS String
+' 
+'   sPos = CStr(hWindow.W) & "," & CStr(hWindow.H)
+'   WriteString(MakeWindowKey(sKey, "Pos"), sPos)
+'   'PRINT "SaveWindowPos: "; sKey; ": "; sPos
+' 
+' END
+' 
+' 
+' PUBLIC SUB SaveSplitterPos(hSplitter AS Object, sWindow AS String, sKey AS String)
+' 
+'   TRY WriteString(MakeWindowKey(sWindow, sKey), hSplitter.Layout)
+'   IF ERROR THEN PRINT Error.Text
+' 
+' END
+' 
+' PUBLIC SUB LoadSplitterPos(hSplitter AS Object, sWindow AS String, sKey AS String)
+' 
+'   TRY hSplitter.Layout = ReadString(MakeWindowKey(sWindow, sKey))
+'   IF ERROR THEN PRINT Error.Text
+' 
+' END
+
+Private Sub ReadWindow(hWindow As Window, sKey As String)
+
+  Dim aPos As Integer[]
+  Dim X, Y, W, H, S As Integer
+  Dim sPos As String
+
+  aPos = Me[sKey &/ "Geometry"]
+
+  If Not aPos Or If aPos.Count < 2 Then 
+    Return
+  Else
+    X = aPos[0]
+    Y = aPos[1]
+    If aPos.Count > 2 Then
+      W = aPos[2]
+      H = aPos[3]
+      If aPos.Count > 4 Then
+        S = aPos[4]
+        If S >= Screens.Count Then S = 0
+      Endif
+    Else
+      W = hWindow.W
+      H = hWindow.H
+    Endif
+  Endif
+
+  X += Screens[S].AvailableX
+  Y += Screens[S].AvailableY
+
+  ' If Object.Type(hWindow) = "FHelpBrowser" Then
+  '   Print "ReadWindow: "; X;; Y; " / "; S;; Screens[S].AvailableX;; Screens[S].AvailableY
+  ' Endif
+  
+  If hWindow.Resizable Then
+    W = Max(32, W)
+    H = Max(32, H)
+    If hWindow.Modal Then
+      hWindow.Resize(W, H)
+      hWindow.Center
+    Else
+      hWindow.Move(X, Y, W, H)
+    Endif
+  Else
+    If Not hWindow.Modal Then hWindow.Move(X, Y)
+  Endif
+
+End
+
+
+Private Sub WriteWindow(hWindow As Window, sKey As String)
+
+  Dim X, Y, W, H, S As Integer
+  
+  ' If Object.Type(hWindow) = "FHelpBrowser" Then
+  '   Print "WriteWindow: "; hWindow.X;; hWindow.Y; " / "; S;; Screens[S].AvailableX;; Screens[S].AvailableY
+  ' Endif
+  
+  S = hWindow.Screen
+  X = hWindow.X - Screens[S].AvailableX
+  Y = hWindow.Y - Screens[S].AvailableY
+  W = hWindow.Width
+  H = hWindow.Height
+
+  Me[sKey &/ "Geometry"] = [X, Y, W, H, S]
+
+End
+
+
+Private Sub GetTopLevel(hCtrl As Object) As String
+  
+  Return Object.Type(hCtrl.Window)
+  
+End
+
+
+
+Public Sub Read(hObject As Object, Optional sKey As String, Optional vDefault As Variant)
+
+  Dim sVal As String
+  Dim aVal As String[]
+
+  If Object.Is(hObject, "Window") Then
+    If Not sKey Then sKey = Object.Type(hObject) 
+    ReadWindow(hObject, sKey)
+  Else
+    If Not sKey Then Try sKey = hObject.Name
+    sKey = GetTopLevel(hObject) &/ sKey
+    Try hObject.Settings = Me[sKey, vDefault]
+  Endif
+
+End
+
+Public Sub Write(hObject As Object, Optional sKey As String)
+
+  If Object.Is(hObject, "Window") Then
+    If Not sKey Then sKey = Object.Type(hObject) 
+    WriteWindow(hObject, sKey)
+  Else 'IF Object.Is(hObject, "SidePanel") THEN
+    If Not sKey Then Try sKey = hObject.Name
+    sKey = GetTopLevel(hObject) &/ sKey
+    Try Me[sKey] = hObject.Settings
+  Endif
+
+End
+
+
+Private Function Path_Read() As String
+
+  Return $sPath
+
+End
+
+' Static Public Function Array(...) As String[]
+'   
+'   Dim aVal As New String[]
+'   Dim iInd As Integer
+'   Dim sVal As String
+'   Dim vVal As Variant
+'   
+'   For iInd = 0 To Param.Max
+'     vVal = Param[iInd]
+'     If IsBoolean(vVal) Then 
+'       sVal = IIf(vVal, "1", "0")
+'     Else
+'       sVal = CStr(vVal)
+'     Endif
+'     aVal.Add(sVal)
+'   Next
+'   
+'   Return aVal
+'   
+' End
+
+' STATIC PUBLIC FUNCTION FromString(Value AS String) AS String[]
+'   
+'   DIM aRet AS NEW String[]
+'   DIM iInd AS Integer
+'   
+'   aRet = Split(Value, ",", "\"")
+'   FOR iInd = 0 TO aRet.Max
+'     aRet[iInd] = Replace(aRet[iInd], "\"\"", "\"")
+'   NEXT
+'   
+'   RETURN aRet
+'   
+' END
+' 
+
+Public Sub Reload()
+  
+  Load
+  
+End
+
+
+Private Function Keys_Read() As _Settings_Keys
+
+  _Settings_Keys._Slot = $cSlot
+  _Settings_Keys._Parent = ""
+  Return _Settings_Keys
+
+End
+
+Static Private Function DefaultDir_Read() As String
+
+  Dim sPath As String = Application.Env["XDG_CONFIG_HOME"]
+  If Not sPath Then sPath = System.User.Home &/ ".config"
+  Return sPath &/ "gambas" & System.Version
+
+End

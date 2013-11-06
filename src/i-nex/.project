@@ -10,7 +10,6 @@ Component=gb.qt4
 Component=gb.form
 Component=gb.desktop
 Component=gb.form.dialog
-Component=gb.settings
 Authors="eloaders"
 TabSize=1
 Translate=1

@@ -99,7 +99,6 @@ self:
 	install -m 0775 usr/lib/gambas3/gb.gui.so inex/usr/lib/gambas3/
 	install -m 0775 usr/lib/gambas3/gb.image.so inex/usr/lib/gambas3/
 	install -m 0775 usr/lib/gambas3/gb.qt4.so inex/usr/lib/gambas3/
-	install -m 0775 usr/lib/gambas3/gb.settings.gambas inex/usr/lib/gambas3/
 	install -m 0775 install-self inex/install-self 
 	install -m 0775 install-self-inex inex/install-self-inex
 	chmod +x inex/install-self

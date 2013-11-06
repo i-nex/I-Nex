@@ -58,9 +58,12 @@ File[34]=".src/FUdisks.form"
 File[35]=".src/FUdisks.class:49.51"
 File[36]=".src/FCpudb.module:29.33"
 File[37]=".src/JSON.module:18.2"
-Active=38
 File[38]=".src/JSONCollection.class:16.48"
-Count=38
+File[39]=".src/Settings.class:464.34"
+Active=40
+File[40]=".src/Main.module:7.29"
+File[41]=".src/_Settings_Keys.class:50.0"
+Count=41
 
 [Watches]
 Count=0

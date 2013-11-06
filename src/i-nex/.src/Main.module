@@ -1,0 +1,338 @@
+' Gambas module file
+
+Private $sStr As String
+Private $iPos As Integer
+
+Public Sub Main()
+
+  ' Dim hSettings As Settings
+  ' Dim sKey As String
+  ' 
+  ' Print TypeOf("");; TypeOf(Null)
+  ' 
+  ' hSettings = New Settings("./test")
+  ' 
+  ' Print hSettings["Test/Test1"]
+
+End
+
+Private Sub GetChar() As String
+  
+  Dim sCar As String
+  
+  If $iPos > Len($sStr) Then Return
+  sCar = Mid$($sStr, $iPos, 1)
+  Inc $iPos
+  Return sCar
+  
+End
+
+
+Private Sub ReadChar() As String
+  
+  Dim sCar As String
+
+  Do
+    sCar = GetChar()
+    If Not sCar Then Return
+    If sCar > " " Then Return sCar
+  Loop
+  
+End
+
+
+Private Sub ReadToken() As String
+  
+  Dim sToken As String
+  Dim sCar As String
+
+  sCar = ReadChar()
+  If Not IsLetter(sCar) Then Return sCar
+  
+  sToken = sCar
+  Do
+    sCar = GetChar()
+    If Not sCar Then Break
+    If Not IsLetter(sCar) Then 
+      Dec $iPos
+      Break
+    Endif
+    sToken &= sCar
+  Loop
+  
+  Return sToken
+  
+End
+
+Private Sub ReadString() As String
+  
+  Dim sCar As String
+  Dim sString As String
+  Dim iPos As Integer
+  
+  Do
+    sCar = GetChar()
+    If Not sCar Then Error.Raise("Non terminated string")
+    If sCar = Chr$(34) Then Return sString
+    If sCar = "\\" Then
+      sCar = GetChar()
+      If Not sCar Then Error.Raise("Non terminated string")
+      iPos = InStr("bfrtn", sCar)
+      If iPos Then
+        sCar = Mid$("\b\f\r\t\n", iPos, 1)
+      ' Else If sCar = "u" Then
+      '   Try sCar = String.Chr$(Val("&H" & Mid$($sStr, $iPos, 4)))
+      '   If Not Error Then $iPos += 4
+      Else
+        ' Keep character
+      Endif
+    Endif
+    sString &= sCar
+  Loop
+  
+End
+
+Private Sub ReadObject() As Collection
+  
+  Dim sCar As String
+  Dim cObject As New Collection
+  Dim sKey As String
+  
+  Do
+    sCar = ReadChar()
+    If sCar = "}" Then Return cObject
+    If sCar <> Chr$(34) Then Error.Raise("String expected")
+    sKey = ReadString()
+    sCar = ReadChar()
+    If sCar <> ":" Then Error.Raise("Colon expected")
+    cObject[sKey] = ReadValue()
+    sCar = ReadChar()
+    If sCar = "}" Then Return cObject
+    If sCar <> "," Then Error.Raise("Comma expected")
+  Loop
+  
+End
+
+Private Sub ReadArray() As Array
+  
+  Dim sCar As String
+  Dim aArray As New Variant[]
+  Dim sKey As String
+  Dim iInd As Integer
+  Dim iType, iType2 As Integer
+  Dim aTypedArray As Object
+  
+  Do
+    sCar = ReadChar()
+    If sCar = "]" Then Break
+    Dec $iPos
+    aArray.Add(ReadValue())
+    sCar = ReadChar()
+    If sCar = "]" Then Break
+    If sCar <> "," Then Error.Raise("Comma expected")
+  Loop
+  
+  If aArray.Count = 0 Then Return Null
+  iType = TypeOf(aArray[0])
+  For iInd = 1 To aArray.Max
+    If TypeOf(aArray[iInd]) <> iType Then Return aArray
+  Next
+  
+  Select Case iType
+    Case gb.Boolean
+      aTypedArray = New Boolean[aArray.Count]
+    Case gb.Integer
+      aTypedArray = New Integer[aArray.Count]
+    Case gb.Float
+      aTypedArray = New Float[aArray.Count]
+    Case gb.String
+      aTypedArray = New String[aArray.Count]
+    Case gb.Object
+      aTypedArray = New Object[aArray.Count]
+    Default
+      aTypedArray = New Variant[aArray.Count]
+  End Select
+  
+  For iInd = 0 To aArray.Max
+    aTypedArray[iInd] = aArray[iInd]
+  Next
+  Return aTypedArray
+  
+End
+
+Private Sub ReadNumber(sNumber As String) As Variant
+  
+  Dim sCar As String
+  Dim vNumber As Variant
+  Dim bFloat As Boolean
+  Dim iPos As Integer
+  
+  Do
+    sCar = GetChar()
+    If Not sCar Then Break
+    iPos = InStr(".eE-+0123456789", sCar)
+    If iPos = 0 Then 
+      Dec $iPos
+      Break
+    Endif
+    If iPos <= 3 Then bFloat = True
+    sNumber &= sCar
+  Loop
+  
+  If bFloat Then
+    Try vNumber = CFloat(sNumber)
+  Else
+    Try vNumber = CInt(sNumber)
+  Endif
+  If IsNull(vNumber) Then Error.Raise("Incorrect number")
+  Return vNumber
+  
+End
+
+Private Sub ReadType() As Integer
+  
+  Dim sCar As String
+  Dim iPos As Integer
+  
+  iPos = $iPos
+  sCar = ReadToken()
+  
+  If sCar = "{" Then
+    Return gb.Variant
+  Else If sCar = "[" Then
+    Return gb.Object
+  Else If sCar = Chr$(34) Then
+    Return gb.String
+  Else If sCar = "-" Or If IsDigit(sCar) Then
+    Return TypeOf(ReadNumber(sCar))
+  Else If sCar = "null" Then
+    Return gb.Null
+  Else If sCar == "true" Or If sCar == "false" Then
+    Return gb.Boolean
+  Else
+    Error.Raise("Incorrect token: " & Quote(sCar))
+  Endif
+  
+  $iPos = iPos
+  
+End
+
+
+Private Sub ReadValue(Optional bNotStrict As Boolean) As Variant
+  
+  Dim sCar As String
+  
+  sCar = ReadToken()
+  
+  If sCar = "{" Then
+    Return ReadObject()
+  Else If sCar = "[" Then
+    Return ReadArray()
+  Else If sCar = Chr$(34) Then
+    Return ReadString()
+  Else If sCar = "-" Or If IsDigit(sCar) Then
+    Return ReadNumber(sCar)
+  Else If sCar == "null" Then
+    Return Null
+  Else If sCar == "true" Then
+    Return True
+  Else If sCar == "false" Then
+    Return False
+  Else If bNotStrict Then
+    Return $sStr
+  Else
+    Error.Raise("Incorrect token: " & Quote(sCar))
+  Endif
+  
+End
+
+Private Sub WriteValue(vVal As Variant)
+  
+  Dim sStr As String
+  Dim iPos As Integer
+  Dim aArray As Array
+  Dim cCol As Collection
+  
+  Select Case TypeOf(vVal)
+    
+    Case gb.Null
+      $sStr &= "Null"
+    
+    Case gb.Boolean
+      If vVal Then
+        $sStr &= "True"
+      Else
+        $sStr &= "False"
+      Endif
+    
+    Case gb.Byte, gb.Short, gb.Integer, gb.Long
+      $sStr &= CStr(vVal)
+    
+    Case gb.Float
+      sStr = CStr(vVal)
+      If InStr(sStr, ".") = 0 Then sStr &= ".0"
+      $sStr &= sStr
+    
+    Case gb.Date
+      $sStr &= Chr$(34) & CStr(vVal) & Chr$(34)
+    
+    Case gb.String
+      sStr = Quote(vVal)
+      Do
+        iPos = InStr(sStr, "\\", iPos + 1)
+        If iPos = 0 Then Break
+        If Mid$(sStr, iPos + 1, 1) = "x" Then
+          Mid$(sStr, iPos, 4) = "\\u00" & Mid$(sStr, iPos + 1, 2)
+        Else
+          Inc iPos
+        Endif
+      Loop
+      $sStr &= sStr
+    
+    Case Else
+      If vVal Is Array Then
+        aArray = vVal
+        $sStr &= "["
+        For iPos = 0 To vVal.Max
+          If iPos Then $sStr &= ","
+          WriteValue(vVal[iPos])
+        Next
+        $sStr &= "]"
+      Else If vVal Is Collection Then
+        cCol = vVal
+        $sStr &= "{"
+        For Each vVal In cCol
+          If iPos Then $sStr &= ","
+          WriteValue(cCol.Key)
+          $sStr &= ": "
+          WriteValue(vVal)
+          Inc iPos
+        Next
+        $sStr &= "}"
+      Endif
+    
+  End Select
+    
+End
+
+
+Public Sub FromString(Value As String) As Variant
+  
+  Dim vVal As Variant
+  $sStr = Value
+  $iPos = 1
+  vVal = ReadValue(True)
+  $sStr = ""
+  Return vVal
+  
+End
+
+Public Sub ToString(Value As Variant) As String
+  
+  $sStr = ""
+  WriteValue(Value)
+  Return $sStr
+  
+End
+
+

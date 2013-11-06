@@ -54,4 +54,3 @@ bindir="/usr/bin/"
 	install -m 0775 usr/lib/gambas3/gb.gui.so /usr/lib/gambas3/
 	install -m 0775 usr/lib/gambas3/gb.image.so /usr/lib/gambas3/
 	install -m 0775 usr/lib/gambas3/gb.qt4.so /usr/lib/gambas3/
-	install -m 0775 usr/lib/gambas3/gb.settings.gambas /usr/lib/gambas3/
