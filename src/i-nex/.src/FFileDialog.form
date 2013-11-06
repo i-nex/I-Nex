@@ -1,0 +1,18 @@
+# Gambas Form File 3.0
+
+{ Form Form
+  MoveScaled(0,0,81,62)
+  Arrangement = Arrange.Vertical
+  Spacing = True
+  Margin = True
+  { fchChoose FileChooser
+    MoveScaled(3,1,72,48)
+    Expand = True
+    ShowButton = True
+  }
+  { chkAutoExt CheckBox
+    MoveScaled(3,54,53,4)
+    Visible = False
+    Text = ("Automatic extension")
+  }
+}

@@ -44,7 +44,6 @@ bindir="/usr/bin/"
 	install -m 0775 usr/lib/gambas3/gb.desktop.so /usr/lib/gambas3/
 	install -m 0775 usr/lib/gambas3/gb.draw.so /usr/lib/gambas3/
 	install -m 0775 usr/lib/gambas3/gb.eval.so /usr/lib/gambas3/
-	install -m 0775 usr/lib/gambas3/gb.form.dialog.gambas /usr/lib/gambas3/
 	install -m 0775 usr/lib/gambas3/gb.form.gambas /usr/lib/gambas3/
 	install -m 0775 usr/lib/gambas3/gb.form.stock.gambas /usr/lib/gambas3/
 	install -m 0775 usr/lib/gambas3/gb.geom.so /usr/lib/gambas3/

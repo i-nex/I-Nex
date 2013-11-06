@@ -1,0 +1,50 @@
+' Gambas class file
+
+Public Sub SelectDirectory() As Boolean
+  
+  Return Not Me.ShowModal()
+  
+End
+
+Public Sub Form_Open()
+
+  ' DEBUG "Dialog.Title:";; Dialog.Title
+  ' DEBUG "Dialog.Path:";; Dialog.Path
+
+  Me.Title = Dialog.Title
+  dchChoose.Root = "/"
+  dchChoose.ShowHidden = Dialog.ShowHidden
+  If Not Dialog.Path Then 
+    dchChoose.SelectedPath = "~"
+  Else
+    dchChoose.SelectedPath = Dialog.Path
+  Endif
+
+  If Component.IsLoaded("gb.settings") Then Settings.Read(Me, "gb.form.dialog/FDirDialog")
+
+End
+
+Public Sub btnOK_Click()
+
+  Dialog.Path = dchChoose.SelectedPath
+  Me.Close(True)
+
+End
+
+Public Sub btnCancel_Click()
+
+  Me.Close
+
+End
+
+Public Sub dchChoose_Activate()
+
+  btnOK.Value = True
+
+End
+
+Public Sub Form_Close()
+
+  If Component.IsLoaded("gb.settings") Then Settings.Write(Me, "gb.form.dialog/FDirDialog")
+
+End

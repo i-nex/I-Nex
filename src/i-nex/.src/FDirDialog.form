@@ -1,0 +1,30 @@
+# Gambas Form File 3.0
+
+{ Form Form
+  MoveScaled(0,0,64,52)
+  Arrangement = Arrange.Vertical
+  Spacing = True
+  Margin = True
+  { dchChoose DirChooser
+    MoveScaled(2,1,56,36)
+    Expand = True
+  }
+  { HBox1 HBox
+    MoveScaled(1,43,56,4)
+    Spacing = True
+    { Panel1 Panel
+      MoveScaled(3,0,4,4)
+      Expand = True
+    }
+    { btnOK Button
+      MoveScaled(22,0,16,4)
+      Text = ("OK")
+      Default = True
+    }
+    { btnCancel Button
+      MoveScaled(39,0,16,4)
+      Text = ("Cancel")
+      Cancel = True
+    }
+  }
+}

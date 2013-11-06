@@ -1,0 +1,37 @@
+' Gambas class file
+
+Static Public {Date} As Date
+
+Public Function SelectDate() As Boolean
+
+  Return Not Me.ShowModal()
+
+End
+
+Public Sub Form_Open()
+
+  Me.Center
+  lblMessage.Text = Dialog.Title
+  Me.Title = lblMessage.Text
+  dlgDate.Value = {Date}
+
+End
+
+Public Sub btnCancel_Click()
+
+  Me.Close(False)
+
+End
+
+Public Sub btnOK_Click()
+
+  {Date} = dlgDate.Value
+  Me.Close(True)
+
+End
+
+Public Sub dlgDate_Activate()
+
+  btnOK.Value = True
+
+End

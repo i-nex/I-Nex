@@ -10,7 +10,7 @@ Public Sub Form_Open()
     Message.Error(("Running as root is not allowed!"))
   Endif
   Finfosys.TabStrip1[9].Visible = False
-  Debug "Settings default dir = " & Print Settings.DefaultDir & "" 
+  Debug "Settings default dir = " & Settings.DefaultDir & ""
   Button14.Visible = ChkPrm.ChkExec("udisks")
   Debug "Check for Battery"
   Object.Call(battery, "_inits")

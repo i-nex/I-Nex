@@ -1,0 +1,64 @@
+' Gambas class file
+
+Export 
+
+Static Property Read Paths As String[]
+Static Property {Date} As Date
+Static Property AutoExt As Boolean
+
+Static Public Function OpenFile(Optional Multi As Boolean) As Boolean
+  
+  Return FFileDialog.OpenFile(Multi)
+  
+End
+
+Static Public Function SaveFile() As Boolean
+  
+  Return FFileDialog.SaveFile()
+  
+End
+
+Static Public Function SelectDirectory() As Boolean
+  
+  Return FDirDialog.SelectDirectory()
+  
+End
+
+
+Static Private Function Paths_Read() As String[]
+
+  Return FFileDialog.Paths
+
+End
+
+
+Static Public Function SelectDate() As Boolean
+
+  Return FInputDate.SelectDate()
+
+End
+
+
+Static Private Function Date_Read() As Date
+
+  Return FInputDate.Date
+
+End
+
+Static Private Sub Date_Write(Value As Date)
+
+  FInputDate.Date = Value
+
+End
+
+Static Private Function AutoExt_Read() As Boolean
+
+  Return FFileDialog.AutoExt
+
+End
+
+Static Private Sub AutoExt_Write(Value As Boolean)
+
+  FFileDialog.AutoExt = Value
+
+End

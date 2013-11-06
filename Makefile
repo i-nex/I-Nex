@@ -89,7 +89,6 @@ self:
 	install -m 0775 usr/lib/gambas3/gb.desktop.so inex/usr/lib/gambas3/
 	install -m 0775 usr/lib/gambas3/gb.draw.so inex/usr/lib/gambas3/
 	install -m 0775 usr/lib/gambas3/gb.eval.so inex/usr/lib/gambas3/
-	install -m 0775 usr/lib/gambas3/gb.form.dialog.gambas inex/usr/lib/gambas3/
 	install -m 0775 usr/lib/gambas3/gb.form.gambas inex/usr/lib/gambas3/
 	install -m 0775 usr/lib/gambas3/gb.form.stock.gambas inex/usr/lib/gambas3/
 	install -m 0775 usr/lib/gambas3/gb.geom.so inex/usr/lib/gambas3/

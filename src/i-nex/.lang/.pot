@@ -132,6 +132,30 @@ msgstr ""
 msgid "I-Nex GUI for DF"
 msgstr ""
 
+#: FDirDialog.form:32 FInputDate.form:41
+msgid "OK"
+msgstr ""
+
+#: FDirDialog.form:38 FFileDialog.class:92 FInputDate.form:47
+#: ScreenShot.form:34
+msgid "Cancel"
+msgstr ""
+
+#: FFileDialog.form:22
+msgid "Automatic extension"
+msgstr ""
+
+#: FFileDialog.class:92
+msgid ""
+"This file already exists.\n"
+"\n"
+"Do you want to overwrite it?"
+msgstr ""
+
+#: FFileDialog.class:92
+msgid "&Overwrite"
+msgstr ""
+
 #: FModules.form:14
 msgid "Modules information"
 msgstr ""
@@ -746,10 +770,6 @@ msgstr ""
 
 #: ScreenShot.form:28
 msgid "Save"
-msgstr ""
-
-#: ScreenShot.form:34
-msgid "Cancel"
 msgstr ""
 
 #: ScreenShot.form:41
