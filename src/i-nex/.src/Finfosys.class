@@ -10,7 +10,7 @@ Public Sub Form_Open()
     Message.Error(("Running as root is not allowed!"))
   Endif
   Finfosys.TabStrip1[9].Visible = False
-  
+  Debug "Settings default dir = " & Print Settings.DefaultDir & "" 
   Button14.Visible = ChkPrm.ChkExec("udisks")
   Debug "Check for Battery"
   Object.Call(battery, "_inits")
@@ -28,7 +28,7 @@ Public Sub Form_Open()
   Object.Call(net, "inits")
   Debug "Check available graphic DSub, DVI etc"
   Object.Call(FGraphic, "_inits")
-  Debug "blabla"
+  Debug "Call to Graphic"
   Object.Call(FGraphic, "_check")
   Debug "Check for default display manager"
   If default_display_manager = True Then

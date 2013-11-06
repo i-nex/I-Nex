@@ -20,5 +20,4 @@ Public Function ChkExecDir(executable As String) As String
   Shell "which " & executable & "" Wait To installdir
   installdir = Replace(Replace(installdir, " ", ""), "\n", "")
   Return installdir
-
 End
