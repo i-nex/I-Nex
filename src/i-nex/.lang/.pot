@@ -18,7 +18,7 @@ msgstr ""
 msgid "About"
 msgstr ""
 
-#: About.form:50 FModules.form:44 FReport_Gen.form:66 FUdisks.form:30
+#: About.form:50 FModules.form:44 FReport_Gen.form:66 FUdisks.form:91
 #: Finfosys.form:299
 msgid "Close"
 msgstr ""
@@ -172,7 +172,7 @@ msgstr ""
 msgid "Transmit"
 msgstr ""
 
-#: FReport_Gen.form:32 FUdisks.form:60 Finfosys.form:305
+#: FReport_Gen.form:32 FUdisks.form:49 Finfosys.form:305
 msgid "Generate report"
 msgstr ""
 
@@ -224,24 +224,24 @@ msgstr ""
 msgid "Send report to nopaste service:   "
 msgstr ""
 
-#: FUdisks.form:17
+#: FUdisks.form:19
 msgid "UDisks"
 msgstr ""
 
-#: FUdisks.form:29 Finfosys.form:298
-msgid "Close this program"
-msgstr ""
-
-#: FUdisks.form:54 Finfosys.form:291
-msgid "About this app"
-msgstr ""
-
-#: FUdisks.form:67 Finfosys.form:311
+#: FUdisks.form:43 Finfosys.form:311
 msgid "Report a bug"
 msgstr ""
 
-#: FUdisks.form:74
+#: FUdisks.form:56 Finfosys.form:291
+msgid "About this app"
+msgstr ""
+
+#: FUdisks.form:84
 msgid "ComboBox1"
+msgstr ""
+
+#: FUdisks.form:90 Finfosys.form:298
+msgid "Close this program"
 msgstr ""
 
 #: Finfosys.form:284

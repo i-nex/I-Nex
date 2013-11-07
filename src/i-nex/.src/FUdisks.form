@@ -1,62 +1,70 @@
 # Gambas Form File 3.0
 
 { Form Form
-  MoveScaled(0,0,70,75)
+  Move(0,0,490,525)
+  #Scaled = False
   Text = ("UDisks")
   Icon = Picture["logo/i-nex.0.4.x.png"]
-  Resizable = False
-  { Button1 Button
-    MoveScaled(1,71,3,3.4286)
-    Picture = Picture["icon:/16/camera"]
-  }
-  { Button2 Button
-    MoveScaled(57,71,12,3.4286)
-    Font = Font["10"]
-    ToolTip = ("Close this program")
-    Text = ("Close")
-    Picture = Picture["icon:/16/quit"]
-  }
-  { HBox11 HBox
-    MoveScaled(20,70,22.2857,5.1429)
-    { Label25 Label
-      MoveScaled(11.1429,0.8571,6.8571,3.4286)
-      Foreground = &HFF0000&
-      AutoResize = True
-      Alignment = Align.Center
-      Transparent = True
-    }
-  }
-  { Button11 Button
-    MoveScaled(15,71,3.4286,3.4286)
-    Picture = Picture["logo/fb.png"]
-  }
-  { Button3 Button
-    MoveScaled(11,71,3.4286,3.4286)
-    Font = Font["10"]
-    ToolTip = ("About this app")
-    Picture = Picture["icon:/16/help"]
-  }
-  { Button12 Button
-    MoveScaled(7,71,3.4286,3.4286)
-    ToolTip = ("Generate report")
-    Picture = Picture["icon:/16/printer"]
-  }
-  { Button13 Button
-    MoveScaled(4,71,3.4286,3.4286)
-    Visible = False
-    ToolTip = ("Report a bug")
-    Picture = Picture["icon:/16/important"]
-  }
-  { ComboBox1 ComboBox
-    MoveScaled(48,71,9,4)
-    ReadOnly = True
-    Text = ("ComboBox1")
-  }
+  AutoResize = True
   { GridView1 GridView
-    MoveScaled(0,0,70,71)
+    Move(0,0,490,497)
     Tracking = True
     Expand = True
     ShowCursor = True
     ScrollBar = Scroll.Horizontal
+    AutoResize = False
+  }
+  { HBox1 HBox
+    Move(0,497,301,28)
+    { Button1 Button
+      Move(7,0,21,24)
+      Picture = Picture["icon:/16/camera"]
+    }
+    { Button13 Button
+      Move(28,0,24,24)
+      Visible = False
+      ToolTip = ("Report a bug")
+      Picture = Picture["icon:/16/important"]
+    }
+    { Button12 Button
+      Move(49,0,24,24)
+      ToolTip = ("Generate report")
+      Picture = Picture["icon:/16/printer"]
+    }
+    { Button3 Button
+      Move(77,0,24,24)
+      Font = Font["10"]
+      ToolTip = ("About this app")
+      Picture = Picture["icon:/16/help"]
+    }
+    { Button11 Button
+      Move(105,0,24,24)
+      Picture = Picture["logo/fb.png"]
+    }
+    { HBox11 HBox
+      Move(140,-7,156,36)
+      { Label25 Label
+        Move(78,6,48,24)
+        Foreground = &HFF0000&
+        AutoResize = True
+        Alignment = Align.Center
+        Transparent = True
+      }
+    }
+  }
+  { HBox2 HBox
+    Move(301,497,189,28)
+    { ComboBox1 ComboBox
+      Move(35,0,63,28)
+      ReadOnly = True
+      Text = ("ComboBox1")
+    }
+    { Button2 Button
+      Move(98,0,84,24)
+      Font = Font["10"]
+      ToolTip = ("Close this program")
+      Text = ("Close")
+      Picture = Picture["icon:/16/quit"]
+    }
   }
 }

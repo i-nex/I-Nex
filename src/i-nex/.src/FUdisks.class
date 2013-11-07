@@ -232,3 +232,13 @@ Public Sub Form_Close()
  Finfosys.Show
 
 End
+
+Public Sub Form_Resize()
+ 
+ GridView1.W = Me.W
+ GridView1.h = Me.h - 30
+ HBox1.W = GridView1.W
+ HBox1.y = GridView1.h
+ HBox2.y = GridView1.h
+ HBox2.x = GridView1.w - 150
+End

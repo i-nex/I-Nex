@@ -14,31 +14,31 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: FUdisks.form:17
+#: FUdisks.form:19
 msgid "UDisks"
 msgstr ""
 
-#: FUdisks.form:29
-msgid "Close this program"
-msgstr ""
-
-#: FUdisks.form:30
-msgid "Close"
-msgstr ""
-
-#: FUdisks.form:54
-msgid "About this app"
-msgstr ""
-
-#: FUdisks.form:60
-msgid "Generate report"
-msgstr ""
-
-#: FUdisks.form:67
+#: FUdisks.form:43
 msgid "Report a bug"
 msgstr ""
 
-#: FUdisks.form:74
+#: FUdisks.form:49
+msgid "Generate report"
+msgstr ""
+
+#: FUdisks.form:56
+msgid "About this app"
+msgstr ""
+
+#: FUdisks.form:84
 msgid "ComboBox1"
+msgstr ""
+
+#: FUdisks.form:90
+msgid "Close this program"
+msgstr ""
+
+#: FUdisks.form:91
+msgid "Close"
 msgstr ""
 
