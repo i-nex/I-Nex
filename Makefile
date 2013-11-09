@@ -145,8 +145,6 @@ install:
 	install -m 0755 debian/i-nex.desktop inex/usr/share/applications/
 	install -m 0755 debian/check_kernel inex/usr/bin/
 	install -m 0755 debian/i-nex-lspci inex/usr/bin/
-	install -m 0755 debian/inex-crashdb.conf inex/etc/apport/crashdb.conf.d/
-	install -m 0755 debian/i-nex.py inex/usr/share/apport/package-hooks/
 	install -m 0755 debian/changelog-0.4.6 inex/usr/share/doc/i-nex/
 	install -m 0755 debian/changelog-0.4.8 inex/usr/share/doc/i-nex/
 	install -m 0755 debian/changelog-0.4.8.1 inex/usr/share/doc/i-nex/
