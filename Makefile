@@ -45,8 +45,6 @@ self:
 	mkdir -p inex/usr/lib/gambas3/
 	mkdir -p inex/usr/share/pixmaps/
 	mkdir -p inex/usr/share/applications/
-	mkdir -p inex/etc/apport/crashdb.conf.d/
-	mkdir -p inex/usr/share/apport/package-hooks/
 	mkdir -p inex/usr/share/doc/i-nex/
 	mkdir -p inex/usr/share/i-nex/pastebinit/
 	mkdir -p inex/usr/share/i-nex/pastebinit/pastebin.d/
@@ -63,8 +61,6 @@ self:
 	install -m 0755 debian/i-nex.desktop inex/usr/share/applications/
 	install -m 0755 debian/check_kernel inex/usr/bin/
 	install -m 0755 debian/i-nex-lspci inex/usr/bin/
-	install -m 0755 debian/inex-crashdb.conf inex/etc/apport/crashdb.conf.d/
-	install -m 0755 debian/i-nex.py inex/usr/share/apport/package-hooks/
 	install -m 0755 debian/changelog-0.4.6 inex/usr/share/doc/i-nex/
 	install -m 0755 debian/changelog-0.4.8 inex/usr/share/doc/i-nex/
 	install -m 0755 debian/changelog-0.4.8.1 inex/usr/share/doc/i-nex/
@@ -127,8 +123,6 @@ install:
 	mkdir -p inex$(bindir)
 	mkdir -p inex/usr/share/pixmaps/
 	mkdir -p inex/usr/share/applications/
-	mkdir -p inex/etc/apport/crashdb.conf.d/
-	mkdir -p inex/usr/share/apport/package-hooks/
 	mkdir -p inex/usr/share/doc/i-nex/
 	mkdir -p inex/usr/share/i-nex/pastebinit/
 	mkdir -p inex/usr/share/i-nex/pastebinit/pastebin.d/
@@ -172,8 +166,6 @@ uninstall:
 	rm /usr/share/applications/i-nex.desktop
 	rm $(bindir)/check_kernel
 	rm $(bindir)/i-nex-lspci
-	rm /etc/apport/crashdb.conf.d/inex-crashdb.conf
-	rm /usr/share/apport/package-hooks/i-nex.py
 	rm -Rf /usr/share/doc/i-nex
 	rm -Rf /usr/share/i-nex
 	update-desktop-database

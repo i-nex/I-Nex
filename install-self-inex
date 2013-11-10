@@ -4,8 +4,6 @@ bindir="/usr/bin/"
 	mkdir -p /usr/lib/gambas3/
 	mkdir -p /usr/share/pixmaps/
 	mkdir -p /usr/share/applications/
-	mkdir -p /etc/apport/crashdb.conf.d/
-	mkdir -p /usr/share/apport/package-hooks/
 	mkdir -p /usr/share/doc/i-nex/
 	mkdir -p /usr/share/i-nex/pastebinit/
 	mkdir -p /usr/share/i-nex/pastebinit/pastebin.d/
@@ -18,8 +16,6 @@ bindir="/usr/bin/"
 	install -m 0755 usr/share/applications/i-nex.desktop /usr/share/applications/
 	install -m 0755 usr/bin/check_kernel /usr/bin/
 	install -m 0755 usr/bin/i-nex-lspci /usr/bin/
-	install -m 0755 etc/apport/crashdb.conf.d/inex-crashdb.conf /etc/apport/crashdb.conf.d/
-	install -m 0755 usr/share/apport/package-hooks/i-nex.py /usr/share/apport/package-hooks/
 	install -m 0755 usr/share/doc/i-nex/changelog-0.4.6 /usr/share/doc/i-nex/
 	install -m 0755 usr/share/doc/i-nex/changelog-0.4.8 /usr/share/doc/i-nex/
 	install -m 0755 usr/share/doc/i-nex/changelog-0.4.8.1 /usr/share/doc/i-nex/
