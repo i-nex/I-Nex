@@ -28,7 +28,7 @@ Build-Depends: debhelper (>= 7),
   x11-utils (>= 7.5),
   mesa-utils (>= 7.6),
   hostname
-Standards-Version: 3.9.2
+Standards-Version: 3.9.3
 Homepage: http://tuxportal.pl
 
 Package: i-nex
