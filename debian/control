@@ -30,6 +30,7 @@ Build-Depends: debhelper (>= 7),
   hostname
 Standards-Version: 3.9.3
 Homepage: http://tuxportal.pl
+Vcs-Git: git://git.manjaro.org/eloaders/i-nex.git
 
 Package: i-nex
 Architecture: any
