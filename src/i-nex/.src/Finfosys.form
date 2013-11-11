@@ -914,14 +914,14 @@
       Text = ("Ram used:")
     }
     { ProgressBar1 ProgressBar
-      Move(7,434,259,21)
+      Move(7,385,259,21)
     }
     { TextLabel23 TextLabel
       Move(7,413,168,21)
       Text = ("SWAP memory used:")
     }
     { ProgressBar4 ProgressBar
-      Move(7,385,259,21)
+      Move(7,434,259,21)
     }
     { HPanel8 HPanel
       Move(273,308,189,147)
