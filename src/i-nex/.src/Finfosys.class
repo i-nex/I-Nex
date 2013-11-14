@@ -342,7 +342,7 @@ Public Sub Wykrywanie_procesorow()
   Label15.Text = "Power mangament: " & Replace(power_management, "\n", "")
   Global.ikonaprocka()
   Debug "Get info from database"
-  Object.Call(FCpudb, "_init")
+  Object.Call(FCpudb, "_inits")
 End
 
 Public Sub Button2_Click()
@@ -360,7 +360,7 @@ End
 Public Sub Button1_Click()
 
   Me.Close
-  Debug "God bye!"
+  Debug "Good bye!"
 End
 
 Public Sub dospam_uptime()
