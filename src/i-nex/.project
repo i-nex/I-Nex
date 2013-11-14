@@ -1,5 +1,5 @@
 # Gambas Project File 3.0
-# Compiled with Gambas 3.5.0
+# Compiled with Gambas 3.5.1
 Title=I-Nex
 Startup=Start_App_Args
 Icon=logo/i-nex.0.4.x.png
@@ -10,6 +10,7 @@ Component=gb.qt4
 Component=gb.form
 Component=gb.desktop
 Authors="eloaders"
+Environment="LANG=C\nLC_ALL=C\nGB_STOCK_DEBUG=1\nGB_JIT_DEBUG=1\nLIBOVERLAY_SCROLLBAR=0"
 TabSize=1
 Translate=1
 Language=en_GB
