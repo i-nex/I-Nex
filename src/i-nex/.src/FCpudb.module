@@ -2,7 +2,7 @@
 
 Public i As Integer
 Public database As Collection
-Public Sub _init()
+Public Sub _inits()
   Dim buffer, cpucache As String
   Dim processorscount, za, z As Integer
   buffer = File.Load("Database/db")
@@ -12,7 +12,7 @@ Public Sub _init()
   cpucache = Replace(Replace(Replace(Replace(Replace(cpucache, "AMD", ""), "Core", ""), "Dual", ""), "Processor", ""), "tm", "")
   
   For z = 0 To database["DATABASE"].Count - 1
-    If database["DATABASE"][z]["PROCESSOR_MODEL_NAME"] Like "*" & cpucache & "*" Then
+    If database["DATABASE"][z]["PROCESSOR_MODEL_NAME"] Like "*" & cpucache & "*" Then 
       Finfosys.Label103.Text = " Integrated GPU: " & database["DATABASE"][z]["PROCESSOR_INTEGRATEDGRAPHIC"]
       Finfosys.Label104.Text = " TDP: " & database["DATABASE"][z]["PROCESSOR_TDP"]
       Finfosys.Label110.Text = " PPS: " & database["DATABASE"][z]["PROCESSOR_PROCESS_SIZE"]
@@ -30,7 +30,8 @@ Public Sub _init()
       Finfosys.Label121.Text = " Memory support: " & database["DATABASE"][z]["PROCESSOR_MEMORYSUPPORT"]
       'Finfosys.PictureBox3.Picture = Picture["Database/Logos/81.gif"]
       i = z
+      Break
     Endif
   Next
-  Print cpucache
+  Debug "Current position of processor = " & cpucache & " is = " & z & ""
 End
