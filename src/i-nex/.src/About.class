@@ -57,7 +57,7 @@ End
 
 Public Sub Button10_Click()
 
- Desktop.Open("mailto:mmaciek123@gmail.com")
+ Desktop.Open("mailto:fademind@gmail.com")
 
 End
 

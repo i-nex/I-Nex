@@ -69,7 +69,7 @@
             Text = ("Home page")
           }
           { Button8 Button
-            Move(96,0,96,24)
+            Move(98,0,96,24)
             Expand = True
             Text = ("Mail")
           }
