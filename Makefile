@@ -120,42 +120,42 @@ clean:
 
 	
 install:
-	mkdir -p inex$(bindir)
-	mkdir -p inex/usr/share/pixmaps/
-	mkdir -p inex/usr/share/applications/
-	mkdir -p inex/usr/share/doc/i-nex/
-	mkdir -p inex/usr/share/i-nex/pastebinit/
-	mkdir -p inex/usr/share/i-nex/pastebinit/pastebin.d/
-	mkdir -p inex/usr/share/i-nex/pastebinit/po/
-	mkdir -p inex/usr/share/i-nex/pastebinit/utils/
+	mkdir -p $(bindir)
+	mkdir -p /usr/share/pixmaps/
+	mkdir -p /usr/share/applications/
+	mkdir -p /usr/share/doc/i-nex/
+	mkdir -p /usr/share/i-nex/pastebinit/
+	mkdir -p /usr/share/i-nex/pastebinit/pastebin.d/
+	mkdir -p /usr/share/i-nex/pastebinit/po/
+	mkdir -p /usr/share/i-nex/pastebinit/utils/
 	chmod +x i-nex
 	chmod +x inex-edid
 	chmod +x debian/check_kernel
 	chmod +x debian/i-nex-lspci
-	install -m 0755 i-nex inex$(bindir)
-	install -m 0755 inex-edid inex$(bindir)
-	install -m 0755 src/i-nex/i-nex.gambas inex$(bindir)
-	install -m 0755 src/i-nex/logo/i-nex.0.4.x.png inex/usr/share/pixmaps/
-	install -m 0755 debian/i-nex.desktop inex/usr/share/applications/
-	install -m 0755 debian/check_kernel inex/usr/bin/
-	install -m 0755 debian/i-nex-lspci inex/usr/bin/
-	install -m 0755 debian/changelog-0.4.6 inex/usr/share/doc/i-nex/
-	install -m 0755 debian/changelog-0.4.8 inex/usr/share/doc/i-nex/
-	install -m 0755 debian/changelog-0.4.8.1 inex/usr/share/doc/i-nex/
-	install -m 0755 debian/changelog-0.5.0 inex/usr/share/doc/i-nex/
-	install -m 0755 debian/changelog-0.5.1 inex/usr/share/doc/i-nex/
-	install -m 0755 debian/changelog-0.5.2 inex/usr/share/doc/i-nex/
-	install -m 0755 debian/changelog-0.5.4 inex/usr/share/doc/i-nex/
-	install -m 0755 LICENSE inex/usr/share/doc/i-nex/
-	install -m 0755 COPYING inex/usr/share/i-nex/pastebinit/
-	install -m 0755 pastebin.d/* inex/usr/share/i-nex/pastebinit/pastebin.d/
-	install -m 0755 pastebinit inex/usr/share/i-nex/pastebinit/
-	install -m 0755 pastebinit.xml inex/usr/share/i-nex/pastebinit/
-	install -m 0755 po/* inex/usr/share/i-nex/pastebinit/po/
-	install -m 0755 README inex/usr/share/i-nex/pastebinit/
-	install -m 0755 release.conf inex/usr/share/i-nex/pastebinit/
-	install -m 0755 test.sh inex/usr/share/i-nex/pastebinit/
-	install -m 0755 utils/* inex/usr/share/i-nex/pastebinit/utils/
+	install -m 0755 i-nex $(bindir)
+	install -m 0755 inex-edid $(bindir)
+	install -m 0755 src/i-nex/i-nex.gambas $(bindir)
+	install -m 0755 src/i-nex/logo/i-nex.0.4.x.png /usr/share/pixmaps/
+	install -m 0755 debian/i-nex.desktop /usr/share/applications/
+	install -m 0755 debian/check_kernel /usr/bin/
+	install -m 0755 debian/i-nex-lspci /usr/bin/
+	install -m 0755 debian/changelog-0.4.6 /usr/share/doc/i-nex/
+	install -m 0755 debian/changelog-0.4.8 /usr/share/doc/i-nex/
+	install -m 0755 debian/changelog-0.4.8.1 /usr/share/doc/i-nex/
+	install -m 0755 debian/changelog-0.5.0 /usr/share/doc/i-nex/
+	install -m 0755 debian/changelog-0.5.1 /usr/share/doc/i-nex/
+	install -m 0755 debian/changelog-0.5.2 /usr/share/doc/i-nex/
+	install -m 0755 debian/changelog-0.5.4 /usr/share/doc/i-nex/
+	install -m 0755 LICENSE /usr/share/doc/i-nex/
+	install -m 0755 COPYING /usr/share/i-nex/pastebinit/
+	install -m 0755 pastebin.d/* /usr/share/i-nex/pastebinit/pastebin.d/
+	install -m 0755 pastebinit /usr/share/i-nex/pastebinit/
+	install -m 0755 pastebinit.xml /usr/share/i-nex/pastebinit/
+	install -m 0755 po/* /usr/share/i-nex/pastebinit/po/
+	install -m 0755 README /usr/share/i-nex/pastebinit/
+	install -m 0755 release.conf /usr/share/i-nex/pastebinit/
+	install -m 0755 test.sh /usr/share/i-nex/pastebinit/
+	install -m 0755 utils/* /usr/share/i-nex/pastebinit/utils/
 	
 uninstall:
 
