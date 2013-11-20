@@ -44,21 +44,6 @@ Encode
 M
 s
 (Value)v
-#JSONCollection
-Collection
-C
-_get
-m
-v
-(Key)s
-_put
-m
-
-(Value)v(Key)s
-_next
-m
-v
-
 #Settings
 
 CA

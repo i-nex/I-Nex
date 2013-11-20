@@ -1,3 +1,6 @@
+[Bookmarks]
+Finfosys=[]
+
 [Breakpoints]
 Count=0
 
@@ -31,12 +34,11 @@ File[7]=".src/ScreenShot.form"
 File[8]=".src/ScreenShot.class:7.65"
 File[9]=".src/ScreenShotM.module:7.0"
 File[10]=".src/USB_Drives.module:13.0"
-File[11]=".src/Asound_Drives.module:12.18"
+File[11]=".src/Asound_Drives.module:34.12"
 File[12]=".src/Reportm.module:4.15"
 File[13]=".src/FReport_Gen.form"
 File[14]=".src/FReport_Gen.class:49.14"
 File[15]=".src/Start_App_Args.form"
-Active=16
 File[16]=".src/Start_App_Args.class:2.0"
 File[17]=".src/ChkPrm.module:21.19"
 File[18]=".src/thermal_zone.module:21.25"
@@ -45,9 +47,10 @@ File[20]=".src/FModules.class:4.30"
 File[21]=".src/Input_Devices.module:8.1"
 File[22]=".src/net.module:104.1"
 File[23]="Data/report-ng.sh:27.44"
-File[24]=".src/Distribution_Detect.module:13.20"
+File[24]=".src/Distribution_Detect.module:27.0"
+Active=25
 File[25]=".src/FFlags.module:71.6"
-File[26]=".src/Finfosys.class:3.17"
+File[26]=".src/Finfosys.class:201.40"
 File[27]=".src/FDF.form"
 File[28]=".src/FDF.class:28.69"
 File[29]=".src/FNET_R_T.form"
@@ -57,7 +60,7 @@ File[32]="logo/fb.png"
 File[33]=".src/FCPU.module:3.4"
 File[34]=".src/FUdisks.form"
 File[35]=".src/FUdisks.class:242.28"
-File[36]=".src/FCpudb.module:31.11"
+File[36]=".src/FCpudb.module:4.19"
 File[37]=".src/JSON.module:18.2"
 File[38]=".src/Settings.class:464.34"
 File[39]=".src/Main.module:7.29"
@@ -65,7 +68,8 @@ File[40]=".src/_Settings_Keys.class:50.0"
 File[41]=".src/FDirDialog.form"
 File[42]=".src/FFileDialog.form"
 File[43]=".src/Dialog.class:0.0"
-Count=43
+File[44]=".src/Mdecode.module:7.0"
+Count=44
 
 [Watches]
 Count=0

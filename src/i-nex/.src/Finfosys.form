@@ -211,13 +211,13 @@
     { Label104 Label
       Move(7,217,91,21)
       Font = Font["Bold,8"]
-      Text = ("Label104")
+      Text = (" ")
       Border = Border.Plain
     }
     { Label110 Label
       Move(98,217,98,21)
       Font = Font["Bold,8"]
-      Text = ("Label110")
+      Text = (" ")
       Border = Border.Plain
     }
     { PictureBox3 PictureBox
@@ -229,67 +229,67 @@
     { Label111 Label
       Move(196,217,259,21)
       Font = Font["Bold,8"]
-      Text = ("Label111")
+      Text = (" ")
       Border = Border.Plain
     }
     { Label112 Label
       Move(196,238,259,21)
       Font = Font["Bold,8"]
-      Text = ("Label112")
+      Text = (" ")
       Border = Border.Plain
     }
     { Label113 Label
       Move(7,238,189,21)
       Font = Font["Bold,8"]
-      Text = ("Label113")
+      Text = (" ")
       Border = Border.Plain
     }
     { Label114 Label
       Move(7,259,189,21)
       Font = Font["Bold,8"]
-      Text = ("Label114")
+      Text = (" ")
       Border = Border.Plain
     }
     { Label115 Label
       Move(196,259,259,21)
       Font = Font["Bold,8"]
-      Text = ("Label115")
+      Text = (" ")
       Border = Border.Plain
     }
     { Label116 Label
       Move(7,280,189,21)
       Font = Font["Bold,8"]
-      Text = ("Label116")
+      Text = (" ")
       Border = Border.Plain
     }
     { Label117 Label
       Move(196,280,259,21)
       Font = Font["Bold,8"]
-      Text = ("Label117")
+      Text = (" ")
       Border = Border.Plain
     }
     { Label118 Label
       Move(7,301,189,21)
       Font = Font["Bold,8"]
-      Text = ("Label118")
+      Text = (" ")
       Border = Border.Plain
     }
     { Label119 Label
       Move(196,301,259,21)
       Font = Font["Bold,8"]
-      Text = ("Label119")
+      Text = (" ")
       Border = Border.Plain
     }
     { Label120 Label
       Move(7,322,189,21)
       Font = Font["Bold,8"]
-      Text = ("Label120")
+      Text = (" ")
       Border = Border.Plain
     }
     { Label121 Label
       Move(196,322,259,21)
       Font = Font["Bold,8"]
-      Text = ("Label121")
+      Text = (" ")
       Border = Border.Plain
     }
     { Separator2 Separator
@@ -739,137 +739,100 @@
     }
     Index = 5
     Text = ("System")
-    { Frame7 Frame
-      Move(1,0,462,312)
-      Text = ("Main:")
-      { TextLabel5 TextLabel
-        Move(7,21,98,28)
-        Font = Font["Bold,8"]
-        Text = ("Host name:")
-        Alignment = Align.Justify
-      }
-      { TextLabel11 TextLabel
-        Move(7,49,84,28)
-        Font = Font["Bold,8"]
-        Text = ("Distribution:")
-        Alignment = Align.Justify
-      }
-      { TextLabel14 TextLabel
-        Move(7,77,84,28)
-        Font = Font["Bold,8"]
-        Text = ("Edition:")
-        Alignment = Align.Justify
-      }
-      { TextLabel15 TextLabel
-        Move(7,105,105,28)
-        Font = Font["Bold,8"]
-        Text = ("Time zone:")
-        Alignment = Align.Justify
-      }
-      { TextLabel16 TextLabel
-        Move(7,133,49,28)
-        Font = Font["Bold,8"]
-        Text = ("GCC v:")
-        Alignment = Align.Justify
-      }
-      { TextLabel27 TextLabel
-        Move(7,161,105,28)
-        Font = Font["Bold,8"]
-        Text = ("X.org v:")
-        Alignment = Align.Justify
-      }
-      { TextLabel28 TextLabel
-        Move(7,189,105,28)
-        Font = Font["Bold,8"]
-        Text = ("GLX v:")
-        Alignment = Align.Justify
-      }
-      { TextLabel29 TextLabel
-        Move(7,217,91,28)
-        Font = Font["Bold,8"]
-        Text = ("Architecture:")
-        Alignment = Align.Justify
-      }
-      { TextLabel10 TextLabel
-        Move(7,245,105,28)
-        Font = Font["Bold,8"]
-        Text = ("Shell:")
-        Alignment = Align.Justify
-      }
-      { Label4 Label
-        Move(7,273,154,28)
-        Visible = False
-        Font = Font["Bold,8"]
-        Text = ("Default LM/DM:")
-        Alignment = Align.Justify
-      }
-      { TextBox22 TextBox
-        Move(162,276,294,24)
-        Visible = False
-        ReadOnly = True
-      }
-      { TextBox59 TextBox
-        Move(112,21,336,28)
-        Text = ("TextBox59")
-      }
-      { TextBox60 TextBox
-        Move(112,49,336,28)
-        Text = ("TextBox60")
-      }
-      { TextBox61 TextBox
-        Move(112,77,336,28)
-        Text = ("TextBox61")
-      }
-      { TextBox62 TextBox
-        Move(112,105,336,28)
-        Text = ("TextBox62")
-      }
-      { TextBox63 TextBox
-        Move(112,133,336,28)
-        Text = ("TextBox63")
-      }
-      { TextBox64 TextBox
-        Move(112,161,336,28)
-        Text = ("TextBox64")
-      }
-      { TextBox65 TextBox
-        Move(112,189,336,28)
-        Text = ("TextBox65")
-      }
-      { TextBox66 TextBox
-        Move(112,217,336,28)
-        Text = ("TextBox66")
-      }
-      { TextBox67 TextBox
-        Move(112,245,336,28)
-        Text = ("TextBox67")
-      }
-    }
-    { Frame23 Frame
-      Move(0,324,462,56)
-      Text = ("Number of installed packages:")
-      { Button7 Button
-        Move(7,21,72,24)
-        Text = ("Check")
-        Picture = Picture["icon:/16/info"]
-      }
-      { TextLabel21 TextLabel
-        Move(84,18,330,30)
-        Alignment = Align.Left
-        Border = Border.Etched
-      }
-    }
-    { Frame8 Frame
-      Move(0,390,462,56)
-      Text = ("System uptime:")
-      { TextBox58 TextBox
-        Move(8,24,416,24)
-        Text = ("TextBox58")
-      }
-    }
     { Button5 Button
-      Move(426,414,28,21)
+      Move(434,434,28,21)
       Picture = Picture["icon:/16/refresh"]
+    }
+    { TextBox58 TextBox
+      Move(0,434,434,21)
+      Text = ("TextBox58")
+    }
+    { TextLabel21 TextLabel
+      Move(84,406,378,21)
+      Font = Font["Bold,8"]
+      Alignment = Align.Left
+      Border = Border.Plain
+    }
+    { Button7 Button
+      Move(7,406,72,24)
+      Text = ("Check")
+      Picture = Picture["icon:/16/info"]
+    }
+    { Label4 Label
+      Move(7,7,301,28)
+      Font = Font["Bold,8"]
+      Text = ("Label4")
+      Border = Border.Plain
+    }
+    { Label135 Label
+      Move(7,35,301,28)
+      Font = Font["Bold,8"]
+      Text = ("Label135")
+      Border = Border.Plain
+    }
+    { Label136 Label
+      Move(7,196,455,21)
+      Font = Font["Bold,8"]
+      Text = ("Label136")
+      Border = Border.Plain
+    }
+    { Label137 Label
+      Move(7,217,455,21)
+      Font = Font["Bold,8"]
+      Text = ("Label137")
+      Border = Border.Plain
+    }
+    { Label138 Label
+      Move(7,238,455,21)
+      Font = Font["Bold,8"]
+      Text = ("Label138")
+      Border = Border.Plain
+    }
+    { Label139 Label
+      Move(7,259,455,21)
+      Font = Font["Bold,8"]
+      Text = ("Label139")
+      Border = Border.Plain
+    }
+    { Label140 Label
+      Move(7,280,455,21)
+      Font = Font["Bold,8"]
+      Text = ("Label140")
+      Border = Border.Plain
+    }
+    { Label141 Label
+      Move(7,301,455,21)
+      Font = Font["Bold,8"]
+      Text = ("Label141")
+      Border = Border.Plain
+    }
+    { Label142 Label
+      Move(7,322,455,21)
+      Font = Font["Bold,8"]
+      Text = ("Label142")
+      Border = Border.Plain
+    }
+    { Label143 Label
+      Move(7,343,455,21)
+      Font = Font["Bold,8"]
+      Text = ("Label143")
+      Border = Border.Plain
+    }
+    { Label144 Label
+      Move(7,364,455,21)
+      Font = Font["Bold,8"]
+      Text = ("Label144")
+      Border = Border.Plain
+    }
+    { PictureBox2 PictureBox
+      Move(315,7,147,182)
+      Stretch = True
+    }
+    { Label145 Label
+      Move(7,385,455,21)
+      Font = Font["Bold,8"]
+      Text = ("Label145")
+      Border = Border.Plain
     }
     Index = 6
     Text = ("Kernel")
@@ -910,21 +873,21 @@
     Index = 7
     Text = ("Memory")
     { TextLabel31 TextLabel
-      Move(7,364,126,21)
+      Move(7,301,126,21)
       Text = ("Ram used:")
     }
     { ProgressBar1 ProgressBar
-      Move(7,385,259,21)
+      Move(7,322,259,21)
     }
     { TextLabel23 TextLabel
-      Move(7,413,168,21)
+      Move(7,350,168,21)
       Text = ("SWAP memory used:")
     }
     { ProgressBar4 ProgressBar
-      Move(7,434,259,21)
+      Move(7,371,259,21)
     }
     { HPanel8 HPanel
-      Move(273,308,189,147)
+      Move(273,294,189,147)
       { Label85 Label
         Move(0,0,189,21)
         Expand = True
@@ -967,14 +930,92 @@
         Padding = 4
         Border = Border.Plain
       }
+      { ComboBox9 ComboBox
+        Move(14,147,168,28)
+        Text = ("ComboBox9")
+      }
     }
     { TextLabel7 TextLabel
-      Move(140,364,77,21)
+      Move(140,301,77,21)
       Text = ("N/A")
     }
     { TextLabel24 TextLabel
-      Move(147,413,119,21)
+      Move(147,350,119,21)
       Text = ("N/A")
+    }
+    { Label122 Label
+      Move(7,7,455,21)
+      Font = Font["Bold,8"]
+      Border = Border.Plain
+    }
+    { Label123 Label
+      Move(7,28,455,21)
+      Font = Font["Bold,8"]
+      Border = Border.Plain
+    }
+    { Label124 Label
+      Move(7,49,455,21)
+      Font = Font["Bold,8"]
+      Border = Border.Plain
+    }
+    { Label125 Label
+      Move(7,70,455,21)
+      Font = Font["Bold,8"]
+      Border = Border.Plain
+    }
+    { Label126 Label
+      Move(7,91,455,21)
+      Font = Font["Bold,8"]
+      Border = Border.Plain
+    }
+    { Label127 Label
+      Move(7,112,455,21)
+      Font = Font["Bold,8"]
+      Border = Border.Plain
+    }
+    { Label128 Label
+      Move(7,133,455,21)
+      Font = Font["Bold,8"]
+      Border = Border.Plain
+    }
+    { ComboBox10 ComboBox
+      Move(7,413,77,28)
+      ReadOnly = True
+      List = [("Item 1"), ("Item 2"), ("Item 3"), ("Item 4"), ("Item 5"), ("Item 6"), ("Item 7"), ("Item 8"), ("Item 9"), ("Item 10"), ("Item 11"), ("Item 12"), ("Item 13"), ("Item 14"), ("Item 15")]
+      Text = ("ComboBox10")
+    }
+    { Label129 Label
+      Move(7,154,455,21)
+      Font = Font["Bold,8"]
+      Border = Border.Plain
+    }
+    { Label130 Label
+      Move(7,175,455,21)
+      Font = Font["Bold,8"]
+      Border = Border.Plain
+    }
+    { Label131 Label
+      Move(7,196,455,21)
+      Font = Font["Bold,8"]
+      Border = Border.Plain
+    }
+    { Label132 Label
+      Move(7,217,455,21)
+      Font = Font["Bold,8"]
+      Border = Border.Plain
+    }
+    { Label133 Label
+      Move(7,238,455,21)
+      Font = Font["Bold,8"]
+      Border = Border.Plain
+    }
+    { Label134 Label
+      Move(7,259,455,21)
+      Font = Font["Bold,8"]
+      Border = Border.Plain
+    }
+    { Separator5 Separator
+      Move(0,280,469,14)
     }
     Index = 8
     Text = ("Network")

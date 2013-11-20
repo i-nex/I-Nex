@@ -13,6 +13,13 @@ Public Sub _init()
  Copy "Data/report-ng.sh" To User.Home &/ ".i-nex/report-ng.sh"
  Shell "/bin/bash ~/.i-nex/report-ng.sh" Wait
  
+ Select Case File.Load("" & User.Home & "/.i-nex/DistributionVendor.conf")
+  Case Like "*LinuxMint*"
+   Finfosys.PictureBox2.Picture = Picture["Database/Distlogos/mint.png"]
+  Case Like "*Ubuntu*"
+   Finfosys.PictureBox2.Picture = Picture["Database/Distlogos/ubuntu.png"]
+ End Select
+
  'echo "[System] \
 'DistributionVendor = $vendor \
 'DistributionRelease = $release " > ~/.i-nex/dist.conf"

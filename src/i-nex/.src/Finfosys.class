@@ -33,10 +33,10 @@ Public Sub Form_Open()
   Debug "Check for default display manager"
   If default_display_manager = True Then
    Label4.Visible = True
-   TextBox22.Visible = True
-   TextBox22.Text = File.Load("/etc/X11/default-display-manager")
-   TextBox22.Text = Replace(TextBox22.Text, "\n", "")
-   Debug "Default display manager is " & TextBox22.Text
+   Label143.Visible = True
+   Label143.Text = File.Load("/etc/X11/default-display-manager")
+   Label143.Text = "Deafult DM: " & Replace(Label143.Text, "\n", "")
+   Debug "Default display manager is " & Label143.Text
   Endif
   'Check temperature. If temterature is OK then timer start 1500/ms. Check temp 1500/ms
   Timer1.Start
@@ -178,27 +178,29 @@ Public Sub bios()
 End
 
 Public Sub System()
-  Dim hostname, arch, gcc, timezone, xorg_version, glx_version As String
+  Dim hostname, arch, gcc, timezone, xorg_version, glx_version, gnumake As String
   Shell "cat /etc/timezone || grep ^TIMEZONE= /etc/sysconfig/clock | cut -d '=' -f 2" Wait To timezone
   hostname = System.Host
   arch = System.Architecture
   Shell "gcc -dumpversion" Wait To gcc
   Shell "cat /var/log/Xorg.0.log | grep 'X.Org X Server' | awk {'print $4'}" Wait To xorg_version
   Shell "glxinfo | grep 'GLX version:' | sed -n '1p' | cut -d ':' -f 2" Wait To glx_version
+  Shell "make --version | sed -n '1p'" Wait To gnumake
   'Shell "echo $SHELL" Wait To TextBox67.Text
-  TextBox67.Text = System.Shell
-  TextBox59.Text = Replace(TextBox59.Text, "\n", "")
-  TextBox63.Text = Replace(gcc, "\n", "")
-  TextBox59.Text = Replace(hostname, "\n", "")
-  TextBox66.Text = Replace(arch, "\n", "")
-  TextBox62.Text = Replace(timezone, "\n", "")
-  TextBox64.Text = Replace(xorg_version, "\n", "")
-  TextBox65.Text = Replace(glx_version, "\n", "")
+  Label135.Text = "System SHELL: " & System.Shell
+  Label136.Text = "GNU Make Version: " & Replace(gnumake, "\n", "")
+  Label137.Text = "GCC Version: " & Replace(gcc, "\n", "")
+  Label138.Text = "Hostname: " & Replace(hostname, "\n", "")
+  Label139.Text = "Arch: " & Replace(arch, "\n", "")
+  Label140.Text = "Timezone: " & Replace(timezone, "\n", "")
+  Label141.Text = "X.Org Version: " & Replace(xorg_version, "\n", "")
+  Label142.Text = "GLX Version: " & Replace(glx_version, "\n", "")
   Distribution_Detect._init
-  TextBox60.Text = File.Load("" & User.Home & "/.i-nex/DistributionVendor.conf")
-  TextBox61.Text = File.Load("" & User.Home & "/.i-nex/DistributionRelease.conf")
-  Replace(Replace(TextBox60.Text, " ", ""), "\n", "")
-  Replace(Replace(TextBox61.Text, " ", ""), "\n", "")
+  Label4.Text = "Distro Vendor: " & Replace(Replace(Replace(File.Load("" & User.Home & "/.i-nex/DistributionVendor.conf"), "\n", ""), " ", ""), "\n", "")
+  Label135.Text = "Distro Release: " & Replace(Replace(Replace(File.Load("" & User.Home & "/.i-nex/DistributionRelease.conf"), "\n", ""), " ", ""), "\n", "")
+  Label144.Text = Replace(File.Load("" & User.Home & "/.i-nex/Binutils.conf"), "\n", "")
+  Label145.Text = "Linux C Library: " & Replace(File.Load("" & User.Home & "/.i-nex/Lnxclib.conf"), "\n", "")
+
 End
 
 Public Sub grafika()
