@@ -35,75 +35,75 @@ msgstr ""
 msgid "Credits"
 msgstr ""
 
-#: About.form:78
+#: About.form:81
 msgid "Main developer"
 msgstr ""
 
-#: About.form:83
+#: About.form:86
 msgid "Michał Głowienka"
 msgstr ""
 
-#: About.form:93
+#: About.form:96
 msgid "Home page"
 msgstr ""
 
-#: About.form:99
+#: About.form:102
 msgid "Mail"
 msgstr ""
 
-#: About.form:106
+#: About.form:109
 msgid "Main bug reporter"
 msgstr ""
 
-#: About.form:111
+#: About.form:114
 msgid "Dariusz Duma"
 msgstr ""
 
-#: About.form:135
+#: About.form:138
 msgid "Tomasz Przybył (FadeMind)   "
 msgstr ""
 
-#: About.form:157
+#: About.form:160
 msgid "Marcin (Netbit73) Mach"
 msgstr ""
 
-#: About.form:180
+#: About.form:183
 msgid "Graphic in 0.4.x Version"
 msgstr ""
 
-#: About.form:185
+#: About.form:188
 msgid "mmaciek12"
 msgstr ""
 
-#: About.form:194
+#: About.form:197
 msgid "DeviantArt"
 msgstr ""
 
-#: About.form:207
+#: About.form:210
 msgid "Graphic in 0.2.x Version"
 msgstr ""
 
-#: About.form:211
+#: About.form:214
 msgid "Daniel 'DaNieL' Pabis "
 msgstr ""
 
-#: About.form:216
+#: About.form:219
 msgid "daniel.pabis@interia.pl"
 msgstr ""
 
-#: About.form:221
+#: About.form:224
 msgid "Maciej Urmański"
 msgstr ""
 
-#: About.form:226
+#: About.form:229
 msgid "maciej14@gmail.com"
 msgstr ""
 
-#: About.form:236
+#: About.form:235
 msgid "License"
 msgstr ""
 
-#: About.form:240
+#: About.form:239
 msgid ""
 "GNU LESSER GENERAL PUBLIC LICENSE\n"
 "                  Version 3, 29 June 2007\n"
@@ -111,11 +111,11 @@ msgid ""
 "See: http://www.gnu.org/licenses/lgpl.txt"
 msgstr ""
 
-#: About.form:243
+#: About.form:242
 msgid "Other"
 msgstr ""
 
-#: About.form:247
+#: About.form:246
 msgid ""
 "Pastebinit script for send reports to more services:\n"
 "\n"
@@ -124,7 +124,7 @@ msgid ""
 "Homepage: http://www.stgraber.org/"
 msgstr ""
 
-#: About.form:255
+#: About.form:254
 msgid "I-Nex Home page"
 msgstr ""
 

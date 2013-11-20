@@ -4,7 +4,7 @@
 Public Sub Form_Open()
 
   Me.Center
-  ScrollBar1.MaxValue = Panel1.H
+  
 End
 
 Public Sub Button1_Click()
@@ -58,12 +58,6 @@ End
 Public Sub Button10_Click()
 
  Desktop.Open("mailto:mmaciek123@gmail.com")
-
-End
-
-Public Sub ScrollBar1_Change()
-
- Panel1.Y = - ScrollBar1.Value
 
 End
 

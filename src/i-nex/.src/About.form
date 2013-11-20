@@ -27,138 +27,137 @@
     }
     Index = 1
     Text = ("Credits")
-    { Panel1 Panel
-      Move(0,0,234,522)
-      { Frame4 Frame
-        Move(0,0,234,96)
-        Text = ("Main developer")
-        { Label4 Label
-          Move(7,28,196,21)
-          Padding = 3
-          Text = ("Michał Głowienka")
-          Alignment = Align.Center
-        }
-        { HBox4 HBox
-          Move(6,66,198,24)
-          { Button6 Button
-            Move(0,0,96,24)
-            Expand = True
-            Text = ("Home page")
+    { ScrollView1 ScrollView
+      Move(0,0,245,336)
+      { Panel1 Panel
+        Move(0,0,234,522)
+        { Frame4 Frame
+          Move(0,0,234,96)
+          Text = ("Main developer")
+          { Label4 Label
+            Move(7,28,196,21)
+            Padding = 3
+            Text = ("Michał Głowienka")
+            Alignment = Align.Center
           }
-          { Button7 Button
-            Move(108,0,96,24)
-            Expand = True
-            Text = ("Mail")
+          { HBox4 HBox
+            Move(6,66,198,24)
+            { Button6 Button
+              Move(0,0,96,24)
+              Expand = True
+              Text = ("Home page")
+            }
+            { Button7 Button
+              Move(108,0,96,24)
+              Expand = True
+              Text = ("Mail")
+            }
+          }
+        }
+        { Frame3 Frame
+          Move(0,102,234,192)
+          Text = ("Main bug reporter")
+          { Label3 Label
+            Move(7,21,196,21)
+            Padding = 3
+            Text = ("Dariusz Duma")
+            Alignment = Align.Center
+          }
+          { HBox1 HBox
+            Move(6,102,198,24)
+            { Button9 Button
+              Move(6,0,84,24)
+              Expand = True
+              Text = ("Home page")
+            }
+            { Button8 Button
+              Move(98,0,96,24)
+              Expand = True
+              Text = ("Mail")
+            }
+          }
+          { Label5 Label
+            Move(7,77,196,21)
+            Padding = 3
+            AutoResize = True
+            Text = ("Tomasz Przybył (FadeMind)   ")
+            Alignment = Align.Center
+          }
+          { HBox2 HBox
+            Move(6,48,198,24)
+            { Button2 Button
+              Move(0,0,96,24)
+              Expand = True
+              Text = ("Home page")
+            }
+            { Button5 Button
+              Move(102,0,90,24)
+              Expand = True
+              Text = ("Mail")
+            }
+          }
+          { Label1 Label
+            Move(7,133,196,21)
+            Text = ("Marcin (Netbit73) Mach")
+            Alignment = Align.Center
+          }
+          { HBox5 HBox
+            Move(6,156,198,24)
+            { Button11 Button
+              Move(0,0,96,24)
+              Expand = True
+              Text = ("Home page")
+            }
+            { Button12 Button
+              Move(102,0,96,24)
+              Expand = True
+              Text = ("Mail")
+            }
+          }
+        }
+        { Frame2 Frame
+          Move(0,300,234,78)
+          Text = ("Graphic in 0.4.x Version")
+          { Label2 Label
+            Move(60,18,72,24)
+            AutoResize = True
+            Text = ("mmaciek12")
+          }
+          { HBox3 HBox
+            Move(6,48,198,24)
+            { Button3 Button
+              Move(0,0,78,24)
+              Expand = True
+              Text = ("DeviantArt")
+            }
+            { Button10 Button
+              Move(84,0,84,24)
+              Expand = True
+              Text = ("Mail")
+            }
+          }
+        }
+        { Frame1 Frame
+          Move(0,390,234,120)
+          Text = ("Graphic in 0.2.x Version")
+          { TextLabel2 TextLabel
+            Move(36,24,150,24)
+            Text = ("Daniel 'DaNieL' Pabis ")
+          }
+          { TextLabel3 TextLabel
+            Move(36,48,168,21)
+            Text = ("daniel.pabis@interia.pl")
+          }
+          { TextLabel4 TextLabel
+            Move(36,72,133,21)
+            Text = ("Maciej Urmański")
+          }
+          { TextLabel5 TextLabel
+            Move(36,96,168,21)
+            Text = ("maciej14@gmail.com")
           }
         }
       }
-      { Frame3 Frame
-        Move(0,102,234,192)
-        Text = ("Main bug reporter")
-        { Label3 Label
-          Move(7,21,196,21)
-          Padding = 3
-          Text = ("Dariusz Duma")
-          Alignment = Align.Center
-        }
-        { HBox1 HBox
-          Move(6,102,198,24)
-          { Button9 Button
-            Move(6,0,84,24)
-            Expand = True
-            Text = ("Home page")
-          }
-          { Button8 Button
-            Move(98,0,96,24)
-            Expand = True
-            Text = ("Mail")
-          }
-        }
-        { Label5 Label
-          Move(7,77,196,21)
-          Padding = 3
-          AutoResize = True
-          Text = ("Tomasz Przybył (FadeMind)   ")
-          Alignment = Align.Center
-        }
-        { HBox2 HBox
-          Move(6,48,198,24)
-          { Button2 Button
-            Move(0,0,96,24)
-            Expand = True
-            Text = ("Home page")
-          }
-          { Button5 Button
-            Move(102,0,90,24)
-            Expand = True
-            Text = ("Mail")
-          }
-        }
-        { Label1 Label
-          Move(7,133,196,21)
-          Text = ("Marcin (Netbit73) Mach")
-          Alignment = Align.Center
-        }
-        { HBox5 HBox
-          Move(6,156,198,24)
-          { Button11 Button
-            Move(0,0,96,24)
-            Expand = True
-            Text = ("Home page")
-          }
-          { Button12 Button
-            Move(102,0,96,24)
-            Expand = True
-            Text = ("Mail")
-          }
-        }
-      }
-      { Frame2 Frame
-        Move(0,300,234,78)
-        Text = ("Graphic in 0.4.x Version")
-        { Label2 Label
-          Move(60,18,72,24)
-          AutoResize = True
-          Text = ("mmaciek12")
-        }
-        { HBox3 HBox
-          Move(6,48,198,24)
-          { Button3 Button
-            Move(0,0,78,24)
-            Expand = True
-            Text = ("DeviantArt")
-          }
-          { Button10 Button
-            Move(84,0,84,24)
-            Expand = True
-            Text = ("Mail")
-          }
-        }
-      }
-      { Frame1 Frame
-        Move(0,390,234,120)
-        Text = ("Graphic in 0.2.x Version")
-        { TextLabel2 TextLabel
-          Move(36,24,150,24)
-          Text = ("Daniel 'DaNieL' Pabis ")
-        }
-        { TextLabel3 TextLabel
-          Move(36,48,168,21)
-          Text = ("daniel.pabis@interia.pl")
-        }
-        { TextLabel4 TextLabel
-          Move(36,72,133,21)
-          Text = ("Maciej Urmański")
-        }
-        { TextLabel5 TextLabel
-          Move(36,96,168,21)
-          Text = ("maciej14@gmail.com")
-        }
-      }
-    }
-    { ScrollBar1 ScrollBar
-      Move(234,0,12,336)
-      PageStep = 1
     }
     Index = 2
     Text = ("License")
