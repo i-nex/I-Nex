@@ -22,6 +22,8 @@ Public Sub _init()
    Finfosys.PictureBox2.Picture = Picture["Database/Distlogos/opensuse.png"]
   Case Like "*ManjaroLinux*"
    Finfosys.PictureBox2.Picture = Picture["Database/Distlogos/manjaro.png"]
+  Case Like "*Fedora*"
+   Finfosys.PictureBox2.Picture = Picture["Database/Distlogos/fedora.png"]
  End Select
 
  'echo "[System] \
