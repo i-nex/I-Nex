@@ -6,6 +6,7 @@ Public Sub _inits()
   Dim Avail_Interfaces As Integer 
   Dim Max_Interfaces As Integer
   Dim all_interfaces As String
+  
   Debug "Add Interfaces to ComboBox"
   Shell "ls /sys/class/drm/ | grep 'card[0-9]-' | wc -l" Wait To all_interfaces
   Max_Interfaces = Val(all_interfaces)
@@ -14,7 +15,7 @@ Public Sub _inits()
    Interfaces_X = Replace(Interfaces_X, "\n", "")
    Finfosys.ComboBox8.Add(Interfaces_X)
   Next
-
+  
 End
 
 Public Sub _check()
@@ -25,14 +26,16 @@ Public Sub _check()
   status = File.Load("/sys/class/drm/" & Finfosys.ComboBox8.Text & "/status")
   enabled = File.Load("/sys/class/drm/" & Finfosys.ComboBox8.Text & "/enabled")
   dpms = File.Load("/sys/class/drm/" & Finfosys.ComboBox8.Text & "/dpms")
- 
-  Shell "/usr/bin/inex-edid /sys/class/drm/" & Finfosys.ComboBox8.Text & "/edid | grep 'Monitor name' | cut -d ':' -f 2" Wait To monitor_name
-  Shell "/usr/bin/inex-edid /sys/class/drm/" & Finfosys.ComboBox8.Text & "/edid | grep 'Manufacturer' | cut -d ':' -f 2" Wait To manufacturer
-  Shell "/usr/bin/inex-edid /sys/class/drm/" & Finfosys.ComboBox8.Text & "/edid | grep 'Serial number' | cut -d ':' -f 2" Wait To serial_number
- 
+  Shell "/usr/bin/inex-edid /sys/class/drm/" & Finfosys.ComboBox8.Text & "/edid | grep 'ASCII string' | cut -d ':' -f 2" Wait To monitor_name
+  
+  Shell "/usr/bin/inex-edid /sys/class/drm/" & Finfosys.ComboBox8.Text & "/edid | grep 'Manufacturer:' | cut -d ':' -f 2" Wait To manufacturer
+  Shell "/usr/bin/inex-edid /sys/class/drm/" & Finfosys.ComboBox8.Text & "/edid | grep 'Serial number:' | cut -d ':' -f 2" Wait To serial_number
+  If monitor_name = Null Then
+   Shell "/usr/bin/inex-edid /sys/class/drm/" & Finfosys.ComboBox8.Text & "/edid | grep 'Monitor name:' | cut -d ':' -f 2" Wait To monitor_name
+  Endif
  Endif
  
- Finfosys.Label100.Text = "Monitor name: " & Replace(monitor_name, "\n", "")
+ Finfosys.Label100.Text = "Monitor name: " & Replace(Replace(monitor_name, "\n", " "), "\n", "")
  Finfosys.Label65.Text = "Status: " & Replace(status, "\n", "")
  Finfosys.Label66.Text = "Enabled: " & Replace(enabled, "\n", "")
  Finfosys.Label67.Text = "DPMS: " & Replace(dpms, "\n", "")
