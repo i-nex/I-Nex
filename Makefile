@@ -120,53 +120,53 @@ clean:
 
 	
 install:
-	mkdir -p $(bindir)
-	mkdir -p /usr/share/pixmaps/
-	mkdir -p /usr/share/applications/
-	mkdir -p /usr/share/doc/i-nex/
-	mkdir -p /usr/share/i-nex/pastebinit/
-	mkdir -p /usr/share/i-nex/pastebinit/pastebin.d/
-	mkdir -p /usr/share/i-nex/pastebinit/po/
-	mkdir -p /usr/share/i-nex/pastebinit/utils/
+	mkdir -p $(DESTDIR)$(bindir)
+	mkdir -p $(DESTDIR)/usr/share/pixmaps/
+	mkdir -p $(DESTDIR)/usr/share/applications/
+	mkdir -p $(DESTDIR)/usr/share/doc/i-nex/
+	mkdir -p $(DESTDIR)/usr/share/i-nex/pastebinit/
+	mkdir -p $(DESTDIR)/usr/share/i-nex/pastebinit/pastebin.d/
+	mkdir -p $(DESTDIR)/usr/share/i-nex/pastebinit/po/
+	mkdir -p $(DESTDIR)/usr/share/i-nex/pastebinit/utils/
 	chmod +x i-nex
 	chmod +x inex-edid
 	chmod +x debian/check_kernel
 	chmod +x debian/i-nex-lspci
-	install -m 0755 i-nex $(bindir)
-	install -m 0755 inex-edid $(bindir)
-	install -m 0755 src/i-nex/i-nex.gambas $(bindir)
-	install -m 0755 src/i-nex/logo/i-nex.0.4.x.png /usr/share/pixmaps/
-	install -m 0755 debian/i-nex.desktop /usr/share/applications/
-	install -m 0755 debian/check_kernel /usr/bin/
-	install -m 0755 debian/i-nex-lspci /usr/bin/
-	install -m 0755 debian/changelog-0.4.6 /usr/share/doc/i-nex/
-	install -m 0755 debian/changelog-0.4.8 /usr/share/doc/i-nex/
-	install -m 0755 debian/changelog-0.4.8.1 /usr/share/doc/i-nex/
-	install -m 0755 debian/changelog-0.5.0 /usr/share/doc/i-nex/
-	install -m 0755 debian/changelog-0.5.1 /usr/share/doc/i-nex/
-	install -m 0755 debian/changelog-0.5.2 /usr/share/doc/i-nex/
-	install -m 0755 debian/changelog-0.5.4 /usr/share/doc/i-nex/
-	install -m 0755 LICENSE /usr/share/doc/i-nex/
-	install -m 0755 COPYING /usr/share/i-nex/pastebinit/
-	install -m 0755 pastebin.d/* /usr/share/i-nex/pastebinit/pastebin.d/
-	install -m 0755 pastebinit /usr/share/i-nex/pastebinit/
-	install -m 0755 pastebinit.xml /usr/share/i-nex/pastebinit/
-	install -m 0755 po/* /usr/share/i-nex/pastebinit/po/
-	install -m 0755 README /usr/share/i-nex/pastebinit/
-	install -m 0755 release.conf /usr/share/i-nex/pastebinit/
-	install -m 0755 test.sh /usr/share/i-nex/pastebinit/
-	install -m 0755 utils/* /usr/share/i-nex/pastebinit/utils/
+	install -m 0755 i-nex $(DESTDIR)$(bindir)
+	install -m 0755 inex-edid $(DESTDIR)$(bindir)
+	install -m 0755 src/i-nex/i-nex.gambas $(DESTDIR)$(bindir)
+	install -m 0755 src/i-nex/logo/i-nex.0.4.x.png $(DESTDIR)/usr/share/pixmaps/
+	install -m 0755 debian/i-nex.desktop $(DESTDIR)/usr/share/applications/
+	install -m 0755 debian/check_kernel $(DESTDIR)/usr/bin/
+	install -m 0755 debian/i-nex-lspci $(DESTDIR)/usr/bin/
+	install -m 0755 debian/changelog-0.4.6 $(DESTDIR)/usr/share/doc/i-nex/
+	install -m 0755 debian/changelog-0.4.8 $(DESTDIR)/usr/share/doc/i-nex/
+	install -m 0755 debian/changelog-0.4.8.1 $(DESTDIR)/usr/share/doc/i-nex/
+	install -m 0755 debian/changelog-0.5.0 $(DESTDIR)/usr/share/doc/i-nex/
+	install -m 0755 debian/changelog-0.5.1 $(DESTDIR)/usr/share/doc/i-nex/
+	install -m 0755 debian/changelog-0.5.2 $(DESTDIR)/usr/share/doc/i-nex/
+	install -m 0755 debian/changelog-0.5.4 $(DESTDIR)/usr/share/doc/i-nex/
+	install -m 0755 LICENSE $(DESTDIR)/usr/share/doc/i-nex/
+	install -m 0755 COPYING $(DESTDIR)/usr/share/i-nex/pastebinit/
+	install -m 0755 pastebin.d/* $(DESTDIR)/usr/share/i-nex/pastebinit/pastebin.d/
+	install -m 0755 pastebinit $(DESTDIR)/usr/share/i-nex/pastebinit/
+	install -m 0755 pastebinit.xml $(DESTDIR)/usr/share/i-nex/pastebinit/
+	install -m 0755 po/* $(DESTDIR)/usr/share/i-nex/pastebinit/po/
+	install -m 0755 README $(DESTDIR)/usr/share/i-nex/pastebinit/
+	install -m 0755 release.conf $(DESTDIR)/usr/share/i-nex/pastebinit/
+	install -m 0755 test.sh $(DESTDIR)/usr/share/i-nex/pastebinit/
+	install -m 0755 utils/* $(DESTDIR)/usr/share/i-nex/pastebinit/utils/
 	
 uninstall:
 
-	rm $(bindir)/i-nex
-	rm $(bindir)/inex-edid
-	rm $(bindir)/i-nex.gambas
-	rm /usr/share/pixmaps/i-nex.0.4.x.png
-	rm /usr/share/applications/i-nex.desktop
-	rm $(bindir)/check_kernel
-	rm $(bindir)/i-nex-lspci
-	rm -Rf /usr/share/doc/i-nex
-	rm -Rf /usr/share/i-nex
+	rm $(DESTDIR)$(bindir)/i-nex
+	rm $(DESTDIR)$(bindir)/inex-edid
+	rm $(DESTDIR)$(bindir)/i-nex.gambas
+	rm $(DESTDIR)/usr/share/pixmaps/i-nex.0.4.x.png
+	rm $(DESTDIR)/usr/share/applications/i-nex.desktop
+	rm $(DESTDIR)$(bindir)/check_kernel
+	rm $(DESTDIR)$(bindir)/i-nex-lspci
+	rm -Rf $(DESTDIR)/usr/share/doc/i-nex
+	rm -Rf $(DESTDIR)/usr/share/i-nex
 	update-desktop-database
 	update-menus
