@@ -222,7 +222,6 @@
     }
     { PictureBox3 PictureBox
       Move(364,7,91,91)
-      Stretch = True
       AutoResize = True
       Alignment = Align.Center
     }
