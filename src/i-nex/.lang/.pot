@@ -106,9 +106,171 @@ msgstr ""
 #: About.form:239
 msgid ""
 "GNU LESSER GENERAL PUBLIC LICENSE\n"
-"                  Version 3, 29 June 2007\n"
+"                       Version 3, 29 June 2007\n"
 "\n"
-"See: http://www.gnu.org/licenses/lgpl.txt"
+" Copyright (C) 2007 Free Software Foundation, Inc. <http://fsf.org/>\n"
+" Everyone is permitted to copy and distribute verbatim copies\n"
+" of this license document, but changing it is not allowed.\n"
+"\n"
+"\n"
+"  This version of the GNU Lesser General Public License incorporates\n"
+"the terms and conditions of version 3 of the GNU General Public\n"
+"License, supplemented by the additional permissions listed below.\n"
+"\n"
+"  0. Additional Definitions.\n"
+"\n"
+"  As used herein, \"this License\" refers to version 3 of the GNU Lesser\n"
+"General Public License, and the \"GNU GPL\" refers to version 3 of the GNU\n"
+"General Public License.\n"
+"\n"
+"  \"The Library\" refers to a covered work governed by this License,\n"
+"other than an Application or a Combined Work as defined below.\n"
+"\n"
+"  An \"Application\" is any work that makes use of an interface provided\n"
+"by the Library, but which is not otherwise based on the Library.\n"
+"Defining a subclass of a class defined by the Library is deemed a mode\n"
+"of using an interface provided by the Library.\n"
+"\n"
+"  A \"Combined Work\" is a work produced by combining or linking an\n"
+"Application with the Library.  The particular version of the Library\n"
+"with which the Combined Work was made is also called the \"Linked\n"
+"Version\".\n"
+"\n"
+"  The \"Minimal Corresponding Source\" for a Combined Work means the\n"
+"Corresponding Source for the Combined Work, excluding any source code\n"
+"for portions of the Combined Work that, considered in isolation, are\n"
+"based on the Application, and not on the Linked Version.\n"
+"\n"
+"  The \"Corresponding Application Code\" for a Combined Work means the\n"
+"object code and/or source code for the Application, including any data\n"
+"and utility programs needed for reproducing the Combined Work from the\n"
+"Application, but excluding the System Libraries of the Combined Work.\n"
+"\n"
+"  1. Exception to Section 3 of the GNU GPL.\n"
+"\n"
+"  You may convey a covered work under sections 3 and 4 of this License\n"
+"without being bound by section 3 of the GNU GPL.\n"
+"\n"
+"  2. Conveying Modified Versions.\n"
+"\n"
+"  If you modify a copy of the Library, and, in your modifications, a\n"
+"facility refers to a function or data to be supplied by an Application\n"
+"that uses the facility (other than as an argument passed when the\n"
+"facility is invoked), then you may convey a copy of the modified\n"
+"version:\n"
+"\n"
+"   a) under this License, provided that you make a good faith effort to\n"
+"   ensure that, in the event an Application does not supply the\n"
+"   function or data, the facility still operates, and performs\n"
+"   whatever part of its purpose remains meaningful, or\n"
+"\n"
+"   b) under the GNU GPL, with none of the additional permissions of\n"
+"   this License applicable to that copy.\n"
+"\n"
+"  3. Object Code Incorporating Material from Library Header Files.\n"
+"\n"
+"  The object code form of an Application may incorporate material from\n"
+"a header file that is part of the Library.  You may convey such object\n"
+"code under terms of your choice, provided that, if the incorporated\n"
+"material is not limited to numerical parameters, data structure\n"
+"layouts and accessors, or small macros, inline functions and templates\n"
+"(ten or fewer lines in length), you do both of the following:\n"
+"\n"
+"   a) Give prominent notice with each copy of the object code that the\n"
+"   Library is used in it and that the Library and its use are\n"
+"   covered by this License.\n"
+"\n"
+"   b) Accompany the object code with a copy of the GNU GPL and this license\n"
+"   document.\n"
+"\n"
+"  4. Combined Works.\n"
+"\n"
+"  You may convey a Combined Work under terms of your choice that,\n"
+"taken together, effectively do not restrict modification of the\n"
+"portions of the Library contained in the Combined Work and reverse\n"
+"engineering for debugging such modifications, if you also do each of\n"
+"the following:\n"
+"\n"
+"   a) Give prominent notice with each copy of the Combined Work that\n"
+"   the Library is used in it and that the Library and its use are\n"
+"   covered by this License.\n"
+"\n"
+"   b) Accompany the Combined Work with a copy of the GNU GPL and this "
+"license\n"
+"   document.\n"
+"\n"
+"   c) For a Combined Work that displays copyright notices during\n"
+"   execution, include the copyright notice for the Library among\n"
+"   these notices, as well as a reference directing the user to the\n"
+"   copies of the GNU GPL and this license document.\n"
+"\n"
+"   d) Do one of the following:\n"
+"\n"
+"       0) Convey the Minimal Corresponding Source under the terms of this\n"
+"       License, and the Corresponding Application Code in a form\n"
+"       suitable for, and under terms that permit, the user to\n"
+"       recombine or relink the Application with a modified version of\n"
+"       the Linked Version to produce a modified Combined Work, in the\n"
+"       manner specified by section 6 of the GNU GPL for conveying\n"
+"       Corresponding Source.\n"
+"\n"
+"       1) Use a suitable shared library mechanism for linking with the\n"
+"       Library.  A suitable mechanism is one that (a) uses at run time\n"
+"       a copy of the Library already present on the user's computer\n"
+"       system, and (b) will operate properly with a modified version\n"
+"       of the Library that is interface-compatible with the Linked\n"
+"       Version.\n"
+"\n"
+"   e) Provide Installation Information, but only if you would otherwise\n"
+"   be required to provide such information under section 6 of the\n"
+"   GNU GPL, and only to the extent that such information is\n"
+"   necessary to install and execute a modified version of the\n"
+"   Combined Work produced by recombining or relinking the\n"
+"   Application with a modified version of the Linked Version. (If\n"
+"   you use option 4d0, the Installation Information must accompany\n"
+"   the Minimal Corresponding Source and Corresponding Application\n"
+"   Code. If you use option 4d1, you must provide the Installation\n"
+"   Information in the manner specified by section 6 of the GNU GPL\n"
+"   for conveying Corresponding Source.)\n"
+"\n"
+"  5. Combined Libraries.\n"
+"\n"
+"  You may place library facilities that are a work based on the\n"
+"Library side by side in a single library together with other library\n"
+"facilities that are not Applications and are not covered by this\n"
+"License, and convey such a combined library under terms of your\n"
+"choice, if you do both of the following:\n"
+"\n"
+"   a) Accompany the combined library with a copy of the same work based\n"
+"   on the Library, uncombined with any other library facilities,\n"
+"   conveyed under the terms of this License.\n"
+"\n"
+"   b) Give prominent notice with the combined library that part of it\n"
+"   is a work based on the Library, and explaining where to find the\n"
+"   accompanying uncombined form of the same work.\n"
+"\n"
+"  6. Revised Versions of the GNU Lesser General Public License.\n"
+"\n"
+"  The Free Software Foundation may publish revised and/or new versions\n"
+"of the GNU Lesser General Public License from time to time. Such new\n"
+"versions will be similar in spirit to the present version, but may\n"
+"differ in detail to address new problems or concerns.\n"
+"\n"
+"  Each version is given a distinguishing version number. If the\n"
+"Library as you received it specifies that a certain numbered version\n"
+"of the GNU Lesser General Public License \"or any later version\"\n"
+"applies to it, you have the option of following the terms and\n"
+"conditions either of that published version or of any later version\n"
+"published by the Free Software Foundation. If the Library as you\n"
+"received it does not specify a version number of the GNU Lesser\n"
+"General Public License, you may choose any version of the GNU Lesser\n"
+"General Public License ever published by the Free Software Foundation.\n"
+"\n"
+"  If the Library as you received it specifies that a proxy can decide\n"
+"whether future versions of the GNU Lesser General Public License shall\n"
+"apply, that proxy's public statement of acceptance of any version is\n"
+"permanent authorization for you to choose that version for the\n"
+"Library."
 msgstr ""
 
 #: About.form:242
@@ -340,399 +502,399 @@ msgstr ""
 msgid "Label103"
 msgstr ""
 
-#: Finfosys.form:621
+#: Finfosys.form:620
 msgid "GPU"
 msgstr ""
 
-#: Finfosys.form:632
+#: Finfosys.form:631
 msgid "Label105"
 msgstr ""
 
-#: Finfosys.form:671
+#: Finfosys.form:670
 msgid "Label64"
 msgstr ""
 
-#: Finfosys.form:678
+#: Finfosys.form:677
 msgid "TextBox1"
 msgstr ""
 
-#: Finfosys.form:686
+#: Finfosys.form:685
 msgid "ComboBox8"
 msgstr ""
 
-#: Finfosys.form:692
+#: Finfosys.form:691
 msgid "Label65"
 msgstr ""
 
-#: Finfosys.form:699
+#: Finfosys.form:698
 msgid "Label66"
 msgstr ""
 
-#: Finfosys.form:706
+#: Finfosys.form:705
 msgid "Label67"
 msgstr ""
 
-#: Finfosys.form:713
+#: Finfosys.form:712
 msgid "Label100"
 msgstr ""
 
-#: Finfosys.form:720
+#: Finfosys.form:719
 msgid "Label101"
 msgstr ""
 
-#: Finfosys.form:727
+#: Finfosys.form:726
 msgid "Label102"
 msgstr ""
 
-#: Finfosys.form:731
+#: Finfosys.form:730
 msgid "Mobo"
 msgstr ""
 
-#: Finfosys.form:735
+#: Finfosys.form:734
 msgid "Motherboard"
 msgstr ""
 
-#: Finfosys.form:744
+#: Finfosys.form:743
 msgid "Manufacturer:"
 msgstr ""
 
-#: Finfosys.form:765
+#: Finfosys.form:764
 msgid "Model"
 msgstr ""
 
-#: Finfosys.form:784
+#: Finfosys.form:783
 msgid "Bios"
 msgstr ""
 
-#: Finfosys.form:793
+#: Finfosys.form:792
 msgid "Manufacturer:   "
 msgstr ""
 
-#: Finfosys.form:810
+#: Finfosys.form:809
 msgid "Version:   "
 msgstr ""
 
-#: Finfosys.form:827
+#: Finfosys.form:826
 msgid "Date:   "
 msgstr ""
 
-#: Finfosys.form:838
+#: Finfosys.form:837
 msgid "Audio"
 msgstr ""
 
-#: Finfosys.form:907
+#: Finfosys.form:906
 msgid "N/A"
 msgstr ""
 
-#: Finfosys.form:919
+#: Finfosys.form:918
 msgid "Drives"
 msgstr ""
 
-#: Finfosys.form:952
+#: Finfosys.form:951
 msgid "Mount point:   "
 msgstr ""
 
-#: Finfosys.form:959
+#: Finfosys.form:958
 msgid "Device uuid:   "
 msgstr ""
 
-#: Finfosys.form:967
+#: Finfosys.form:966
 msgid "Mount width:   "
 msgstr ""
 
-#: Finfosys.form:1048
+#: Finfosys.form:1047
 msgid "SWAP"
 msgstr ""
 
-#: Finfosys.form:1132
+#: Finfosys.form:1131
 msgid "DF"
 msgstr ""
 
-#: Finfosys.form:1138
+#: Finfosys.form:1137
 msgid "udisks"
 msgstr ""
 
-#: Finfosys.form:1141
+#: Finfosys.form:1140
 msgid "System"
 msgstr ""
 
-#: Finfosys.form:1150
+#: Finfosys.form:1149
 msgid "TextBox58"
 msgstr ""
 
-#: Finfosys.form:1162
+#: Finfosys.form:1161
 msgid "Check"
 msgstr ""
 
-#: Finfosys.form:1169
+#: Finfosys.form:1168
 msgid "Label4"
 msgstr ""
 
-#: Finfosys.form:1176
+#: Finfosys.form:1175
 msgid "Label135"
 msgstr ""
 
-#: Finfosys.form:1183
+#: Finfosys.form:1182
 msgid "Label136"
 msgstr ""
 
-#: Finfosys.form:1190
+#: Finfosys.form:1189
 msgid "Label137"
 msgstr ""
 
-#: Finfosys.form:1197
+#: Finfosys.form:1196
 msgid "Label138"
 msgstr ""
 
-#: Finfosys.form:1204
+#: Finfosys.form:1203
 msgid "Label139"
 msgstr ""
 
-#: Finfosys.form:1211
+#: Finfosys.form:1210
 msgid "Label140"
 msgstr ""
 
-#: Finfosys.form:1218
+#: Finfosys.form:1217
 msgid "Label141"
 msgstr ""
 
-#: Finfosys.form:1225
+#: Finfosys.form:1224
 msgid "Label142"
 msgstr ""
 
-#: Finfosys.form:1232
+#: Finfosys.form:1231
 msgid "Label143"
 msgstr ""
 
-#: Finfosys.form:1239
+#: Finfosys.form:1238
 msgid "Label144"
 msgstr ""
 
-#: Finfosys.form:1251
+#: Finfosys.form:1250
 msgid "Label145"
 msgstr ""
 
-#: Finfosys.form:1255
+#: Finfosys.form:1254
 msgid "Kernel"
 msgstr ""
 
-#: Finfosys.form:1259
+#: Finfosys.form:1258
 msgid "Installed kernels:"
 msgstr ""
 
-#: Finfosys.form:1281
+#: Finfosys.form:1280
 msgid "Kernel command line:"
 msgstr ""
 
-#: Finfosys.form:1297
+#: Finfosys.form:1296
 msgid "Show modules"
 msgstr ""
 
-#: Finfosys.form:1300
+#: Finfosys.form:1299
 msgid "Memory"
 msgstr ""
 
-#: Finfosys.form:1304
+#: Finfosys.form:1303
 msgid "Ram used:"
 msgstr ""
 
-#: Finfosys.form:1313
+#: Finfosys.form:1312
 msgid "SWAP memory used:"
 msgstr ""
 
-#: Finfosys.form:1374
+#: Finfosys.form:1373
 msgid "ComboBox9"
 msgstr ""
 
-#: Finfosys.form:1433
+#: Finfosys.form:1432
 msgid "Item 1"
 msgstr ""
 
-#: Finfosys.form:1433
+#: Finfosys.form:1432
 msgid "Item 2"
 msgstr ""
 
-#: Finfosys.form:1433
+#: Finfosys.form:1432
 msgid "Item 3"
 msgstr ""
 
-#: Finfosys.form:1433
+#: Finfosys.form:1432
 msgid "Item 4"
 msgstr ""
 
-#: Finfosys.form:1433
+#: Finfosys.form:1432
 msgid "Item 5"
 msgstr ""
 
-#: Finfosys.form:1433
+#: Finfosys.form:1432
 msgid "Item 6"
 msgstr ""
 
-#: Finfosys.form:1433
+#: Finfosys.form:1432
 msgid "Item 7"
 msgstr ""
 
-#: Finfosys.form:1433
+#: Finfosys.form:1432
 msgid "Item 8"
 msgstr ""
 
-#: Finfosys.form:1433
+#: Finfosys.form:1432
 msgid "Item 9"
 msgstr ""
 
-#: Finfosys.form:1433
+#: Finfosys.form:1432
 msgid "Item 10"
 msgstr ""
 
-#: Finfosys.form:1433
+#: Finfosys.form:1432
 msgid "Item 11"
 msgstr ""
 
-#: Finfosys.form:1433
+#: Finfosys.form:1432
 msgid "Item 12"
 msgstr ""
 
-#: Finfosys.form:1433
+#: Finfosys.form:1432
 msgid "Item 13"
 msgstr ""
 
-#: Finfosys.form:1433
+#: Finfosys.form:1432
 msgid "Item 14"
 msgstr ""
 
-#: Finfosys.form:1433
+#: Finfosys.form:1432
 msgid "Item 15"
 msgstr ""
 
-#: Finfosys.form:1434
+#: Finfosys.form:1433
 msgid "ComboBox10"
 msgstr ""
 
-#: Finfosys.form:1477
+#: Finfosys.form:1476
 msgid "Network"
 msgstr ""
 
-#: Finfosys.form:1481
+#: Finfosys.form:1480
 msgid "TextArea4"
 msgstr ""
 
-#: Finfosys.form:1494
+#: Finfosys.form:1493
 msgid "ComboBox2"
 msgstr ""
 
-#: Finfosys.form:1501
+#: Finfosys.form:1500
 msgid "Vendor:"
 msgstr ""
 
-#: Finfosys.form:1507
+#: Finfosys.form:1506
 msgid "TextBox57"
 msgstr ""
 
-#: Finfosys.form:1515
+#: Finfosys.form:1514
 msgid "Device:"
 msgstr ""
 
-#: Finfosys.form:1521
+#: Finfosys.form:1520
 msgid "TextBox56"
 msgstr ""
 
-#: Finfosys.form:1529
+#: Finfosys.form:1528
 msgid "Show Receive and Transmit"
 msgstr ""
 
-#: Finfosys.form:1532
+#: Finfosys.form:1531
 msgid "Battery"
 msgstr ""
 
-#: Finfosys.form:1542
+#: Finfosys.form:1541
 msgid "Present:   "
 msgstr ""
 
-#: Finfosys.form:1556
+#: Finfosys.form:1555
 msgid "Design capacity:   "
 msgstr ""
 
-#: Finfosys.form:1570
+#: Finfosys.form:1569
 msgid "Last full capacity:   "
 msgstr ""
 
-#: Finfosys.form:1584
+#: Finfosys.form:1583
 msgid "Battery technology:   "
 msgstr ""
 
-#: Finfosys.form:1598
+#: Finfosys.form:1597
 msgid "Design voltage:   "
 msgstr ""
 
-#: Finfosys.form:1612
+#: Finfosys.form:1611
 msgid "Design capacity warning:   "
 msgstr ""
 
-#: Finfosys.form:1626
+#: Finfosys.form:1625
 msgid "Design capacity low:   "
 msgstr ""
 
-#: Finfosys.form:1640
+#: Finfosys.form:1639
 msgid "Cycle count:   "
 msgstr ""
 
-#: Finfosys.form:1654
+#: Finfosys.form:1653
 msgid "Capacity granularity 1:   "
 msgstr ""
 
-#: Finfosys.form:1668
+#: Finfosys.form:1667
 msgid "Capacity granularity 2:   "
 msgstr ""
 
-#: Finfosys.form:1682
+#: Finfosys.form:1681
 msgid "Model number:   "
 msgstr ""
 
-#: Finfosys.form:1696
+#: Finfosys.form:1695
 msgid "Serial number:   "
 msgstr ""
 
-#: Finfosys.form:1710
+#: Finfosys.form:1709
 msgid "Battery type:   "
 msgstr ""
 
-#: Finfosys.form:1724
+#: Finfosys.form:1723
 msgid "OEM info:   "
 msgstr ""
 
-#: Finfosys.form:1743
+#: Finfosys.form:1742
 msgid "USB | Input"
 msgstr ""
 
-#: Finfosys.form:1753
+#: Finfosys.form:1752
 msgid "Usb device plugged:   "
 msgstr ""
 
-#: Finfosys.form:1784
+#: Finfosys.form:1783
 msgid "Product:   "
 msgstr ""
 
-#: Finfosys.form:1798
+#: Finfosys.form:1797
 msgid "Max power:   "
 msgstr ""
 
-#: Finfosys.form:1812
+#: Finfosys.form:1811
 msgid "Speed:   "
 msgstr ""
 
-#: Finfosys.form:1840
+#: Finfosys.form:1839
 msgid "Serial"
 msgstr ""
 
-#: Finfosys.form:1858
+#: Finfosys.form:1857
 msgid "idVendor:   "
 msgstr ""
 
-#: Finfosys.form:1872
+#: Finfosys.form:1871
 msgid "idProduct:   "
 msgstr ""
 
-#: Finfosys.form:1899
+#: Finfosys.form:1898
 msgid "Modalias:   "
 msgstr ""
 
