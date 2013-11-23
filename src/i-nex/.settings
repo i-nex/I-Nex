@@ -21,7 +21,6 @@ SearchComment=False
 SearchString=True
 
 [OpenFile]
-Active=1
 File[1]=".src/Finfosys.form"
 File[2]=".src/Global.class:88.35"
 File[3]=".src/About.form"
@@ -29,7 +28,7 @@ File[4]=".src/About.class:62.0"
 File[5]=".src/battery.module:70.77"
 File[6]=".src/Disk_Drives.module:37.13"
 File[7]=".src/ScreenShot.form"
-File[8]=".src/ScreenShot.class:7.65"
+File[8]=".src/ScreenShot.class:20.21"
 File[9]=".src/ScreenShotM.module:7.0"
 File[10]=".src/USB_Drives.module:13.0"
 File[11]=".src/Asound_Drives.module:34.12"
@@ -47,7 +46,8 @@ File[22]=".src/net.module:104.1"
 File[23]="Data/report-ng.sh:27.44"
 File[24]=".src/Distribution_Detect.module:28.18"
 File[25]=".src/FFlags.module:71.6"
-File[26]=".src/Finfosys.class:450.2"
+Active=26
+File[26]=".src/Finfosys.class:214.113"
 File[27]=".src/FDF.form"
 File[28]=".src/FDF.class:28.69"
 File[29]=".src/FNET_R_T.form"

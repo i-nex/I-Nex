@@ -205,7 +205,7 @@ End
 
 Public Sub grafika()
   Dim available_resolutions As String
-  Dim rozdzielczosc, gpu, memory_prefetchable As String
+  Dim rozdzielczosc, gpu, memory_prefetchable, memory_non_prefetchable As String
   Dim opengl_vendor_string, opengl_renderer_string, opengl_version_string As String
   
   If ChkPrm.chkExec("glxinfo") = True Then
@@ -218,7 +218,8 @@ Public Sub grafika()
   Endif
   
   Shell "xdpyinfo | grep 'dimensions:' | cut -d ':' -f 2" Wait To rozdzielczosc
-  Shell "/usr/bin/i-nex-lspci" Wait To memory_prefetchable
+  Shell "/usr/bin/i-nex-lspci nonprefetchable" Wait To memory_non_prefetchable
+  Shell "/usr/bin/i-nex-lspci prefetchable" Wait To memory_prefetchable
   
   'Rozdzielczość
   If ChkPrm.ChkExec("xrandr") = True Then
@@ -229,7 +230,8 @@ Public Sub grafika()
   Else
     Message.Warning("Not found xrandr")
   Endif
-  Label64.Text = "Total Memory: " & Replace(memory_prefetchable, "\n", "")
+  Label64.Text = "Total Memory prefetchable: " & Replace(memory_prefetchable, "\n", " - ")
+  Label146.Text = "Total Memory non-prefetchable: " & Replace(memory_non_prefetchable, "\n", " - ")
   Label105.Text = "OpenGL Vendor: " & Replace(opengl_vendor_string, "\n", "")
   Label106.Text = "OpenGL Renderer: " & Replace(opengl_renderer_string, "\n", "")
   Label107.Text = "OpenGL Version: " & Replace(opengl_version_string, "\n", "")
@@ -400,7 +402,7 @@ Public Sub dospam_uptime()
   TextLabel7.Text = usedonthistime & " MB"
   Label91.Text = "SWAP Total:   " & swaptotal & " MB " ""
   Try TextLabel24.Text = (Replace(Replace(usedswap, " ", ""), "\n", "") / 1000) & " MB"
-  Exec ["/usr/bin/uptime"] Wait To TextBox58.Text
+  Try Exec ["/usr/bin/uptime"] Wait To TextBox58.Text
   TextBox58.Text = Replace(TextBox58.Text, "\n", "")
   Try ProgressBar1.Value = Replace(Replace(dospam, " ", ""), "\n", "") / Replace(Replace(totpam, " ", ""), "\n", "")
   Try ProgressBar4.Value = Replace(Replace(usedswap, " ", ""), "\n", "") / Replace(Replace(totalswap, " ", ""), "\n", "")

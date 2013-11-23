@@ -1,2 +1,18 @@
-#!/bin/bash
+#!/usr/bin/env bash
+lspci_nonpre() {
 lspci -v -s `lspci | awk '/VGA/{print $1}'` | sed -n '/Memory.*, prefetchable/s/.*\[size=\([^]]\+\)\]/\1/p'
+}
+
+lspci_pre() {
+lspci -v -s `lspci | awk '/VGA/{print $1}'` | sed -n '/Memory.*, non-prefetchable/s/.*\[size=\([^]]\+\)\]/\1/p'
+}
+error() {
+printf '\ni-nex-lspci is part of I-Nex project licensed under LGPL v3\n'
+printf 'This program chow prefetchable and nonprefetchable GPU memory\n'
+printf '\nusage: i-nex-lspci nonprefetchable|prefetchable\n\n'
+}
+case $1 in
+        nonprefetchable) lspci_nonpre; exit 0;;
+        prefetchable) lspci_pre; exit 0;;
+        *) error; exit 0;;
+esac

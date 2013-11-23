@@ -221,7 +221,7 @@
       Border = Border.Plain
     }
     { PictureBox3 PictureBox
-      Move(364,7,91,91)
+      Move(364,14,91,84)
       AutoResize = True
       Alignment = Align.Center
     }
@@ -341,14 +341,14 @@
       Border = Border.Plain
     }
     { Label64 Label
-      Move(7,322,455,21)
+      Move(7,301,455,21)
       Font = Font["Bold,8"]
       Padding = 3
       Text = ("Label64")
       Border = Border.Plain
     }
     { TextBox1 TextBox
-      Move(7,294,455,28)
+      Move(7,273,455,28)
       Font = Font["Bold,8"]
       Text = ("TextBox1")
       Alignment = Align.Left
@@ -393,6 +393,13 @@
       Move(7,168,455,21)
       Font = Font["Bold,8"]
       Text = ("Label102")
+      Border = Border.Plain
+    }
+    { Label146 Label
+      Move(7,322,455,21)
+      Font = Font["Bold,8"]
+      Padding = 3
+      Text = ("Label146")
       Border = Border.Plain
     }
     Index = 2
@@ -944,72 +951,79 @@
     }
     { Label122 Label
       Move(7,7,455,21)
+      Visible = False
       Font = Font["Bold,8"]
       Border = Border.Plain
     }
     { Label123 Label
       Move(7,28,455,21)
+      Visible = False
       Font = Font["Bold,8"]
       Border = Border.Plain
     }
     { Label124 Label
       Move(7,49,455,21)
+      Visible = False
       Font = Font["Bold,8"]
       Border = Border.Plain
     }
     { Label125 Label
       Move(7,70,455,21)
+      Visible = False
       Font = Font["Bold,8"]
       Border = Border.Plain
     }
     { Label126 Label
       Move(7,91,455,21)
+      Visible = False
       Font = Font["Bold,8"]
       Border = Border.Plain
     }
     { Label127 Label
       Move(7,112,455,21)
+      Visible = False
       Font = Font["Bold,8"]
       Border = Border.Plain
     }
     { Label128 Label
       Move(7,133,455,21)
+      Visible = False
       Font = Font["Bold,8"]
       Border = Border.Plain
     }
-    { ComboBox10 ComboBox
-      Move(7,413,77,28)
-      ReadOnly = True
-      List = [("Item 1"), ("Item 2"), ("Item 3"), ("Item 4"), ("Item 5"), ("Item 6"), ("Item 7"), ("Item 8"), ("Item 9"), ("Item 10"), ("Item 11"), ("Item 12"), ("Item 13"), ("Item 14"), ("Item 15")]
-      Text = ("ComboBox10")
-    }
     { Label129 Label
       Move(7,154,455,21)
+      Visible = False
       Font = Font["Bold,8"]
       Border = Border.Plain
     }
     { Label130 Label
       Move(7,175,455,21)
+      Visible = False
       Font = Font["Bold,8"]
       Border = Border.Plain
     }
     { Label131 Label
       Move(7,196,455,21)
+      Visible = False
       Font = Font["Bold,8"]
       Border = Border.Plain
     }
     { Label132 Label
       Move(7,217,455,21)
+      Visible = False
       Font = Font["Bold,8"]
       Border = Border.Plain
     }
     { Label133 Label
       Move(7,238,455,21)
+      Visible = False
       Font = Font["Bold,8"]
       Border = Border.Plain
     }
     { Label134 Label
       Move(7,259,455,21)
+      Visible = False
       Font = Font["Bold,8"]
       Border = Border.Plain
     }
