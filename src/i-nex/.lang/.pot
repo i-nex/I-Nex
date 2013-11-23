@@ -14,83 +14,97 @@ msgstr ""
 msgid "I-Nex"
 msgstr ""
 
-#: About.form:59
+#: About.form:62
 msgid "Main"
 msgstr ""
 
-#: About.form:72
+#: About.form:77
+msgid ""
+"If I-Nex in any way you want \n"
+"handy and would help in the \n"
+"further development of the project. \n"
+"Buy me a coffee."
+msgstr ""
+
+#: About.form:84
+msgid ""
+"If you do not have the possibility of giving the money to me for a coffee, \n"
+"just click on the link adf.ly. "
+msgstr ""
+
+#: About.form:92
 msgid "Credits"
 msgstr ""
 
-#: About.form:82
+#: About.form:102
 msgid "Main developer"
 msgstr ""
 
-#: About.form:87
+#: About.form:107
 msgid "Michał Głowienka"
 msgstr ""
 
-#: About.form:97
+#: About.form:117
 msgid "Home page"
 msgstr ""
 
-#: About.form:103
+#: About.form:123
 msgid "Mail"
 msgstr ""
 
-#: About.form:110
+#: About.form:130
 msgid "Main bug reporter"
 msgstr ""
 
-#: About.form:115
+#: About.form:135
 msgid "Dariusz Duma"
 msgstr ""
 
-#: About.form:139
+#: About.form:159
 msgid "Tomasz Przybył (FadeMind)   "
 msgstr ""
 
-#: About.form:161
+#: About.form:181
 msgid "Marcin (Netbit73) Mach"
 msgstr ""
 
-#: About.form:184
+#: About.form:204
 msgid "Graphic in 0.4.x Version"
 msgstr ""
 
-#: About.form:189
+#: About.form:209
 msgid "mmaciek12"
 msgstr ""
 
-#: About.form:198
+#: About.form:218
 msgid "DeviantArt"
 msgstr ""
 
-#: About.form:211
+#: About.form:231
 msgid "Graphic in 0.2.x Version"
 msgstr ""
 
-#: About.form:215
+#: About.form:235
 msgid "Daniel 'DaNieL' Pabis "
 msgstr ""
 
-#: About.form:220
+#: About.form:240
 msgid "daniel.pabis@interia.pl"
 msgstr ""
 
-#: About.form:225
+#: About.form:245
 msgid "Maciej Urmański"
 msgstr ""
 
-#: About.form:230
+#: About.form:250
 msgid "maciej14@gmail.com"
 msgstr ""
 
-#: About.form:236
+#: About.form:256
 msgid "License"
 msgstr ""
 
-#: About.form:243
+#: About.form:263
 msgid ""
 "GNU LESSER GENERAL PUBLIC LICENSE\n"
 "                       Version 3, 29 June 2007\n"
@@ -260,11 +274,11 @@ msgid ""
 "Library."
 msgstr ""
 
-#: About.form:249
+#: About.form:269
 msgid "Other"
 msgstr ""
 
-#: About.form:253
+#: About.form:273
 msgid ""
 "Pastebinit script for send reports to more services:\n"
 "\n"
@@ -429,171 +443,171 @@ msgstr ""
 msgid "System"
 msgstr ""
 
-#: Finfosys.form:1262
+#: Finfosys.form:1263
 msgid "Kernel"
 msgstr ""
 
-#: Finfosys.form:1266
+#: Finfosys.form:1267
 msgid "Installed kernels:"
 msgstr ""
 
-#: Finfosys.form:1288
+#: Finfosys.form:1289
 msgid "Kernel command line:"
 msgstr ""
 
-#: Finfosys.form:1304
+#: Finfosys.form:1305
 msgid "Show modules"
 msgstr ""
 
-#: Finfosys.form:1307
+#: Finfosys.form:1308
 msgid "Memory"
 msgstr ""
 
-#: Finfosys.form:1311
+#: Finfosys.form:1312
 msgid "Ram used:"
 msgstr ""
 
-#: Finfosys.form:1320
+#: Finfosys.form:1321
 msgid "SWAP memory used:"
 msgstr ""
 
-#: Finfosys.form:1381
+#: Finfosys.form:1382
 msgid "ComboBox9"
 msgstr ""
 
-#: Finfosys.form:1387
+#: Finfosys.form:1388
 msgid "N/A"
 msgstr ""
 
-#: Finfosys.form:1490
+#: Finfosys.form:1491
 msgid "Network"
 msgstr ""
 
-#: Finfosys.form:1494
+#: Finfosys.form:1495
 msgid "TextArea4"
 msgstr ""
 
-#: Finfosys.form:1507
+#: Finfosys.form:1508
 msgid "ComboBox2"
 msgstr ""
 
-#: Finfosys.form:1514
+#: Finfosys.form:1515
 msgid "Vendor:"
 msgstr ""
 
-#: Finfosys.form:1520
+#: Finfosys.form:1521
 msgid "TextBox57"
 msgstr ""
 
-#: Finfosys.form:1528
+#: Finfosys.form:1529
 msgid "Device:"
 msgstr ""
 
-#: Finfosys.form:1534
+#: Finfosys.form:1535
 msgid "TextBox56"
 msgstr ""
 
-#: Finfosys.form:1542
+#: Finfosys.form:1543
 msgid "Show Receive and Transmit"
 msgstr ""
 
-#: Finfosys.form:1545
+#: Finfosys.form:1546
 msgid "Battery"
 msgstr ""
 
-#: Finfosys.form:1555
+#: Finfosys.form:1556
 msgid "Present:   "
 msgstr ""
 
-#: Finfosys.form:1569
+#: Finfosys.form:1570
 msgid "Design capacity:   "
 msgstr ""
 
-#: Finfosys.form:1583
+#: Finfosys.form:1584
 msgid "Last full capacity:   "
 msgstr ""
 
-#: Finfosys.form:1597
+#: Finfosys.form:1598
 msgid "Battery technology:   "
 msgstr ""
 
-#: Finfosys.form:1611
+#: Finfosys.form:1612
 msgid "Design voltage:   "
 msgstr ""
 
-#: Finfosys.form:1625
+#: Finfosys.form:1626
 msgid "Design capacity warning:   "
 msgstr ""
 
-#: Finfosys.form:1639
+#: Finfosys.form:1640
 msgid "Design capacity low:   "
 msgstr ""
 
-#: Finfosys.form:1653
+#: Finfosys.form:1654
 msgid "Cycle count:   "
 msgstr ""
 
-#: Finfosys.form:1667
+#: Finfosys.form:1668
 msgid "Capacity granularity 1:   "
 msgstr ""
 
-#: Finfosys.form:1681
+#: Finfosys.form:1682
 msgid "Capacity granularity 2:   "
 msgstr ""
 
-#: Finfosys.form:1695
+#: Finfosys.form:1696
 msgid "Model number:   "
 msgstr ""
 
-#: Finfosys.form:1709
+#: Finfosys.form:1710
 msgid "Serial number:   "
 msgstr ""
 
-#: Finfosys.form:1723
+#: Finfosys.form:1724
 msgid "Battery type:   "
 msgstr ""
 
-#: Finfosys.form:1737
+#: Finfosys.form:1738
 msgid "OEM info:   "
 msgstr ""
 
-#: Finfosys.form:1756
+#: Finfosys.form:1757
 msgid "USB | Input"
 msgstr ""
 
-#: Finfosys.form:1766
+#: Finfosys.form:1767
 msgid "Usb device plugged:   "
 msgstr ""
 
-#: Finfosys.form:1783
+#: Finfosys.form:1784
 msgid "Manufacturer:   "
 msgstr ""
 
-#: Finfosys.form:1797
+#: Finfosys.form:1798
 msgid "Product:   "
 msgstr ""
 
-#: Finfosys.form:1811
+#: Finfosys.form:1812
 msgid "Max power:   "
 msgstr ""
 
-#: Finfosys.form:1825
+#: Finfosys.form:1826
 msgid "Speed:   "
 msgstr ""
 
-#: Finfosys.form:1853
+#: Finfosys.form:1854
 msgid "Serial"
 msgstr ""
 
-#: Finfosys.form:1871
+#: Finfosys.form:1872
 msgid "idVendor:   "
 msgstr ""
 
-#: Finfosys.form:1885
+#: Finfosys.form:1886
 msgid "idProduct:   "
 msgstr ""
 
-#: Finfosys.form:1912
+#: Finfosys.form:1913
 msgid "Modalias:   "
 msgstr ""
 

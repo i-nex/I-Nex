@@ -19,14 +19,28 @@
     Index = 0
     Text = ("Main")
     { PictureBox1 PictureBox
-      Move(105,0,250,250)
+      Move(0,0,250,250)
       Picture = Picture["logo/i-nex.0.4.x.png"]
       Stretch = True
     }
     { TextLabel1 TextLabel
-      Move(112,273,240,72)
+      Move(259,7,210,238)
       #Translate = False
       Text = "I-nex: System and hardware information tool."
+    }
+    { ToolButton1 ToolButton
+      Move(7,252,462,77)
+      Text = ("If I-Nex in any way you want \nhandy and would help in the \nfurther development of the project. \nBuy me a coffee.")
+      Picture = Picture["Data/donate.png"]
+      Border = True
+    }
+    { Label6 Label
+      Move(7,329,462,42)
+      Text = ("If you do not have the possibility of giving the money to me for a coffee, \njust click on the link adf.ly. ")
+    }
+    { ToggleButton1 ToggleButton
+      Move(98,371,266,91)
+      Picture = Picture["Data/adfly.png"]
     }
     Index = 1
     Text = ("Credits")

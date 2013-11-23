@@ -78,3 +78,15 @@ Public Sub Button12_Click()
  Desktop.Open("mailto:netbit73@gmail.com")
 
 End
+
+Public Sub ToolButton1_Click()
+
+ Desktop.Open("https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=9UXEZHC8M3BHJ")
+
+End
+
+Public Sub ToggleButton1_Click()
+
+ Desktop.Open("http://adf.ly/ZnYGZ")
+
+End
