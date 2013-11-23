@@ -48,7 +48,7 @@
   { Button13 Button
     Move(35,497,24,24)
     #Translate = False
-    ToolTip = "Report a bug"
+    ToolTip = "You found a bug in I-Nex?\nPlease click this button and write in forum about bug which you have found."
     Picture = Picture["icon:/16/important"]
   }
   { TabStrip1 TabStrip
@@ -873,6 +873,7 @@
     { Button7 Button
       Move(7,406,72,24)
       #Translate = False
+      ToolTip = "Show number packages installed on your system.\nShow deb, rpm or pkg"
       Text = "Check"
       Picture = Picture["icon:/16/info"]
     }
@@ -1541,6 +1542,7 @@
   { Button11 Button
     Move(112,497,24,24)
     #Translate = False
+    ToolTip = "Open I-Nex facebook fanpage and click Like this!"
     Picture = Picture["logo/fb.png"]
   }
 }
