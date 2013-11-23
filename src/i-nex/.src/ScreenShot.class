@@ -18,7 +18,7 @@ Public Sub Form_Open()
  ComboBox1.Add(".png")
  ComboBox1.Add(".jpg")
  ComboBox1.Text = ".png"
- SliderBox1.Value = 70
+ SliderBox1.Value = 9
 
 End
 
@@ -54,5 +54,17 @@ Public Sub Form_Close()
 
  Me.Close
  Finfosys.Show
+
+End
+
+Public Sub ComboBox1_Click()
+
+ If ComboBox1.Text = ".png" Then
+  SliderBox1.MaxValue = 10
+  SliderBox1.Value = 9
+ Else
+  SliderBox1.MaxValue = 100
+  SliderBox1.Value = 70
+ Endif
 
 End
