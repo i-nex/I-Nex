@@ -68,23 +68,25 @@ Public Sub _generate(cpu As Boolean, mobo As Boolean, graphic As Boolean, sound 
   Wait 0.1
   TextInfo("Generate Graphic Tab information...")
   PBV(0.5)
-  Shell "echo 'Total Memory:    " & Finfosys.Label64.Text & "' >>" & save_dir & ""
+  Shell "echo '" & Finfosys.Label64.Text & "' >>" & save_dir & ""
+  Wait 0.1
+  Shell "echo '" & Finfosys.Label146.Text & "' >>" & save_dir & ""
   Wait 0.1
   TextInfo("Generate Graphic Tab information...")
   PBV(0.3)
-  Shell "echo 'OpenGl Vendor:      " & Finfosys.Label105.Text & "' >>" & save_dir & ""
+  Shell "echo '" & Finfosys.Label105.Text & "' >>" & save_dir & ""
   Wait 0.1
   TextInfo("Generate Graphic Tab information... ...")
   PBV(0.5)
-  Shell "echo 'OpenGl Renderer:    " & Finfosys.Label106.Text & "' >>" & save_dir & ""
+  Shell "echo '" & Finfosys.Label106.Text & "' >>" & save_dir & ""
   Wait 0.1
   TextInfo("Generate Graphic Tab information... ... ...")
   PBV(0.6)
-  Shell "echo 'OpenGl Version:     " & Finfosys.Label107.Text & "' >>" & save_dir & ""
+  Shell "echo '" & Finfosys.Label107.Text & "' >>" & save_dir & ""
   Wait 0.1
   TextInfo("Generate Graphic Tab information... ... ... ...")
   PBV(0.7)
-  Shell "echo 'Present resolution: " & Finfosys.Label108.Text & "' >>" & save_dir & ""
+  Shell "echo '" & Finfosys.Label108.Text & "' >>" & save_dir & ""
   Wait 0.1
   TextInfo("Generate Graphic Tab information... ... ... ...")
   PBV(0.7)
