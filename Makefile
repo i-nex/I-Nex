@@ -68,6 +68,7 @@ self:
 	install -m 0755 debian/changelog-0.5.1 inex/usr/share/doc/i-nex/
 	install -m 0755 debian/changelog-0.5.2 inex/usr/share/doc/i-nex/
 	install -m 0755 debian/changelog-0.5.4 inex/usr/share/doc/i-nex/
+	install -m 0755 debian/changelog-0.5.6 inex/usr/share/doc/i-nex/
 	install -m 0755 LICENSE inex/usr/share/doc/i-nex/
 	install -m 0755 COPYING inex/usr/share/i-nex/pastebinit/
 	install -m 0755 pastebin.d/* inex/usr/share/i-nex/pastebinit/pastebin.d/
@@ -146,6 +147,7 @@ install:
 	install -m 0755 debian/changelog-0.5.1 $(DESTDIR)/usr/share/doc/i-nex/
 	install -m 0755 debian/changelog-0.5.2 $(DESTDIR)/usr/share/doc/i-nex/
 	install -m 0755 debian/changelog-0.5.4 $(DESTDIR)/usr/share/doc/i-nex/
+	install -m 0755 debian/changelog-0.5.6 $(DESTDIR)/usr/share/doc/i-nex/
 	install -m 0755 LICENSE $(DESTDIR)/usr/share/doc/i-nex/
 	install -m 0755 COPYING $(DESTDIR)/usr/share/i-nex/pastebinit/
 	install -m 0755 pastebin.d/* $(DESTDIR)/usr/share/i-nex/pastebinit/pastebin.d/

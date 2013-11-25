@@ -21,10 +21,10 @@ SearchComment=False
 SearchString=True
 
 [OpenFile]
+Active=1
 File[1]=".src/Finfosys.form"
 File[2]=".src/Global.class:88.35"
 File[3]=".src/About.form"
-Active=4
 File[4]=".src/About.class:73.3"
 File[5]=".src/battery.module:70.77"
 File[6]=".src/Disk_Drives.module:37.13"
@@ -47,7 +47,7 @@ File[22]=".src/net.module:104.1"
 File[23]="Data/report-ng.sh:27.44"
 File[24]=".src/Distribution_Detect.module:28.18"
 File[25]=".src/FFlags.module:71.6"
-File[26]=".src/Finfosys.class:214.113"
+File[26]=".src/Finfosys.class:408.43"
 File[27]=".src/FDF.form"
 File[28]=".src/FDF.class:28.69"
 File[29]=".src/FNET_R_T.form"

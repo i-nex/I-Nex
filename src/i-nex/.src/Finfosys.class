@@ -406,6 +406,7 @@ Public Sub dospam_uptime()
   TextBox58.Text = Replace(TextBox58.Text, "\n", "")
   Try ProgressBar1.Value = Replace(Replace(dospam, " ", ""), "\n", "") / Replace(Replace(totpam, " ", ""), "\n", "")
   Try ProgressBar4.Value = Replace(Replace(usedswap, " ", ""), "\n", "") / Replace(Replace(totalswap, " ", ""), "\n", "")
+  Try TextArea2.Text = File.Load("/proc/mtrr")
 
 End
 

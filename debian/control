@@ -34,10 +34,7 @@ Vcs-Git: git://git.manjaro.org/eloaders/i-nex.git
 
 Package: i-nex
 Architecture: any
-Depends: gambas3-runtime (>= 3.4.0), 
-  debhelper (>= 5.0.0), 
-  gambas3-dev (>= 3.0.90), 
-  gambas3-dev (<< 3.99.0), 
+Depends: gambas3-runtime (>= 3.4.0),  
   gambas3-gb-image (>= 3.0.90), 
   gambas3-gb-image (<< 3.99.0), 
   gambas3-gb-qt4 (>= 3.0.90), 

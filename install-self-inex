@@ -23,6 +23,7 @@ bindir="/usr/bin/"
 	install -m 0755 usr/share/doc/i-nex/changelog-0.5.1 /usr/share/doc/i-nex/
 	install -m 0755 usr/share/doc/i-nex/changelog-0.5.2 /usr/share/doc/i-nex/
 	install -m 0755 usr/share/doc/i-nex/changelog-0.5.4 /usr/share/doc/i-nex/
+	install -m 0755 usr/share/doc/i-nex/changelog-0.5.6 /usr/share/doc/i-nex/
 	install -m 0755 usr/share/doc/i-nex/LICENSE /usr/share/doc/i-nex/
 	install -m 0755 usr/share/i-nex/pastebinit/COPYING /usr/share/i-nex/pastebinit/
 	install -m 0755 usr/share/i-nex/pastebinit/pastebin.d/* /usr/share/i-nex/pastebinit/pastebin.d/
