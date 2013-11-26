@@ -1153,38 +1153,56 @@ extract_edid(int fd)
     start = strstr(ret, "EDID_DATA:");
     if (start == NULL)
     	start = strstr(ret, "EDID:");
-    /* Look for xrandr --verbose output (8 lines of 16 hex bytes) */
+    /* Look for xrandr --verbose output (lines of 16 hex bytes) */
     if (start != NULL) {
 	const char indentation1[] = "                ";
 	const char indentation2[] = "\t\t";
+	/* Used to detect that we've gone past the EDID property */
+	const char half_indentation1[] = "        ";
+	const char half_indentation2[] = "\t";
 	const char *indentation;
 	char *s;
 
-	out = malloc(128);
-	if (out == NULL) {
-	    free(ret);
-	    return NULL;
-	}
-
-	for (i = 0; i < 8; i++) {
+	lines = 0;
+	for (i = 0;; i++) {
 	    int j;
 
-	    /* Get the next start of the line of EDID hex. */
+	    /* Get the next start of the line of EDID hex, assuming spaces for indentation */
 	    s = strstr(start, indentation = indentation1);
-	    if (!s)
+	    /* Did we skip the start of another property? */
+	    if (s && s > strstr(start, half_indentation1))
+		break;
+
+	    /* If we failed, retry assuming tabs for indentation */
+	    if (!s) {
 		s = strstr(start, indentation = indentation2);
-	    if (s == NULL) {
+                /* Did we skip the start of another property? */
+                if (s && s > strstr(start, half_indentation2))
+                    break;
+            }
+
+	    if (!s)
+		break;
+
+	    lines++;
+	    start = s + strlen(indentation);
+
+	    s = realloc(out, lines * 16);
+	    if (!s) {
 		free(ret);
 		free(out);
 		return NULL;
 	    }
-	    start = s + strlen(indentation);
-
+	    out = (unsigned char *)s;
 	    c = start;
 	    for (j = 0; j < 16; j++) {
 		char buf[3];
 		/* Read a %02x from the log */
 		if (!isxdigit(c[0]) || !isxdigit(c[1])) {
+                    if (j != 0) {
+                        lines--;
+                        break;
+                    }
 		    free(ret);
 		    free(out);
 		    return NULL;
@@ -1198,6 +1216,7 @@ extract_edid(int fd)
 	}
 
 	free(ret);
+	edid_lines = lines;
 	return out;
     }
 
