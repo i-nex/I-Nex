@@ -851,6 +851,7 @@ cea_hdmi_block(unsigned char *x)
 		    if (x[10 + b] & 0x01)
 			printf("      3D: Frame-packing\n");
 		    b += 2;
+		    len_3d -= 2;
 		}
 		if (mask) {
 		    int i;
@@ -864,14 +865,40 @@ cea_hdmi_block(unsigned char *x)
 			    printf(" %d", i + 8);
 		    printf("\n");
 		    b += 2;
+		    len_3d -= 2;
 		}
 
 		/*
-		 * XXX list of nibbles:
+		 * list of nibbles:
 		 * 2D_VIC_Order_X
 		 * 3D_Structure_X
 		 * (optionally: 3D_Detail_X and reserved)
 		 */
+		if (len_3d > 0) {
+			int end = b + len_3d;
+
+			while (b < end) {
+				printf("      VIC index %d supports ", x[9 + b] >> 4);
+				switch (x[9 + b] & 0x0f) {
+				case 0: printf("frame packing"); break;
+				case 6: printf("top-and-bottom"); break;
+				case 8:
+					if ((x[10 + b] >> 4) == 1) {
+						printf("side-by-side (half, horizontal)");
+						break;
+					}
+				default: printf("unknown");
+				}
+				printf("\n");
+
+				if ((x[9 + b] & 0x0f) > 7) {
+					/* Optional 3D_Detail_X and reserved */
+					b++;
+				}
+				b++;
+			}
+		}
+
 	    }
 
 	}
