@@ -17,7 +17,31 @@
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
-defaultPB = "http://pastebin.com" #Default pastebin
+file_extension_map = {
+    r'^.+\.(patch|diff)$':            'diff',
+    r'^.+\.sh$':                      'bash',
+    r'^.+\.pl$':                      'perl',
+    r'^.+\.py$':                      'python',
+    r'^.+\.rb$':                      'ruby',
+    r'^.+\.tcl$':                     'tcl',
+    r'^.+\.lua$':                     'lua',
+    r'^.+\.vim$':                     'vim',
+    r'^.+\.bat$':                     'winbatch',
+    r'^.+\.xml$':                     'xml',
+    r'^.+\.spec$':                    'rpmspec',
+    r'^.+\.php(\d)?':                 'php',
+    r'^.+\.sql$':                     'sql',
+    r'^.+\.java$':                    'java5',
+    r'^.+\.properties$':              'properties',
+    r'^.+\.[ch]$':                    'c',
+    r'^.+\.(cc|cxx|cpp|hh|hxx|hpp)$': 'cpp',
+    r'^CMake.+':                      'cmake',
+    r'^/+\.cmake$':                   'cmake',
+    r'^(GNU)?[Mm]akefile$':           'make',
+    r'^.+\.mk$':                      'make',
+}
+
+defaultPB = "http://susepaste.org" #Default pastebin
 try:
     import lsb_release
     release = lsb_release.get_distro_information()['ID'].lower()
@@ -198,8 +222,8 @@ try:
     #Example configuration file string
     configexample = """\
 <pastebinit>
-<pastebin>http://paste.debian.net</pastebin>
-<author>A pastebinit user</author>
+<pastebin>http://susepaste.org</pastebin>
+<author>SUSEuser</author>
 <jabberid>nobody@nowhere.org</jabberid>
 <format>text</format>
 </pastebinit>
@@ -293,6 +317,13 @@ try:
             sys.exit(_("Unable to read from: %s") % filename)
     if not content:
         sys.exit(_("You are trying to send an empty document, exiting."))
+    if format == "auto_guess":
+        for _r, _f in file_extension_map.iteritems():
+            if re.match(_r, filename):
+                format = _f
+                break
+            pass
+        pass
 
     params = getParameters(website, pastebind, content, user, jabberid, version, format, parentpid, permatag, title, username, password) #Get the parameters array
 
