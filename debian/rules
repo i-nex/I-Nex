@@ -4,3 +4,5 @@
 
 override_dh_builddeb:
 	dh_builddeb -- -Zbzip2
+override_dh_installmenu:
+	dh_installmenu --noscripts
