@@ -4,12 +4,12 @@ Source: https://launchpad.net/i-nex
 
 
 Files: src/i-nex.*
-Copyright: 2011-2012 I-Nex authors and contributors
-License: LGPL v3
+Copyright: 2011-2013 I-Nex authors and contributors
+License: LGPL-3+
 
 Files: *
 Copyright: 2006-2010, Stéphane Graber, Daniel Bartlett, David Paleino
-License: GNU GPL v2, GNU GPL v3
+License: GPL-3+
 
 Files: pastebin.d/*	po/*
        utils/*		COPYING
