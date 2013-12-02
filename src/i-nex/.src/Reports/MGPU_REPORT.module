@@ -1,0 +1,48 @@
+' Gambas module file
+
+Public DATA_RETURN As String
+Public ReportEDID As Collection = [("0"): ("========================================================================================================================="),
+                                   ("1"): (Finfosys.Label65.Text),
+                                   ("2"): (Finfosys.Label66.Text),
+                                   ("3"): (Finfosys.Label67.Text),
+                                   ("4"): (Finfosys.Label100.Text),
+                                   ("5"): (Finfosys.Label101.Text),
+                                   ("6"): (Finfosys.Label102.Text)]
+                                   
+Public Report As Collection = [("0"): ("========================================================================================================================="),
+                               ("1"): (Finfosys.TextBox1.Text),
+                               ("2"): (Finfosys.Label64.Text),
+                               ("3"): (Finfosys.Label146.Text),
+                               ("4"): (Finfosys.Label105.Text),
+                               ("5"): (Finfosys.Label106.Text),
+                               ("6"): (Finfosys.Label107.Text),
+                               ("7"): (Finfosys.Label108.Text),
+                               ("8"): (Finfosys.Label109.Text)]
+Public Sub _inits()
+ Dim All, All2 As Integer
+ '=============================================
+ For All2 = 0 To Finfosys.ComboBox8.Count - 1
+  For All = 0 To ReportEDID.Count
+   FReport_Gen.ProgressBar1.Value = All / ReportEDID.Count
+   DATA_RETURN = DATA_RETURN & "\n" & ReportEDID[All]
+  Next
+  
+  Finfosys.ComboBox8.Index = All2 - 1
+ 
+ Next
+ '=============================================
+ Shell "echo '" & DATA_RETURN & "'>>" & FReport_Gen.ButtonBox1.Text & "" Wait
+ DATA_RETURN = Null
+ '=============================================
+ For All = 0 To Report.Count
+  
+  FReport_Gen.ProgressBar1.Value = All / Report.Count
+  
+  DATA_RETURN = DATA_RETURN & "\n" & Report[All]
+  
+  Wait 0.01
+ 
+ Next
+ '=============================================
+ Shell "echo '" & DATA_RETURN & "'>>" & FReport_Gen.ButtonBox1.Text & "" Wait
+End

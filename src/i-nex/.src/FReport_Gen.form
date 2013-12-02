@@ -71,7 +71,7 @@
       Text = ("Include lsusb")
     }
     { CheckBox8 CheckBox
-      Move(0,48,144,24)
+      Move(0,48,196,28)
       Expand = True
       Text = ("Include /proc/scsi/scsi")
     }

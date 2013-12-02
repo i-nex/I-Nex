@@ -1,5 +1,8 @@
 ' Gambas module file
 
+Public HTT As String
+Public X86_X64 As String
+Public VIRT As String
 Public instructions As String
 Public dec_instructions As String
 Public Sub _init()
@@ -46,18 +49,24 @@ Public Sub _init()
  'Instructions for detect AMD64,vmx, ht
  If dec_instructions Like "*lm*" Then
   Finfosys.ToolButton1.Picture = Picture["Data/check_true.png"]
+  X86_X64 = "True"
  Else
   Finfosys.ToolButton1.Picture = Picture["Data/check_false.png"]
+  X86_X64 = "False" 
  Endif
  If dec_instructions Like "*svm*" Then
   Finfosys.ToolButton2.Picture = Picture["Data/check_true.png"]
+  VIRT = "True"
  Else
   Finfosys.ToolButton2.Picture = Picture["Data/check_false.png"]
+  VIRT = "False"
  Endif
  If dec_instructions Like "*vmx*" Then
   Finfosys.ToolButton2.Picture = Picture["Data/check_true.png"]
+  HTT = "True"
  Else
   Finfosys.ToolButton2.Picture = Picture["Data/check_false.png"]
+  HTT = "False"
  Endif
  ht()
 End
@@ -75,9 +84,11 @@ Public Sub ht()
      If NUMPHY = NUMLOG Then
         Finfosys.ToolButton3.Picture = Picture["Data/check_false.png"]
         Debug "Not detect HT"
+        HTT = "False"
         Else
         Finfosys.ToolButton3.Picture = Picture["Data/check_true.png"]
         Debug "Detected HT"
+        HTT = "True"
      Endif
   Endif
 End

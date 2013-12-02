@@ -1,0 +1,33 @@
+' Gambas module file
+
+Public Function pastebin(Send As Boolean, Directory As String, Service As String) As String
+  Dim links As String
+  If Send = True Then
+  PBV(0.3)
+  Wait 0.1
+  TextInfo("Send report to " & FReport_Gen.ComboBox1.Text & "")
+  PBV(0.5)
+  Wait 0.1
+  Shell "cat " & Directory & " | /usr/share/i-nex/pastebinit/pastebinit -b http://" & Service & "" Wait To links
+  PBV(0.7)
+  links = Replace(links, "\n", "")
+  PBV(0.8)
+  TextInfo("Send report to " & FReport_Gen.ComboBox1.Text & " Done")
+  PBV(1)
+  Return links
+  Else
+  Debug "Report not be send to nopaste service"
+  Endif
+End
+
+Public Sub TextInfo(Text As String)
+ 
+ FReport_Gen.TextLabel1.Text = Text
+ 
+End
+
+Public Sub PBV(ProgressBar_Value As Float)
+ 
+ FReport_Gen.ProgressBar1.Value = ProgressBar_Value
+ 
+End

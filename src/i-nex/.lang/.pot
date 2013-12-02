@@ -411,216 +411,348 @@ msgstr ""
 msgid "CPU"
 msgstr ""
 
-#: Finfosys.form:609
+#: Finfosys.form:596
 msgid "GPU"
 msgstr ""
 
-#: Finfosys.form:727
+#: Finfosys.form:709
 msgid "Mobo"
 msgstr ""
 
-#: Finfosys.form:834
+#: Finfosys.form:816
 msgid "Audio"
 msgstr ""
 
-#: Finfosys.form:853
+#: Finfosys.form:835
 msgid "Version:   "
 msgstr ""
 
-#: Finfosys.form:915
+#: Finfosys.form:897
 msgid "Drives"
 msgstr ""
 
-#: Finfosys.form:1128
+#: Finfosys.form:1110
 msgid "DF"
 msgstr ""
 
-#: Finfosys.form:1134
+#: Finfosys.form:1116
 msgid "udisks"
 msgstr ""
 
-#: Finfosys.form:1137
+#: Finfosys.form:1119
 msgid "System"
 msgstr ""
 
-#: Finfosys.form:1252
+#: Finfosys.form:1234
 msgid "Kernel"
 msgstr ""
 
-#: Finfosys.form:1256
+#: Finfosys.form:1238
 msgid "Installed kernels:"
 msgstr ""
 
-#: Finfosys.form:1278
+#: Finfosys.form:1260
 msgid "Kernel command line:"
 msgstr ""
 
-#: Finfosys.form:1294
+#: Finfosys.form:1276
 msgid "Show modules"
 msgstr ""
 
-#: Finfosys.form:1297
+#: Finfosys.form:1279
 msgid "Memory"
 msgstr ""
 
-#: Finfosys.form:1301
+#: Finfosys.form:1283
 msgid "Ram used:"
 msgstr ""
 
-#: Finfosys.form:1310
+#: Finfosys.form:1292
 msgid "SWAP memory used:"
 msgstr ""
 
-#: Finfosys.form:1371
+#: Finfosys.form:1353
 msgid "ComboBox9"
 msgstr ""
 
-#: Finfosys.form:1377
+#: Finfosys.form:1359
 msgid "N/A"
 msgstr ""
 
-#: Finfosys.form:1391
+#: Finfosys.form:1373
 msgid "MTRR"
 msgstr ""
 
-#: Finfosys.form:1395
+#: Finfosys.form:1377
 msgid "TextArea2"
 msgstr ""
 
-#: Finfosys.form:1400
+#: Finfosys.form:1382
 msgid "Network"
 msgstr ""
 
-#: Finfosys.form:1404
+#: Finfosys.form:1386
 msgid "TextArea4"
 msgstr ""
 
-#: Finfosys.form:1417
+#: Finfosys.form:1399
 msgid "ComboBox2"
 msgstr ""
 
-#: Finfosys.form:1424
+#: Finfosys.form:1406
 msgid "Vendor:"
 msgstr ""
 
-#: Finfosys.form:1430
+#: Finfosys.form:1412
 msgid "TextBox57"
 msgstr ""
 
-#: Finfosys.form:1438
+#: Finfosys.form:1420
 msgid "Device:"
 msgstr ""
 
-#: Finfosys.form:1444
+#: Finfosys.form:1426
 msgid "TextBox56"
 msgstr ""
 
-#: Finfosys.form:1452
+#: Finfosys.form:1434
 msgid "Show Receive and Transmit"
 msgstr ""
 
-#: Finfosys.form:1455
+#: Finfosys.form:1437
 msgid "Battery"
 msgstr ""
 
-#: Finfosys.form:1465
+#: Finfosys.form:1447
 msgid "Present:   "
 msgstr ""
 
-#: Finfosys.form:1479
+#: Finfosys.form:1461
 msgid "Design capacity:   "
 msgstr ""
 
-#: Finfosys.form:1493
+#: Finfosys.form:1475
 msgid "Last full capacity:   "
 msgstr ""
 
-#: Finfosys.form:1507
+#: Finfosys.form:1489
 msgid "Battery technology:   "
 msgstr ""
 
-#: Finfosys.form:1521
+#: Finfosys.form:1503
 msgid "Design voltage:   "
 msgstr ""
 
-#: Finfosys.form:1535
+#: Finfosys.form:1517
 msgid "Design capacity warning:   "
 msgstr ""
 
-#: Finfosys.form:1549
+#: Finfosys.form:1531
 msgid "Design capacity low:   "
 msgstr ""
 
-#: Finfosys.form:1563
+#: Finfosys.form:1545
 msgid "Cycle count:   "
 msgstr ""
 
-#: Finfosys.form:1577
+#: Finfosys.form:1559
 msgid "Capacity granularity 1:   "
 msgstr ""
 
-#: Finfosys.form:1591
+#: Finfosys.form:1573
 msgid "Capacity granularity 2:   "
 msgstr ""
 
-#: Finfosys.form:1605
+#: Finfosys.form:1587
 msgid "Model number:   "
 msgstr ""
 
-#: Finfosys.form:1619
+#: Finfosys.form:1601
 msgid "Serial number:   "
 msgstr ""
 
-#: Finfosys.form:1633
+#: Finfosys.form:1615
 msgid "Battery type:   "
 msgstr ""
 
-#: Finfosys.form:1647
+#: Finfosys.form:1629
 msgid "OEM info:   "
 msgstr ""
 
-#: Finfosys.form:1666
+#: Finfosys.form:1648
 msgid "USB | Input"
 msgstr ""
 
-#: Finfosys.form:1676
+#: Finfosys.form:1658
 msgid "Usb device plugged:   "
 msgstr ""
 
-#: Finfosys.form:1693
+#: Finfosys.form:1675
 msgid "Manufacturer:   "
 msgstr ""
 
-#: Finfosys.form:1707
+#: Finfosys.form:1689
 msgid "Product:   "
 msgstr ""
 
-#: Finfosys.form:1721
+#: Finfosys.form:1703
 msgid "Max power:   "
 msgstr ""
 
-#: Finfosys.form:1735
+#: Finfosys.form:1717
 msgid "Speed:   "
 msgstr ""
 
-#: Finfosys.form:1763
+#: Finfosys.form:1745
 msgid "Serial"
 msgstr ""
 
-#: Finfosys.form:1781
+#: Finfosys.form:1763
 msgid "idVendor:   "
 msgstr ""
 
-#: Finfosys.form:1795
+#: Finfosys.form:1777
 msgid "idProduct:   "
 msgstr ""
 
-#: Finfosys.form:1822
+#: Finfosys.form:1804
 msgid "Modalias:   "
 msgstr ""
 
 #: Finfosys.class:10
 msgid "Running as root is not allowed!"
+msgstr ""
+
+#: MCPU_REPORT.module:33 MGPU_REPORT.module:10
+msgid "0"
+msgstr ""
+
+#: MCPU_REPORT.module:33 MGPU_REPORT.module:10
+msgid "========================================================================================================================="
+msgstr ""
+
+#: MCPU_REPORT.module:33 MGPU_REPORT.module:10 MMOBO_REPORT.module:32
+#: MSOUND_REPORT.module:32
+msgid "1"
+msgstr ""
+
+#: MCPU_REPORT.module:33 MGPU_REPORT.module:10 MMOBO_REPORT.module:32
+#: MSOUND_REPORT.module:32
+msgid "2"
+msgstr ""
+
+#: MCPU_REPORT.module:33 MGPU_REPORT.module:10 MMOBO_REPORT.module:32
+#: MSOUND_REPORT.module:32
+msgid "3"
+msgstr ""
+
+#: MCPU_REPORT.module:33 MGPU_REPORT.module:10 MMOBO_REPORT.module:32
+#: MSOUND_REPORT.module:32
+msgid "4"
+msgstr ""
+
+#: MCPU_REPORT.module:33 MGPU_REPORT.module:10 MMOBO_REPORT.module:32
+#: MSOUND_REPORT.module:32
+msgid "5"
+msgstr ""
+
+#: MCPU_REPORT.module:33 MGPU_REPORT.module:10 MMOBO_REPORT.module:32
+#: MSOUND_REPORT.module:32
+msgid "6"
+msgstr ""
+
+#: MCPU_REPORT.module:33 MGPU_REPORT.module:20 MMOBO_REPORT.module:32
+#: MSOUND_REPORT.module:32
+msgid "7"
+msgstr ""
+
+#: MCPU_REPORT.module:33 MGPU_REPORT.module:20 MMOBO_REPORT.module:32
+#: MSOUND_REPORT.module:32
+msgid "8"
+msgstr ""
+
+#: MCPU_REPORT.module:33 MMOBO_REPORT.module:32 MSOUND_REPORT.module:32
+msgid "9"
+msgstr ""
+
+#: MCPU_REPORT.module:33 MMOBO_REPORT.module:32 MSOUND_REPORT.module:32
+msgid "10"
+msgstr ""
+
+#: MCPU_REPORT.module:33 MMOBO_REPORT.module:32 MSOUND_REPORT.module:32
+msgid "11"
+msgstr ""
+
+#: MCPU_REPORT.module:33 MMOBO_REPORT.module:32 MSOUND_REPORT.module:32
+msgid "12"
+msgstr ""
+
+#: MCPU_REPORT.module:33 MMOBO_REPORT.module:32 MSOUND_REPORT.module:32
+msgid "13"
+msgstr ""
+
+#: MCPU_REPORT.module:33 MMOBO_REPORT.module:32 MSOUND_REPORT.module:32
+msgid "14"
+msgstr ""
+
+#: MCPU_REPORT.module:33 MMOBO_REPORT.module:32 MSOUND_REPORT.module:32
+msgid "15"
+msgstr ""
+
+#: MCPU_REPORT.module:33 MMOBO_REPORT.module:32 MSOUND_REPORT.module:32
+msgid "16"
+msgstr ""
+
+#: MCPU_REPORT.module:33 MMOBO_REPORT.module:32 MSOUND_REPORT.module:32
+msgid "17"
+msgstr ""
+
+#: MCPU_REPORT.module:33 MMOBO_REPORT.module:32 MSOUND_REPORT.module:32
+msgid "18"
+msgstr ""
+
+#: MCPU_REPORT.module:33 MMOBO_REPORT.module:32 MSOUND_REPORT.module:32
+msgid "19"
+msgstr ""
+
+#: MCPU_REPORT.module:33 MMOBO_REPORT.module:32 MSOUND_REPORT.module:32
+msgid "20"
+msgstr ""
+
+#: MCPU_REPORT.module:33 MMOBO_REPORT.module:32 MSOUND_REPORT.module:32
+msgid "21"
+msgstr ""
+
+#: MCPU_REPORT.module:33 MMOBO_REPORT.module:32 MSOUND_REPORT.module:32
+msgid "22"
+msgstr ""
+
+#: MCPU_REPORT.module:33 MMOBO_REPORT.module:32 MSOUND_REPORT.module:32
+msgid "23"
+msgstr ""
+
+#: MCPU_REPORT.module:33 MMOBO_REPORT.module:32 MSOUND_REPORT.module:32
+msgid "24"
+msgstr ""
+
+#: MCPU_REPORT.module:33 MMOBO_REPORT.module:32 MSOUND_REPORT.module:32
+msgid "25"
+msgstr ""
+
+#: MCPU_REPORT.module:33 MMOBO_REPORT.module:32 MSOUND_REPORT.module:32
+msgid "26"
+msgstr ""
+
+#: MCPU_REPORT.module:33 MMOBO_REPORT.module:32 MSOUND_REPORT.module:32
+msgid "27"
+msgstr ""
+
+#: MCPU_REPORT.module:33 MMOBO_REPORT.module:32 MSOUND_REPORT.module:32
+msgid "28"
+msgstr ""
+
+#: MCPU_REPORT.module:33 MMOBO_REPORT.module:32 MSOUND_REPORT.module:32
+msgid "29"
 msgstr ""
 
 #: ScreenShot.form:16

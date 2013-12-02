@@ -10,10 +10,8 @@ Component=gb.qt4
 Component=gb.form
 Component=gb.desktop
 Authors="eloaders"
-Environment="LANG=C\nLC_ALL=C\nGB_STOCK_DEBUG=1\nGB_JIT_DEBUG=1\nLIBOVERLAY_SCROLLBAR=0\nGB_DIR=/opt/lib/"
+Environment="LANG=C\nLC_ALL=C\nGB_STOCK_DEBUG=1\nGB_JIT_DEBUG=1\nLIBOVERLAY_SCROLLBAR=0"
 TabSize=1
-Translate=1
-Language=en_GB
 ControlPublic=1
 ModulePublic=1
 ExecPath=/home/michal/Pulpit/i-nex.gambas
