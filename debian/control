@@ -1,7 +1,7 @@
 Source: i-nex
 Section: contrib/admin
 Priority: extra
-Maintainer: eloaders <eloaders@yahoo.com>
+Maintainer: eloaders <eloaders@linux.pl>
 Build-Depends: debhelper (>= 7), 
   pkg-config, dpkg-dev (>= 1.14.17),
   debhelper (>= 5.0.0), 
@@ -26,15 +26,15 @@ Build-Depends: debhelper (>= 7),
   sed (>= 4.2),
   pciutils,
   x11-utils (>= 7.5),
-  mesa-utils (>= 7.6),
-  hostname
-Standards-Version: 3.9.3
+  mesa-utils (>= 7.6)
+Standards-Version: 3.9.4
 Homepage: http://tuxportal.pl
 Vcs-Git: https://github.com/eloaders/I-Nex.git
 
 Package: i-nex
 Architecture: any
-Depends: gambas3-runtime (>= 3.4.0),  
+Depends: ${shlibs:Depends},
+  gambas3-runtime (>= 3.4.0),  
   gambas3-gb-image (>= 3.0.90), 
   gambas3-gb-image (<< 3.99.0), 
   gambas3-gb-qt4 (>= 3.0.90), 
@@ -55,7 +55,6 @@ Depends: gambas3-runtime (>= 3.4.0),
   pciutils,
   x11-utils (>= 7.5),
   mesa-utils (>= 7.6),
-  hostname,
   python,
   python-configobj
 Description: A CPU-Z Alternative for Linux. For Viewing System Device Information
