@@ -57,7 +57,7 @@ self:
 	install -m 0755 i-nex inex$(bindir)
 	install -m 0755 inex-edid inex$(bindir)
 	install -m 0755 src/i-nex/i-nex.gambas inex$(bindir)
-	install -m 0755 src/i-nex/logo/i-nex.0.4.x.png inex/usr/share/pixmaps/i-nex.png
+	install -m 0755 src/i-nex/logo/i-nex.0.4.x.png inex/usr/share/pixmaps/
 	install -m 0755 debian/i-nex.desktop inex/usr/share/applications/
 	install -m 0755 debian/check_kernel inex/usr/bin/
 	install -m 0755 debian/i-nex-lspci inex/usr/bin/
@@ -136,7 +136,7 @@ install:
 	install -m 0755 i-nex $(DESTDIR)$(bindir)
 	install -m 0755 inex-edid $(DESTDIR)$(bindir)
 	install -m 0755 src/i-nex/i-nex.gambas $(DESTDIR)$(bindir)
-	install -m 0755 src/i-nex/logo/i-nex.0.4.x.png $(DESTDIR)/usr/share/pixmaps/i-nex.png
+	install -m 0755 src/i-nex/logo/i-nex.0.4.x.png $(DESTDIR)/usr/share/pixmaps/
 	install -m 0755 debian/i-nex.desktop $(DESTDIR)/usr/share/applications/
 	install -m 0755 debian/check_kernel $(DESTDIR)/usr/bin/
 	install -m 0755 debian/i-nex-lspci $(DESTDIR)/usr/bin/
