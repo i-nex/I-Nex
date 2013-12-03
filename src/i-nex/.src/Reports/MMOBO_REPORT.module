@@ -1,35 +1,25 @@
 ' Gambas module file
 
 Public DATA_RETURN As String
-Public Report As Collection = [("1"): ("Model" & Finfosys.Label13.Text),
-                               ("2"): (Finfosys.Label14.Text),
-                               ("3"): (Finfosys.Label12.Text),
-                               ("4"): (Finfosys.Label103.Text),
-                               ("5"): ("Current Temperature: " & Finfosys.Label93.Text),
-                               ("6"): (Finfosys.Label97.Text),
-                               ("7"): (Finfosys.Label6.Text),
-                               ("8"): (Finfosys.Label7.Text),
-                               ("9"): (Finfosys.Label8.Text),
-                               ("10"): (Finfosys.Label19.Text),
-                               ("11"): (Finfosys.Label11.Text),
-                               ("12"): (Finfosys.Label10.Text),
-                               ("13"): (Finfosys.Label71.Text),
-                               ("14"): (Finfosys.Label72.Text & "  " & FFlags.X86_X64),
-                               ("15"): (Finfosys.Label98.Text & "  " & FFlags.VIRT),
-                               ("16"): (Finfosys.Label99.Text & "  " & FFlags.HTT),
-                               ("17"): (Finfosys.Label15.Text),
-                               ("18"): (Finfosys.Label104.Text),
-                               ("19"): (Finfosys.Label110.Text),
-                               ("20"): (Finfosys.Label113.Text),
-                               ("21"): (Finfosys.Label114.Text),
-                               ("22"): (Finfosys.Label116.Text),
-                               ("23"): (Finfosys.Label118.Text),
-                               ("24"): (Finfosys.Label120.Text),
-                               ("25"): (Finfosys.Label111.Text),
-                               ("26"): (Finfosys.Label115.Text),
-                               ("27"): (Finfosys.Label117.Text),
-                               ("28"): (Finfosys.Label119.Text),
-                               ("29"): (Finfosys.Label121.Text)]
+Public Report As Collection = [("0"): ("========================================================================================================================="),
+                               ("1"): ("________________Motherboard________________"),
+                               ("2"): ("Manufacturer: " & Finfosys.TextBox23.Text),
+                               ("3"): ("Model:        " & Finfosys.TextBox24.Text),
+                               ("4"): ("___________________Bios____________________"),
+                               ("5"): ("Manufacturer: " & Finfosys.TextBox25.Text),
+                               ("6"): ("Date:         " & Finfosys.TextBox27.Text),
+                               ("7"): ("Version:      " & Finfosys.TextBox26.Text)]
 Public Sub _inits()
+Dim All, All2 As Integer
+ DATA_RETURN = Null
+  For All = 0 To Report.Count
+  
+   FReport_Gen.ProgressBar1.Value = All / Report.Count
+   DATA_RETURN = DATA_RETURN & "\n" & Report[All]
+  
+  Wait 0.01
+  
+  Next
  
+ Shell "echo '" & DATA_RETURN & "'>>" & FReport_Gen.ButtonBox1.Text & "" Wait 
 End

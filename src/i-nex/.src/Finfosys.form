@@ -25,7 +25,7 @@
     Picture = Picture["icon:/16/camera"]
   }
   { Button3 Button
-    Move(84,497,24,24)
+    Move(70,497,24,24)
     #Translate = False
     Font = Font["10"]
     ToolTip = "About this app"
@@ -40,13 +40,13 @@
     Picture = Picture["icon:/16/quit"]
   }
   { Button12 Button
-    Move(56,497,24,24)
+    Move(49,497,24,24)
     #Translate = False
     ToolTip = "Generate report"
     Picture = Picture["icon:/16/printer"]
   }
   { Button13 Button
-    Move(35,497,24,24)
+    Move(28,497,24,24)
     #Translate = False
     ToolTip = "You found a bug in I-Nex?\nPlease click this button and write in forum about bug which you have found."
     Picture = Picture["icon:/16/important"]
@@ -1453,7 +1453,7 @@
     Index = 0
   }
   { Button11 Button
-    Move(112,497,24,24)
+    Move(91,497,24,24)
     #Translate = False
     ToolTip = "Open I-Nex facebook fanpage and click Like this!"
     Picture = Picture["logo/fb.png"]

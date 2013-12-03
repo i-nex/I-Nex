@@ -42,20 +42,28 @@
       Expand = True
       Text = ("CPU Tab")
     }
+    { CheckBox3 CheckBox
+      Move(0,28,156,24)
+      Expand = True
+      Text = ("Graphics Tab")
+    }
     { CheckBox2 CheckBox
-      Move(0,24,156,24)
+      Move(0,56,156,24)
       Expand = True
       Text = ("Motherboard / Bios Tab")
     }
     { CheckBox4 CheckBox
-      Move(0,48,156,24)
+      Move(0,84,156,24)
       Expand = True
       Text = ("Sound Tab")
     }
-    { CheckBox3 CheckBox
-      Move(0,72,156,24)
-      Expand = True
-      Text = ("Graphics Tab")
+    { CheckBox5 CheckBox
+      Move(0,112,168,28)
+      Text = ("System Tab")
+    }
+    { CheckBox12 CheckBox
+      Move(0,140,168,28)
+      Text = ("Kernel Tab")
     }
   }
   { HPanel2 HPanel

@@ -21,7 +21,6 @@ SearchComment=False
 SearchString=True
 
 [OpenFile]
-Active=1
 File[1]=".src/Finfosys.form"
 File[2]=".src/Global.class:88.35"
 File[3]=".src/About.form"
@@ -35,7 +34,7 @@ File[10]=".src/USB_Drives.module:13.0"
 File[11]=".src/Asound_Drives.module:34.12"
 Active=12
 File[12]=".src/FReport_Gen.form"
-File[13]=".src/FReport_Gen.class:38.36"
+File[13]=".src/FReport_Gen.class:56.5"
 File[14]=".src/Start_App_Args.form"
 File[15]=".src/Start_App_Args.class:2.0"
 File[16]=".src/ChkPrm.module:21.19"
@@ -45,7 +44,7 @@ File[19]=".src/FModules.class:4.30"
 File[20]=".src/Input_Devices.module:8.1"
 File[21]=".src/net.module:104.1"
 File[22]="Data/report-ng.sh:27.44"
-File[23]=".src/Distribution_Detect.module:28.18"
+File[23]=".src/Distribution_Detect.module:5.39"
 File[24]=".src/FFlags.module:90.19"
 File[25]=".src/Finfosys.class:17.35"
 File[26]=".src/FDF.form"
@@ -66,12 +65,14 @@ File[40]=".src/FDirDialog.form"
 File[41]=".src/FFileDialog.form"
 File[42]=".src/Dialog.class:0.0"
 File[43]=".src/Mdecode.module:7.0"
-File[44]=".src/Reports/MCPU_REPORT.module:11.13"
-File[45]=".src/Reports/MMOBO_REPORT.module:33.1"
-File[46]=".src/Reports/MGPU_REPORT.module:7.30"
-File[47]=".src/Reports/MSOUND_REPORT.module:33.0"
-File[48]=".src/Reports/MPastebinit.module:12.17"
-Count=48
+File[44]=".src/Reports/MCPU_REPORT.module:25.4"
+File[45]=".src/Reports/MMOBO_REPORT.module:2.0"
+File[46]=".src/Reports/MGPU_REPORT.module:14.29"
+File[47]=".src/Reports/MSOUND_REPORT.module:3.164"
+File[48]=".src/Reports/MPastebinit.module:16.14"
+File[49]=".src/Reports/MSYSTEM_REPORT.module:30.0"
+File[50]=".src/Reports/MKERNEL_REPORT.module:16.11"
+Count=50
 
 [Watches]
 Count=0

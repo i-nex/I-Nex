@@ -20,6 +20,7 @@ Public Report As Collection = [("0"): ("========================================
                                ("8"): (Finfosys.Label109.Text)]
 Public Sub _inits()
  Dim All, All2 As Integer
+ DATA_RETURN = Null
  '=============================================
  For All2 = 0 To Finfosys.ComboBox8.Count - 1
   For All = 0 To ReportEDID.Count

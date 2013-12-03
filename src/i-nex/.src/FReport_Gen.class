@@ -33,10 +33,28 @@ Me.Center
 End
 
 Public Sub Button1_Click()
-Object.Call(MCPU_REPORT, "_inits")
-Object.Call(MGPU_REPORT, "_inits")
-Object.Call(MMOBO_REPORT, "_inits")
-Object.Call(MSOUND_REPORT, "_inits")
+Shell "rm " & ButtonBox1.Text & "" Wait
+If CheckBox1.Value = True Then
+ Object.Call(MCPU_REPORT, "_inits")
+Endif
+If CheckBox3.Value = True Then
+ Object.Call(MGPU_REPORT, "_inits")
+Endif
+If CheckBox2.Value = True Then
+ Object.Call(MMOBO_REPORT, "_inits")
+Endif
+If CheckBox4.Value = True Then
+ Object.Call(MSOUND_REPORT, "_inits")
+Endif
+If CheckBox5.Value = True Then
+ Object.Call(MSYSTEM_REPORT, "_inits")
+Endif
+If CheckBox12.Value = True Then
+ Object.Call(MKERNEL_REPORT, "_inits")
+Endif
+If CheckBox11.Value = True Then
+ TextBox1.Text = MPastebinit.pastebin(True, ButtonBox1.Text, ComboBox1.Text)
+Endif
 End
 
 Public Sub ButtonBox1_Click()

@@ -1,0 +1,22 @@
+' Gambas module file
+
+Public DATA_RETURN As String
+Public Report As Collection = [("0"): ("========================================================================================================================="),
+                               ("1"): (Finfosys.TextLabel25.Text),
+                               ("2"): (Finfosys.ListBox1.Text),
+                               ("3"): (Finfosys.TextLabel26.Text),
+                               ("4"): (Finfosys.TextArea3.Text)]
+Public Sub _inits()
+Dim All, All2 As Integer
+ DATA_RETURN = Null
+  For All = 0 To Report.Count
+  
+   FReport_Gen.ProgressBar1.Value = All / Report.Count
+   DATA_RETURN = DATA_RETURN & "\n" & Report[All]
+  
+  Wait 0.01
+  
+  Next
+ 
+ Shell "echo '" & DATA_RETURN & "'>>" & FReport_Gen.ButtonBox1.Text & "" Wait 
+End
