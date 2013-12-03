@@ -11,10 +11,10 @@
     ReadOnly = True
   }
   { ProgressBar1 ProgressBar
-    Move(7,434,476,14)
+    Move(7,448,476,14)
   }
   { TextLabel1 TextLabel
-    Move(7,448,476,28)
+    Move(7,462,476,28)
     Alignment = Align.Left
   }
   { HBox1 HBox
@@ -126,5 +126,10 @@
       Expand = True
       ReadOnly = True
     }
+  }
+  { CheckBox13 CheckBox
+    Move(7,427,476,21)
+    Text = ("Close this window when finished.")
+    Value = CheckBox.True
   }
 }

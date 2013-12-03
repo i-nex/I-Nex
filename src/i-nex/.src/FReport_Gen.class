@@ -33,27 +33,40 @@ Me.Center
 End
 
 Public Sub Button1_Click()
+'Before generate report. Old report must be removed
 Shell "rm " & ButtonBox1.Text & "" Wait
+'Check Value, select report to be generated.
 If CheckBox1.Value = True Then
  Object.Call(MCPU_REPORT, "_inits")
 Endif
+
 If CheckBox3.Value = True Then
  Object.Call(MGPU_REPORT, "_inits")
 Endif
+
 If CheckBox2.Value = True Then
  Object.Call(MMOBO_REPORT, "_inits")
 Endif
+
 If CheckBox4.Value = True Then
  Object.Call(MSOUND_REPORT, "_inits")
 Endif
+
 If CheckBox5.Value = True Then
  Object.Call(MSYSTEM_REPORT, "_inits")
 Endif
+
 If CheckBox12.Value = True Then
  Object.Call(MKERNEL_REPORT, "_inits")
 Endif
+
 If CheckBox11.Value = True Then
  TextBox1.Text = MPastebinit.pastebin(True, ButtonBox1.Text, ComboBox1.Text)
+Endif
+
+If CheckBox13.value = True Then
+ Me.Close
+ Finfosys.Show
 Endif
 End
 
@@ -66,6 +79,14 @@ Public Sub ButtonBox1_Click()
  Shell "rm " & Dialog.Path & "" Wait
  Endif
 End
+
+Public Sub Button2_Click()
+ 
+ Me.Close
+ Finfosys.Show
+ 
+End
+
 
 Public Sub Button3_Click()
  If TextBox1.Text Like "*http*" Then

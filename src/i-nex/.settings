@@ -1,3 +1,6 @@
+[Bookmarks]
+FReport_Gen=[]
+
 [Breakpoints]
 Count=0
 
@@ -32,9 +35,9 @@ File[8]=".src/ScreenShot.class:20.21"
 File[9]=".src/ScreenShotM.module:7.0"
 File[10]=".src/USB_Drives.module:13.0"
 File[11]=".src/Asound_Drives.module:34.12"
+Active=12
 File[12]=".src/FReport_Gen.form"
-Active=13
-File[13]=".src/FReport_Gen.class:67.3"
+File[13]=".src/FReport_Gen.class:66.0"
 File[14]=".src/Start_App_Args.form"
 File[15]=".src/Start_App_Args.class:26.17"
 File[16]=".src/ChkPrm.module:21.19"
