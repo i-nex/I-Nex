@@ -14,10 +14,7 @@ Public Sub Form_Open()
            "\n"
            "\nUsage: " & Application.name & ".gambas [Options]"
            "\nOptions:"
-           "\n--help                           (Chow Help)"
-           "\n--about                  (Show About dialog)"
-           "\n--gen_report            (Show Report dialog)"
-           "\n--modules          (Show info about modules)")
+           "\n--help                           (Chow Help)")
     S = False
     Me.Close
    
@@ -26,20 +23,8 @@ Public Sub Form_Open()
     S = False
     Me.Close
    
-   Case "--gen_report"
-    Finfosys.Show
-    Finfosys.Hide
-    FReport_Gen.Show
-    S = False
-    Me.Close
-   
    Case ""
     Finfosys.Show
-    S = False
-    Me.Close
-   
-   Case "--modules"
-    FModules.Show
     S = False
     Me.Close
         
@@ -49,9 +34,7 @@ Public Sub Form_Open()
    Message.Warning("Bad Arguments!!\n"
                    "Usage: i-nex.gambas [Options]\n"
                    "Options:\n" 
-                   "--help                (Chow Help)\n"
-                   "--about       (Show About dialog)\n"
-                   "--gen_report   (Show Report dialog)")
+                   "--help                (Chow Help)\n")
    Me.Close
   Endif
 

@@ -117,7 +117,7 @@
     Move(7,336,476,28)
     { CheckBox11 CheckBox paste
       Name = "CheckBox11"
-      Move(0,0,186,24)
+      Move(0,0,315,28)
       AutoResize = True
       Text = ("Send report to nopaste service:   ")
     }
