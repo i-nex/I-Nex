@@ -67,14 +67,6 @@ Public Sub ButtonBox1_Click()
  Endif
 End
 
-Public Sub Button2_Click()
- If (Application.Args[1] = "--gen_report") Then
-  Finfosys.Close
- Endif
- Me.Close
- Finfosys.Show
-End
-
 Public Sub Button3_Click()
  If TextBox1.Text Like "*http*" Then
   Desktop.Open(TextBox1.Text)
