@@ -109,6 +109,9 @@ clean:
 	rm -Rf `find . -name "*.deb"`
 	rm -f index.html
 	rm -f i-nex.run
+	rm -f src/i-nex/.lang/*.pot
+	rm -f src/i-nex/.lang/*.po
+	rm -f src/i-nex/.lang/*.mo
 	rm -Rf src/i-nex/.gambas
 	rm -Rf debian/files
 	rm -Rf debian/i-nex
