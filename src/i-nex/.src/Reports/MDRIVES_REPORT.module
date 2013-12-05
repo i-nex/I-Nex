@@ -42,7 +42,13 @@ Public Sub _inits()
  For All2 = 1 To Finfosys.ComboBox4.Count
   
   refresh()
-  
+  For repcount = 0 To Report.Count
+    FReport_Gen.ProgressBar1.Value = repcount / Report.Count
+    DATA_RETURN = DATA_RETURN & "\n" & Report[repcount]
+    Wait 0.01
+   
+   refresh()
+   Next
   For All = 1 To Finfosys.ComboBox3.Count
    refresh()
    
