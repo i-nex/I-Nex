@@ -75,13 +75,13 @@
           Move(0,102,441,196)
           Text = ("Main bug reporter")
           { Label3 Label
-            Move(119,21,196,21)
+            Move(112,77,196,21)
             Padding = 3
             Text = ("Dariusz Duma")
             Alignment = Align.Center
           }
           { HBox1 HBox
-            Move(6,102,427,28)
+            Move(0,49,427,28)
             { Button9 Button
               Move(6,0,84,24)
               Expand = True
@@ -94,14 +94,14 @@
             }
           }
           { Label5 Label
-            Move(119,77,196,21)
+            Move(126,21,196,21)
             Padding = 3
             AutoResize = True
             Text = ("Tomasz Przybył (FadeMind)   ")
             Alignment = Align.Center
           }
           { HBox2 HBox
-            Move(6,48,427,28)
+            Move(7,105,427,28)
             { Button2 Button
               Move(0,0,96,24)
               Expand = True
