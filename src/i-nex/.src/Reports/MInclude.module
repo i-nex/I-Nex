@@ -21,13 +21,6 @@ FReport_Gen.ProgressBar1.Value = 3 / 9
 Wait 0.01
 End
 
-Public Sub _dmesg()
-_ohce("DMESG")
-Shell "dmesg >>" & FReport_Gen.ButtonBox1.Text & "" Wait
- FReport_Gen.ProgressBar1.Value = 4 / 9
- Wait 0.01
-End
-
 Public Sub _mtrr()
 _ohce("PROC MTRR")
 Shell "cat /proc/mtrr >>" & FReport_Gen.ButtonBox1.Text & "" Wait
@@ -60,6 +53,13 @@ Public Sub _partitions()
 _ohce("PROC PARTITIONS")
 Shell "cat /proc/partitions >>" & FReport_Gen.ButtonBox1.Text & "" Wait
  FReport_Gen.ProgressBar1.Value = 9 / 9
+ Wait 0.01
+End
+
+Public Sub _dmesg()
+_ohce("DMESG")
+Shell "dmesg >>" & FReport_Gen.ButtonBox1.Text & "" Wait
+ FReport_Gen.ProgressBar1.Value = 4 / 9
  Wait 0.01
 End
 
