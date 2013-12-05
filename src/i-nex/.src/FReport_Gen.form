@@ -57,12 +57,16 @@
       Expand = True
       Text = ("Sound Tab")
     }
-    { CheckBox5 CheckBox
+    { CheckBox14 CheckBox
       Move(0,112,168,28)
+      Text = ("Drives Tab")
+    }
+    { CheckBox5 CheckBox
+      Move(0,140,168,28)
       Text = ("System Tab")
     }
     { CheckBox12 CheckBox
-      Move(0,140,168,28)
+      Move(0,168,168,28)
       Text = ("Kernel Tab")
     }
   }

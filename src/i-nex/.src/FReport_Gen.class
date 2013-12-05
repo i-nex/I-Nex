@@ -60,11 +60,15 @@ If CheckBox12.Value = True Then
  Object.Call(MKERNEL_REPORT, "_inits")
 Endif
 
+If CheckBox14.value = True Then
+ Object.Call(MDRIVES_REPORT, "_inits")
+Endif
+
 If CheckBox11.Value = True Then
  TextBox1.Text = MPastebinit.pastebin(True, ButtonBox1.Text, ComboBox1.Text)
 Endif
 
-If CheckBox13.value = True Then
+If CheckBox13.value = True And CheckBox11.Value = False Then
  Me.Close
  Finfosys.Show
 Endif

@@ -540,7 +540,7 @@ Public Sub ComboBox7_Click()
 End
 
 Public Sub Button12_Click()
- Me.Hide
+ 'Me.Hide
  FReport_Gen.Show
 
 End

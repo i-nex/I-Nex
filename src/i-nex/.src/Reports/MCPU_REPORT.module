@@ -1,7 +1,9 @@
 ' Gambas module file
 
+Public Report As Collection
 Public DATA_RETURN As String
-Public Report As Collection = [("0"): ("========================================================================================================================="),
+Public Sub refresh()
+Report = [("0"): ("========================================================" & Finfosys.ComboBox1.Text & "================================================================="),
                                ("1"): (Finfosys.Label13.Text),
                                ("2"): (Finfosys.Label14.Text),
                                ("3"): (Finfosys.Label12.Text),
@@ -31,16 +33,24 @@ Public Report As Collection = [("0"): ("========================================
                                ("27"): (Finfosys.Label117.Text),
                                ("28"): (Finfosys.Label119.Text),
                                ("29"): (Finfosys.Label121.Text)]
+ 
+End
+
 Public Sub _inits()
- Dim All, All2 As Integer
+ Dim All, All2 As Float
+ 
  DATA_RETURN = Null
- For All2 = 0 To Finfosys.ComboBox1.Count - 1
+ refresh()
+ 
+ For All2 = 1 To Finfosys.ComboBox1.Count
+  Finfosys.ComboBox1.Index = All2
   
   For All = 0 To Report.Count
   FReport_Gen.ProgressBar1.Value = All / Report.Count
   DATA_RETURN = DATA_RETURN & "\n" & Report[All]
   Wait 0.01
   Next
+  refresh()
   Wait 0.01
   Finfosys.ComboBox1.Index = All2
  Next
