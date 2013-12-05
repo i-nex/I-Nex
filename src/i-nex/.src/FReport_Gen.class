@@ -64,6 +64,42 @@ If CheckBox14.value = True Then
  Object.Call(MDRIVES_REPORT, "_inits")
 Endif
 
+If CheckBox6.Value = True Then
+ Object.Call(MInclude, "_lspci")
+Endif
+
+If CheckBox7.Value = True Then
+ Object.Call(MInclude, "_lsusb")
+Endif
+
+If CheckBox8.Value = True Then
+ Object.Call(MInclude, "_scsi")
+Endif
+
+If CheckBox9.Value = True Then
+ Object.Call(MInclude, "_dmesg")
+Endif
+
+If CheckBox15.Value = True Then
+ Object.Call(MInclude, "_mtrr")
+Endif
+
+If CheckBox16.Value = True Then
+ Object.Call(MInclude, "_devices")
+Endif
+
+If CheckBox17.Value = True Then
+ Object.Call(MInclude, "_diskstats")
+Endif
+
+If CheckBox18.Value = True Then
+ Object.Call(MInclude, "_dma")
+Endif
+
+If CheckBox10.Value = True Then
+ Object.Call(MInclude, "_partitions")
+Endif
+
 If CheckBox11.Value = True Then
  TextBox1.Text = MPastebinit.pastebin(True, ButtonBox1.Text, ComboBox1.Text)
 Endif

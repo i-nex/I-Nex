@@ -92,10 +92,30 @@
       Expand = True
       Text = ("Include dmesg")
     }
+    { CheckBox15 CheckBox
+      Move(0,98,168,28)
+      Expand = True
+      Text = ("Include /proc/mtrr")
+    }
+    { CheckBox16 CheckBox
+      Move(0,126,168,28)
+      Expand = True
+      Text = ("Include /proc/devices")
+    }
+    { CheckBox17 CheckBox
+      Move(0,154,168,28)
+      Expand = True
+      Text = ("Include /proc/diskstats")
+    }
+    { CheckBox18 CheckBox
+      Move(0,182,168,28)
+      Expand = True
+      Text = ("Include /proc/dma")
+    }
     { CheckBox10 CheckBox
-      Move(0,96,204,24)
-      Visible = False
-      Text = ("Include unity support test")
+      Move(0,210,168,28)
+      Expand = True
+      Text = ("Include /proc/partitions")
     }
   }
   { Separator1 Separator
