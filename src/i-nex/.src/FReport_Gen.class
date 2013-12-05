@@ -6,11 +6,10 @@ Public Sub Form_Open()
   If unity_support_test = True Then
   CheckBox10.Visible = True
   Endif
+  ComboBox1.Add("pastebin.com")
   ComboBox1.Add("cxg.de")
   ComboBox1.Add("fpaste.org")
   ComboBox1.Add("paste2.org")
-  ComboBox1.Add("pastebin.com")
-  ComboBox1.Add("paste.debian.net")
   ComboBox1.Add("paste.debian.net")
   ComboBox1.Add("paste.drizzle.org")
   ComboBox1.Add("paste.kde.org")
