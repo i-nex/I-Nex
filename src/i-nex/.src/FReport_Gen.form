@@ -151,7 +151,7 @@
     Picture = Picture["icon:/16/network"]
   }
   { TextBox1 TextBox
-    Move(7,385,455,28)
+    Move(7,385,427,28)
     Expand = True
     ReadOnly = True
   }
@@ -164,7 +164,7 @@
       Text = ("Send report to nopaste service:   ")
     }
     { ComboBox1 ComboBox
-      Move(329,0,144,24)
+      Move(322,0,144,24)
       Expand = True
       ReadOnly = True
     }
@@ -173,5 +173,10 @@
     Move(7,427,476,21)
     Text = ("Close this window when finished.")
     Value = CheckBox.True
+  }
+  { Button4 Button
+    Move(434,385,24,24)
+    ToolTip = ("Copy this link")
+    Picture = Picture["icon:/small/copy"]
   }
 }
