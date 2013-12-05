@@ -27,6 +27,7 @@ File[3]=".src/About.form"
 File[4]=".src/About.class:73.3"
 File[5]=".src/battery.module:70.77"
 File[6]=".src/Disk_Drives.module:50.22"
+Active=7
 File[7]=".src/ScreenShot.form"
 File[8]=".src/ScreenShot.class:20.21"
 File[9]=".src/ScreenShotM.module:7.0"
@@ -35,7 +36,6 @@ File[11]=".src/Asound_Drives.module:34.12"
 File[12]=".src/FReport_Gen.form"
 File[13]=".src/FReport_Gen.class:4.0"
 File[14]=".src/Start_App_Args.form"
-Active=15
 File[15]=".src/Start_App_Args.class:4.2"
 File[16]=".src/ChkPrm.module:21.19"
 File[17]=".src/thermal_zone.module:21.25"
@@ -74,7 +74,8 @@ File[49]=".src/Reports/MSYSTEM_REPORT.module:27.1"
 File[50]=".src/Reports/MKERNEL_REPORT.module:19.1"
 File[51]=".src/Reports/MInclude.module:72.15"
 File[52]=".src/Reports/MDRIVES_REPORT.module:44.33"
-Count=52
+File[53]=".src/FInputDate.form"
+Count=53
 
 [Watches]
 Count=0

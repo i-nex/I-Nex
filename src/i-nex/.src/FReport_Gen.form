@@ -3,7 +3,8 @@
 { Form Form
   Move(0,0,490,525)
   #Scaled = False
-  Text = ("Generate report")
+  #Translate = False
+  Text = "Generate report"
   Icon = Picture["logo/i-nex.0.4.x.png"]
   Resizable = False
   { ButtonBox1 ButtonBox

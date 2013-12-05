@@ -3,7 +3,8 @@
 { Form Form
   Move(0,0,490,525)
   #Scaled = False
-  Text = ("I-Nex")
+  #Translate = False
+  Text = "I-Nex"
   Icon = Picture["logo/i-nex.0.4.x.png"]
   Resizable = False
   Margin = True

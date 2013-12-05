@@ -2,6 +2,7 @@
 
 { Form Form
   MoveScaled(0,0,59,43)
+  #Translate = False
   Arrangement = Arrange.Vertical
   Spacing = True
   Margin = True

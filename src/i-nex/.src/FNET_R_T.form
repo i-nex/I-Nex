@@ -2,8 +2,9 @@
 
 { Form Form
   MoveScaled(0,0,88,56)
+  #Translate = False
   Expand = True
-  Text = ("Receive and Transmit")
+  Text = "Receive and Transmit"
   Icon = Picture["logo/i-nex.png"]
   Resizable = False
   { Frame1 Frame
@@ -12,9 +13,9 @@
     { !GridView1 GridView
       MoveScaled(2,4,85,18)
       #Public = True
+      Border = False
       Mode = Select.Single
       Header = GridView.Vertical
-      Border = False
       AutoResize = False
       Sorted = True
     }
@@ -25,9 +26,9 @@
     { !GridView2 GridView
       MoveScaled(2,4,85,19)
       #Public = True
+      Border = False
       Mode = Select.Single
       Header = GridView.Vertical
-      Border = False
       AutoResize = False
       Sorted = True
     }

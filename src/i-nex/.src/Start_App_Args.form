@@ -3,6 +3,7 @@
 { Form Form
   Move(0,0,234,66)
   #Scaled = False
+  #Translate = False
   Resizable = False
   { TextLabel1 TextLabel
     Move(0,0,228,66)

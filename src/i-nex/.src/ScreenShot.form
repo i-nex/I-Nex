@@ -2,7 +2,8 @@
 
 { Form Form
   MoveScaled(0,0,70,75)
-  Text = ("Screen Shot")
+  #Translate = False
+  Text = "Screen Shot"
   Icon = Picture["logo/i-nex.0.4.x.png"]
   Resizable = False
   { PictureBox1 PictureBox

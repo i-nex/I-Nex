@@ -3,7 +3,8 @@
 { Form Form
   Move(0,0,490,525)
   #Scaled = False
-  Text = ("UDisks")
+  #Translate = False
+  Text = "UDisks"
   Icon = Picture["logo/i-nex.0.4.x.png"]
   AutoResize = True
   { GridView1 GridView

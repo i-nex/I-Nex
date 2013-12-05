@@ -2,8 +2,9 @@
 
 { Form Form
   MoveScaled(0,0,64,64)
+  #Translate = False
   Expand = True
-  Text = ("Modules information")
+  Text = "Modules information"
   Icon = Picture["logo/i-nex.0.4.x.png"]
   Resizable = False
   { HBox1 HBox

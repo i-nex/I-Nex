@@ -2,8 +2,9 @@
 
 { Form Form
   MoveScaled(0,0,86,30)
+  #Translate = False
   Expand = True
-  Text = ("I-Nex GUI for DF")
+  Text = "I-Nex GUI for DF"
   Icon = Picture["logo/i-nex.png"]
   Arrangement = Arrange.Vertical
   Margin = True
