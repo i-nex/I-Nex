@@ -95,6 +95,18 @@ If CheckBox10.Value = True Then
  Object.Call(MInclude, "_partitions")
 Endif
 
+If CheckBox19.Value = True Then
+ Object.Call(MInclude, "_modules")
+Endif
+
+If CheckBox20.Value = True Then
+ Object.Call(MInclude, "_cmdline")
+Endif
+
+If CheckBox21.Value = True Then
+ Object.Call(MInclude, "_grub")
+Endif
+
 If CheckBox9.Value = True Then
  Object.Call(MInclude, "_dmesg")
 Endif

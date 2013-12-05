@@ -120,6 +120,21 @@
       Expand = True
       Text = ("Include /proc/partitions")
     }
+    { CheckBox19 CheckBox
+      Move(0,238,168,28)
+      Expand = True
+      Text = ("Include /proc/modules")
+    }
+    { CheckBox20 CheckBox
+      Move(0,266,168,28)
+      Expand = True
+      Text = ("Include /proc/cmdline")
+    }
+    { CheckBox21 CheckBox
+      Move(0,294,168,28)
+      Expand = True
+      Text = ("Include /etc/default/grub")
+    }
   }
   { Separator1 Separator
     Move(231,0,14,329)

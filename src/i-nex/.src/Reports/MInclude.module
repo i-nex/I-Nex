@@ -3,56 +3,77 @@
 Public Sub _lspci()
 _ohce("LSPCI")
 Shell "lspci >>" & FReport_Gen.ButtonBox1.Text & "" Wait
-FReport_Gen.ProgressBar1.Value = 1 / 9
+FReport_Gen.ProgressBar1.Value = 1 / 12
 Wait 0.01
 End
 
 Public Sub _lsusb()
 _ohce("LSUSB")
 Shell "lsusb >>" & FReport_Gen.ButtonBox1.Text & "" Wait
-FReport_Gen.ProgressBar1.Value = 2 / 9
+FReport_Gen.ProgressBar1.Value = 2 / 12
 Wait 0.01
 End
 
 Public Sub _scsi()
 _ohce("SCSI")
 Shell "cat /proc/scsi/scsi >>" & FReport_Gen.ButtonBox1.Text & "" Wait
-FReport_Gen.ProgressBar1.Value = 3 / 9
+FReport_Gen.ProgressBar1.Value = 3 / 12
 Wait 0.01
 End
 
 Public Sub _mtrr()
 _ohce("PROC MTRR")
 Shell "cat /proc/mtrr >>" & FReport_Gen.ButtonBox1.Text & "" Wait
- FReport_Gen.ProgressBar1.Value = 5 / 9
+ FReport_Gen.ProgressBar1.Value = 5 / 12
  Wait 0.01
 End
 
 Public Sub _devices()
 _ohce("PROC DEVICES")
 Shell "cat /proc/devices >>" & FReport_Gen.ButtonBox1.Text & "" Wait
- FReport_Gen.ProgressBar1.Value = 6 / 9
+ FReport_Gen.ProgressBar1.Value = 6 / 12
  Wait 0.01
 End
 
 Public Sub _diskstats()
 _ohce("PROC DISKSTATS")
 Shell "cat /proc/diskstats >>" & FReport_Gen.ButtonBox1.Text & "" Wait
- FReport_Gen.ProgressBar1.Value = 7 / 9
+ FReport_Gen.ProgressBar1.Value = 7 / 12
  Wait 0.01
 End
 
 Public Sub _dma()
 _ohce("PROC DMA")
 Shell "cat /proc/dma >>" & FReport_Gen.ButtonBox1.Text & "" Wait
- FReport_Gen.ProgressBar1.Value = 8 / 9
+ FReport_Gen.ProgressBar1.Value = 8 / 12
  Wait 0.01
 End
 
 Public Sub _partitions()
 _ohce("PROC PARTITIONS")
 Shell "cat /proc/partitions >>" & FReport_Gen.ButtonBox1.Text & "" Wait
- FReport_Gen.ProgressBar1.Value = 9 / 9
+ FReport_Gen.ProgressBar1.Value = 9 / 12
+ Wait 0.01
+End
+
+Public Sub _modules()
+_ohce("PROC modules")
+Shell "cat /proc/modules >>" & FReport_Gen.ButtonBox1.Text & "" Wait
+ FReport_Gen.ProgressBar1.Value = 10 / 12
+ Wait 0.01
+End
+
+Public Sub _cmdline()
+_ohce("PROC cmdline")
+Shell "cat /proc/cmdline >>" & FReport_Gen.ButtonBox1.Text & "" Wait
+ FReport_Gen.ProgressBar1.Value = 11 / 12
+ Wait 0.01
+End
+
+Public Sub _grub()
+_ohce("PROC GRUB")
+Shell "cat /etc/default/grub >>" & FReport_Gen.ButtonBox1.Text & "" Wait
+ FReport_Gen.ProgressBar1.Value = 12 / 12
  Wait 0.01
 End
 
