@@ -75,10 +75,6 @@ If CheckBox8.Value = True Then
  Object.Call(MInclude, "_scsi")
 Endif
 
-If CheckBox9.Value = True Then
- Object.Call(MInclude, "_dmesg")
-Endif
-
 If CheckBox15.Value = True Then
  Object.Call(MInclude, "_mtrr")
 Endif
@@ -97,6 +93,10 @@ Endif
 
 If CheckBox10.Value = True Then
  Object.Call(MInclude, "_partitions")
+Endif
+
+If CheckBox9.Value = True Then
+ Object.Call(MInclude, "_dmesg")
 Endif
 
 If CheckBox11.Value = True Then
