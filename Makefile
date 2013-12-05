@@ -109,6 +109,7 @@ clean:
 	rm -Rf `find . -name "*.deb"`
 	rm -f index.html
 	rm -f i-nex.run
+	rm -Rf src/i-nex/.gambas
 	rm -Rf debian/files
 	rm -Rf debian/i-nex
 	rm -Rf debian/i-nex.debhelper.log
