@@ -37,18 +37,21 @@ End
 Public Sub _inits()
  Dim All, All2, repcount As Integer
  DATA_RETURN = Null
- refresh()
+ 'refresh()
 
  For All2 = 1 To Finfosys.ComboBox4.Count
   
   refresh()
-  For repcount = 0 To Report.Count
+  If Finfosys.ComboBox3.Count = 0 Then
+   For repcount = 0 To Report.Count
     FReport_Gen.ProgressBar1.Value = repcount / Report.Count
     DATA_RETURN = DATA_RETURN & "\n" & Report[repcount]
     Wait 0.01
    
    refresh()
    Next
+  Endif
+  
   For All = 1 To Finfosys.ComboBox3.Count
    refresh()
    
