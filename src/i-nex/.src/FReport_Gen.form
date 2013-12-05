@@ -59,14 +59,17 @@
     }
     { CheckBox14 CheckBox
       Move(0,112,168,28)
+      Expand = True
       Text = ("Drives Tab")
     }
     { CheckBox5 CheckBox
       Move(0,140,168,28)
+      Expand = True
       Text = ("System Tab")
     }
     { CheckBox12 CheckBox
       Move(0,168,168,28)
+      Expand = True
       Text = ("Kernel Tab")
     }
   }
