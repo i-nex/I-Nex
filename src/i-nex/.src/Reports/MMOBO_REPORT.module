@@ -10,7 +10,7 @@ Public Report As Collection = [("0"): ("========================================
                                ("6"): ("Date:         " & Finfosys.TextBox27.Text),
                                ("7"): ("Version:      " & Finfosys.TextBox26.Text)]
 Public Sub _inits()
-Dim All, All2 As Integer
+Dim All As Integer
  DATA_RETURN = Null
   For All = 0 To Report.Count
   

@@ -1,3 +1,6 @@
+[Bookmarks]
+MInclude=[]
+
 [Breakpoints]
 Count=0
 
@@ -33,8 +36,7 @@ File[9]=".src/ScreenShotM.module:7.0"
 File[10]=".src/USB_Drives.module:13.0"
 File[11]=".src/Asound_Drives.module:34.12"
 File[12]=".src/FReport_Gen.form"
-Active=13
-File[13]=".src/FReport_Gen.class:99.5"
+File[13]=".src/FReport_Gen.class:106.29"
 File[14]=".src/Start_App_Args.form"
 File[15]=".src/Start_App_Args.class:26.17"
 File[16]=".src/ChkPrm.module:21.19"
@@ -56,7 +58,7 @@ File[31]="logo/fb.png"
 File[32]=".src/FCPU.module:3.4"
 File[33]=".src/FUdisks.form"
 File[34]=".src/FUdisks.class:242.28"
-File[35]=".src/FCpudb.module:2.0"
+File[35]=".src/FCpudb.module:16.35"
 File[36]=".src/JSON.module:108.2"
 File[37]=".src/Settings.class:464.34"
 File[38]=".src/Main.module:7.29"
@@ -66,13 +68,14 @@ File[41]=".src/FFileDialog.form"
 File[42]=".src/Dialog.class:0.0"
 File[43]=".src/Mdecode.module:7.0"
 File[44]=".src/Reports/MCPU_REPORT.module:48.53"
-File[45]=".src/Reports/MMOBO_REPORT.module:2.0"
+Active=45
+File[45]=".src/Reports/MMOBO_REPORT.module:12.7"
 File[46]=".src/Reports/MGPU_REPORT.module:47.77"
-File[47]=".src/Reports/MSOUND_REPORT.module:3.164"
+File[47]=".src/Reports/MSOUND_REPORT.module:13.14"
 File[48]=".src/Reports/MPastebinit.module:16.14"
-File[49]=".src/Reports/MSYSTEM_REPORT.module:30.0"
-File[50]=".src/Reports/MKERNEL_REPORT.module:13.54"
-File[51]=".src/Reports/MInclude.module:63.3"
+File[49]=".src/Reports/MSYSTEM_REPORT.module:27.1"
+File[50]=".src/Reports/MKERNEL_REPORT.module:19.1"
+File[51]=".src/Reports/MInclude.module:72.15"
 File[52]=".src/Reports/MDRIVES_REPORT.module:44.33"
 Count=52
 

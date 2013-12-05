@@ -15,7 +15,7 @@ Public Report As Collection = [("0"): ("========================================
                                ("11"): (Finfosys.Label144.Text),
                                ("12"): (Finfosys.Label145.Text)]
 Public Sub _inits()
-Dim All, All2 As Integer
+Dim All As Integer
  DATA_RETURN = Null
   For All = 0 To Report.Count
   
