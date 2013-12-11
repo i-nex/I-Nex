@@ -8,10 +8,10 @@ Public Sub _inits()
   Dim all_interfaces As String
   
   Debug "Add Interfaces to ComboBox"
-  Shell "ls /sys/class/drm/ | grep 'card[0-9]-' | wc -l" Wait To all_interfaces
+  Shell "ls /sys/class/drm/ | grep 'card[0-9]' | wc -l" Wait To all_interfaces
   Max_Interfaces = Val(all_interfaces)
   For Avail_Interfaces = 1 To Max_Interfaces
-   Shell "ls /sys/class/drm/ | grep 'card[0-9]-' | sed -n '" & Avail_Interfaces & "p'" Wait To Interfaces_X
+   Shell "ls /sys/class/drm/ | grep 'card[0-9]' | sed -n '" & Avail_Interfaces & "p'" Wait To Interfaces_X
    Interfaces_X = Replace(Interfaces_X, "\n", "")
    Finfosys.ComboBox8.Add(Interfaces_X)
   Next
@@ -23,9 +23,9 @@ Public Sub _check()
 
  If Exist("/sys/class/drm/") Then
   
-  status = File.Load("/sys/class/drm/" & Finfosys.ComboBox8.Text & "/status")
-  enabled = File.Load("/sys/class/drm/" & Finfosys.ComboBox8.Text & "/enabled")
-  dpms = File.Load("/sys/class/drm/" & Finfosys.ComboBox8.Text & "/dpms")
+  Try status = File.Load("/sys/class/drm/" & Finfosys.ComboBox8.Text & "/status")
+  Try enabled = File.Load("/sys/class/drm/" & Finfosys.ComboBox8.Text & "/enabled")
+  Try dpms = File.Load("/sys/class/drm/" & Finfosys.ComboBox8.Text & "/dpms")
   Shell "/usr/bin/inex-edid /sys/class/drm/" & Finfosys.ComboBox8.Text & "/edid | grep 'ASCII string' | cut -d ':' -f 2" Wait To monitor_name
   
   Shell "/usr/bin/inex-edid /sys/class/drm/" & Finfosys.ComboBox8.Text & "/edid | grep 'Manufacturer:' | cut -d ':' -f 2" Wait To manufacturer
