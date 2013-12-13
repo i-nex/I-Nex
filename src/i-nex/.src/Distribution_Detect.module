@@ -18,6 +18,8 @@ Public Sub _init()
    Finfosys.PictureBox2.Picture = Picture["Database/Distlogos/mint.png"]
   Case Like "*Ubuntu*"
    Finfosys.PictureBox2.Picture = Picture["Database/Distlogos/ubuntu.png"]
+  Case Like "*xUbuntu*"
+   Finfosys.PictureBox2.Picture = Picture["Database/Distlogos/xubuntu.png"]
   Case Like "*openSUSE*"
    Finfosys.PictureBox2.Picture = Picture["Database/Distlogos/opensuse.png"]
   Case Like "*ManjaroLinux*"
