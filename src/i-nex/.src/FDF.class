@@ -10,7 +10,7 @@ Public Sub Form_Open()
  GridView1.Columns.Count = 6
  GridView1.Rows.Count = CFloat(Val(allfilesystems)) 
  GridView1.Columns.Width = 80
- GridView1.Columns[5].Width = 250
+ GridView1.Columns[5].Width = 400
  GridView1[0, 0].Text = "Filesystem"
  GridView1[0, 1].Text = "1K-blocks"
  GridView1[0, 2].Text = "Used"
