@@ -132,7 +132,7 @@ Public Sub disks()
   Shell "LC_ALL=C df | grep '" & Finfosys.ComboBox3.Text & "' | awk {'print $6, $7'} | sed -n '1p'" Wait To mount_point
   Shell "ls -l /dev/disk/by-uuid/ | grep " & Finfosys.ComboBox3.Text & " | awk {'print $9'}" Wait To device_uuid
   device_uuid = Replace(Replace(device_uuid, " ", ""), "\n", "")
-  Shell "grep '" & Finfosys.ComboBox3.Text & "' /proc/mounts | awk {'print $3'}" Wait To filesystem_type
+  Shell "grep '^/dev/" & Finfosys.ComboBox3.Text & " ' /proc/mounts | awk {'print $3'}" Wait To filesystem_type
   filesystem_type = Replace(Replace(filesystem_type, " ", ""), "\n", "")
   If mount_widtch = Null Then
   Shell "grep '" & device_uuid & "' /proc/mounts | awk {'print $4'}" Wait To mount_widtch
