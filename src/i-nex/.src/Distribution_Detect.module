@@ -29,7 +29,9 @@ Public Sub _init()
   Case Like "*Debian*"
    Finfosys.PictureBox2.Picture = Picture["Database/Distlogos/debian.png"]
  End Select
-
+If Application.Env["KDE_FULL_SESSION"] = "true" And File.Load("" & User.Home & "/.i-nex/DistributionVendor.conf") Like "*Ubuntu*" Then
+ Finfosys.PictureBox2.Picture = Picture["Database/Distlogos/kubuntu.png"]
+Endif
  'echo "[System] \
 'DistributionVendor = $vendor \
 'DistributionRelease = $release " > ~/.i-nex/dist.conf"
