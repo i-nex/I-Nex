@@ -128,25 +128,40 @@ Public Sub rm_new_line()
 End
 
 Public Sub disks()
-  Shell "grep '^/dev/" & Finfosys.ComboBox3.Text & " ' /proc/mounts | awk {'print $4'}" Wait To mount_widtch
-  Shell "LC_ALL=C df | grep '" & Finfosys.ComboBox3.Text & "' | awk {'print $6, $7'} | sed -n '1p'" Wait To mount_point
-  Shell "ls -l /dev/disk/by-uuid/ | grep " & Finfosys.ComboBox3.Text & " | awk {'print $9'}" Wait To device_uuid
+  filesystem_type = Null
+  mount_widtch = Null
+  mount_point = Null
+  device_uuid = Null
+  If Finfosys.ComboBox3.Text Not Like "" Then
+  Shell "grep -w '" & Finfosys.ComboBox3.Text & "' /proc/mounts | awk {'print $4'}" Wait To mount_widtch
+  Endif
+  Shell "LC_ALL=C df | grep -w '" & Finfosys.ComboBox3.Text & "' | awk {'print $6, $7'} | sed -n '1p'" Wait To mount_point
+  Shell "ls -l /dev/disk/by-uuid/ | grep -w " & Finfosys.ComboBox3.Text & " | awk {'print $9'}" Wait To device_uuid
+  
   device_uuid = Replace(Replace(device_uuid, " ", ""), "\n", "")
-  Shell "grep '^/dev/" & Finfosys.ComboBox3.Text & " ' /proc/mounts | awk {'print $3'}" Wait To filesystem_type
+  Shell "grep -w '" & Finfosys.ComboBox3.Text & "' /proc/mounts | awk {'print $3'}" Wait To filesystem_type
   filesystem_type = Replace(Replace(filesystem_type, " ", ""), "\n", "")
-  If mount_widtch = Null Then
-  Shell "grep '" & device_uuid & "' /proc/mounts | awk {'print $4'}" Wait To mount_widtch
+
+  If mount_widtch = Null And device_uuid Not Null Then
+  Shell "grep -w '" & device_uuid & "' /proc/mounts | awk {'print $4'}" Wait To mount_widtch
   Endif
+  
+  
   mount_widtch = Replace(mount_widtch, "\n", "")
-  If filesystem_type = Null Then
-  Shell "grep '" & device_uuid & "' /proc/mounts | awk {'print $3'}" Wait To filesystem_type
+  
+  
+  If filesystem_type = Null And device_uuid Not Null Then
+  Shell "grep -w '" & device_uuid & "' /proc/mounts | awk {'print $3'}" Wait To filesystem_type
   Endif
+  
   filesystem_type = Replace(Replace(filesystem_type, " ", ""), "\n", "")
+  
   If device_uuid = Null Then
   filesystem_type = Null
   Endif
+  
   If mount_point Like "*Mounted on*" Then 
-  Shell "LC_ALL=C df | grep '" & Finfosys.ComboBox4.Text & "' | awk {'print $6, $7'} | sed -n '1p'" Wait To mount_point
+  Shell "LC_ALL=C df | grep -w '" & Finfosys.ComboBox4.Text & "' | awk {'print $6, $7'} | sed -n '1p'" Wait To mount_point
   Endif
   mount_point = Replace(mount_point, "\n", "")
 End
