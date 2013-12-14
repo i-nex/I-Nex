@@ -734,6 +734,7 @@
       #Public = True
       #Translate = False
       Tracking = True
+      Label = False
     }
     { TextBox48 TextBox
       Move(98,70,364,28)
@@ -855,6 +856,10 @@
       Move(385,0,49,28)
       Visible = False
       Text = ("udisks")
+    }
+    { Label122 Label
+      Move(7,175,455,14)
+      ToolTip = ("used space on the partition")
     }
     Index = 5
     Text = ("System")
