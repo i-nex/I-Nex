@@ -1,14 +1,14 @@
 # Gambas Form File 3.0
 
 { Form Form
-  MoveScaled(0,0,64,64)
+  MoveScaled(0,0,70,75)
   #Translate = False
   Expand = True
   Text = "Modules information"
   Icon = Picture["logo/i-nex.0.4.x.png"]
   Resizable = False
   { HBox1 HBox
-    MoveScaled(0,0,64,4)
+    MoveScaled(0,0,70,4)
     { ComboBox1 ComboBox
       MoveScaled(0,0,24,4)
       Expand = True
@@ -16,7 +16,7 @@
     }
   }
   { HBox3 HBox
-    MoveScaled(0,5,64,54)
+    MoveScaled(0,4,70,67)
     { TextArea1 TextArea
       MoveScaled(0,0,11,11)
       Expand = True
@@ -24,7 +24,7 @@
     }
   }
   { HBox2 HBox
-    MoveScaled(0,60,64,4)
+    MoveScaled(0,71,70,4)
     { Button1 Button
       MoveScaled(0,0,16,4)
       Expand = True

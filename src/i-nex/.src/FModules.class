@@ -18,6 +18,7 @@ Public Sub Form_Open()
  Else
   Me.Close
  Endif
+ Me.Center
 End
 
 Public Sub ComboBox1_Click()
