@@ -8,6 +8,7 @@ Public Sub Form_Open()
   Dim cpuz0, cpuz1, cpuz2, cpuz3, cpuz4, cpuz5, cpuz6, cpuz7, cpuz8, cpuz9, cpuz10, cpuz11 As String
   If User.Name = "root" Then
     Message.Error(("Running as root is not allowed!"))
+    Me.Close
   Endif
   Finfosys.TabStrip1[9].Visible = False
   Debug "Settings default dir = " & Settings.DefaultDir & ""
