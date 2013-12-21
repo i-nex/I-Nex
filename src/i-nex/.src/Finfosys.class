@@ -166,16 +166,38 @@ Public Sub dzwiek()
 End
 
 Public Sub bios()
-  Exec ["cat", "/sys/devices/virtual/dmi/id/board_vendor"] Wait To TextBox23.Text
-  Exec ["cat", "/sys/devices/virtual/dmi/id/board_name"] Wait To TextBox24.Text
-  Exec ["cat", "/sys/devices/virtual/dmi/id/bios_vendor"] Wait To TextBox25.Text
-  Exec ["cat", "/sys/devices/virtual/dmi/id/bios_date"] Wait To TextBox27.Text
-  Exec ["cat", "/sys/devices/virtual/dmi/id/bios_version"] Wait To TextBox26.Text
-  TextBox23.Text = Replace(TextBox23.Text, "\n", "")
-  TextBox24.Text = Replace(TextBox24.Text, "\n", "")
-  TextBox25.Text = Replace(TextBox25.Text, "\n", "")
-  TextBox26.Text = Replace(TextBox26.Text, "\n", "")
-  TextBox27.Text = Replace(TextBox27.Text, "\n", "")
+  Exec ["cat", "/sys/devices/virtual/dmi/id/board_vendor"] Wait To TextLabel1.Text
+  Exec ["cat", "/sys/devices/virtual/dmi/id/board_version"] Wait To TextLabel2.Text
+  Exec ["cat", "/sys/devices/virtual/dmi/id/board_name"] Wait To TextLabel3.Text
+  Exec ["cat", "/sys/devices/virtual/dmi/id/board_asset_tag"] Wait To TextLabel4.Text
+  
+  Exec ["cat", "/sys/devices/virtual/dmi/id/bios_vendor"] Wait To TextLabel5.Text
+  Exec ["cat", "/sys/devices/virtual/dmi/id/bios_version"] Wait To TextLabel6.Text
+  Exec ["cat", "/sys/devices/virtual/dmi/id/bios_date"] Wait To TextLabel7.Text
+  
+  Exec ["cat", "/sys/devices/virtual/dmi/id/chassis_vendor"] Wait To TextLabel8.Text
+  Exec ["cat", "/sys/devices/virtual/dmi/id/chassis_version"] Wait To TextLabel9.Text
+  Exec ["cat", "/sys/devices/virtual/dmi/id/chassis_type"] Wait To TextLabel10.Text
+  Exec ["cat", "/sys/devices/virtual/dmi/id/chassis_asset_tag"] Wait To TextLabel11.Text
+  
+  Exec ["cat", "/sys/devices/virtual/dmi/id/product_name"] Wait To TextLabel12.Text
+  Exec ["cat", "/sys/devices/virtual/dmi/id/product_version"] Wait To TextLabel13.Text
+  TextLabel1.Text = "Board Vendor:   " & Replace(TextLabel1.Text, "\n", "")
+  TextLabel2.Text = "Board Version:   " & Replace(TextLabel2.Text, "\n", "")
+  TextLabel3.Text = "Board Name:   " & Replace(TextLabel3.Text, "\n", "")
+  TextLabel4.Text = "Board Asset Tag:  " & Replace(TextLabel4.Text, "\n", "")
+  
+  TextLabel5.Text = "Bios Vendor:   " & Replace(TextLabel5.Text, "\n", "")
+  TextLabel6.Text = "Bios Version:   " & Replace(TextLabel6.Text, "\n", "")
+  TextLabel14.Text = "Bios Date:   " & Replace(TextLabel7.Text, "\n", "")
+  
+  TextLabel8.Text = "Chassis Vendor:   " & Replace(TextLabel8.Text, "\n", "")
+  TextLabel9.Text = "Chassis Version:   " & Replace(TextLabel9.Text, "\n", "")
+  TextLabel10.Text = "Chassis Type:   " & Replace(TextLabel10.Text, "\n", "")
+  TextLabel11.Text = "Chassis Asset Tag:   " & Replace(TextLabel11.Text, "\n", "")
+  
+  TextLabel12.Text = "Product Name:   " & Replace(TextLabel12.Text, "\n", "")
+  TextLabel13.Text = "Product Version:   " & Replace(TextLabel13.Text, "\n", "")
 End
 
 Public Sub System()
