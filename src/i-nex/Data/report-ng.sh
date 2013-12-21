@@ -17,7 +17,20 @@
 # distroshortname:/path/to/version/file
 # (generic:/etc/issue should be the LAST entry in the list, as this is the fallback)
 
-distros="lsb-release:/etc/lsb-release vector:/etc/vector-version slackware:/etc/slackware-version debian:/etc/debian_version redhat:/etc/redhat-release arch:/etc/arch-release SuSE:/etc/SuSE-release gentoo:/etc/gentoo-release conectiva:/etc/conectiva-release mandriva:/etc/mandriva-release mandrake:/etc/mandrake-release pardus:/etc/pardus-release kanotix:/etc/kanotix-release generic-undetected:/etc/issue"
+distros="lsb-release:/etc/lsb-release \
+	 vector:/etc/vector-version \
+	 slackware:/etc/slackware-version \
+	 debian:/etc/debian_version \
+	 redhat:/etc/redhat-release \
+	 arch:/etc/arch-release \
+	 SuSE:/etc/SuSE-release \
+	 gentoo:/etc/gentoo-release \
+	 conectiva:/etc/conectiva-release \
+	 mandriva:/etc/mandriva-release \
+	 mandrake:/etc/mandrake-release \
+	 pardus:/etc/pardus-release \
+	 kanotix:/etc/kanotix-release \
+	 generic-undetected:/etc/issue"
 
 for distro in $distros
 do
