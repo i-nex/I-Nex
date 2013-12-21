@@ -861,6 +861,90 @@
       Move(7,175,455,14)
       ToolTip = ("used space on the partition")
     }
+    { Label123 Label
+      Move(7,399,147,21)
+      Font = Font["Bold,8"]
+      Padding = 3
+      Text = ("Label123")
+      Border = Border.Plain
+    }
+    { Label124 Label
+      Move(7,420,147,21)
+      Font = Font["Bold,8"]
+      Padding = 3
+      Text = ("Label124")
+      Border = Border.Plain
+    }
+    { Label125 Label
+      Move(154,420,308,21)
+      Font = Font["Bold,8"]
+      Padding = 3
+      Text = ("Label125")
+      Border = Border.Plain
+    }
+    { Label126 Label
+      Move(7,336,147,21)
+      Font = Font["Bold,8"]
+      Padding = 3
+      Text = ("Label126")
+      Border = Border.Plain
+    }
+    { Label127 Label
+      Move(154,336,147,21)
+      Font = Font["Bold,8"]
+      Padding = 3
+      Text = ("Label127")
+      Border = Border.Plain
+    }
+    { Label128 Label
+      Move(301,336,161,21)
+      Font = Font["Bold,8"]
+      Padding = 3
+      Text = ("Label128")
+      Border = Border.Plain
+    }
+    { Label129 Label
+      Move(7,357,147,21)
+      Font = Font["Bold,8"]
+      Padding = 3
+      Text = ("Label129")
+      Border = Border.Plain
+    }
+    { Label130 Label
+      Move(154,357,147,21)
+      Font = Font["Bold,8"]
+      Padding = 3
+      Text = ("Label130")
+      Border = Border.Plain
+    }
+    { Label131 Label
+      Move(301,357,161,21)
+      Font = Font["Bold,8"]
+      Padding = 3
+      Text = ("Label131")
+      Border = Border.Plain
+    }
+    { Label132 Label
+      Move(7,378,147,21)
+      Font = Font["Bold,8"]
+      Padding = 3
+      Text = ("Label132")
+      Border = Border.Plain
+    }
+    { Label133 Label
+      Move(154,378,147,21)
+      Font = Font["Bold,8"]
+      Padding = 3
+      Text = ("Label133")
+      Border = Border.Plain
+    }
+    { Label134 Label
+      Move(301,378,161,21)
+      Font = Font["Bold,8"]
+      Padding = 3
+      Text = ("Label134")
+      Border = Border.Plain
+    }
     Index = 5
     Text = ("System")
     { Button5 Button
@@ -902,63 +986,64 @@
       Border = Border.Plain
     }
     { Label136 Label
-      Move(7,196,455,21)
+      Move(7,196,231,21)
       #Translate = False
       Font = Font["Bold,8"]
       Text = "Label136"
       Border = Border.Plain
     }
     { Label137 Label
-      Move(7,217,455,21)
+      Move(7,217,231,21)
       #Translate = False
       Font = Font["Bold,8"]
       Text = "Label137"
       Border = Border.Plain
     }
     { Label138 Label
-      Move(7,238,455,21)
+      Move(7,238,231,21)
       #Translate = False
       Font = Font["Bold,8"]
       Text = "Label138"
       Border = Border.Plain
     }
     { Label139 Label
-      Move(7,259,455,21)
+      Move(7,259,231,21)
       #Translate = False
       Font = Font["Bold,8"]
       Text = "Label139"
       Border = Border.Plain
     }
     { Label140 Label
-      Move(7,280,455,21)
+      Move(7,280,231,21)
       #Translate = False
       Font = Font["Bold,8"]
       Text = "Label140"
       Border = Border.Plain
     }
     { Label141 Label
-      Move(7,301,455,21)
+      Move(7,301,231,21)
       #Translate = False
       Font = Font["Bold,8"]
       Text = "Label141"
       Border = Border.Plain
     }
     { Label142 Label
-      Move(7,322,455,21)
+      Move(7,322,231,21)
       #Translate = False
       Font = Font["Bold,8"]
       Text = "Label142"
       Border = Border.Plain
     }
     { Label143 Label
-      Move(7,343,455,21)
+      Move(7,385,455,21)
       #Translate = False
+      Visible = False
       Font = Font["Bold,8"]
       Text = "Label143"
       Border = Border.Plain
     }
     { Label144 Label
-      Move(7,364,455,21)
+      Move(7,343,231,21)
       #Translate = False
       Font = Font["Bold,8"]
       Text = "Label144"
@@ -969,7 +1054,7 @@
       Stretch = True
     }
     { Label145 Label
-      Move(7,385,455,21)
+      Move(7,364,231,21)
       #Translate = False
       Font = Font["Bold,8"]
       Text = "Label145"

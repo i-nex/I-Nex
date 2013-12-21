@@ -181,6 +181,9 @@ End
 Public Sub System()
   Dim hostname, arch, gcc, timezone, xorg_version, glx_version, gnumake As String
   Shell "cat /etc/timezone || grep ^TIMEZONE= /etc/sysconfig/clock | cut -d '=' -f 2" Wait To timezone
+  If timezone = Null Or "" Then
+    Shell "timedatectl status | grep Timezone: |awk '{print $2}'" Wait To timezone
+  Endif
   hostname = System.Host
   arch = System.Architecture
   Shell "gcc -dumpversion" Wait To gcc
@@ -496,6 +499,20 @@ Public Sub refreshing()
  Label57.Text = "Max segment size: " & Disk_Drives.max_segment_size & ""
  Label58.Text = "Read ahead kb: " & Disk_Drives.read_ahead_kb & ""
  Label59.Text = "Scheduler: " & Disk_Drives.scheduler & ""
+ 
+Label126.Text = "logical_block_size: " & Disk_Drives.logical_block_size & "" ' logical_block_size
+Label127.Text = "iostats: " & Disk_Drives.iostats & "" ' iostats
+Label128.Text = "minimum_io_size: " & Disk_Drives.minimum_io_size & "" ' minimum_io_size
+Label129.Text = "nomerges: " & Disk_Drives.nomerges & "" ' nomerges
+Label130.Text = "nr_requests: " & Disk_Drives.nr_requests & "" ' nr_requests
+Label131.Text = "optimal_io_size: " & Disk_Drives.optimal_io_size & "" ' optimal_io_size
+Label132.Text = "physical_block_size: " & Disk_Drives.physical_block_size & "" ' physical_block_size
+Label133.Text = "rotational: " & Disk_Drives.rotational & "" ' rotational
+Label134.Text = "rq_affinity: " & Disk_Drives.rq_affinity & "" ' rq_affinity
+ 
+ Label123.Text = "BDI max_ratio: " & Disk_Drives.max_ratio & "" 
+ Label124.Text = "BDI min_ratio: " & Disk_Drives.min_ratio & "" 
+ Label125.Text = "BDI stable_pages_required: " & Disk_Drives.stable_pages_required & "" 
  
  If Disk_Drives.removable Like "0" Then
  Label45.Text = "Removable: No"
