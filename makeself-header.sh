@@ -2,16 +2,21 @@ cat << EOF  > "$archname"
 #!/bin/sh
 # This script was generated using Makeself $MS_VERSION
 
+umask 077
+
 CRCsum="$CRCsum"
 MD5="$MD5sum"
 TMPROOT=\${TMPDIR:=/tmp}
+USER_PWD="\$PWD"; export USER_PWD
 
 label="$LABEL"
 script="$SCRIPT"
 scriptargs="$SCRIPTARGS"
+licensetxt="$LICENSE"
 targetdir="$archdirname"
 filesizes="$filesizes"
-keep=$KEEP
+keep="$KEEP"
+quiet="n"
 
 print_cmd_arg=""
 if type printf > /dev/null; then
@@ -29,11 +34,23 @@ MS_Printf()
     \$print_cmd \$print_cmd_arg "\$1"
 }
 
-MS_Progress()
+MS_PrintLicense()
 {
-    while read a; do
-	MS_Printf .
+  if test x"\$licensetxt" != x; then
+    echo \$licensetxt
+    while true
+    do
+      MS_Printf "Please type y to accept, n otherwise: "
+      read yn
+      if test x"\$yn" = xn; then
+        keep=n
+ 	eval \$finish; exit 1        
+        break;    
+      elif test x"\$yn" = xy; then
+        break;
+      fi
     done
+  fi
 }
 
 MS_diskspace()
@@ -42,7 +59,7 @@ MS_diskspace()
 	if test -d /usr/xpg4/bin; then
 		PATH=/usr/xpg4/bin:\$PATH
 	fi
-	df -kP "\$1" | tail -1 | awk '{print \$4}'
+	df -kP "\$1" | tail -1 | awk '{ if (\$4 ~ /%/) {print \$3} else {print \$4} }'
 	)
 }
 
@@ -53,6 +70,50 @@ MS_dd()
     dd if="\$1" ibs=\$2 skip=1 obs=1024 conv=sync 2> /dev/null | \\
     { test \$blocks -gt 0 && dd ibs=1024 obs=1024 count=\$blocks ; \\
       test \$bytes  -gt 0 && dd ibs=1 obs=1024 count=\$bytes ; } 2> /dev/null
+}
+
+MS_dd_Progress()
+{
+    if test "\$noprogress" = "y"; then
+        MS_dd \$@
+        return \$?
+    fi
+    file="\$1"
+    offset=\$2
+    length=\$3
+    pos=0
+    bsize=4194304
+    while test \$bsize -gt \$length; do
+        bsize=\`expr \$bsize / 4\`
+    done
+    blocks=\`expr \$length / \$bsize\`
+    bytes=\`expr \$length % \$bsize\`
+    (
+        dd bs=\$offset count=0 skip=1 2>/dev/null
+        pos=\`expr \$pos \+ \$bsize\`
+        MS_Printf "     0%% " 1>&2
+        if test \$blocks -gt 0; then
+            while test \$pos -le \$length; do
+                dd bs=\$bsize count=1 2>/dev/null
+                pcent=\`expr \$length / 100\`
+                pcent=\`expr \$pos / \$pcent\`
+                if test \$pcent -lt 100; then
+                    MS_Printf "\b\b\b\b\b\b\b" 1>&2
+                    if test \$pcent -lt 10; then
+                        MS_Printf "    \$pcent%% " 1>&2
+                    else
+                        MS_Printf "   \$pcent%% " 1>&2
+                    fi
+                fi
+                pos=\`expr \$pos \+ \$bsize\`
+            done
+        fi
+        if test \$bytes -gt 0; then
+            dd bs=\$bytes count=1 2>/dev/null
+        fi
+        MS_Printf "\b\b\b\b\b\b\b" 1>&2
+        MS_Printf " 100%%  " 1>&2
+    ) < "\$file"
 }
 
 MS_Help()
@@ -70,12 +131,15 @@ Makeself version $MS_VERSION
   \$0 [options] [--] [additional arguments to embedded script]
   with following options (in that order)
   --confirm             Ask before running embedded script
+  --quiet		Do not print anything except error messages
   --noexec              Do not run embedded script
   --keep                Do not erase target directory after running
 			the embedded script
+  --noprogress          Do not show the progress during the decompression
   --nox11               Do not spawn an xterm
   --nochown             Do not give the extracted files to the current user
-  --target NewDirectory Extract in NewDirectory
+  --target dir          Extract directly to a target directory
+                        directory path can be either absolute or relative
   --tar arg1 [arg2 ...] Access the contents of the archive through the tar command
   --                    Following arguments will be passed to the embedded script
 EOH
@@ -91,7 +155,9 @@ MS_Check()
 	test -x "\$MD5_PATH" || MD5_PATH=\`exec <&- 2>&-; which digest || type digest\`
     PATH="\$OLD_PATH"
 
-    MS_Printf "Verifying archive integrity..."
+    if test "\$quiet" = "n";then
+    	MS_Printf "Verifying archive integrity..."
+    fi
     offset=\`head -n $SKIP "\$1" | wc -c | tr -d " "\`
     verb=\$2
     i=1
@@ -123,23 +189,31 @@ MS_Check()
 			if test "\$sum1" = "\$crc"; then
 				test x\$verb = xy && MS_Printf " CRC checksums are OK." >&2
 			else
-				echo "Error in checksums: \$sum1 is different from \$crc"
+				echo "Error in checksums: \$sum1 is different from \$crc" >&2
 				exit 2;
 			fi
 		fi
 		i=\`expr \$i + 1\`
 		offset=\`expr \$offset + \$s\`
     done
-    echo " All good."
+    if test "\$quiet" = "n";then
+    	echo " All good."
+    fi
 }
 
 UnTAR()
 {
-    tar \$1vf - 2>&1 || { echo Extraction failed. > /dev/tty; kill -15 \$$; }
+    if test "\$quiet" = "n"; then
+    	tar \$1vf - 2>&1 || { echo Extraction failed. > /dev/tty; kill -15 \$$; }
+    else
+
+    	tar \$1f - 2>&1 || { echo Extraction failed. > /dev/tty; kill -15 \$$; }
+    fi
 }
 
 finish=true
 xterm_loop=
+noprogress=$NOPROGRESS
 nox11=$NOX11
 copy=$COPY
 ownership=y
@@ -153,6 +227,11 @@ do
     -h | --help)
 	MS_Help
 	exit 0
+	;;
+    -q | --quiet)
+	quiet=y
+	noprogress=y
+	shift
 	;;
     --info)
 	echo Identification: "\$label"
@@ -211,7 +290,7 @@ EOLSM
 	--tar)
 	offset=\`head -n $SKIP "\$0" | wc -c | tr -d " "\`
 	arg1="\$2"
-	shift 2
+    if ! shift 2; then MS_Help; exit 1; fi
 	for s in \$filesizes
 	do
 	    MS_dd "\$0" \$offset \$s | eval "$GUNZIP_CMD" | tar "\$arg1" - \$*
@@ -238,7 +317,11 @@ EOLSM
     --target)
 	keep=y
 	targetdir=\${2:-.}
-	shift 2
+    if ! shift 2; then MS_Help; exit 1; fi
+	;;
+    --noprogress)
+	noprogress=y
+	shift
 	;;
     --nox11)
 	nox11=y
@@ -269,6 +352,13 @@ EOLSM
 	break ;;
     esac
 done
+
+if test "\$quiet" = "y" -a "\$verbose" = "y";then
+	echo Cannot be verbose and quiet at the same time. >&2
+	exit 1
+fi
+
+MS_PrintLicense
 
 case "\$copy" in
 copy)
@@ -317,7 +407,9 @@ if test "\$targetdir" = "."; then
     tmpdir="."
 else
     if test "\$keep" = y; then
-	echo "Creating directory \$targetdir" >&2
+	if test "\$quiet" = "n";then
+	    echo "Creating directory \$targetdir" >&2
+	fi
 	tmpdir="\$targetdir"
 	dashp="-p"
     else
@@ -326,7 +418,7 @@ else
     fi
     mkdir \$dashp \$tmpdir || {
 	echo 'Cannot create target directory' \$tmpdir >&2
-	echo 'You should try option --target OtherDirectory' >&2
+	echo 'You should try option --target dir' >&2
 	eval \$finish
 	exit 1
     }
@@ -346,36 +438,42 @@ if test x"\$verbose" = xy; then
 	fi
 fi
 
-MS_Printf "Uncompressing \$label"
+if test "\$quiet" = "n";then
+	MS_Printf "Uncompressing \$label"
+fi
 res=3
 if test "\$keep" = n; then
     trap 'echo Signal caught, cleaning up >&2; cd \$TMPROOT; /bin/rm -rf \$tmpdir; eval \$finish; exit 15' 1 2 3 15
 fi
 
 leftspace=\`MS_diskspace \$tmpdir\`
-if test \$leftspace -lt $USIZE; then
-    echo
-    echo "Not enough space left in "\`dirname \$tmpdir\`" (\$leftspace KB) to decompress \$0 ($USIZE KB)" >&2
-    if test "\$keep" = n; then
-        echo "Consider setting TMPDIR to a directory with more free space."
-   fi
-    eval \$finish; exit 1
+if test -n "\$leftspace"; then
+    if test "\$leftspace" -lt $USIZE; then
+        echo
+        echo "Not enough space left in "\`dirname \$tmpdir\`" (\$leftspace KB) to decompress \$0 ($USIZE KB)" >&2
+        if test "\$keep" = n; then
+            echo "Consider setting TMPDIR to a directory with more free space."
+        fi
+        eval \$finish; exit 1
+    fi
 fi
 
 for s in \$filesizes
 do
-    if MS_dd "\$0" \$offset \$s | eval "$GUNZIP_CMD" | ( cd "\$tmpdir"; UnTAR x ) | MS_Progress; then
+    if MS_dd_Progress "\$0" \$offset \$s | eval "$GUNZIP_CMD" | ( cd "\$tmpdir"; UnTAR x ) 1>/dev/null; then
 		if test x"\$ownership" = xy; then
 			(PATH=/usr/xpg4/bin:\$PATH; cd "\$tmpdir"; chown -R \`id -u\` .;  chgrp -R \`id -g\` .)
 		fi
     else
-		echo
+		echo >&2
 		echo "Unable to decompress \$0" >&2
 		eval \$finish; exit 1
     fi
     offset=\`expr \$offset + \$s\`
 done
-echo
+if test "\$quiet" = "n";then
+	echo
+fi
 
 cd "\$tmpdir"
 res=0

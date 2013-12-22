@@ -1,9 +1,7 @@
 #!/bin/sh
 #
-# Makeself version 2.1.x
+# Makeself version 2.2.x
 #  by Stephane Peter <megastep@megastep.org>
-#
-# $Id: makeself.sh,v 1.64 2008/01/04 23:52:14 megastep Exp $
 #
 # Utility to create self-extracting tar.gz archives.
 # The resulting archive is a file holding the tar.gz archive with
@@ -64,14 +62,18 @@
 #           Check for available disk space before extracting to the target directory (Andreas Schweitzer)
 #           Allow extraction to run asynchronously (patch by Peter Hatch)
 #           Use file descriptors internally to avoid error messages (patch by Kay Tiong Khoo)
+# - 2.1.6 : Replaced one dot per file progress with a realtime progress percentage and a spining cursor (Guy Baconniere)
+#           Added --noprogress to prevent showing the progress during the decompression (Guy Baconniere)
+#           Added --target dir to allow extracting directly to a target directory (Guy Baconniere)
+# - 2.2.0 : Many bugfixes, updates and contributions from users. Check out the project page on Github for the details.
 #
-# (C) 1998-2008 by Stéphane Peter <megastep@megastep.org>
+# (C) 1998-2013 by Stephane Peter <megastep@megastep.org>
 #
 # This software is released under the terms of the GNU GPL version 2 and above
 # Please read the license at http://www.gnu.org/copyleft/gpl.html
 #
 
-MS_VERSION=2.1.5
+MS_VERSION=2.2.0
 MS_COMMAND="$0"
 unset CDPATH
 
@@ -84,13 +86,18 @@ done
 
 MS_Usage()
 {
-    echo "Usage: $0 [params] archive_dir file_name label [startup_script] [args]"
+    echo "Usage: $0 [params] archive_dir file_name label startup_script [args]"
     echo "params can be one or more of the following :"
     echo "    --version | -v  : Print out Makeself version number and exit"
     echo "    --help | -h     : Print out this help message"
+    echo "    --quiet | -q    : Do not print any messages other than errors."
     echo "    --gzip          : Compress using gzip (default if detected)"
     echo "    --bzip2         : Compress using bzip2 instead of gzip"
+    echo "    --pbzip2        : Compress using pbzip2 instead of gzip"
+    echo "    --xz            : Compress using xz instead of gzip"
     echo "    --compress      : Compress using the UNIX 'compress' command"
+    echo "    --complevel lvl : Compression level for gzip xz bzip2 and pbzip2 (default 9)"
+    echo "    --base64        : Instead of compressing, encode the data using base64"
     echo "    --nocomp        : Do not compress the data"
     echo "    --notemp        : The archive will create archive_dir in the"
     echo "                      current directory and uncompress in ./archive_dir"
@@ -98,16 +105,21 @@ MS_Usage()
     echo "                      a temporary directory"
     echo "    --append        : Append more files to an existing Makeself archive"
     echo "                      The label and startup scripts will then be ignored"
-    echo "    --current       : Files will be extracted to the current directory."
-    echo "                      Implies --notemp."
+    echo "    --target dir    : Extract directly to a target directory"
+    echo "                      directory path can be either absolute or relative"
+    echo "    --current       : Files will be extracted to the current directory"
+    echo "                      Both --current and --target imply --notemp"
+    echo "    --tar-extra opt : Append more options to the tar command line"
     echo "    --nomd5         : Don't calculate an MD5 for archive"
     echo "    --nocrc         : Don't calculate a CRC for archive"
     echo "    --header file   : Specify location of the header script"
     echo "    --follow        : Follow the symlinks in the archive"
+    echo "    --noprogress    : Do not show the progress during the decompression"
     echo "    --nox11         : Disable automatic spawn of a xterm"
     echo "    --nowait        : Do not wait for user input after executing embedded"
     echo "                      program from an xterm"
     echo "    --lsm file      : LSM file describing the package"
+    echo "    --license file  : Append a license file"
     echo
     echo "Do not forget to give a fully qualified startup script name"
     echo "(i.e. with a ./ prefix if inside the archive)."
@@ -120,13 +132,19 @@ if type gzip 2>&1 > /dev/null; then
 else
     COMPRESS=Unix
 fi
+COMPRESS_LEVEL=9
 KEEP=n
 CURRENT=n
 NOX11=n
 APPEND=n
+QUIET=n
+NOPROGRESS=n
 COPY=none
 TAR_ARGS=cvf
-HEADER=`dirname $0`/makeself-header.sh
+TAR_EXTRA=""
+DU_ARGS=-ks
+HEADER=`dirname "$0"`/makeself-header.sh
+TARGETDIR=""
 
 # LSM file stuff
 LSM_CMD="echo No LSM. >> \"\$archname\""
@@ -138,6 +156,10 @@ do
 	echo Makeself version $MS_VERSION
 	exit 0
 	;;
+    --pbzip2)
+	COMPRESS=pbzip2
+	shift
+	;;
     --bzip2)
 	COMPRESS=bzip2
 	shift
@@ -146,8 +168,16 @@ do
 	COMPRESS=gzip
 	shift
 	;;
+    --xz)
+	COMPRESS=xz
+	shift
+	;;
     --compress)
 	COMPRESS=Unix
+	shift
+	;;
+    --base64)
+	COMPRESS=base64
 	shift
 	;;
     --encrypt)
@@ -157,6 +187,10 @@ do
     --nocomp)
 	COMPRESS=none
 	shift
+	;;
+    --complevel)
+	COMPRESS_LEVEL="$2"
+	if ! shift 2; then MS_Help; exit 1; fi
 	;;
     --notemp)
 	KEEP=y
@@ -171,12 +205,30 @@ do
 	KEEP=y
 	shift
 	;;
+    --tar-extra)
+	TAR_EXTRA="$2"
+	if ! shift 2; then MS_Help; exit 1; fi
+        ;;
+    --target)
+	TARGETDIR="$2"
+	KEEP=y
+    if ! shift 2; then MS_Help; exit 1; fi
+	;;
     --header)
 	HEADER="$2"
-	shift 2
+    if ! shift 2; then MS_Help; exit 1; fi
 	;;
+    --license)
+    LICENSE=`cat $2`
+    if ! shift 2; then MS_Help; exit 1; fi
+    ;;
     --follow)
 	TAR_ARGS=cvfh
+	DU_ARGS=-ksL
+	shift
+	;;
+    --noprogress)
+	NOPROGRESS=y
 	shift
 	;;
     --nox11)
@@ -200,7 +252,11 @@ do
 	;;
     --lsm)
 	LSM_CMD="cat \"$2\" >> \"\$archname\""
-	shift 2
+    if ! shift 2; then MS_Help; exit 1; fi
+	;;
+    -q | --quiet)
+	QUIET=y
+	shift
 	;;
     -h | --help)
 	MS_Usage
@@ -221,11 +277,19 @@ else
 	if test -d "$1"; then
 		archdir="$1"
 	else
-		echo "Directory $1 does not exist."
+		echo "Directory $1 does not exist." >&2
 		exit 1
 	fi
 fi
 archname="$2"
+
+if test "$QUIET" = "y"; then
+    if test "$TAR_ARGS" = "cvf"; then
+	TAR_ARGS="cf"
+    elif test "$TAR_ARGS" = "cvfh";then
+	TAR_ARGS="cfh"
+    fi
+fi
 
 if test "$APPEND" = y; then
     if test $# -lt 2; then
@@ -243,12 +307,14 @@ if test "$APPEND" = y; then
 else
     if test "$KEEP" = n -a $# = 3; then
 	echo "ERROR: Making a temporary archive with no embedded command does not make sense!" >&2
-	echo
+	echo >&2
 	MS_Usage
     fi
-    # We don't really want to create an absolute directory...
+    # We don't want to create an absolute directory unless a target directory is defined
     if test "$CURRENT" = y; then
 	archdirname="."
+    elif test x$TARGETDIR != x; then
+	archdirname="$TARGETDIR"
     else
 	archdirname=`basename "$1"`
     fi
@@ -271,15 +337,27 @@ fi
 
 case $COMPRESS in
 gzip)
-    GZIP_CMD="gzip -c9"
+    GZIP_CMD="gzip -c$COMPRESS_LEVEL"
     GUNZIP_CMD="gzip -cd"
     ;;
-bzip2)
-    GZIP_CMD="bzip2 -9"
+pbzip2)
+    GZIP_CMD="pbzip2 -c$COMPRESS_LEVEL"
     GUNZIP_CMD="bzip2 -d"
     ;;
+bzip2)
+    GZIP_CMD="bzip2 -$COMPRESS_LEVEL"
+    GUNZIP_CMD="bzip2 -d"
+    ;;
+xz)
+    GZIP_CMD="xz -c$COMPRESS_LEVEL"
+    GUNZIP_CMD="xz -d"
+    ;;
+base64)
+    GZIP_CMD="base64"
+    GUNZIP_CMD="base64 -d -i"
+    ;;
 gpg)
-    GZIP_CMD="gpg -ac -z9"
+    GZIP_CMD="gpg -ac -z$COMPRESS_LEVEL"
     GUNZIP_CMD="gpg -d"
     ;;
 Unix)
@@ -294,17 +372,19 @@ esac
 
 tmpfile="${TMPDIR:=/tmp}/mkself$$"
 
-if test -f $HEADER; then
+if test -f "$HEADER"; then
 	oldarchname="$archname"
 	archname="$tmpfile"
 	# Generate a fake header to count its lines
 	SKIP=0
-    . $HEADER
+    . "$HEADER"
     SKIP=`cat "$tmpfile" |wc -l`
 	# Get rid of any spaces
 	SKIP=`expr $SKIP`
 	rm -f "$tmpfile"
-    echo Header is $SKIP lines long >&2
+    if test "$QUIET" = "n";then
+    	echo Header is $SKIP lines long >&2
+    fi
 
 	archname="$oldarchname"
 else
@@ -312,7 +392,9 @@ else
     exit 1
 fi
 
-echo
+if test "$QUIET" = "n";then 
+    echo
+fi
 
 if test "$APPEND" = n; then
     if test -f "$archname"; then
@@ -320,7 +402,7 @@ if test "$APPEND" = n; then
     fi
 fi
 
-USIZE=`du -ks $archdir | cut -f1`
+USIZE=`du $DU_ARGS "$archdir" | awk '{print $1}'`
 DATE=`LC_ALL=C date`
 
 if test "." = "$archdirname"; then
@@ -330,10 +412,12 @@ if test "." = "$archdirname"; then
 fi
 
 test -d "$archdir" || { echo "Error: $archdir does not exist."; rm -f "$tmpfile"; exit 1; }
-echo About to compress $USIZE KB of data...
-echo Adding files to archive named \"$archname\"...
+if test "$QUIET" = "n";then
+   echo About to compress $USIZE KB of data...
+   echo Adding files to archive named \"$archname\"...
+fi
 exec 3<> "$tmpfile"
-(cd "$archdir" && ( tar $TAR_ARGS - . | eval "$GZIP_CMD" >&3 ) ) || { echo Aborting: Archive directory not found or temporary file: "$tmpfile" could not be created.; exec 3>&-; rm -f "$tmpfile"; exit 1; }
+(cd "$archdir" && ( tar $TAR_EXTRA -$TAR_ARGS - . | eval "$GZIP_CMD" >&3 ) ) || { echo Aborting: Archive directory not found or temporary file: "$tmpfile" could not be created.; exec 3>&-; rm -f "$tmpfile"; exit 1; }
 exec 3>&- # try to close the archive
 
 fsize=`cat "$tmpfile" | wc -c | tr -d " "`
@@ -344,31 +428,41 @@ md5sum=00000000000000000000000000000000
 crcsum=0000000000
 
 if test "$NOCRC" = y; then
-	echo "skipping crc at user request"
+	if test "$QUIET" = "n";then
+		echo "skipping crc at user request"
+	fi
 else
 	crcsum=`cat "$tmpfile" | CMD_ENV=xpg4 cksum | sed -e 's/ /Z/' -e 's/	/Z/' | cut -dZ -f1`
-	echo "CRC: $crcsum"
+	if test "$QUIET" = "n";then
+		echo "CRC: $crcsum"
+	fi
 fi
 
 if test "$NOMD5" = y; then
-	echo "skipping md5sum at user request"
+	if test "$QUIET" = "n";then
+		echo "skipping md5sum at user request"
+	fi
 else
 	# Try to locate a MD5 binary
 	OLD_PATH=$PATH
 	PATH=${GUESS_MD5_PATH:-"$OLD_PATH:/bin:/usr/bin:/sbin:/usr/local/ssl/bin:/usr/local/bin:/opt/openssl/bin"}
 	MD5_ARG=""
 	MD5_PATH=`exec <&- 2>&-; which md5sum || type md5sum`
-	test -x $MD5_PATH || MD5_PATH=`exec <&- 2>&-; which md5 || type md5`
-	test -x $MD5_PATH || MD5_PATH=`exec <&- 2>&-; which digest || type digest`
+	test -x "$MD5_PATH" || MD5_PATH=`exec <&- 2>&-; which md5 || type md5`
+	test -x "$MD5_PATH" || MD5_PATH=`exec <&- 2>&-; which digest || type digest`
 	PATH=$OLD_PATH
-	if test `basename $MD5_PATH` = digest; then
-		MD5_ARG="-a md5"
-	fi
 	if test -x "$MD5_PATH"; then
+		if test `basename ${MD5_PATH}`x = digestx; then
+			MD5_ARG="-a md5"
+		fi
 		md5sum=`cat "$tmpfile" | eval "$MD5_PATH $MD5_ARG" | cut -b-32`;
-		echo "MD5: $md5sum"
+		if test "$QUIET" = "n";then
+			echo "MD5: $md5sum"
+		fi
 	else
-		echo "MD5: none, MD5 command not found"
+		if test "$QUIET" = "n";then
+			echo "MD5: none, MD5 command not found"
+		fi
 	fi
 fi
 
@@ -381,7 +475,7 @@ if test "$APPEND" = y; then
     MD5sum="$MD5sum $md5sum"
     USIZE=`expr $USIZE + $OLDUSIZE`
     # Generate the header
-    . $HEADER
+    . "$HEADER"
     # Append the original data
     tail -n +$OLDSKIP "$archname".bak >> "$archname"
     # Append the new data
@@ -389,19 +483,25 @@ if test "$APPEND" = y; then
 
     chmod +x "$archname"
     rm -f "$archname".bak
-    echo Self-extractible archive \"$archname\" successfully updated.
+    if test "$QUIET" = "n";then
+    	echo Self-extractable archive \"$archname\" successfully updated.
+    fi
 else
     filesizes="$fsize"
     CRCsum="$crcsum"
     MD5sum="$md5sum"
 
     # Generate the header
-    . $HEADER
+    . "$HEADER"
 
     # Append the compressed tar data after the stub
-    echo
+    if test "$QUIET" = "n";then
+    	echo
+    fi
     cat "$tmpfile" >> "$archname"
     chmod +x "$archname"
-    echo Self-extractible archive \"$archname\" successfully created.
+    if test "$QUIET" = "n";then
+    	echo Self-extractable archive \"$archname\" successfully created.
+    fi
 fi
 rm -f "$tmpfile"
