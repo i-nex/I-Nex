@@ -99,7 +99,11 @@ self:
 	install -m 0775 install-self-inex inex/install-self-inex
 	chmod +x inex/install-self
 	chmod +x inex/install-self-inex
-	./makeself.sh --nowait --nox11 ./inex i-nex.run I-Nex ./install-self
+	./makeself.sh --nowait --xz --complevel 9 ./inex i-nex.xz.run I-Nex ./install-self
+	./makeself.sh --nowait --gzip --complevel 9 ./inex i-nex.gzip.run I-Nex ./install-self
+	./makeself.sh --nowait --bzip2 --complevel 9 ./inex i-nex.bzip2.run I-Nex ./install-self
+	./makeself.sh --nowait --pbzip2 --complevel 9 ./inex i-nex.pbzip2.run I-Nex ./install-self
+	./makeself.sh --nowait --compress --complevel 9 ./inex i-nex.unixcompress.run I-Nex ./install-self
 clean:
 	rm -f inex-edid
 	rm -Rf `find . -name ".gambas"`
