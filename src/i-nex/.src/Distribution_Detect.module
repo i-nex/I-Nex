@@ -1,17 +1,6 @@
 ' Gambas module file
 
 Public Sub _init()
-
- If Exist("~/.i-nex/report-ng.sh") Then
-  Shell "rm ~/.i-nex/report-ng.sh" Wait
- Endif
- If Exist("~/.i-nex") Then
-  Print "i-nex in home folder is exist"
- Else
-  Shell "mkdir -p ~/.i-nex/" Wait
- Endif
- Copy "Data/report-ng.sh" To User.Home &/ ".i-nex/report-ng.sh"
- Shell "/bin/bash ~/.i-nex/report-ng.sh" Wait
  
  Select Case File.Load("" & User.Home & "/.i-nex/DistributionVendor.conf")
   Case Like "*LinuxMint*"

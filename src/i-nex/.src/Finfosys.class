@@ -11,6 +11,8 @@ Public Sub Form_Open()
     Me.Close
   Endif
   Finfosys.TabStrip1[9].Visible = False
+  Debug ""
+  Object.Call(MInit, "_init")
   Debug "Settings default dir = " & Settings.DefaultDir & ""
   Button14.Visible = ChkPrm.ChkExec("udisks")
   Debug "Check for Battery"
@@ -226,6 +228,21 @@ Public Sub System()
   Label135.Text = "Distro Release: " & Replace(Replace(Replace(File.Load("" & User.Home & "/.i-nex/DistributionRelease.conf"), "\n", ""), " ", ""), "\n", "")
   Label144.Text = Replace(File.Load("" & User.Home & "/.i-nex/Binutils.conf"), "\n", "")
   Label145.Text = "Linux C Library: " & Replace(File.Load("" & User.Home & "/.i-nex/Lnxclib.conf"), "\n", "")
+  Label37.Text = "Desktop environment: " & Replace(File.Load("" & User.Home & "/.i-nex/DE.conf"), "\n", "")
+  Label60.Text = "Window manager: " & Replace(Replace(Replace(File.Load("" & User.Home & "/.i-nex/WM.conf"), "\n", ""), " ", ""), "\n", "")
+  Label61.Text = "Window manager Theme: " & Replace(Replace(Replace(File.Load("" & User.Home & "/.i-nex/Win_theme.conf"), "\n", ""), " ", ""), "\n", "")
+  Label62.Text = "GTK+ 2 Theme: " & Replace(Replace(Replace(File.Load("" & User.Home & "/.i-nex/gtk2Theme.conf"), "\n", ""), " ", ""), "\n", "")
+  Label63.Text = "GTK+ 3 Theme: " & Replace(Replace(Replace(File.Load("" & User.Home & "/.i-nex/gtk3Theme.conf"), "\n", ""), " ", ""), "\n", "")
+  Label147.Text = "GTK Font: " & Replace(Replace(Replace(File.Load("" & User.Home & "/.i-nex/gtkFont.conf"), "\n", ""), " ", ""), "\n", "")
+  Label148.Text = "GTK Icons: " & Replace(Replace(Replace(File.Load("" & User.Home & "/.i-nex/gtkIcons.conf"), "\n", ""), " ", ""), "\n", "")
+' DE.conf
+' WM.conf
+' Win_theme.conf
+' gtk2Theme.conf
+' gtk3Theme.conf
+' gtkFont.conf
+' gtkIcons.conf
+
 
 End
 

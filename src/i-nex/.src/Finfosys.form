@@ -1047,65 +1047,65 @@
       Picture = Picture["icon:/16/info"]
     }
     { Label4 Label
-      Move(7,7,301,28)
+      Move(7,7,301,21)
       #Translate = False
-      Font = Font["Bold,8"]
+      Font = Font["Bold,9"]
       Text = "Label4"
       Border = Border.Plain
     }
     { Label135 Label
-      Move(7,35,301,28)
+      Move(7,28,301,21)
       #Translate = False
-      Font = Font["Bold,8"]
+      Font = Font["Bold,9"]
       Text = "Label135"
       Border = Border.Plain
     }
     { Label136 Label
-      Move(7,196,231,21)
+      Move(7,280,455,21)
       #Translate = False
-      Font = Font["Bold,8"]
+      Font = Font["Bold,9"]
       Text = "Label136"
       Border = Border.Plain
     }
     { Label137 Label
-      Move(7,217,231,21)
+      Move(7,301,455,21)
       #Translate = False
-      Font = Font["Bold,8"]
+      Font = Font["Bold,9"]
       Text = "Label137"
       Border = Border.Plain
     }
     { Label138 Label
-      Move(7,238,231,21)
+      Move(7,322,455,21)
       #Translate = False
-      Font = Font["Bold,8"]
+      Font = Font["Bold,9"]
       Text = "Label138"
       Border = Border.Plain
     }
     { Label139 Label
-      Move(7,259,231,21)
+      Move(7,343,455,21)
       #Translate = False
-      Font = Font["Bold,8"]
+      Font = Font["Bold,9"]
       Text = "Label139"
       Border = Border.Plain
     }
     { Label140 Label
-      Move(7,280,231,21)
+      Move(7,196,455,21)
       #Translate = False
-      Font = Font["Bold,8"]
+      Font = Font["Bold,9"]
       Text = "Label140"
       Border = Border.Plain
     }
     { Label141 Label
-      Move(7,301,231,21)
+      Move(7,217,455,21)
       #Translate = False
-      Font = Font["Bold,8"]
+      Font = Font["Bold,9"]
       Text = "Label141"
       Border = Border.Plain
     }
     { Label142 Label
-      Move(7,322,231,21)
+      Move(7,238,455,21)
       #Translate = False
-      Font = Font["Bold,8"]
+      Font = Font["Bold,9"]
       Text = "Label142"
       Border = Border.Plain
     }
@@ -1113,14 +1113,14 @@
       Move(7,385,455,21)
       #Translate = False
       Visible = False
-      Font = Font["Bold,8"]
+      Font = Font["Bold,9"]
       Text = "Label143"
       Border = Border.Plain
     }
     { Label144 Label
-      Move(7,343,231,21)
+      Move(7,259,455,21)
       #Translate = False
-      Font = Font["Bold,8"]
+      Font = Font["Bold,9"]
       Text = "Label144"
       Border = Border.Plain
     }
@@ -1129,10 +1129,52 @@
       Stretch = True
     }
     { Label145 Label
-      Move(7,364,231,21)
+      Move(7,364,455,21)
       #Translate = False
-      Font = Font["Bold,8"]
+      Font = Font["Bold,9"]
       Text = "Label145"
+      Border = Border.Plain
+    }
+    { Label37 Label
+      Move(7,49,301,21)
+      Font = Font["Bold,9"]
+      Text = ("Label37")
+      Border = Border.Plain
+    }
+    { Label60 Label
+      Move(7,70,301,21)
+      Font = Font["Bold,9"]
+      Text = ("Label60")
+      Border = Border.Plain
+    }
+    { Label61 Label
+      Move(7,91,301,21)
+      Font = Font["Bold,9"]
+      Text = ("Label61")
+      Border = Border.Plain
+    }
+    { Label62 Label
+      Move(7,112,301,21)
+      Font = Font["Bold,9"]
+      Text = ("Label62")
+      Border = Border.Plain
+    }
+    { Label63 Label
+      Move(7,133,301,21)
+      Font = Font["Bold,9"]
+      Text = ("Label63")
+      Border = Border.Plain
+    }
+    { Label147 Label
+      Move(7,175,301,21)
+      Font = Font["Bold,9"]
+      Text = ("Label147")
+      Border = Border.Plain
+    }
+    { Label148 Label
+      Move(7,154,301,21)
+      Font = Font["Bold,9"]
+      Text = ("Label148")
       Border = Border.Plain
     }
     Index = 6

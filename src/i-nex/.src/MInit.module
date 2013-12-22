@@ -1,0 +1,40 @@
+' Gambas module file
+
+Public Sub _init()
+
+ If Exist("~/.i-nex") Then
+  Print "i-nex in home folder is exist"
+  Print "Try to remove files"
+  Shell "rm ~/.i-nex/detectdist" Wait
+  Shell "rm ~/.i-nex/detectde" Wait
+  Shell "rm ~/.i-nex/detectgtk" Wait
+  Shell "rm ~/.i-nex/detectwm" Wait
+  Shell "rm ~/.i-nex/detectwmtheme" Wait
+  Shell "rm ~/.i-nex/report-ng.sh" Wait
+ Else
+  Print "i-nex in home folder not exist"
+  Shell "mkdir -p ~/.i-nex/" Wait
+  Print "i-nex in home folder created"
+ Endif
+ Print "Copy nedded files"
+ Print "Copy detectdist"
+ Copy "Data/detectdist" To User.Home &/ ".i-nex/detectdist"
+ Print "Copy detectde"
+ Copy "Data/detectde" To User.Home &/ ".i-nex/detectde"
+ Print "Copy detectgtk"
+ Copy "Data/detectgtk" To User.Home &/ ".i-nex/detectgtk"
+ Print "Copy detectwm"
+ Copy "Data/detectwm" To User.Home &/ ".i-nex/detectwm"
+ Print "Copy detectwmtheme"
+ Copy "Data/detectwmtheme" To User.Home &/ ".i-nex/detectwmtheme"
+ Print "Copy report-ng.sh"
+ Copy "Data/report-ng.sh" To User.Home &/ ".i-nex/report-ng.sh"
+ Print "Execute copied files"
+ Shell "/bin/bash ~/.i-nex/detectwm" Wait
+ Shell "/bin/bash ~/.i-nex/detectdist" Wait
+ Shell "/bin/bash ~/.i-nex/detectde" Wait
+ Shell "/bin/bash ~/.i-nex/detectgtk" Wait
+ Shell "/bin/bash ~/.i-nex/detectwmtheme" Wait
+ Shell "/bin/bash ~/.i-nex/report-ng.sh" Wait
+ 
+End
