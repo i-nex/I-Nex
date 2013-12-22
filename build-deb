@@ -1,11 +1,11 @@
 #!/bin/bash
 
 DATE=$(date -R)
-BZR_RV=$(awk {'print $1'} ./.bzr/branch/last-revision)
+GIT_RV=$(git rev-list HEAD | wc -l)
 INEX_VERSION=$(grep "Version=" src/i-nex/.project | cut -d "=" -f 2)
 DATE_Y_M_D=$(date +%Y%m%d)
 
-echo "i-nex ($INEX_VERSION-0~$BZR_RV~$DATE_Y_M_D) unstable; urgency=low
+echo "i-nex ($INEX_VERSION-0~git$GIT_RV~$DATE_Y_M_D) unstable; urgency=low
 
   * next unstable
 
