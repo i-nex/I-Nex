@@ -1,9 +1,9 @@
 ' Gambas module file
 
 Public Sub _init()
- 
+
  Select Case File.Load("" & User.Home & "/.i-nex/DistributionVendor.conf")
-  Case Like "*LinuxMint*"
+  Case Like "*Mint*"
    Finfosys.PictureBox2.Picture = Picture["Database/Distlogos/mint.png"]
   Case Like "*Ubuntu*"
    Finfosys.PictureBox2.Picture = Picture["Database/Distlogos/ubuntu.png"]
@@ -11,18 +11,58 @@ Public Sub _init()
    Finfosys.PictureBox2.Picture = Picture["Database/Distlogos/xubuntu.png"]
   Case Like "*openSUSE*"
    Finfosys.PictureBox2.Picture = Picture["Database/Distlogos/opensuse.png"]
-  Case Like "*ManjaroLinux*"
+  Case Like "*Manjaro*"
    Finfosys.PictureBox2.Picture = Picture["Database/Distlogos/manjaro.png"]
   Case Like "*Fedora*"
    Finfosys.PictureBox2.Picture = Picture["Database/Distlogos/fedora.png"]
   Case Like "*Debian*"
    Finfosys.PictureBox2.Picture = Picture["Database/Distlogos/debian.png"]
+  Case Like "*Arch Linux*"
+   Finfosys.PictureBox2.Picture = Picture["Database/Distlogos/archlinux.png"]
+  Case Like "*Sabayon*"
+   Finfosys.PictureBox2.Picture = Picture["Database/Distlogos/sabayon.png"]
+  Case Like "*Gentoo*"
+   Finfosys.PictureBox2.Picture = Picture["Database/Distlogos/gentoo.png"]
+  Case Like "*Red Hat Linux*"
+   Finfosys.PictureBox2.Picture = Picture["Database/Distlogos/redhat.png"]
+  Case Like "*Slackware*"
+   Finfosys.PictureBox2.Picture = Picture["Database/Distlogos/slackware.png"]
  End Select
-If Application.Env["KDE_FULL_SESSION"] = "true" And File.Load("" & User.Home & "/.i-nex/DistributionVendor.conf") Like "*Ubuntu*" Then
- Finfosys.PictureBox2.Picture = Picture["Database/Distlogos/kubuntu.png"]
-Endif
- 'echo "[System] \
-'DistributionVendor = $vendor \
-'DistributionRelease = $release " > ~/.i-nex/dist.conf"
+
+
+' elementary OS
+' 
+' Mageia
+' Mandriva
+' Mandrake
+' 
+' Kali Linux
+' LMDE
+
+
+' Kubuntu
+' 
+' Raspbian
+' FreeBSD
+' OpenBSD
+' DragonFlyBSD
+' NetBSD
+
+' CrunchBang
+' 
+' Funtoo
+' Slackware
+' Frugalware
+' Peppermint
+' SolusOS
+' ParabolaGNU / Linux - libre
+' Viperr
+' LinuxDeepin
+' Chakra
+' CentOS
+' Mac OS X
+' Fuduntu
+' 
+' Cygwin
 End
 
