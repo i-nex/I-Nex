@@ -1,7 +1,8 @@
 ' Gambas module file
 
 Public Sub _init()
-
+ Dim DV As String = File.Load("" & User.Home & "/.i-nex/DistributionVendor.conf")
+ Dim DE As String = File.Load("" & User.Home & "/.i-nex/DE.conf")
  Select Case File.Load("" & User.Home & "/.i-nex/DistributionVendor.conf")
   Case Like "*Mint*"
    Finfosys.PictureBox2.Picture = Picture["Database/Distlogos/mint.png"]
@@ -27,9 +28,28 @@ Public Sub _init()
    Finfosys.PictureBox2.Picture = Picture["Database/Distlogos/redhat.png"]
   Case Like "*Slackware*"
    Finfosys.PictureBox2.Picture = Picture["Database/Distlogos/slackware.png"]
+  Case Like "*LMDE*"
+   Finfosys.PictureBox2.Picture = Picture["Database/Distlogos/Mint/linux_mint_LMDE_Big_sticker.png"]
  End Select
-
-
+ 
+ If DV Like "*Ubuntu*" And DE Like "*KDE*" Then
+  Finfosys.PictureBox2.Picture = Picture["Database/Distlogos/kubuntu.png"]
+ Endif
+ If DV Like "*Ubuntu*" And DE Like "*XFCE*" Then
+  Finfosys.PictureBox2.Picture = Picture["Database/Distlogos/xubuntu.png"]
+ Endif
+ If DV Like "*Mint*" And DE Like "*KDE*" Then
+  Finfosys.PictureBox2.Picture = Picture["Database/Distlogos/Mint/linux_mint_KDE_BIG_sticker.png"]
+ Endif
+ If DV Like "*Mint*" And DE Like "*LXDE*" Then
+  Finfosys.PictureBox2.Picture = Picture["Database/Distlogos/Mint/linux_mint_LXDE_BIG_sticker.png"]
+ Endif
+ If DV Like "*Mint*" And DE Like "*Fluxbox*" Then
+  Finfosys.PictureBox2.Picture = Picture["Database/Distlogos/Mint/linux_mint_Fluxbox_BIG_sticker.png"]
+ Endif
+ If DV Like "*Mint*" And DE Like "*XFCE*" Then
+  Finfosys.PictureBox2.Picture = Picture["Database/Distlogos/Mint/linux_mint_XFCE_Big_sticker.png"]
+ Endif
 ' elementary OS
 ' 
 ' Mageia
@@ -37,7 +57,6 @@ Public Sub _init()
 ' Mandrake
 ' 
 ' Kali Linux
-' LMDE
 
 
 ' Kubuntu
