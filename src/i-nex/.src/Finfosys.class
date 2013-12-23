@@ -663,3 +663,9 @@ Public Sub Button14_Click()
  FUdisks.Show
 
 End
+
+Public Sub Button15_Click()
+
+ Clipboard.Copy(TextBox58.Text)
+
+End
