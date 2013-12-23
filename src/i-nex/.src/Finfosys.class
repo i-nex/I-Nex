@@ -7,12 +7,13 @@ Public Sub Form_Open()
   Dim default_display_manager As Boolean = Exist("/etc/X11/default-display-manager")
   Dim cpuz0, cpuz1, cpuz2, cpuz3, cpuz4, cpuz5, cpuz6, cpuz7, cpuz8, cpuz9, cpuz10, cpuz11 As String
   If User.Name = "root" Then
-    Message.Error(("Running as root is not allowed!"))
-    Me.Close
+    Message.Error(("Running as root is not allowed!\n " & User.Home & ""))
   Endif
   Finfosys.TabStrip1[9].Visible = False
+  Debug "Call to MInit for copy nedded files to I-Nex config dir in User.Home"
+  Object.Call(MInit, "_inits")
   Debug ""
-  Object.Call(MInit, "_init")
+  Object.Call(Distribution_Detect, "_inits")
   Debug "Settings default dir = " & Settings.DefaultDir & ""
   Button14.Visible = ChkPrm.ChkExec("udisks")
   Debug "Check for Battery"
@@ -223,7 +224,7 @@ Public Sub System()
   Label140.Text = "Timezone: " & Replace(timezone, "\n", "")
   Label141.Text = "X.Org Version: " & Replace(xorg_version, "\n", "")
   Label142.Text = "GLX Version: " & Replace(glx_version, "\n", "")
-  Distribution_Detect._init
+  Distribution_Detect._inits
   Label4.Text = "Distro Vendor: " & Replace(Replace(Replace(File.Load("" & User.Home & "/.i-nex/DistributionVendor.conf"), "\n", ""), " ", ""), "\n", "")
   Label135.Text = "Distro Release: " & Replace(Replace(Replace(File.Load("" & User.Home & "/.i-nex/DistributionRelease.conf"), "\n", ""), " ", ""), "\n", "")
   Label144.Text = Replace(File.Load("" & User.Home & "/.i-nex/Binutils.conf"), "\n", "")

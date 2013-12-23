@@ -1,40 +1,45 @@
 ' Gambas module file
 
-Public Sub _init()
+Public Sub _inits()
 
- If Exist("~/.i-nex") Then
+ If Exist("" & User.Home & "/.i-nex") Then
+  
   Print "i-nex in home folder is exist"
   Print "Try to remove files"
-  Shell "rm ~/.i-nex/detectdist" Wait
-  Shell "rm ~/.i-nex/detectde" Wait
-  Shell "rm ~/.i-nex/detectgtk" Wait
-  Shell "rm ~/.i-nex/detectwm" Wait
-  Shell "rm ~/.i-nex/detectwmtheme" Wait
-  Shell "rm ~/.i-nex/report-ng.sh" Wait
+  Try Kill User.Home & "/.i-nex/detectdist"
+  Try Kill User.Home & "/.i-nex/detectde"
+  Try Kill User.Home & "/.i-nex/detectgtk"
+  Try Kill User.Home & "/.i-nex/detectwm"
+  Try Kill User.Home & "/.i-nex/detectwmtheme"
+  Try Kill User.Home & "/.i-nex/report-ng.sh"
+
  Else
   Print "i-nex in home folder not exist"
-  Shell "mkdir -p ~/.i-nex/" Wait
+  Try Mkdir User.Home & "/.i-nex/"
   Print "i-nex in home folder created"
  Endif
+ 
  Print "Copy nedded files"
- Print "Copy detectdist"
- Copy "Data/detectdist" To User.Home &/ ".i-nex/detectdist"
- Print "Copy detectde"
- Copy "Data/detectde" To User.Home &/ ".i-nex/detectde"
- Print "Copy detectgtk"
- Copy "Data/detectgtk" To User.Home &/ ".i-nex/detectgtk"
- Print "Copy detectwm"
- Copy "Data/detectwm" To User.Home &/ ".i-nex/detectwm"
- Print "Copy detectwmtheme"
- Copy "Data/detectwmtheme" To User.Home &/ ".i-nex/detectwmtheme"
- Print "Copy report-ng.sh"
- Copy "Data/report-ng.sh" To User.Home &/ ".i-nex/report-ng.sh"
+ 
+ Print "Copy detectdist from Data/detectdist to " & User.Home &/ ".i-nex/detectdist"
+  Copy "Data/detectdist" To User.Home &/ ".i-nex/detectdist"
+ Print "Copy detectde from Data/detectde to " & User.Home &/ ".i-nex/detectde"
+  Copy "Data/detectde" To User.Home &/ ".i-nex/detectde"
+ Print "Copy detectgtk from Data/detectgtk to " & User.Home &/ ".i-nex/detectgtk"
+  Copy "Data/detectgtk" To User.Home &/ ".i-nex/detectgtk"
+ Print "Copy detectwm from Data/detectwm to " & User.Home &/ ".i-nex/detectwm"
+  Copy "Data/detectwm" To User.Home &/ ".i-nex/detectwm"
+ Print "Copy detectwmtheme from Data/detectwmtheme to " & User.Home &/ ".i-nex/detectwmtheme"
+  Copy "Data/detectwmtheme" To User.Home &/ ".i-nex/detectwmtheme"
+ Print "Copy report-ng.sh from Data/report-ng.sh to " & User.Home &/ ".i-nex/report-ng.sh"
+  Copy "Data/report-ng.sh" To User.Home &/ ".i-nex/report-ng.sh"
  Print "Execute copied files"
- Shell "/bin/bash ~/.i-nex/detectwm" Wait
- Shell "/bin/bash ~/.i-nex/detectdist" Wait
- Shell "/bin/bash ~/.i-nex/detectde" Wait
- Shell "/bin/bash ~/.i-nex/detectgtk" Wait
- Shell "/bin/bash ~/.i-nex/detectwmtheme" Wait
- Shell "/bin/bash ~/.i-nex/report-ng.sh" Wait
+ 
+ Exec ["/bin/bash", "" & User.Home & "/.i-nex/detectwm"] Wait
+ Exec ["/bin/bash", "" & User.Home & "/.i-nex/detectdist"] Wait
+ Exec ["/bin/bash", "" & User.Home & "/.i-nex/detectde"] Wait
+ Exec ["/bin/bash", "" & User.Home & "/.i-nex/detectgtk"] Wait
+ Exec ["/bin/bash", "" & User.Home & "/.i-nex/detectwmtheme"] Wait
+ Exec ["/bin/bash", "" & User.Home & "/.i-nex/report-ng.sh"] Wait
  
 End

@@ -1,6 +1,6 @@
 ' Gambas module file
 
-Public Sub _init()
+Public Sub _inits()
  Dim DV As String = File.Load("" & User.Home & "/.i-nex/DistributionVendor.conf")
  Dim DE As String = File.Load("" & User.Home & "/.i-nex/DE.conf")
  Select Case File.Load("" & User.Home & "/.i-nex/DistributionVendor.conf")
@@ -51,24 +51,16 @@ Public Sub _init()
   Finfosys.PictureBox2.Picture = Picture["Database/Distlogos/Mint/linux_mint_XFCE_Big_sticker.png"]
  Endif
 ' elementary OS
-' 
 ' Mageia
 ' Mandriva
 ' Mandrake
-' 
 ' Kali Linux
-
-
-' Kubuntu
-' 
 ' Raspbian
 ' FreeBSD
 ' OpenBSD
 ' DragonFlyBSD
 ' NetBSD
-
 ' CrunchBang
-' 
 ' Funtoo
 ' Slackware
 ' Frugalware
@@ -81,7 +73,5 @@ Public Sub _init()
 ' CentOS
 ' Mac OS X
 ' Fuduntu
-' 
-' Cygwin
 End
 
