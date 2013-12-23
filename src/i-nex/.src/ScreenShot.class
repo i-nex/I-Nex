@@ -4,8 +4,8 @@ Public Sub Form_Open()
  If Not Exist(User.Home & "/.i-nex") Then
  Mkdir User.Home & "/.i-nex"
  Endif
- If Exist(User.Home & "/.i-nex/lastsave") Then
- ButtonBox1.Text = File.Load("" & User.Home & "/.i-nex/lastsave")
+ If Exist(User.Home & "/.i-nex/lastsaveg") Then
+ ButtonBox1.Text = File.Load("" & User.Home & "/.i-nex/lastsaveg")
  Else
  ButtonBox1.Text = Desktop.Path 
  Endif
@@ -36,10 +36,9 @@ End
 Public Sub Button1_Click()
 
 ScreenShotM.save(ButtonBox1.Text, TextBox1.Text, ComboBox1.Text, SliderBox1.Value)
-File.Save("" & User.Home & "/.i-nex/lastsave", ButtonBox1.Text)
+File.Save("" & User.Home & "/.i-nex/lastsaveg", ButtonBox1.Text)
 
-Me.Close
-Finfosys.Show
+Form_Close()
 End
 
 Public Sub ButtonBox1_Click()
@@ -52,6 +51,7 @@ End
 
 Public Sub Form_Close()
 
+ File.Save("" & User.Home & "/.i-nex/lastsaveg", ButtonBox1.Text)
  Me.Close
  Finfosys.Show
 

@@ -232,7 +232,7 @@
       Border = Border.Plain
     }
     { Label103 Label
-      Move(98,56,252,21)
+      Move(7,56,343,21)
       #Translate = False
       Font = Font["Bold"]
       Text = "Label103"

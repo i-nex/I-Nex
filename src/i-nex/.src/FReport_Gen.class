@@ -1,7 +1,11 @@
 ' Gambas class file
 
 Public Sub Form_Open()
-  ButtonBox1.Text = Desktop.Path & "/report.txt"
+  If Exist("~/.i-nex/lastsave") Then
+   ButtonBox1.Text = File.Load("" & User.Home & "/.i-nex/lastsave")
+  Else
+   ButtonBox1.Text = Desktop.Path & "/report.txt"
+  Endif
 
   ComboBox1.Add("pastebin.com")
   ComboBox1.Add("cxg.de")
@@ -115,8 +119,7 @@ If CheckBox11.Value = True Then
 Endif
 
 If CheckBox13.value = True And CheckBox11.Value = False Then
- Me.Close
- Finfosys.Show
+ Form_Close()
 Endif
 End
 
@@ -132,8 +135,7 @@ End
 
 Public Sub Button2_Click()
  
- Me.Close
- Finfosys.Show
+ Form_Close()
  
 End
 
@@ -154,4 +156,11 @@ Public Sub Button4_Click()
   Clipboard.Copy(TextBox1.Text)
  Endif
 
+End
+
+Public Sub Form_Close()
+  File.Save("" & User.Home & "/.i-nex/lastsave", ButtonBox1.Text)
+  Me.Close
+  Finfosys.Show
+ 
 End
