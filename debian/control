@@ -34,6 +34,7 @@ Vcs-Git: https://github.com/eloaders/I-Nex.git
 Package: i-nex
 Architecture: any
 Depends: ${shlibs:Depends},
+  ${python:Depends},
   gambas3-runtime (>= 3.4.0),  
   gambas3-gb-image (>= 3.0.90), 
   gambas3-gb-image (<< 3.99.0), 
@@ -55,7 +56,6 @@ Depends: ${shlibs:Depends},
   pciutils,
   x11-utils (>= 7.5),
   mesa-utils (>= 7.6),
-  python,
   python-configobj
 Description: A CPU-Z Alternative for Linux. For Viewing System Device Information
   I-Nex is an application that gathers information for hardware components available on your system and displays it using an user interface similar to the popular Windows tool CPU-Z.
