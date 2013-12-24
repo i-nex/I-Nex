@@ -1,8 +1,8 @@
-i-nex (0.5.8) unstable; urgency=medium
+i-nex (0.5.8) stable; urgency=medium
 
-  * NEXT
+  * Chengelog for version 0.5.8 see file /usr/share/doc/i-nex/changelog-0.5.8
 
- -- eloaders <eloaders@linux.pl>  Wed, 27 Nov 2013 18:15:38 +0100
+ -- eloaders <eloaders@linux.pl>  Tue, 24 Dec 2013 11:02:00 +0100
  
 i-nex (0.5.6) stable; urgency=medium
 
