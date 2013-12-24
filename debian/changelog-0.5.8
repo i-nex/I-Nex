@@ -1,0 +1,560 @@
+commit 7ce02fde5b73e8eca54351c122a7ffcce6860aca
+Author: eloaders <eloaders@linux.pl>
+Date:   Tue Dec 24 10:54:04 2013 +0100
+
+    Add ${python:Depends}
+
+commit 35f88a85b15d7739aec4e02a69dbe0a8ce518e40
+Author: eloaders <eloaders@linux.pl>
+Date:   Tue Dec 24 10:46:42 2013 +0100
+
+    Again change bzip2 comp to xz level 9
+
+commit 1cb2ae38d08c17322b6fc3f4bc5559fdd6d2ea3f
+Author: eloaders <eloaders@linux.pl>
+Date:   Mon Dec 23 20:55:53 2013 +0100
+
+    Replcace SHELL commands to Gambas3 Kill "dir/file" and better debug informations.
+    
+    Replace SHELL "command" to Exec "command"
+    This is faster option.
+
+commit 20a571d977bb113de7d4131a243f30c40605363d
+Author: eloaders <eloaders@linux.pl>
+Date:   Mon Dec 23 14:59:57 2013 +0100
+
+    Add option to remember last save directory. All window close using Form_Close()
+
+commit 15e53635622c80be9b5ce3646876abccc2f3b996
+Author: eloaders <eloaders@linux.pl>
+Date:   Mon Dec 23 13:13:04 2013 +0100
+
+    New Mint logos for KDE, XFCE, Fluxbox, LMDE and add Kubuntu logo and resize sticker images
+    
+    #!/bin/bash
+    for ff in *.png
+    do
+    convert -verbose -resize 147x189 $ff $ff
+    done
+
+commit 7235ecdb756f45294ba81dfc984edfd3f46cefb3
+Author: eloaders <eloaders@linux.pl>
+Date:   Mon Dec 23 11:28:22 2013 +0100
+
+    Add more Powered by
+
+commit 86d8a8e647c2b715fd4172f73e607f1efed4dba3
+Author: eloaders <eloaders@linux.pl>
+Date:   Mon Dec 23 11:07:28 2013 +0100
+
+    Move files
+
+commit 1ed5adaa4b25eb4b19b110250e54b08044cb2db8
+Author: eloaders <eloaders@linux.pl>
+Date:   Mon Dec 23 01:03:54 2013 +0100
+
+    Padding +3
+    Border = Raised
+    Font = Bold,8
+
+commit c3e41325364c06ebd7ce3291258766d38c1146e4
+Author: eloaders <eloaders@linux.pl>
+Date:   Mon Dec 23 00:08:41 2013 +0100
+
+    Add Bash modules, update system report and show more info in system tab
+
+commit 93e8b43ca9db950d78995fab85c1912c1c2b1d11
+Author: eloaders <eloaders@linux.pl>
+Date:   Mon Dec 23 00:07:29 2013 +0100
+
+    Fix build-deb to get current revision
+
+commit 02927f30a8642697a1efb447cb723a03d0303547
+Author: eloaders <eloaders@linux.pl>
+Date:   Sun Dec 22 14:55:43 2013 +0100
+
+    Sorting sites pastebin
+
+commit edfab16115e87bb0db8ea2c37fb52bb85e6e17a8
+Author: eloaders <eloaders@linux.pl>
+Date:   Sun Dec 22 14:54:13 2013 +0100
+
+    Makefile: Add xz, gzip, bzip2, pbzip2, compress and complevel set to 9.
+    
+    Now make self generate files:
+    
+    3504kb i-nex.xz.run
+    4260kb i-nex.pbzip2.run
+    4372kb i-nex.bzip2.run
+    4720kb i-nex.gzip.run
+    7212kb i-nex.unixcompress.run
+    
+    Remove: --nox11
+
+commit e22a78ba18431350b77e72314ba3f95d74268ac3
+Author: eloaders <eloaders@linux.pl>
+Date:   Sun Dec 22 14:17:20 2013 +0100
+
+    Update makeself to 2.2.0
+
+commit 74d81e6011755edec7b0a4476b1636faa2e753fa
+Author: eloaders <eloaders@linux.pl>
+Date:   Sun Dec 22 13:11:51 2013 +0100
+
+    fix confdir /usr/share/i-nex/pastebinit/pastebin.d
+
+commit c01b108b557ac9fa1baa257b4f171371c773d7cb
+Author: eloaders <eloaders@linux.pl>
+Date:   Sun Dec 22 13:11:25 2013 +0100
+
+    Remove hashtag
+
+commit fbefd6f8e54af2df2ecc5f23e7cd02e2d754d31c
+Author: eloaders <eloaders@linux.pl>
+Date:   Sun Dec 22 13:11:08 2013 +0100
+
+    Add dpaste.com and hpaste.org services
+
+commit 83da513027afe98dce141021cdba5e21c60ff11e
+Author: eloaders <eloaders@linux.pl>
+Date:   Sun Dec 22 00:11:39 2013 +0100
+
+    New labels in Mobo
+
+commit 1e6511b0a8e1027ce7c56813ed661da1e6a37543
+Author: eloaders <eloaders@linux.pl>
+Date:   Sun Dec 22 00:11:06 2013 +0100
+
+    Better
+
+commit 06be67b484d19ffb90a418db8dd106b8f7d3e5b5
+Author: eloaders <eloaders@linux.pl>
+Date:   Sat Dec 21 11:19:41 2013 +0100
+
+    Add more informations from /sys/block/sd[a-z]/queue And iostats
+
+commit c2c893025b9dcb3bb2c70d35def423e28968e8ba
+Author: eloaders <eloaders@linux.pl>
+Date:   Sat Dec 21 11:18:32 2013 +0100
+
+    Rm Env GB_PATH=inex
+
+commit 966ab877bb1614aadb8a155345fbd2433af9fe1d
+Author: eloaders <eloaders@linux.pl>
+Date:   Fri Dec 20 12:19:22 2013 +0100
+
+    If I-Nex run as root, then window auto close
+
+commit 1e6982a4567b142c95d1a138a933117b02b8bcfd
+Author: eloaders <eloaders@linux.pl>
+Date:   Tue Dec 17 02:10:44 2013 +0100
+
+    Note that it tried to read fpaste.org.conf.orig when it was in the same dir. Not nice.
+
+commit bb91f43b3d2d25d1f33213a0d9152611911e18cd
+Author: eloaders <eloaders@linux.pl>
+Date:   Sat Dec 14 13:49:26 2013 +0100
+
+    Add Label to Drives. Use for tooltip information
+
+commit b2af24aaee09e3a5fdd550e3b8aad5dc4980fa6e
+Author: eloaders <eloaders@linux.pl>
+Date:   Sat Dec 14 13:48:54 2013 +0100
+
+    Fix size FModules
+
+commit 71fe1634363df7e02986630ec8477784372455b5
+Author: eloaders <eloaders@linux.pl>
+Date:   Sat Dec 14 13:26:26 2013 +0100
+
+    Resize Labels in Drives
+
+commit b4e199416e4621cc71f0382ba206031faa28b082
+Author: eloaders <eloaders@linux.pl>
+Date:   Sat Dec 14 02:02:18 2013 +0100
+
+    Try to fix duplicated mount width.
+
+commit 7591b12e36cf41d03387736346337db70899cf8c
+Author: eloaders <eloaders@linux.pl>
+Date:   Fri Dec 13 16:48:41 2013 +0100
+
+    Add detect Kubuntu
+
+commit 3c1c3eecf3c503959b2881455d05d9872167ee90
+Author: eloaders <eloaders@linux.pl>
+Date:   Fri Dec 13 16:42:28 2013 +0100
+
+    Add debian detect
+
+commit b657b0282188389ff279ed42ac29b7aaf98f2232
+Author: eloaders <eloaders@linux.pl>
+Date:   Fri Dec 13 16:41:16 2013 +0100
+
+    Add xubuntu detect
+
+commit df8c80989e50f276ac108117862ec7d19f07a7df
+Author: eloaders <eloaders@linux.pl>
+Date:   Fri Dec 13 16:31:30 2013 +0100
+
+    Fix GridView1.Columns[5].Width = 250 to 400 If drive mount width UUID
+
+commit 7282eb32c52a72bc07de8c4872c6a45649a458e6
+Author: eloaders <eloaders@linux.pl>
+Date:   Fri Dec 13 16:27:52 2013 +0100
+
+    Fix duplicated mount width.
+    
+    rw,nosuid,nodev,relatime..........
+
+commit 6b8fe0dcd043b036d58e694ff54266d7fa90ff4d
+Author: eloaders <eloaders@linux.pl>
+Date:   Fri Dec 13 11:56:54 2013 +0100
+
+    Fix show filesystem type duplicated.
+
+commit cbb53f421ac95fc35465a4ff72003b6a42485cba
+Author: eloaders <eloaders@linux.pl>
+Date:   Wed Dec 11 17:55:48 2013 +0100
+
+    Fix for VMware Graphic driver called vmwgfx
+
+commit 0e2f03c257598dff4b01dcd8bc54d418e5a85e23
+Author: eloaders <eloaders@linux.pl>
+Date:   Mon Dec 9 23:26:45 2013 +0100
+
+    Add i-nex.spec file for rpmbuild
+    
+    rpmbuild --nodeps -ba ./i-nex.spec
+
+commit fa98202fa758671638797df9d4d7f38015e8d1f0
+Author: eloaders <eloaders@linux.pl>
+Date:   Thu Dec 5 23:49:06 2013 +0100
+
+    Change debian format from quilt to native
+
+commit 44796ac49e4e4fb7ba6537dcabaea7f6c8bf855f
+Author: eloaders <eloaders@linux.pl>
+Date:   Thu Dec 5 23:21:18 2013 +0100
+
+    Add remove .pot, .po, .mo files to make clean
+
+commit fb1dc69e10a4f96da0574debefc8444697d06828
+Author: eloaders <eloaders@linux.pl>
+Date:   Thu Dec 5 23:20:40 2013 +0100
+
+    rm
+
+commit 671b4ab5ffcf04e07a0c4943f066e1d7c5d5dd83
+Author: eloaders <eloaders@linux.pl>
+Date:   Thu Dec 5 23:14:30 2013 +0100
+
+    +  #Translate = False
+
+commit 7935dd48a24aad2ae041eb956d4a1a7ac05bba2f
+Author: eloaders <eloaders@linux.pl>
+Date:   Thu Dec 5 23:08:38 2013 +0100
+
+    Update master Bug reporter
+
+commit 2fece737058a1c11e29260997ce5b3b491074007
+Author: eloaders <eloaders@linux.pl>
+Date:   Thu Dec 5 23:08:22 2013 +0100
+
+    Remove files
+
+commit 0ed692d8ff6d937fa85c992278eefc9325e7e688
+Author: eloaders <eloaders@linux.pl>
+Date:   Thu Dec 5 23:08:06 2013 +0100
+
+    Add rm -Rf src/i-nex/.gambas to make clean
+
+commit 9c8670202ef00b8f54f8d7ef31ec80d7454cd585
+Author: eloaders <eloaders@linux.pl>
+Date:   Thu Dec 5 19:19:46 2013 +0100
+
+    Add ME.Hide
+    
+    Public Sub Button12_Click()
+    - 'Me.Hide
+    + Me.Hide
+      FReport_Gen.Show
+    
+    End
+
+commit 91cd958e78f7dfc6c2b7586715e80ded87463ff2
+Author: eloaders <eloaders@linux.pl>
+Date:   Thu Dec 5 19:18:46 2013 +0100
+
+    Add option to copy to clipboard and remove unity_support_test
+
+commit 7d325f8b37ffe0189c462326d53180ad0319f3b7
+Author: eloaders <eloaders@linux.pl>
+Date:   Thu Dec 5 16:34:23 2013 +0100
+
+    Remove variables All2 Integer
+
+commit 8522cdbc4a4bf43ec8f21c41dbfc381ee5450d60
+Author: eloaders <eloaders@linux.pl>
+Date:   Thu Dec 5 16:33:52 2013 +0100
+
+    Add report for /proc/modules, /proc/cmdline, /etc/default/grub
+
+commit 214cd8da54e19ee31bf96f2d1de9d4c3a1f3941b
+Author: eloaders <eloaders@linux.pl>
+Date:   Thu Dec 5 16:32:19 2013 +0100
+
+    Remove variables processorscount and za Integer
+
+commit 436f0406c25260f4a9f9c747149fb95c1308b185
+Author: eloaders <eloaders@linux.pl>
+Date:   Thu Dec 5 15:55:24 2013 +0100
+
+    Fix commit c5cfe453040dec3bd5954401dd4d206b006b1d72
+    
+    Dmesg always be in the end of report. Because is longer than any report.
+
+commit c5cfe453040dec3bd5954401dd4d206b006b1d72
+Author: eloaders <eloaders@linux.pl>
+Date:   Thu Dec 5 15:43:25 2013 +0100
+
+    Dmesg always be in the end of report. Because is longer than any report.
+
+commit fd34cd82be5bb9c98102f16eb59b66a6c1111ac1
+Author: eloaders <eloaders@linux.pl>
+Date:   Thu Dec 5 15:40:00 2013 +0100
+
+    Default pastebin service is now pastebin.com And remove duplication of paste.debian.net
+
+commit c3f48946990a11e55bb22a8c574a64b45ad53a83
+Author: eloaders <eloaders@linux.pl>
+Date:   Thu Dec 5 15:35:42 2013 +0100
+
+    Fix duplication ind drives
+
+commit fe0c4b4ac9784952f31cae583b7e2b9a328c1126
+Author: eloaders <eloaders@linux.pl>
+Date:   Thu Dec 5 15:17:25 2013 +0100
+
+    Show Progress in MInclude reports
+
+commit 7e13619e25c2ddcc0dac4fe55271ef8d9ebada58
+Author: eloaders <eloaders@linux.pl>
+Date:   Thu Dec 5 15:03:18 2013 +0100
+
+    Add do FReport_Gen options from MInclude
+
+commit 2a3a444b62aafa6c5d8cd0d96c64968b6f958fc4
+Author: eloaders <eloaders@linux.pl>
+Date:   Thu Dec 5 15:02:31 2013 +0100
+
+    Add reports for lspci, lsusb. dmesg, partitions, scsi, dma, mtrr, devices, diskstats
+
+commit 8f894b4621d2c12d108e4a113f6e1f18e4353052
+Author: eloaders <eloaders@linux.pl>
+Date:   Thu Dec 5 15:01:30 2013 +0100
+
+    Fix. If ComboBox3.Count = 0. Print info from ComboBox4
+
+commit 73f65f68b22933a31796e30e85f86053a8387605
+Author: eloaders <eloaders@linux.pl>
+Date:   Thu Dec 5 14:21:44 2013 +0100
+
+    Add Drives report module and Fix bug for Processor0,1,2.. report and sd[a-z]
+
+commit 7d75c070f1a73cec37e61eb30b25ce7bcf1ad512
+Author: eloaders <eloaders@linux.pl>
+Date:   Tue Dec 3 19:15:40 2013 +0100
+
+    Add CheckBox for "Close this window when finished."
+
+commit 4d8f9fb27d78a0490a5f88522c565071d841a192
+Author: eloaders <eloaders@linux.pl>
+Date:   Tue Dec 3 16:00:55 2013 +0100
+
+    Add MInclude.module
+
+commit 2807f6ef4b1152767aea8fea70ea878af57b2961
+Author: eloaders <eloaders@linux.pl>
+Date:   Tue Dec 3 16:00:36 2013 +0100
+
+    Remove Application.Args[1] = "--gen_report"
+
+commit 56ffc0d5ae4c3acd03c9ff33efccf791e553ef87
+Author: eloaders <eloaders@linux.pl>
+Date:   Tue Dec 3 15:57:44 2013 +0100
+
+    Fix Start_App_Args
+
+commit 56c687ec74bc8264c8e76713e09fd8f7c3267414
+Author: eloaders <eloaders@linux.pl>
+Date:   Tue Dec 3 15:44:35 2013 +0100
+
+    Update and add new reports. Remove pot files
+
+commit ecc0c465c753df224c7f47ba8b098baf2ace3308
+Merge: 26ed1a6 3392cb5
+Author: eloaders <eloaders@linux.pl>
+Date:   Mon Dec 2 17:48:48 2013 +0100
+
+    Merge branch 'master'
+
+commit 3392cb5fc85d9dc8db054148d44a8f15b9b9c0fa
+Author: eloaders <eloaders@linux.pl>
+Date:   Mon Dec 2 17:48:28 2013 +0100
+
+    Fix Size of Processors logos
+
+commit 26ed1a6e2e347d4d40452acdafd78474a6e16669
+Author: eloaders <eloaders@linux.pl>
+Date:   Mon Dec 2 16:37:48 2013 +0100
+
+    New reporting system
+
+commit d58ab9700cf53790b4acd734e3b2c76c733b6c32
+Merge: 1f51599 1c40b8b
+Author: eloaders <eloaders@linux.pl>
+Date:   Mon Dec 2 12:12:43 2013 +0100
+
+    Merge branch 'master'
+
+commit 1c40b8bdd4e711f70ba148522ee073d90faf6d12
+Author: eloaders <eloaders@linux.pl>
+Date:   Mon Dec 2 02:26:59 2013 +0100
+
+    dh_install: cp -a ./src/i-nex/logo/i-nex.0.4.x.png debian/i-nex/usr/share/pixmaps/i-nex.png/ returned exit code 1
+    make: *** [binary-arch] Error 1
+    dpkg-buildpackage: error: /usr/bin/fakeroot debian/rules binary-arch gave error exit status 2
+
+commit 62bb3962b5ae9b6489374441d7d0c090b0492da1
+Author: eloaders <eloaders@linux.pl>
+Date:   Mon Dec 2 00:30:17 2013 +0100
+
+    Add postinst and postrm
+
+commit a8e3d230aa25a78eeb5d01b1ceaaf8634db1fef7
+Author: eloaders <eloaders@linux.pl>
+Date:   Mon Dec 2 00:29:53 2013 +0100
+
+    Fix GNU GPL v2, GNU GPL v3 to GPL-3+
+
+commit 6e2e781e6d8f67ba906b5e26d0125637ed57b09e
+Author: eloaders <eloaders@linux.pl>
+Date:   Mon Dec 2 00:29:20 2013 +0100
+
+    override_dh_installmenu:
+    dh_installmenu --noscripts
+
+commit 8ba2ae6c7359284fe893f5a41cb3b8b6ae6649ff
+Author: eloaders <eloaders@linux.pl>
+Date:   Mon Dec 2 00:28:52 2013 +0100
+
+    Add i-nex.png
+
+commit dbb84020a8b61942a5ca7829cd350c660476609f
+Author: eloaders <eloaders@linux.pl>
+Date:   Mon Dec 2 00:28:29 2013 +0100
+
+    Add ${shlibs:Depends}
+
+commit e392f412961dbd6e5a35c481ae2524844052b454
+Author: eloaders <eloaders@linux.pl>
+Date:   Mon Dec 2 00:28:14 2013 +0100
+
+    Update logo
+
+commit 0cdac10b460d3367e229b99aa52f414523fd6c94
+Author: eloaders <eloaders@linux.pl>
+Date:   Mon Dec 2 00:28:03 2013 +0100
+
+    Update Makefile for install logo
+
+commit 229a97b19057fc75d9d0842bf06f6211dc822dba
+Author: eloaders <eloaders@linux.pl>
+Date:   Mon Dec 2 00:27:32 2013 +0100
+
+    Move to quilt format
+
+commit 325366f98ed74b9549c3360f83e9ab913e732662
+Author: eloaders <eloaders@linux.pl>
+Date:   Sun Dec 1 23:31:51 2013 +0100
+
+    Test +3.0 (git) source format
+
+commit 1f515997662b4ceea64f76bbf0d7bf51ae97e5c0
+Merge: 1f12f08 15c5bd8
+Author: eloaders <eloaders@linux.pl>
+Date:   Sun Dec 1 21:30:05 2013 +0100
+
+    Merge branch 'master'
+
+commit 15c5bd81b2b675a1903e746b9bc78bc1e9831a1a
+Author: eloaders <eloaders@linux.pl>
+Date:   Sun Dec 1 21:19:25 2013 +0100
+
+    tab drives mixes sda1 and sda10, fix for 2 digit disk-partitions
+    
+    https://bugs.launchpad.net/i-nex/+bug/1172432
+
+commit 1f12f087490e08fb7db9771b76f26feccb5149aa
+Author: eloaders <eloaders@linux.pl>
+Date:   Sun Dec 1 20:04:58 2013 +0100
+
+    Fix last commit
+
+commit 09a8cfcdd1cbc519cd806cc4d06eac73cfae43b1
+Author: eloaders <eloaders@linux.pl>
+Date:   Sun Dec 1 20:04:32 2013 +0100
+
+    I must commit this. New pre report
+
+commit 658c8cdf6fa4b584a3f5d457615a0fe15c35c30d
+Author: eloaders <eloaders@linux.pl>
+Date:   Sun Dec 1 01:14:04 2013 +0100
+
+    Add more in Description
+
+commit c35d1c01a1590b2705670380aba60f4d618da46f
+Author: eloaders <eloaders@linux.pl>
+Date:   Wed Nov 27 18:20:51 2013 +0100
+
+    Next unstable 0.5.8
+
+commit 7497bc28798422d0c2d6e8a5b2cae4e51937ef05
+Author: eloaders <eloaders@linux.pl>
+Date:   Wed Nov 27 18:20:33 2013 +0100
+
+    Change Vcs-Git
+    
+    -Vcs-Git: git://git.manjaro.org/eloaders/i-nex.git
+    +Vcs-Git: https://github.com/eloaders/I-Nex.git
+
+commit 6c6eb0ff0eb49bf69f2abb54566554c3f647a534
+Author: eloaders <eloaders@linux.pl>
+Date:   Wed Nov 27 18:13:16 2013 +0100
+
+    Pastebinit fixes
+
+commit 96d34a6694c29ad36a66e421b0e8728c32fc0c33
+Author: eloaders <eloaders@linux.pl>
+Date:   Wed Nov 27 18:12:57 2013 +0100
+
+    Add paste.opensuse.org to FReport_Gen.class
+
+commit 084f0efcc733c6c4fc3a7c7b744fcd6c07baeb79
+Author: eloaders <eloaders@linux.pl>
+Date:   Wed Nov 27 18:12:12 2013 +0100
+
+    Add paste.opensuse.org
+
+commit d43e016e4ac1c1bdbf45e1449042dab8e9c5accc
+Author: eloaders <eloaders@linux.pl>
+Date:   Wed Nov 27 18:11:39 2013 +0100
+
+    Use dh_builddeb -- -Zbzip2 Not XZ, fix for Trusty failed builds
+
+commit 5acd85bc6e1cef3b9f1dca3d1dfed1b759806aff
+Author: eloaders <eloaders@linux.pl>
+Date:   Mon Nov 25 01:41:59 2013 +0100
+
+    Update changelog
