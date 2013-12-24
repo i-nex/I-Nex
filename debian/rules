@@ -3,6 +3,6 @@
 	dh $@
 
 override_dh_builddeb:
-	dh_builddeb -- -Zbzip2
+	dh_builddeb -- -Zxz
 override_dh_installmenu:
 	dh_installmenu --noscripts
