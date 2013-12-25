@@ -1,6 +1,25 @@
-# ZSH OR DIE, PUNKS
+#!/usr/bin/make -f
+BUILD_PACKAGE = ./build-deb
+PKG_INSTALL = apt-get install
+AS_ROOT = sudo
+CFLAGS = -g -Wall
+GBC = /usr/bin/gbc3
+GBCOPTS = -e -a -g -t -p -m
+GBA = gba3
+CC = gcc
+ARCH=`arch`
 bindir ?= /usr/bin
+INSTALL = install -m
 bzr_revision = 
+BUILD_SELF_EXECUTABLE = ./build-selfexecutable
+RM_COM = rm
+RMFILE_OPT = -f
+RMDIR_OPT = -Rf
+COMPRESSION_SELF_LEVEL = 9
+MAKESELF = ./makeself.sh
+MAKESELF_OPT = --nowait
+APP_NAME= I-Nex
+INSTALL_SELF_SCRIPT = ./install-self
 dependency_build ?= bzr \
 		    devscripts \
 		    pkg-config \
@@ -28,18 +47,20 @@ dependency_build ?= bzr \
 		    hostname
 
 make:
-	gcc edid-decode.c -g -Wall -o inex-edid
-	/usr/bin/gbc3 -e -a -g -t -p -m  src/i-nex
-	gba3 src/i-nex
+	@printf "\033[1;31mCompile edid-decode as inex-decode \033[0m$1\n"
+	$(CC) edid-decode.c $(CFLAGS) -o inex-edid
+	@printf "\033[1;31mCompile src/i-nex stage 1 \033[0m$1\n"
+	$(GBC) $(GBCOPTS) src/i-nex
+	@printf "\033[1;31mCompile src/i-nex stage 2 \033[0m$1\n"
+	$(GBA) src/i-nex
 
 deb:
 	
-	apt-get install $(dependency_build)
-	./build-deb
+	$(AS_ROOT) $(PKG_INSTALL) $(dependency_build)
+	$(BUILD_PACKAGE)
 	
 self:
-
-	./build-selfexecutable
+	$(BUILD_SELF_EXECUTABLE)
 	mkdir -p inex
 	mkdir -p inex$(bindir)
 	mkdir -p inex/usr/lib/gambas3/
@@ -54,70 +75,87 @@ self:
 	chmod +x inex-edid
 	chmod +x debian/check_kernel
 	chmod +x debian/i-nex-lspci
-	install -m 0755 i-nex inex$(bindir)
-	install -m 0755 inex-edid inex$(bindir)
-	install -m 0755 src/i-nex/i-nex.gambas inex$(bindir)
-	install -m 0755 src/i-nex/logo/i-nex.0.4.x.png inex/usr/share/pixmaps/
-	install -m 0755 debian/i-nex.desktop inex/usr/share/applications/
-	install -m 0755 debian/check_kernel inex/usr/bin/
-	install -m 0755 debian/i-nex-lspci inex/usr/bin/
-	install -m 0755 LICENSE inex/usr/share/doc/i-nex/
-	install -m 0755 COPYING inex/usr/share/i-nex/pastebinit/
-	install -m 0755 pastebin.d/* inex/usr/share/i-nex/pastebinit/pastebin.d/
-	install -m 0755 pastebinit inex/usr/share/i-nex/pastebinit/
-	install -m 0755 pastebinit.xml inex/usr/share/i-nex/pastebinit/
-	install -m 0755 po/* inex/usr/share/i-nex/pastebinit/po/
-	install -m 0755 README inex/usr/share/i-nex/pastebinit/
-	install -m 0755 release.conf inex/usr/share/i-nex/pastebinit/
-	install -m 0755 test.sh inex/usr/share/i-nex/pastebinit/
-	install -m 0755 utils/* inex/usr/share/i-nex/pastebinit/utils/
-	install -m 0775 usr/bin/gbx3 inex/usr/bin/gbx3
-	install -m 0775 usr/bin/gbr3 inex/usr/bin/gbr3
-	install -m 0775 usr/lib/gambas3/gb.debug.so inex/usr/lib/gambas3/
-	install -m 0775 usr/lib/gambas3/gb.desktop.gambas inex/usr/lib/gambas3/
-	install -m 0775 usr/lib/gambas3/gb.desktop.so inex/usr/lib/gambas3/
-	install -m 0775 usr/lib/gambas3/gb.draw.so inex/usr/lib/gambas3/
-	install -m 0775 usr/lib/gambas3/gb.eval.so inex/usr/lib/gambas3/
-	install -m 0775 usr/lib/gambas3/gb.form.gambas inex/usr/lib/gambas3/
-	install -m 0775 usr/lib/gambas3/gb.form.stock.gambas inex/usr/lib/gambas3/
-	install -m 0775 usr/lib/gambas3/gb.geom.so inex/usr/lib/gambas3/
-	install -m 0775 usr/lib/gambas3/gb.gtk.so inex/usr/lib/gambas3/
-	install -m 0775 usr/lib/gambas3/gb.gui.base.gambas inex/usr/lib/gambas3/
-	install -m 0775 usr/lib/gambas3/gb.gui.opengl.so inex/usr/lib/gambas3/
-	install -m 0775 usr/lib/gambas3/gb.gui.so inex/usr/lib/gambas3/
-	install -m 0775 usr/lib/gambas3/gb.image.so inex/usr/lib/gambas3/
-	install -m 0775 usr/lib/gambas3/gb.qt4.so inex/usr/lib/gambas3/
-	install -m 0775 install-self inex/install-self 
-	install -m 0775 install-self-inex inex/install-self-inex
+	$(INSTALL) 0755 i-nex inex$(bindir)
+	$(INSTALL) 0755 inex-edid inex$(bindir)
+	$(INSTALL) 0755 src/i-nex/i-nex.gambas inex$(bindir)
+	$(INSTALL) 0755 src/i-nex/logo/i-nex.0.4.x.png inex/usr/share/pixmaps/
+	$(INSTALL) 0755 debian/i-nex.desktop inex/usr/share/applications/
+	$(INSTALL) 0755 debian/check_kernel inex/usr/bin/
+	$(INSTALL) 0755 debian/i-nex-lspci inex/usr/bin/
+	$(INSTALL) 0755 LICENSE inex/usr/share/doc/i-nex/
+	$(INSTALL) 0755 COPYING inex/usr/share/i-nex/pastebinit/
+	$(INSTALL) 0755 pastebin.d/* inex/usr/share/i-nex/pastebinit/pastebin.d/
+	$(INSTALL) 0755 pastebinit inex/usr/share/i-nex/pastebinit/
+	$(INSTALL) 0755 pastebinit.xml inex/usr/share/i-nex/pastebinit/
+	$(INSTALL) 0755 po/* inex/usr/share/i-nex/pastebinit/po/
+	$(INSTALL) 0755 README inex/usr/share/i-nex/pastebinit/
+	$(INSTALL) 0755 release.conf inex/usr/share/i-nex/pastebinit/
+	$(INSTALL) 0755 test.sh inex/usr/share/i-nex/pastebinit/
+	$(INSTALL) 0755 utils/* inex/usr/share/i-nex/pastebinit/utils/
+	$(INSTALL) 0775 usr/bin/gbx3 inex/usr/bin/gbx3
+	$(INSTALL) 0775 usr/bin/gbr3 inex/usr/bin/gbr3
+	$(INSTALL) 0775 usr/lib/gambas3/gb.debug.so inex/usr/lib/gambas3/
+	$(INSTALL) 0775 usr/lib/gambas3/gb.desktop.gambas inex/usr/lib/gambas3/
+	$(INSTALL) 0775 usr/lib/gambas3/gb.desktop.so inex/usr/lib/gambas3/
+	$(INSTALL) 0775 usr/lib/gambas3/gb.draw.so inex/usr/lib/gambas3/
+	$(INSTALL) 0775 usr/lib/gambas3/gb.eval.so inex/usr/lib/gambas3/
+	$(INSTALL) 0775 usr/lib/gambas3/gb.form.gambas inex/usr/lib/gambas3/
+	$(INSTALL) 0775 usr/lib/gambas3/gb.form.stock.gambas inex/usr/lib/gambas3/
+	$(INSTALL) 0775 usr/lib/gambas3/gb.geom.so inex/usr/lib/gambas3/
+	$(INSTALL) 0775 usr/lib/gambas3/gb.gtk.so inex/usr/lib/gambas3/
+	$(INSTALL) 0775 usr/lib/gambas3/gb.gui.base.gambas inex/usr/lib/gambas3/
+	$(INSTALL) 0775 usr/lib/gambas3/gb.gui.opengl.so inex/usr/lib/gambas3/
+	$(INSTALL) 0775 usr/lib/gambas3/gb.gui.so inex/usr/lib/gambas3/
+	$(INSTALL) 0775 usr/lib/gambas3/gb.image.so inex/usr/lib/gambas3/
+	$(INSTALL) 0775 usr/lib/gambas3/gb.qt4.so inex/usr/lib/gambas3/
+	$(INSTALL) 0775 install-self inex/install-self 
+	$(INSTALL) 0775 install-self-inex inex/install-self-inex
 	chmod +x inex/install-self
 	chmod +x inex/install-self-inex
-	./makeself.sh --nowait --xz --complevel 9 ./inex i-nex.xz.run I-Nex ./install-self
-	./makeself.sh --nowait --gzip --complevel 9 ./inex i-nex.gzip.run I-Nex ./install-self
-	./makeself.sh --nowait --bzip2 --complevel 9 ./inex i-nex.bzip2.run I-Nex ./install-self
-	./makeself.sh --nowait --pbzip2 --complevel 9 ./inex i-nex.pbzip2.run I-Nex ./install-self
-	./makeself.sh --nowait --compress --complevel 9 ./inex i-nex.unixcompress.run I-Nex ./install-self
+	@if [ -e "/usr/bin/pbzip2" ];then \
+	printf "\033[1;31m:: \033[0m$1\n" & $(MAKESELF) $(MAKESELF_OPT) --pbzip2 --complevel $(COMPRESSION_SELF_LEVEL) ./inex i-nex.$(ARCH).pbzip2.run $(APP_NAME) $(INSTALL_SELF_SCRIPT); \
+	fi
+	
+	@if [ -e "/usr/bin/compress" ];then \
+	printf "\033[1;31m:: \033[0m$1\n" & $(MAKESELF) $(MAKESELF_OPT) --compress --complevel $(COMPRESSION_SELF_LEVEL) ./inex i-nex.$(ARCH).unixcompress.run $(APP_NAME) $(INSTALL_SELF_SCRIPT); \
+	fi
+	
+	@if [ -e "/usr/bin/xz" ];then \
+	printf "\033[1;31m:: \033[0m$1\n" & $(MAKESELF) $(MAKESELF_OPT) --xz --complevel $(COMPRESSION_SELF_LEVEL) ./inex i-nex.$(ARCH).xz.run $(APP_NAME) $(INSTALL_SELF_SCRIPT); \
+	fi
+	
+	@if [ -e "/bin/gzip" ];then \
+	printf "\033[1;31m:: \033[0m$1\n" & $(MAKESELF) $(MAKESELF_OPT) --gzip --complevel $(COMPRESSION_SELF_LEVEL) ./inex i-nex.$(ARCH).gzip.run $(APP_NAME) $(INSTALL_SELF_SCRIPT); \
+	fi
+	
+	@if [ -e "/bin/bzip2" ];then \
+	printf "\033[1;31m:: \033[0m$1\n" & $(MAKESELF) $(MAKESELF_OPT) --bzip2 --complevel $(COMPRESSION_SELF_LEVEL) ./inex i-nex.$(ARCH).bzip2.run $(APP_NAME) $(INSTALL_SELF_SCRIPT); \
+	fi
+
+	
 clean:
-	rm -f inex-edid
-	rm -Rf `find . -name ".gambas"`
-	rm -Rf `find . -name "*.gambas"`
-	rm -Rf `find . -name "screenfetch-dev"`
-	rm -Rf `find . -name ".directory"`
-	rm -Rf `find . -name "*.deb"`
-	rm -f index.html
-	rm -f i-nex.run
-	rm -f src/i-nex/.lang/*.pot
-	rm -f src/i-nex/.lang/*.po
-	rm -f src/i-nex/.lang/*.mo
-	rm -Rf src/i-nex/.gambas
-	rm -Rf debian/files
-	rm -Rf debian/i-nex
-	rm -Rf debian/i-nex.debhelper.log
-	rm -Rf debian/i-nex.postinst.debhelper
-	rm -Rf debian/i-nex.postrm.debhelper
-	rm -Rf debian/i-nex.substvars
-	rm -Rf debian/changelog1
-	rm -Rf inex
-	rm -Rf usr
+
+	$(RM_COM) $(RMFILE_OPT) inex-edid
+	$(RM_COM) $(RMDIR_OPT) `find . -name ".gambas"`
+	$(RM_COM) $(RMDIR_OPT) `find . -name "*.gambas"`
+	$(RM_COM) $(RMDIR_OPT) `find . -name "screenfetch-dev"`
+	$(RM_COM) $(RMDIR_OPT) `find . -name ".directory"`
+	$(RM_COM) $(RMDIR_OPT) `find . -name "*.deb"`
+	$(RM_COM) $(RMFILE_OPT) index.html
+	$(RM_COM) $(RMFILE_OPT) i-nex.run
+	$(RM_COM) $(RMFILE_OPT) src/i-nex/.lang/*.pot
+	$(RM_COM) $(RMFILE_OPT) src/i-nex/.lang/*.po
+	$(RM_COM) $(RMFILE_OPT) src/i-nex/.lang/*.mo
+	$(RM_COM) $(RMDIR_OPT) src/i-nex/.gambas
+	$(RM_COM) $(RMDIR_OPT) debian/files
+	$(RM_COM) $(RMDIR_OPT) debian/i-nex
+	$(RM_COM) $(RMDIR_OPT) debian/i-nex.debhelper.log
+	$(RM_COM) $(RMDIR_OPT) debian/i-nex.postinst.debhelper
+	$(RM_COM) $(RMDIR_OPT) debian/i-nex.postrm.debhelper
+	$(RM_COM) $(RMDIR_OPT) debian/i-nex.substvars
+	$(RM_COM) $(RMDIR_OPT) debian/changelog1
+	$(RM_COM) $(RMDIR_OPT) inex
+	$(RM_COM) $(RMDIR_OPT) usr
 
 	
 install:
@@ -133,32 +171,32 @@ install:
 	chmod +x inex-edid
 	chmod +x debian/check_kernel
 	chmod +x debian/i-nex-lspci
-	install -m 0755 i-nex $(DESTDIR)$(bindir)
-	install -m 0755 inex-edid $(DESTDIR)$(bindir)
-	install -m 0755 src/i-nex/i-nex.gambas $(DESTDIR)$(bindir)
-	install -m 0755 src/i-nex/logo/i-nex.0.4.x.png $(DESTDIR)/usr/share/pixmaps/
-	install -m 0755 debian/i-nex.desktop $(DESTDIR)/usr/share/applications/
-	install -m 0755 debian/check_kernel $(DESTDIR)/usr/bin/
-	install -m 0755 debian/i-nex-lspci $(DESTDIR)/usr/bin/
-	install -m 0755 debian/changelog-0.4.6 $(DESTDIR)/usr/share/doc/i-nex/
-	install -m 0755 debian/changelog-0.4.8 $(DESTDIR)/usr/share/doc/i-nex/
-	install -m 0755 debian/changelog-0.4.8.1 $(DESTDIR)/usr/share/doc/i-nex/
-	install -m 0755 debian/changelog-0.5.0 $(DESTDIR)/usr/share/doc/i-nex/
-	install -m 0755 debian/changelog-0.5.1 $(DESTDIR)/usr/share/doc/i-nex/
-	install -m 0755 debian/changelog-0.5.2 $(DESTDIR)/usr/share/doc/i-nex/
-	install -m 0755 debian/changelog-0.5.4 $(DESTDIR)/usr/share/doc/i-nex/
-	install -m 0755 debian/changelog-0.5.6 $(DESTDIR)/usr/share/doc/i-nex/
-	install -m 0755 debian/changelog-0.5.8 $(DESTDIR)/usr/share/doc/i-nex/
-	install -m 0755 LICENSE $(DESTDIR)/usr/share/doc/i-nex/
-	install -m 0755 COPYING $(DESTDIR)/usr/share/i-nex/pastebinit/
-	install -m 0755 pastebin.d/* $(DESTDIR)/usr/share/i-nex/pastebinit/pastebin.d/
-	install -m 0755 pastebinit $(DESTDIR)/usr/share/i-nex/pastebinit/
-	install -m 0755 pastebinit.xml $(DESTDIR)/usr/share/i-nex/pastebinit/
-	install -m 0755 po/* $(DESTDIR)/usr/share/i-nex/pastebinit/po/
-	install -m 0755 README $(DESTDIR)/usr/share/i-nex/pastebinit/
-	install -m 0755 release.conf $(DESTDIR)/usr/share/i-nex/pastebinit/
-	install -m 0755 test.sh $(DESTDIR)/usr/share/i-nex/pastebinit/
-	install -m 0755 utils/* $(DESTDIR)/usr/share/i-nex/pastebinit/utils/
+	$(INSTALL) 0755 i-nex $(DESTDIR)$(bindir)
+	$(INSTALL) 0755 inex-edid $(DESTDIR)$(bindir)
+	$(INSTALL) 0755 src/i-nex/i-nex.gambas $(DESTDIR)$(bindir)
+	$(INSTALL) 0755 src/i-nex/logo/i-nex.0.4.x.png $(DESTDIR)/usr/share/pixmaps/
+	$(INSTALL) 0755 debian/i-nex.desktop $(DESTDIR)/usr/share/applications/
+	$(INSTALL) 0755 debian/check_kernel $(DESTDIR)/usr/bin/
+	$(INSTALL) 0755 debian/i-nex-lspci $(DESTDIR)/usr/bin/
+	$(INSTALL) 0755 debian/changelog-0.4.6 $(DESTDIR)/usr/share/doc/i-nex/
+	$(INSTALL) 0755 debian/changelog-0.4.8 $(DESTDIR)/usr/share/doc/i-nex/
+	$(INSTALL) 0755 debian/changelog-0.4.8.1 $(DESTDIR)/usr/share/doc/i-nex/
+	$(INSTALL) 0755 debian/changelog-0.5.0 $(DESTDIR)/usr/share/doc/i-nex/
+	$(INSTALL) 0755 debian/changelog-0.5.1 $(DESTDIR)/usr/share/doc/i-nex/
+	$(INSTALL) 0755 debian/changelog-0.5.2 $(DESTDIR)/usr/share/doc/i-nex/
+	$(INSTALL) 0755 debian/changelog-0.5.4 $(DESTDIR)/usr/share/doc/i-nex/
+	$(INSTALL) 0755 debian/changelog-0.5.6 $(DESTDIR)/usr/share/doc/i-nex/
+	$(INSTALL) 0755 debian/changelog-0.5.8 $(DESTDIR)/usr/share/doc/i-nex/
+	$(INSTALL) 0755 LICENSE $(DESTDIR)/usr/share/doc/i-nex/
+	$(INSTALL) 0755 COPYING $(DESTDIR)/usr/share/i-nex/pastebinit/
+	$(INSTALL) 0755 pastebin.d/* $(DESTDIR)/usr/share/i-nex/pastebinit/pastebin.d/
+	$(INSTALL) 0755 pastebinit $(DESTDIR)/usr/share/i-nex/pastebinit/
+	$(INSTALL) 0755 pastebinit.xml $(DESTDIR)/usr/share/i-nex/pastebinit/
+	$(INSTALL) 0755 po/* $(DESTDIR)/usr/share/i-nex/pastebinit/po/
+	$(INSTALL) 0755 README $(DESTDIR)/usr/share/i-nex/pastebinit/
+	$(INSTALL) 0755 release.conf $(DESTDIR)/usr/share/i-nex/pastebinit/
+	$(INSTALL) 0755 test.sh $(DESTDIR)/usr/share/i-nex/pastebinit/
+	$(INSTALL) 0755 utils/* $(DESTDIR)/usr/share/i-nex/pastebinit/utils/
 	
 uninstall:
 
@@ -169,7 +207,24 @@ uninstall:
 	rm $(DESTDIR)/usr/share/applications/i-nex.desktop
 	rm $(DESTDIR)$(bindir)/check_kernel
 	rm $(DESTDIR)$(bindir)/i-nex-lspci
-	rm -Rf $(DESTDIR)/usr/share/doc/i-nex
-	rm -Rf $(DESTDIR)/usr/share/i-nex
-	update-desktop-database
-	update-menus
+	$(RM_COM) $(RMDIR_OPT) $(DESTDIR)/usr/share/doc/i-nex
+	$(RM_COM) $(RMDIR_OPT) $(DESTDIR)/usr/share/i-nex
+	
+rmgambas:
+
+	$(RM_COM) $(RMFILE_OPT) /usr/bin/gbx3
+	$(RM_COM) $(RMFILE_OPT) /usr/bin/gbr3
+	$(RM_COM) $(RMFILE_OPT) /usr/lib/gambas3/gb.debug.so
+	$(RM_COM) $(RMFILE_OPT) /usr/lib/gambas3/gb.desktop.gambas
+	$(RM_COM) $(RMFILE_OPT) /usr/lib/gambas3/gb.desktop.so
+	$(RM_COM) $(RMFILE_OPT) /usr/lib/gambas3/gb.draw.so
+	$(RM_COM) $(RMFILE_OPT) /usr/lib/gambas3/gb.eval.so
+	$(RM_COM) $(RMFILE_OPT) /usr/lib/gambas3/gb.form.gambas
+	$(RM_COM) $(RMFILE_OPT) /usr/lib/gambas3/gb.form.stock.gambas
+	$(RM_COM) $(RMFILE_OPT) /usr/lib/gambas3/gb.geom.so
+	$(RM_COM) $(RMFILE_OPT) /usr/lib/gambas3/gb.gtk.so
+	$(RM_COM) $(RMFILE_OPT) /usr/lib/gambas3/gb.gui.base.gambas
+	$(RM_COM) $(RMFILE_OPT) /usr/lib/gambas3/gb.gui.opengl.so
+	$(RM_COM) $(RMFILE_OPT) /usr/lib/gambas3/gb.gui.so
+	$(RM_COM) $(RMFILE_OPT) /usr/lib/gambas3/gb.image.so
+	$(RM_COM) $(RMFILE_OPT) /usr/lib/gambas3/gb.qt4.so
