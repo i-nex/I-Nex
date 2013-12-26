@@ -1,7 +1,13 @@
 #!/bin/bash
 URL_DOWN="http://ppa.launchpad.net/nemh/gambas3/ubuntu/pool/main/g/gambas3/"
 wget -c $URL_DOWN
-ARCHITECTURE=$(dpkg --print-architecture)
+arch=$(uname -m)
+if [ "$arch" == 'x86_64' ]
+then
+    ARCHITECTURE=amd64
+else
+    ARCHITECTURE=i386
+fi
 GB3_GB_IMAGE=$(cat ./index.html | egrep gambas3-gb-image_ | egrep saucy | egrep $ARCHITECTURE.deb | sed -n '1p' | awk {'print $6'} | cut -d ">" -f 2 | cut -d '<' -f 1)
 
 GB3_GB_GTK=$(cat ./index.html | egrep gambas3-gb-gtk_ | egrep saucy | egrep $ARCHITECTURE.deb | sed -n '1p' | awk {'print $6'} | cut -d ">" -f 2 | cut -d '<' -f 1)

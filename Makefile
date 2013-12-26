@@ -7,7 +7,7 @@ GBC = /usr/bin/gbc3
 GBCOPTS = -e -a -g -t -p -m
 GBA = gba3
 CC = gcc
-ARCH=`arch`
+ARCH=`uname -m`
 bindir ?= /usr/bin
 INSTALL = install -m
 bzr_revision = 
@@ -131,7 +131,7 @@ self:
 	@if [ -e "/bin/bzip2" ];then \
 	printf "\033[1;31m:: \033[0m$1\n" & $(MAKESELF) $(MAKESELF_OPT) --bzip2 --complevel $(COMPRESSION_SELF_LEVEL) ./inex i-nex.$(ARCH).bzip2.run $(APP_NAME) $(INSTALL_SELF_SCRIPT); \
 	fi
-
+	mv ./*.run ../
 	
 clean:
 
