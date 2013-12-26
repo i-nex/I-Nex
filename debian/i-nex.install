@@ -17,7 +17,6 @@ Pastebinit.LICENSE usr/share/i-nex/pastebinit
 pastebin.d usr/share/i-nex/pastebinit
 pastebinit usr/share/i-nex/pastebinit
 pastebinit.xml usr/share/i-nex/pastebinit
-po usr/share/i-nex/pastebinit
 README usr/share/i-nex/pastebinit
 release.conf usr/share/i-nex/pastebinit
 test.sh usr/share/i-nex/pastebinit

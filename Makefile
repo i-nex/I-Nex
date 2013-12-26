@@ -69,7 +69,6 @@ self:
 	mkdir -p inex/usr/share/doc/i-nex/
 	mkdir -p inex/usr/share/i-nex/pastebinit/
 	mkdir -p inex/usr/share/i-nex/pastebinit/pastebin.d/
-	mkdir -p inex/usr/share/i-nex/pastebinit/po/
 	mkdir -p inex/usr/share/i-nex/pastebinit/utils/
 	chmod +x i-nex
 	chmod +x inex-edid
@@ -87,7 +86,6 @@ self:
 	$(INSTALL) 0755 pastebin.d/* inex/usr/share/i-nex/pastebinit/pastebin.d/
 	$(INSTALL) 0755 pastebinit inex/usr/share/i-nex/pastebinit/
 	$(INSTALL) 0755 pastebinit.xml inex/usr/share/i-nex/pastebinit/
-	$(INSTALL) 0755 po/* inex/usr/share/i-nex/pastebinit/po/
 	$(INSTALL) 0755 README inex/usr/share/i-nex/pastebinit/
 	$(INSTALL) 0755 release.conf inex/usr/share/i-nex/pastebinit/
 	$(INSTALL) 0755 test.sh inex/usr/share/i-nex/pastebinit/
@@ -165,7 +163,6 @@ install:
 	mkdir -p $(DESTDIR)/usr/share/doc/i-nex/
 	mkdir -p $(DESTDIR)/usr/share/i-nex/pastebinit/
 	mkdir -p $(DESTDIR)/usr/share/i-nex/pastebinit/pastebin.d/
-	mkdir -p $(DESTDIR)/usr/share/i-nex/pastebinit/po/
 	mkdir -p $(DESTDIR)/usr/share/i-nex/pastebinit/utils/
 	chmod +x i-nex
 	chmod +x inex-edid
@@ -192,7 +189,6 @@ install:
 	$(INSTALL) 0755 pastebin.d/* $(DESTDIR)/usr/share/i-nex/pastebinit/pastebin.d/
 	$(INSTALL) 0755 pastebinit $(DESTDIR)/usr/share/i-nex/pastebinit/
 	$(INSTALL) 0755 pastebinit.xml $(DESTDIR)/usr/share/i-nex/pastebinit/
-	$(INSTALL) 0755 po/* $(DESTDIR)/usr/share/i-nex/pastebinit/po/
 	$(INSTALL) 0755 README $(DESTDIR)/usr/share/i-nex/pastebinit/
 	$(INSTALL) 0755 release.conf $(DESTDIR)/usr/share/i-nex/pastebinit/
 	$(INSTALL) 0755 test.sh $(DESTDIR)/usr/share/i-nex/pastebinit/

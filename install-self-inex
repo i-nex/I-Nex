@@ -7,7 +7,6 @@ bindir="/usr/bin/"
 	mkdir -p /usr/share/doc/i-nex/
 	mkdir -p /usr/share/i-nex/pastebinit/
 	mkdir -p /usr/share/i-nex/pastebinit/pastebin.d/
-	mkdir -p /usr/share/i-nex/pastebinit/po/
 	mkdir -p /usr/share/i-nex/pastebinit/utils/
 	install -m 0755 usr/bin/i-nex $bindir
 	install -m 0755 usr/bin/inex-edid $bindir
@@ -21,7 +20,6 @@ bindir="/usr/bin/"
 	install -m 0755 usr/share/i-nex/pastebinit/pastebin.d/* /usr/share/i-nex/pastebinit/pastebin.d/
 	install -m 0755 usr/share/i-nex/pastebinit/pastebinit /usr/share/i-nex/pastebinit/
 	install -m 0755 usr/share/i-nex/pastebinit/pastebinit.xml /usr/share/i-nex/pastebinit/
-	install -m 0755 usr/share/i-nex/pastebinit/po/* /usr/share/i-nex/pastebinit/po/
 	install -m 0755 usr/share/i-nex/pastebinit/README /usr/share/i-nex/pastebinit/
 	install -m 0755 usr/share/i-nex/pastebinit/release.conf /usr/share/i-nex/pastebinit/
 	install -m 0755 usr/share/i-nex/pastebinit/test.sh /usr/share/i-nex/pastebinit/
