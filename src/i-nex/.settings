@@ -21,6 +21,7 @@ SearchComment=False
 SearchString=True
 
 [OpenFile]
+Active=1
 File[1]=".src/Finfosys.form"
 File[2]=".src/Global.class:149.56"
 File[3]=".src/About.form"
@@ -54,7 +55,6 @@ File[30]=".src/FGraphic.module:36.1"
 File[31]="logo/fb.png"
 File[32]=".src/FCPU.module:3.4"
 File[33]=".src/FUdisks.form"
-Active=34
 File[34]=".src/FUdisks.class:242.28"
 File[35]=".src/FCpudb.module:16.35"
 File[36]=".src/JSON.module:108.2"
