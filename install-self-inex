@@ -16,8 +16,8 @@ bindir="/usr/bin/"
 	install -m 0755 usr/share/applications/i-nex.desktop /usr/share/applications/
 	install -m 0755 usr/bin/check_kernel /usr/bin/
 	install -m 0755 usr/bin/i-nex-lspci /usr/bin/
-	install -m 0755 usr/share/doc/i-nex/LICENSE /usr/share/doc/i-nex/
-	install -m 0755 usr/share/i-nex/pastebinit/COPYING /usr/share/i-nex/pastebinit/
+	install -m 0755 usr/share/doc/i-nex/I-Nex.LICENSE /usr/share/doc/i-nex/
+	install -m 0755 usr/share/i-nex/pastebinit/Pastebinit.LICENSE /usr/share/i-nex/pastebinit/
 	install -m 0755 usr/share/i-nex/pastebinit/pastebin.d/* /usr/share/i-nex/pastebinit/pastebin.d/
 	install -m 0755 usr/share/i-nex/pastebinit/pastebinit /usr/share/i-nex/pastebinit/
 	install -m 0755 usr/share/i-nex/pastebinit/pastebinit.xml /usr/share/i-nex/pastebinit/

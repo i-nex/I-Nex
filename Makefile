@@ -82,8 +82,8 @@ self:
 	$(INSTALL) 0755 debian/i-nex.desktop inex/usr/share/applications/
 	$(INSTALL) 0755 debian/check_kernel inex/usr/bin/
 	$(INSTALL) 0755 debian/i-nex-lspci inex/usr/bin/
-	$(INSTALL) 0755 LICENSE inex/usr/share/doc/i-nex/
-	$(INSTALL) 0755 COPYING inex/usr/share/i-nex/pastebinit/
+	$(INSTALL) 0755 I-Nex.LICENSE inex/usr/share/doc/i-nex/
+	$(INSTALL) 0755 Pastebinit.LICENSE inex/usr/share/i-nex/pastebinit/
 	$(INSTALL) 0755 pastebin.d/* inex/usr/share/i-nex/pastebinit/pastebin.d/
 	$(INSTALL) 0755 pastebinit inex/usr/share/i-nex/pastebinit/
 	$(INSTALL) 0755 pastebinit.xml inex/usr/share/i-nex/pastebinit/
@@ -187,8 +187,8 @@ install:
 	$(INSTALL) 0755 debian/changelog-0.5.4 $(DESTDIR)/usr/share/doc/i-nex/
 	$(INSTALL) 0755 debian/changelog-0.5.6 $(DESTDIR)/usr/share/doc/i-nex/
 	$(INSTALL) 0755 debian/changelog-0.5.8 $(DESTDIR)/usr/share/doc/i-nex/
-	$(INSTALL) 0755 LICENSE $(DESTDIR)/usr/share/doc/i-nex/
-	$(INSTALL) 0755 COPYING $(DESTDIR)/usr/share/i-nex/pastebinit/
+	$(INSTALL) 0755 I-Nex.LICENSE $(DESTDIR)/usr/share/doc/i-nex/
+	$(INSTALL) 0755 Pastebinit.LICENSE $(DESTDIR)/usr/share/i-nex/pastebinit/
 	$(INSTALL) 0755 pastebin.d/* $(DESTDIR)/usr/share/i-nex/pastebinit/pastebin.d/
 	$(INSTALL) 0755 pastebinit $(DESTDIR)/usr/share/i-nex/pastebinit/
 	$(INSTALL) 0755 pastebinit.xml $(DESTDIR)/usr/share/i-nex/pastebinit/

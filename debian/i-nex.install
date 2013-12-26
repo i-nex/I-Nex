@@ -12,8 +12,8 @@ debian/changelog-0.5.2 /usr/share/doc/i-nex
 debian/changelog-0.5.4 /usr/share/doc/i-nex
 debian/changelog-0.5.6 /usr/share/doc/i-nex
 debian/changelog-0.5.8 /usr/share/doc/i-nex
-LICENSE /usr/share/doc/i-nex
-COPYING usr/share/i-nex/pastebinit
+I-Nex.LICENSE /usr/share/doc/i-nex
+Pastebinit.LICENSE usr/share/i-nex/pastebinit
 pastebin.d usr/share/i-nex/pastebinit
 pastebinit usr/share/i-nex/pastebinit
 pastebinit.xml usr/share/i-nex/pastebinit

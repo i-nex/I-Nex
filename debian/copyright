@@ -2,32 +2,29 @@ Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Upstream-Name: I-Nex
 Source: https://launchpad.net/i-nex
 
-
 Files: src/i-nex.*
 Copyright: 2011-2013 I-Nex authors and contributors
 License: LGPL-3+
 
-Files: *
+Files: pastebin.d/* po/* utils/* pastebinit/* pastebinit.xml, release.conf, test.sh
 Copyright: 2006-2010, Stéphane Graber, Daniel Bartlett, David Paleino
 License: GPL-3+
 
-Files: pastebin.d/*	po/*
-       utils/*		COPYING
-       LICENSE		pastebinit/*
-       pastebinit.xml	README
-       release.conf	test.sh
-
-Files: src/i-nex/*
-Copyright: Intel, AMD, nVidia, VIA
+Files: src/i-nex/Database/Logos/*
+Copyright: Intel, AMD
 License: Registered trademarks
 
-Files: src/i-nex/logo/*			src/i-nex/amd.png
-       src/i-nex/amdathlon64.png	src/i-nex/amdathlonx2.png
-       src/i-nex/amdathlonxp.png	src/i-nex/amdopteron.png
-       src/i-nex/amdphenom.png		src/i-nex/amdsempron.png
-       src/i-nex/intel.jpg		src/i-nex/intel.png
-       src/i-nex/intelcore2duo.png	src/i-nex/intelcore2extreme.png
-       src/i-nex/intelcore2quad.png	src/i-nex/intelcoreduo.png
-       src/i-nex/intellogo.gif		src/i-nex/intelp4.png
-       src/i-nex/intelpentium2.png	src/i-nex/intelpentiumdual.png
-       src/i-nex/intelxeon.png
+Files: src/i-nex/Processors/*
+Copyright: Intel, AMD
+License: Registered trademarks
+
+Files: src/i-nex/Database/Distlogos/*
+Copyright: archlinux, debian, fedora, gentoo, kubuntu, mandriva, manjaro, Mint, opensuse, redhat, sabayon, slackware, ubuntu, xubuntu
+License: Registered trademarks
+file:///home/michal/Baazar/git-i-nex/
+
+Files: src/i-nex/Data/Karta_graficzna/*
+Copyright: ATI, Intel, nVidia
+License: Registered trademarks
+
+
