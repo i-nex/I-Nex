@@ -653,12 +653,6 @@ Public Sub ComboBox8_Click()
 
 End
 
-Public Sub Button11_Click()
-
- Desktop.Open("https://www.facebook.com/pages/I-Nex/199567416807891")
-
-End
-
 Public Sub Button14_Click()
 
  FUdisks.Show

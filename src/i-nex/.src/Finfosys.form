@@ -1723,10 +1723,4 @@
     }
     Index = 0
   }
-  { Button11 Button
-    Move(91,497,24,24)
-    #Translate = False
-    ToolTip = "Open I-Nex facebook fanpage and click Like this!"
-    Picture = Picture["logo/fb.png"]
-  }
 }

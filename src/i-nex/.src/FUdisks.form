@@ -21,27 +21,6 @@
       Move(7,0,21,24)
       Picture = Picture["icon:/16/camera"]
     }
-    { Button13 Button
-      Move(28,0,24,24)
-      Visible = False
-      ToolTip = ("Report a bug")
-      Picture = Picture["icon:/16/important"]
-    }
-    { Button12 Button
-      Move(49,0,24,24)
-      ToolTip = ("Generate report")
-      Picture = Picture["icon:/16/printer"]
-    }
-    { Button3 Button
-      Move(77,0,24,24)
-      Font = Font["10"]
-      ToolTip = ("About this app")
-      Picture = Picture["icon:/16/help"]
-    }
-    { Button11 Button
-      Move(105,0,24,24)
-      Picture = Picture["logo/fb.png"]
-    }
     { HBox11 HBox
       Move(140,-7,156,36)
       { Label25 Label
