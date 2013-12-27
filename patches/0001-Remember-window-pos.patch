@@ -1,0 +1,61 @@
+From ab7863e13068e689752cb2e58abc8f334416557a Mon Sep 17 00:00:00 2001
+Message-Id: <ab7863e13068e689752cb2e58abc8f334416557a.1388175511.git.eloaders@linux.pl>
+From: eloaders <eloaders@linux.pl>
+Date: Fri, 27 Dec 2013 21:18:23 +0100
+Subject: [PATCH] Remember window pos
+
+---
+ src/i-nex/.src/Finfosys.class | 8 +++++++-
+ src/i-nex/.src/Settings.class | 4 ++--
+ 2 files changed, 9 insertions(+), 3 deletions(-)
+
+diff --git a/src/i-nex/.src/Finfosys.class b/src/i-nex/.src/Finfosys.class
+index 12fa45e..ec6faf3 100644
+--- a/src/i-nex/.src/Finfosys.class
++++ b/src/i-nex/.src/Finfosys.class
+@@ -6,6 +6,10 @@ Public vendor_id As String
+ Public Sub Form_Open()
+   Dim default_display_manager As Boolean = Exist("/etc/X11/default-display-manager")
+   Dim cpuz0, cpuz1, cpuz2, cpuz3, cpuz4, cpuz5, cpuz6, cpuz7, cpuz8, cpuz9, cpuz10, cpuz11 As String
++  Print Settings.Path
++  Print Settings.DefaultDir
++  Me.X = Settings["Window/X", Me.X]
++  Me.Y = Settings["Window/Y", Me.Y]
+   If User.Name = "root" Then
+     Message.Error(("Running as root is not allowed!\n " & User.Home & ""))
+   Endif
+@@ -128,7 +132,7 @@ Public Sub Form_Open()
+  Label25.Text = Application.Name & " v: " & Application.version
+  Debug Label25.Text
+  ''Okno na środku
+- Me.Center
++ 
+ End
+ 
+ Public Sub ComboBox1_Click()
+@@ -407,6 +411,8 @@ End
+ 
+ Public Sub Button1_Click()
+ 
++  Settings["Window/X"] = Me.X
++  Settings["Window/Y"] = Me.Y
+   Me.Close
+   Debug "Good bye!"
+ End
+diff --git a/src/i-nex/.src/Settings.class b/src/i-nex/.src/Settings.class
+index cf23714..693c464 100644
+--- a/src/i-nex/.src/Settings.class
++++ b/src/i-nex/.src/Settings.class
+@@ -490,7 +490,7 @@ End
+ Static Private Function DefaultDir_Read() As String
+ 
+   Dim sPath As String = Application.Env["XDG_CONFIG_HOME"]
+-  If Not sPath Then sPath = System.User.Home &/ ".config"
+-  Return sPath &/ "gambas" & System.Version
++  If Not sPath Then sPath = System.User.Home &/ ".i-nex"
++  Return sPath
+ 
+ End
+-- 
+1.8.3.2
+

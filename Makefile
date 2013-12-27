@@ -58,6 +58,15 @@ make:
 	@printf "\033[1;31mCompile src/i-nex stage 2 \033[0m$1\n"
 	$(GBA) src/i-nex
 	cd pixmaps; make
+	
+patch:
+	patch -p1 -i patches/0001-I-Nex-New-GUI.patch
+	patch -p1 -i patches/0001-Remember-window-pos.patch
+	
+unpatch:
+	patch -R -p1 -i patches/0001-I-Nex-New-GUI.patch
+	patch -R -p1 -i patches/0001-Remember-window-pos.patch
+	
 deb:
 	
 	$(AS_ROOT) $(PKG_INSTALL) $(dependency_build)
