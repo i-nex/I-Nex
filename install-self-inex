@@ -10,7 +10,7 @@ bindir="/usr/bin/"
 	install -m 0755 usr/bin/i-nex $bindir
 	install -m 0755 usr/bin/inex-edid $bindir
 	install -m 0755 usr/bin/i-nex.gambas $bindir
-	install -m 0755 usr/share/pixmaps/i-nex.0.4.x.png /usr/share/pixmaps/
+	install -m 0755 usr/share/pixmaps/i-nex.xpm /usr/share/pixmaps/
 	install -m 0755 usr/share/applications/i-nex.desktop /usr/share/applications/
 	install -m 0755 usr/bin/check_kernel /usr/bin/
 	install -m 0755 usr/bin/i-nex-lspci /usr/bin/

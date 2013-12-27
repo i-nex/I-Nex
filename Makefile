@@ -80,7 +80,7 @@ self:
 	$(INSTALL) 0755 i-nex inex$(bindir)
 	$(INSTALL) 0755 inex-edid inex$(bindir)
 	$(INSTALL) 0755 src/i-nex/i-nex.gambas inex$(bindir)
-	$(INSTALL) 0755 debian/i-nex.xpm inex/usr/share/pixmaps/
+	$(INSTALL) 0755 pixmaps/i-nex.xpm inex/usr/share/pixmaps/
 	$(INSTALL) 0755 debian/i-nex.desktop inex/usr/share/applications/
 	$(INSTALL) 0755 debian/check_kernel inex/usr/bin/
 	$(INSTALL) 0755 debian/i-nex-lspci inex/usr/bin/
@@ -171,7 +171,7 @@ install:
 	$(INSTALL) 0755 i-nex $(DESTDIR)$(bindir)
 	$(INSTALL) 0755 inex-edid $(DESTDIR)$(bindir)
 	$(INSTALL) 0755 src/i-nex/i-nex.gambas $(DESTDIR)$(bindir)
-	$(INSTALL) 0755 debian/i-nex.xpm $(DESTDIR)/usr/share/pixmaps/
+	$(INSTALL) 0755 pixmaps/i-nex.xpm $(DESTDIR)/usr/share/pixmaps/
 	$(INSTALL) 0755 debian/i-nex.desktop $(DESTDIR)/usr/share/applications/
 	$(INSTALL) 0755 debian/check_kernel $(DESTDIR)/usr/bin/
 	$(INSTALL) 0755 debian/i-nex-lspci $(DESTDIR)/usr/bin/
@@ -198,7 +198,7 @@ uninstall:
 	rm $(DESTDIR)$(bindir)/i-nex
 	rm $(DESTDIR)$(bindir)/inex-edid
 	rm $(DESTDIR)$(bindir)/i-nex.gambas
-	rm $(DESTDIR)/usr/share/pixmaps/i-nex.0.4.x.png
+	rm $(DESTDIR)/usr/share/pixmaps/i-nex.xpm
 	rm $(DESTDIR)/usr/share/applications/i-nex.desktop
 	rm $(DESTDIR)$(bindir)/check_kernel
 	rm $(DESTDIR)$(bindir)/i-nex-lspci
