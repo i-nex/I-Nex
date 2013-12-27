@@ -1,5 +1,6 @@
 #!/usr/bin/make -f
-BUILD_PACKAGE = ./build-deb
+
+BUILD_PACKAGE = $(shell ./build-deb)
 PKG_INSTALL = apt-get install
 AS_ROOT = sudo
 CFLAGS = -g -Wall
@@ -7,7 +8,7 @@ GBC = /usr/bin/gbc3
 GBCOPTS = -e -a -g -t -p -m
 GBA = gba3
 CC = gcc
-ARCH=`uname -m`
+ARCH=$(shell uname -m)
 bindir ?= /usr/bin
 INSTALL = install -m
 bzr_revision = 
@@ -20,6 +21,9 @@ MAKESELF = ./makeself.sh
 MAKESELF_OPT = --nowait
 APP_NAME= I-Nex
 INSTALL_SELF_SCRIPT = ./install-self
+ifeq ($(ARCH),x86)
+additional_confflags := --disable-sse2
+endif
 dependency_build ?= bzr \
 		    devscripts \
 		    pkg-config \
@@ -48,17 +52,17 @@ dependency_build ?= bzr \
 
 make:
 	@printf "\033[1;31mCompile edid-decode as inex-decode \033[0m$1\n"
-	$(CC) edid-decode.c $(CFLAGS) -o inex-edid
+	$(CC) edid-decode.c $(CFLAGS) $(additional_confflags) -o inex-edid
 	@printf "\033[1;31mCompile src/i-nex stage 1 \033[0m$1\n"
 	$(GBC) $(GBCOPTS) src/i-nex
 	@printf "\033[1;31mCompile src/i-nex stage 2 \033[0m$1\n"
 	$(GBA) src/i-nex
-
+	cd pixmaps; make
 deb:
 	
 	$(AS_ROOT) $(PKG_INSTALL) $(dependency_build)
 	$(BUILD_PACKAGE)
-	
+	cd pixmaps; make
 self:
 	$(BUILD_SELF_EXECUTABLE)
 	mkdir -p inex
@@ -69,7 +73,6 @@ self:
 	mkdir -p inex/usr/share/doc/i-nex/
 	mkdir -p inex/usr/share/i-nex/pastebinit/
 	mkdir -p inex/usr/share/i-nex/pastebinit/pastebin.d/
-	mkdir -p inex/usr/share/i-nex/pastebinit/utils/
 	chmod +x i-nex
 	chmod +x inex-edid
 	chmod +x debian/check_kernel
@@ -77,7 +80,7 @@ self:
 	$(INSTALL) 0755 i-nex inex$(bindir)
 	$(INSTALL) 0755 inex-edid inex$(bindir)
 	$(INSTALL) 0755 src/i-nex/i-nex.gambas inex$(bindir)
-	$(INSTALL) 0755 src/i-nex/logo/i-nex.0.4.x.png inex/usr/share/pixmaps/
+	$(INSTALL) 0755 debian/i-nex.xpm inex/usr/share/pixmaps/
 	$(INSTALL) 0755 debian/i-nex.desktop inex/usr/share/applications/
 	$(INSTALL) 0755 debian/check_kernel inex/usr/bin/
 	$(INSTALL) 0755 debian/i-nex-lspci inex/usr/bin/
@@ -88,8 +91,6 @@ self:
 	$(INSTALL) 0755 pastebinit.xml inex/usr/share/i-nex/pastebinit/
 	$(INSTALL) 0755 README inex/usr/share/i-nex/pastebinit/
 	$(INSTALL) 0755 release.conf inex/usr/share/i-nex/pastebinit/
-	$(INSTALL) 0755 test.sh inex/usr/share/i-nex/pastebinit/
-	$(INSTALL) 0755 utils/* inex/usr/share/i-nex/pastebinit/utils/
 	$(INSTALL) 0775 usr/bin/gbx3 inex/usr/bin/gbx3
 	$(INSTALL) 0775 usr/bin/gbr3 inex/usr/bin/gbr3
 	$(INSTALL) 0775 usr/lib/gambas3/gb.debug.so inex/usr/lib/gambas3/
@@ -154,7 +155,7 @@ clean:
 	$(RM_COM) $(RMDIR_OPT) debian/changelog1
 	$(RM_COM) $(RMDIR_OPT) inex
 	$(RM_COM) $(RMDIR_OPT) usr
-
+	cd pixmaps; make clean
 	
 install:
 	mkdir -p $(DESTDIR)$(bindir)
@@ -163,7 +164,6 @@ install:
 	mkdir -p $(DESTDIR)/usr/share/doc/i-nex/
 	mkdir -p $(DESTDIR)/usr/share/i-nex/pastebinit/
 	mkdir -p $(DESTDIR)/usr/share/i-nex/pastebinit/pastebin.d/
-	mkdir -p $(DESTDIR)/usr/share/i-nex/pastebinit/utils/
 	chmod +x i-nex
 	chmod +x inex-edid
 	chmod +x debian/check_kernel
@@ -171,7 +171,7 @@ install:
 	$(INSTALL) 0755 i-nex $(DESTDIR)$(bindir)
 	$(INSTALL) 0755 inex-edid $(DESTDIR)$(bindir)
 	$(INSTALL) 0755 src/i-nex/i-nex.gambas $(DESTDIR)$(bindir)
-	$(INSTALL) 0755 src/i-nex/logo/i-nex.0.4.x.png $(DESTDIR)/usr/share/pixmaps/
+	$(INSTALL) 0755 debian/i-nex.xpm $(DESTDIR)/usr/share/pixmaps/
 	$(INSTALL) 0755 debian/i-nex.desktop $(DESTDIR)/usr/share/applications/
 	$(INSTALL) 0755 debian/check_kernel $(DESTDIR)/usr/bin/
 	$(INSTALL) 0755 debian/i-nex-lspci $(DESTDIR)/usr/bin/
@@ -191,8 +191,7 @@ install:
 	$(INSTALL) 0755 pastebinit.xml $(DESTDIR)/usr/share/i-nex/pastebinit/
 	$(INSTALL) 0755 README $(DESTDIR)/usr/share/i-nex/pastebinit/
 	$(INSTALL) 0755 release.conf $(DESTDIR)/usr/share/i-nex/pastebinit/
-	$(INSTALL) 0755 test.sh $(DESTDIR)/usr/share/i-nex/pastebinit/
-	$(INSTALL) 0755 utils/* $(DESTDIR)/usr/share/i-nex/pastebinit/utils/
+	cd pixmaps; make install
 	
 uninstall:
 

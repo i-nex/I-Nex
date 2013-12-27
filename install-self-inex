@@ -7,7 +7,6 @@ bindir="/usr/bin/"
 	mkdir -p /usr/share/doc/i-nex/
 	mkdir -p /usr/share/i-nex/pastebinit/
 	mkdir -p /usr/share/i-nex/pastebinit/pastebin.d/
-	mkdir -p /usr/share/i-nex/pastebinit/utils/
 	install -m 0755 usr/bin/i-nex $bindir
 	install -m 0755 usr/bin/inex-edid $bindir
 	install -m 0755 usr/bin/i-nex.gambas $bindir
@@ -22,8 +21,6 @@ bindir="/usr/bin/"
 	install -m 0755 usr/share/i-nex/pastebinit/pastebinit.xml /usr/share/i-nex/pastebinit/
 	install -m 0755 usr/share/i-nex/pastebinit/README /usr/share/i-nex/pastebinit/
 	install -m 0755 usr/share/i-nex/pastebinit/release.conf /usr/share/i-nex/pastebinit/
-	install -m 0755 usr/share/i-nex/pastebinit/test.sh /usr/share/i-nex/pastebinit/
-	install -m 0755 usr/share/i-nex/pastebinit/utils/* /usr/share/i-nex/pastebinit/utils/
 	install -m 0775 usr/bin/gbx3 /usr/bin/gbx3
 	install -m 0775 usr/bin/gbr3 /usr/bin/gbr3
 	install -m 0775 usr/lib/gambas3/gb.debug.so /usr/lib/gambas3/

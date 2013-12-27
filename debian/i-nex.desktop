@@ -2,9 +2,9 @@
 Version=1.0
 Encoding=UTF-8
 Name=I-Nex
-Comment=I-Nex, system information tool
+Comment=I-Nex Viewing System Device Information.
 Exec=/usr/bin/i-nex.gambas
-Icon=/usr/share/pixmaps/i-nex.0.4.x.png
+Icon=i-nex
 Terminal=false
 Type=Application
 StartupNotify=true

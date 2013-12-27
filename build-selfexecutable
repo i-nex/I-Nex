@@ -66,21 +66,14 @@ rm data.tar.gz control.tar.gz debian-binary
 ar x $GB3_GB_DESKTOP
 tar -zxvf data.tar.gz -C ./
 rm data.tar.gz control.tar.gz debian-binary
-#ar x $GB3_GB_FORM_DIALOG
-#tar -zxvf data.tar.gz -C ./
-#rm data.tar.gz control.tar.gz debian-binary
-#ar x $GB3_GB_SETTINGS
-#tar -zxvf data.tar.gz -C ./
-#rm data.tar.gz control.tar.gz debian-binary
+
 ar x $GB3_GB_FORM_STOCK
 tar -zxvf data.tar.gz -C ./
 rm data.tar.gz control.tar.gz debian-binary
 ar x $GB3_RUNTIME
 tar -zxvf data.tar.gz -C ./
 rm data.tar.gz control.tar.gz debian-binary
-#ar x $GB3_GB_WEB
-#tar -zxvf data.tar.gz -C ./
-#rm data.tar.gz control.tar.gz debian-binary
+
 ar x $GB3_GB_QT4
 tar -zxvf data.tar.gz -C ./
 rm data.tar.gz control.tar.gz debian-binary
