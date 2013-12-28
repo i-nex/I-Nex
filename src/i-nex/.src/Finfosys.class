@@ -204,7 +204,7 @@ Public Sub bios()
 End
 
 Public Sub System()
-  Dim hostname, arch, gcc, timezone, xorg_version, glx_version, gnumake As String
+  Dim hostname, arch, gcc, timezone, xorg_version, glx_version As String
   Shell "cat /etc/timezone || grep ^TIMEZONE= /etc/sysconfig/clock | cut -d '=' -f 2" Wait To timezone
   If timezone = Null Or "" Then
     Shell "timedatectl status | grep Timezone: |awk '{print $2}'" Wait To timezone
@@ -214,10 +214,8 @@ Public Sub System()
   Shell "gcc -dumpversion" Wait To gcc
   Shell "cat /var/log/Xorg.0.log | grep 'X.Org X Server' | awk {'print $4'}" Wait To xorg_version
   Shell "glxinfo | grep 'GLX version:' | sed -n '1p' | cut -d ':' -f 2" Wait To glx_version
-  Shell "make --version | sed -n '1p'" Wait To gnumake
   'Shell "echo $SHELL" Wait To TextBox67.Text
   Label135.Text = "System SHELL: " & System.Shell
-  Label136.Text = "GNU Make Version: " & Replace(gnumake, "\n", "")
   Label137.Text = "GCC Version: " & Replace(gcc, "\n", "")
   Label138.Text = "Hostname: " & Replace(hostname, "\n", "")
   Label139.Text = "Arch: " & Replace(arch, "\n", "")
@@ -236,6 +234,11 @@ Public Sub System()
   Label63.Text = "GTK+ 3 Theme: " & Replace(Replace(Replace(File.Load("" & User.Home & "/.i-nex/gtk3Theme.conf"), "\n", ""), " ", ""), "\n", "")
   Label147.Text = "GTK Font: " & Replace(Replace(Replace(File.Load("" & User.Home & "/.i-nex/gtkFont.conf"), "\n", ""), " ", ""), "\n", "")
   Label148.Text = "GTK Icons: " & Replace(Replace(Replace(File.Load("" & User.Home & "/.i-nex/gtkIcons.conf"), "\n", ""), " ", ""), "\n", "")
+  Label149.Text = "GNU Make Version: " & Replace(Replace(Replace(File.Load("" & User.Home & "/.i-nex/GNUMAKE.conf"), "\n", ""), " ", ""), "\n", "")
+  Label150.Text = "PPP: " & Replace(Replace(Replace(File.Load("" & User.Home & "/.i-nex/PPP.conf"), "\n", ""), " ", ""), "\n", "")
+  Label151.Text = "Dynamic linker (ldd): " & Replace(Replace(Replace(File.Load("" & User.Home & "/.i-nex/DYNAMIC_LINKER.conf"), "\n", ""), " ", ""), "\n", "")
+  Label152.Text = "Net-tools: " & Replace(Replace(Replace(File.Load("" & User.Home & "/.i-nex/NETTOOLS.conf"), "\n", ""), " ", ""), "\n", "")
+  Label153.Text = "Wireless-tools: " & Replace(Replace(Replace(File.Load("" & User.Home & "/.i-nex/WIRELESS_TOOLS.conf"), "\n", ""), " ", ""), "\n", "")
 ' DE.conf
 ' WM.conf
 ' Win_theme.conf
