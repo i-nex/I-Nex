@@ -146,7 +146,6 @@ clean:
 	$(RM_COM) $(RMFILE_OPT) inex-edid
 	$(RM_COM) $(RMDIR_OPT) `find . -name ".gambas"`
 	$(RM_COM) $(RMDIR_OPT) `find . -name "*.gambas"`
-	$(RM_COM) $(RMDIR_OPT) `find . -name "screenfetch-dev"`
 	$(RM_COM) $(RMDIR_OPT) `find . -name ".directory"`
 	$(RM_COM) $(RMDIR_OPT) `find . -name "*.deb"`
 	$(RM_COM) $(RMFILE_OPT) index.html
