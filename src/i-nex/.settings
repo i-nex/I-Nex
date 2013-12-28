@@ -21,7 +21,6 @@ SearchComment=False
 SearchString=True
 
 [OpenFile]
-Active=1
 File[1]=".src/Finfosys.form"
 File[2]=".src/Global.class:149.56"
 File[3]=".src/About.form"
@@ -75,7 +74,8 @@ File[50]=".src/Reports/MKERNEL_REPORT.module:19.1"
 File[51]=".src/Reports/MInclude.module:72.15"
 File[52]=".src/Reports/MDRIVES_REPORT.module:12.40"
 File[53]=".src/FInputDate.form"
-File[54]=".src/MInit.module:8.34"
+Active=54
+File[54]=".src/MInit.module:12.40"
 Count=54
 
 [Watches]

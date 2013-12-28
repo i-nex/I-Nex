@@ -6,11 +6,7 @@ Public Sub _inits()
   
   Print "i-nex in home folder is exist"
   Print "Try to remove files"
-  Try Kill User.Home & "/.i-nex/detectdist"
-  Try Kill User.Home & "/.i-nex/detectde"
-  Try Kill User.Home & "/.i-nex/detectgtk"
-  Try Kill User.Home & "/.i-nex/detectwm"
-  Try Kill User.Home & "/.i-nex/detectwmtheme"
+  Try Kill User.Home & "/.i-nex/screenfetch-dev"
   Try Kill User.Home & "/.i-nex/report-ng.sh"
 
  Else
@@ -20,26 +16,13 @@ Public Sub _inits()
  Endif
  
  Print "Copy nedded files"
- 
- Print "Copy detectdist from Data/detectdist to " & User.Home &/ ".i-nex/detectdist"
-  Copy "Data/detectdist" To User.Home &/ ".i-nex/detectdist"
- Print "Copy detectde from Data/detectde to " & User.Home &/ ".i-nex/detectde"
-  Copy "Data/detectde" To User.Home &/ ".i-nex/detectde"
- Print "Copy detectgtk from Data/detectgtk to " & User.Home &/ ".i-nex/detectgtk"
-  Copy "Data/detectgtk" To User.Home &/ ".i-nex/detectgtk"
- Print "Copy detectwm from Data/detectwm to " & User.Home &/ ".i-nex/detectwm"
-  Copy "Data/detectwm" To User.Home &/ ".i-nex/detectwm"
- Print "Copy detectwmtheme from Data/detectwmtheme to " & User.Home &/ ".i-nex/detectwmtheme"
-  Copy "Data/detectwmtheme" To User.Home &/ ".i-nex/detectwmtheme"
+ Print "Copy screenfetch-dev from Data/screenfetch-dev to " & User.Home &/ ".i-nex/screenfetch-dev"
+  Copy "Data/screenfetch-dev" To User.Home &/ ".i-nex/screenfetch-dev"
  Print "Copy report-ng.sh from Data/report-ng.sh to " & User.Home &/ ".i-nex/report-ng.sh"
   Copy "Data/report-ng.sh" To User.Home &/ ".i-nex/report-ng.sh"
  Print "Execute copied files"
  
- Exec ["/bin/bash", "" & User.Home & "/.i-nex/detectwm"] Wait
- Exec ["/bin/bash", "" & User.Home & "/.i-nex/detectdist"] Wait
- Exec ["/bin/bash", "" & User.Home & "/.i-nex/detectde"] Wait
- Exec ["/bin/bash", "" & User.Home & "/.i-nex/detectgtk"] Wait
- Exec ["/bin/bash", "" & User.Home & "/.i-nex/detectwmtheme"] Wait
+ Exec ["/bin/bash", "" & User.Home & "/.i-nex/screenfetch-dev"] Wait
  Exec ["/bin/bash", "" & User.Home & "/.i-nex/report-ng.sh"] Wait
  
 End
