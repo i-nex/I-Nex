@@ -33,8 +33,6 @@ dependency_build ?= bzr \
 		    gambas3-gb-gtk \
 		    gambas3-gb-form \
 		    gambas3-gb-desktop \
-		    gambas3-gb-form-dialog \
-		    gambas3-gb-settings \
 		    gambas3-gb-form-stock \
 		    dpkg \
 		    grep \
