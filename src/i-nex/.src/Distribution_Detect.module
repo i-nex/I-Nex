@@ -30,6 +30,10 @@ Public Sub _inits()
    Finfosys.PictureBox2.Picture = Picture["Database/Distlogos/slackware.png"]
   Case Like "*LMDE*"
    Finfosys.PictureBox2.Picture = Picture["Database/Distlogos/Mint/linux_mint_LMDE_Big_sticker.png"]
+  Case Like "*elementary OS*"
+   Finfosys.PictureBox2.Picture = Picture["Database/Distlogos/elementaryos.png"]
+  Case Like "*LinuxDeepin*"
+   Finfosys.PictureBox2.Picture = Picture["Database/Distlogos/LinuxDeepin.png"]
  End Select
  
  If DV Like "*Ubuntu*" And DE Like "*KDE*" Then
@@ -50,8 +54,7 @@ Public Sub _inits()
  If DV Like "*Mint*" And DE Like "*XFCE*" Then
   Finfosys.PictureBox2.Picture = Picture["Database/Distlogos/Mint/linux_mint_XFCE_Big_sticker.png"]
  Endif
-' elementary OS
-' Mageia
+'Mageia
 ' Mandriva
 ' Mandrake
 ' Kali Linux
