@@ -4,10 +4,11 @@
   Move(0,0,490,525)
   #Scaled = False
   #Translate = False
+  Font = Font["Bold,8"]
   Text = "I-Nex"
   Icon = Picture["logo/i-nex.0.4.x.png"]
   Resizable = False
-  Margin = True
+  Padding = 3
   { HBox11 HBox
     Move(150,492,156,36)
     { Label25 Label
@@ -54,7 +55,10 @@
   }
   { TabStrip1 TabStrip
     Move(7,7,476,490)
+    Font = Font["Bold,8"]
+    Padding = 3
     Count = 11
+    TextFont = Font["8"]
     Index = 0
     Text = ("CPU")
     { ComboBox1 ComboBox
