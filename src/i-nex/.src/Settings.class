@@ -484,7 +484,7 @@ End
 Static Private Function DefaultDir_Read() As String
 
   Dim sPath As String = Application.Env["XDG_CONFIG_HOME"]
-  If Not sPath Then sPath = System.User.Home &/ ".config"
-  Return sPath &/ "gambas" & System.Version
+  If Not sPath Then sPath = System.User.Home &/ ".i-nex"
+  Return sPath
 
 End
