@@ -3,6 +3,12 @@
 	dh $@
 
 override_dh_builddeb:
-	dh_builddeb -- -Zxz
+	dh_builddeb -- -z9 -Zxz
 override_dh_installmenu:
 	dh_installmenu --noscripts
+override_dh_installman:
+	dh_installman debian/manpages/check_kernel.1 -p i-nex
+	dh_installman debian/manpages/i-nex-lspci.1 -p i-nex
+	dh_installman debian/manpages/i-nex.1 -p i-nex
+	dh_installman debian/manpages/i-nex.gambas.1 -p i-nex
+	dh_installman debian/manpages/inex-edid.1 -p i-nex
