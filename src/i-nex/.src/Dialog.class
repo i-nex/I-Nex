@@ -1,6 +1,6 @@
 ' Gambas class file
 
-Export 
+
 
 Static Property Read Paths As String[]
 Static Property {Date} As Date

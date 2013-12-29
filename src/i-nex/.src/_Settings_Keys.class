@@ -1,8 +1,5 @@
 ' Gambas class file
 
-Export
-Create Static
-
 Public _Slot As Collection
 Public _Parent As String
 

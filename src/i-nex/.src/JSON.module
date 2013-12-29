@@ -1,7 +1,5 @@
 ' Gambas module file
 
-Export
-
 Public {Null} As Variant
 
 Private $sStr As String
