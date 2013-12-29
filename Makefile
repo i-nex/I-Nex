@@ -173,15 +173,15 @@ install:
 	$(INSTALL) 0755 debian/i-nex.desktop $(DESTDIR)/usr/share/applications/
 	$(INSTALL) 0755 debian/check_kernel $(DESTDIR)/usr/bin/
 	$(INSTALL) 0755 debian/i-nex-lspci $(DESTDIR)/usr/bin/
-	$(INSTALL) 0755 debian/changelog-0.4.6 $(DESTDIR)/usr/share/doc/i-nex/
-	$(INSTALL) 0755 debian/changelog-0.4.8 $(DESTDIR)/usr/share/doc/i-nex/
-	$(INSTALL) 0755 debian/changelog-0.4.8.1 $(DESTDIR)/usr/share/doc/i-nex/
-	$(INSTALL) 0755 debian/changelog-0.5.0 $(DESTDIR)/usr/share/doc/i-nex/
-	$(INSTALL) 0755 debian/changelog-0.5.1 $(DESTDIR)/usr/share/doc/i-nex/
-	$(INSTALL) 0755 debian/changelog-0.5.2 $(DESTDIR)/usr/share/doc/i-nex/
-	$(INSTALL) 0755 debian/changelog-0.5.4 $(DESTDIR)/usr/share/doc/i-nex/
-	$(INSTALL) 0755 debian/changelog-0.5.6 $(DESTDIR)/usr/share/doc/i-nex/
-	$(INSTALL) 0755 debian/changelog-0.5.8 $(DESTDIR)/usr/share/doc/i-nex/
+	$(INSTALL) 0755 debian/changelogs/changelog-0.4.6 $(DESTDIR)/usr/share/doc/i-nex/
+	$(INSTALL) 0755 debian/changelogs/changelog-0.4.8 $(DESTDIR)/usr/share/doc/i-nex/
+	$(INSTALL) 0755 debian/changelogs/changelog-0.4.8.1 $(DESTDIR)/usr/share/doc/i-nex/
+	$(INSTALL) 0755 debian/changelogs/changelog-0.5.0 $(DESTDIR)/usr/share/doc/i-nex/
+	$(INSTALL) 0755 debian/changelogs/changelog-0.5.1 $(DESTDIR)/usr/share/doc/i-nex/
+	$(INSTALL) 0755 debian/changelogs/changelog-0.5.2 $(DESTDIR)/usr/share/doc/i-nex/
+	$(INSTALL) 0755 debian/changelogs/changelog-0.5.4 $(DESTDIR)/usr/share/doc/i-nex/
+	$(INSTALL) 0755 debian/changelogs/changelog-0.5.6 $(DESTDIR)/usr/share/doc/i-nex/
+	$(INSTALL) 0755 debian/changelogs/changelog-0.5.8 $(DESTDIR)/usr/share/doc/i-nex/
 	$(INSTALL) 0755 I-Nex.LICENSE $(DESTDIR)/usr/share/doc/i-nex/
 	$(INSTALL) 0755 Pastebinit.LICENSE $(DESTDIR)/usr/share/i-nex/pastebinit/
 	$(INSTALL) 0755 pastebin.d/* $(DESTDIR)/usr/share/i-nex/pastebinit/pastebin.d/

@@ -2,17 +2,6 @@ src/i-nex/i-nex.gambas usr/bin
 debian/i-nex.desktop usr/share/applications
 debian/check_kernel usr/bin
 debian/i-nex-lspci usr/bin
-debian/changelog-0.4.6 /usr/share/doc/i-nex
-debian/changelog-0.4.8 /usr/share/doc/i-nex
-debian/changelog-0.4.8.1 /usr/share/doc/i-nex
-debian/changelog-0.5.0 /usr/share/doc/i-nex
-debian/changelog-0.5.1 /usr/share/doc/i-nex
-debian/changelog-0.5.2 /usr/share/doc/i-nex
-debian/changelog-0.5.4 /usr/share/doc/i-nex
-debian/changelog-0.5.6 /usr/share/doc/i-nex
-debian/changelog-0.5.8 /usr/share/doc/i-nex
-I-Nex.LICENSE /usr/share/doc/i-nex
-Pastebinit.LICENSE usr/share/i-nex/pastebinit
 pastebin.d usr/share/i-nex/pastebinit
 pastebinit usr/share/i-nex/pastebinit
 pastebinit.xml usr/share/i-nex/pastebinit
