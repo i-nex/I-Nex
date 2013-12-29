@@ -251,12 +251,14 @@ Public Sub System()
 End
 
 Public Sub grafika()
-  Dim available_resolutions As String
+  Dim available_resolutions, Kernel_driver_in_use As String
   Dim rozdzielczosc, gpu, memory_prefetchable, memory_non_prefetchable As String
   Dim opengl_vendor_string, opengl_renderer_string, opengl_version_string As String
   
   If ChkPrm.chkExec("glxinfo") = True Then
     Shell "" & ChkPrm.ChkExecDir("lspci") & " | grep 'VGA' | cut -d ':' -f3 | cut -d '(' -f 1" Wait To gpu
+    'lspci -v -s `lspci | awk '/VGA/{print $1}'` | grep 'Kernel driver in use:' | cut -d ':' -f 2
+    Shell "" & ChkPrm.ChkExecDir("lspci") & " -v -s `lspci | awk '/VGA/{print $1}'` | grep 'Kernel driver in use:' | cut -d ':' -f 2" Wait To Kernel_driver_in_use
     Shell "glxinfo | grep 'OpenGL vendor string:' | sed -n '1p' | cut -d ':' -f 2" Wait To opengl_vendor_string
     Shell "glxinfo | grep 'OpenGL renderer string:' | sed -n '1p' | cut -d ':' -f 2" Wait To opengl_renderer_string
     Shell "glxinfo | grep 'OpenGL version string:' | sed -n '1p' | cut -d ':' -f 2" Wait To opengl_version_string
@@ -265,8 +267,8 @@ Public Sub grafika()
   Endif
   
   Shell "xdpyinfo | grep 'dimensions:' | cut -d ':' -f 2" Wait To rozdzielczosc
-  Shell "/usr/bin/i-nex-lspci nonprefetchable" Wait To memory_non_prefetchable
-  Shell "/usr/bin/i-nex-lspci prefetchable" Wait To memory_prefetchable
+  Exec ["/bin/bash", "/usr/bin/i-nex-lspci", "nonprefetchable"] Wait To memory_non_prefetchable
+  Exec ["/bin/bash", "/usr/bin/i-nex-lspci", "prefetchable"] Wait To memory_prefetchable
   
   'Rozdzielczość
   If ChkPrm.ChkExec("xrandr") = True Then
@@ -277,6 +279,7 @@ Public Sub grafika()
   Else
     Message.Warning("Not found xrandr")
   Endif
+  Label136.Text = "Kernel driver in use: " & Replace(Kernel_driver_in_use, "\n", "")
   Label64.Text = "Total Memory prefetchable: " & Replace(memory_prefetchable, "\n", " - ")
   Label146.Text = "Total Memory non-prefetchable: " & Replace(memory_non_prefetchable, "\n", " - ")
   Label105.Text = "OpenGL Vendor: " & Replace(opengl_vendor_string, "\n", "")
