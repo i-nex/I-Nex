@@ -32,11 +32,11 @@ Public Sub _check()
   Shell "/usr/bin/inex-edid /sys/class/drm/" & Finfosys.ComboBox8.Text & "/edid | grep 'Serial number:' | cut -d ':' -f 2" Wait To serial_number
   Shell "/usr/bin/inex-edid /sys/class/drm/" & Finfosys.ComboBox8.Text & "/edid | grep 'Gamma:' | cut -d ':' -f 2" Wait To Gamma
   Shell "/usr/bin/inex-edid /sys/class/drm/" & Finfosys.ComboBox8.Text & "/edid | grep 'Maximum image size:' | cut -d ':' -f 2" Wait To Maximum_image_size
-  If monitor_name = Null Then
+  If IsNull(monitor_name) Then
    Shell "/usr/bin/inex-edid /sys/class/drm/" & Finfosys.ComboBox8.Text & "/edid | grep 'Monitor name:' | cut -d ':' -f 2" Wait To monitor_name
   Endif
  Endif
- 
+
  Finfosys.Label155.Text = "Gamma: " & Replace(Replace(Gamma, "\n", " "), "\n", "")
  Finfosys.Label100.Text = "Monitor name: " & Replace(Replace(monitor_name, "\n", " "), "\n", "")
  Finfosys.Label65.Text = "Status: " & Replace(status, "\n", "")
