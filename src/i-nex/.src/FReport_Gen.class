@@ -128,20 +128,19 @@ Public Sub ButtonBox1_Click()
  
   If ChkPrm.ChkExec("kdialog") = True Then
      Exec ["kdialog", "--getsaveurl", "~/", ".txt"] Wait To savefile
-     ButtonBox1.Text = Replace(savefile, "file://", "")
   Else If ChkPrm.ChkExec("yad") = True Then
      Exec ["yad", "--width=600", "--height=500", "--align=center", "--file-selection", "--filename=report.txt", "--file-filter=*.txt"] Wait To savefile
-     ButtonBox1.Text = Replace(savefile, "file://", "")
   Else If ChkPrm.ChkExec("zenity") = True Then
      Exec ["zenity", "--file-selection", "--confirm-overwrite", "--filename=report.txt", "--file-filter=*.txt"] Wait To savefile
-     ButtonBox1.Text = Replace(savefile, "file://", "")
   Else
      Dialog.Title = "Choose a file"
      Dialog.Filter = ["*.txt", "Text files"]
      Dialog.SaveFile
      ButtonBox1.Text = Dialog.Path
   Endif
- 
+  ' If savefile Begins "file:" Then
+  '  ButtonBox1.Text = Replace(savefile, "file://", "")
+  ' Endif
   If Exist(ButtonBox1.Text, True) Then
   Try Kill ButtonBox1.Text
   Endif
