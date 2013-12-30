@@ -55,13 +55,14 @@ make:
 	$(GBC) $(GBCOPTS) src/i-nex
 	@printf "\033[1;31mCompile src/i-nex stage 2 \033[0m$1\n"
 	$(GBA) src/i-nex
-	cd pixmaps; make
+	$(MAKE) -C pixmaps
 	
 deb:
 	
 	$(AS_ROOT) $(PKG_INSTALL) $(dependency_build)
 	$(BUILD_PACKAGE)
-	cd pixmaps; make
+	$(MAKE) -C pixmaps
+	
 self:
 	$(BUILD_SELF_EXECUTABLE)
 	mkdir -p inex
@@ -153,7 +154,7 @@ clean:
 	$(RM_COM) $(RMDIR_OPT) debian/changelog1
 	$(RM_COM) $(RMDIR_OPT) inex
 	$(RM_COM) $(RMDIR_OPT) usr
-	cd pixmaps; make clean
+	$(MAKE) -C pixmaps clean
 	
 install:
 	mkdir -p $(DESTDIR)$(bindir)
@@ -189,7 +190,7 @@ install:
 	$(INSTALL) 0755 pastebinit.xml $(DESTDIR)/usr/share/i-nex/pastebinit/
 	$(INSTALL) 0755 README $(DESTDIR)/usr/share/i-nex/pastebinit/
 	$(INSTALL) 0755 release.conf $(DESTDIR)/usr/share/i-nex/pastebinit/
-	cd pixmaps; make install
+	$(MAKE) -C pixmaps install
 	
 uninstall:
 
