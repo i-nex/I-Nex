@@ -5,7 +5,14 @@ Public database As Collection
 Public Sub _inits()
   Dim buffer, cpucache As String
   Dim z As Integer
-  buffer = File.Load("Database/db")
+  Select Case Finfosys.Label14.Text
+   Case Like "*amd*"
+    buffer = File.Load("Database/amd")
+   Case Like "*atom*"
+    buffer = File.Load("Database/atom")
+   Case Like "*intel*"
+    buffer = File.Load("Database/intel")
+  End Select
   database = JSON.Decode(buffer)
   cpucache = Finfosys.Label14.Text
   cpucache = Replace(Replace(Replace(Replace(Replace(Replace(Replace(cpucache, "Intel", ""), " ", "*"), "R", ""), "CPU", ""), "TM", ""), ")", ""), "(", "")
