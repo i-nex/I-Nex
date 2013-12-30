@@ -1,7 +1,9 @@
 ' Gambas module file
 
 Public Sub _inits()
-
+ If Access("" & User.Home & "/", gb.Write) = False Then
+  Message.Error("Cannot write files to " & User.Home & "/.i-nex")
+ Endif
  If Exist("" & User.Home & "/.i-nex") Then
   
   Print "i-nex in home folder is exist"
