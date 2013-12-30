@@ -178,21 +178,21 @@ Public Sub disks()
   Shell "grep -w '" & Finfosys.ComboBox3.Text & "' /proc/mounts | awk {'print $3'}" Wait To filesystem_type
   filesystem_type = Replace(Replace(filesystem_type, " ", ""), "\n", "")
 
-  If mount_widtch = Null And device_uuid Not Null Then
+  If IsNull(mount_widtch) And Not IsNull(device_uuid) Then
   Shell "grep -w '" & device_uuid & "' /proc/mounts | awk {'print $4'}" Wait To mount_widtch
   Endif
   
   
   mount_widtch = Replace(mount_widtch, "\n", "")
   
-  
-  If filesystem_type = Null And device_uuid Not Null Then
+
+  If IsNull(filesystem_type) Or IsBlank(filesystem_type) And Not IsNull(device_uuid) Then
   Shell "grep -w '" & device_uuid & "' /proc/mounts | awk {'print $3'}" Wait To filesystem_type
   Endif
   
   filesystem_type = Replace(Replace(filesystem_type, " ", ""), "\n", "")
   
-  If device_uuid = Null Then
+  If IsNull(device_uuid) Then
   filesystem_type = Null
   Endif
   
