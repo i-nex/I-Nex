@@ -234,7 +234,7 @@
     { Label13 Label
       Move(7,7,91,42)
       #Translate = False
-      Font = Font["Bold,8"]
+      Font = Font["Bold,12"]
       Padding = 3
       Text = "Label13"
       Alignment = Align.Center
