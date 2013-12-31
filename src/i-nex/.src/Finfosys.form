@@ -56,7 +56,7 @@
     Picture = Picture["icon:/16/important"]
   }
   { TabStrip1 TabStrip
-    Move(0,0,476,497)
+    Move(7,0,476,497)
     Font = Font["Bold,8"]
     Padding = 3
     Count = 11
@@ -1495,9 +1495,142 @@
       }
     }
     { Button9 Button
-      Move(273,63,189,28)
+      Move(273,434,189,28)
       Font = Font["Bold,8"]
       Text = ("Show Receive and Transmit")
+    }
+    { Label157 Label
+      Move(7,63,294,21)
+      Font = Font["Bold,8"]
+      Padding = 3
+      Text = ("Label157")
+      Border = Border.Raised
+    }
+    { Label158 Label
+      Move(7,84,294,21)
+      Font = Font["Bold,8"]
+      Padding = 3
+      Text = ("Label158")
+      Border = Border.Raised
+    }
+    { Label159 Label
+      Move(7,105,294,21)
+      Font = Font["Bold,8"]
+      Padding = 3
+      Text = ("Label159")
+      Border = Border.Raised
+    }
+    { Label160 Label
+      Move(7,126,294,21)
+      Font = Font["Bold,8"]
+      Padding = 3
+      Text = ("Label160")
+      Border = Border.Raised
+    }
+    { Label161 Label
+      Move(7,147,140,21)
+      Font = Font["Bold,8"]
+      Padding = 3
+      Text = ("Label161")
+      Border = Border.Raised
+    }
+    { Label162 Label
+      Move(147,147,154,21)
+      Font = Font["Bold,8"]
+      Padding = 3
+      Text = ("Label162")
+      Border = Border.Raised
+    }
+    { Label163 Label
+      Move(301,147,161,21)
+      Font = Font["Bold,8"]
+      Padding = 3
+      Text = ("Label163")
+      Border = Border.Raised
+    }
+    { Label164 Label
+      Move(7,168,140,21)
+      Font = Font["Bold,8"]
+      Padding = 3
+      Text = ("Label164")
+      Border = Border.Raised
+    }
+    { Label165 Label
+      Move(147,168,154,21)
+      Font = Font["Bold,8"]
+      Padding = 3
+      Text = ("Label165")
+      Border = Border.Raised
+    }
+    { Label166 Label
+      Move(7,231,140,21)
+      Font = Font["Bold,8"]
+      Padding = 3
+      Text = ("Label166")
+      Border = Border.Raised
+    }
+    { Label167 Label
+      Move(7,189,140,21)
+      Font = Font["Bold,8"]
+      Padding = 3
+      Text = ("Label167")
+      Border = Border.Raised
+    }
+    { Label168 Label
+      Move(7,210,140,21)
+      Font = Font["Bold,8"]
+      Padding = 3
+      Text = ("Label168")
+      Border = Border.Raised
+    }
+    { Label169 Label
+      Move(301,189,161,21)
+      Font = Font["Bold,8"]
+      Padding = 3
+      Text = ("Label169")
+      Border = Border.Raised
+    }
+    { Label170 Label
+      Move(301,168,161,21)
+      Font = Font["Bold,8"]
+      Padding = 3
+      Text = ("Label170")
+      Border = Border.Raised
+    }
+    { Label171 Label
+      Move(147,210,154,21)
+      Font = Font["Bold,8"]
+      Padding = 3
+      Text = ("Label171")
+      Border = Border.Raised
+    }
+    { Label172 Label
+      Move(301,210,161,21)
+      Font = Font["Bold,8"]
+      Padding = 3
+      Text = ("Label172")
+      Border = Border.Raised
+    }
+    { Label173 Label
+      Move(147,189,154,21)
+      Font = Font["Bold,8"]
+      Padding = 3
+      Text = ("Label173")
+      Border = Border.Raised
+    }
+    { Label174 Label
+      Move(147,231,154,21)
+      Font = Font["Bold,8"]
+      Padding = 3
+      Text = ("Label174")
+      Border = Border.Raised
+    }
+    { Label175 Label
+      Move(301,231,161,21)
+      Font = Font["Bold,8"]
+      Padding = 3
+      Text = ("Label175")
+      Border = Border.Raised
     }
     Index = 9
     Text = ("Battery")

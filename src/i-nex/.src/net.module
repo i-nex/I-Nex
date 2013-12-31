@@ -98,11 +98,29 @@ Public Sub _replace()
  device_speed = Replace(device_speed, "\n", "")
  device_tx_queue_len = Replace(device_tx_queue_len, "\n", "")
  device_type = Replace(device_type, "\n", "")
- 
+ net_dev()
 End
 
 Public Sub net_dev()
- 
+ Finfosys.Label157.Text = "Device address: " & device_address
+ Finfosys.Label158.Text = "Device addr len: " & device_addr_len
+ Finfosys.Label159.Text = "Assign type: " & device_assign_type
+ Finfosys.Label160.Text = "Broadcast: " & device_broadcast
+ Finfosys.Label161.Text = "Carrier: " & device_carrier
+ Finfosys.Label162.Text = "Dev id: " & device_dev_id
+ Finfosys.Label163.Text = "Dormant: " & device_dormant
+ Finfosys.Label164.Text = "Duplex: " & device_duplex
+ Finfosys.Label165.Text = "Flags: " & device_flags
+ Finfosys.Label166.Text = "Ifalias: " & device_ifalias
+ Finfosys.Label167.Text = "Ifindex: " & device_ifindex
+ Finfosys.Label168.Text = "Iflink: " & device_iflink
+ Finfosys.Label169.Text = "Link mode: " & device_link_mode
+ Finfosys.Label170.Text = "MTU: " & device_mtu
+ Finfosys.Label171.Text = "Netdev group: " & device_netdev_group
+ Finfosys.Label172.Text = "Operstate: " & device_operstate
+ Finfosys.Label173.Text = "Speed: " & device_speed
+ Finfosys.Label174.Text = "Tx queue len: " & device_tx_queue_len
+ Finfosys.Label175.Text = "Type: " & device_type
 End
 
 
