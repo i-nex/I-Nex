@@ -31,7 +31,7 @@ package() {
   install -Dm644 src/i-nex/logo/i-nex.0.4.x.png "$pkgdir/usr/share/pixmaps/i-nex.0.4.x.png"
   install -Dm644 debian/i-nex.desktop "$pkgdir/usr/share/applications/i-nex.desktop"
   install -dm755 "$pkgdir/usr/share/i-nex/pastebinit"
-  cp -rf pastebin.d utils pastebinit{,.xml} release.conf test.sh "$pkgdir/usr/share/i-nex/pastebinit"
+  cp -rf pastebin.d pastebinit{,.xml} release.conf test.sh "$pkgdir/usr/share/i-nex/pastebinit"
   sed -i 's|python$|python2|' "$pkgdir/usr/share/i-nex/pastebinit/pastebinit"
 }
 
