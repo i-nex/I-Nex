@@ -84,16 +84,14 @@ gba3 src/i-nex
 %{__install} -d %{buildroot}/usr/share/i-nex/pastebinit/
 %{__install} -p debian/changelog %{buildroot}/usr/share/i-nex/changelog
 cp -R --preserve=timestamp pastebin.d %{buildroot}/usr/share/i-nex/pastebinit/pastebin.d
-cp -R --preserve=timestamp po %{buildroot}/usr/share/i-nex/pastebinit/po
-cp -R --preserve=timestamp utils %{buildroot}/usr/share/i-nex/pastebinit/utils
-%{__install} -p debian/changelog-0.4.6 %{buildroot}/usr/share/doc/i-nex/changelog-0.4.6
-%{__install} -p debian/changelog-0.4.8 %{buildroot}/usr/share/doc/i-nex/changelog-0.4.8
-%{__install} -p debian/changelog-0.4.8.1 %{buildroot}/usr/share/doc/i-nex/changelog-0.4.8.1
-%{__install} -p debian/changelog-0.5.0 %{buildroot}/usr/share/doc/i-nex/changelog-0.5.0
-%{__install} -p debian/changelog-0.5.1 %{buildroot}/usr/share/doc/i-nex/changelog-0.5.1
-%{__install} -p debian/changelog-0.5.2 %{buildroot}/usr/share/doc/i-nex/changelog-0.5.2
-%{__install} -p debian/changelog-0.5.4 %{buildroot}/usr/share/doc/i-nex/changelog-0.5.4
-%{__install} -p debian/changelog-0.5.6 %{buildroot}/usr/share/doc/i-nex/changelog-0.5.6
+%{__install} -p debian/changelogs/changelog-0.4.6 %{buildroot}/usr/share/doc/i-nex/changelog-0.4.6
+%{__install} -p debian/changelogs/changelog-0.4.8 %{buildroot}/usr/share/doc/i-nex/changelog-0.4.8
+%{__install} -p debian/changelogs/changelog-0.4.8.1 %{buildroot}/usr/share/doc/i-nex/changelog-0.4.8.1
+%{__install} -p debian/changelogs/changelog-0.5.0 %{buildroot}/usr/share/doc/i-nex/changelog-0.5.0
+%{__install} -p debian/changelogs/changelog-0.5.1 %{buildroot}/usr/share/doc/i-nex/changelog-0.5.1
+%{__install} -p debian/changelogs/changelog-0.5.2 %{buildroot}/usr/share/doc/i-nex/changelog-0.5.2
+%{__install} -p debian/changelogs/changelog-0.5.4 %{buildroot}/usr/share/doc/i-nex/changelog-0.5.4
+%{__install} -p debian/changelogs/changelog-0.5.6 %{buildroot}/usr/share/doc/i-nex/changelog-0.5.6
 %{__install} -p debian/check_kernel %{buildroot}/usr/bin/check_kernel
 %{__install} -p debian/i-nex-lspci %{buildroot}/usr/bin/i-nex-lspci
 %{__install} -p pastebinit %{buildroot}/usr/share/i-nex/pastebinit/pastebinit
@@ -123,8 +121,6 @@ rm -rf %{buildroot}
 %{_bindir}/i-nex
 %{_datadir}/i-nex/changelog
 %{_datadir}/i-nex/pastebinit/pastebin.d
-%{_datadir}/i-nex/pastebinit/po
-%{_datadir}/i-nex/pastebinit/utils
 %{_datadir}/doc/i-nex/changelog-0.4.6
 %{_datadir}/doc/i-nex/changelog-0.4.8
 %{_datadir}/doc/i-nex/changelog-0.4.8.1
