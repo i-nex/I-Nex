@@ -21,14 +21,14 @@
   { HBox1 HBox
     Move(238,497,245,28)
     { Button1 Button
-      Move(0,0,96,24)
+      Move(0,0,98,28)
       Expand = True
       AutoResize = True
       Text = ("Generate")
       Picture = Picture["icon:/16/apply"]
     }
     { Button2 Button
-      Move(147,0,96,24)
+      Move(147,0,98,28)
       Drop = True
       Expand = True
       AutoResize = True
@@ -147,12 +147,12 @@
     Move(0,371,490,14)
   }
   { Button3 Button
-    Move(462,385,24,24)
+    Move(455,385,28,28)
     ToolTip = ("Open link in default web browser")
     Picture = Picture["icon:/16/network"]
   }
   { TextBox1 TextBox
-    Move(7,385,427,28)
+    Move(7,385,420,28)
     Expand = True
     ReadOnly = True
   }
@@ -176,7 +176,7 @@
     Value = CheckBox.True
   }
   { Button4 Button
-    Move(434,385,24,24)
+    Move(427,385,28,28)
     ToolTip = ("Copy this link")
     Picture = Picture["icon:/small/copy"]
   }
