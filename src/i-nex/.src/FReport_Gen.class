@@ -138,9 +138,9 @@ Public Sub ButtonBox1_Click()
      Dialog.SaveFile
      ButtonBox1.Text = Dialog.Path
   Endif
-  ' If savefile Begins "file:" Then
-  '  ButtonBox1.Text = Replace(savefile, "file://", "")
-  ' Endif
+  If savefile Begins "file:" Then
+    ButtonBox1.Text = Replace(savefile, "file://", "")
+  Endif
   If Exist(ButtonBox1.Text, True) Then
   Try Kill ButtonBox1.Text
   Endif
