@@ -24,7 +24,7 @@ INSTALL_SELF_SCRIPT = ./install-self
 ifeq ($(ARCH),x86)
 additional_confflags := --disable-sse2
 endif
-dependency_build ?= bzr \
+dependency_build ?= git \
 		    devscripts \
 		    pkg-config \
 		    dpkg-dev \

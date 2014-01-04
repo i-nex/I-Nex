@@ -1,0 +1,13 @@
+#!/bin/bash
+xrandr --verbose | perl -ne '
+if ((/EDID:/.../:/) && !/:/) {
+  s/^\s+//;
+  chomp;
+  $hex .= $_;
+} elsif ($hex) {
+  # Use "|strings" if you dont have read-edid package installed 
+  # and just want to see (or grep) the human-readable parts.
+  open FH, "|inex-edid"; 
+  print FH pack("H*", $hex); 
+  $hex = "";
+}' > ~/.i-nex/edid.conf

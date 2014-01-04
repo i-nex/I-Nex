@@ -1,0 +1,17 @@
+' Gambas class file
+
+
+Public Sub Form_Open()
+ Me.Center
+ Me.X = Settings["Window/X", Me.X]
+ Me.Y = Settings["Window/Y", Me.Y]
+ Exec ["/bin/bash", "" & User.Home & "/.i-nex/edid"] Wait
+ TextArea1.Text = File.Load("" & User.Home & "/.i-nex/edid.conf")
+
+End
+
+Public Sub Button1_Click()
+
+ Me.Close
+
+End

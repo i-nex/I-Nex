@@ -472,7 +472,7 @@
       Border = False
     }
     { ComboBox8 ComboBox
-      Move(7,7,84,28)
+      Move(7,7,91,28)
       #Translate = False
       ReadOnly = True
       Text = "ComboBox8"
@@ -560,6 +560,13 @@
       Padding = 3
       Text = ("Label156")
       Border = Border.Raised
+    }
+    { Button11 Button
+      Move(98,7,77,28)
+      Font = Font["Bold,8"]
+      ToolTip = ("Force detect EDID information from xrandr --verbose")
+      Text = ("Force")
+      Picture = Picture["icon:/16/make"]
     }
     Index = 2
     Text = ("Mobo")

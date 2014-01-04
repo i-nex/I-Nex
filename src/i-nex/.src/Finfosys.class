@@ -733,3 +733,9 @@ Public Sub Form_Move()
  Settings["Window/Y"] = Me.Y
  
 End
+
+Public Sub Button11_Click()
+
+ FEDID.Show
+
+End

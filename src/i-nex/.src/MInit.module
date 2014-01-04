@@ -10,7 +10,8 @@ Public Sub _inits()
   Print "Try to remove files"
   Try Kill User.Home & "/.i-nex/screenfetch-dev"
   Try Kill User.Home & "/.i-nex/report-ng.sh"
-
+  Try Kill User.Home & "/.i-nex/edid"
+  
  Else
   Print "i-nex in home folder not exist"
   Try Mkdir User.Home & "/.i-nex/"
@@ -22,9 +23,10 @@ Public Sub _inits()
   Copy "Data/screenfetch-dev" To User.Home &/ ".i-nex/screenfetch-dev"
  Print "Copy report-ng.sh from Data/report-ng.sh to " & User.Home &/ ".i-nex/report-ng.sh"
   Copy "Data/report-ng.sh" To User.Home &/ ".i-nex/report-ng.sh"
+ Print "Copy edid from Data/edid to " & User.Home &/ ".i-nex/edid"
+  Copy "Data/edid" To User.Home &/ ".i-nex/edid"
  Print "Execute copied files"
  
  Exec ["/bin/bash", "" & User.Home & "/.i-nex/screenfetch-dev"] Wait
  Exec ["/bin/bash", "" & User.Home & "/.i-nex/report-ng.sh"] Wait
- 
 End

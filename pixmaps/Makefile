@@ -16,19 +16,19 @@ make:
 	${MKDIR_P} 64x64
 	${MKDIR_P} 72x72
 	${MKDIR_P} 96x96
-	convert i-nex.xpm -resize 128x128 128x128/i-nex.xpm
-	convert i-nex.xpm -resize 16x16 16x16/i-nex.xpm
-	convert i-nex.xpm -resize 192x192 192x192/i-nex.xpm
-	convert i-nex.xpm -resize 22x22 22x22/i-nex.xpm
-	convert i-nex.xpm -resize 24x24 24x24/i-nex.xpm
-	convert i-nex.xpm -resize 256x256 256x256/i-nex.xpm
-	convert i-nex.xpm -resize 32x32 32x32/i-nex.xpm
-	convert i-nex.xpm -resize 36x36 36x36/i-nex.xpm
-	convert i-nex.xpm -resize 48x48 48x48/i-nex.xpm
-	convert i-nex.xpm -resize 512x512 512x512/i-nex.xpm
-	convert i-nex.xpm -resize 64x64 64x64/i-nex.xpm
-	convert i-nex.xpm -resize 72x72 72x72/i-nex.xpm
-	convert i-nex.xpm -resize 96x96 96x96/i-nex.xpm
+	convert i-nex.xpm -resize 128x128 128x128/i-nex.png
+	convert i-nex.xpm -resize 16x16 16x16/i-nex.png
+	convert i-nex.xpm -resize 192x192 192x192/i-nex.png
+	convert i-nex.xpm -resize 22x22 22x22/i-nex.png
+	convert i-nex.xpm -resize 24x24 24x24/i-nex.png
+	convert i-nex.xpm -resize 256x256 256x256/i-nex.png
+	convert i-nex.xpm -resize 32x32 32x32/i-nex.png
+	convert i-nex.xpm -resize 36x36 36x36/i-nex.png
+	convert i-nex.xpm -resize 48x48 48x48/i-nex.png
+	convert i-nex.xpm -resize 512x512 512x512/i-nex.png
+	convert i-nex.xpm -resize 64x64 64x64/i-nex.png
+	convert i-nex.xpm -resize 72x72 72x72/i-nex.png
+	convert i-nex.xpm -resize 96x96 96x96/i-nex.png
 	
 install:
 	${MKDIR_P} ${DESTDIR}${datarootdir}/icons/hicolor/22x22/apps
@@ -45,19 +45,19 @@ install:
 	${MKDIR_P} ${DESTDIR}${datarootdir}/icons/hicolor/512x512/apps
 	#${MKDIR_P} ${DESTDIR}${datarootdir}/icons/hicolor/scalable/apps
 
-	${INSTALL} -m 644 22x22/i-nex.xpm "${DESTDIR}${datarootdir}/icons/hicolor/22x22/apps/"
-	${INSTALL} -m 644 32x32/i-nex.xpm "${DESTDIR}${datarootdir}/pixmaps/"
-	${INSTALL} -m 644 24x24/i-nex.xpm "${DESTDIR}${datarootdir}/icons/hicolor/24x24/apps/"
-	${INSTALL} -m 644 32x32/i-nex.xpm "${DESTDIR}${datarootdir}/icons/hicolor/32x32/apps/"
-	${INSTALL} -m 644 36x36/i-nex.xpm "${DESTDIR}${datarootdir}/icons/hicolor/36x36/apps/"
-	${INSTALL} -m 644 48x48/i-nex.xpm "${DESTDIR}${datarootdir}/icons/hicolor/48x48/apps/"
-	${INSTALL} -m 644 64x64/i-nex.xpm "${DESTDIR}${datarootdir}/icons/hicolor/64x64/apps/"
-	${INSTALL} -m 644 72x72/i-nex.xpm "${DESTDIR}${datarootdir}/icons/hicolor/72x72/apps/"
-	${INSTALL} -m 644 96x96/i-nex.xpm "${DESTDIR}${datarootdir}/icons/hicolor/96x96/apps/"
-	${INSTALL} -m 644 128x128/i-nex.xpm "${DESTDIR}${datarootdir}/icons/hicolor/128x128/apps/"
-	${INSTALL} -m 644 256x256/i-nex.xpm "${DESTDIR}${datarootdir}/icons/hicolor/256x256/apps/"
-	${INSTALL} -m 644 192x192/i-nex.xpm "${DESTDIR}${datarootdir}/icons/hicolor/192x192/apps/"
-	${INSTALL} -m 644 512x512/i-nex.xpm "${DESTDIR}${datarootdir}/icons/hicolor/512x512/apps/"
+	${INSTALL} -m 644 22x22/i-nex.png "${DESTDIR}${datarootdir}/icons/hicolor/22x22/apps/"
+	${INSTALL} -m 644 32x32/i-nex.png "${DESTDIR}${datarootdir}/pixmaps/"
+	${INSTALL} -m 644 24x24/i-nex.png "${DESTDIR}${datarootdir}/icons/hicolor/24x24/apps/"
+	${INSTALL} -m 644 32x32/i-nex.png "${DESTDIR}${datarootdir}/icons/hicolor/32x32/apps/"
+	${INSTALL} -m 644 36x36/i-nex.png "${DESTDIR}${datarootdir}/icons/hicolor/36x36/apps/"
+	${INSTALL} -m 644 48x48/i-nex.png "${DESTDIR}${datarootdir}/icons/hicolor/48x48/apps/"
+	${INSTALL} -m 644 64x64/i-nex.png "${DESTDIR}${datarootdir}/icons/hicolor/64x64/apps/"
+	${INSTALL} -m 644 72x72/i-nex.png "${DESTDIR}${datarootdir}/icons/hicolor/72x72/apps/"
+	${INSTALL} -m 644 96x96/i-nex.png "${DESTDIR}${datarootdir}/icons/hicolor/96x96/apps/"
+	${INSTALL} -m 644 128x128/i-nex.png "${DESTDIR}${datarootdir}/icons/hicolor/128x128/apps/"
+	${INSTALL} -m 644 256x256/i-nex.png "${DESTDIR}${datarootdir}/icons/hicolor/256x256/apps/"
+	${INSTALL} -m 644 192x192/i-nex.png "${DESTDIR}${datarootdir}/icons/hicolor/192x192/apps/"
+	${INSTALL} -m 644 512x512/i-nex.png "${DESTDIR}${datarootdir}/icons/hicolor/512x512/apps/"
 
 uninstall:
 	if test -f "${DESTDIR}${datarootdir}/icons/hicolor/48x48/apps/i-nex.xpm" ; then ${RM} "${DESTDIR}${datarootdir}/icons/hicolor/48x48/apps/i-nex.xpm" ; fi
