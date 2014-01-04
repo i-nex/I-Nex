@@ -1,6 +1,6 @@
 ' Gambas class file
 
-
+Create Static
 Static Property Read DefaultDir As String
 
 Private $sPath As String

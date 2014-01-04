@@ -1,16 +1,49 @@
 # Gambas Form File 3.0
 
 { Form Form
-  Move(0,0,476,525)
+  Move(0,0,469,525)
   #Scaled = False
   #Translate = False
   Font = Font["Bold,8"]
+  PopupMenu = "Orientation"
   Text = "I-Nex"
   Icon = Picture["logo/i-nex.0.4.x.png"]
   Resizable = False
   Padding = 3
+  { Orientation Menu
+    Text = ("Orientation")
+    Visible = False
+    { Orientation_Top Menu
+      Text = ("Orientation Top")
+      Picture = Picture["icon:/16/top"]
+      Shortcut = "Ctrl+Alt+Up"
+    }
+    { Orientation_Bottom Menu
+      Text = ("Orientation Bottom")
+      Picture = Picture["icon:/16/bottom"]
+      Shortcut = "Ctrl+Alt+Down"
+    }
+    { Orientation_Left Menu
+      Text = ("Orientation Left")
+      Picture = Picture["icon:/16/left"]
+      Shortcut = "Ctrl+Alt+Left"
+    }
+    { Orientation_Right Menu
+      Text = ("Orientation Right")
+      Picture = Picture["icon:/16/right"]
+      Shortcut = "Ctrl+Alt+Right"
+    }
+  }
+  { Menu1 Menu
+    Text = ("Menu1")
+    Visible = False
+    { Reportthisw Menu
+      Text = ("Save as report")
+      Picture = Picture["icon:/16/make"]
+    }
+  }
   { HBox11 HBox
-    Move(140,497,245,28)
+    Move(140,497,231,28)
     { Label25 Label
       Move(78,6,48,24)
       Foreground = &HFF0000&
@@ -34,7 +67,7 @@
     Picture = Picture["icon:/16/help"]
   }
   { Button1 Button
-    Move(399,497,77,28)
+    Move(385,497,77,28)
     #Translate = False
     Font = Font["8"]
     ToolTip = "Close this program"
@@ -56,8 +89,9 @@
     Picture = Picture["icon:/16/important"]
   }
   { TabStrip1 TabStrip
-    Move(7,0,476,497)
+    Move(0,0,469,497)
     Font = Font["Bold,8"]
+    PopupMenu = "Menu1"
     Padding = 3
     Count = 11
     TextFont = Font["8"]
@@ -246,6 +280,7 @@
       Move(98,7,245,28)
       #Translate = False
       Font = Font["Bold,8"]
+      PopupMenu = "Copying"
       Padding = 3
       Text = "Label14"
       Border = Border.Raised

@@ -10,6 +10,8 @@ Public Sub Form_Open()
  ButtonBox1.Text = Desktop.Path 
  Endif
  Me.Center
+ Me.X = Settings["Window/X", Me.X]
+ Me.Y = Settings["Window/Y", Me.Y]
  PictureBox1.Picture = ScreenShotM.pic
  TextBox1.Text = Date & Time
  TextBox1.Text = Replace(TextBox1.Text, "/", "")

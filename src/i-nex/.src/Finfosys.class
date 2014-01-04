@@ -9,6 +9,8 @@ Public Sub Form_Open()
   If User.Name = "root" Then
     Message.Error(("Running as root is not allowed!\n " & User.Home & ""))
   Endif
+  Print Settings.Path
+  Print Settings.DefaultDir
   Finfosys.TabStrip1[9].Visible = False
   Debug "Call to MInit for copy nedded files to I-Nex config dir in User.Home"
   Object.Call(MInit, "_inits")
@@ -129,6 +131,8 @@ Public Sub Form_Open()
  Debug Label25.Text
  ''Okno na środku
  Me.Center
+ Me.X = Settings["Window/X", Me.X]
+ Me.Y = Settings["Window/Y", Me.Y]
 End
 
 Public Sub ComboBox1_Click()
@@ -412,7 +416,8 @@ Public Sub Button2_Click()
 End
 
 Public Sub Button1_Click()
-
+  Settings["Window/X"] = Me.X
+  Settings["Window/Y"] = Me.Y
   Me.Close
   Debug "Good bye!"
 End
@@ -457,7 +462,7 @@ Public Sub dospam_uptime()
   Try ProgressBar1.Value = Replace(Replace(dospam, " ", ""), "\n", "") / Replace(Replace(totpam, " ", ""), "\n", "")
   Try ProgressBar4.Value = Replace(Replace(usedswap, " ", ""), "\n", "") / Replace(Replace(totalswap, " ", ""), "\n", "")
   Try TextArea2.Text = File.Load("/proc/mtrr")
-
+  
 End
 
 Public Sub battery_info()
@@ -669,4 +674,62 @@ Public Sub Button15_Click()
 
  Clipboard.Copy(TextBox58.Text)
 
+End
+
+Public Sub Orientation_Top_Click()
+ 
+ TabStrip1.Orientation = Align.Top
+ 
+End
+
+Public Sub Orientation_Bottom_Click()
+ 
+ TabStrip1.Orientation = Align.Bottom
+ 
+End
+
+Public Sub Orientation_Left_Click()
+ 
+ TabStrip1.Orientation = Align.Left
+ 
+End
+
+Public Sub Orientation_Right_Click()
+ 
+ TabStrip1.Orientation = Align.Right
+ 
+End
+
+Public Sub Reportthisw_Click()
+ Select Case TabStrip1.Current.Text
+  Case "CPU"
+   FReport_Gen.CheckBox1.Value = True
+  Case "GPU"
+   FReport_Gen.CheckBox3.Value = True
+  Case "Mobo"
+   FReport_Gen.CheckBox2.Value = True
+  Case "Audio"
+   FReport_Gen.CheckBox4.Value = True
+  Case "Drives"
+   FReport_Gen.CheckBox14.Value = True
+  Case "System"
+   FReport_Gen.CheckBox5.Value = True
+  Case "Kernel"
+   FReport_Gen.CheckBox12.Value = True
+ End Select
+ FReport_Gen.Show
+ 
+End
+
+Public Sub TabStrip1_Click()
+
+ Me.Text = "I-Nex / " & TabStrip1.Current.Text 
+
+End
+
+Public Sub Form_Move()
+ 
+ Settings["Window/X"] = Me.X
+ Settings["Window/Y"] = Me.Y
+ 
 End

@@ -4,6 +4,8 @@
 Public Sub Form_Open()
 
   Me.Center
+  Me.X = Settings["Window/X", Me.X]
+  Me.Y = Settings["Window/Y", Me.Y]
   
 End
 
