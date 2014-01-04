@@ -4,7 +4,7 @@ Upstream-Contact: eloaders <eloaders@linux.pl>
 Source: https://launchpad.net/i-nex
 
 Files: src/i-nex/*
-Copyright: 2011-2013 eloaders <eloaders@linux.pl>
+Copyright: 2011-2014 eloaders <eloaders@linux.pl>
 License: LGPL-3+
  I-Nex free software: you can redistribute it and/or modify
  it under the terms of the GNU Lesser General Public License as published 
@@ -24,7 +24,7 @@ License: LGPL-3+
  `/usr/share/common-licenses/LGPL-3'.
  
 Files: debian/*
-Copyright: 2011-2013 eloaders <eloaders@linux.pl>
+Copyright: 2011-2014 eloaders <eloaders@linux.pl>
 License: GPL-3+
  This software is licensed to you under the GNU General Public License,
  version 3 (GPLv3). There is NO WARRANTY for this software, express or

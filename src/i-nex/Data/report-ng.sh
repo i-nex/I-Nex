@@ -1,4 +1,5 @@
 #!/bin/bash
+# Copyright (c) 2013-2014 Michał Głowienka <eloaders@linux.pl>
 #if [ -e /proc/modules ]; then
 #    X=`cat /proc/modules | sed -e "s/ .*$//"`
 #    echo "Modules Loaded         "$X

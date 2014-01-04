@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# Copyright (c) 2013-2014 Michał Głowienka <eloaders@linux.pl>
 lspci_nonpre() {
 lspci -v -s `lspci | awk '/VGA/{print $1}'` | sed -n '/Memory.*, prefetchable/s/.*\[size=\([^]]\+\)\]/\1/p'
 }
