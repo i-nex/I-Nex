@@ -10,7 +10,7 @@ Component=gb.qt4
 Component=gb.form
 Component=gb.desktop
 Authors="eloaders"
-Environment="LANG=C\nLC_ALL=C\nLIBOVERLAY_SCROLLBAR=0\nAPPMENU_DISPLAY_BOTH=1"
+Environment="LANG=C\nLC_ALL=C\nLIBOVERLAY_SCROLLBAR=0\nAPPMENU_DISPLAY_BOTH=1\nSHELL=/bin/bash"
 TabSize=1
 ControlPublic=1
 ModulePublic=1

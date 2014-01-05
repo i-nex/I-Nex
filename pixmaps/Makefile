@@ -11,8 +11,7 @@ make:
 	${MKDIR_P} 256x256
 	${MKDIR_P} 32x32
 	${MKDIR_P} 36x36
-	${MKDIR_P} 48x48  
-	${MKDIR_P} 512x512
+	${MKDIR_P} 48x48
 	${MKDIR_P} 64x64
 	${MKDIR_P} 72x72
 	${MKDIR_P} 96x96
@@ -25,7 +24,6 @@ make:
 	convert i-nex.xpm -resize 32x32 32x32/i-nex.png
 	convert i-nex.xpm -resize 36x36 36x36/i-nex.png
 	convert i-nex.xpm -resize 48x48 48x48/i-nex.png
-	convert i-nex.xpm -resize 512x512 512x512/i-nex.png
 	convert i-nex.xpm -resize 64x64 64x64/i-nex.png
 	convert i-nex.xpm -resize 72x72 72x72/i-nex.png
 	convert i-nex.xpm -resize 96x96 96x96/i-nex.png
@@ -42,7 +40,6 @@ install:
 	${MKDIR_P} ${DESTDIR}${datarootdir}/icons/hicolor/128x128/apps
 	${MKDIR_P} ${DESTDIR}${datarootdir}/icons/hicolor/256x256/apps
 	${MKDIR_P} ${DESTDIR}${datarootdir}/icons/hicolor/192x192/apps
-	${MKDIR_P} ${DESTDIR}${datarootdir}/icons/hicolor/512x512/apps
 	#${MKDIR_P} ${DESTDIR}${datarootdir}/icons/hicolor/scalable/apps
 
 	${INSTALL} -m 644 22x22/i-nex.png "${DESTDIR}${datarootdir}/icons/hicolor/22x22/apps/"
@@ -57,7 +54,6 @@ install:
 	${INSTALL} -m 644 128x128/i-nex.png "${DESTDIR}${datarootdir}/icons/hicolor/128x128/apps/"
 	${INSTALL} -m 644 256x256/i-nex.png "${DESTDIR}${datarootdir}/icons/hicolor/256x256/apps/"
 	${INSTALL} -m 644 192x192/i-nex.png "${DESTDIR}${datarootdir}/icons/hicolor/192x192/apps/"
-	${INSTALL} -m 644 512x512/i-nex.png "${DESTDIR}${datarootdir}/icons/hicolor/512x512/apps/"
 
 uninstall:
 	if test -f "${DESTDIR}${datarootdir}/icons/hicolor/48x48/apps/i-nex.xpm" ; then ${RM} "${DESTDIR}${datarootdir}/icons/hicolor/48x48/apps/i-nex.xpm" ; fi
@@ -75,8 +71,7 @@ clean:
 	rm -Rf 256x256
 	rm -Rf 32x32
 	rm -Rf 36x36
-	rm -Rf 48x48  
-	rm -Rf 512x512
+	rm -Rf 48x48
 	rm -Rf 64x64
 	rm -Rf 72x72
 	rm -Rf 96x96
