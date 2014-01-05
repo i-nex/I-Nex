@@ -133,7 +133,7 @@
       Border = Border.Raised
     }
     { ToolButton3 ToolButton
-      Move(434,189,21,21)
+      Move(441,189,21,21)
     }
     { Label71 Label
       Move(7,168,455,21)
@@ -245,7 +245,7 @@
       Border = False
     }
     { Label15 Label
-      Move(7,210,448,21)
+      Move(7,210,455,21)
       #Translate = False
       Font = Font["Bold,8"]
       Padding = 3
