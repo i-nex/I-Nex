@@ -1,31 +1,32 @@
 ' Gambas module file
 
+Public Logs As New Logger
 Public Sub _inits()
  If Access("" & User.Home & "/", gb.Write) = False Then
   Message.Error("Cannot write files to " & User.Home & "/.i-nex")
  Endif
  If Exist("" & User.Home & "/.i-nex") Then
   
-  Print "i-nex in home folder is exist"
-  Print "Try to remove files"
+  Logs("i-nex in home folder is exist", Logger.Info)
+  Logs("Try to remove files", Logger.Info)
   Try Kill User.Home & "/.i-nex/screenfetch-dev"
   Try Kill User.Home & "/.i-nex/report-ng.sh"
   Try Kill User.Home & "/.i-nex/edid"
   
  Else
-  Print "i-nex in home folder not exist"
+  Logs("i-nex in home folder not exist", Logger.Error)
   Try Mkdir User.Home & "/.i-nex/"
-  Print "i-nex in home folder created"
+  Logs("i-nex in home folder created", Logger.Info)
  Endif
  
- Print "Copy nedded files"
- Print "Copy screenfetch-dev from Data/screenfetch-dev to " & User.Home &/ ".i-nex/screenfetch-dev"
+ Logs("Copy nedded files", Logger.Info)
+ Logs("Copy screenfetch-dev from Data/screenfetch-dev to " & User.Home &/ ".i-nex/screenfetch-dev", Logger.Info)
   Copy "Data/screenfetch-dev" To User.Home &/ ".i-nex/screenfetch-dev"
- Print "Copy report-ng.sh from Data/report-ng.sh to " & User.Home &/ ".i-nex/report-ng.sh"
+ Logs("Copy report-ng.sh from Data/report-ng.sh to " & User.Home &/ ".i-nex/report-ng.sh", Logger.Info)
   Copy "Data/report-ng.sh" To User.Home &/ ".i-nex/report-ng.sh"
- Print "Copy edid from Data/edid to " & User.Home &/ ".i-nex/edid"
+ Logs("Copy edid from Data/edid to " & User.Home &/ ".i-nex/edid", Logger.Info)
   Copy "Data/edid" To User.Home &/ ".i-nex/edid"
- Print "Execute copied files"
+ Logs("Execute copied files", Logger.Info)
  
  Exec ["/bin/bash", "" & User.Home & "/.i-nex/screenfetch-dev"] Wait
  Exec ["/bin/bash", "" & User.Home & "/.i-nex/report-ng.sh"] Wait

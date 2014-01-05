@@ -1,5 +1,6 @@
 ' Gambas module file
 
+Public Logs As New Logger
 Public block_drive As String = "Finfosys.ComboBox4.Text"
 Public device_model As String
 Public device_vendor As String
@@ -46,7 +47,7 @@ Public Sub _inits()
   Dim Avail_HDD As Integer 
   Dim Max_HDD As Integer
   Dim cache As String
-  Debug "Add Drives to ComboBox"
+  Logs("Add Drives to ComboBox", Logger.Info)
   Shell "ls /sys/block/ | grep -e 'sd' -e 'sr' | tr ' ' '\n' | wc -l" Wait To cache
   Max_HDD = Val(cache)
   For Avail_HDD = 1 To Max_HDD
@@ -63,7 +64,7 @@ Public Sub _init_2()
   Dim count As Integer
   Dim riga As New String[]
   Dim lista As New String[]
-  Debug "Add Drives to ComboBox.."
+  Logs("Add Drives to ComboBox..", Logger.Info)
   Shell "ls /sys/block/" & Finfosys.ComboBox4.Text & " | grep 'sd' | sort -V" To ListAllDiscs
   righe = Split(ListAllDiscs, "\n", "%%", True)
   For count = 0 To righe.Max
@@ -76,7 +77,7 @@ Public Sub _init_2()
 End
 
 Public Sub get_informations()
-  Debug "Get informations of Drives"
+  Logs("Get informations of Drives", Logger.Info)
   Shell "cat /sys/block/" & Finfosys.ComboBox4.Text & "/device/model" Wait To device_model
   Shell "cat /sys/block/" & Finfosys.ComboBox4.Text & "/device/vendor" Wait To device_vendor
   Shell "cat /sys/block/" & Finfosys.ComboBox4.Text & "/device/rev" Wait To device_rev
@@ -112,8 +113,8 @@ Public Sub get_informations()
   Shell "cat /sys/block/" & Finfosys.ComboBox4.Text & "/bdi/stable_pages_required" Wait To stable_pages_required
   Shell "sed -n '2p' /proc/swaps | awk {'print $1'} | cut -d '/' -f 3" Wait To check_swap
   Shell "df | grep '" & Finfosys.ComboBox3.Text & "' | awk {'print $5'} | sed -n '1p'" Wait To used
-  Debug "Get informations of Drives Done" 
-  Debug "Replace new line to Null"
+  Logs("Get informations of Drives Done", Logger.Info)
+  Logs("Replace new line to Null", Logger.Info)
   rm_new_line()
   disks()
 End
@@ -159,7 +160,7 @@ Public Sub rm_new_line()
   physical_block_size = Replace(physical_block_size, "\n", "") ' physical_block_size
   rotational = Replace(rotational, "\n", "") ' rotational
   rq_affinity = Replace(rq_affinity, "\n", "") ' rq_affinity
-  Debug "Replace new line to Null Done"
+  Logs("Replace new line to Null Done", Logger.Info)
  
 End
 

@@ -1,5 +1,6 @@
 ' Gambas module file
 
+Public Logs As New Logger
 Public device_assign_type As String
 Public subsystem_device As String
 Public subsystem_vendor As String
@@ -29,7 +30,7 @@ Public Sub inits()
   Dim Avail_Net As Integer 
   Dim Max_Net As Integer
   Dim cache As String
-  Debug "Add Network Devices to ComboBox"
+  Logs("Add Network Devices to ComboBox", Logger.Info)
   Shell "ls /sys/class/net/ | wc -l" Wait To cache
   Max_Net = Replace(Replace(cache, " ", ""), "\n", "")
   For Avail_Net = 1 To Max_Net

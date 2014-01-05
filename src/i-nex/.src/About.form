@@ -38,10 +38,6 @@
       Move(7,329,462,42)
       Text = ("If you do not have the possibility of giving the money to me for a coffee, \njust click on the link adf.ly. ")
     }
-    { ToggleButton1 ToggleButton
-      Move(98,371,266,91)
-      Picture = Picture["Data/adfly.png"]
-    }
     Index = 1
     Text = ("Credits")
     { ScrollView1 ScrollView

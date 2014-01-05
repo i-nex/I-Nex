@@ -1,0 +1,120 @@
+' Gambas module file
+
+''' This class formats a line to automatically replace required Logger data
+
+Private Function GetCallLocation() As String
+
+  Return System.Backtrace[3]
+
+End
+
+Private Function GetCallFile() As String
+
+  Return Split(System.Backtrace[3], ".")[0]
+
+End
+
+Private Function GetCallFunction() As String
+
+  Return Split(System.Backtrace[3], ".")[1]
+
+End
+
+Private Function GetCallLine() As String
+
+  Return Split(System.Backtrace[3], ".")[2]
+
+End
+
+'' cal
+Public Function _call(sMessage As String, sFormat As String, iLevel As Integer) As String
+
+  Dim sName As String
+
+  If String.InStr(sFormat, "$(message)") > 0 Then
+    sFormat = Replace$(sFormat, "$(message)", sMessage)
+  Endif
+
+  If String.InStr(sFormat, "$(callLocation)") > 0 Then
+    sFormat = Replace$(sFormat, "$(callLocation)", GetCallLocation())
+  Endif
+
+  If String.InStr(sFormat, "$(callLine)") > 0 Then
+    sFormat = Replace$(sFormat, "$(callLine)", GetCallLine())
+  Endif
+
+  If String.InStr(sFormat, "$(callFile)") > 0 Then
+    sFormat = Replace$(sFormat, "$(callFile)", GetCallFile())
+  Endif
+
+  If String.InStr(sFormat, "$(callFunction)") > 0 Then
+    sFormat = Replace$(sFormat, "$(callFunction)", GetCallFunction())
+  Endif
+
+  If String.InStr(sFormat, "$(now)") > 0 Then
+    sFormat = Replace$(sFormat, "$(now)", CStr(Now))
+  Endif
+
+  If String.InStr(sFormat, "$(date)") > 0 Then
+    sFormat = Replace$(sFormat, "$(date)", CStr(Date(Now)))
+  Endif
+
+  If String.InStr(sFormat, "$(time)") > 0 Then
+    sFormat = Replace$(sFormat, "$(time)", CStr(Time(Now)))
+  Endif
+
+  If String.InStr(sFormat, "$(ptimer)") > 0 Then
+    sFormat = Replace$(sFormat, "$(ptimer)", CStr(Timer))
+  Endif
+
+  If String.InStr(sFormat, "$(ptimerint)") > 0 Then
+    sFormat = Replace$(sFormat, "$(ptimerint)", CStr(Int(Timer)))
+  Endif
+
+  If String.InStr(sFormat, "$(levelno)") > 0 Then
+    sFormat = Replace$(sFormat, "$(levelno)", CStr(iLevel))
+  Endif
+
+  If String.InStr(sFormat, "$(levelname)") > 0 Then
+    Select Case iLevel
+
+      Case Logger.Critical
+        sName = "CRITICAL"
+
+      Case Logger.Error
+        sName = "ERROR"
+
+      Case Logger.Warning
+        sName = "WARNING"
+
+      Case Logger.Info
+        sName = "INFO"
+
+      Case Logger.Debug
+        sName = "DEBUG"
+
+    End Select
+
+    sFormat = Replace$(sFormat, "$(levelname)", sName)
+
+  Endif
+
+  If String.InStr(sFormat, "$(version)") > 0 Then
+    sFormat = Replace$(sFormat, "$(version)", Application.Version)
+  Endif
+
+  If String.InStr(sFormat, "$(gbversion)") > 0 Then
+    sFormat = Replace$(sFormat, "$(gbversion)", System.FullVersion)
+  Endif
+
+  If String.InStr(sFormat, "$(host)") > 0 Then
+    sFormat = Replace$(sFormat, "$(host)", System.Host)
+  Endif
+
+  If String.InStr(sFormat, "$(pid)") > 0 Then
+    sFormat = Replace$(sFormat, "$(pid)", CStr(Application.Id))
+  Endif
+
+  Return sFormat
+
+End

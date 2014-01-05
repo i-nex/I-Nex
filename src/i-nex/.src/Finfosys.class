@@ -1,54 +1,59 @@
 ' Gambas class file
 
+Public AllowLog As Boolean
+Public sLine As String
+Public aScan As String[]
 Public cpu As String
 Public flags As String
 Public vendor_id As String
+Public Logs As New Logger
 Public Sub Form_Open()
   Dim default_display_manager As Boolean = Exist("/etc/X11/default-display-manager")
   Dim cpuz0, cpuz1, cpuz2, cpuz3, cpuz4, cpuz5, cpuz6, cpuz7, cpuz8, cpuz9, cpuz10, cpuz11 As String
   If User.Name = "root" Then
     Message.Error(("Running as root is not allowed!\n " & User.Home & ""))
   Endif
-  Print Settings.Path
-  Print Settings.DefaultDir
+  Logs("Starting log", Logger.Info)
+  Logs(Settings.Path, Logger.Info)
+  Logs(Settings.DefaultDir, Logger.Info)
   Finfosys.TabStrip1[9].Visible = False
-  Debug "Call to MInit for copy nedded files to I-Nex config dir in User.Home"
+  Logs("Call to MInit for copy nedded files to I-Nex config dir in User.Home", Logger.Info)
   Object.Call(MInit, "_inits")
-  Debug ""
+  Logs("Call to Distribution_Detect", Logger.Info)
   Object.Call(Distribution_Detect, "_inits")
-  Debug "Settings default dir = " & Settings.DefaultDir & ""
+  Logs("Settings default dir = " & Settings.DefaultDir & "", Logger.Info)
   Button14.Visible = ChkPrm.ChkExec("udisks")
-  Debug "Check for Battery"
+  Logs("Check for Battery", Logger.Info)
   Object.Call(battery, "_inits")
-  Debug "Check for Usb device plugged"
+  Logs("Check for Usb device plugged", Logger.Info)
   Object.Call(USB_Drives, "_inits")
-  Debug "Check for Drives"
+  Logs("Check for Drives", Logger.Info)
   Object.Call(Disk_Drives, "_inits")
-  Debug "Check for Drives.."
+  Logs("Check for Drives..", Logger.Info)
   Object.Call(Disk_Drives, "_init_2")
-  Debug "Check for Drives...."
+  Logs("Check for Drives....", Logger.Info)
   Object.Call(Disk_Drives, "get_informations")
-  Debug "Check for Input Drives"
+  Logs("Check for Input Drives", Logger.Info)
   Object.Call(Input_Devices, "_inits")
-  Debug "Check available network devices"
+  Logs("Check available network devices", Logger.Info)
   Object.Call(net, "inits")
-  Debug "Check available graphic DSub, DVI etc"
+  Logs("Check available graphic DSub, DVI etc", Logger.Info)
   Object.Call(FGraphic, "_inits")
-  Debug "Call to Graphic"
+  Logs("Call to Graphic", Logger.Info)
   Object.Call(FGraphic, "_check")
-  Debug "Check for default display manager"
+  Logs("Check for default display manager", Logger.Info)
   If default_display_manager = True Then
    Label4.Visible = True
    Label143.Visible = True
    Label143.Text = File.Load("/etc/X11/default-display-manager")
    Label143.Text = "Deafult DM: " & Replace(Label143.Text, "\n", "")
-   Debug "Default display manager is " & Label143.Text
+   Logs("Default display manager is " & Label143.Text, Logger.Info)
   Endif
   'Check temperature. If temterature is OK then timer start 1500/ms. Check temp 1500/ms
   Timer1.Start
   TextLabel21.Visible = False
   'Procesor
-  Debug "Check available procesors"
+  Logs("Check available procesors", Logger.Info)
   Shell "ls /sys/devices/system/cpu/ | grep -v save | sed -n '1p'" Wait To cpuz0
   Shell "ls /sys/devices/system/cpu/ | grep -v save | sed -n '2p'" Wait To cpuz1
   Shell "ls /sys/devices/system/cpu/ | grep -v save | sed -n '3p'" Wait To cpuz2
@@ -61,7 +66,7 @@ Public Sub Form_Open()
   Shell "ls /sys/devices/system/cpu/ | grep -v save | sed -n '10p'" Wait To cpuz9
   Shell "ls /sys/devices/system/cpu/ | grep -v save | sed -n '11p'" Wait To cpuz10
   Shell "ls /sys/devices/system/cpu/ | grep -v save | sed -n '12p'" Wait To cpuz11
-  Debug "Replaces new line to space"
+  Logs("Replaces new line to space", Logger.Info)
   cpuz0 = Replace(cpuz0, "\n", "")
   cpuz1 = Replace(cpuz1, "\n", "")
   cpuz2 = Replace(cpuz2, "\n", "")
@@ -112,31 +117,32 @@ Public Sub Form_Open()
       ComboBox1.Add("Processor11")
   Endif
 'Uruchomienie instrukcji dla poszczególnych zakładek w celu wydobycia informacji z systemu
- Debug "Check Dospam uptime"
+ Logs("Check Dospam uptime", Logger.Info)
  dospam_uptime()
- Debug "Check System"
+ Logs("Check System", Logger.Info)
  System()
- Debug "Check Bios"
+ Logs("Check Bios", Logger.Info)
  bios()
- Debug "Check Kernels"
+ Logs("Check Kernels", Logger.Info)
  kernel()
- Debug "Check sound cards"
+ Logs("Check sound cards", Logger.Info)
  dzwiek()
- Debug "Check graphic card"
+ Logs("Check graphic card", Logger.Info)
  grafika()
  ''END Uruchomienie instrukcji dla poszczególnych zakładek w celu wydobycia informacji z systemu
- Debug "Set Combobox to Processor0"
+ Logs("Set Combobox to Processor0", Logger.Info)
  ComboBox1.Text = "Processor0" ''Ustawienie combobox na Procesor0 / W przeciwnym wypadku nie pokaże nic
  Label25.Text = Application.Name & " v: " & Application.version
- Debug Label25.Text
+ Logs(Label25.Text, Logger.Info)
  ''Okno na środku
  Me.Center
  Me.X = Settings["Window/X", Me.X]
  Me.Y = Settings["Window/Y", Me.Y]
+ 
 End
 
 Public Sub ComboBox1_Click()
-  Debug "Checking procesors"
+  Logs("Checking procesors", Logger.Info)
   Wykrywanie_procesorow()
 
 End
@@ -213,6 +219,13 @@ Public Sub System()
   If timezone = Null Or "" Then
     Shell "timedatectl status | grep Timezone: |awk '{print $2}'" Wait To timezone
   Endif
+  For Each sLine In Split(File.Load("/proc/self/maps"), "\n")
+      If InStr(sLine, "[heap]") Then
+        aScan = Scan(sLine, "*-* *")
+        Label176.Text = "Heap size is " & Format(Val("&H" & aScan[1] & "&") - Val("&H" & aScan[0] & "&"), "#,##0") & " bytes."
+        Break
+      Endif
+  Next
   hostname = System.Host
   arch = System.Architecture
   Shell "gcc -dumpversion" Wait To gcc
@@ -399,7 +412,7 @@ Public Sub Wykrywanie_procesorow()
   Label11.Text = "Address sizes: " & Replace(address_sizes, "\n", "")
   Label15.Text = "Power mangament: " & Replace(power_management, "\n", "")
   Global.ikonaprocka()
-  Debug "Get info from database"
+  Logs("Get info from database", Logger.Info)
   Object.Call(FCpudb, "_inits")
 End
 
@@ -418,8 +431,8 @@ End
 Public Sub Button1_Click()
   Settings["Window/X"] = Me.X
   Settings["Window/Y"] = Me.Y
+  Logs("Good bye!", Logger.Info)
   Me.Close
-  Debug "Good bye!"
 End
 
 Public Sub dospam_uptime()
@@ -466,7 +479,7 @@ Public Sub dospam_uptime()
 End
 
 Public Sub battery_info()
- Debug "Get information Active Battery"
+ Logs("Get information Active Battery", Logger.Info)
  TextBox7.Text = battery.Present
  TextBox8.Text = battery.Design_capacity
  TextBox9.Text = battery.last_full_capacity
@@ -481,13 +494,13 @@ Public Sub battery_info()
  TextBox18.Text = battery.serial_number
  TextBox19.Text = battery.battery_type
  TextBox20.Text = battery.OEM_info
- Debug "Get information Active Battery Done"
+ Logs("Get information Active Battery Done", Logger.Info)
  
 End
 
 
 Public Sub Button3_Click()
-  Debug "Show About Window"
+  Logs("Show About Window", Logger.Info)
   About.Show
 
 End
@@ -495,7 +508,7 @@ End
 Public Sub Button4_Click()
 
   Desktop.Open("http://www.cpu-world.com/cgi-bin/SearchSite.pl?SEARCH=" & Label14.Text & "&PROCESS=Search")
-  Debug "Open website for more informations about your processor"
+  Logs("Open website for more informations about your processor", Logger.Info)
 End
 
 Public Sub Button7_Click()
@@ -512,7 +525,7 @@ End
 Public Sub Button10_Click()
 
  Object.Call(battery, "_inits")
- Debug "Battery initial"
+ Logs("Battery initial", Logger.Info)
 End
 
 Public Sub ComboBox3_Click()
@@ -635,7 +648,7 @@ End
 Public Sub Button13_Click()
 
  Desktop.Open("http://tuxportal.pl/forum/")
- Debug "Reporting bug to http://tuxportal.pl/forum/"
+ Logs("Reporting bug to http://tuxportal.pl/forum/", Logger.Info)
 
 End
 
@@ -722,7 +735,11 @@ Public Sub Reportthisw_Click()
 End
 
 Public Sub TabStrip1_Click()
-
+ If TabStrip1.Current.Text = "CPU" Then
+  ComboBox1.Visible = True
+ Else
+  ComboBox1.Visible = False
+ Endif
  Me.Text = "I-Nex / " & TabStrip1.Current.Text 
 
 End

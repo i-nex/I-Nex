@@ -19,6 +19,8 @@ Public Sub Form_Open()
   Me.Close
  Endif
  Me.Center
+  Me.X = Settings["Window/X", Me.X]
+  Me.Y = Settings["Window/Y", Me.Y]
 End
 
 Public Sub ComboBox1_Click()

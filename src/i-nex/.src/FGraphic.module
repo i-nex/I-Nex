@@ -1,13 +1,13 @@
 ' Gambas module file
 
-' 
+Public Logs As New Logger
 Public Sub _inits()
   Dim Interfaces_X As String
   Dim Avail_Interfaces As Integer 
   Dim Max_Interfaces As Integer
   Dim all_interfaces As String
-  
-  Debug "Add Interfaces to ComboBox"
+
+  Logs("Add Interfaces to ComboBox", Logger.Info)
   Shell "ls /sys/class/drm/ | grep 'card[0-9]' | wc -l" Wait To all_interfaces
   Max_Interfaces = Val(all_interfaces)
   For Avail_Interfaces = 1 To Max_Interfaces

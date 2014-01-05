@@ -6,6 +6,7 @@ Public Sub Form_Open()
  Me.X = Settings["Window/X", Me.X]
  Me.Y = Settings["Window/Y", Me.Y]
  Exec ["/bin/bash", "" & User.Home & "/.i-nex/edid"] Wait
+ Wait 1
  TextArea1.Text = File.Load("" & User.Home & "/.i-nex/edid.conf")
 
 End

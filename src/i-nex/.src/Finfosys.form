@@ -1,7 +1,7 @@
 # Gambas Form File 3.0
 
 { Form Form
-  Move(0,0,469,525)
+  Move(0,0,476,525)
   #Scaled = False
   #Translate = False
   Font = Font["Bold,8"]
@@ -43,9 +43,9 @@
     }
   }
   { HBox11 HBox
-    Move(140,497,231,28)
+    Move(119,497,154,28)
     { Label25 Label
-      Move(78,6,48,24)
+      Move(14,0,48,24)
       Foreground = &HFF0000&
       AutoResize = True
       Alignment = Align.Center
@@ -67,7 +67,7 @@
     Picture = Picture["icon:/16/help"]
   }
   { Button1 Button
-    Move(385,497,77,28)
+    Move(399,497,77,28)
     #Translate = False
     Font = Font["8"]
     ToolTip = "Close this program"
@@ -89,23 +89,17 @@
     Picture = Picture["icon:/16/important"]
   }
   { TabStrip1 TabStrip
-    Move(0,0,469,497)
+    Move(0,0,476,497)
     Font = Font["Bold,8"]
     PopupMenu = "Menu1"
+    Margin = True
     Padding = 3
     Count = 11
     TextFont = Font["8"]
     Index = 0
     Text = ("CPU")
-    { ComboBox1 ComboBox
-      Move(371,434,91,28)
-      #Translate = False
-      Font = Font["Bold,8"]
-      ReadOnly = True
-      Text = "Select core"
-    }
     { Timer1 #Timer
-      #Move(413,385)
+      #Move(413,378)
       Delay = 2000
     }
     { Label72 Label
@@ -131,7 +125,7 @@
       Move(336,189,21,21)
     }
     { Label99 Label
-      Move(357,189,98,21)
+      Move(357,189,105,21)
       #Translate = False
       Font = Font["Bold,8"]
       Padding = 3
@@ -142,7 +136,7 @@
       Move(434,189,21,21)
     }
     { Label71 Label
-      Move(7,168,448,21)
+      Move(7,168,455,21)
       #Translate = False
       Font = Font["Bold,8"]
       Padding = 3
@@ -150,7 +144,7 @@
       Border = Border.Raised
     }
     { Label10 Label
-      Move(315,147,140,21)
+      Move(315,147,147,21)
       #Translate = False
       Font = Font["Bold,8"]
       Padding = 3
@@ -158,7 +152,7 @@
       Border = Border.Raised
     }
     { Label19 Label
-      Move(357,126,98,21)
+      Move(357,126,105,21)
       #Translate = False
       Font = Font["Bold,8"]
       Padding = 3
@@ -237,14 +231,6 @@
       Text = "Label5"
       Border = Border.Raised
     }
-    { Label93 Label
-      Move(7,91,91,21)
-      #Translate = False
-      Font = Font["Bold,8"]
-      Padding = 3
-      AutoResize = True
-      Border = Border.Raised
-    }
     { Label92 Label
       Move(196,392,259,21)
       #Translate = False
@@ -252,38 +238,11 @@
       AutoResize = True
     }
     { Button4 Button
-      Move(287,434,72,21)
+      Move(434,441,28,21)
       #Translate = False
       Font = Font["10"]
-      Text = "Info"
       Picture = Picture["icon:/16/info"]
       Border = False
-    }
-    { Label12 Label
-      Move(98,35,245,28)
-      #Translate = False
-      Font = Font["Bold,8"]
-      Padding = 3
-      Text = "Label12"
-      Border = Border.Raised
-    }
-    { Label13 Label
-      Move(7,7,91,42)
-      #Translate = False
-      Font = Font["Bold,12"]
-      Padding = 3
-      Text = "Label13"
-      Alignment = Align.Center
-      Border = Border.Raised
-    }
-    { Label14 Label
-      Move(98,7,245,28)
-      #Translate = False
-      Font = Font["Bold,8"]
-      PopupMenu = "Copying"
-      Padding = 3
-      Text = "Label14"
-      Border = Border.Raised
     }
     { Label15 Label
       Move(7,210,448,21)
@@ -291,14 +250,6 @@
       Font = Font["Bold,8"]
       Padding = 3
       Text = "Label15"
-      Border = Border.Raised
-    }
-    { Label103 Label
-      Move(7,63,336,28)
-      #Translate = False
-      Font = Font["Bold,8"]
-      Padding = 3
-      Text = "Label103"
       Border = Border.Raised
     }
     { Label104 Label
@@ -315,20 +266,15 @@
       Padding = 3
       Border = Border.Raised
     }
-    { PictureBox3 PictureBox
-      Move(350,7,112,112)
-      AutoResize = True
-      Alignment = Align.Center
-    }
     { Label111 Label
-      Move(196,238,259,21)
+      Move(196,238,266,21)
       #Translate = False
       Font = Font["Bold,8"]
       Padding = 3
       Border = Border.Raised
     }
     { Label112 Label
-      Move(196,259,259,21)
+      Move(196,259,266,21)
       #Translate = False
       Font = Font["Bold,8"]
       Padding = 3
@@ -349,7 +295,7 @@
       Border = Border.Raised
     }
     { Label115 Label
-      Move(196,280,259,21)
+      Move(196,280,266,21)
       #Translate = False
       Font = Font["Bold,8"]
       Padding = 3
@@ -363,7 +309,7 @@
       Border = Border.Raised
     }
     { Label117 Label
-      Move(196,301,259,21)
+      Move(196,301,266,21)
       #Translate = False
       Font = Font["Bold,8"]
       Padding = 3
@@ -377,7 +323,7 @@
       Border = Border.Raised
     }
     { Label119 Label
-      Move(196,322,259,21)
+      Move(196,322,266,21)
       #Translate = False
       Font = Font["Bold,8"]
       Padding = 3
@@ -391,7 +337,7 @@
       Border = Border.Raised
     }
     { Label121 Label
-      Move(196,343,259,21)
+      Move(196,343,266,21)
       #Translate = False
       Font = Font["Bold,8"]
       Padding = 3
@@ -406,14 +352,58 @@
     { Separator4 Separator
       Move(0,357,469,21)
     }
-    { Separator9 Separator
-      Move(336,0,14,126)
-    }
-    { Separator10 Separator
-      Move(0,49,105,14)
-    }
     { Separator11 Separator
       Move(175,364,14,98)
+    }
+    { PictureBox3 PictureBox
+      Move(350,7,112,112)
+      AutoResize = True
+      Alignment = Align.Center
+    }
+    { Label103 Label
+      Move(7,63,336,28)
+      #Translate = False
+      Font = Font["Bold,8"]
+      Padding = 3
+      Text = "Label103"
+      Border = Border.Raised
+    }
+    { Label93 Label
+      Move(7,91,91,21)
+      #Translate = False
+      Font = Font["Bold,8"]
+      Padding = 3
+      AutoResize = True
+      Border = Border.Raised
+    }
+    { Label13 Label
+      Move(7,7,91,56)
+      #Translate = False
+      Font = Font["Bold,12"]
+      Padding = 3
+      Text = "Label13"
+      Alignment = Align.Center
+      Border = Border.Raised
+    }
+    { Label14 Label
+      Move(98,7,245,28)
+      #Translate = False
+      Font = Font["Bold,8"]
+      PopupMenu = "Copying"
+      Padding = 3
+      Text = "Label14"
+      Border = Border.Raised
+    }
+    { Label12 Label
+      Move(98,35,245,28)
+      #Translate = False
+      Font = Font["Bold,8"]
+      Padding = 3
+      Text = "Label12"
+      Border = Border.Raised
+    }
+    { Separator9 Separator
+      Move(336,0,14,126)
     }
     Index = 1
     Text = ("GPU")
@@ -710,7 +700,7 @@
       }
     }
     { HBox15 HBox
-      Move(6,36,462,24)
+      Move(7,35,455,28)
       { Label9 Label
         Move(0,0,144,24)
         Font = Font["Bold,10"]
@@ -724,42 +714,42 @@
       }
     }
     { HPanel7 HPanel
-      Move(6,66,462,126)
+      Move(6,66,455,126)
       { Label73 Label
-        Move(0,0,144,24)
+        Move(0,0,140,28)
         #Translate = False
         AutoResize = True
         Border = Border.Plain
       }
       { Label18 Label
-        Move(150,0,312,24)
+        Move(140,0,315,28)
         #Translate = False
         Expand = True
         Border = Border.Plain
       }
       { Label74 Label
-        Move(0,30,462,24)
+        Move(0,28,455,28)
         #Translate = False
         Expand = True
         Border = Border.Plain
       }
       { Label77 Label
-        Move(0,60,462,24)
+        Move(0,56,455,28)
         #Translate = False
         Expand = True
         Border = Border.Plain
       }
       { Label78 Label
-        Move(0,90,462,24)
+        Move(0,84,455,28)
         #Translate = False
         Expand = True
         Border = Border.Plain
       }
     }
     { VSplit1 VSplit
-      Move(6,192,462,258)
+      Move(7,189,455,259)
       { TextArea18 TextArea
-        Move(0,18,462,91)
+        Move(0,18,455,91)
         #Translate = False
         Expand = True
         Text = "N/A"
@@ -767,7 +757,7 @@
         ScrollBar = Scroll.None
       }
       { TextArea1 TextArea
-        Move(0,162,462,96)
+        Move(0,162,455,98)
         #Translate = False
         Expand = True
         ReadOnly = True
@@ -1376,7 +1366,7 @@
     Index = 6
     Text = ("Kernel")
     { Frame22 Frame
-      Move(0,0,462,222)
+      Move(0,0,469,224)
       Text = ("Installed kernels:")
       { TextLabel25 TextLabel
         Move(6,24,216,24)
@@ -1385,7 +1375,7 @@
         Move(6,186,444,24)
       }
       { VBox1 VBox
-        Move(6,42,450,138)
+        Move(0,42,469,140)
         { ListBox1 ListBox
           Move(0,0,270,96)
           Expand = True
@@ -1393,10 +1383,10 @@
       }
     }
     { Frame14 Frame
-      Move(0,234,462,120)
+      Move(0,234,469,119)
       Text = ("Kernel command line:")
       { HBox26 HBox
-        Move(6,24,450,78)
+        Move(0,21,469,77)
         { TextArea3 TextArea
           Move(0,0,450,54)
           Expand = True
@@ -1412,21 +1402,21 @@
     Index = 7
     Text = ("Memory")
     { TextLabel31 TextLabel
-      Move(7,301,126,21)
+      Move(7,280,126,21)
       Text = ("Ram used:")
     }
     { ProgressBar1 ProgressBar
-      Move(7,322,259,21)
+      Move(7,301,259,21)
     }
     { TextLabel23 TextLabel
-      Move(7,350,168,21)
+      Move(7,329,168,21)
       Text = ("SWAP memory used:")
     }
     { ProgressBar4 ProgressBar
-      Move(7,371,259,21)
+      Move(7,350,259,21)
     }
     { HPanel8 HPanel
-      Move(273,294,189,147)
+      Move(273,280,189,147)
       { Label85 Label
         Move(0,0,189,21)
         Expand = True
@@ -1475,24 +1465,29 @@
       }
     }
     { TextLabel7 TextLabel
-      Move(140,301,77,21)
+      Move(140,280,77,21)
       Text = ("N/A")
     }
     { TextLabel24 TextLabel
-      Move(147,350,119,21)
+      Move(147,329,119,21)
       Text = ("N/A")
     }
     { Separator5 Separator
-      Move(0,280,469,14)
+      Move(0,266,469,14)
     }
     { Frame2 Frame
-      Move(7,7,455,266)
+      Move(0,0,469,266)
       Text = ("MTRR")
       { TextArea2 TextArea
-        Move(0,28,455,210)
+        Move(0,21,469,238)
         Text = ("TextArea2")
         ReadOnly = True
       }
+    }
+    { Label176 Label
+      Move(7,378,266,28)
+      Text = ("Label176")
+      Border = Border.Plain
     }
     Index = 8
     Text = ("Network")
@@ -2010,5 +2005,12 @@
       ReadOnly = True
     }
     Index = 0
+  }
+  { ComboBox1 ComboBox
+    Move(308,497,91,28)
+    #Translate = False
+    Font = Font["Bold,8"]
+    ReadOnly = True
+    Text = "Select core"
   }
 }

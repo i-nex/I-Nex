@@ -1,0 +1,92 @@
+' Gambas class file
+
+Create Static
+
+Property Level As Integer
+Property Format As String
+
+Private $sFormat As String = "[$(now)] [$(levelname)] [$(callLocation)] $(message)"
+Private $iLevel As Integer
+Private $sOutput As String
+Private $sLogFile As Stream
+
+'' As defined by http://tools.ietf.org/html/rfc5424
+Public Enum Critical, {Error}, Warning, Info, {Debug}
+
+Public Sub _new(Optional iMinLevel As Integer = Info, Optional sOutput As String = ":stdout")
+
+  If sOutput Then $sOutput = sOutput
+
+  If iMinLevel Then $iLevel = iMinLevel
+
+  If $sOutput <> ":stdout" Then _OpenLog()
+
+End
+
+Private Function Level_Read() As Integer
+
+  Return $iLevel
+
+End
+
+Private Sub Level_Write(Value As Integer)
+
+  If Value < 0 Or Value > Me.Debug Then Error.Raise(("Invalid logging level"))
+
+  $iLevel = Value
+
+End
+
+Public Function isEnabledFor(iLevel As Integer) As Boolean
+
+  Return (iLevel <= $iLevel)
+
+End
+
+Public Sub _call(sMessage As String, Optional iLevel As Integer = Logger.Info)
+
+  If Not isEnabledFor(iLevel) Then Return
+
+  sMessage = Formatter(sMessage, $sFormat, iLevel)
+
+  _Write(sMessage)
+
+End
+
+Private Function Format_Read() As String
+
+  Return $sFormat
+
+End
+
+Private Sub Format_Write(Value As String)
+
+  $sFormat = Value
+
+End
+
+Private Sub _Write(sLine As String)
+
+  If $sOutput = ":stdout" Then
+    Print sLine
+  Else
+    Print #$sLogFile, sLine
+  Endif
+
+End
+
+Private Sub _OpenLog()
+
+  If IsDir($sOutput) Then
+    $sOutput = $sOutput &/ Application.Name & ".log"
+  Endif
+
+  If Not Access(File.Dir($sOutput), gb.Write) Then Error.Raise(("Log file not writable"))
+
+  If Exist($sOutput) Then
+    $sLogFile = Open $sOutput For Write Append
+  Else
+    $sLogFile = Open $sOutput For Write Create
+  Endif
+
+End
