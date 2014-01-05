@@ -2,6 +2,7 @@
 
 Public Logs As New Logger
 Public Sub _inits()
+ Dim Do_not_print As String
  If Access("" & User.Home & "/", gb.Write) = False Then
   Message.Error("Cannot write files to " & User.Home & "/.i-nex")
  Endif
@@ -29,7 +30,8 @@ Public Sub _inits()
  Logs("Execute copied files", Logger.Info)
  
  Logs("Execute screenfetch-dev", Logger.Info)
- Exec ["/bin/bash", "" & User.Home & "/.i-nex/screenfetch-dev"] Wait
+ Exec ["/bin/bash", "" & User.Home & "/.i-nex/screenfetch-dev"] Wait To Do_not_print
+ Do_not_print = Null
  Logs("Execute report-ng.sh", Logger.Info)
  Exec ["/bin/bash", "" & User.Home & "/.i-nex/report-ng.sh"] Wait
 End
