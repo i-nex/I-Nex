@@ -28,6 +28,8 @@ Public Sub _inits()
   Copy "Data/edid" To User.Home &/ ".i-nex/edid"
  Logs("Execute copied files", Logger.Info)
  
+ Logs("Execute screenfetch-dev", Logger.Info)
  Exec ["/bin/bash", "" & User.Home & "/.i-nex/screenfetch-dev"] Wait
+ Logs("Execute report-ng.sh", Logger.Info)
  Exec ["/bin/bash", "" & User.Home & "/.i-nex/report-ng.sh"] Wait
 End

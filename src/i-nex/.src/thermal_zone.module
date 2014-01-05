@@ -1,5 +1,6 @@
 ' Gambas module file
 
+Public Logs As New Logger
 Public temp_acpi As Boolean = Exist("/sys/bus/acpi/devices/LNXTHERM:00/thermal_zone/temp")
 Public temp_acpi_thm As Boolean = Exist("/proc/acpi/thermal_zone/THM0/temperature")
 Public temp_hwmon As Boolean = Exist("/sys/class/hwmon/hwmon0/device/temp2_input")
@@ -41,7 +42,7 @@ Public Sub _inits()
  Endif
  
  If Temperature = Null Then
- Debug "Not found temp"
+ Logs("Not found temp", Logger.Error)
  Else
   calculate = CFloat(Val(Temperature))
  Endif

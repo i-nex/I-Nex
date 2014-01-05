@@ -1,12 +1,14 @@
 ' Gambas class file
 
-
+Public Logs As New Logger
 Public Sub Form_Open()
  Me.Center
  Me.X = Settings["Window/X", Me.X]
  Me.Y = Settings["Window/Y", Me.Y]
+ Logs("Execute edid", Logger.Info)
  Exec ["/bin/bash", "" & User.Home & "/.i-nex/edid"] Wait
  Wait 1
+ Logs("Load " & User.Home & "/.i-nex/edid.conf", Logger.Info)
  TextArea1.Text = File.Load("" & User.Home & "/.i-nex/edid.conf")
 
 End
