@@ -43,7 +43,7 @@
     }
   }
   { HBox11 HBox
-    Move(119,497,154,28)
+    Move(119,497,182,28)
     { Label25 Label
       Move(14,0,48,24)
       Foreground = &HFF0000&
@@ -412,14 +412,14 @@
       Stretch = True
     }
     { Label105 Label
-      Move(7,343,455,21)
+      Move(7,280,455,21)
       #Translate = False
       Font = Font["Bold,8"]
       Padding = 3
       Border = Border.Raised
     }
     { Label107 Label
-      Move(7,385,455,21)
+      Move(7,322,455,21)
       #Translate = False
       Font = Font["Bold,8"]
       Padding = 3
@@ -433,7 +433,7 @@
       Border = Border.Raised
     }
     { Label106 Label
-      Move(7,364,455,21)
+      Move(7,301,455,21)
       #Translate = False
       Font = Font["Bold,8"]
       Padding = 3
@@ -443,14 +443,6 @@
       Move(7,427,455,21)
       #Translate = False
       Font = Font["Bold,8"]
-      Border = Border.Raised
-    }
-    { Label64 Label
-      Move(7,301,455,21)
-      #Translate = False
-      Font = Font["Bold,8"]
-      Padding = 3
-      Text = "Label64"
       Border = Border.Raised
     }
     { TextBox1 TextBox
@@ -515,21 +507,6 @@
       Text = "Label102"
       Border = Border.Raised
     }
-    { Label146 Label
-      Move(7,322,455,21)
-      #Translate = False
-      Font = Font["Bold,8"]
-      Padding = 3
-      Text = "Label146"
-      Border = Border.Raised
-    }
-    { Label136 Label
-      Move(7,280,455,21)
-      Font = Font["Bold,8"]
-      Padding = 3
-      Text = ("Label136")
-      Border = Border.Raised
-    }
     { Label154 Label
       Move(7,189,455,21)
       Font = Font["Bold,8"]
@@ -557,6 +534,29 @@
       ToolTip = ("Force detect EDID information from xrandr --verbose")
       Text = ("Force")
       Picture = Picture["icon:/16/make"]
+    }
+    { Label136 Label
+      Move(7,343,455,21)
+      Font = Font["Bold,8"]
+      Padding = 3
+      Text = ("Label136")
+      Border = Border.Raised
+    }
+    { Label64 Label
+      Move(7,364,455,21)
+      #Translate = False
+      Font = Font["Bold,8"]
+      Padding = 3
+      Text = "Label64"
+      Border = Border.Raised
+    }
+    { Label146 Label
+      Move(7,385,455,21)
+      #Translate = False
+      Font = Font["Bold,8"]
+      Padding = 3
+      Text = "Label146"
+      Border = Border.Raised
     }
     Index = 2
     Text = ("Mobo")

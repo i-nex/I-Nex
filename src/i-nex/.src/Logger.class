@@ -1,7 +1,7 @@
 ' Gambas class file
 
 Create Static
-
+Public inexlog As String
 Property Level As Integer
 Property Format As String
 
@@ -49,6 +49,7 @@ Public Sub _call(sMessage As String, Optional iLevel As Integer = Logger.Info)
 
   sMessage = Formatter(sMessage, $sFormat, iLevel)
 
+  
   _Write(sMessage)
 
 End
@@ -69,10 +70,13 @@ Private Sub _Write(sLine As String)
 
   If $sOutput = ":stdout" Then
     Print sLine
+    If Access("/tmp/", gb.Write) = True Then
+    Shell "echo '" & sLine & "' >>/tmp" &/ Application.Name & ".log"
+    Endif
   Else
     Print #$sLogFile, sLine
   Endif
-
+  
 End
 
 Private Sub _OpenLog()
@@ -82,7 +86,6 @@ Private Sub _OpenLog()
   Endif
 
   If Not Access(File.Dir($sOutput), gb.Write) Then Error.Raise(("Log file not writable"))
-
   If Exist($sOutput) Then
     $sLogFile = Open $sOutput For Write Append
   Else
