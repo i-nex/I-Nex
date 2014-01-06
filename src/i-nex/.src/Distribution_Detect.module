@@ -10,7 +10,7 @@ Public Sub _inits()
    Finfosys.PictureBox2.Picture = Picture["Database/Distlogos/ubuntu.png"]
   Case Like "*xUbuntu*"
    Finfosys.PictureBox2.Picture = Picture["Database/Distlogos/xubuntu.png"]
-  Case Like "*openSUSE*"
+  Case Like "*SUSE*"
    Finfosys.PictureBox2.Picture = Picture["Database/Distlogos/opensuse.png"]
   Case Like "*Manjaro*"
    Finfosys.PictureBox2.Picture = Picture["Database/Distlogos/manjaro.png"]
