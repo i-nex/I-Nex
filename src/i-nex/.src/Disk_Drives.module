@@ -190,7 +190,9 @@ Public Sub disks()
   If IsNull(filesystem_type) Or IsBlank(filesystem_type) And Not IsNull(device_uuid) Then
   Shell "grep -w '" & device_uuid & "' /proc/mounts | awk {'print $3'}" Wait To filesystem_type
   Endif
-  
+  If IsNull(filesystem_type) Or IsBlank(filesystem_type) Then
+   Shell "ls -l /sys/fs/*/* | grep -w " & Finfosys.ComboBox3.Text & " | cut -d '/' -f 4" Wait To filesystem_type
+  Endif
   filesystem_type = Replace(Replace(filesystem_type, " ", ""), "\n", "")
   
   If IsNull(device_uuid) Then
