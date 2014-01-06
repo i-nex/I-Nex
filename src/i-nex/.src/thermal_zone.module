@@ -3,8 +3,10 @@
 Public Logs As New Logger
 Public temp_acpi As Boolean = Exist("/sys/bus/acpi/devices/LNXTHERM:00/thermal_zone/temp")
 Public temp_acpi_thm As Boolean = Exist("/proc/acpi/thermal_zone/THM0/temperature")
-Public temp_hwmon As Boolean = Exist("/sys/class/hwmon/hwmon0/device/temp2_input")
+Public temp_hwmon As Boolean = Access("/sys/class/hwmon/hwmon0/device/temp2_input", gb.Read)
+Public temp_hwmon2 As Boolean = Access("/sys/class/hwmon/hwmon0/temp1_input", gb.Read)
 Public temp_coretemp As Boolean = Exist("/sys/devices/platform/coretemp.0/temp2_input")
+
 Public Temperature As String
 Public calculate As Float
 Public supporttemp As Boolean = False
@@ -29,6 +31,13 @@ Public Sub _inits()
  
  If temp_hwmon = True Then
  Shell "cat /sys/class/hwmon/hwmon0/device/temp2_input" Wait To Temperature
+ supporttemp = True
+ Else
+  supporttemp = False
+ Endif
+ 
+ If temp_hwmon2 = True Then
+ Shell "cat /sys/class/hwmon/hwmon0/temp1_input" Wait To Temperature
  supporttemp = True
  Else
   supporttemp = False
@@ -60,11 +69,6 @@ Public Sub _inits()
         '/sys/bus/acpi/devices/LNXTHERM\:00/thermal_zone/temp',
         '/sys/devices/virtual/thermal/thermal_zone0/temp',
         '/sys/bus/acpi/drivers/ATK0110/ATK0110:00/hwmon/hwmon0/temp1_input',
-        'old kernels With proc fs
-        '/proc/acpi/thermal_zone/THM0/temperature',
-        '/proc/acpi/thermal_zone/THRM/temperature',
-        '/proc/acpi/thermal_zone/THR0/temperature',
-        '/proc/acpi/thermal_zone/TZ0/temperature',
         'Debian Sid / Experimental On AMD - 64
         '/sys/class/hwmon/hwmon0/device/temp1_input'
  
