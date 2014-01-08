@@ -740,6 +740,23 @@ Public Sub TabStrip1_Click()
  Else
   ComboBox1.Visible = False
  Endif
+ If TabStrip1.Current.Text = "GPU" Then
+  ComboBox8.Visible = True
+  Button11.Visible = True
+ Else
+  ComboBox8.Visible = False
+  Button11.Visible = False
+ Endif
+ If TabStrip1.Current.Text = "Drives" Then
+  HBox19.Visible = True
+  Button8.Visible = True
+  Button14.Visible = True
+ Else
+  HBox19.Visible = False
+  Button8.Visible = False
+  Button14.Visible = False
+ Endif
+ '
  Me.Text = "I-Nex / " & TabStrip1.Current.Text 
 
 End
