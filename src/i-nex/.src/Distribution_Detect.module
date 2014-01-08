@@ -3,7 +3,7 @@
 Public Sub _inits()
  Dim DV As String = File.Load("" & User.Home & "/.i-nex/DistributionVendor.conf")
  Dim DE As String = File.Load("" & User.Home & "/.i-nex/DE.conf")
- Select Case File.Load("" & User.Home & "/.i-nex/DistributionVendor.conf")
+ Select Case DV
   Case Like "*Mint*"
    Finfosys.PictureBox2.Picture = Picture["Database/Distlogos/mint.png"]
   Case Like "*Ubuntu*"
