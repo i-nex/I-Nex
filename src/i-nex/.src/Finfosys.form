@@ -1,7 +1,7 @@
 # Gambas Form File 3.0
 
 { Form Form
-  Move(0,0,476,525)
+  Move(0,0,476,539)
   #Scaled = False
   #Translate = False
   Font = Font["Bold,8"]
@@ -43,7 +43,7 @@
     }
   }
   { HBox11 HBox
-    Move(112,497,77,28)
+    Move(112,511,77,28)
     { Label25 Label
       Move(14,0,48,24)
       Foreground = &HFF0000&
@@ -53,21 +53,21 @@
     }
   }
   { Button2 Button
-    Move(0,497,28,28)
+    Move(0,511,28,28)
     #Translate = False
     Font = Font["8"]
     ToolTip = "Take a screenshot"
     Picture = Picture["AppIcons/camera-photo.png"]
   }
   { Button3 Button
-    Move(84,497,28,28)
+    Move(84,511,28,28)
     #Translate = False
     Font = Font["8"]
     ToolTip = "About this app"
     Picture = Picture["AppIcons/help-about.png"]
   }
   { Button1 Button
-    Move(399,497,77,28)
+    Move(399,511,77,28)
     #Translate = False
     Font = Font["8"]
     ToolTip = "Close this program"
@@ -75,21 +75,21 @@
     Picture = Picture["AppIcons/application-exit2.png"]
   }
   { Button12 Button
-    Move(56,497,28,28)
+    Move(56,511,28,28)
     #Translate = False
     Font = Font["8"]
     ToolTip = "Generate report"
     Picture = Picture["AppIcons/printer.png"]
   }
   { Button13 Button
-    Move(28,497,28,28)
+    Move(28,511,28,28)
     #Translate = False
     Font = Font["8"]
     ToolTip = "You found a bug in I-Nex?\nPlease click this button and write in forum about bug which you have found."
     Picture = Picture["AppIcons/mail-mark-important.png"]
   }
   { TabStrip1 TabStrip
-    Move(0,0,476,497)
+    Move(0,0,476,511)
     Font = Font["Bold,8"]
     PopupMenu = "Menu1"
     Margin = True
@@ -98,6 +98,7 @@
     TextFont = Font["8"]
     Index = 0
     Text = ("CPU")
+    Picture = Picture["AppIcons/Finfosys/cpu.png"]
     { Timer1 #Timer
       #Move(413,378)
       Delay = 2000
@@ -407,6 +408,7 @@
     }
     Index = 1
     Text = ("GPU")
+    Picture = Picture["AppIcons/Finfosys/xorg.png"]
     { PictureBox1 PictureBox
       Move(350,7,112,112)
       Stretch = True
@@ -550,6 +552,7 @@
     }
     Index = 2
     Text = ("Mobo")
+    Picture = Picture["AppIcons/Finfosys/hardinfo.png"]
     { Frame1 Frame
       Move(0,0,469,112)
       #Translate = False
@@ -680,6 +683,7 @@
     }
     Index = 3
     Text = ("Audio")
+    Picture = Picture["AppIcons/Finfosys/audio-card.png"]
     { HBox21 HBox
       Move(6,6,156,24)
       { ComboBox6 ComboBox
@@ -755,6 +759,7 @@
     }
     Index = 4
     Text = ("Drives")
+    Picture = Picture["AppIcons/Finfosys/drive-harddisk-system.png"]
     { !Label41 Label
       Move(301,7,161,21)
       #Public = True
@@ -1101,6 +1106,7 @@
     }
     Index = 5
     Text = ("System")
+    Picture = Picture["AppIcons/Finfosys/applications-system.png"]
     { Button5 Button
       Move(406,434,28,28)
       #Translate = False
@@ -1364,6 +1370,7 @@
     }
     Index = 7
     Text = ("Memory")
+    Picture = Picture["AppIcons/Finfosys/utilities-system-monitor.png"]
     { TextLabel31 TextLabel
       Move(7,280,126,21)
       Text = ("Ram used:")
@@ -1454,6 +1461,7 @@
     }
     Index = 8
     Text = ("Network")
+    Picture = Picture["AppIcons/Finfosys/network-wired.png"]
     { TextArea4 TextArea
       Move(6,36,456,24)
       Text = ("TextArea4")
@@ -1634,6 +1642,7 @@
     }
     Index = 9
     Text = ("Battery")
+    Picture = Picture["AppIcons/Finfosys/battery.png"]
     { HPanel5 HPanel
       Move(0,0,468,420)
       { Label20 Label
@@ -1814,6 +1823,7 @@
     }
     Index = 10
     Text = ("USB | Input")
+    Picture = Picture["AppIcons/Finfosys/drive-harddisk-usb.png"]
     { HBox12 HBox
       Move(0,0,468,24)
       { Label70 Label
@@ -1970,21 +1980,21 @@
     Index = 0
   }
   { ComboBox1 ComboBox
-    Move(308,497,91,28)
+    Move(308,511,91,28)
     #Translate = False
     Font = Font["Bold,8"]
     ReadOnly = True
     Text = "Select core"
   }
   { ComboBox8 ComboBox
-    Move(308,497,91,28)
+    Move(308,511,91,28)
     #Translate = False
     Visible = False
     ReadOnly = True
     Text = "ComboBox8"
   }
   { Button11 Button
-    Move(231,497,77,28)
+    Move(231,511,77,28)
     Visible = False
     Font = Font["Bold,8"]
     ToolTip = ("Force detect EDID information from xrandr --verbose")
@@ -1992,7 +2002,7 @@
     Picture = Picture["icon:/16/make"]
   }
   { !HBox19 HBox
-    Move(196,497,203,28)
+    Move(196,511,203,28)
     #Public = True
     Visible = False
     { !Button8 Button
