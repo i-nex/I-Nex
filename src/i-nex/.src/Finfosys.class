@@ -481,19 +481,19 @@ End
 Public Sub battery_info()
  Logs("Get information Active Battery", Logger.Info)
  TextBox7.Text = battery.Present
- TextBox8.Text = battery.Design_capacity
- TextBox9.Text = battery.last_full_capacity
- TextBox10.Text = battery.battery_technology
- TextBox11.Text = battery.design_voltage
- TextBox12.Text = battery.design_capacity_warning
- TextBox13.Text = battery.design_capacity_low
- TextBox14.Text = battery.cycle_count
+ TextBox8.Text = battery.Design_capacity & battery.capacity
+ TextBox9.Text = battery.last_full_capacity & battery.current_now
+ TextBox10.Text = battery.battery_technology & battery.technology
+ TextBox11.Text = battery.design_voltage & battery.charge_now
+ TextBox12.Text = battery.design_capacity_warning & battery.charge_full_design
+ TextBox13.Text = battery.design_capacity_low & battery.charge_full
+ TextBox14.Text = battery.cycle_count & battery.status
  TextBox15.Text = battery.capacity_granularity_1
  TextBox16.Text = battery.capacity_granularity_2
- TextBox17.Text = battery.model_number
+ TextBox17.Text = battery.model_number & battery.model_name
  TextBox18.Text = battery.serial_number
  TextBox19.Text = battery.battery_type
- TextBox20.Text = battery.OEM_info
+ TextBox20.Text = battery.OEM_info & battery.manufacturer
  Logs("Get information Active Battery Done", Logger.Info)
  
 End

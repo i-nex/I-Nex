@@ -20,7 +20,19 @@ Public calculate_percentage_max As String
 Public calculate_percentage As String
 Public cal_max As Float
 Public cal As Float
-
+'Public variables for BAT1
+Public alarm As String
+Public capacity As String
+Public charge_full As String
+Public charge_full_design As String
+Public charge_now As String
+Public current_now As String
+Public manufacturer As String
+Public model_name As String
+Public status As String
+Public technology As String
+Public voltage_min_design As String
+Public voltage_now As String
 
 Public Sub _inits()
 If Exist("/proc/acpi/battery/BAT0", True) Then
@@ -69,9 +81,23 @@ Public Sub _get_inf()
 End
 
 Public Sub _get_inf_other()
- 
- 
- 
+ alarm = File.Load("/sys/class/power_supply/BAT1/alarm")
+ capacity = File.Load("/sys/class/power_supply/BAT1/capacity")
+ charge_full = File.Load("/sys/class/power_supply/BAT1/charge_full")
+ charge_full_design = File.Load("/sys/class/power_supply/BAT1/charge_full_design")
+ charge_now = File.Load("/sys/class/power_supply/BAT1/charge_now")
+ current_now = File.Load("/sys/class/power_supply/BAT1/current_now")
+ cycle_count = File.Load("/sys/class/power_supply/BAT1/cycle_count")
+ manufacturer = File.Load("/sys/class/power_supply/BAT1/manufacturer")
+ model_name = File.Load("/sys/class/power_supply/BAT1/model_name")
+ Present = File.Load("/sys/class/power_supply/BAT1/present")
+ serial_number = File.Load("/sys/class/power_supply/BAT1/serial_number")
+ status = File.Load("/sys/class/power_supply/BAT1/status")
+ technology = File.Load("/sys/class/power_supply/BAT1/technology")
+ battery_type = File.Load("/sys/class/power_supply/BAT1/type")
+ voltage_min_design = File.Load("/sys/class/power_supply/BAT1/voltage_min_design")
+ voltage_now = File.Load("/sys/class/power_supply/BAT1/voltage_now")
+ 'uevent 
 End
 
 Public Sub _replace_n()
