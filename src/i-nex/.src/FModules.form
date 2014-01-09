@@ -29,6 +29,7 @@
       MoveScaled(0,0,16,4)
       Expand = True
       Text = ("Close")
+      Picture = Picture["AppIcons/application-exit2.png"]
       Cancel = True
     }
   }

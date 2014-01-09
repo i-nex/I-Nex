@@ -39,6 +39,12 @@ If Exist("/proc/acpi/battery/BAT1/info", True) Then
  battery._replace_n()
  Finfosys.battery_info()
 Endif
+If Exist("/sys/class/power_supply/BAT1/", True) Then
+ Finfosys.TabStrip1[9].Visible = True
+ battery._get_inf_other()
+ battery._replace_n()
+ Finfosys.battery_info()
+Endif
 End
 
 Public Sub _get_inf()
@@ -60,6 +66,12 @@ Public Sub _get_inf()
  Shell "grep 'last full capacity:' " & addres_battery & " | cut -d ':' -f 2" Wait To calculate_percentage_max
  Shell "grep 'remaining capacity:' " & addres_battery_2 & " | cut -d ':' -f 2" Wait To calculate_percentage
 
+End
+
+Public Sub _get_inf_other()
+ 
+ 
+ 
 End
 
 Public Sub _replace_n()

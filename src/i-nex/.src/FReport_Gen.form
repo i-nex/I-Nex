@@ -25,7 +25,7 @@
       Expand = True
       AutoResize = True
       Text = ("Generate")
-      Picture = Picture["icon:/16/apply"]
+      Picture = Picture["AppIcons/dialog-ok.png"]
     }
     { Button2 Button
       Move(147,0,98,28)
@@ -33,7 +33,7 @@
       Expand = True
       AutoResize = True
       Text = ("Close")
-      Picture = Picture["icon:/16/quit"]
+      Picture = Picture["AppIcons/application-exit2.png"]
     }
   }
   { HPanel1 HPanel
@@ -149,7 +149,7 @@
   { Button3 Button
     Move(455,385,28,28)
     ToolTip = ("Open link in default web browser")
-    Picture = Picture["icon:/16/network"]
+    Picture = Picture["AppIcons/applications-internet.png"]
   }
   { TextBox1 TextBox
     Move(7,385,420,28)
@@ -178,6 +178,6 @@
   { Button4 Button
     Move(427,385,28,28)
     ToolTip = ("Copy this link")
-    Picture = Picture["icon:/small/copy"]
+    Picture = Picture["AppIcons/edit-copy.png"]
   }
 }

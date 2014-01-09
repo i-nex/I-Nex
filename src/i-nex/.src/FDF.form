@@ -1,7 +1,7 @@
 # Gambas Form File 3.0
 
 { Form Form
-  MoveScaled(0,0,86,30)
+  MoveScaled(0,0,90,45)
   #Translate = False
   Expand = True
   Text = "I-Nex GUI for DF"
@@ -20,6 +20,15 @@
       Mode = Select.Single
       Header = GridView.Vertical
       AutoResize = False
+    }
+  }
+  { HBox2 HBox
+    MoveScaled(0,41,90,4)
+    AutoResize = True
+    { Button1 Button
+      MoveScaled(63,0,16,4)
+      Text = ("Close")
+      Picture = Picture["AppIcons/application-exit2.png"]
     }
   }
 }

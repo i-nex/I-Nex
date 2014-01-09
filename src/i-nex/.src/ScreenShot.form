@@ -14,12 +14,12 @@
   { Button1 Button
     MoveScaled(56,70,13,4)
     Text = ("Save")
-    Picture = Picture["icon:/16/save"]
+    Picture = Picture["AppIcons/document-save.png"]
   }
   { Button2 Button
     MoveScaled(43,70,13,4)
     Text = ("Cancel")
-    Picture = Picture["icon:/16/quit"]
+    Picture = Picture["AppIcons/application-exit2.png"]
   }
   { Label1 Label
     MoveScaled(1,60,18,4)

@@ -8,16 +8,17 @@
   Icon = Picture["logo/i-nex.0.4.x.png"]
   Resizable = False
   { Button1 Button
-    Move(406,497,78,24)
+    Move(406,497,77,28)
     #Translate = False
     Text = "Close"
-    Picture = Picture["icon:/16/quit"]
+    Picture = Picture["AppIcons/application-exit2.png"]
   }
   { TabStrip1 TabStrip
     Move(0,0,483,497)
     Count = 4
     Index = 0
     Text = ("Main")
+    Picture = Picture["AppIcons/gtk-info.png"]
     { PictureBox1 PictureBox
       Move(0,0,250,250)
       Picture = Picture["logo/i-nex.0.4.x.png"]
@@ -40,6 +41,7 @@
     }
     Index = 1
     Text = ("Credits")
+    Picture = Picture["AppIcons/x-office-address-book.png"]
     { ScrollView1 ScrollView
       Move(0,0,469,462)
       { Panel1 Panel
@@ -193,8 +195,9 @@
     Index = 0
   }
   { Button4 Button
-    Move(0,497,162,24)
+    Move(0,497,161,28)
     #Translate = False
     Text = "I-Nex Home page"
+    Picture = Picture["AppIcons/applications-internet.png"]
   }
 }

@@ -19,7 +19,7 @@
     Move(0,497,301,28)
     { Button1 Button
       Move(7,0,21,24)
-      Picture = Picture["icon:/16/camera"]
+      Picture = Picture["AppIcons/camera-photo.png"]
     }
     { HBox11 HBox
       Move(140,-7,156,36)
@@ -44,7 +44,7 @@
       Font = Font["10"]
       ToolTip = ("Close this program")
       Text = ("Close")
-      Picture = Picture["icon:/16/quit"]
+      Picture = Picture["AppIcons/application-exit2.png"]
     }
   }
 }
