@@ -94,7 +94,7 @@
     PopupMenu = "Menu1"
     Margin = True
     Padding = 3
-    Count = 11
+    Count = 12
     TextFont = Font["8"]
     Index = 0
     Text = ("CPU")
@@ -1976,6 +1976,122 @@
     { ComboBox7 ComboBox
       Move(6,330,144,24)
       ReadOnly = True
+    }
+    Index = 11
+    Text = ("Battery ")
+    Picture = Picture["AppIcons/Finfosys/battery.png"]
+    { Label177 Label
+      Move(7,7,455,21)
+      Font = Font["Bold,8"]
+      Padding = 3
+      Text = ("Label177")
+      Border = Border.Raised
+    }
+    { Label178 Label
+      Move(7,28,455,21)
+      Font = Font["Bold,8"]
+      Padding = 3
+      Text = ("Label178")
+      Border = Border.Raised
+    }
+    { Label179 Label
+      Move(7,49,455,21)
+      Font = Font["Bold,8"]
+      Padding = 3
+      Text = ("Label179")
+      Border = Border.Raised
+    }
+    { Label180 Label
+      Move(7,70,455,21)
+      Font = Font["Bold,8"]
+      Padding = 3
+      Text = ("Label180")
+      Border = Border.Raised
+    }
+    { Label181 Label
+      Move(7,91,455,21)
+      Font = Font["Bold,8"]
+      Padding = 3
+      Text = ("Label181")
+      Border = Border.Raised
+    }
+    { Label182 Label
+      Move(7,112,455,28)
+      Font = Font["Bold,8"]
+      Padding = 3
+      Text = ("Label182")
+      Border = Border.Raised
+    }
+    { Label183 Label
+      Move(7,140,455,28)
+      Font = Font["Bold,8"]
+      Padding = 3
+      Text = ("Label183")
+      Border = Border.Raised
+    }
+    { Label184 Label
+      Move(7,168,455,28)
+      Font = Font["Bold,8"]
+      Padding = 3
+      Text = ("Label184")
+      Border = Border.Raised
+    }
+    { Label185 Label
+      Move(7,196,455,28)
+      Font = Font["Bold,8"]
+      Padding = 3
+      Text = ("Label185")
+      Border = Border.Raised
+    }
+    { Label186 Label
+      Move(7,224,455,28)
+      Font = Font["Bold,8"]
+      Padding = 3
+      Text = ("Label186")
+      Border = Border.Raised
+    }
+    { Label187 Label
+      Move(7,252,455,28)
+      Font = Font["Bold,8"]
+      Padding = 3
+      Text = ("Label187")
+      Border = Border.Raised
+    }
+    { Label188 Label
+      Move(7,280,455,28)
+      Font = Font["Bold,8"]
+      Padding = 3
+      Text = ("Label188")
+      Border = Border.Raised
+    }
+    { Label189 Label
+      Move(7,308,455,28)
+      Font = Font["Bold,8"]
+      Padding = 3
+      Text = ("Label189")
+      Border = Border.Raised
+    }
+    { Label190 Label
+      Move(7,336,455,28)
+      Font = Font["Bold,8"]
+      Padding = 3
+      Text = ("Label190")
+      Border = Border.Raised
+    }
+    { Label191 Label
+      Move(7,364,455,28)
+      Font = Font["Bold,8"]
+      Padding = 3
+      Text = ("Label191")
+      Border = Border.Raised
+    }
+    { ProgressBar5 ProgressBar
+      Move(7,441,455,28)
+    }
+    { Label192 Label
+      Move(7,392,455,28)
+      Text = ("Label192")
+      Border = Border.Raised
     }
     Index = 0
   }

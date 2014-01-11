@@ -17,6 +17,7 @@ Public Sub Form_Open()
   Logs(Settings.Path, Logger.Info)
   Logs(Settings.DefaultDir, Logger.Info)
   Finfosys.TabStrip1[9].Visible = False
+  Finfosys.TabStrip1[11].Visible = False
   Logs("Call to MInit for copy nedded files to I-Nex config dir in User.Home", Logger.Info)
   Object.Call(MInit, "_inits")
   Logs("Call to Distribution_Detect", Logger.Info)
@@ -481,20 +482,39 @@ End
 Public Sub battery_info()
  Logs("Get information Active Battery", Logger.Info)
  TextBox7.Text = battery.Present
- TextBox8.Text = battery.Design_capacity & battery.capacity
- TextBox9.Text = battery.last_full_capacity & battery.current_now
- TextBox10.Text = battery.battery_technology & battery.technology
- TextBox11.Text = battery.design_voltage & battery.charge_now
- TextBox12.Text = battery.design_capacity_warning & battery.charge_full_design
- TextBox13.Text = battery.design_capacity_low & battery.charge_full
- TextBox14.Text = battery.cycle_count & battery.status
+ TextBox8.Text = battery.Design_capacity
+ TextBox9.Text = battery.last_full_capacity
+ TextBox10.Text = battery.battery_technology
+ TextBox11.Text = battery.design_voltage
+ TextBox12.Text = battery.design_capacity_warning
+ TextBox13.Text = battery.design_capacity_low
+ TextBox14.Text = battery.cycle_count
  TextBox15.Text = battery.capacity_granularity_1
  TextBox16.Text = battery.capacity_granularity_2
- TextBox17.Text = battery.model_number & battery.model_name
+ TextBox17.Text = battery.model_number
  TextBox18.Text = battery.serial_number
  TextBox19.Text = battery.battery_type
- TextBox20.Text = battery.OEM_info & battery.manufacturer
+ TextBox20.Text = battery.OEM_info
+ 
  Logs("Get information Active Battery Done", Logger.Info)
+ If Exist("/sys/class/power_supply/BAT1/", True) Then
+ Label177.Text = "Alarm:  " & battery.alarm
+ Label178.Text = "Capacity:  " & battery.capacity
+ Label179.Text = "Charge full:  " & battery.charge_full
+ Label180.Text = "Charge full design:  " & battery.charge_full_design
+ Label181.Text = "Charge now:  " & battery.charge_now
+ Label182.Text = "Current now:  " & battery.current_now
+ Label183.Text = "Cycle count:  " & battery.cycle_count
+ Label184.Text = "Manufacturer:  " & battery.manufacturer
+ Label185.Text = "Model name:  " & battery.model_name
+ Label186.Text = "Present:  " & battery.Present
+ Label187.Text = "Serial number:  " & battery.serial_number
+ Label188.Text = "Status:  " & battery.status
+ Label189.Text = "Technology:  " & battery.technology
+ Label190.Text = "Battery type:  " & battery.battery_type
+ Label191.Text = "Voltage min design:  " & battery.voltage_min_design
+ Label192.Text = "Voltage now:  " & battery.voltage_now
+ Endif
  
 End
 
