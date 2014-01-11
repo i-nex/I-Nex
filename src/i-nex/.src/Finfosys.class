@@ -133,7 +133,8 @@ Public Sub Form_Open()
  ''END Uruchomienie instrukcji dla poszczególnych zakładek w celu wydobycia informacji z systemu
  Logs("Set Combobox to Processor0", Logger.Info)
  ComboBox1.Text = "Processor0" ''Ustawienie combobox na Procesor0 / W przeciwnym wypadku nie pokaże nic
- Label25.Text = Application.Name & " v: " & Application.version
+ 
+ Label25.Text = Application.version & "-git-" & File.Load("REV")
  Logs(Label25.Text, Logger.Info)
  ''Okno na środku
  Me.Center
@@ -667,7 +668,7 @@ End
 
 Public Sub Button13_Click()
 
- Desktop.Open("http://tuxportal.pl/forum/")
+ Desktop.Open("http://i-nex.linux.pl/board/")
  Logs("Reporting bug to http://tuxportal.pl/forum/", Logger.Info)
 
 End

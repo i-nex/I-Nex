@@ -42,16 +42,6 @@
       Picture = Picture["icon:/16/make"]
     }
   }
-  { HBox11 HBox
-    Move(112,511,77,28)
-    { Label25 Label
-      Move(14,0,48,24)
-      Foreground = &HFF0000&
-      AutoResize = True
-      Alignment = Align.Center
-      Transparent = True
-    }
-  }
   { Button2 Button
     Move(0,511,28,28)
     #Translate = False
@@ -231,12 +221,6 @@
       Padding = 3
       Text = "Label5"
       Border = Border.Raised
-    }
-    { Label92 Label
-      Move(196,392,259,21)
-      #Translate = False
-      Foreground = &HFF0000&
-      AutoResize = True
     }
     { Button4 Button
       Move(434,441,28,21)
@@ -2145,5 +2129,13 @@
       Expand = True
       ReadOnly = True
     }
+  }
+  { Label25 Label
+    Move(112,511,84,28)
+    #Translate = False
+    Font = Font["Bold,10"]
+    Foreground = &HFF0000&
+    Alignment = Align.Center
+    Border = Border.Etched
   }
 }

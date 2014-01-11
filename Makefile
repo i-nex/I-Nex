@@ -52,6 +52,7 @@ make:
 	@printf "\033[1;31mCompile edid-decode as inex-decode \033[0m$1\n"
 	$(CC) edid-decode.c $(CFLAGS) $(additional_confflags) -o inex-edid
 	@printf "\033[1;31mCompile src/i-nex stage 1 \033[0m$1\n"
+	git rev-list HEAD | wc -l > src/i-nex/REV
 	$(GBC) $(GBCOPTS) src/i-nex
 	@printf "\033[1;31mCompile src/i-nex stage 2 \033[0m$1\n"
 	$(GBA) src/i-nex
