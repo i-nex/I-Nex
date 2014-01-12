@@ -4,6 +4,7 @@ BUILD_PACKAGE = $(shell ./build-deb)
 PKG_INSTALL = apt-get install
 AS_ROOT = sudo
 CFLAGS = -g -Wall
+CC_OPTS_LIBCPUID = $(shell pkg-config libcpuid --cflags --libs)
 GBC = /usr/bin/gbc3
 GBCOPTS = -eagtpmv
 GBA = gba3
@@ -46,11 +47,13 @@ dependency_build ?= git \
 		    pciutils \
 		    x11-utils \
 		    mesa-utils \
-		    hostname
+		    hostname \
+		    libcpuid11
 
 make:
 	@printf "\033[1;31mCompile edid-decode as inex-decode \033[0m$1\n"
 	$(CC) edid-decode.c $(CFLAGS) $(additional_confflags) -o inex-edid
+	$(CC) -o inex-cpuid cpu.c -static $(CC_OPTS_LIBCPUID)
 	@printf "\033[1;31mCompile src/i-nex stage 1 \033[0m$1\n"
 	$(GBC) $(GBCOPTS) src/i-nex
 	@printf "\033[1;31mCompile src/i-nex stage 2 \033[0m$1\n"
@@ -75,10 +78,12 @@ self:
 	mkdir -p inex/usr/share/i-nex/pastebinit/pastebin.d/
 	chmod +x i-nex
 	chmod +x inex-edid
+	chmod +x inex-cpuid
 	chmod +x debian/check_kernel
 	chmod +x debian/i-nex-lspci
 	$(INSTALL) 0755 i-nex inex$(bindir)
 	$(INSTALL) 0755 inex-edid inex$(bindir)
+	$(INSTALL) 0755 inex-cpuid inex$(bindir)
 	$(INSTALL) 0755 src/i-nex/i-nex.gambas inex$(bindir)
 	$(INSTALL) 0755 pixmaps/i-nex.xpm inex/usr/share/pixmaps/
 	$(INSTALL) 0755 debian/i-nex.desktop inex/usr/share/applications/
@@ -135,6 +140,7 @@ self:
 clean:
 
 	$(RM_COM) $(RMFILE_OPT) inex-edid
+	$(RM_COM) $(RMFILE_OPT) inex-cpuid
 	$(RM_COM) $(RMDIR_OPT) `find . -name ".gambas"`
 	$(RM_COM) $(RMDIR_OPT) `find . -name "*.gambas"`
 	$(RM_COM) $(RMDIR_OPT) `find . -name ".directory"`
@@ -165,10 +171,12 @@ install:
 	mkdir -p $(DESTDIR)/usr/share/i-nex/pastebinit/pastebin.d/
 	chmod +x i-nex
 	chmod +x inex-edid
+	chmod +x inex-cpuid
 	chmod +x debian/check_kernel
 	chmod +x debian/i-nex-lspci
 	$(INSTALL) 0755 i-nex $(DESTDIR)$(bindir)
 	$(INSTALL) 0755 inex-edid $(DESTDIR)$(bindir)
+	$(INSTALL) 0755 inex-cpuid $(DESTDIR)$(bindir)
 	$(INSTALL) 0755 src/i-nex/i-nex.gambas $(DESTDIR)$(bindir)
 	$(INSTALL) 0755 pixmaps/i-nex.xpm $(DESTDIR)/usr/share/pixmaps/
 	$(INSTALL) 0755 debian/i-nex.desktop $(DESTDIR)/usr/share/applications/
@@ -196,6 +204,7 @@ uninstall:
 
 	rm $(DESTDIR)$(bindir)/i-nex
 	rm $(DESTDIR)$(bindir)/inex-edid
+	rm $(DESTDIR)$(bindir)/inex-cpuid
 	rm $(DESTDIR)$(bindir)/i-nex.gambas
 	rm $(DESTDIR)/usr/share/pixmaps/i-nex.xpm
 	rm $(DESTDIR)/usr/share/applications/i-nex.desktop
