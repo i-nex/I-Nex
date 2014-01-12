@@ -20,24 +20,24 @@
     Text = ("Main")
     Picture = Picture["AppIcons/gtk-info.png"]
     { PictureBox1 PictureBox
-      Move(0,0,250,250)
+      Move(0,0,252,245)
       Picture = Picture["logo/i-nex.0.4.x.png"]
       Stretch = True
     }
     { TextLabel1 TextLabel
-      Move(259,7,210,238)
+      Move(252,7,224,231)
       #Translate = False
-      Text = "I-nex: System and hardware information tool."
+      Text = "I-Nex is an application that gathers information for hardware components available on your system and displays it using an user interface similar to the popular Windows tool CPU-Z.\n\nI-Nex can display information for the following components: CPU, GPU, Motherboard, Sound, Hard disks, RAM, Network and USB as well as some system info like the hostname, Linux distribution and version, Xorg, GCC, GLX versions and Linux Kernel info.\n\n"
     }
     { ToolButton1 ToolButton
-      Move(7,252,462,77)
+      Move(7,385,462,77)
       Text = ("If I-Nex in any way you want \nhandy and would help in the \nfurther development of the project. \nBuy me a coffee.")
       Picture = Picture["Data/donate.png"]
       Border = True
     }
-    { Label6 Label
-      Move(7,329,462,42)
-      Text = ("If you do not have the possibility of giving the money to me for a coffee, \njust click on the link adf.ly. ")
+    { TextLabel6 TextLabel
+      Move(7,245,462,126)
+      Text = ("\nThe difference between I-Nex and the other hardware information GUI tools available for Linux is that the information is better organized and is displayed faster (than lshw-gtk for instance). Also, the hardware information is presented in a way that’s easier to understand than other such tools.\n\nBesides being able to display hardware information, I-Nex can also generate an advanced report for which you can select what to include and optionally send the report to a service such as Pastebin (and others). It also features an option to take a screenshot of the I-Nex window directly from the application.")
     }
     Index = 1
     Text = ("Credits")
@@ -79,7 +79,7 @@
             Alignment = Align.Center
           }
           { HBox1 HBox
-            Move(0,49,427,28)
+            Move(7,49,420,28)
             { Button9 Button
               Move(6,0,84,24)
               Expand = True
