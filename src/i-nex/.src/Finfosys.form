@@ -390,6 +390,10 @@
     { Separator9 Separator
       Move(336,0,14,126)
     }
+    { Button16 Button
+      Move(399,168,63,21)
+      Text = ("More...")
+    }
     Index = 1
     Text = ("GPU")
     Picture = Picture["AppIcons/Finfosys/xorg.png"]
