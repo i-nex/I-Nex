@@ -3,6 +3,7 @@
 { Form Form
   MoveScaled(0,0,81,62)
   #Translate = False
+  Icon = Picture["192.png"]
   Arrangement = Arrange.Vertical
   Spacing = True
   Margin = True
