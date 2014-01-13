@@ -185,7 +185,7 @@ Static Public Sub ikonaprocka()
   Endif
   'Phenom/Phenom II
   If Finfosys.Label14.Text Like "*AMD Phenom(tm)*" Then
-  Finfosys.PictureBox3.Picture = Picture["amdphenom.png"]
+  Finfosys.PictureBox3.Picture = Picture["Processors/amdphenom.png"]
   Endif
 End
 
