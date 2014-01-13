@@ -14,7 +14,6 @@
 '
 ' You should have received a copy of the GNU General Public License
 ' along with this program. If not, see <http://www.gnu.org/licenses/>.
-
 Public AllowLog As Boolean
 Public sLine As String
 Public aScan As String[]
@@ -807,5 +806,11 @@ End
 Public Sub Button11_Click()
 
  FEDID.Show
+
+End
+
+Public Sub Button16_Click()
+
+ CFlags.Show
 
 End
