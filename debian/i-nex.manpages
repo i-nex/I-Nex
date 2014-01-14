@@ -3,4 +3,5 @@ debian/manpages/i-nex-lspci.1
 debian/manpages/i-nex.1
 debian/manpages/i-nex.gambas.1
 debian/manpages/inex-edid.1
+debian/manpages/inex-cpuid.1
 
