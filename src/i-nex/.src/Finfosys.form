@@ -98,7 +98,7 @@
       Orientation = Align.Bottom
       Highlight = True
       Index = 0
-      Text = ("Main")
+      Text = ("CPUINFO")
       { Timer1 #Timer
         #Move(413,378)
         Delay = 2000
@@ -399,10 +399,132 @@
         Picture = Picture["AppIcons/dialog-ok.png"]
       }
       Index = 1
-      Text = ("More...")
-      { ListView1 ListView
+      Text = ("CPUID")
+      { ScrollView1 ScrollView
         Move(0,0,469,455)
-        Font = Font["9"]
+        { Label92 Label
+          Move(2,7,439,21)
+          Font = Font["Bold,8"]
+          Padding = 3
+          Text = ("Label92")
+          Alignment = Align.Center
+          Border = Border.Raised
+        }
+        { Label193 Label
+          Move(287,28,154,21)
+          Font = Font["Bold,8"]
+          Padding = 3
+          Text = ("Label193")
+          Border = Border.Raised
+        }
+        { Label194 Label
+          Move(2,28,287,21)
+          Font = Font["Bold,8"]
+          Padding = 3
+          Text = ("Label194")
+          Border = Border.Raised
+        }
+        { Label195 Label
+          Move(2,49,98,21)
+          Font = Font["Bold,8"]
+          Padding = 3
+          Text = ("Label195")
+          Border = Border.Raised
+        }
+        { Label196 Label
+          Move(98,49,119,21)
+          Font = Font["Bold,8"]
+          Padding = 3
+          Text = ("Label196")
+          Border = Border.Raised
+        }
+        { Label197 Label
+          Move(217,70,119,21)
+          Font = Font["Bold,8"]
+          Padding = 3
+          Text = ("Label197")
+          Border = Border.Raised
+        }
+        { Label198 Label
+          Move(217,49,119,21)
+          Font = Font["Bold,8"]
+          Padding = 3
+          Text = ("Label198")
+          Border = Border.Raised
+        }
+        { Label199 Label
+          Move(2,70,98,21)
+          Font = Font["Bold,8"]
+          Padding = 3
+          Text = ("Label199")
+          Border = Border.Raised
+        }
+        { Label200 Label
+          Move(336,70,105,21)
+          Font = Font["Bold,8"]
+          Padding = 3
+          Text = ("Label200")
+          Border = Border.Raised
+        }
+        { Label201 Label
+          Move(336,49,105,21)
+          Font = Font["Bold,8"]
+          Padding = 3
+          Text = ("Label201")
+          Border = Border.Raised
+        }
+        { Label202 Label
+          Move(98,70,119,21)
+          Font = Font["Bold,8"]
+          Padding = 3
+          Text = ("Label202")
+          Border = Border.Raised
+        }
+        { Label203 Label
+          Move(2,91,147,21)
+          Font = Font["Bold,8"]
+          Padding = 3
+          Text = ("Label203")
+          Border = Border.Raised
+        }
+        { Label204 Label
+          Move(147,91,140,21)
+          Font = Font["Bold,8"]
+          Padding = 3
+          Text = ("Label204")
+          Border = Border.Raised
+        }
+        { Label205 Label
+          Move(287,91,154,21)
+          Font = Font["Bold,8"]
+          Padding = 3
+          Text = ("Label205")
+          Border = Border.Raised
+        }
+        { Label206 Label
+          Move(2,112,147,21)
+          Font = Font["Bold,8"]
+          Padding = 3
+          Text = ("Label206")
+          Border = Border.Raised
+        }
+        { Label207 Label
+          Move(147,112,140,21)
+          Font = Font["Bold,8"]
+          Padding = 3
+          Text = ("Label207")
+          Border = Border.Raised
+        }
+        { Label208 Label
+          Move(287,112,154,21)
+          Font = Font["Bold,8"]
+          Padding = 3
+          Text = ("Label208")
+          Border = Border.Raised
+        }
+        { Separator12 Separator
+          Move(0,133,441,21)
+        }
       }
       Index = 0
     }

@@ -14,6 +14,9 @@
 '
 ' You should have received a copy of the GNU General Public License
 ' along with this program. If not, see <http://www.gnu.org/licenses/>.
+Private ToolButton[94] As ToolButton
+Private Label[94] As Label  ' Dim the array of controls
+Private YESNO As Picture
 Public AllowLog As Boolean
 Public sLine As String
 Public aScan As String[]
@@ -28,34 +31,71 @@ Public Sub Form_Open()
   Dim default_display_manager As Boolean = Exist("/etc/X11/default-display-manager")
   Dim cpuz0, cpuz1, cpuz2, cpuz3, cpuz4, cpuz5, cpuz6, cpuz7, cpuz8, cpuz9, cpuz10, cpuz11 As String
   Dim z As Integer
+  Dim i As Integer
   Exec ["/usr/bin/inex-cpuid"] Wait To BUFFER
   DATAT = JSON.Decode(BUFFER)
-  ListView1.Add(0, DATAT["VENDOR_STR"])
-  ListView1.Add(1, DATAT["CPU_CODENAME"])
-  ListView1.Add(2, DATAT["BRAND_STR"])
-  ListView1.Add(3, DATAT["NUM_CORES"])
-  ListView1.Add(4, DATAT["NUM_LOGICAL_CPUS"])
-  ListView1.Add(5, DATAT["TOTAL_LOGICAL_CPUS"])
-  ListView1.Add(6, DATAT["FAMILY"])
-  ListView1.Add(7, DATAT["MODEL"])
-  ListView1.Add(8, DATAT["STEPPING"])
-  ListView1.Add(9, DATAT["EXT_FAMILY"])
-  ListView1.Add(10, DATAT["EXT_MODEL"])
-  ListView1.Add(11, DATAT["CPU_CLOCK"])
-  ListView1.Add(12, DATAT["CPU_CLOCK_BY_OS"])
-  ListView1.Add(13, DATAT["CPU_CLOCK_BY_IC"])
-  ListView1.Add(14, DATAT["CPU_CLOCK_MEASURE"])
-  ListView1.Add(15, DATAT["MARK_TSC"])
-  ListView1.Add(16, DATAT["MARK_SYS_CLOCK"])
-  For z = 0 To 93
-   If DATAT["Flags"][z]["VALUE"] = 1 Then
-    GDF = "True"
-    ListView1.Add(z + 17, DATAT["Flags"][z]["NAME"] & " " & GDF & " " & DATAT["Flags"][z]["DESC"])
-   Else
-    GDF = "False"
-    ListView1.Add(z + 17, DATAT["Flags"][z]["NAME"] & " " & GDF & " " & DATAT["Flags"][z]["DESC"])
-   Endif
+  Label92.Text = "" & DATAT["VENDOR_STR"]
+  Label193.Text = "" & DATAT["CPU_CODENAME"]
+  Label194.Text = "" & DATAT["BRAND_STR"]
+  Label195.Text = "Cores:  " & DATAT["NUM_CORES"]
+  Label196.Text = "Logical CPUS:  " & DATAT["NUM_LOGICAL_CPUS"]
+  Label197.Text = "Total Logical CPUS:  " & DATAT["TOTAL_LOGICAL_CPUS"]
+  Label198.Text = "Family:  " & DATAT["FAMILY"]
+  Label199.Text = "Model:  " & DATAT["MODEL"]
+  Label200.Text = "Stepping:  " & DATAT["STEPPING"]
+  Label201.Text = "Ext Family:  " & DATAT["EXT_FAMILY"]
+  Label202.Text = "Ext Model:  " & DATAT["EXT_MODEL"]
+  Label203.Text = "CPU Clock:  " & DATAT["CPU_CLOCK"]
+  Label204.Text = "CPU Clock BY OS:  " & DATAT["CPU_CLOCK_BY_OS"]
+  Label205.Text = "CPU Clock BY IC:  " & DATAT["CPU_CLOCK_BY_IC"]
+  Label206.Text = "CPU Clock Measure:  " & DATAT["CPU_CLOCK_MEASURE"]
+  Label207.Text = "Mark TSC:  " & DATAT["MARK_TSC"]
+  Label208.Text = "Mark SYS Clock:  " & DATAT["MARK_SYS_CLOCK"]
+
+  'btnClose.Tooltip = ("Quit")
+  'Me.Center4
+  For i = 1 To 93
+    Label[i] = New Label(ScrollView1) As "Labelgroup"    ' Create a new button in the array and store it in an action group
+    With Label[i]
+      '.X = (i - Int((i - 1) / 3) * 3) * 60 - 30
+      '.Y = Int((i - 1) / 3) * 60 + 170
+      .X = 2
+      .Y = 140 + Int(i * 20)
+      .Width = 440
+      .Height = 21
+      .Border = 3
+      .Padding = 3
+      .Tooltip = DATAT["Flags"][i]["NAME"]
+      .Text = DATAT["Flags"][i]["DESC"]
+    End With
   Next
+  For i = 1 To 93
+    ToolButton[i] = New ToolButton(ScrollView1) As "ToolButtongroup"    ' Create a new button in the array and store it in an action group
+    If DATAT["Flags"][i]["VALUE"] = 1 Then
+     YESNO = Picture["Data/check_true.png"]
+    Else
+     YESNO = Picture["Data/check_false.png"]
+    Endif
+    With ToolButton[i]
+      '.X = (i - Int((i - 1) / 3) * 3) * 60 - 30
+      '.Y = Int((i - 1) / 3) * 60 + 170
+      .X = 420
+      .Y = 140 + Int(i * 20)
+      .Width = 21
+      .Height = 21
+      .Picture = YESNO
+      .Tooltip = DATAT["Flags"][i]["VALUE"]
+      End With
+  Next
+  ' For z = 0 To 93
+  '  If DATAT["Flags"][z]["VALUE"] = 1 Then
+  '   GDF = "True"
+  '   ListView1.Add(z + 17, DATAT["Flags"][z]["NAME"] & " " & GDF & " " & DATAT["Flags"][z]["DESC"])
+  '  Else
+  '   GDF = "False"
+  '   ListView1.Add(z + 17, DATAT["Flags"][z]["NAME"] & " " & GDF & " " & DATAT["Flags"][z]["DESC"])
+  '  Endif
+  ' Next
   If User.Name = "root" Then
     Message.Error(("Running as root is not allowed!\n " & User.Home & ""))
   Endif
