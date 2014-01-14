@@ -97,22 +97,22 @@ End
 
 Public Sub _get_inf_other()
 
- alarm = Replace(File.Load("/sys/class/power_supply/BAT1/alarm"), "\n", "")
- capacity = Replace(File.Load("/sys/class/power_supply/BAT1/capacity"), "\n", "")
- charge_full = Replace(File.Load("/sys/class/power_supply/BAT1/charge_full"), "\n", "")
- charge_full_design = Replace(File.Load("/sys/class/power_supply/BAT1/charge_full_design"), "\n", "")
- charge_now = Replace(File.Load("/sys/class/power_supply/BAT1/charge_now"), "\n", "")
- current_now = Replace(File.Load("/sys/class/power_supply/BAT1/current_now"), "\n", "")
- cycle_count = Replace(File.Load("/sys/class/power_supply/BAT1/cycle_count"), "\n", "")
- manufacturer = Replace(File.Load("/sys/class/power_supply/BAT1/manufacturer"), "\n", "")
- model_name = Replace(File.Load("/sys/class/power_supply/BAT1/model_name"), "\n", "")
- Present = Replace(File.Load("/sys/class/power_supply/BAT1/present"), "\n", "")
- serial_number = Replace(File.Load("/sys/class/power_supply/BAT1/serial_number"), "\n", "")
- status = Replace(File.Load("/sys/class/power_supply/BAT1/status"), "\n", "")
- technology = Replace(File.Load("/sys/class/power_supply/BAT1/technology"), "\n", "")
- battery_type = Replace(File.Load("/sys/class/power_supply/BAT1/type"), "\n", "")
- voltage_min_design = Replace(File.Load("/sys/class/power_supply/BAT1/voltage_min_design"), "\n", "")
- voltage_now = Replace(File.Load("/sys/class/power_supply/BAT1/voltage_now"), "\n", "")
+ Try alarm = Replace(File.Load("/sys/class/power_supply/BAT1/alarm"), "\n", "")
+ Try capacity = Replace(File.Load("/sys/class/power_supply/BAT1/capacity"), "\n", "")
+ Try charge_full = Replace(File.Load("/sys/class/power_supply/BAT1/charge_full"), "\n", "")
+ Try charge_full_design = Replace(File.Load("/sys/class/power_supply/BAT1/charge_full_design"), "\n", "")
+ Try charge_now = Replace(File.Load("/sys/class/power_supply/BAT1/charge_now"), "\n", "")
+ Try current_now = Replace(File.Load("/sys/class/power_supply/BAT1/current_now"), "\n", "")
+ Try cycle_count = Replace(File.Load("/sys/class/power_supply/BAT1/cycle_count"), "\n", "")
+ Try manufacturer = Replace(File.Load("/sys/class/power_supply/BAT1/manufacturer"), "\n", "")
+ Try model_name = Replace(File.Load("/sys/class/power_supply/BAT1/model_name"), "\n", "")
+ Try Present = Replace(File.Load("/sys/class/power_supply/BAT1/present"), "\n", "")
+ Try serial_number = Replace(File.Load("/sys/class/power_supply/BAT1/serial_number"), "\n", "")
+ Try status = Replace(File.Load("/sys/class/power_supply/BAT1/status"), "\n", "")
+ Try technology = Replace(File.Load("/sys/class/power_supply/BAT1/technology"), "\n", "")
+ Try battery_type = Replace(File.Load("/sys/class/power_supply/BAT1/type"), "\n", "")
+ Try voltage_min_design = Replace(File.Load("/sys/class/power_supply/BAT1/voltage_min_design"), "\n", "")
+ Try voltage_now = Replace(File.Load("/sys/class/power_supply/BAT1/voltage_now"), "\n", "")
 
 End
 
@@ -135,9 +135,6 @@ Public Sub _replace_n()
  calculate_percentage = Replace(Replace(Replace(calculate_percentage, "mAh", ""), " ", ""), "\n", "")
  calculate_percentage_max = Replace(Replace(Replace(calculate_percentage_max, "mAh", ""), " ", ""), "\n", "")
  Try Finfosys.ProgressBar3.Value = calculate_percentage / calculate_percentage_max
- If Error Then
-    Debug "Error while initializing, is taglib installed?"
- Endif
  Try Finfosys.ProgressBar5.Value = CInteger(Replace(capacity, "\n", "")) / 100
 End
 
