@@ -52,7 +52,7 @@ dependency_build ?= git \
 
 make:
 	@printf "\033[1;31mCompile edid-decode as inex-decode \033[0m$1\n"
-	$(CC) edid-decode.c $(CFLAGS) $(additional_confflags) -o inex-edid
+	$(CC) -o inex-edid edid-decode.c $(CFLAGS) $(additional_confflags)
 	$(CC) -o inex-cpuid cpu.c -static $(CC_OPTS_LIBCPUID)
 	@printf "\033[1;31mCompile src/i-nex stage 1 \033[0m$1\n"
 	$(GBC) $(GBCOPTS) src/i-nex
