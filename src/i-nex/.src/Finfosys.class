@@ -28,7 +28,7 @@ Public Sub Form_Open()
   Dim default_display_manager As Boolean = Exist("/etc/X11/default-display-manager")
   Dim cpuz0, cpuz1, cpuz2, cpuz3, cpuz4, cpuz5, cpuz6, cpuz7, cpuz8, cpuz9, cpuz10, cpuz11 As String
   Dim z As Integer
-  Exec ["/home/michal/Baazar/git-i-nex/inex-cpuid"] Wait To BUFFER
+  Exec ["/usr/bin/inex-cpuid"] Wait To BUFFER
   DATAT = JSON.Decode(BUFFER)
   ListView1.Add(0, DATAT["VENDOR_STR"])
   ListView1.Add(1, DATAT["CPU_CODENAME"])
