@@ -24,6 +24,7 @@ SearchComment=False
 SearchString=True
 
 [OpenFile]
+Active=1
 File[1]=".src/Finfosys.form"
 File[2]=".src/Global.class:199.7"
 File[3]=".src/About.form"
@@ -48,7 +49,7 @@ File[21]=".src/net.module:2.19"
 File[22]="Data/report-ng.sh:5.3"
 File[23]=".src/Distribution_Detect.module:2.19"
 File[24]=".src/FFlags.module:2.19"
-File[25]=".src/Finfosys.class:22.25"
+File[25]=".src/Finfosys.class:845.20"
 File[26]=".src/FDF.form"
 File[27]=".src/FDF.class:2.19"
 File[28]=".src/FNET_R_T.form"
@@ -85,10 +86,7 @@ File[58]=".src/Formatter.module:2.19"
 File[59]=".src/FDirDialog.class:2.19"
 File[60]=".src/FFileDialog.class:2.19"
 File[61]=".src/FInputDate.class:2.19"
-File[62]=".src/CFlags.form"
-Active=63
-File[63]=".src/CFlags.class:7.35"
-Count=63
+Count=61
 
 [Watches]
 Count=0

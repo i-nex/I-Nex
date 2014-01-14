@@ -21,9 +21,41 @@ Public cpu As String
 Public flags As String
 Public vendor_id As String
 Public Logs As New Logger
+Public GDF As String
+Public BUFFER As String
+Public DATAT As Collection
 Public Sub Form_Open()
   Dim default_display_manager As Boolean = Exist("/etc/X11/default-display-manager")
   Dim cpuz0, cpuz1, cpuz2, cpuz3, cpuz4, cpuz5, cpuz6, cpuz7, cpuz8, cpuz9, cpuz10, cpuz11 As String
+  Dim z As Integer
+  Exec ["/home/michal/Baazar/git-i-nex/inex-cpuid"] Wait To BUFFER
+  DATAT = JSON.Decode(BUFFER)
+  ListView1.Add(0, DATAT["VENDOR_STR"])
+  ListView1.Add(1, DATAT["CPU_CODENAME"])
+  ListView1.Add(2, DATAT["BRAND_STR"])
+  ListView1.Add(3, DATAT["NUM_CORES"])
+  ListView1.Add(4, DATAT["NUM_LOGICAL_CPUS"])
+  ListView1.Add(5, DATAT["TOTAL_LOGICAL_CPUS"])
+  ListView1.Add(6, DATAT["FAMILY"])
+  ListView1.Add(7, DATAT["MODEL"])
+  ListView1.Add(8, DATAT["STEPPING"])
+  ListView1.Add(9, DATAT["EXT_FAMILY"])
+  ListView1.Add(10, DATAT["EXT_MODEL"])
+  ListView1.Add(11, DATAT["CPU_CLOCK"])
+  ListView1.Add(12, DATAT["CPU_CLOCK_BY_OS"])
+  ListView1.Add(13, DATAT["CPU_CLOCK_BY_IC"])
+  ListView1.Add(14, DATAT["CPU_CLOCK_MEASURE"])
+  ListView1.Add(15, DATAT["MARK_TSC"])
+  ListView1.Add(16, DATAT["MARK_SYS_CLOCK"])
+  For z = 0 To 93
+   If DATAT["Flags"][z]["VALUE"] = 1 Then
+    GDF = "True"
+    ListView1.Add(z + 17, DATAT["Flags"][z]["NAME"] & " " & GDF & " " & DATAT["Flags"][z]["DESC"])
+   Else
+    GDF = "False"
+    ListView1.Add(z + 17, DATAT["Flags"][z]["NAME"] & " " & GDF & " " & DATAT["Flags"][z]["DESC"])
+   Endif
+  Next
   If User.Name = "root" Then
     Message.Error(("Running as root is not allowed!\n " & User.Home & ""))
   Endif
@@ -811,6 +843,6 @@ End
 
 Public Sub Button16_Click()
 
- CFlags.Show
+ TabPanel1.Index = 1
 
 End

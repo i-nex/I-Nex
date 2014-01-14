@@ -135,6 +135,9 @@ Public Sub _replace_n()
  calculate_percentage = Replace(Replace(Replace(calculate_percentage, "mAh", ""), " ", ""), "\n", "")
  calculate_percentage_max = Replace(Replace(Replace(calculate_percentage_max, "mAh", ""), " ", ""), "\n", "")
  Try Finfosys.ProgressBar3.Value = calculate_percentage / calculate_percentage_max
+ If Error Then
+    Debug "Error while initializing, is taglib installed?"
+ Endif
  Try Finfosys.ProgressBar5.Value = CInteger(Replace(capacity, "\n", "")) / 100
 End
 
