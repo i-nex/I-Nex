@@ -52,6 +52,17 @@ Public Sub Form_Open()
   Label207.Text = "Mark TSC:  " & DATAT["MARK_TSC"]
   Label208.Text = "Mark SYS Clock:  " & DATAT["MARK_SYS_CLOCK"]
 
+  Label209.Text = "L1 Data:  " & DATAT["L1_DATA_CACHE"]
+  Label210.Text = "L1 Instr:  " & DATAT["L1_INSTRUCTION_CACHE"]
+  Label211.Text = "L2 Cache:  " & DATAT["L2_CACHE"]
+  Label212.Text = "L3 Cache:  " & DATAT["L3_CACHE"]
+  Label213.Text = "L1 Assoc:  " & DATAT["L1_ASSOC"]
+  Label214.Text = "L2 Assoc:  " & DATAT["L2_ASSOC"]
+  Label215.Text = "L3 Assoc:  " & DATAT["L3_ASSOC"]
+  Label216.Text = "L1 Cacheline:  " & DATAT["L1_CACHELINE"]
+  Label217.Text = "L2 Cacheline:  " & DATAT["L2_CACHELINE"]
+  Label218.Text = "L3 Cacheline:  " & DATAT["L3_CACHELINE"]
+  Label219.Text = "SSE Size:  " & DATAT["SSE_SIZE"]
   'btnClose.Tooltip = ("Quit")
   'Me.Center4
   For i = 1 To 93
@@ -60,7 +71,7 @@ Public Sub Form_Open()
       '.X = (i - Int((i - 1) / 3) * 3) * 60 - 30
       '.Y = Int((i - 1) / 3) * 60 + 170
       .X = 2
-      .Y = 140 + Int(i * 20)
+      .Y = 215 + Int(i * 20)
       .Width = 440
       .Height = 21
       .Border = 3
@@ -80,7 +91,7 @@ Public Sub Form_Open()
       '.X = (i - Int((i - 1) / 3) * 3) * 60 - 30
       '.Y = Int((i - 1) / 3) * 60 + 170
       .X = 420
-      .Y = 140 + Int(i * 20)
+      .Y = 215 + Int(i * 20)
       .Width = 21
       .Height = 21
       .Picture = YESNO
