@@ -31,13 +31,13 @@ End
 
 Public Sub Button6_Click()
 
- Desktop.Open("https://launchpad.net/~eloaders")
+ Desktop.Open("http://i-nex.linux.pl/")
 
 End
 
 Public Sub Button7_Click()
 
- Desktop.Open("mailto:eloaders@yahoo.com")
+ Desktop.Open("mailto:eloaders@linux.pl")
 
 End
 
