@@ -25,6 +25,9 @@ INSTALL_SELF_SCRIPT = ./install-self
 ifeq ($(ARCH),x86)
 additional_confflags := --disable-sse2
 endif
+ifeq ($(ARCH),x86_64)
+additional_confflags := -O2
+endif
 dependency_build ?= git \
 		    devscripts \
 		    pkg-config \
@@ -53,7 +56,7 @@ dependency_build ?= git \
 make:
 	@printf "\033[1;31mCompile edid-decode as inex-decode \033[0m$1\n"
 	$(CC) -o inex-edid edid-decode.c $(CFLAGS) $(additional_confflags)
-	$(CC) -o inex-cpuid cpu.c -static $(CC_OPTS_LIBCPUID)
+	$(CC) -o inex-cpuid cpu.c -static $(CC_OPTS_LIBCPUID) $(additional_confflags)
 	@printf "\033[1;31mCompile src/i-nex stage 1 \033[0m$1\n"
 	$(GBC) $(GBCOPTS) src/i-nex
 	@printf "\033[1;31mCompile src/i-nex stage 2 \033[0m$1\n"
