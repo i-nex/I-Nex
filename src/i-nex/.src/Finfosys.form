@@ -527,66 +527,77 @@
         }
         { Label209 Label
           Move(2,133,147,21)
+          Font = Font["Bold,8"]
           Padding = 3
           Text = ("Label209")
           Border = Border.Raised
         }
         { Label210 Label
           Move(2,154,147,21)
+          Font = Font["Bold,8"]
           Padding = 3
           Text = ("Label210")
           Border = Border.Raised
         }
         { Label211 Label
           Move(2,175,147,21)
+          Font = Font["Bold,8"]
           Padding = 3
           Text = ("Label211")
           Border = Border.Raised
         }
         { Label212 Label
           Move(2,196,147,21)
+          Font = Font["Bold,8"]
           Padding = 3
           Text = ("Label212")
           Border = Border.Raised
         }
         { Label213 Label
           Move(147,133,140,21)
+          Font = Font["Bold,8"]
           Padding = 3
           Text = ("Label213")
           Border = Border.Raised
         }
         { Label214 Label
           Move(147,154,140,21)
+          Font = Font["Bold,8"]
           Padding = 3
           Text = ("Label214")
           Border = Border.Raised
         }
         { Label215 Label
           Move(147,175,140,21)
+          Font = Font["Bold,8"]
           Padding = 3
           Text = ("Label215")
           Border = Border.Raised
         }
         { Label216 Label
           Move(287,133,154,21)
+          Font = Font["Bold,8"]
           Padding = 3
           Text = ("Label216")
           Border = Border.Raised
         }
         { Label217 Label
           Move(287,154,154,21)
+          Font = Font["Bold,8"]
           Padding = 3
           Text = ("Label217")
           Border = Border.Raised
         }
         { Label218 Label
           Move(287,175,154,21)
+          Font = Font["Bold,8"]
           Padding = 3
           Text = ("Label218")
           Border = Border.Raised
         }
         { Label219 Label
           Move(147,196,294,21)
+          Font = Font["Bold,8"]
           Padding = 3
           Text = ("Label219")
           Border = Border.Raised

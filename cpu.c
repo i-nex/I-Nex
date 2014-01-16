@@ -41,11 +41,6 @@ int main(void)
 	printf("	\"MARK_TSC\": \"%llu\",\n", mark.tsc);
 	printf("	\"MARK_SYS_CLOCK\": \"%llu\",\n", mark.sys_clock);
 	printf("			\"Flags\": {\n");
-	printf("			\"0\": {\n");
-	printf("					\"VALUE\": %s \n", data.flags[CPU_FEATURE_MMX] ? "1 ," : "0 ,");
-	printf("					\"NAME\": \"CPU_FEATURE_MMX\",\n");
-	printf("					\"DESC\": \"MMX instruction set supported\"\n");
-	printf("			},\n");
 	printf("			\"1\": {\n");
 	printf("					\"VALUE\": %s \n", data.flags[CPU_FEATURE_MMXEXT] ? "1 ," : "0 ,");
 	printf("					\"NAME\": \"CPU_FEATURE_MMXEXT\",\n");
@@ -507,10 +502,15 @@ int main(void)
 	printf("					\"DESC\": \"Hyper-threading supported (but might be disabled)\"\n");
 	printf("			},\n");
 	printf("			\"93\": {\n");
+	printf("					\"VALUE\": %s \n", data.flags[CPU_FEATURE_MMX] ? "1 ," : "0 ,");
+	printf("					\"NAME\": \"CPU_FEATURE_MMX\",\n");
+	printf("					\"DESC\": \"MMX instruction set supported\"\n");
+	printf("			},\n");
+	printf("			\"94\": {\n");
 	printf("					\"VALUE\": %s \n", data.flags[CPU_FEATURE_FPU] ? "1 ," : "0 ,");
 	printf("					\"NAME\": \"CPU_FEATURE_FPU\",\n");
 	printf("					\"DESC\": \"Floating point unit\"\n");
-	printf("	}\n");
+	printf("			}\n");
 	printf("	},\n");
 	printf("	\"L1_DATA_CACHE\": \"%d\",\n", data.l1_data_cache);
 	printf("	\"L1_INSTRUCTION_CACHE\": \"%d\",\n", data.l1_instruction_cache);
