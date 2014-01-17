@@ -1,5 +1,5 @@
 %define name i-nex
-%define version 0.5.8
+%define version 0.6.0
 %define release 1suse
 
 Summary: I-Nex
@@ -71,6 +71,7 @@ rm -rf %{buildroot}
 
 %build
 gcc edid-decode.c -g -Wall -o inex-edid
+gcc -o inex-cpuid cpu.c -static pkg-config libcpuid --cflags --libs
 /usr/bin/gbc3 -e -a -g -t -p -m  src/i-nex
 gba3 src/i-nex
 
@@ -94,6 +95,8 @@ cp -R --preserve=timestamp pastebin.d %{buildroot}/usr/share/i-nex/pastebinit/pa
 %{__install} -p debian/changelogs/changelog-0.5.6 %{buildroot}/usr/share/doc/i-nex/changelog-0.5.6
 %{__install} -p debian/check_kernel %{buildroot}/usr/bin/check_kernel
 %{__install} -p debian/i-nex-lspci %{buildroot}/usr/bin/i-nex-lspci
+%{__install} -p inex-edid %{buildroot}/usr/bin/inex-edid
+%{__install} -p inex-cpuid %{buildroot}/usr/bin/inex-cpuid
 %{__install} -p pastebinit %{buildroot}/usr/share/i-nex/pastebinit/pastebinit
 %{__install} -p pastebinit.xml %{buildroot}/usr/share/i-nex/pastebinit/pastebinit.xml
 
