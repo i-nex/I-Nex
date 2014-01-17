@@ -71,7 +71,7 @@ rm -rf %{buildroot}
 
 %build
 gcc edid-decode.c -g -Wall -o inex-edid
-gcc -o inex-cpuid cpu.c -static pkg-config libcpuid --cflags --libs
+gcc -o inex-cpuid cpu.c -static `pkg-config libcpuid --cflags --libs`
 /usr/bin/gbc3 -e -a -g -t -p -m  src/i-nex
 gba3 src/i-nex
 

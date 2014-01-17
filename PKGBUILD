@@ -21,12 +21,14 @@ build() {
   gba3
   cd "../.."
   gcc edid-decode.c -g -Wall -o inex-edid
+  gcc -o inex-cpuid cpu.c -static `pkg-config libcpuid --cflags --libs`
 }
 
 package() {
   cd "${_prgname}-master"
   sed -i 's|i-nex.gambas|i-nex|' debian/i-nex.desktop
   install -Dm755 inex-edid "$pkgdir/usr/bin/inex-edid"
+  install -Dm755 inex-cpuid "$pkgdir/usr/bin/inex-cpuid"
   install -Dm755 src/i-nex/i-nex.gambas "$pkgdir/usr/bin/i-nex"
   install -Dm644 src/i-nex/logo/i-nex.0.4.x.png "$pkgdir/usr/share/pixmaps/i-nex.0.4.x.png"
   install -Dm644 debian/i-nex.desktop "$pkgdir/usr/share/applications/i-nex.desktop"
