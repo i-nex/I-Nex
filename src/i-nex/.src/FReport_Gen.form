@@ -1,25 +1,25 @@
 # Gambas Form File 3.0
 
 { Form Form
-  Move(0,0,490,525)
+  Move(0,0,476,539)
   #Scaled = False
   #Translate = False
   Text = "Generate report"
   Icon = Picture["logo/i-nex.0.4.x.png"]
   Resizable = False
   { ButtonBox1 ButtonBox
-    Move(7,497,228,24)
+    Move(7,511,228,24)
     ReadOnly = True
   }
   { ProgressBar1 ProgressBar
-    Move(7,448,476,14)
+    Move(7,462,462,21)
   }
   { TextLabel1 TextLabel
-    Move(7,462,476,28)
+    Move(7,483,476,28)
     Alignment = Align.Left
   }
   { HBox1 HBox
-    Move(238,497,245,28)
+    Move(231,511,245,28)
     { Button1 Button
       Move(0,0,98,28)
       Expand = True
@@ -37,7 +37,7 @@
     }
   }
   { HPanel1 HPanel
-    Move(7,7,224,322)
+    Move(7,7,224,350)
     { CheckBox1 CheckBox
       Move(0,0,156,24)
       Expand = True
@@ -75,7 +75,7 @@
     }
   }
   { HPanel2 HPanel
-    Move(245,7,238,322)
+    Move(245,7,224,350)
     { CheckBox6 CheckBox
       Move(0,0,144,24)
       Expand = True
@@ -138,26 +138,26 @@
     }
   }
   { Separator1 Separator
-    Move(231,0,14,329)
+    Move(231,0,14,357)
   }
   { Separator2 Separator
-    Move(0,413,490,14)
+    Move(0,427,476,14)
   }
   { Separator3 Separator
-    Move(0,371,490,14)
+    Move(0,385,476,14)
   }
   { Button3 Button
-    Move(455,385,28,28)
+    Move(448,399,28,28)
     ToolTip = ("Open link in default web browser")
     Picture = Picture["AppIcons/applications-internet.png"]
   }
   { TextBox1 TextBox
-    Move(7,385,420,28)
+    Move(7,399,413,28)
     Expand = True
     ReadOnly = True
   }
   { HBox2 HBox
-    Move(7,336,476,28)
+    Move(7,357,462,28)
     { CheckBox11 CheckBox paste
       Name = "CheckBox11"
       Move(0,0,315,28)
@@ -165,18 +165,18 @@
       Text = ("Send report to nopaste service:   ")
     }
     { ComboBox1 ComboBox
-      Move(322,0,144,24)
+      Move(308,0,144,24)
       Expand = True
       ReadOnly = True
     }
   }
   { CheckBox13 CheckBox
-    Move(7,427,476,21)
+    Move(7,441,462,21)
     Text = ("Close this window when finished.")
     Value = CheckBox.True
   }
   { Button4 Button
-    Move(427,385,28,28)
+    Move(420,399,28,28)
     ToolTip = ("Copy this link")
     Picture = Picture["AppIcons/edit-copy.png"]
   }
