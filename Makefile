@@ -1,5 +1,5 @@
 #!/usr/bin/make -f
-
+GIT_RV = $(shell git rev-list HEAD | wc -l)
 BUILD_PACKAGE = $(shell ./build-deb)
 PKG_INSTALL = apt-get install
 AS_ROOT = sudo
@@ -120,23 +120,23 @@ self:
 	chmod +x inex/install-self
 	chmod +x inex/install-self-inex
 	@if [ -e "/usr/bin/pbzip2" ];then \
-	printf "\033[1;31m:: \033[0m$1\n" & $(MAKESELF) $(MAKESELF_OPT) --pbzip2 --complevel $(COMPRESSION_SELF_LEVEL) ./inex i-nex.$(ARCH).pbzip2.run $(APP_NAME) $(INSTALL_SELF_SCRIPT); \
+	printf "\033[1;31m:: \033[0m$1\n" & $(MAKESELF) $(MAKESELF_OPT) --pbzip2 --complevel $(COMPRESSION_SELF_LEVEL) ./inex i-nex.$(ARCH)_git$(GIT_RV).pbzip2.run $(APP_NAME) $(INSTALL_SELF_SCRIPT); \
 	fi
 	
 	@if [ -e "/usr/bin/compress" ];then \
-	printf "\033[1;31m:: \033[0m$1\n" & $(MAKESELF) $(MAKESELF_OPT) --compress --complevel $(COMPRESSION_SELF_LEVEL) ./inex i-nex.$(ARCH).unixcompress.run $(APP_NAME) $(INSTALL_SELF_SCRIPT); \
+	printf "\033[1;31m:: \033[0m$1\n" & $(MAKESELF) $(MAKESELF_OPT) --compress --complevel $(COMPRESSION_SELF_LEVEL) ./inex i-nex.$(ARCH)_git$(GIT_RV).unixcompress.run $(APP_NAME) $(INSTALL_SELF_SCRIPT); \
 	fi
 	
 	@if [ -e "/usr/bin/xz" ];then \
-	printf "\033[1;31m:: \033[0m$1\n" & $(MAKESELF) $(MAKESELF_OPT) --xz --complevel $(COMPRESSION_SELF_LEVEL) ./inex i-nex.$(ARCH).xz.run $(APP_NAME) $(INSTALL_SELF_SCRIPT); \
+	printf "\033[1;31m:: \033[0m$1\n" & $(MAKESELF) $(MAKESELF_OPT) --xz --complevel $(COMPRESSION_SELF_LEVEL) ./inex i-nex.$(ARCH)_git$(GIT_RV).xz.run $(APP_NAME) $(INSTALL_SELF_SCRIPT); \
 	fi
 	
 	@if [ -e "/bin/gzip" ];then \
-	printf "\033[1;31m:: \033[0m$1\n" & $(MAKESELF) $(MAKESELF_OPT) --gzip --complevel $(COMPRESSION_SELF_LEVEL) ./inex i-nex.$(ARCH).gzip.run $(APP_NAME) $(INSTALL_SELF_SCRIPT); \
+	printf "\033[1;31m:: \033[0m$1\n" & $(MAKESELF) $(MAKESELF_OPT) --gzip --complevel $(COMPRESSION_SELF_LEVEL) ./inex i-nex.$(ARCH)_git$(GIT_RV).gzip.run $(APP_NAME) $(INSTALL_SELF_SCRIPT); \
 	fi
 	
 	@if [ -e "/bin/bzip2" ];then \
-	printf "\033[1;31m:: \033[0m$1\n" & $(MAKESELF) $(MAKESELF_OPT) --bzip2 --complevel $(COMPRESSION_SELF_LEVEL) ./inex i-nex.$(ARCH).bzip2.run $(APP_NAME) $(INSTALL_SELF_SCRIPT); \
+	printf "\033[1;31m:: \033[0m$1\n" & $(MAKESELF) $(MAKESELF_OPT) --bzip2 --complevel $(COMPRESSION_SELF_LEVEL) ./inex i-nex.$(ARCH)_git$(GIT_RV).bzip2.run $(APP_NAME) $(INSTALL_SELF_SCRIPT); \
 	fi
 	mv ./*.run ../
 	
