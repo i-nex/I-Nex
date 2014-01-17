@@ -1,11 +1,11 @@
 # Gambas Form File 3.0
 
 { Form Form
-  MoveScaled(0,0,67,75)
+  MoveScaled(0,0,68,77)
   Font = Font["8"]
   Resizable = False
   { VBox1 VBox
-    MoveScaled(0,0,67,71)
+    MoveScaled(0,0,68,73)
     Expand = True
     { TextArea1 TextArea
       MoveScaled(0,0,62,62)
@@ -17,7 +17,7 @@
     }
   }
   { Button1 Button
-    MoveScaled(55,71,11,4)
+    MoveScaled(59,73,9,4)
     Font = Font["Bold,8"]
     Text = ("Close")
     Picture = Picture["icon:/16/quit"]

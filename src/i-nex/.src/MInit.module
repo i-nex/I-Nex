@@ -27,7 +27,6 @@ Public Sub _inits()
   Logs("Try to remove files", Logger.Info)
   Try Kill User.Home & "/.i-nex/screenfetch-dev"
   Try Kill User.Home & "/.i-nex/report-ng.sh"
-  Try Kill User.Home & "/.i-nex/edid"
   
  Else
   Logs("i-nex in home folder not exist", Logger.Error)
@@ -40,10 +39,7 @@ Public Sub _inits()
   Copy "Data/screenfetch-dev" To User.Home &/ ".i-nex/screenfetch-dev"
  Logs("Copy report-ng.sh from Data/report-ng.sh to " & User.Home &/ ".i-nex/report-ng.sh", Logger.Info)
   Copy "Data/report-ng.sh" To User.Home &/ ".i-nex/report-ng.sh"
- Logs("Copy edid from Data/edid to " & User.Home &/ ".i-nex/edid", Logger.Info)
-  Copy "Data/edid" To User.Home &/ ".i-nex/edid"
  Logs("Execute copied files", Logger.Info)
- 
  Logs("Execute screenfetch-dev", Logger.Info)
  Exec ["/bin/bash", "" & User.Home & "/.i-nex/screenfetch-dev"] Wait To Do_not_print
  Do_not_print = Null

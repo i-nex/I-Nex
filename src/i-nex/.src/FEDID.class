@@ -24,10 +24,7 @@ Public Sub Form_Open()
   Me.Y = Settings["Window/Y", Me.Y]
  Endif
  Logs("Execute edid", Logger.Info)
- Exec ["/bin/bash", "" & User.Home & "/.i-nex/edid"] Wait
- Wait 1
- Logs("Load " & User.Home & "/.i-nex/edid.conf", Logger.Info)
- TextArea1.Text = File.Load("" & User.Home & "/.i-nex/edid.conf")
+ Shell "xrandr --verbose | inex-edid" Wait To TextArea1.Text
 
 End
 
