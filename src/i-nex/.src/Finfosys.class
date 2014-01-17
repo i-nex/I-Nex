@@ -16,6 +16,7 @@
 ' along with this program. If not, see <http://www.gnu.org/licenses/>.
 Private ToolButton[95] As ToolButton
 Private Label[95] As Label  ' Dim the array of controls
+Private TextLabel[95] As TextLabel
 Private YESNO As Picture
 Public AllowLog As Boolean
 Public sLine As String
@@ -30,10 +31,13 @@ Public DATAT As Collection
 Public Sub Form_Open()
   Dim default_display_manager As Boolean = Exist("/etc/X11/default-display-manager")
   Dim cpuz0, cpuz1, cpuz2, cpuz3, cpuz4, cpuz5, cpuz6, cpuz7, cpuz8, cpuz9, cpuz10, cpuz11 As String
-  Dim z As Integer
   Dim i As Integer
-  Exec ["/usr/bin/inex-cpuid"] Wait To BUFFER
+  Logs("Starting log", Logger.Info)
+  Logs("Check whereis inex-cpuid and get JSON Data", Logger.Info)
+  Exec [ChkPrm.ChkExecDir("inex-cpuid")] Wait To BUFFER
+  Logs("Decode JSON Data", Logger.Info)
   DATAT = JSON.Decode(BUFFER)
+  Logs("Add Values CPUID", Logger.Info)
   Label92.Text = "" & DATAT["VENDOR_STR"]
   Label193.Text = "" & DATAT["CPU_CODENAME"]
   Label194.Text = "" & DATAT["BRAND_STR"]
@@ -62,7 +66,7 @@ Public Sub Form_Open()
   Label217.Text = "L2 Cacheline:  " & DATAT["L2_CACHELINE"]
   Label218.Text = "L3 Cacheline:  " & DATAT["L3_CACHELINE"]
   Label219.Text = "SSE Size:  " & DATAT["SSE_SIZE"]
-
+  Logs("Create Labels in ScrollView1", Logger.Info)
   For i = 1 To 94
     Label[i] = New Label(ScrollView1)
     With Label[i]
@@ -76,6 +80,7 @@ Public Sub Form_Open()
       .Text = DATAT["Flags"][i]["DESC"]
     End With
   Next
+  Logs("Create ToolButtons in ScrollView1", Logger.Info)
   For i = 1 To 94
     ToolButton[i] = New ToolButton(ScrollView1)
     If DATAT["Flags"][i]["VALUE"] = 1 Then
@@ -92,10 +97,24 @@ Public Sub Form_Open()
       .Tooltip = DATAT["Flags"][i]["VALUE"]
     End With
   Next
+  Logs("Create TextLabels in ScrollView1", Logger.Info)
+  For i = 1 To 94
+    TextLabel[i] = New TextLabel(ScrollView1)
+    With TextLabel[i]
+      .X = 330
+      .Y = 215 + Int(i * 20)
+      .Width = 80
+      .Height = 21
+      .Font.Bold = True
+      .Font.Size = 8
+      .Foreground = 6
+      .Alignment = Align.Center
+      .Text = DATAT["Flags"][i]["FEATURE"]
+    End With
+  Next
   If User.Name = "root" Then
     Message.Error(("Running as root is not allowed!\n " & User.Home & ""))
   Endif
-  Logs("Starting log", Logger.Info)
   Logs(Settings.Path, Logger.Info)
   Logs(Settings.DefaultDir, Logger.Info)
   Finfosys.TabStrip1[9].Visible = False
