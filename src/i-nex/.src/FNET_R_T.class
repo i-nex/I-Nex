@@ -73,9 +73,12 @@ Public Sub Timer1_Timer()
 End
 
 Public Sub Form_Open()
- Me.Center
- Me.X = Settings["Window/X", Me.X]
- Me.Y = Settings["Window/Y", Me.Y]
+ If Settings["Window/X"] = Null Then
+  Me.Center
+ Else
+  Me.X = Settings["Window/X", Me.X]
+  Me.Y = Settings["Window/Y", Me.Y]
+ Endif
  Timer1.Start
  net_()
 End

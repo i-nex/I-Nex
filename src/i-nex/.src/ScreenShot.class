@@ -24,9 +24,12 @@ Public Sub Form_Open()
  Else
  ButtonBox1.Text = Desktop.Path 
  Endif
- Me.Center
- Me.X = Settings["Window/X", Me.X]
- Me.Y = Settings["Window/Y", Me.Y]
+ If Settings["Window/X"] = Null Then
+  Me.Center
+ Else
+  Me.X = Settings["Window/X", Me.X]
+  Me.Y = Settings["Window/Y", Me.Y]
+ Endif
  PictureBox1.Picture = ScreenShotM.pic
  TextBox1.Text = Date & Time
  TextBox1.Text = Replace(TextBox1.Text, "/", "")
@@ -40,12 +43,7 @@ Public Sub Form_Open()
 End
 
 Public Sub Button2_Click()
- If FUdisks.Above = 0 Then
-    FUdisks.Show
-   Endif
-   If Finfosys.Above = 1 Then
-    Finfosys.Show
- Endif
+
  Me.Close
 
 End
@@ -70,7 +68,6 @@ Public Sub Form_Close()
 
  File.Save("" & User.Home & "/.i-nex/lastsaveg", ButtonBox1.Text)
  Me.Close
- Finfosys.Show
 
 End
 

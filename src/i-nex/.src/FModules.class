@@ -33,9 +33,12 @@ Public Sub Form_Open()
  Else
   Me.Close
  Endif
- Me.Center
+ If Settings["Window/X"] = Null Then
+  Me.Center
+ Else
   Me.X = Settings["Window/X", Me.X]
   Me.Y = Settings["Window/Y", Me.Y]
+ Endif
 End
 
 Public Sub ComboBox1_Click()

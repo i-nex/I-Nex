@@ -45,9 +45,12 @@ Public Sub Form_Open()
   'ComboBox1.Add("dpaste.com")
   'ComboBox1.Add("hpaste.org")
   
- Me.Center
- Me.X = Settings["Window/X", Me.X]
- Me.Y = Settings["Window/Y", Me.Y]
+ If Settings["Window/X"] = Null Then
+  Me.Center
+ Else
+  Me.X = Settings["Window/X", Me.X]
+  Me.Y = Settings["Window/Y", Me.Y]
+ Endif
 
 End
 
@@ -192,6 +195,5 @@ End
 Public Sub Form_Close()
   File.Save("" & User.Home & "/.i-nex/lastsave", ButtonBox1.Text)
   Me.Close
-  Finfosys.Show
  
 End
