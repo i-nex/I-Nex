@@ -861,7 +861,7 @@ Public Sub TabStrip1_Click()
  Endif
  '
  Me.Text = "I-Nex / " & TabStrip1.Current.Text 
-
+ TabPanel1_Click()
 End
 
 Public Sub Form_Move()
@@ -880,5 +880,15 @@ End
 Public Sub Button16_Click()
 
  TabPanel1.Index = 1
+
+End
+
+Public Sub TabPanel1_Click()
+
+ If TabPanel1.Current.Text = "CPUID" Then
+  ComboBox1.Visible = False
+ Else
+  ComboBox1.Visible = True
+ Endif
 
 End
