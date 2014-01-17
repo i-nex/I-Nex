@@ -1,49 +1,49 @@
 # Gambas Form File 3.0
 
 { Form Form
-  MoveScaled(0,0,70,75)
+  MoveScaled(0,0,68,77)
   #Translate = False
   Text = "Screen Shot"
   Icon = Picture["logo/i-nex.0.4.x.png"]
   Resizable = False
   { PictureBox1 PictureBox
-    MoveScaled(10,0,50,59)
+    MoveScaled(6,0,56,65)
     Stretch = True
     Border = Border.Plain
   }
   { Button1 Button
-    MoveScaled(56,70,13,4)
+    MoveScaled(58,73,10,4)
     Text = ("Save")
     Picture = Picture["AppIcons/document-save.png"]
   }
   { Button2 Button
-    MoveScaled(43,70,13,4)
+    MoveScaled(47,73,11,4)
     Text = ("Cancel")
     Picture = Picture["AppIcons/application-exit2.png"]
   }
   { Label1 Label
-    MoveScaled(1,60,18,4)
+    MoveScaled(1,65,18,4)
     Font = Font["Bold,11"]
     Text = ("File name:")
   }
   { Label2 Label
-    MoveScaled(1,65,20,4)
+    MoveScaled(1,69,20,4)
     Font = Font["Bold,11"]
     Text = ("Save directory:")
   }
   { ButtonBox1 ButtonBox
-    MoveScaled(20,65,49,4)
+    MoveScaled(21,69,46,4)
     ReadOnly = True
   }
   { TextBox1 TextBox
-    MoveScaled(20,60,49,4)
+    MoveScaled(21,65,46,4)
   }
   { ComboBox1 ComboBox
-    MoveScaled(34,70,9,4)
+    MoveScaled(38,73,9,4)
     ReadOnly = True
   }
   { SliderBox1 SliderBox
-    MoveScaled(1,70,32,4)
+    MoveScaled(0,73,38,4)
     ToolTip = ("Picture quality")
   }
 }
