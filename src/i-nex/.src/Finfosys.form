@@ -1653,6 +1653,11 @@
       Text = ("Label176")
       Border = Border.Plain
     }
+    { Button4 Button
+      Move(273,448,189,28)
+      Text = ("Decode DIMMS")
+      Picture = Picture["AppIcons/gtk-yes.png"]
+    }
     Index = 8
     Text = ("Network")
     Picture = Picture["AppIcons/Finfosys/network-wired.png"]

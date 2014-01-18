@@ -1,7 +1,5 @@
 [Bookmarks]
 CFlags=[9]
-Finfosys=[]
-FEDID=[]
 
 [Breakpoints]
 Count=0
@@ -38,7 +36,7 @@ File[9]=".src/ScreenShotM.module:2.19"
 File[10]=".src/USB_Drives.module:2.19"
 File[11]=".src/Asound_Drives.module:2.19"
 File[12]=".src/FReport_Gen.form"
-File[13]=".src/FReport_Gen.class:196.10"
+File[13]=".src/FReport_Gen.class:162.7"
 File[14]=".src/Start_App_Args.form"
 File[15]=".src/Start_App_Args.class:2.19"
 File[16]=".src/ChkPrm.module:2.19"
@@ -50,8 +48,7 @@ File[21]=".src/net.module:2.19"
 File[22]="Data/report-ng.sh:5.3"
 File[23]=".src/Distribution_Detect.module:22.34"
 File[24]=".src/FFlags.module:2.19"
-Active=25
-File[25]=".src/Finfosys.class:206.9"
+File[25]=".src/Finfosys.class:46.44"
 File[26]=".src/FDF.form"
 File[27]=".src/FDF.class:26.6"
 File[28]=".src/FNET_R_T.form"
@@ -82,13 +79,16 @@ File[52]=".src/Reports/MDRIVES_REPORT.module:12.40"
 File[53]=".src/FInputDate.form"
 File[54]=".src/MInit.module:25.23"
 File[55]=".src/FEDID.form"
-File[56]=".src/FEDID.class:20.0"
+File[56]=".src/FEDID.class:25.0"
 File[57]=".src/Logger.class:2.19"
 File[58]=".src/Formatter.module:2.19"
 File[59]=".src/FDirDialog.class:2.19"
 File[60]=".src/FFileDialog.class:2.19"
 File[61]=".src/FInputDate.class:2.19"
-Count=61
+File[62]=".src/FDIMM.form"
+Active=63
+File[63]=".src/FDIMM.class:24.17"
+Count=63
 
 [Watches]
 Count=0

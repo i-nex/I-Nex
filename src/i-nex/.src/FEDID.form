@@ -2,8 +2,9 @@
 
 { Form Form
   MoveScaled(0,0,68,77)
+  #Translate = False
   Font = Font["8"]
-  Text = ("EDID")
+  Text = "EDID"
   Icon = Picture["i-nex.png"]
   Resizable = False
   { Button1 Button

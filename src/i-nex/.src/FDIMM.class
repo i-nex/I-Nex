@@ -1,0 +1,83 @@
+' Gambas class file
+
+' Gambas class file
+
+' Copyright(C) 2011-2014, Michał Głowienka aka eloaders <eloaders@linux.pl>
+'
+' This program is free software; you can redistribute it and/or modify
+' it under the terms of the GNU Lesser General Public License as published by
+' the Free Software Foundation; either version 3 of the License, or
+' (at your option) any later version.
+'
+' This program is distributed in the hope that it will be useful,
+' but WITHOUT ANY WARRANTY; without even the implied warranty of
+' MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+' GNU General Public License for more details.
+'
+' You should have received a copy of the GNU General Public License
+' along with this program. If not, see <http://www.gnu.org/licenses/>.
+Private Label[200] As Label
+Private ToolButton[200] As ToolButton
+Public Logs As New Logger
+Public Sub Form_Open()
+ Dim data As Stream
+ Dim i, MaxCount As Integer
+ Dim sLine As String
+ Dim EDID As New String[]
+ 
+ If Settings["Window/X"] = Null Then
+  Me.Center
+ Else
+  Me.X = Settings["Window/X", Me.X]
+  Me.Y = Settings["Window/Y", Me.Y]
+ Endif
+ 
+ Logs("Execute edid", Logger.Info)
+ 
+ data = Exec [ChkPrm.ChkExecDir("decode-dimms")] For Input
+
+ While Not Eof(data)
+        Line Input #data, sLine
+        MaxCount += 1
+        EDID.Add(sLine, MaxCount)
+ Wend
+
+ For i = 7 To MaxCount
+    Label[i] = New Label(ScrollView1)
+    With Label[i]
+         .X = 2
+             If i = 1 Then
+                .Y = 2
+             Else
+                .Y = Int(Int(i - 6) * 20)
+             Endif
+                If EDID[i - 1] Begins "---" Then
+                   .Alignment = Align.Center
+                   .Font.Bold = True
+                Endif
+                   .Width = 440
+                   .Height = 21
+                   .Border = Border.Raised
+                   .Padding = 3
+                   If EDID[i - 1] Begins "Minimum" Then
+                      EDID[i - 1] = Replace(EDID[i - 1], "Minimum ", "")
+                      .Text = EDID[i - 1]
+                   Else
+                      .Text = EDID[i - 1]
+                   Endif
+                      If EDID[i - 1] = Null Then
+                         .Visible = False
+                      Endif
+       .Font.Size = 8
+    End With
+ Next
+ Try Close #data
+ End
+
+
+
+Public Sub Button1_Click()
+
+ Me.Close
+
+End

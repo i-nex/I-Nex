@@ -159,7 +159,7 @@ Public Sub Form_Open()
                     End With
     Next
   Endif
-  
+  Button4.Visible = ChkPrm.ChkExec("decode-dimms")
   If User.Name = "root" Then
     Message.Error(("Running as root is not allowed!\n " & User.Home & ""))
   Endif
@@ -943,11 +943,17 @@ Public Sub TabPanel1_Click()
 
  If TabPanel1.Current.Text = "CPUID" Then
   ComboBox1.Visible = False
- Else
+ Else If TabPanel1.Current.Text = "CPUINFO" Then
   ComboBox1.Visible = True
  Endif
 
 End
 Public Sub Buttongroup_Click()
  Desktop.Open("" & Last.Name & "")
+End
+
+Public Sub Button4_Click()
+
+ FDIMM.Show
+
 End

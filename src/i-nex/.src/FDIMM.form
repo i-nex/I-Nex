@@ -1,0 +1,20 @@
+# Gambas Form File 3.0
+
+{ Form Form
+  MoveScaled(0,0,68,77)
+  #Translate = False
+  Text = "Decode DIMMS"
+  Icon = Picture["i-nex.png"]
+  Resizable = False
+  { ScrollView1 ScrollView
+    MoveScaled(0,0,68,73)
+  }
+  { Button1 Button
+    MoveScaled(59,73,9,4)
+    #Translate = False
+    Font = Font["8"]
+    ToolTip = "Close this program"
+    Text = "Close"
+    Picture = Picture["AppIcons/application-exit2.png"]
+  }
+}
