@@ -24,12 +24,12 @@ Public Sub Form_Open()
  Else
  ButtonBox1.Text = Desktop.Path 
  Endif
- If Settings["Window/X"] = Null Then
-  Me.Center
- Else
-  Me.X = Settings["Window/X", Me.X]
-  Me.Y = Settings["Window/Y", Me.Y]
- Endif
+  If Settings["Window/X"] = Null Then
+     Me.Center
+  Else
+     Try Me.X = Settings["Window/X", Me.X]
+     Try Me.Y = Settings["Window/Y", Me.Y]
+  Endif
  PictureBox1.Picture = ScreenShotM.pic
  TextBox1.Text = Date & Time
  TextBox1.Text = Replace(TextBox1.Text, "/", "")

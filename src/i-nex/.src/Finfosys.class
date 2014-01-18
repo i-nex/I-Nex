@@ -38,40 +38,52 @@ Public Sub Form_Open()
   Dim sLine As String
   Dim MTRR As New String[]
   Logs("Starting log", Logger.Info)
+  
+  ''Okno na środku
+  If Settings["Window/X"] = Null Then
+     Me.Center
+  Else
+     Try Me.X = Settings["Window/X", Me.X]
+     Try Me.Y = Settings["Window/Y", Me.Y]
+  Endif
+  
   Logs("Check whereis inex-cpuid and get JSON Data", Logger.Info)
-  Exec [ChkPrm.ChkExecDir("inex-cpuid")] Wait To BUFFER
+      Exec [ChkPrm.ChkExecDir("inex-cpuid")] Wait To BUFFER
   Logs("Decode JSON Data", Logger.Info)
-  DATAT = JSON.Decode(BUFFER)
+      DATAT = JSON.Decode(BUFFER)
   Logs("Add Values CPUID", Logger.Info)
-  Label92.Text = "" & DATAT["VENDOR_STR"]
-  Label193.Text = "" & DATAT["CPU_CODENAME"]
-  Label194.Text = "" & DATAT["BRAND_STR"]
-  Label195.Text = "Cores:  " & DATAT["NUM_CORES"]
-  Label196.Text = "Logical CPUS:  " & DATAT["NUM_LOGICAL_CPUS"]
-  Label197.Text = "Total Logical CPUS:  " & DATAT["TOTAL_LOGICAL_CPUS"]
-  Label198.Text = "Family:  " & DATAT["FAMILY"]
-  Label199.Text = "Model:  " & DATAT["MODEL"]
-  Label200.Text = "Stepping:  " & DATAT["STEPPING"]
-  Label201.Text = "Ext Family:  " & DATAT["EXT_FAMILY"]
-  Label202.Text = "Ext Model:  " & DATAT["EXT_MODEL"]
-  Label203.Text = "CPU Clock:  " & DATAT["CPU_CLOCK"]
-  Label204.Text = "CPU Clock BY OS:  " & DATAT["CPU_CLOCK_BY_OS"]
-  Label205.Text = "CPU Clock BY IC:  " & DATAT["CPU_CLOCK_BY_IC"]
-  Label206.Text = "CPU Clock Measure:  " & DATAT["CPU_CLOCK_MEASURE"]
-  Label207.Text = "Mark TSC:  " & DATAT["MARK_TSC"]
-  Label208.Text = "Mark SYS Clock:  " & DATAT["MARK_SYS_CLOCK"]
-  Label209.Text = "L1 Data:  " & DATAT["L1_DATA_CACHE"]
-  Label210.Text = "L1 Instr:  " & DATAT["L1_INSTRUCTION_CACHE"]
-  Label211.Text = "L2 Cache:  " & DATAT["L2_CACHE"]
-  Label212.Text = "L3 Cache:  " & DATAT["L3_CACHE"]
-  Label213.Text = "L1 Assoc:  " & DATAT["L1_ASSOC"]
-  Label214.Text = "L2 Assoc:  " & DATAT["L2_ASSOC"]
-  Label215.Text = "L3 Assoc:  " & DATAT["L3_ASSOC"]
-  Label216.Text = "L1 Cacheline:  " & DATAT["L1_CACHELINE"]
-  Label217.Text = "L2 Cacheline:  " & DATAT["L2_CACHELINE"]
-  Label218.Text = "L3 Cacheline:  " & DATAT["L3_CACHELINE"]
-  Label219.Text = "SSE Size:  " & DATAT["SSE_SIZE"]
+  
+      Label92.Text = "" & DATAT["VENDOR_STR"]
+      Label193.Text = "" & DATAT["CPU_CODENAME"]
+      Label194.Text = "" & DATAT["BRAND_STR"]
+      Label195.Text = "Cores:  " & DATAT["NUM_CORES"]
+      Label196.Text = "Logical CPUS:  " & DATAT["NUM_LOGICAL_CPUS"]
+      Label197.Text = "Total Logical CPUS:  " & DATAT["TOTAL_LOGICAL_CPUS"]
+      Label198.Text = "Family:  " & DATAT["FAMILY"]
+      Label199.Text = "Model:  " & DATAT["MODEL"]
+      Label200.Text = "Stepping:  " & DATAT["STEPPING"]
+      Label201.Text = "Ext Family:  " & DATAT["EXT_FAMILY"]
+      Label202.Text = "Ext Model:  " & DATAT["EXT_MODEL"]
+      Label203.Text = "CPU Clock:  " & DATAT["CPU_CLOCK"]
+      Label204.Text = "CPU Clock BY OS:  " & DATAT["CPU_CLOCK_BY_OS"]
+      Label205.Text = "CPU Clock BY IC:  " & DATAT["CPU_CLOCK_BY_IC"]
+      Label206.Text = "CPU Clock Measure:  " & DATAT["CPU_CLOCK_MEASURE"]
+      Label207.Text = "Mark TSC:  " & DATAT["MARK_TSC"]
+      Label208.Text = "Mark SYS Clock:  " & DATAT["MARK_SYS_CLOCK"]
+      Label209.Text = "L1 Data:  " & DATAT["L1_DATA_CACHE"]
+      Label210.Text = "L1 Instr:  " & DATAT["L1_INSTRUCTION_CACHE"]
+      Label211.Text = "L2 Cache:  " & DATAT["L2_CACHE"]
+      Label212.Text = "L3 Cache:  " & DATAT["L3_CACHE"]
+      Label213.Text = "L1 Assoc:  " & DATAT["L1_ASSOC"]
+      Label214.Text = "L2 Assoc:  " & DATAT["L2_ASSOC"]
+      Label215.Text = "L3 Assoc:  " & DATAT["L3_ASSOC"]
+      Label216.Text = "L1 Cacheline:  " & DATAT["L1_CACHELINE"]
+      Label217.Text = "L2 Cacheline:  " & DATAT["L2_CACHELINE"]
+      Label218.Text = "L3 Cacheline:  " & DATAT["L3_CACHELINE"]
+      Label219.Text = "SSE Size:  " & DATAT["SSE_SIZE"]
+      
   Logs("Create Labels in ScrollView1", Logger.Info)
+  
   For i = 1 To 94
       Label[i] = New Label(ScrollView1)
                  With Label[i]
@@ -285,13 +297,6 @@ Public Sub Form_Open()
  
  Label25.Text = Application.version
  Logs(Label25.Text, Logger.Info)
- ''Okno na środku
- If Settings["Window/X"] = Null Then
-  Me.Center
- Else
-  Me.X = Settings["Window/X", Me.X]
-  Me.Y = Settings["Window/Y", Me.Y]
- Endif
  
 End
 
