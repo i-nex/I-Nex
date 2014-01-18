@@ -9,7 +9,6 @@
   Text = "I-Nex"
   Icon = Picture["logo/i-nex.0.4.x.png"]
   Resizable = False
-  Opacity = 0
   Padding = 3
   { Orientation Menu
     Text = ("Orientation")

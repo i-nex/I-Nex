@@ -1,6 +1,5 @@
 [Bookmarks]
 CFlags=[9]
-Finfosys=[]
 
 [Breakpoints]
 Count=0
@@ -26,7 +25,6 @@ SearchString=True
 
 [OpenFile]
 File[1]=".src/Finfosys.form"
-Active=2
 File[2]=".src/Global.class:199.7"
 File[3]=".src/About.form"
 File[4]=".src/About.class:19.0"
@@ -39,6 +37,7 @@ File[10]=".src/USB_Drives.module:2.19"
 File[11]=".src/Asound_Drives.module:2.19"
 File[12]=".src/FReport_Gen.form"
 File[13]=".src/FReport_Gen.class:42.41"
+Active=14
 File[14]=".src/Start_App_Args.form"
 File[15]=".src/Start_App_Args.class:2.19"
 File[16]=".src/ChkPrm.module:2.19"
