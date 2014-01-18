@@ -605,12 +605,6 @@
       }
       Index = 0
     }
-    { Button4 Button
-      Move(441,455,28,28)
-      #Translate = False
-      Font = Font["10"]
-      Picture = Picture["icon:/16/info"]
-    }
     Index = 1
     Text = ("GPU")
     Picture = Picture["AppIcons/Finfosys/xorg.png"]
@@ -1653,11 +1647,6 @@
     { Frame2 Frame
       Move(0,0,469,266)
       Text = ("MTRR")
-      { TextArea2 TextArea
-        Move(0,21,469,238)
-        Text = ("TextArea2")
-        ReadOnly = True
-      }
     }
     { Label176 Label
       Move(7,378,266,28)

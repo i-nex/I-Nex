@@ -33,6 +33,10 @@ Public Sub Form_Open()
   Dim default_display_manager As Boolean = Exist("/etc/X11/default-display-manager")
   Dim cpuz0, cpuz1, cpuz2, cpuz3, cpuz4, cpuz5, cpuz6, cpuz7, cpuz8, cpuz9, cpuz10, cpuz11 As String
   Dim i As Integer
+  Dim data As Stream
+  Dim MaxCount As Integer
+  Dim sLine As String
+  Dim MTRR As New String[]
   Logs("Starting log", Logger.Info)
   Logs("Check whereis inex-cpuid and get JSON Data", Logger.Info)
   Exec [ChkPrm.ChkExecDir("inex-cpuid")] Wait To BUFFER
@@ -69,104 +73,131 @@ Public Sub Form_Open()
   Label219.Text = "SSE Size:  " & DATAT["SSE_SIZE"]
   Logs("Create Labels in ScrollView1", Logger.Info)
   For i = 1 To 94
-    Label[i] = New Label(ScrollView1)
-    With Label[i]
-      .X = 2
-      .Y = 215 + Int(i * 20)
-      .Width = 440
-      .Height = 21
-      .Border = Border.Raised
-      .Padding = 3
-      .Tooltip = DATAT["Flags"][i]["NAME"]
-      .Text = DATAT["Flags"][i]["DESC"]
-    End With
+      Label[i] = New Label(ScrollView1)
+                 With Label[i]
+                      .X = 2
+                      .Y = 215 + Int(i * 20)
+                      .Width = 440
+                      .Height = 21
+                      .Border = Border.Raised
+                      .Padding = 3
+                      .Tooltip = DATAT["Flags"][i]["NAME"]
+                      .Text = DATAT["Flags"][i]["DESC"]
+                 End With
   Next
   Logs("Create ToolButtons in ScrollView1", Logger.Info)
   For i = 1 To 94
-    ToolButton[i] = New ToolButton(ScrollView1)
-    If DATAT["Flags"][i]["VALUE"] = 1 Then
-     YESNO = Picture["Data/check_true.png"]
-    Else
-     YESNO = Picture["Data/check_false.png"]
-    Endif
-    With ToolButton[i]
-      .X = 420
-      .Y = 215 + Int(i * 20)
-      .Width = 21
-      .Height = 21
-      .Picture = YESNO
-      .Tooltip = DATAT["Flags"][i]["VALUE"]
-    End With
+      ToolButton[i] = New ToolButton(ScrollView1)
+                      If DATAT["Flags"][i]["VALUE"] = 1 Then
+                         YESNO = Picture["Data/check_true.png"]
+                      Else
+                         YESNO = Picture["Data/check_false.png"]
+                      Endif
+                      With ToolButton[i]
+                           .X = 420
+                           .Y = 215 + Int(i * 20)
+                           .Width = 21
+                           .Height = 21
+                           .Picture = YESNO
+                           .Tooltip = DATAT["Flags"][i]["VALUE"]
+                     End With
   Next
   Logs("Create TextLabels in ScrollView1", Logger.Info)
   For i = 1 To 94
-    Button[i] = New Button(ScrollView1) As "Buttongroup"
-    With Button[i]
-      .X = 400
-      .Y = 215 + Int(i * 20)
-      .Width = 21
-      .Height = 21
-      .Font.Bold = True
-      .Font.Size = 8
-      .Foreground = 6
-      .Tooltip = "Open Wikipedia page about this processor feature\n" & DATAT["Flags"][i]["WEBSITE"] & ""
-      .Name = DATAT["Flags"][i]["WEBSITE"]
-      .Visible = DATAT["Flags"][i]["HAVEWEBSITE"]
-      .Picture = Picture["AppIcons/applications-internet.png"]
-    End With
+      Button[i] = New Button(ScrollView1) As "Buttongroup"
+                  With Button[i]
+                       .X = 400
+                       .Y = 215 + Int(i * 20)
+                       .Width = 21
+                       .Height = 21
+                       .Font.Bold = True
+                       .Font.Size = 8
+                       .Foreground = 6
+                       .Tooltip = "Open Wikipedia page about this processor feature\n" & DATAT["Flags"][i]["WEBSITE"] & ""
+                       .Name = DATAT["Flags"][i]["WEBSITE"]
+                       .Visible = DATAT["Flags"][i]["HAVEWEBSITE"]
+                       .Picture = Picture["AppIcons/applications-internet.png"]
+                  End With
   Next
   For i = 1 To 94
-    TextLabel[i] = New TextLabel(ScrollView1)
-    With TextLabel[i]
-      .X = 320
-      .Y = 215 + Int(i * 20)
-      .Width = 80
-      .Height = 21
-      .Font.Bold = True
-      .Font.Size = 8
-      .Foreground = 6
-      .Alignment = Align.Center
-      .Text = DATAT["Flags"][i]["FEATURE"]
-    End With
+      TextLabel[i] = New TextLabel(ScrollView1)
+                     With TextLabel[i]
+                          .X = 320
+                          .Y = 215 + Int(i * 20)
+                          .Width = 80
+                          .Height = 21
+                          .Font.Bold = True
+                          .Font.Size = 8
+                          .Foreground = 6
+                          .Alignment = Align.Center
+                          .Text = DATAT["Flags"][i]["FEATURE"]
+                    End With
   Next
+ 
+  Try data = Open "/proc/mtrr" For Input
+
+  While Not Eof(data)
+        Line Input #data, sLine
+        MaxCount += 1
+        MTRR.Add(sLine, MaxCount)
+  Wend
+  
+  Try Close #data
+  
+  If Exist("/proc/mtrr", True) Then
+     For i = 1 To MaxCount
+         Label[i] = New Label(Frame2)
+                    With Label[i]
+                         .X = 4
+                         .Y = Int(i * 20)
+                         .Width = 460
+                         .Height = 21
+                         .Border = Border.Raised
+                         .Padding = 3
+                         .Font.Bold = True
+                         .Text = MTRR[i - 1]
+                    End With
+    Next
+  Endif
+  
   If User.Name = "root" Then
     Message.Error(("Running as root is not allowed!\n " & User.Home & ""))
   Endif
   Logs(Settings.Path, Logger.Info)
   Logs(Settings.DefaultDir, Logger.Info)
-  Finfosys.TabStrip1[9].Visible = False
-  Finfosys.TabStrip1[11].Visible = False
+      Finfosys.TabStrip1[9].Visible = False
+      Finfosys.TabStrip1[11].Visible = False
   Logs("Call to MInit for copy nedded files to I-Nex config dir in User.Home", Logger.Info)
-  Object.Call(MInit, "_inits")
+      Object.Call(MInit, "_inits")
   Logs("Call to Distribution_Detect", Logger.Info)
-  Object.Call(Distribution_Detect, "_inits")
+      Object.Call(Distribution_Detect, "_inits")
   Logs("Settings default dir = " & Settings.DefaultDir & "", Logger.Info)
-  Button14.Visible = ChkPrm.ChkExec("udisks")
+      Button14.Visible = ChkPrm.ChkExec("udisks")
   Logs("Check for Battery", Logger.Info)
-  Object.Call(battery, "_inits")
+      Object.Call(battery, "_inits")
   Logs("Check for Usb device plugged", Logger.Info)
-  Object.Call(USB_Drives, "_inits")
+      Object.Call(USB_Drives, "_inits")
   Logs("Check for Drives", Logger.Info)
-  Object.Call(Disk_Drives, "_inits")
+      Object.Call(Disk_Drives, "_inits")
   Logs("Check for Drives..", Logger.Info)
-  Object.Call(Disk_Drives, "_init_2")
+      Object.Call(Disk_Drives, "_init_2")
   Logs("Check for Drives....", Logger.Info)
-  Object.Call(Disk_Drives, "get_informations")
+      Object.Call(Disk_Drives, "get_informations")
   Logs("Check for Input Drives", Logger.Info)
-  Object.Call(Input_Devices, "_inits")
+      Object.Call(Input_Devices, "_inits")
   Logs("Check available network devices", Logger.Info)
-  Object.Call(net, "inits")
+      Object.Call(net, "inits")
   Logs("Check available graphic DSub, DVI etc", Logger.Info)
-  Object.Call(FGraphic, "_inits")
+      Object.Call(FGraphic, "_inits")
   Logs("Call to Graphic", Logger.Info)
-  Object.Call(FGraphic, "_check")
+      Object.Call(FGraphic, "_check")
   Logs("Check for default display manager", Logger.Info)
   If default_display_manager = True Then
-   Label4.Visible = True
-   Label143.Visible = True
-   Label143.Text = File.Load("/etc/X11/default-display-manager")
-   Label143.Text = "Deafult DM: " & Replace(Label143.Text, "\n", "")
-   Logs("Default display manager is " & Label143.Text, Logger.Info)
+     Label4.Visible = True
+     Label143.Visible = True
+     Label143.Text = File.Load("/etc/X11/default-display-manager")
+     Label143.Text = "Deafult DM: " & Replace(Label143.Text, "\n", "")
+     Logs("Default display manager is " & Label143.Text, Logger.Info)
   Endif
   'Check temperature. If temterature is OK then timer start 1500/ms. Check temp 1500/ms
   Timer1.Start
@@ -590,7 +621,6 @@ Public Sub dospam_uptime()
   TextBox58.Text = Replace(TextBox58.Text, "\n", "")
   Try ProgressBar1.Value = Replace(Replace(dospam, " ", ""), "\n", "") / Replace(Replace(totpam, " ", ""), "\n", "")
   Try ProgressBar4.Value = Replace(Replace(usedswap, " ", ""), "\n", "") / Replace(Replace(totalswap, " ", ""), "\n", "")
-  Try TextArea2.Text = File.Load("/proc/mtrr")
   
 End
 
@@ -638,12 +668,6 @@ Public Sub Button3_Click()
   Logs("Show About Window", Logger.Info)
   About.Show
 
-End
-
-Public Sub Button4_Click()
-
-  Desktop.Open("http://www.cpu-world.com/cgi-bin/SearchSite.pl?SEARCH=" & Label14.Text & "&PROCESS=Search")
-  Logs("Open website for more informations about your processor", Logger.Info)
 End
 
 Public Sub Button7_Click()
