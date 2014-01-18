@@ -3,23 +3,16 @@
 { Form Form
   MoveScaled(0,0,68,77)
   Font = Font["8"]
+  Text = ("EDID")
+  Icon = Picture["i-nex.png"]
   Resizable = False
-  { VBox1 VBox
-    MoveScaled(0,0,68,73)
-    Expand = True
-    { TextArea1 TextArea
-      MoveScaled(0,0,62,62)
-      #Translate = False
-      Font = Font["8"]
-      Expand = True
-      Text = "TextArea1"
-      ReadOnly = True
-    }
-  }
   { Button1 Button
     MoveScaled(59,73,9,4)
     Font = Font["Bold,8"]
     Text = ("Close")
     Picture = Picture["icon:/16/quit"]
+  }
+  { ScrollView1 ScrollView
+    MoveScaled(0,0,68,73)
   }
 }

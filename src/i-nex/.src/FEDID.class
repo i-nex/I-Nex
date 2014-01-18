@@ -14,18 +14,66 @@
 '
 ' You should have received a copy of the GNU General Public License
 ' along with this program. If not, see <http://www.gnu.org/licenses/>.
-
+Private Label[200] As Label
+Private ToolButton[200] As ToolButton
 Public Logs As New Logger
 Public Sub Form_Open()
+ Dim data As Stream
+ Dim i, MaxCount As Integer
+ Dim sLine As String
+ Dim EDID As New String[]
+ 
  If Settings["Window/X"] = Null Then
   Me.Center
  Else
   Me.X = Settings["Window/X", Me.X]
   Me.Y = Settings["Window/Y", Me.Y]
  Endif
+ 
  Logs("Execute edid", Logger.Info)
- Shell "xrandr --verbose | inex-edid" Wait To TextArea1.Text
+ 
+ data = Shell "xrandr --verbose | inex-edid" For Input
 
+ While Not Eof(data)
+        Line Input #data, sLine
+        MaxCount += 1
+        EDID.Add(sLine, MaxCount)
+ Wend
+
+ For i = 1 To MaxCount
+    Label[i] = New Label(ScrollView1)
+    With Label[i]
+      .X = 2
+      If i = 1 Then
+       .Y = 2
+      Else
+       .Y = Int(i * 20)
+      Endif
+      .Width = 440
+      .Height = 21
+      .Border = Border.Raised
+      .Padding = 3
+      .Font.Bold = True
+      .Text = EDID[i - 1]
+    End With
+ Next
+ 
+ For i = 1 To MaxCount
+    ToolButton[i] = New ToolButton(ScrollView1) As "CopyGroup"
+    With ToolButton[i]
+      .X = 420
+      If i = 1 Then
+       .Y = 2
+      Else
+       .Y = Int(i * 20)
+      Endif
+      .Width = 21
+      .Height = 21
+      .Picture = Picture["AppIcons/edit-copy.png"]
+      .Tooltip = "Copy"
+      .Name = EDID[i - 1]
+    End With
+ Next
 End
 
 Public Sub Button1_Click()
@@ -33,3 +81,10 @@ Public Sub Button1_Click()
  Me.Close
 
 End
+
+Public Sub CopyGroup_Click()
+ 
+ Clipboard.Copy(Last.Name)
+ 
+End
+
