@@ -887,6 +887,7 @@
       { ComboBox6 ComboBox
         Move(0,0,144,24)
         #Translate = False
+        Font = Font["8"]
         Expand = True
         ReadOnly = True
       }
@@ -901,6 +902,7 @@
       }
       { TextBox44 TextBox
         Move(132,0,144,24)
+        Font = Font["8"]
         Expand = True
         ReadOnly = True
       }
@@ -910,30 +912,35 @@
       { Label73 Label
         Move(0,0,140,28)
         #Translate = False
+        Font = Font["8"]
         AutoResize = True
         Border = Border.Plain
       }
       { Label18 Label
         Move(140,0,315,28)
         #Translate = False
+        Font = Font["8"]
         Expand = True
         Border = Border.Plain
       }
       { Label74 Label
         Move(0,28,455,28)
         #Translate = False
+        Font = Font["8"]
         Expand = True
         Border = Border.Plain
       }
       { Label77 Label
         Move(0,56,455,28)
         #Translate = False
+        Font = Font["8"]
         Expand = True
         Border = Border.Plain
       }
       { Label78 Label
         Move(0,84,455,28)
         #Translate = False
+        Font = Font["8"]
         Expand = True
         Border = Border.Plain
       }
@@ -943,6 +950,7 @@
       { TextArea18 TextArea
         Move(0,18,455,91)
         #Translate = False
+        Font = Font["8"]
         Expand = True
         Text = "N/A"
         ReadOnly = True
@@ -951,6 +959,7 @@
       { TextArea1 TextArea
         Move(0,162,455,98)
         #Translate = False
+        Font = Font["8"]
         Expand = True
         ReadOnly = True
       }
@@ -1534,6 +1543,7 @@
     Text = ("Kernel")
     { Frame22 Frame
       Move(0,0,469,224)
+      Font = Font["Bold,8"]
       Text = ("Installed kernels:")
       { TextLabel25 TextLabel
         Move(6,24,216,24)
@@ -1545,17 +1555,20 @@
         Move(0,42,469,140)
         { ListBox1 ListBox
           Move(0,0,270,96)
+          Font = Font["8"]
           Expand = True
         }
       }
     }
     { Frame14 Frame
       Move(0,234,469,119)
+      Font = Font["Bold,8"]
       Text = ("Kernel command line:")
       { HBox26 HBox
         Move(0,21,469,77)
         { TextArea3 TextArea
           Move(0,0,450,54)
+          Font = Font["8"]
           Expand = True
           ReadOnly = True
           Wrap = True
@@ -1564,6 +1577,7 @@
     }
     { Button6 Button
       Move(186,360,96,24)
+      Font = Font["8"]
       Text = ("Show modules")
     }
     Index = 7
@@ -1571,6 +1585,7 @@
     Picture = Picture["AppIcons/Finfosys/utilities-system-monitor.png"]
     { TextLabel31 TextLabel
       Move(7,280,126,21)
+      Font = Font["Bold,8"]
       Text = ("Ram used:")
     }
     { ProgressBar1 ProgressBar
@@ -1578,6 +1593,7 @@
     }
     { TextLabel23 TextLabel
       Move(7,329,168,21)
+      Font = Font["Bold,8"]
       Text = ("SWAP memory used:")
     }
     { ProgressBar4 ProgressBar
@@ -1587,42 +1603,49 @@
       Move(273,280,189,147)
       { Label85 Label
         Move(0,0,189,21)
+        Font = Font["Bold,8"]
         Expand = True
         Padding = 4
         Border = Border.Plain
       }
       { Label86 Label
         Move(0,21,189,21)
+        Font = Font["Bold,8"]
         Expand = True
         Padding = 4
         Border = Border.Plain
       }
       { Label87 Label
         Move(0,42,189,21)
+        Font = Font["Bold,8"]
         Expand = True
         Padding = 4
         Border = Border.Plain
       }
       { Label88 Label
         Move(0,63,189,21)
+        Font = Font["Bold,8"]
         Expand = True
         Padding = 4
         Border = Border.Plain
       }
       { Label89 Label
         Move(0,84,189,21)
+        Font = Font["Bold,8"]
         Expand = True
         Padding = 4
         Border = Border.Plain
       }
       { Label90 Label
         Move(0,105,189,21)
+        Font = Font["Bold,8"]
         Expand = True
         Padding = 4
         Border = Border.Plain
       }
       { Label91 Label
         Move(0,126,189,21)
+        Font = Font["Bold,8"]
         Expand = True
         Padding = 4
         Border = Border.Plain
@@ -1634,10 +1657,12 @@
     }
     { TextLabel7 TextLabel
       Move(140,280,77,21)
+      Font = Font["Bold,8"]
       Text = ("N/A")
     }
     { TextLabel24 TextLabel
       Move(147,329,119,21)
+      Font = Font["Bold,8"]
       Text = ("N/A")
     }
     { Separator5 Separator
@@ -1649,6 +1674,7 @@
     }
     { Label176 Label
       Move(7,378,266,28)
+      Font = Font["Bold,8"]
       Text = ("Label176")
       Border = Border.Plain
     }
