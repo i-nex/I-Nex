@@ -1,19 +1,22 @@
 # Gambas Form File 3.0
 
 { Form Form
-  MoveScaled(0,0,68,77)
+  Move(0,0,476,539)
+  #Scaled = False
   #Translate = False
   Font = Font["8"]
   Text = "EDID"
   Icon = Picture["i-nex.png"]
   Resizable = False
-  { Button1 Button
-    MoveScaled(59,73,9,4)
-    Font = Font["Bold,8"]
-    Text = ("Close")
-    Picture = Picture["icon:/16/quit"]
-  }
   { ScrollView1 ScrollView
-    MoveScaled(0,0,68,73)
+    Move(0,0,474,510)
+  }
+  { Button1 Button
+    Move(414,510,63,28)
+    #Translate = False
+    Font = Font["8"]
+    ToolTip = "Close this program"
+    Text = "Close"
+    Picture = Picture["AppIcons/application-exit2.png"]
   }
 }

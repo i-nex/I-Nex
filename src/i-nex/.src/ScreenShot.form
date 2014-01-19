@@ -1,49 +1,56 @@
 # Gambas Form File 3.0
 
 { Form Form
-  MoveScaled(0,0,68,77)
+  Move(0,0,476,539)
+  #Scaled = False
   #Translate = False
   Text = "Screen Shot"
   Icon = Picture["logo/i-nex.0.4.x.png"]
   Resizable = False
   { PictureBox1 PictureBox
-    MoveScaled(6,0,56,65)
+    Move(36,0,402,462)
     Stretch = True
     Border = Border.Plain
   }
   { Button1 Button
-    MoveScaled(58,73,10,4)
+    Move(408,510,66,30)
+    Font = Font["Bold,8"]
     Text = ("Save")
     Picture = Picture["AppIcons/document-save.png"]
   }
   { Button2 Button
-    MoveScaled(47,73,11,4)
+    Move(336,510,72,30)
+    Font = Font["Bold,8"]
     Text = ("Cancel")
     Picture = Picture["AppIcons/application-exit2.png"]
   }
   { Label1 Label
-    MoveScaled(1,65,18,4)
-    Font = Font["Bold,11"]
+    Move(6,462,108,24)
+    Font = Font["Bold,8"]
     Text = ("File name:")
   }
   { Label2 Label
-    MoveScaled(1,69,20,4)
-    Font = Font["Bold,11"]
+    Move(6,486,120,24)
+    Font = Font["Bold,8"]
     Text = ("Save directory:")
   }
   { ButtonBox1 ButtonBox
-    MoveScaled(21,69,46,4)
+    Move(114,486,360,24)
+    Font = Font["9"]
     ReadOnly = True
   }
   { TextBox1 TextBox
-    MoveScaled(21,65,46,4)
+    Move(114,462,360,24)
+    Font = Font["9"]
   }
   { ComboBox1 ComboBox
-    MoveScaled(38,73,9,4)
+    Move(270,510,66,30)
+    Font = Font["Bold,8"]
     ReadOnly = True
   }
   { SliderBox1 SliderBox
-    MoveScaled(0,73,38,4)
+    Move(6,510,264,24)
+    Font = Font["Bold,8"]
     ToolTip = ("Picture quality")
   }
 }

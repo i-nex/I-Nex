@@ -1,32 +1,33 @@
 # Gambas Form File 3.0
 
 { Form Form
-  MoveScaled(0,0,70,75)
+  Move(0,0,476,539)
+  #Scaled = False
   #Translate = False
   Expand = True
   Text = "Modules information"
   Icon = Picture["logo/i-nex.0.4.x.png"]
   Resizable = False
   { HBox1 HBox
-    MoveScaled(0,0,70,4)
+    Move(0,0,474,24)
     { ComboBox1 ComboBox
-      MoveScaled(0,0,24,4)
+      Move(0,0,144,24)
       Expand = True
       ReadOnly = True
     }
   }
   { HBox3 HBox
-    MoveScaled(0,4,70,67)
+    Move(0,24,474,492)
     { TextArea1 TextArea
-      MoveScaled(0,0,11,11)
+      Move(0,0,66,66)
       Expand = True
       ReadOnly = True
     }
   }
   { HBox2 HBox
-    MoveScaled(0,71,70,4)
+    Move(0,516,474,24)
     { Button1 Button
-      MoveScaled(0,0,16,4)
+      Move(0,0,96,24)
       Expand = True
       Text = ("Close")
       Picture = Picture["AppIcons/application-exit2.png"]
