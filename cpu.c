@@ -105,7 +105,7 @@ int main(void)
 	printf("					\"FEATURE\": \"ssse3\",\n");
 	printf("					\"WEBSITE\": \"http://en.wikipedia.org/wiki/SSE3\",\n");
 	printf("					\"HAVEWEBSITE\": 1 ,\n");
-	printf("					\"DESC\": \"SSSE3 instructionss supported (this is different from SSE3!\"\n");
+	printf("					\"DESC\": \"SSSE3 instructionss supported (this is different from SSE3!)\"\n");
 	printf("			},\n");
 	printf("			\"8\": {\n");
 	printf("					\"VALUE\": %s \n", data.flags[CPU_FEATURE_LM] ? "1 ," : "0 ,");
