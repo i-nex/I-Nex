@@ -589,43 +589,43 @@ End
 
 Public Sub dospam_uptime()
   Dim total, used, freee, shared, buffers, cached, usedonthistime, swaptotal As String
-  Dim dospam, totpam, totalswap, usedswap As String
-  Shell "free -m | grep 'Mem' | awk {'print $2'}" Wait To total
-  Shell "free -m | awk {'print $3'} | sed -n '2p'" Wait To used
+  Dim dospam, totpam, totalswap, usedswap, Users As String
+  Dim USAGE_BUFFER As String
+  Dim USAGE As Collection
+  Shell "users | tr ' ' '\n' | wc -l" Wait To Users
+  Exec [ChkPrm.ChkExecDir("inex-usage")] Wait To USAGE_BUFFER
+  USAGE = JSON.Decode(USAGE_BUFFER)
   Shell "free -m | awk {'print $4'} | sed -n '2p'" Wait To freee
-  Shell "free -m | awk {'print $5'} | sed -n '2p'" Wait To shared
-  Shell "free -m | awk {'print $6'} | sed -n '2p'" Wait To buffers
   Shell "free -m | awk {'print $7'} | sed -n '2p'" Wait To cached
-  Shell "free -m | grep - | awk {'print $3'}" To dospam
   Shell "free -m | grep - | awk {'print $3'}" To usedonthistime
+  Shell "free -m | grep - | awk {'print $3'}" To dospam
   Shell "free -m | grep Mem | awk {'print $2'}" Wait To totpam
-  Shell "free -m | grep 'Swap:' | awk {'print $2'}" Wait To swaptotal
-  'Obliczanie zajętości swap
-  Shell "/sbin/swapon -s | awk {'print $3'} | sed -n '2p'" Wait To totalswap
-  Shell "/sbin/swapon -s | awk {'print $4'} | sed -n '2p'" Wait To usedswap
-  'Exec ["/sbin/swapon -s ", "awk {'print $3'}", "sed -n '2p'"] Wait To totalswap
-  'Exec ["/sbin/swapon -s", "awk {'print $4'}", "sed -n '2p'"] Wait To usedswap
-  swaptotal = Replace(swaptotal, "\n", "")
+  dospam = Replace(Replace(dospam, " ", ""), "\n", "")
+  totpam = Replace(Replace(totpam, " ", ""), "\n", "")
   usedonthistime = Replace(usedonthistime, "\n", "")
   cached = Replace(cached, "\n", "")
-  buffers = Replace(buffers, "\n", "")
-  shared = Replace(shared, "\n", "")
   freee = Replace(freee, "\n", "")
-  used = Replace(used, "\n", "")
-  total = Replace(total, "\n", "")
-  Label85.Text = "Total:   " & total & " MB"
-  Label86.Text = "Used:   " & used & " MB"
+  Label85.Text = "Total:   " & Int(USAGE["TOTAL_RAM"]) & " MB"
+  Label86.Text = "Used:   " & Int(Int(USAGE["TOTAL_RAM"]) - Int(USAGE["FREE_RAM"])) & " MB"
   Label87.Text = "Free:   " & freee & " MB"
-  Label88.Text = "Shared:   " & shared & " MB"
-  Label89.Text = "Buffers:   " & buffers & " MB"
+  Label88.Text = "Shared:   " & Int(USAGE["SHARED_RAM"]) & " MB"
+  Label89.Text = "Buffers:   " & Int(USAGE["BUFFERED_RAM"]) & " MB"
   Label90.Text = "Cached:   " & cached & " MB"
-  TextLabel7.Text = usedonthistime & " MB"
-  Label91.Text = "SWAP Total:   " & swaptotal & " MB " ""
-  Try TextLabel24.Text = (Replace(Replace(usedswap, " ", ""), "\n", "") / 1000) & " MB"
-  Try Exec ["/usr/bin/uptime"] Wait To TextBox58.Text
-  TextBox58.Text = Replace(TextBox58.Text, "\n", "")
-  Try ProgressBar1.Value = Replace(Replace(dospam, " ", ""), "\n", "") / Replace(Replace(totpam, " ", ""), "\n", "")
-  Try ProgressBar4.Value = Replace(Replace(usedswap, " ", ""), "\n", "") / Replace(Replace(totalswap, " ", ""), "\n", "")
+  TextLabel7.Text = "Ram used: " & usedonthistime & " MB"
+  Label91.Text = "SWAP Total: " & Int(USAGE["TOTAL_SWAP"]) & " MB " ""
+  TextLabel15.Text = "Physical Memory Used: " & Int(USAGE["PHYS_MEM_USED"]) & " MB " ""
+  TextLabel24.Text = "SWAP memory used: " & Int(Int(USAGE["TOTAL_SWAP"]) - Int(USAGE["FREE_SWAP"])) & " MB"
+  TextBox58.Text = "Days: " & USAGE["UPTIME_DAYS"] & " " &
+                   "Hours: " & USAGE["UPTIME_HOURS"] & " " &
+                   "Minutes: " & USAGE["UPTIME_MINUTES"] & " " &
+                   "Seconds: " & USAGE["UPTIME_SECONDS"] & " " &
+                   "Users: " & Subst$(Users) &
+                   "load average: " & Int(USAGE["LOAD_AVG_1MIN"]) & " " &
+                   ", " & Int(USAGE["LOAD_AVG_5MIN"]) & " " &
+                   ", " & Int(USAGE["LOAD_AVG_15MIN"])
+  Try ProgressBar6.Value = Int(USAGE["PHYS_MEM_USED"]) / Int(USAGE["TOTAL_VIRTUAL_MEM"])
+  Try ProgressBar1.Value = Int(CFloat(dospam)) / Int(CFloat(totpam))
+  Try ProgressBar4.Value = Int(Int(USAGE["TOTAL_SWAP"]) - Int(USAGE["FREE_SWAP"])) / Int(USAGE["TOTAL_SWAP"])
   
 End
 
