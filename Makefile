@@ -56,6 +56,7 @@ dependency_build ?= git \
 make:
 	@printf "\033[1;31mCompile edid-decode as inex-decode \033[0m$1\n"
 	$(CC) -o inex-edid edid-decode.c $(CFLAGS) $(additional_confflags)
+	$(CC) -o inex-usage getusage.c $(CFLAGS) $(additional_confflags)
 	$(CC) -o inex-cpuid cpu.c -static $(CC_OPTS_LIBCPUID) $(additional_confflags)
 	@printf "\033[1;31mCompile src/i-nex stage 1 \033[0m$1\n"
 	$(GBC) $(GBCOPTS) src/i-nex
@@ -82,11 +83,13 @@ self:
 	chmod +x i-nex
 	chmod +x inex-edid
 	chmod +x inex-cpuid
+	chmod +x inex-usage
 	chmod +x debian/check_kernel
 	chmod +x debian/i-nex-lspci
 	$(INSTALL) 0755 i-nex inex$(bindir)
 	$(INSTALL) 0755 inex-edid inex$(bindir)
 	$(INSTALL) 0755 inex-cpuid inex$(bindir)
+	$(INSTALL) 0755 inex-usage inex$(bindir)
 	$(INSTALL) 0755 src/i-nex/i-nex.gambas inex$(bindir)
 	$(INSTALL) 0755 pixmaps/i-nex.xpm inex/usr/share/pixmaps/
 	$(INSTALL) 0755 debian/i-nex.desktop inex/usr/share/applications/
@@ -144,6 +147,7 @@ clean:
 
 	$(RM_COM) $(RMFILE_OPT) inex-edid
 	$(RM_COM) $(RMFILE_OPT) inex-cpuid
+	$(RM_COM) $(RMFILE_OPT) inex-usage
 	$(RM_COM) $(RMDIR_OPT) `find . -name ".gambas"`
 	$(RM_COM) $(RMDIR_OPT) `find . -name "*.gambas"`
 	$(RM_COM) $(RMDIR_OPT) `find . -name ".directory"`
@@ -175,11 +179,13 @@ install:
 	chmod +x i-nex
 	chmod +x inex-edid
 	chmod +x inex-cpuid
+	chmod +x inex-usage
 	chmod +x debian/check_kernel
 	chmod +x debian/i-nex-lspci
 	$(INSTALL) 0755 i-nex $(DESTDIR)$(bindir)
 	$(INSTALL) 0755 inex-edid $(DESTDIR)$(bindir)
 	$(INSTALL) 0755 inex-cpuid $(DESTDIR)$(bindir)
+	$(INSTALL) 0755 inex-usage $(DESTDIR)$(bindir)
 	$(INSTALL) 0755 src/i-nex/i-nex.gambas $(DESTDIR)$(bindir)
 	$(INSTALL) 0755 pixmaps/i-nex.xpm $(DESTDIR)/usr/share/pixmaps/
 	$(INSTALL) 0755 debian/i-nex.desktop $(DESTDIR)/usr/share/applications/
@@ -208,6 +214,7 @@ uninstall:
 	rm $(DESTDIR)$(bindir)/i-nex
 	rm $(DESTDIR)$(bindir)/inex-edid
 	rm $(DESTDIR)$(bindir)/inex-cpuid
+	rm $(DESTDIR)$(bindir)/inex-usage
 	rm $(DESTDIR)$(bindir)/i-nex.gambas
 	rm $(DESTDIR)/usr/share/pixmaps/i-nex.xpm
 	rm $(DESTDIR)/usr/share/applications/i-nex.desktop

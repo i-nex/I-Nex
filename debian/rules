@@ -13,3 +13,4 @@ override_dh_installman:
 	dh_installman debian/manpages/i-nex.gambas.1 -p i-nex
 	dh_installman debian/manpages/inex-edid.1 -p i-nex
 	dh_installman debian/manpages/inex-cpuid.1 -p i-nex
+	dh_installman debian/manpages/inex-usage.1 -p i-nex
