@@ -55,6 +55,9 @@ Public Sub Form_Open()
       .Padding = 3
       .Font.Bold = True
       .Text = EDID[i - 1]
+      If EDID[i - 1] = Null Then
+      .Visible = False
+      Endif
     End With
  Next
  
@@ -72,6 +75,18 @@ Public Sub Form_Open()
       .Picture = Picture["AppIcons/edit-copy.png"]
       .Tooltip = "Copy"
       .Name = EDID[i - 1]
+      If EDID[i - 1] = Null Then
+      .Visible = False
+      Endif
+      If EDID[i - 1] Begins "Extracted" Then
+      .Visible = False
+      Endif
+      If EDID[i - 1] Like "*EDID block does Not*" Then
+      .Visible = False
+      Endif
+      If EDID[i - 1] Like "*Detailed block String*" Then
+      .Visible = False
+      Endif
     End With
  Next
 End
