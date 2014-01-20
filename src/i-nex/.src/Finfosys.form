@@ -1584,22 +1584,18 @@
     Text = ("Memory")
     Picture = Picture["AppIcons/Finfosys/utilities-system-monitor.png"]
     { ProgressBar1 ProgressBar
-      Move(0,245,469,21)
+      Move(140,308,329,21)
     }
     { ProgressBar4 ProgressBar
-      Move(0,287,469,21)
-    }
-    { TextLabel7 TextLabel
-      Move(0,224,469,21)
-      Font = Font["Bold,8"]
-      Text = ("N/A")
-      Alignment = Align.Center
+      Move(140,329,329,21)
     }
     { TextLabel24 TextLabel
-      Move(0,266,469,21)
+      Move(0,329,140,21)
       Font = Font["Bold,8"]
+      Padding = 1
       Text = ("N/A")
-      Alignment = Align.Center
+      Alignment = Align.Left
+      Border = Border.Raised
     }
     { Separator5 Separator
       Move(0,217,469,14)
@@ -1609,7 +1605,7 @@
       Text = ("MTRR")
     }
     { Label176 Label
-      Move(7,448,343,21)
+      Move(0,455,343,21)
       Font = Font["Bold,8"]
       Padding = 3
       Text = ("Label176")
@@ -1621,51 +1617,45 @@
       Picture = Picture["AppIcons/gtk-yes.png"]
     }
     { ProgressBar6 ProgressBar
-      Move(0,329,469,21)
-    }
-    { TextLabel15 TextLabel
-      Move(0,308,469,21)
-      Font = Font["Bold,8"]
-      Text = ("TextLabel15")
-      Alignment = Align.Center
+      Move(140,350,329,21)
     }
     { Label85 Label
-      Move(7,357,189,21)
+      Move(0,371,189,21)
       Font = Font["Bold,8"]
       Expand = True
       Padding = 3
       Border = Border.Raised
     }
     { Label86 Label
-      Move(7,378,189,21)
+      Move(0,392,189,21)
       Font = Font["Bold,8"]
       Expand = True
       Padding = 3
       Border = Border.Raised
     }
     { Label87 Label
-      Move(7,399,189,21)
+      Move(0,413,189,21)
       Font = Font["Bold,8"]
       Expand = True
       Padding = 3
       Border = Border.Raised
     }
     { Label88 Label
-      Move(7,420,189,21)
+      Move(0,434,189,21)
       Font = Font["Bold,8"]
       Expand = True
       Padding = 3
       Border = Border.Raised
     }
     { Label89 Label
-      Move(196,357,189,21)
+      Move(189,371,154,21)
       Font = Font["Bold,8"]
       Expand = True
       Padding = 3
       Border = Border.Raised
     }
     { Label90 Label
-      Move(196,378,189,21)
+      Move(189,392,154,21)
       Font = Font["Bold,8"]
       Expand = True
       Padding = 3
@@ -1673,10 +1663,57 @@
       Border = Border.Raised
     }
     { Label91 Label
-      Move(196,399,189,21)
+      Move(189,434,154,21)
       Font = Font["Bold,8"]
       Expand = True
       Padding = 3
+      Border = Border.Raised
+    }
+    { ProgressBar7 ProgressBar
+      Move(112,245,357,21)
+      Label = False
+    }
+    { ProgressBar8 ProgressBar
+      Move(112,266,357,21)
+      Label = False
+    }
+    { ProgressBar9 ProgressBar
+      Move(112,287,357,21)
+      Label = False
+    }
+    { Label220 Label
+      Move(0,245,112,21)
+      Font = Font["Bold,8"]
+      Padding = 3
+      Text = ("LOAD_AVG_1MIN")
+      Border = Border.Raised
+    }
+    { Label221 Label
+      Move(0,266,112,21)
+      Font = Font["Bold,8"]
+      Padding = 3
+      Text = ("LOAD_AVG_5MIN")
+      Border = Border.Raised
+    }
+    { Label222 Label
+      Move(0,287,112,21)
+      Font = Font["Bold,8"]
+      Text = ("LOAD_AVG_15MIN")
+      Border = Border.Raised
+    }
+    { Label223 Label
+      Move(0,308,140,21)
+      Font = Font["Bold,8"]
+      Padding = 3
+      Text = ("Label223")
+      Border = Border.Raised
+    }
+    { TextLabel15 TextLabel
+      Move(0,350,140,21)
+      Font = Font["Bold,8"]
+      Padding = 1
+      Text = ("TextLabel15")
+      Alignment = Align.Left
       Border = Border.Raised
     }
     Index = 8

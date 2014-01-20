@@ -345,7 +345,7 @@ Public Sub bios()
   
   Exec ["cat", "/sys/devices/virtual/dmi/id/bios_vendor"] Wait To TextLabel5.Text
   Exec ["cat", "/sys/devices/virtual/dmi/id/bios_version"] Wait To TextLabel6.Text
-  Exec ["cat", "/sys/devices/virtual/dmi/id/bios_date"] Wait To TextLabel7.Text
+  Exec ["cat", "/sys/devices/virtual/dmi/id/bios_date"] Wait To TextLabel14.Text
   
   Exec ["cat", "/sys/devices/virtual/dmi/id/chassis_vendor"] Wait To TextLabel8.Text
   Exec ["cat", "/sys/devices/virtual/dmi/id/chassis_version"] Wait To TextLabel9.Text
@@ -361,7 +361,7 @@ Public Sub bios()
   
   TextLabel5.Text = "Bios Vendor:   " & Replace(TextLabel5.Text, "\n", "")
   TextLabel6.Text = "Bios Version:   " & Replace(TextLabel6.Text, "\n", "")
-  TextLabel14.Text = "Bios Date:   " & Replace(TextLabel7.Text, "\n", "")
+  TextLabel14.Text = "Bios Date:   " & Replace(TextLabel14.Text, "\n", "")
   
   TextLabel8.Text = "Chassis Vendor:   " & Replace(TextLabel8.Text, "\n", "")
   TextLabel9.Text = "Chassis Version:   " & Replace(TextLabel9.Text, "\n", "")
@@ -595,23 +595,13 @@ Public Sub dospam_uptime()
   Shell "users | tr ' ' '\n' | wc -l" Wait To Users
   Exec [ChkPrm.ChkExecDir("inex-usage")] Wait To USAGE_BUFFER
   USAGE = JSON.Decode(USAGE_BUFFER)
-  Shell "free -m | awk {'print $4'} | sed -n '2p'" Wait To freee
-  Shell "free -m | awk {'print $7'} | sed -n '2p'" Wait To cached
-  Shell "free -m | grep - | awk {'print $3'}" To usedonthistime
-  Shell "free -m | grep - | awk {'print $3'}" To dospam
-  Shell "free -m | grep Mem | awk {'print $2'}" Wait To totpam
-  dospam = Replace(Replace(dospam, " ", ""), "\n", "")
-  totpam = Replace(Replace(totpam, " ", ""), "\n", "")
-  usedonthistime = Replace(usedonthistime, "\n", "")
-  cached = Replace(cached, "\n", "")
-  freee = Replace(freee, "\n", "")
   Label85.Text = "Total:   " & Int(USAGE["TOTAL_RAM"]) & " MB"
   Label86.Text = "Used:   " & Int(Int(USAGE["TOTAL_RAM"]) - Int(USAGE["FREE_RAM"])) & " MB"
-  Label87.Text = "Free:   " & freee & " MB"
+  Label87.Text = "Free:   " & Int(USAGE["MEMORY_FREE"]) & " MB"
   Label88.Text = "Shared:   " & Int(USAGE["SHARED_RAM"]) & " MB"
   Label89.Text = "Buffers:   " & Int(USAGE["BUFFERED_RAM"]) & " MB"
-  Label90.Text = "Cached:   " & cached & " MB"
-  TextLabel7.Text = "Ram used: " & usedonthistime & " MB"
+  Label90.Text = "Cached:   " & Int(USAGE["MEMORY_CACHED"]) & " MB"
+  Label223.Text = "Ram used: " & Int(USAGE["MEMORY_USER"]) & " MB"
   Label91.Text = "SWAP Total: " & Int(USAGE["TOTAL_SWAP"]) & " MB " ""
   TextLabel15.Text = "Physical Memory Used: " & Int(USAGE["PHYS_MEM_USED"]) & " MB " ""
   TextLabel24.Text = "SWAP memory used: " & Int(Int(USAGE["TOTAL_SWAP"]) - Int(USAGE["FREE_SWAP"])) & " MB"
@@ -624,7 +614,11 @@ Public Sub dospam_uptime()
                    ", " & Int(USAGE["LOAD_AVG_5MIN"]) & " " &
                    ", " & Int(USAGE["LOAD_AVG_15MIN"])
   Try ProgressBar6.Value = Int(USAGE["PHYS_MEM_USED"]) / Int(USAGE["TOTAL_VIRTUAL_MEM"])
-  Try ProgressBar1.Value = Int(CFloat(dospam)) / Int(CFloat(totpam))
+  'Try ProgressBar1.Value = Int(CFloat(dospam)) / Int(CFloat(totpam))
+  Try ProgressBar7.Value = Int(USAGE["LOAD_AVG_1MIN"]) / Int(100)
+  Try ProgressBar8.Value = Int(USAGE["LOAD_AVG_5MIN"]) / Int(100)
+  Try ProgressBar9.Value = Int(USAGE["LOAD_AVG_15MIN"]) / Int(100)
+  Try ProgressBar1.Value = Int(USAGE["MEMORY_USER"]) / Int(USAGE["MEMORY_TOTAL"])
   Try ProgressBar4.Value = Int(Int(USAGE["TOTAL_SWAP"]) - Int(USAGE["FREE_SWAP"])) / Int(USAGE["TOTAL_SWAP"])
   
 End

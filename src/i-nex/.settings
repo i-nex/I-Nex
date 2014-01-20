@@ -1,5 +1,6 @@
 [Bookmarks]
 CFlags=[9]
+Finfosys=[]
 
 [Breakpoints]
 Count=0
@@ -24,9 +25,9 @@ SearchComment=False
 SearchString=True
 
 [OpenFile]
+Active=1
 File[1]=".src/Finfosys.form"
 File[2]=".src/Global.class:199.7"
-Active=3
 File[3]=".src/About.form"
 File[4]=".src/About.class:19.0"
 File[5]=".src/battery.module:136.82"
@@ -49,7 +50,7 @@ File[21]=".src/net.module:2.19"
 File[22]="Data/report-ng.sh:5.3"
 File[23]=".src/Distribution_Detect.module:13.1"
 File[24]=".src/FFlags.module:2.19"
-File[25]=".src/Finfosys.class:950.31"
+File[25]=".src/Finfosys.class:608.3"
 File[26]=".src/FDF.form"
 File[27]=".src/FDF.class:26.6"
 File[28]=".src/FNET_R_T.form"
@@ -80,14 +81,14 @@ File[52]=".src/Reports/MDRIVES_REPORT.module:12.40"
 File[53]=".src/FInputDate.form"
 File[54]=".src/MInit.module:25.23"
 File[55]=".src/FEDID.form"
-File[56]=".src/FEDID.class:25.0"
+File[56]=".src/FEDID.class:83.25"
 File[57]=".src/Logger.class:2.19"
 File[58]=".src/Formatter.module:2.19"
 File[59]=".src/FDirDialog.class:2.19"
 File[60]=".src/FFileDialog.class:2.19"
 File[61]=".src/FInputDate.class:2.19"
 File[62]=".src/FDIMM.form"
-File[63]=".src/FDIMM.class:80.1"
+File[63]=".src/FDIMM.class:64.23"
 Count=63
 
 [Watches]

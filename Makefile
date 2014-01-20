@@ -5,6 +5,7 @@ PKG_INSTALL = apt-get install
 AS_ROOT = sudo
 CFLAGS = -g -Wall
 CC_OPTS_LIBCPUID = $(shell pkg-config libcpuid --cflags --libs)
+CC_OPTS_LIBGTOP = $(shell pkg-config libgtop-2.0 --cflags --libs)
 GBC = /usr/bin/gbc3
 GBCOPTS = -eagtpmv
 GBA = gba3
@@ -51,12 +52,13 @@ dependency_build ?= git \
 		    x11-utils \
 		    mesa-utils \
 		    hostname \
-		    libcpuid11
+		    libcpuid11 \
+		    libgtop2-dev
 
 make:
 	@printf "\033[1;31mCompile edid-decode as inex-decode \033[0m$1\n"
 	$(CC) -o inex-edid edid-decode.c $(CFLAGS) $(additional_confflags)
-	$(CC) -o inex-usage getusage.c $(CFLAGS) $(additional_confflags)
+	$(CC) -o inex-usage getusage.c $(CC_OPTS_LIBGTOP) $(additional_confflags)
 	$(CC) -o inex-cpuid cpu.c -static $(CC_OPTS_LIBCPUID) $(additional_confflags)
 	@printf "\033[1;31mCompile src/i-nex stage 1 \033[0m$1\n"
 	$(GBC) $(GBCOPTS) src/i-nex

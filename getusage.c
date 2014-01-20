@@ -3,26 +3,63 @@
 #include <unistd.h>
 #include <malloc.h>
 #include <sys/sysinfo.h>
+#include <stdio.h>
+#include <glibtop.h>
+#include <glibtop/cpu.h>
+#include <glibtop/mem.h>
+#include <glibtop/proclist.h>
+get_cpu(glibtop_cpu *cpustruct) {
+    glibtop_get_cpu(cpustruct);
+    return 100 - (float)cpustruct->idle / (float)cpustruct->total * 100;
+}
 int main() {
-  int days, hours, mins;
-  struct sysinfo sys_info;
-  struct mallinfo sys_infoggg;
-  if(sysinfo(&sys_info) != 0)
-    perror("sysinfo");
-  long long physMemUsed = sys_info.totalram - sys_info.freeram;
-  //Multiply in next statement to avoid int overflow on right hand side...
-  physMemUsed *= sys_info.mem_unit;
-  long long totalVirtualMem = sys_info.totalram;
-    //Add other values in next statement to avoid int overflow on right hand side...
+    glibtop_init();
+    glibtop_cpu cpu;
+    glibtop_mem memory;
+    glibtop_proclist proclist;
+    glibtop_get_cpu (&cpu);
+    glibtop_get_mem(&memory);
+    glibtop_cpu cpustruct;
+    
+    struct sysinfo sys_info;
+    
+    long long physMemUsed = sys_info.totalram - sys_info.freeram;
+    long long totalVirtualMem = sys_info.totalram;
+    unsigned long total_bytes; 
+    unsigned int sleepfor = 5000;
+    int days, hours, mins;
+    float usagess; 
+
+        usagess = get_cpu(&cpustruct);
+  
+    if(sysinfo(&sys_info) != 0)
+	perror("sysinfo");
+    
+    physMemUsed *= sys_info.mem_unit;
     totalVirtualMem += sys_info.totalswap;
     totalVirtualMem *= sys_info.mem_unit;
-  unsigned long total_bytes; 
-  total_bytes = sys_info.mem_unit * sys_info.totalram; 
-  days = sys_info.uptime / 86400;
-  hours = (sys_info.uptime / 3600) - (days * 24);
-  mins = (sys_info.uptime / 60) - (days * 1440) - (hours * 60);
-	
+    total_bytes = sys_info.mem_unit * sys_info.totalram; 
+  
+    days = sys_info.uptime / 86400;
+    hours = (sys_info.uptime / 3600) - (days * 24);
+    mins = (sys_info.uptime / 60) - (days * 1440) - (hours * 60);
+
 	printf("{\n");
+	printf("	\"CPU_TOTAL\": %ld ,\n", (unsigned long)cpu.total);
+	printf("	\"CPU_USER\": %ld ,\n", (unsigned long)cpu.user);
+	printf("	\"CPU_NICE\": %ld ,\n", (unsigned long)cpu.nice);
+	printf("	\"CPU_SYS\": %ld ,\n", (unsigned long)cpu.sys);
+	printf("	\"CPU_IDLE\": %ld ,\n", (unsigned long)cpu.idle);
+	printf("	\"CPU_FREQUENCES\": %ld ,\n", (unsigned long)cpu.frequency);
+	printf("	\"CPU_USEGE\": %.2f ,\n", usagess);
+	printf("	\"MEMORY_TOTAL\": %ld ,\n", (unsigned long)memory.total/(1024*1024));
+	printf("	\"MEMORY_USED\": %ld ,\n", (unsigned long)memory.used/(1024*1024));
+	printf("	\"MEMORY_FREE\": %ld ,\n", (unsigned long)memory.free/(1024*1024));
+	printf("	\"MEMORY_SHARED\": %ld ,\n", (unsigned long)memory.shared/(1024*1024));
+	printf("	\"MEMORY_BUFFERED\": %ld ,\n", (unsigned long)memory.buffer/(1024*1024));
+	printf("	\"MEMORY_CACHED\": %ld ,\n", (unsigned long)memory.cached/(1024*1024));
+	printf("	\"MEMORY_USER\": %ld ,\n", (unsigned long)memory.user/(1024*1024));
+	printf("	\"MEMORY_LOCKED\": %ld ,\n", (unsigned long)memory.locked/(1024*1024));
 	printf("	\"UPTIME_DAYS\": %d ,\n", days);
 	printf("	\"UPTIME_HOURS\": %d ,\n", hours);
 	printf("	\"UPTIME_MINUTES\": %d ,\n", mins);
@@ -44,7 +81,6 @@ int main() {
 	printf("	\"TOTAL_VIRTUAL_MEM\": %llu ,\n", totalVirtualMem /1024/1024);
 	printf("	\"NUMBER_OF_PROCESSES\": %d \n", sys_info.procs);
 	printf("}\n");
-	
 	/*printf("total usable main memory is %lu B, %lu MB\n", total_bytes/1024/1024, total_bytes/1024/1024);
 	printf("The number of pages of physical memory: %ld bytes\n", sysconf(_SC_PAGESIZE));
 	printf("The maximum number of simultaneous processes per user ID: %ld\n", sysconf(_SC_CHILD_MAX));
