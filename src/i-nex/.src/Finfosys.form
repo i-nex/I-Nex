@@ -1584,17 +1584,17 @@
     Text = ("Memory")
     Picture = Picture["AppIcons/Finfosys/utilities-system-monitor.png"]
     { ProgressBar1 ProgressBar
-      Move(140,308,329,21)
+      Move(7,252,455,21)
     }
     { ProgressBar4 ProgressBar
-      Move(140,329,329,21)
+      Move(7,294,455,21)
     }
     { TextLabel24 TextLabel
-      Move(0,329,140,21)
+      Move(7,273,455,21)
       Font = Font["Bold,8"]
       Padding = 1
       Text = ("N/A")
-      Alignment = Align.Left
+      Alignment = Align.Center
       Border = Border.Raised
     }
     { Separator5 Separator
@@ -1617,7 +1617,7 @@
       Picture = Picture["AppIcons/gtk-yes.png"]
     }
     { ProgressBar6 ProgressBar
-      Move(140,350,329,21)
+      Move(7,336,455,21)
     }
     { Label85 Label
       Move(0,371,189,21)
@@ -1669,51 +1669,20 @@
       Padding = 3
       Border = Border.Raised
     }
-    { ProgressBar7 ProgressBar
-      Move(112,245,357,21)
-      Label = False
-    }
-    { ProgressBar8 ProgressBar
-      Move(112,266,357,21)
-      Label = False
-    }
-    { ProgressBar9 ProgressBar
-      Move(112,287,357,21)
-      Label = False
-    }
-    { Label220 Label
-      Move(0,245,112,21)
-      Font = Font["Bold,8"]
-      Padding = 3
-      Text = ("LOAD_AVG_1MIN")
-      Border = Border.Raised
-    }
-    { Label221 Label
-      Move(0,266,112,21)
-      Font = Font["Bold,8"]
-      Padding = 3
-      Text = ("LOAD_AVG_5MIN")
-      Border = Border.Raised
-    }
-    { Label222 Label
-      Move(0,287,112,21)
-      Font = Font["Bold,8"]
-      Text = ("LOAD_AVG_15MIN")
-      Border = Border.Raised
-    }
     { Label223 Label
-      Move(0,308,140,21)
+      Move(7,231,455,21)
       Font = Font["Bold,8"]
       Padding = 3
       Text = ("Label223")
+      Alignment = Align.Center
       Border = Border.Raised
     }
     { TextLabel15 TextLabel
-      Move(0,350,140,21)
+      Move(7,315,455,21)
       Font = Font["Bold,8"]
       Padding = 1
       Text = ("TextLabel15")
-      Alignment = Align.Left
+      Alignment = Align.Center
       Border = Border.Raised
     }
     Index = 8

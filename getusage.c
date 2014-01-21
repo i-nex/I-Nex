@@ -8,6 +8,7 @@
 #include <glibtop/cpu.h>
 #include <glibtop/mem.h>
 #include <glibtop/proclist.h>
+#include <glibtop/swap.h>
 get_cpu(glibtop_cpu *cpustruct) {
     glibtop_get_cpu(cpustruct);
     return 100 - (float)cpustruct->idle / (float)cpustruct->total * 100;
@@ -16,6 +17,7 @@ int main() {
     glibtop_init();
     glibtop_cpu cpu;
     glibtop_mem memory;
+    glibtop_swap swap;
     glibtop_proclist proclist;
     glibtop_get_cpu (&cpu);
     glibtop_get_mem(&memory);
@@ -60,6 +62,11 @@ int main() {
 	printf("	\"MEMORY_CACHED\": %ld ,\n", (unsigned long)memory.cached/(1024*1024));
 	printf("	\"MEMORY_USER\": %ld ,\n", (unsigned long)memory.user/(1024*1024));
 	printf("	\"MEMORY_LOCKED\": %ld ,\n", (unsigned long)memory.locked/(1024*1024));
+	printf("	\"SWAP_TOTAL\": %ld ,\n", (unsigned long)swap.total);		/* GLIBTOP_SWAP_TOTAL   */
+	printf("	\"SWAP_USED\": %ld ,\n", (unsigned long)swap.used);		/* GLIBTOP_SWAP_USED    */
+	printf("	\"SWAP_FREE\": %ld ,\n", (unsigned long)swap.free);		/* GLIBTOP_SWAP_FREE    */
+	printf("	\"SWAP_PAGEIN\": %ld ,\n", (unsigned long)swap.pagein);		/* GLIBTOP_SWAP_PAGEIN  */
+	printf("	\"SWAP_PAGEOUT\": %ld ,\n", (unsigned long)swap.pageout);	/* GLIBTOP_SWAP_PAGEOUT */
 	printf("	\"UPTIME_DAYS\": %d ,\n", days);
 	printf("	\"UPTIME_HOURS\": %d ,\n", hours);
 	printf("	\"UPTIME_MINUTES\": %d ,\n", mins);
@@ -87,5 +94,6 @@ int main() {
 	printf("The number of clock ticks per second: %ld\n", sysconf(_SC_CLK_TCK));
 	printf("The number of processors currently online (available): %ld\n", sysconf(_SC_NPROCESSORS_ONLN));
 	printf("The number of processors configured: %ld\n", sysconf(_SC_NPROCESSORS_CONF));*/
+  glibtop_close();
   return 0;
 }

@@ -588,36 +588,58 @@ Public Sub Button1_Click()
 End
 
 Public Sub dospam_uptime()
-  Dim total, used, freee, shared, buffers, cached, usedonthistime, swaptotal As String
-  Dim dospam, totpam, totalswap, usedswap, Users As String
+  Dim Users As String
   Dim USAGE_BUFFER As String
   Dim USAGE As Collection
   Shell "users | tr ' ' '\n' | wc -l" Wait To Users
   Exec [ChkPrm.ChkExecDir("inex-usage")] Wait To USAGE_BUFFER
   USAGE = JSON.Decode(USAGE_BUFFER)
-  Label85.Text = "Total:   " & Int(USAGE["TOTAL_RAM"]) & " MB"
-  Label86.Text = "Used:   " & Int(Int(USAGE["TOTAL_RAM"]) - Int(USAGE["FREE_RAM"])) & " MB"
-  Label87.Text = "Free:   " & Int(USAGE["MEMORY_FREE"]) & " MB"
-  Label88.Text = "Shared:   " & Int(USAGE["SHARED_RAM"]) & " MB"
-  Label89.Text = "Buffers:   " & Int(USAGE["BUFFERED_RAM"]) & " MB"
-  Label90.Text = "Cached:   " & Int(USAGE["MEMORY_CACHED"]) & " MB"
-  Label223.Text = "Ram used: " & Int(USAGE["MEMORY_USER"]) & " MB"
-  Label91.Text = "SWAP Total: " & Int(USAGE["TOTAL_SWAP"]) & " MB " ""
-  TextLabel15.Text = "Physical Memory Used: " & Int(USAGE["PHYS_MEM_USED"]) & " MB " ""
-  TextLabel24.Text = "SWAP memory used: " & Int(Int(USAGE["TOTAL_SWAP"]) - Int(USAGE["FREE_SWAP"])) & " MB"
-  TextBox58.Text = "Days: " & USAGE["UPTIME_DAYS"] & " " &
-                   "Hours: " & USAGE["UPTIME_HOURS"] & " " &
-                   "Minutes: " & USAGE["UPTIME_MINUTES"] & " " &
-                   "Seconds: " & USAGE["UPTIME_SECONDS"] & " " &
+  
+  Label85.Text = "Total:   " & 
+                 Int(USAGE["TOTAL_RAM"]) & 
+                 " MB"
+  Label86.Text = "Used:   " & 
+                 Int(Int(USAGE["TOTAL_RAM"]) - Int(USAGE["FREE_RAM"])) & 
+                 " MB"
+  Label87.Text = "Free:   " & 
+                 Int(USAGE["MEMORY_FREE"]) & 
+                 " MB"
+  Label88.Text = "Shared:   " & 
+                 Int(USAGE["SHARED_RAM"]) & 
+                 " MB"
+  Label89.Text = "Buffers:   " & 
+                 Int(USAGE["BUFFERED_RAM"]) & 
+                 " MB"
+  Label90.Text = "Cached:   " & 
+                 Int(USAGE["MEMORY_CACHED"]) & 
+                 " MB"
+  Label223.Text = "Ram used: " & 
+                 Int(USAGE["MEMORY_USER"]) & 
+                 " MB"
+  Label91.Text = "SWAP Total: " & 
+                 Int(USAGE["TOTAL_SWAP"]) & 
+                 " MB "
+  TextLabel15.Text = "Physical Memory Used: " & 
+                 Int(USAGE["PHYS_MEM_USED"]) & 
+                 " MB "
+  TextLabel24.Text = "SWAP memory used: " & 
+                 Int(Int(USAGE["TOTAL_SWAP"]) - Int(USAGE["FREE_SWAP"])) & 
+                 " MB"
+  
+  TextBox58.Text = "Days: " & USAGE["UPTIME_DAYS"] & 
+                   " " &
+                   "Hours: " & USAGE["UPTIME_HOURS"] & 
+                   " " &
+                   "Minutes: " & USAGE["UPTIME_MINUTES"] & 
+                   " " &
+                   "Seconds: " & USAGE["UPTIME_SECONDS"] & 
+                   " " &
                    "Users: " & Subst$(Users) &
                    "load average: " & Int(USAGE["LOAD_AVG_1MIN"]) & " " &
                    ", " & Int(USAGE["LOAD_AVG_5MIN"]) & " " &
                    ", " & Int(USAGE["LOAD_AVG_15MIN"])
+  
   Try ProgressBar6.Value = Int(USAGE["PHYS_MEM_USED"]) / Int(USAGE["TOTAL_VIRTUAL_MEM"])
-  'Try ProgressBar1.Value = Int(CFloat(dospam)) / Int(CFloat(totpam))
-  Try ProgressBar7.Value = Int(USAGE["LOAD_AVG_1MIN"]) / Int(100)
-  Try ProgressBar8.Value = Int(USAGE["LOAD_AVG_5MIN"]) / Int(100)
-  Try ProgressBar9.Value = Int(USAGE["LOAD_AVG_15MIN"]) / Int(100)
   Try ProgressBar1.Value = Int(USAGE["MEMORY_USER"]) / Int(USAGE["MEMORY_TOTAL"])
   Try ProgressBar4.Value = Int(Int(USAGE["TOTAL_SWAP"]) - Int(USAGE["FREE_SWAP"])) / Int(USAGE["TOTAL_SWAP"])
   
