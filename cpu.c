@@ -802,6 +802,14 @@ int main(void)
 	printf("					\"WEBSITE\": \"http://en.wikipedia.org/wiki/X87\",\n");
 	printf("					\"HAVEWEBSITE\": 1 ,\n");
 	printf("					\"DESC\": \"Floating point unit\"\n");
+	printf("			},\n");
+	printf("			\"95\": {\n");
+	printf("					\"VALUE\": %s \n", data.flags[CPU_FEATURE_X2APIC] ? "1 ," : "0 ,");
+	printf("					\"NAME\": \"CPU_FEATURE_X2APIC\",\n");
+	printf("					\"FEATURE\": \"x2apic\",\n");
+	printf("					\"WEBSITE\": \"http://en.wikipedia.org/wiki/X2APIC\",\n");
+	printf("					\"HAVEWEBSITE\": 1 ,\n");
+	printf("					\"DESC\": \"Intel 64 Architecture x2APIC Specification\"\n");
 	printf("			}\n");
 	printf("	},\n");
 	printf("	\"L1_DATA_CACHE\": \"%d\",\n", data.l1_data_cache);

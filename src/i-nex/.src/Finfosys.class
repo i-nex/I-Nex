@@ -14,10 +14,10 @@
 '
 ' You should have received a copy of the GNU General Public License
 ' along with this program. If not, see <http://www.gnu.org/licenses/>.
-Private ToolButton[95] As ToolButton
-Private Label[95] As Label  ' Dim the array of controls
-Private Button[95] As Button
-Private TextLabel[95] As TextLabel
+Private ToolButton[96] As ToolButton
+Private Label[96] As Label  ' Dim the array of controls
+Private Button[96] As Button
+Private TextLabel[96] As TextLabel
 Private YESNO As Picture
 Public AllowLog As Boolean
 Public sLine As String
@@ -84,7 +84,7 @@ Public Sub Form_Open()
       
   Logs("Create Labels in ScrollView1", Logger.Info)
   
-  For i = 1 To 94
+  For i = 1 To 95
       Label[i] = New Label(ScrollView1)
                  With Label[i]
                       .X = 2
@@ -98,7 +98,7 @@ Public Sub Form_Open()
                  End With
   Next
   Logs("Create ToolButtons in ScrollView1", Logger.Info)
-  For i = 1 To 94
+  For i = 1 To 95
       ToolButton[i] = New ToolButton(ScrollView1)
                       If DATAT["Flags"][i]["VALUE"] = 1 Then
                          YESNO = Picture["Data/check_true.png"]
@@ -115,7 +115,7 @@ Public Sub Form_Open()
                      End With
   Next
   Logs("Create TextLabels in ScrollView1", Logger.Info)
-  For i = 1 To 94
+  For i = 1 To 95
       Button[i] = New Button(ScrollView1) As "Buttongroup"
                   With Button[i]
                        .X = 400
@@ -131,7 +131,7 @@ Public Sub Form_Open()
                        .Picture = Picture["AppIcons/applications-internet.png"]
                   End With
   Next
-  For i = 1 To 94
+  For i = 1 To 95
       TextLabel[i] = New TextLabel(ScrollView1)
                      With TextLabel[i]
                           .X = 320
@@ -596,34 +596,34 @@ Public Sub dospam_uptime()
   USAGE = JSON.Decode(USAGE_BUFFER)
   
   Label85.Text = "Total:   " & 
-                 Int(USAGE["TOTAL_RAM"]) & 
+                 Int(USAGE["MEMORY_TOTAL"]) & 
                  " MB"
   Label86.Text = "Used:   " & 
-                 Int(Int(USAGE["TOTAL_RAM"]) - Int(USAGE["FREE_RAM"])) & 
+                 Int(USAGE["MEMORY_USED"]) & 
                  " MB"
   Label87.Text = "Free:   " & 
                  Int(USAGE["MEMORY_FREE"]) & 
                  " MB"
   Label88.Text = "Shared:   " & 
-                 Int(USAGE["SHARED_RAM"]) & 
+                 Int(USAGE["MEMORY_SHARED"]) & 
                  " MB"
   Label89.Text = "Buffers:   " & 
-                 Int(USAGE["BUFFERED_RAM"]) & 
+                 Int(USAGE["MEMORY_BUFFERS"]) & 
                  " MB"
   Label90.Text = "Cached:   " & 
                  Int(USAGE["MEMORY_CACHED"]) & 
                  " MB"
   Label223.Text = "Ram used: " & 
-                 Int(USAGE["MEMORY_USER"]) & 
+                 Int(USAGE["USED_PLUS_CACHED"]) & 
                  " MB"
   Label91.Text = "SWAP Total: " & 
-                 Int(USAGE["TOTAL_SWAP"]) & 
+                 Int(USAGE["SWAP_TOTAL"]) & 
                  " MB "
   TextLabel15.Text = "Physical Memory Used: " & 
                  Int(USAGE["PHYS_MEM_USED"]) & 
-                 " MB "
+                " MB "
   TextLabel24.Text = "SWAP memory used: " & 
-                 Int(Int(USAGE["TOTAL_SWAP"]) - Int(USAGE["FREE_SWAP"])) & 
+                 Int(USAGE["SWAP_USED"]) & 
                  " MB"
   
   TextBox58.Text = "Days: " & USAGE["UPTIME_DAYS"] & 
@@ -640,8 +640,8 @@ Public Sub dospam_uptime()
                    ", " & Int(USAGE["LOAD_AVG_15MIN"])
   
   Try ProgressBar6.Value = Int(USAGE["PHYS_MEM_USED"]) / Int(USAGE["TOTAL_VIRTUAL_MEM"])
-  Try ProgressBar1.Value = Int(USAGE["MEMORY_USER"]) / Int(USAGE["MEMORY_TOTAL"])
-  Try ProgressBar4.Value = Int(Int(USAGE["TOTAL_SWAP"]) - Int(USAGE["FREE_SWAP"])) / Int(USAGE["TOTAL_SWAP"])
+  Try ProgressBar1.Value = Int(USAGE["USED_PLUS_CACHED"]) / Int(USAGE["MEMORY_TOTAL"])
+  Try ProgressBar4.Value = Int(USAGE["SWAP_USED"]) / Int(USAGE["SWAP_TOTAL"])
   
 End
 
