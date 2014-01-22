@@ -81,12 +81,19 @@ Public Sub Form_Open()
       Label217.Text = "L2 Cacheline:  " & DATAT["L2_CACHELINE"]
       Label218.Text = "L3 Cacheline:  " & DATAT["L3_CACHELINE"]
       Label219.Text = "SSE Size:  " & DATAT["SSE_SIZE"]
-      
-  Logs("Create Labels in ScrollView1", Logger.Info)
-  
+
+  Logs("Create Labels ToolButtons TextLabels in ScrollView1", Logger.Info)
   For i = 1 To 94
       Label[i] = New Label(ScrollView1)
-                 With Label[i]
+      ToolButton[i] = New ToolButton(ScrollView1)
+      Button[i] = New Button(ScrollView1) As "Buttongroup"
+      TextLabel[i] = New TextLabel(ScrollView1)
+                  If DATAT["Flags"][i]["VALUE"] = 1 Then
+                     YESNO = Picture["Data/check_true.png"]
+                  Else
+                     YESNO = Picture["Data/check_false.png"]
+                  Endif
+                  With Label[i]
                       .X = 2
                       .Y = 215 + Int(i * 20)
                       .Width = 440
@@ -95,28 +102,15 @@ Public Sub Form_Open()
                       .Padding = 3
                       .Tooltip = DATAT["Flags"][i]["NAME"]
                       .Text = DATAT["Flags"][i]["DESC"]
-                 End With
-  Next
-  Logs("Create ToolButtons in ScrollView1", Logger.Info)
-  For i = 1 To 94
-      ToolButton[i] = New ToolButton(ScrollView1)
-                      If DATAT["Flags"][i]["VALUE"] = 1 Then
-                         YESNO = Picture["Data/check_true.png"]
-                      Else
-                         YESNO = Picture["Data/check_false.png"]
-                      Endif
-                      With ToolButton[i]
+                  End With
+                  With ToolButton[i]
                            .X = 420
                            .Y = 215 + Int(i * 20)
                            .Width = 21
                            .Height = 21
                            .Picture = YESNO
                            .Tooltip = DATAT["Flags"][i]["VALUE"]
-                     End With
-  Next
-  Logs("Create TextLabels in ScrollView1", Logger.Info)
-  For i = 1 To 94
-      Button[i] = New Button(ScrollView1) As "Buttongroup"
+                  End With
                   With Button[i]
                        .X = 400
                        .Y = 215 + Int(i * 20)
@@ -130,10 +124,7 @@ Public Sub Form_Open()
                        .Visible = DATAT["Flags"][i]["HAVEWEBSITE"]
                        .Picture = Picture["AppIcons/applications-internet.png"]
                   End With
-  Next
-  For i = 1 To 94
-      TextLabel[i] = New TextLabel(ScrollView1)
-                     With TextLabel[i]
+                  With TextLabel[i]
                           .X = 320
                           .Y = 215 + Int(i * 20)
                           .Width = 80
@@ -143,9 +134,9 @@ Public Sub Form_Open()
                           .Foreground = 6
                           .Alignment = Align.Center
                           .Text = DATAT["Flags"][i]["FEATURE"]
-                    End With
+                  End With
   Next
- 
+
   Try data = Open "/proc/mtrr" For Input
 
   While Not Eof(data)
