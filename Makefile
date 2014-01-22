@@ -4,8 +4,9 @@ BUILD_PACKAGE = $(shell ./build-deb)
 PKG_INSTALL = apt-get install
 AS_ROOT = sudo
 CFLAGS = -g -Wall
+LSB_CS = $(shell lsb_release -cs)
 CC_OPTS_LIBCPUID = $(shell pkg-config libcpuid --cflags --libs)
-CC_OPTS_LIBPROCPS = $(shell pkg-config libprocps --cflags --libs)
+
 GBC = /usr/bin/gbc3
 GBCOPTS = -eagtpmv
 GBA = gba3
@@ -28,6 +29,11 @@ additional_confflags := --disable-sse2
 endif
 ifeq ($(ARCH),x86_64)
 additional_confflags := -O2
+endif
+ifeq ($(LSB_CS),precise)
+CC_OPTS_LIBPROCPS = -lproc
+else
+CC_OPTS_LIBPROCPS = $(shell pkg-config libprocps --cflags --libs)
 endif
 dependency_build ?= git \
 		    devscripts \
