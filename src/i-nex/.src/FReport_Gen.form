@@ -40,36 +40,49 @@
     Move(7,7,224,350)
     { CheckBox1 CheckBox
       Move(0,0,156,24)
+      Font = Font["Bold,8"]
       Expand = True
       Text = ("CPU Tab")
     }
+    { CheckBox22 CheckBox
+      Move(0,21,154,28)
+      Font = Font["Bold,8"]
+      Expand = True
+      Text = ("CPUID")
+    }
     { CheckBox3 CheckBox
-      Move(0,28,156,24)
+      Move(0,49,156,24)
+      Font = Font["Bold,8"]
       Expand = True
       Text = ("Graphics Tab")
     }
     { CheckBox2 CheckBox
-      Move(0,56,156,24)
+      Move(0,77,156,24)
+      Font = Font["Bold,8"]
       Expand = True
       Text = ("Motherboard / Bios Tab")
     }
     { CheckBox4 CheckBox
-      Move(0,84,156,24)
+      Move(0,105,156,24)
+      Font = Font["Bold,8"]
       Expand = True
       Text = ("Sound Tab")
     }
     { CheckBox14 CheckBox
-      Move(0,112,168,28)
+      Move(0,133,168,28)
+      Font = Font["Bold,8"]
       Expand = True
       Text = ("Drives Tab")
     }
     { CheckBox5 CheckBox
-      Move(0,140,168,28)
+      Move(0,161,168,28)
+      Font = Font["Bold,8"]
       Expand = True
       Text = ("System Tab")
     }
     { CheckBox12 CheckBox
-      Move(0,168,168,28)
+      Move(0,189,168,28)
+      Font = Font["Bold,8"]
       Expand = True
       Text = ("Kernel Tab")
     }
@@ -78,61 +91,73 @@
     Move(245,7,224,350)
     { CheckBox6 CheckBox
       Move(0,0,144,24)
+      Font = Font["8"]
       Expand = True
       Text = ("Include lspci")
     }
     { CheckBox7 CheckBox
       Move(0,24,144,24)
+      Font = Font["8"]
       Expand = True
       Text = ("Include lsusb")
     }
     { CheckBox8 CheckBox
-      Move(0,48,196,28)
+      Move(0,48,196,21)
+      Font = Font["8"]
       Expand = True
       Text = ("Include /proc/scsi/scsi")
     }
     { CheckBox9 CheckBox
       Move(0,72,144,24)
+      Font = Font["8"]
       Expand = True
       Text = ("Include dmesg")
     }
     { CheckBox15 CheckBox
       Move(0,98,168,28)
+      Font = Font["8"]
       Expand = True
       Text = ("Include /proc/mtrr")
     }
     { CheckBox16 CheckBox
       Move(0,126,168,28)
+      Font = Font["8"]
       Expand = True
       Text = ("Include /proc/devices")
     }
     { CheckBox17 CheckBox
       Move(0,154,168,28)
+      Font = Font["8"]
       Expand = True
       Text = ("Include /proc/diskstats")
     }
     { CheckBox18 CheckBox
       Move(0,182,168,28)
+      Font = Font["8"]
       Expand = True
       Text = ("Include /proc/dma")
     }
     { CheckBox10 CheckBox
       Move(0,210,168,28)
+      Font = Font["8"]
       Expand = True
       Text = ("Include /proc/partitions")
     }
     { CheckBox19 CheckBox
       Move(0,238,168,28)
+      Font = Font["8"]
       Expand = True
       Text = ("Include /proc/modules")
     }
     { CheckBox20 CheckBox
       Move(0,266,168,28)
+      Font = Font["8"]
       Expand = True
       Text = ("Include /proc/cmdline")
     }
     { CheckBox21 CheckBox
       Move(0,294,168,28)
+      Font = Font["8"]
       Expand = True
       Text = ("Include /etc/default/grub")
     }

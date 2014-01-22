@@ -57,7 +57,9 @@ Shell "rm " & ButtonBox1.Text & "" Wait
 If CheckBox1.Value = True Then
  Object.Call(MCPU_REPORT, "_inits")
 Endif
-
+If CheckBox22.Value = True Then
+ Object.Call(FCPUID_REPORT, "_inits")
+Endif
 If CheckBox3.Value = True Then
  Object.Call(MGPU_REPORT, "_inits")
 Endif

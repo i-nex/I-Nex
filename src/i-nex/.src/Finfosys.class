@@ -14,10 +14,10 @@
 '
 ' You should have received a copy of the GNU General Public License
 ' along with this program. If not, see <http://www.gnu.org/licenses/>.
-Private ToolButton[96] As ToolButton
-Private Label[96] As Label  ' Dim the array of controls
-Private Button[96] As Button
-Private TextLabel[96] As TextLabel
+Private ToolButton[95] As ToolButton
+Private Label[95] As Label  ' Dim the array of controls
+Private Button[95] As Button
+Private TextLabel[95] As TextLabel
 Private YESNO As Picture
 Public AllowLog As Boolean
 Public sLine As String
@@ -84,7 +84,7 @@ Public Sub Form_Open()
       
   Logs("Create Labels in ScrollView1", Logger.Info)
   
-  For i = 1 To 95
+  For i = 1 To 94
       Label[i] = New Label(ScrollView1)
                  With Label[i]
                       .X = 2
@@ -98,7 +98,7 @@ Public Sub Form_Open()
                  End With
   Next
   Logs("Create ToolButtons in ScrollView1", Logger.Info)
-  For i = 1 To 95
+  For i = 1 To 94
       ToolButton[i] = New ToolButton(ScrollView1)
                       If DATAT["Flags"][i]["VALUE"] = 1 Then
                          YESNO = Picture["Data/check_true.png"]
@@ -115,7 +115,7 @@ Public Sub Form_Open()
                      End With
   Next
   Logs("Create TextLabels in ScrollView1", Logger.Info)
-  For i = 1 To 95
+  For i = 1 To 94
       Button[i] = New Button(ScrollView1) As "Buttongroup"
                   With Button[i]
                        .X = 400
@@ -131,7 +131,7 @@ Public Sub Form_Open()
                        .Picture = Picture["AppIcons/applications-internet.png"]
                   End With
   Next
-  For i = 1 To 95
+  For i = 1 To 94
       TextLabel[i] = New TextLabel(ScrollView1)
                      With TextLabel[i]
                           .X = 320
