@@ -42,7 +42,7 @@ Public Sub _inits()
     If database["DATABASE"][z]["PROCESSOR_MODEL_NAME"] Like "*" & cpucache & "*" Then 
 
       Finfosys.PictureBox3.Picture = Picture["Database/Logos/" & database["DATABASE"][z]["PROCESSOR_SOCKET_IMAGE"] & ""]
-
+      'Finfosys.PictureBox3.Picture = Picture["Database/Logos/306.gif"]
       Finfosys.Label103.Text = " Integrated GPU: " & database["DATABASE"][z]["PROCESSOR_INTEGRATEDGRAPHIC"]
       Finfosys.Label104.Text = " TDP: " & database["DATABASE"][z]["PROCESSOR_TDP"]
       Finfosys.Label110.Text = " PPS: " & database["DATABASE"][z]["PROCESSOR_PROCESS_SIZE"]

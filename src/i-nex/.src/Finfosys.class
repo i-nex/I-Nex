@@ -39,6 +39,8 @@ Public Sub Form_Open()
   Dim sLine As String
   Dim MTRR As New String[]
   Logs("Starting log", Logger.Info)
+  Button4.Visible = False
+  
   MCPUSAGE.GetUSAGE()
   ''Okno na środku
   If Settings["Window/X"] = Null Then
@@ -150,11 +152,11 @@ Public Sub Form_Open()
   
   If Exist("/proc/mtrr", True) Then
      For i = 1 To MaxCount
-         Label[i] = New Label(Frame2)
+         Label[i] = New Label(ScrollView2)
                     With Label[i]
-                         .X = 4
+                         .X = 2
                          .Y = Int(i * 20)
-                         .Width = 460
+                         .Width = 440
                          .Height = 21
                          .Border = Border.Raised
                          .Padding = 3
@@ -163,7 +165,7 @@ Public Sub Form_Open()
                     End With
     Next
   Endif
-  Button4.Visible = ChkPrm.ChkExec("decode-dimms")
+  
   If User.Name = "root" Then
     Message.Error(("Running as root is not allowed!\n " & User.Home & ""))
   Endif
@@ -289,7 +291,7 @@ Public Sub Form_Open()
  
  Label25.Text = Application.version
  Logs(Label25.Text, Logger.Info)
- 
+ TabStrip1_Click()
 End
 
 Public Sub ComboBox1_Click()
@@ -573,11 +575,7 @@ Public Sub Button2_Click()
 End
 
 Public Sub Button1_Click()
-  Settings["Window/X"] = Me.X
-  Settings["Window/Y"] = Me.Y
-  Logs("Good bye!", Logger.Info)
-  MCPUSAGE.CPUusage.Kill
-  Me.Close
+  Form_Close()
 End
 
 Public Sub dospam_uptime()
@@ -929,7 +927,15 @@ Public Sub TabStrip1_Click()
   Button8.Visible = False
   Button14.Visible = False
  Endif
- '
+ If TabStrip1.Current.Text Like "*Memory*" And ChkPrm.ChkExec("decode-dimms") = True Then
+  HBox19.Visible = False
+  Button8.Visible = False
+  Button14.Visible = False
+  Button4.Visible = True
+ Else
+  Button4.Visible = False
+ Endif
+ 
  Me.Text = "I-Nex / " & TabStrip1.Current.Text 
  TabPanel1_Click()
 End
@@ -940,6 +946,17 @@ Public Sub Form_Move()
  Settings["Window/Y"] = Me.Y
  
 End
+
+Public Sub Form_Close()
+ 
+  Settings["Window/X"] = Me.X
+  Settings["Window/Y"] = Me.Y
+  Logs("Good bye!", Logger.Info)
+  MCPUSAGE.CPUusage.Kill
+  Me.Close
+ 
+End
+
 
 Public Sub Button11_Click()
 
