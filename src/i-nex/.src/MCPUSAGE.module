@@ -1,0 +1,17 @@
+' Gambas module file
+
+Public CPUusage As Process
+Private CPUusageOutput As String
+Public Sub GetUSAGE()
+
+  CPUusage = Exec ["/usr/bin/inex-cpusage"] For Input Output As "CPUusage"
+
+End
+
+Public Sub CPUusage_read()
+Dim CPUusageLines As String[]
+Line Input #CPUusage, CPUusageOutput
+  CPUusagelines = Split(CPUusageOutput, "\n")
+  Finfosys.ProgressBar7.Value = CInt(CFloat(CPUusageLines[0])) / 100
+End
+

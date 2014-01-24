@@ -1,0 +1,857 @@
+commit 369fa269dfa4007ff665fafb043447fcbff387c2
+Author: eloaders <eloaders@linux.pl>
+Date:   Wed Jan 22 15:04:08 2014 +0100
+
+    Faster create buttons, labels etc in CPUID
+
+commit cd2a7a1332d6e23664987e4968a8678f9e07edb2
+Author: eloaders <eloaders@linux.pl>
+Date:   Wed Jan 22 11:24:46 2014 +0100
+
+    Add New Option to report CPUID And Flags. Move position of x2apic and remove duplication of fpu.
+
+commit 959f3474821e7cf82ccfe319f7815c62e65e0fd5
+Author: eloaders <eloaders@linux.pl>
+Date:   Wed Jan 22 02:00:57 2014 +0100
+
+    fixes for precise
+
+commit edaff09e1bfa77a87a28eb9d10f5ff4df5778d74
+Author: eloaders <eloaders@linux.pl>
+Date:   Tue Jan 21 15:22:00 2014 +0100
+
+    Update build depends
+
+commit 44e51b4a0c735a337d2dfe8a4e2e9fe557fbe5dd
+Author: eloaders <eloaders@linux.pl>
+Date:   Tue Jan 21 14:20:54 2014 +0100
+
+    Fix free.c as inex-usage. Add Intel 64 Architecture x2APIC Specification detection
+
+commit 32c53e80bc4130cc9d07ffb51c17c02b44daa889
+Author: eloaders <eloaders@linux.pl>
+Date:   Tue Jan 21 10:21:30 2014 +0100
+
+    Fix Memory tab
+
+commit 765ab4d92a6ba6639a8c822e85cfcdfa741b8253
+Author: eloaders <eloaders@linux.pl>
+Date:   Tue Jan 21 00:03:11 2014 +0100
+
+    Fixed Memory Tab, new functions using inex-usage Library libgtop2
+
+commit 9dc677fb37fe35bf64bcf9db2acf35f2dda47870
+Author: eloaders <eloaders@linux.pl>
+Date:   Mon Jan 20 19:25:53 2014 +0100
+
+    New Memory Tab
+
+commit 61ecb31d8240adc1e4d6756498a995a125cc9756
+Author: eloaders <eloaders@linux.pl>
+Date:   Mon Jan 20 11:51:42 2014 +0100
+
+    Add getusage.c as inex-usage:
+    
+    inex-usage -
+    	Print Total Ram
+    	Used ram
+    	Total Swap
+    	Used Swap
+    	Number of processes
+    Example:
+    
+    {
+            "UPTIME_DAYS": 0 ,
+            "UPTIME_HOURS": 0 ,
+            "UPTIME_MINUTES": 56 ,
+            "UPTIME_SECONDS": 34 ,
+            "LOAD_AVG_1MIN": 10816 ,
+            "LOAD_AVG_5MIN": 19520 ,
+            "LOAD_AVG_15MIN": 18592 ,
+            "TOTAL_RAM": 2034244 ,
+            "FREE_RAM": 416428 ,
+            "SHARED_RAM": 0 ,
+            "BUFFERED_RAM": 85244 ,
+            "TOTAL_RAM_UNIT": 2034244 ,
+            "FREE_RAM_UNIT": 416428 ,
+            "TOTAL_SWAP": 2147324 ,
+            "FREE_SWAP": 2147324 ,
+            "TOTAL_HIGH": 0 ,
+            "NUMBER_OF_PROCESSES": 329
+    }
+
+commit 6948703908df29af5775b0716e982c32c005e7ab
+Author: eloaders <eloaders@linux.pl>
+Date:   Mon Jan 20 11:49:37 2014 +0100
+
+    Not show empty Labels and copy button in Detailed block String, EDID block does Not, Extracted
+
+commit 8bbf1853e8d41aeba958db40d21ca5d1690835ba
+Author: eloaders <eloaders@linux.pl>
+Date:   Sun Jan 19 22:52:43 2014 +0100
+
+    Fix Bug (this is different from SSE3!) https://bugs.launchpad.net/i-nex/+bug/1270643
+
+commit b1a947a5314c04b3207f015b9f38ba36c88d6dd2
+Author: eloaders <eloaders@linux.pl>
+Date:   Sun Jan 19 14:16:18 2014 +0100
+
+    Move
+
+commit 055df46ee6011ab6fb6f1c7595677e9f7f7da1c4
+Author: eloaders <eloaders@linux.pl>
+Date:   Sun Jan 19 14:16:09 2014 +0100
+
+    Font = Font["8"]
+
+commit 258bd8d9aad48169fdf2d2cf9bc906779897a556
+Author: eloaders <eloaders@linux.pl>
+Date:   Sun Jan 19 14:08:51 2014 +0100
+
+    #Scaled = False
+
+commit 1b5e8de71aa35b2753457203d11f6115e786846f
+Author: eloaders <eloaders@linux.pl>
+Date:   Sat Jan 18 22:57:06 2014 +0100
+
+    Again try to fix bug window not show
+
+commit 30302e22a9f9212e676316307152d051e10b0f7b
+Author: eloaders <eloaders@linux.pl>
+Date:   Sat Jan 18 19:44:49 2014 +0100
+
+    Try to fix window not show
+
+commit b1e3b614d10c19f92ef03297ebe85406c23aa92f
+Author: eloaders <eloaders@linux.pl>
+Date:   Sat Jan 18 16:30:33 2014 +0100
+
+    Add GUI For decode-dimms
+    
+    Must be modprobe:
+    /sbin/modprobe eeprom
+    /sbin/modprobe i2c-i801
+
+commit 6b97b96bc21503358c243fc7bfa2184c58a5e063
+Author: eloaders <eloaders@linux.pl>
+Date:   Sat Jan 18 13:50:02 2014 +0100
+
+    Better MTRR information.
+
+commit fa1e35d6274151addb0c7099564c8d1e026f5597
+Author: eloaders <eloaders@linux.pl>
+Date:   Sat Jan 18 13:01:42 2014 +0100
+
+    Better EDID Window
+
+commit a80aeb8b4bd571981e0e6a4ec6f56f2abb2027a7
+Author: eloaders <eloaders@linux.pl>
+Date:   Sat Jan 18 00:32:07 2014 +0100
+
+    Fix force detect EDID
+
+commit 389419abb0f94bc10915df23cc2419785251612b
+Author: eloaders <eloaders@linux.pl>
+Date:   Sat Jan 18 00:16:11 2014 +0100
+
+    Update inex-cpuid in i-nex.spec and PKGBUILD
+
+commit f864e34c85a71e166b701542bb9424a1865b3bd4
+Author: eloaders <eloaders@linux.pl>
+Date:   Sat Jan 18 00:12:44 2014 +0100
+
+    Fix Window Size
+
+commit 68d4a6766368162b6d5209f17aa2a7cb2de8bc00
+Author: eloaders <eloaders@linux.pl>
+Date:   Sat Jan 18 00:12:39 2014 +0100
+
+    Fix Window Size
+
+commit 29600402b92a09947638728ec985d707760a1755
+Author: eloaders <eloaders@linux.pl>
+Date:   Sat Jan 18 00:12:33 2014 +0100
+
+    Fix Window Size
+
+commit b986e8e84b539a162f61ce7c9268f14fd168d899
+Author: eloaders <eloaders@linux.pl>
+Date:   Sat Jan 18 00:01:25 2014 +0100
+
+    Add more Wikipedia links to cpu.c
+
+commit 5cc576d37cc9161f0c839dcc48236091e0c64e14
+Author: eloaders <eloaders@linux.pl>
+Date:   Fri Jan 17 23:21:45 2014 +0100
+
+    Try to fix Bug https://bugs.launchpad.net/i-nex/+bug/1269970/
+
+commit 594f2f7fd0796e5afbba7e6df2b33f5405dbbe47
+Author: eloaders <eloaders@linux.pl>
+Date:   Fri Jan 17 19:01:51 2014 +0100
+
+    Add button to open Wikipedia page about processor features
+
+commit 345b1a3bd053f71b235c59d48a837c55bb7c6c05
+Author: eloaders <eloaders@linux.pl>
+Date:   Fri Jan 17 14:23:28 2014 +0100
+
+    Updating the specification of building rpm packages
+
+commit c25844feaf98d2abaa301c5d288e8527ba760254
+Author: eloaders <eloaders@linux.pl>
+Date:   Fri Jan 17 14:22:55 2014 +0100
+
+    Adding the current git revision to the names of the installer run
+
+commit 31044875ef04d6f9aff0b1851ce3c6248f9980c3
+Author: eloaders <eloaders@linux.pl>
+Date:   Fri Jan 17 14:22:10 2014 +0100
+
+    Displaying the flag shortcut processor
+
+commit 64e275d7198c64f334195efee333936459db6cd9
+Author: eloaders <eloaders@linux.pl>
+Date:   Fri Jan 17 11:44:05 2014 +0100
+
+    Don't show ComboBox to select info of processor[0-9] if TabPanel1.Current.Text = CPUID
+
+commit b8ff5cd0a94b4cb63e88475a8cd9c2a8ff8b50c5
+Author: eloaders <eloaders@linux.pl>
+Date:   Thu Jan 16 15:48:01 2014 +0100
+
+    Update desktop file
+
+commit 3f3f35dcd3e7f79e352868072e0563659b917292
+Author: eloaders <eloaders@linux.pl>
+Date:   Thu Jan 16 14:16:51 2014 +0100
+
+    Update debian menu
+
+commit 2c82eb3f6b3112310ecc2f5e15467dad1cced56d
+Author: eloaders <eloaders@linux.pl>
+Date:   Thu Jan 16 14:16:39 2014 +0100
+
+    Remove not nedded png. And replace icons. Convert to xpm, not png
+
+commit 4e03b87bdfeb8bf5b7ae7457204b6d3eecbd2c6f
+Author: eloaders <eloaders@linux.pl>
+Date:   Thu Jan 16 14:16:00 2014 +0100
+
+    additional_confflags
+
+commit 4278cf0feeb47a43f78909728a2027a68497b84f
+Author: eloaders <eloaders@linux.pl>
+Date:   Thu Jan 16 13:11:33 2014 +0100
+
+    Fix MMX Flags
+
+commit d714b3e051d0029455082afc995b56265bd5b80c
+Author: eloaders <eloaders@linux.pl>
+Date:   Thu Jan 16 02:03:16 2014 +0100
+
+    Update About Author email and homepage
+
+commit 0cfa2d27813675a3362509c8f55247292ca13e3d
+Author: eloaders <eloaders@linux.pl>
+Date:   Wed Jan 15 01:15:32 2014 +0100
+
+    Add More informations from inex-cpuid to I-Nex
+
+commit 2526d14f4bc4a51d86d7a3fc9f3668c06b11052a
+Author: eloaders <eloaders@linux.pl>
+Date:   Tue Jan 14 22:05:17 2014 +0100
+
+    Fix battery
+
+commit eb1de9662eb11b9d4ee7eccad7cde8d7c2cc8558
+Author: eloaders <eloaders@linux.pl>
+Date:   Tue Jan 14 15:34:27 2014 +0100
+
+    Show CPUINFO And CPUID information. First use /proc and two use CPUID Instruction.
+    
+    I-Nex now detect Processor flags and show if processor have this
+    instruction.
+    
+    + Add Real OS, Measure Processor Clock
+
+commit 4c97f912ebc9e651dbe2a0c6673f40a5a77f3eac
+Author: eloaders <eloaders@linux.pl>
+Date:   Tue Jan 14 11:20:23 2014 +0100
+
+    Fix inex-cpuid Location
+
+commit 9e50771d65cd3f4bd34b39ace2204e1b0485d043
+Author: eloaders <eloaders@linux.pl>
+Date:   Tue Jan 14 10:12:54 2014 +0100
+
+    Better info for Flags
+
+commit cd44fc8c31090a7a3889cce5d7934e4656975e89
+Author: eloaders <eloaders@linux.pl>
+Date:   Tue Jan 14 10:12:29 2014 +0100
+
+    Add inex-cpuid.1 man1
+
+commit c63e5b057f35b6606ef424301c77d1ca900ab400
+Author: eloaders <eloaders@linux.pl>
+Date:   Tue Jan 14 10:09:45 2014 +0100
+
+    Update Makefile
+
+commit b1fe454f373c9e4d02448f5da62975a3d1459bbe
+Author: eloaders <eloaders@linux.pl>
+Date:   Mon Jan 13 23:38:38 2014 +0100
+
+    update settings
+
+commit 2637879a019c49c4fcc005799f4c9ece4a27858c
+Author: eloaders <eloaders@linux.pl>
+Date:   Mon Jan 13 23:38:26 2014 +0100
+
+    Add CFlags
+
+commit 0dcec5af32e96d73e0820a43ac9b59dbb237640d
+Author: eloaders <eloaders@linux.pl>
+Date:   Mon Jan 13 23:38:09 2014 +0100
+
+    Add Function to show CFlags.Show
+
+commit 9349b050789c143d3bb4b3e40cbf7e5d7097a0c8
+Author: eloaders <eloaders@linux.pl>
+Date:   Mon Jan 13 23:37:47 2014 +0100
+
+    Add to flags More... button
+
+commit b87b5dc375ccca0d40329afb04deed491d01d9d6
+Author: eloaders <eloaders@linux.pl>
+Date:   Mon Jan 13 23:36:33 2014 +0100
+
+    Add Window ICON
+
+commit fc025ad0b59d00ddf93e17c4d3551765601a853e
+Author: eloaders <eloaders@linux.pl>
+Date:   Mon Jan 13 23:35:42 2014 +0100
+
+    Fix amdphenom.png location
+
+commit 5cee7dd5f109255b2560ff2039668e37f737141c
+Author: eloaders <eloaders@linux.pl>
+Date:   Mon Jan 13 23:35:15 2014 +0100
+
+    Fix now Printf as JSON Format
+
+commit 5992456b1b02c694c53fdcc83d5d058a3df05da6
+Author: eloaders <eloaders@linux.pl>
+Date:   Sun Jan 12 22:45:47 2014 +0100
+
+    Update depends
+
+commit e039cc33756b4ff324dccef11ea0331ab2166219
+Author: eloaders <eloaders@linux.pl>
+Date:   Sun Jan 12 22:15:09 2014 +0100
+
+    Add New Program for show processor FLAGS
+
+commit dd614bced76e25302e4256065fce9c988c58c522
+Author: eloaders <eloaders@linux.pl>
+Date:   Sun Jan 12 01:13:48 2014 +0100
+
+    Add License info
+
+commit f9a0acf33924bfdf68ba63795050ed5d78729d84
+Author: eloaders <eloaders@linux.pl>
+Date:   Sat Jan 11 16:30:51 2014 +0100
+
+    Move
+
+commit 9beeb885be27b1d9dc42db846fd85d02c592c774
+Author: eloaders <eloaders@linux.pl>
+Date:   Sat Jan 11 16:30:29 2014 +0100
+
+    Show I-Nex current git revision
+
+commit 1685528ea23bf1b96babb82b088996659338c1e6
+Author: eloaders <eloaders@linux.pl>
+Date:   Sat Jan 11 03:00:41 2014 +0100
+
+    Fix Battery module
+
+commit ea5c43f17afec5816b009ecf775e49e7cfe7ee55
+Author: eloaders <eloaders@linux.pl>
+Date:   Fri Jan 10 00:45:49 2014 +0100
+
+    Update battery module for Samsung N150+ /sys/class/power_supply/BAT1
+
+commit be5e579f5a3eea62ba28878987b29f126689a4bd
+Author: eloaders <eloaders@linux.pl>
+Date:   Thu Jan 9 15:47:46 2014 +0100
+
+    Add icons to TabStrip
+
+commit 6de521b136503bae05de1b92a13d8f481ca0de1e
+Author: eloaders <eloaders@linux.pl>
+Date:   Thu Jan 9 13:02:28 2014 +0100
+
+    Add feanza icons and remember window position X/Y on all win
+
+commit d2b3dcbbec9d2b31a0d9162e1ef14fb92dd4d495
+Author: eloaders <eloaders@linux.pl>
+Date:   Wed Jan 8 13:44:45 2014 +0100
+
+    Use DV, not File.Load
+
+commit 8acf8cc1c17b9a666af1d141e6e8020123afec9a
+Author: eloaders <eloaders@linux.pl>
+Date:   Wed Jan 8 13:43:31 2014 +0100
+
+    Move Buttons and ComboBox
+
+commit 1f19c68ee1f4a800b8f210f38d8e5e92e3b953ec
+Author: eloaders <eloaders@linux.pl>
+Date:   Wed Jan 8 13:00:42 2014 +0100
+
+    update PKGBUILD
+
+commit 5c13921d045b67c1fe62672d89f1df9b364d68d8
+Author: eloaders <eloaders@linux.pl>
+Date:   Mon Jan 6 17:47:08 2014 +0100
+
+    Add detect new CPU temp
+
+commit 1732f49448558e5d6a9c44fd6dc9f8accad30e07
+Author: eloaders <eloaders@linux.pl>
+Date:   Mon Jan 6 17:46:50 2014 +0100
+
+    Add detect filesystem type ls -l /sys/fs/*/*
+
+commit 08b2299098eee037080032e422d62c37007982d2
+Author: eloaders <eloaders@linux.pl>
+Date:   Mon Jan 6 17:46:25 2014 +0100
+
+    Fix OpenSUSE Powered By detect
+
+commit 5fd55cc102e4bd74c9bdf4c5c7a1bbd152b687c4
+Author: eloaders <eloaders@linux.pl>
+Date:   Sun Jan 5 23:28:44 2014 +0100
+
+    Not Print screenfetch-dev output
+
+commit 4ed88ac44c97e26eaf9d8c0860dc7684b92b3b6a
+Author: eloaders <eloaders@linux.pl>
+Date:   Sun Jan 5 22:57:28 2014 +0100
+
+    Fix screenfetch-dev
+
+commit ed1a5d4a9310d961f42aeb28761f7a521a222f9c
+Author: eloaders <eloaders@linux.pl>
+Date:   Sun Jan 5 18:26:36 2014 +0100
+
+    Fix CPU tab
+
+commit 7ebe7a6067a4f2ff3a68331e3e5f95b5d02c77ca
+Author: eloaders <eloaders@linux.pl>
+Date:   Sun Jan 5 18:14:59 2014 +0100
+
+    Save logs to /tmp/i-nex.log
+
+commit a8ca993a258bbc5d9128a9f6fca325f691614741
+Author: eloaders <eloaders@linux.pl>
+Date:   Sun Jan 5 18:14:35 2014 +0100
+
+    Fix logs
+
+commit ede92a18dac0165fcfdec9dc919b512210aa04db
+Author: eloaders <eloaders@linux.pl>
+Date:   Sun Jan 5 15:46:26 2014 +0100
+
+    http://tools.ietf.org/html/rfc5424
+
+commit c97ede31988ebfba15758bec444c24e8ddca300f
+Author: eloaders <eloaders@linux.pl>
+Date:   Sat Jan 4 16:37:31 2014 +0100
+
+    Force detect EDID information from xrandr --verbose
+
+commit 2154cd072239659a9b3800ddebd8335d1cf97bf8
+Author: eloaders <eloaders@linux.pl>
+Date:   Sat Jan 4 01:28:32 2014 +0100
+
+    Add Menu to set TabStrip orientation and remember windows position
+
+commit 6f276188f356b84a3264b52a201a0674eb1f4abd
+Author: eloaders <eloaders@linux.pl>
+Date:   Sat Jan 4 01:27:39 2014 +0100
+
+    Add 2014
+
+commit dd977b1ffe73f1aa9322363772f4a30ca463b668
+Author: eloaders <eloaders@linux.pl>
+Date:   Sat Jan 4 01:27:19 2014 +0100
+
+    Change GBCOPTS
+
+commit 801be661fbf74b92e39866ada63cfa1cc0742c64
+Author: eloaders <eloaders@linux.pl>
+Date:   Sat Jan 4 01:27:01 2014 +0100
+
+    Fix database
+
+commit b456b38fc16ff9968e48eb320464955baf1894be
+Author: eloaders <eloaders@linux.pl>
+Date:   Tue Dec 31 21:47:22 2013 +0100
+
+    New informations in Network tab
+
+commit 09c532b17688fb78b3af50443071e5a2e3adb811
+Author: eloaders <eloaders@linux.pl>
+Date:   Tue Dec 31 17:35:03 2013 +0100
+
+    Cosmetics changes
+
+commit 8ae7ad64575e5fa1a28d44562c7419ae8c64f8cd
+Author: eloaders <eloaders@linux.pl>
+Date:   Tue Dec 31 17:34:43 2013 +0100
+
+    Cosmetics changes
+
+commit 7504c926b76fdc35688fe4ab09b44e2d23214f0f
+Author: eloaders <eloaders@linux.pl>
+Date:   Tue Dec 31 17:34:30 2013 +0100
+
+    Rm file:// from savefile
+
+commit 55f3698624341dfb04911ca2d58cc0fe862b9283
+Author: eloaders <eloaders@linux.pl>
+Date:   Tue Dec 31 17:33:58 2013 +0100
+
+    Fix env
+
+commit 52ebe3903ae9244411226d593ead6b6fd8597649
+Author: eloaders <eloaders@linux.pl>
+Date:   Tue Dec 31 17:33:48 2013 +0100
+
+    fix changelogs dir
+
+commit c5db19a6ab13196c3d4df0a5e3ef1657034b624c
+Author: eloaders <eloaders@linux.pl>
+Date:   Tue Dec 31 17:33:28 2013 +0100
+
+    Rm utils
+
+commit 8856fb9580295545d5e505128f72e18dd30d0876
+Author: eloaders <eloaders@linux.pl>
+Date:   Tue Dec 31 17:33:08 2013 +0100
+
+    fix send report
+
+commit ffd7b6488f75272e6237db7ec0abbd1c2ce70a72
+Author: eloaders <eloaders@linux.pl>
+Date:   Mon Dec 30 03:50:27 2013 +0100
+
+    Speedup CPU detect from database on Intel Atom platforms
+
+commit f7794587472110fe440ea8588f160112358773df
+Author: eloaders <eloaders@linux.pl>
+Date:   Mon Dec 30 03:49:30 2013 +0100
+
+    Beeter Add detect savefile Begins "file:"
+
+commit f462f45d4941911038ab64646830bbad812f33ec
+Author: eloaders <eloaders@linux.pl>
+Date:   Mon Dec 30 03:48:21 2013 +0100
+
+    Check access to home
+
+commit 05f9b3d07a9f6c8228e41d89eb3008eb662bf7d0
+Author: eloaders <eloaders@linux.pl>
+Date:   Mon Dec 30 03:47:33 2013 +0100
+
+    Cpu Vendor Font["Bold,12"]
+
+commit 7120c8089bf69a1fc2620b794a6fc5b2a9868ca6
+Author: eloaders <eloaders@linux.pl>
+Date:   Mon Dec 30 03:47:13 2013 +0100
+
+    Cpu Vendor to UCase$
+
+commit 4de442625100853a008607afb56ee2a561ea224f
+Author: eloaders <eloaders@linux.pl>
+Date:   Mon Dec 30 03:46:40 2013 +0100
+
+    If IsNull(monitor_name)
+
+commit 36b70cc98d3a9965c5e8693bf069e8969c4e6335
+Author: eloaders <eloaders@linux.pl>
+Date:   Mon Dec 30 03:46:17 2013 +0100
+
+    If IsNull
+
+commit 10dd4bade4950515a729682425500dceae29d3fb
+Author: eloaders <eloaders@linux.pl>
+Date:   Mon Dec 30 03:45:53 2013 +0100
+
+    cd pixmaps; make
+    +	$(MAKE) -C pixmaps
+
+commit cd7b62be9ce4f9ca4e7ebaedbc29ceaabf2f83c9
+Author: eloaders <eloaders@linux.pl>
+Date:   Mon Dec 30 00:40:17 2013 +0100
+
+    dh_installman debian/manpages/*
+
+commit 713a27518e32aa0a43244ef3f04d52253ed47642
+Author: eloaders <eloaders@linux.pl>
+Date:   Mon Dec 30 00:39:50 2013 +0100
+
+    MV changelogs
+
+commit aac19d5267c2974cd1a1cd89b37e1225c1be6849
+Author: eloaders <eloaders@linux.pl>
+Date:   Sun Dec 29 22:03:02 2013 +0100
+
+    Update files for deb docs
+
+commit c83d567670974fd37d84454c624ddac34eb15ef5
+Author: eloaders <eloaders@linux.pl>
+Date:   Sun Dec 29 21:15:45 2013 +0100
+
+    Remove make patch and make unpatch. And set default conf dir to ~/.i-nex
+
+commit acede3692841cf02d6d3dccf817f324cc4885d79
+Author: eloaders <eloaders@linux.pl>
+Date:   Sun Dec 29 21:00:23 2013 +0100
+
+    New. If System have kdialog, yad, zenity then file chooser use this command to get save file dir i Generate report
+
+commit bcb1d022ef4e602e52027e89c5ddc2e7330b6978
+Author: eloaders <eloaders@linux.pl>
+Date:   Sun Dec 29 20:01:59 2013 +0100
+
+    Some fixes
+
+commit 34910131c0190160c11eb2280681eb0d2b5cbdd5
+Author: eloaders <eloaders@linux.pl>
+Date:   Sun Dec 29 19:08:55 2013 +0100
+
+    Rm Depends from makefile gambas3-gb-form-dialog gambas3-gb-settings
+
+commit 0afd6ddc5496524500923c5813a99c55f236206c
+Author: eloaders <eloaders@linux.pl>
+Date:   Sun Dec 29 19:08:21 2013 +0100
+
+    RM
+    
+    Export, Create Static, Class Window Desktop Screens
+
+commit 2046038158e89d7fc7c26472c5ac6b9ed6abbab5
+Author: eloaders <eloaders@linux.pl>
+Date:   Sun Dec 29 18:40:46 2013 +0100
+
+    Add APPMENU_DISPLAY_BOTH=1
+
+commit 57975f019fef3ecdaf676da11b279938b575963b
+Author: eloaders <eloaders@linux.pl>
+Date:   Sun Dec 29 18:31:02 2013 +0100
+
+    Graphic Tab fixes and Add.....
+    
+    Add new labels for:
+    voltage_level
+    Gamma:
+    Maximum image size:
+    
+    Change labels style from Plain to Raised
+
+commit 58c162bce2610ed1e8c8b22288b7b66790292d3a
+Author: eloaders <eloaders@linux.pl>
+Date:   Sun Dec 29 16:56:41 2013 +0100
+
+    Add new informations to System report
+
+commit 613095580ae3b7d5eba1ec8c19173030c08a9415
+Author: eloaders <eloaders@linux.pl>
+Date:   Sun Dec 29 15:29:44 2013 +0100
+
+    Add elementary OS Sticker and LinuxDeepin
+
+commit 4441fd5df96aaee5d5d9b39fdfe30dd237209b51
+Author: eloaders <eloaders@linux.pl>
+Date:   Sun Dec 29 14:12:23 2013 +0100
+
+    Update PKGBUILD
+
+commit 419c327c60156b12b845f5a49f68883c093e0dd0
+Author: eloaders <eloaders@linux.pl>
+Date:   Sat Dec 28 17:44:11 2013 +0100
+
+    Add to System tab more info.
+    
+    GNU Make Version
+    PPP
+    Dynamic linker (ldd)
+    Net-tools
+    Wireless-tools
+
+commit 1ce54f1b64133cde68d63bd0a0caa52ff9cf5888
+Author: eloaders <eloaders@linux.pl>
+Date:   Sat Dec 28 14:35:02 2013 +0100
+
+    Cosmetics changes
+
+commit f09b6f4cf344f499a614d386c4a222ed477f982f
+Author: eloaders <eloaders@linux.pl>
+Date:   Sat Dec 28 14:22:36 2013 +0100
+
+    Update ATI Logo
+
+commit e35928ba02b45c87f6c8733e8e6108b81c971ab1
+Author: eloaders <eloaders@linux.pl>
+Date:   Sat Dec 28 14:22:27 2013 +0100
+
+    Rm .directory file
+
+commit 37b0d828951dfc99458a0548bc3d894cfb3e2284
+Author: eloaders <eloaders@linux.pl>
+Date:   Sat Dec 28 14:15:07 2013 +0100
+
+    Remove $(RM_COM) $(RMDIR_OPT) `find . -name "screenfetch-dev"`
+
+commit a33330a3d983436396d02e023267f2f79dc0fd1d
+Author: eloaders <eloaders@linux.pl>
+Date:   Sat Dec 28 14:10:27 2013 +0100
+
+    change font labels All to Bold,8
+
+commit 307878e062252fb2d540e32277be5ddd647c4438
+Author: eloaders <eloaders@linux.pl>
+Date:   Sat Dec 28 13:48:27 2013 +0100
+
+    Try to fix broken detection of gtk, wm, themes etc
+
+commit 45e3ba99ebe151643bf0127c7617b438dca89caa
+Author: eloaders <eloaders@linux.pl>
+Date:   Fri Dec 27 23:36:02 2013 +0100
+
+commit 9195f5021793595319115a5bdfb05f7e24238a12
+Author: eloaders <eloaders@linux.pl>
+Date:   Fri Dec 27 21:21:09 2013 +0100
+
+    Add make patch & make unpatch
+
+commit 36448a8ffe847e5843f6ccbae5be4e5f46c6b40a
+Author: eloaders <eloaders@linux.pl>
+Date:   Fri Dec 27 17:48:44 2013 +0100
+
+    Add [PATCH] I-Nex New GUI
+
+commit 0060624348a7ef63192a8f227eac515e867734f9
+Merge: 8987aad 0713905
+Author: eloaders <eloaders@linux.pl>
+Date:   Fri Dec 27 15:29:36 2013 +0100
+
+    Merge branch 'master' of http://anongit.freedesktop.org/git/xorg/app/edid-decode
+
+commit 8987aad4d90abc481a96f304b7c1e1dc4f91d6ea
+Author: eloaders <eloaders@linux.pl>
+Date:   Fri Dec 27 15:25:26 2013 +0100
+
+    remove commented lines
+
+commit d7c15a52d9fb9008d7d0476a10bf737c85fec665
+Author: eloaders <eloaders@linux.pl>
+Date:   Fri Dec 27 12:42:39 2013 +0100
+
+    fix pixmaps
+
+commit a3dcfeb1b9c7161697f4deaf37bc2aedcdf6fb6c
+Author: eloaders <eloaders@linux.pl>
+Date:   Fri Dec 27 12:31:16 2013 +0100
+
+    Fix
+    
+    Fix Menu
+    Add manpages
+    Change copyright
+    Add imagemagick to control build-depends
+
+commit b9e25066f734231b83e82f82613ed5b58851c416
+Author: eloaders <eloaders@linux.pl>
+Date:   Thu Dec 26 14:42:24 2013 +0100
+
+    Remove translation files
+
+commit 440a4d9840d4875190ab822fb0fc41d88181a871
+Author: eloaders <eloaders@linux.pl>
+Date:   Thu Dec 26 14:25:33 2013 +0100
+
+    New CPU tab style
+
+commit 470d0a9b877be2d13a541bf08e4a31c169c14ba8
+Author: eloaders <eloaders@linux.pl>
+Date:   Thu Dec 26 14:25:02 2013 +0100
+
+    New processor logo
+
+commit f9831c95b45a2d68878a282acf52cc897d4355c4
+Author: eloaders <eloaders@linux.pl>
+Date:   Thu Dec 26 14:24:33 2013 +0100
+
+    Update database. New informations for:
+    
+    A10-7850K
+    A10-7700K
+    A10-6790K
+    Atom E3845
+    Atom E3827
+    Atom E3826
+    Atom E3825
+    Atom E3815
+    Atom Z3740
+    Core i7-4850EQ
+    Core i7-4860EQ
+    Core i7-4700EQ
+
+commit 777c5ed96c73c368449a777c0238191fc0cb3e31
+Author: eloaders <eloaders@linux.pl>
+Date:   Thu Dec 26 14:08:57 2013 +0100
+
+    Fix ARCH detection in build-selfexecutable and Makefile
+    
+    arch=$(uname -m)
+    if [ "$arch" == 'x86_64' ]
+    then
+       ARCHITECTURE=amd64
+    else
+       ARCHITECTURE=i386
+    fi
+
+commit 9247cea0aae797f88ff541678b3c5e55ad23639f
+Author: eloaders <eloaders@linux.pl>
+Date:   Thu Dec 26 12:48:15 2013 +0100
+
+    remove buttons
+
+commit 376c0e733302d85d4d6bea3d063f2b1195492fcc
+Author: eloaders <eloaders@linux.pl>
+Date:   Thu Dec 26 12:43:55 2013 +0100
+
+    Fix
+    
+    What license is i-nex released under? The COPYING file suggest GPL v2,
+    the LICENSE file suggests GPL v3. debian/copyright tells yet another
+    story...
+    
+    I hate seeing facebook logo in the program.
+
+commit 27021e2988446e6f670dbf59df67edd36cbd2583
+Author: eloaders <eloaders@linux.pl>
+Date:   Wed Dec 25 14:20:07 2013 +0100
+
+    Next unstable 0.6.0
+
+commit 1fe78c4814226178c6567cd90de8329391dbc613
+Author: eloaders <eloaders@linux.pl>
+Date:   Wed Dec 25 14:08:07 2013 +0100
+
+    Update Makefile

@@ -29,6 +29,7 @@ Public Logs As New Logger
 Public GDF As String
 Public BUFFER As String
 Public DATAT As Collection
+
 Public Sub Form_Open()
   Dim default_display_manager As Boolean = Exist("/etc/X11/default-display-manager")
   Dim cpuz0, cpuz1, cpuz2, cpuz3, cpuz4, cpuz5, cpuz6, cpuz7, cpuz8, cpuz9, cpuz10, cpuz11 As String
@@ -38,7 +39,7 @@ Public Sub Form_Open()
   Dim sLine As String
   Dim MTRR As New String[]
   Logs("Starting log", Logger.Info)
-  
+  MCPUSAGE.GetUSAGE()
   ''Okno na środku
   If Settings["Window/X"] = Null Then
      Me.Center
@@ -575,6 +576,7 @@ Public Sub Button1_Click()
   Settings["Window/X"] = Me.X
   Settings["Window/Y"] = Me.Y
   Logs("Good bye!", Logger.Info)
+  MCPUSAGE.CPUusage.Kill
   Me.Close
 End
 

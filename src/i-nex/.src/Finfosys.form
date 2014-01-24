@@ -356,11 +356,10 @@
         Border = Border.Raised
       }
       { Label93 Label
-        Move(7,91,91,21)
+        Move(7,91,70,21)
         #Translate = False
         Font = Font["Bold,8"]
         Padding = 3
-        AutoResize = True
         Border = Border.Raised
       }
       { Label13 Label
@@ -396,6 +395,9 @@
         Move(399,168,63,21)
         Text = ("More...")
         Picture = Picture["AppIcons/dialog-ok.png"]
+      }
+      { ProgressBar7 ProgressBar
+        Move(77,91,266,21)
       }
       Index = 1
       Text = ("CPUID")

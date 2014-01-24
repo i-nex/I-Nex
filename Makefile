@@ -6,7 +6,6 @@ AS_ROOT = sudo
 CFLAGS = -g -Wall
 LSB_CS = $(shell lsb_release -cs)
 CC_OPTS_LIBCPUID = $(shell pkg-config libcpuid --cflags --libs)
-
 GBC = /usr/bin/gbc3
 GBCOPTS = -eagtpmv
 GBA = gba3
@@ -66,7 +65,7 @@ make:
 	$(CC) -o inex-edid edid-decode.c $(CFLAGS) $(additional_confflags)
 	$(CC) -o inex-cpuid cpu.c -static $(CC_OPTS_LIBCPUID) $(additional_confflags)
 	$(CC) -o inex-usage free.c -static $(CC_OPTS_LIBPROCPS) $(additional_confflags)
-
+	$(CC) -o inex-cpusage cpusage.c $(additional_confflags)
 	@printf "\033[1;31mCompile src/i-nex stage 1 \033[0m$1\n"
 	$(GBC) $(GBCOPTS) src/i-nex
 	@printf "\033[1;31mCompile src/i-nex stage 2 \033[0m$1\n"
@@ -93,12 +92,14 @@ self:
 	chmod +x inex-edid
 	chmod +x inex-cpuid
 	chmod +x inex-usage
+	chmod +x inex-cpusage
 	chmod +x debian/check_kernel
 	chmod +x debian/i-nex-lspci
 	$(INSTALL) 0755 i-nex inex$(bindir)
 	$(INSTALL) 0755 inex-edid inex$(bindir)
 	$(INSTALL) 0755 inex-cpuid inex$(bindir)
 	$(INSTALL) 0755 inex-usage inex$(bindir)
+	$(INSTALL) 0755 inex-cpusage inex$(bindir)
 	$(INSTALL) 0755 src/i-nex/i-nex.gambas inex$(bindir)
 	$(INSTALL) 0755 pixmaps/i-nex.xpm inex/usr/share/pixmaps/
 	$(INSTALL) 0755 debian/i-nex.desktop inex/usr/share/applications/
@@ -157,6 +158,7 @@ clean:
 	$(RM_COM) $(RMFILE_OPT) inex-edid
 	$(RM_COM) $(RMFILE_OPT) inex-cpuid
 	$(RM_COM) $(RMFILE_OPT) inex-usage
+	$(RM_COM) $(RMFILE_OPT) inex-cpusage
 	$(RM_COM) $(RMDIR_OPT) `find . -name ".gambas"`
 	$(RM_COM) $(RMDIR_OPT) `find . -name "*.gambas"`
 	$(RM_COM) $(RMDIR_OPT) `find . -name ".directory"`
@@ -189,12 +191,14 @@ install:
 	chmod +x inex-edid
 	chmod +x inex-cpuid
 	chmod +x inex-usage
+	chmod +x inex-cpusage
 	chmod +x debian/check_kernel
 	chmod +x debian/i-nex-lspci
 	$(INSTALL) 0755 i-nex $(DESTDIR)$(bindir)
 	$(INSTALL) 0755 inex-edid $(DESTDIR)$(bindir)
 	$(INSTALL) 0755 inex-cpuid $(DESTDIR)$(bindir)
 	$(INSTALL) 0755 inex-usage $(DESTDIR)$(bindir)
+	$(INSTALL) 0755 inex-cpusage $(DESTDIR)$(bindir)
 	$(INSTALL) 0755 src/i-nex/i-nex.gambas $(DESTDIR)$(bindir)
 	$(INSTALL) 0755 pixmaps/i-nex.xpm $(DESTDIR)/usr/share/pixmaps/
 	$(INSTALL) 0755 debian/i-nex.desktop $(DESTDIR)/usr/share/applications/
@@ -209,6 +213,7 @@ install:
 	$(INSTALL) 0755 debian/changelogs/changelog-0.5.4 $(DESTDIR)/usr/share/doc/i-nex/
 	$(INSTALL) 0755 debian/changelogs/changelog-0.5.6 $(DESTDIR)/usr/share/doc/i-nex/
 	$(INSTALL) 0755 debian/changelogs/changelog-0.5.8 $(DESTDIR)/usr/share/doc/i-nex/
+	$(INSTALL) 0755 debian/changelogs/changelog-0.6.0 $(DESTDIR)/usr/share/doc/i-nex/
 	$(INSTALL) 0755 I-Nex.LICENSE $(DESTDIR)/usr/share/doc/i-nex/
 	$(INSTALL) 0755 Pastebinit.LICENSE $(DESTDIR)/usr/share/i-nex/pastebinit/
 	$(INSTALL) 0755 pastebin.d/* $(DESTDIR)/usr/share/i-nex/pastebinit/pastebin.d/
@@ -224,6 +229,7 @@ uninstall:
 	rm $(DESTDIR)$(bindir)/inex-edid
 	rm $(DESTDIR)$(bindir)/inex-cpuid
 	rm $(DESTDIR)$(bindir)/inex-usage
+	rm $(DESTDIR)$(bindir)/inex-cpusage
 	rm $(DESTDIR)$(bindir)/i-nex.gambas
 	rm $(DESTDIR)/usr/share/pixmaps/i-nex.xpm
 	rm $(DESTDIR)/usr/share/applications/i-nex.desktop
