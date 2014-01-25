@@ -2,7 +2,10 @@ Source: i-nex
 Section: contrib/admin
 Priority: extra
 Maintainer: eloaders <eloaders@linux.pl>
+Uploaders: eloaders <eloaders@linux.pl>
+Homepage: http://i-nex.linux.pl
 Build-Depends: debhelper (>= 7), 
+  python | python-all | python-dev | python-all-dev,
   pkg-config, dpkg-dev (>= 1.14.17),
   debhelper (>= 5.0.0),
   libcpuid11,
@@ -31,7 +34,7 @@ Build-Depends: debhelper (>= 7),
   mesa-utils (>= 7.6),
   imagemagick
 Standards-Version: 3.9.4
-Homepage: http://i-nex.linux.pl
+Vcs-Browser: https://github.com/eloaders/I-Nex
 Vcs-Git: https://github.com/eloaders/I-Nex.git
 
 Package: i-nex
@@ -50,20 +53,24 @@ Depends: ${shlibs:Depends},
   gambas3-gb-desktop (<< 3.99.0),  
   gambas3-gb-form-stock (>= 3.4.0),
   grep (>= 2.5),
-  mount (>= 2.17),
-  x11-xserver-utils (>= 7.5),
-  lsb-release (>= 4.0),
   bash (>= 4.1),
   coreutils (>= 7.4),
   sed (>= 4.2),
-  pciutils,
-  x11-utils (>= 7.5),
-  mesa-utils (>= 7.6),
   python-configobj
+Replaces: i-nex
+Recommends:
+  mount (>= 2.17),
+  mesa-utils (>= 7.6),
+  x11-utils (>= 7.5),
+  pciutils,
+  lsb-release (>= 4.0),
+  x11-xserver-utils (>= 7.5)
 Description: CPU-Z Alternative for Linux. For Viewing System Device Information.
   I-Nex is an application that gathers information for hardware components.
-  Available on your system and displays it using an user interface similar to the popular Windows tool CPU-Z.
-  CPU, GPU, Motherboard, Sound, Hard disks, RAM, Network, USB, hostname, Linux distribution and version, Xorg, GCC, GLX versions and Linux Kernel info.
+  Available on your system and displays it using an user 
+  interface similar to the popular Windows tool CPU-Z.
+  CPU, GPU, Motherboard, Sound, Hard disks, RAM, Network, USB, hostname, 
+  Linux distribution and version, Xorg, GCC, GLX versions and Linux Kernel info.
   I-Nex can also generate an advanced report for which. 
   You can select what to include and optionally send the report to a service such as Pastebin. 
   It also features an option to take a screenshot of the I-Nex window directly from the application.

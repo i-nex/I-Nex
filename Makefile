@@ -101,7 +101,7 @@ self:
 	$(INSTALL) 0755 inex-usage inex$(bindir)
 	$(INSTALL) 0755 inex-cpusage inex$(bindir)
 	$(INSTALL) 0755 src/i-nex/i-nex.gambas inex$(bindir)
-	$(INSTALL) 0755 pixmaps/i-nex.xpm inex/usr/share/pixmaps/
+	$(INSTALL) 0755 pixmaps/pixmaps/i-nex.xpm inex/usr/share/pixmaps/
 	$(INSTALL) 0755 debian/i-nex.desktop inex/usr/share/applications/
 	$(INSTALL) 0755 debian/check_kernel inex/usr/bin/
 	$(INSTALL) 0755 debian/i-nex-lspci inex/usr/bin/
@@ -200,20 +200,9 @@ install:
 	$(INSTALL) 0755 inex-usage $(DESTDIR)$(bindir)
 	$(INSTALL) 0755 inex-cpusage $(DESTDIR)$(bindir)
 	$(INSTALL) 0755 src/i-nex/i-nex.gambas $(DESTDIR)$(bindir)
-	$(INSTALL) 0755 pixmaps/i-nex.xpm $(DESTDIR)/usr/share/pixmaps/
 	$(INSTALL) 0755 debian/i-nex.desktop $(DESTDIR)/usr/share/applications/
 	$(INSTALL) 0755 debian/check_kernel $(DESTDIR)/usr/bin/
 	$(INSTALL) 0755 debian/i-nex-lspci $(DESTDIR)/usr/bin/
-	$(INSTALL) 0755 debian/changelogs/changelog-0.4.6 $(DESTDIR)/usr/share/doc/i-nex/
-	$(INSTALL) 0755 debian/changelogs/changelog-0.4.8 $(DESTDIR)/usr/share/doc/i-nex/
-	$(INSTALL) 0755 debian/changelogs/changelog-0.4.8.1 $(DESTDIR)/usr/share/doc/i-nex/
-	$(INSTALL) 0755 debian/changelogs/changelog-0.5.0 $(DESTDIR)/usr/share/doc/i-nex/
-	$(INSTALL) 0755 debian/changelogs/changelog-0.5.1 $(DESTDIR)/usr/share/doc/i-nex/
-	$(INSTALL) 0755 debian/changelogs/changelog-0.5.2 $(DESTDIR)/usr/share/doc/i-nex/
-	$(INSTALL) 0755 debian/changelogs/changelog-0.5.4 $(DESTDIR)/usr/share/doc/i-nex/
-	$(INSTALL) 0755 debian/changelogs/changelog-0.5.6 $(DESTDIR)/usr/share/doc/i-nex/
-	$(INSTALL) 0755 debian/changelogs/changelog-0.5.8 $(DESTDIR)/usr/share/doc/i-nex/
-	$(INSTALL) 0755 debian/changelogs/changelog-0.6.0 $(DESTDIR)/usr/share/doc/i-nex/
 	$(INSTALL) 0755 I-Nex.LICENSE $(DESTDIR)/usr/share/doc/i-nex/
 	$(INSTALL) 0755 Pastebinit.LICENSE $(DESTDIR)/usr/share/i-nex/pastebinit/
 	$(INSTALL) 0755 pastebin.d/* $(DESTDIR)/usr/share/i-nex/pastebinit/pastebin.d/
@@ -222,6 +211,7 @@ install:
 	$(INSTALL) 0755 README $(DESTDIR)/usr/share/i-nex/pastebinit/
 	$(INSTALL) 0755 release.conf $(DESTDIR)/usr/share/i-nex/pastebinit/
 	$(MAKE) -C pixmaps install
+	$(MAKE) -C changelogs install
 	
 uninstall:
 
