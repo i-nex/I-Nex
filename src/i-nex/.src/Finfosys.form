@@ -9,6 +9,7 @@
   Text = "I-Nex"
   Icon = Picture["logo/i-nex.0.4.x.png"]
   Resizable = False
+  Spacing = True
   Padding = 3
   { Orientation Menu
     Text = ("Orientation")
@@ -80,18 +81,22 @@
   }
   { TabStrip1 TabStrip
     Move(0,0,476,511)
+    #Translate = False
     Font = Font["8"]
     PopupMenu = "Menu1"
+    Spacing = True
     Margin = True
     Padding = 3
     Count = 12
     TextFont = Font["8"]
     Index = 0
-    Text = ("CPU")
+    Text = "CPU"
     Picture = Picture["AppIcons/Finfosys/cpu.png"]
     { TabPanel1 TabPanel
       Move(0,0,476,483)
       Font = Font["Bold,8"]
+      Margin = True
+      Padding = 3
       Count = 2
       TextFont = Font["Bold,8"]
       Orientation = Align.Bottom
@@ -610,7 +615,7 @@
       Index = 0
     }
     Index = 1
-    Text = ("GPU")
+    Text = "GPU"
     Picture = Picture["AppIcons/Finfosys/xorg.png"]
     { PictureBox1 PictureBox
       Move(350,7,112,112)
@@ -754,7 +759,7 @@
       Move(336,0,14,133)
     }
     Index = 2
-    Text = ("Mobo")
+    Text = "Mobo"
     Picture = Picture["AppIcons/Finfosys/hardinfo.png"]
     { Frame1 Frame
       Move(0,0,469,112)
@@ -885,7 +890,7 @@
       }
     }
     Index = 3
-    Text = ("Audio")
+    Text = "Audio"
     Picture = Picture["AppIcons/Finfosys/audio-card.png"]
     { HBox21 HBox
       Move(6,6,156,24)
@@ -970,7 +975,7 @@
       }
     }
     Index = 4
-    Text = ("Drives")
+    Text = "Drives"
     Picture = Picture["AppIcons/Finfosys/drive-harddisk-system.png"]
     { !Label41 Label
       Move(301,7,161,21)
@@ -1317,7 +1322,7 @@
       Border = Border.Raised
     }
     Index = 5
-    Text = ("System")
+    Text = "System"
     Picture = Picture["AppIcons/Finfosys/applications-system.png"]
     { Button5 Button
       Move(406,434,28,28)
@@ -1545,7 +1550,7 @@
       Border = Border.Raised
     }
     Index = 6
-    Text = ("Kernel")
+    Text = "Kernel"
     { Frame22 Frame
       Move(0,0,469,224)
       Font = Font["Bold,8"]
@@ -1586,7 +1591,7 @@
       Text = ("Show modules")
     }
     Index = 7
-    Text = ("Memory")
+    Text = "Memory"
     Picture = Picture["AppIcons/Finfosys/utilities-system-monitor.png"]
     { ProgressBar1 ProgressBar
       Move(0,245,469,21)
@@ -1689,7 +1694,7 @@
       Border = Border.Raised
     }
     Index = 8
-    Text = ("Network")
+    Text = "Network"
     Picture = Picture["AppIcons/Finfosys/network-wired.png"]
     { TextArea4 TextArea
       Move(6,36,456,24)
@@ -1870,7 +1875,7 @@
       Border = Border.Raised
     }
     Index = 9
-    Text = ("Battery")
+    Text = "Battery"
     Picture = Picture["AppIcons/Finfosys/battery.png"]
     { HPanel5 HPanel
       Move(0,0,468,420)
@@ -2051,7 +2056,7 @@
       Move(6,426,396,18)
     }
     Index = 10
-    Text = ("USB | Input")
+    Text = "USB | Input"
     Picture = Picture["AppIcons/Finfosys/drive-harddisk-usb.png"]
     { HBox12 HBox
       Move(0,0,468,24)
@@ -2207,7 +2212,7 @@
       ReadOnly = True
     }
     Index = 11
-    Text = ("Battery ")
+    Text = "Battery "
     Picture = Picture["AppIcons/Finfosys/battery.png"]
     { Label177 Label
       Move(7,7,455,21)
@@ -2380,6 +2385,7 @@
     #Translate = False
     Font = Font["Bold,10"]
     Foreground = &HFF0000&
+    Padding = 3
     Alignment = Align.Center
     Border = Border.Etched
   }

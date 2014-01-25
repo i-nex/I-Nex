@@ -40,8 +40,7 @@ Public Sub Form_Open()
   Dim MTRR As New String[]
   Logs("Starting log", Logger.Info)
   Button4.Visible = False
-  
-  MCPUSAGE.GetUSAGE()
+  Object.Call(MCPUSAGE, "GetUSAGE")
   ''Okno na środku
   If Settings["Window/X"] = Null Then
      Me.Center
@@ -103,6 +102,7 @@ Public Sub Form_Open()
                       .Height = 21
                       .Border = Border.Raised
                       .Padding = 3
+                      .Font.Size = 8
                       .Tooltip = DATAT["Flags"][i]["NAME"]
                       .Text = DATAT["Flags"][i]["DESC"]
                   End With
