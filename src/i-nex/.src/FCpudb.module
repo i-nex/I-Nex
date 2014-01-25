@@ -22,9 +22,15 @@ Public Sub _inits()
   Dim buffer, cpucache As String
   Dim z As Integer
   Select Case Finfosys.Label14.Text
+   Case Like "*Opteron*"
+    Logs("Use AMD Opteron CPU Database", Logger.Info)
+    buffer = File.Load("Database/Opteron")
    Case Like "*amd*"
     Logs("Use AMD CPU Database", Logger.Info)
     buffer = File.Load("Database/amd")
+   Case Like "*Xeon*"
+    Logs("Use Intel Xeon CPU Database", Logger.Info)
+    buffer = File.Load("Database/Xeon")
    Case Like "*atom*"
     Logs("Use Intel Atom CPU Database", Logger.Info)
     buffer = File.Load("Database/atom")

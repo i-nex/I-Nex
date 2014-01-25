@@ -1,6 +1,5 @@
 [Bookmarks]
 CFlags=[9]
-FCpudb=[]
 
 [Breakpoints]
 Count=0
@@ -49,7 +48,8 @@ File[21]=".src/net.module:2.19"
 File[22]="Data/report-ng.sh:5.3"
 File[23]=".src/Distribution_Detect.module:13.1"
 File[24]=".src/FFlags.module:2.19"
-File[25]=".src/Finfosys.class:542.62"
+Active=25
+File[25]=".src/Finfosys.class:548.39"
 File[26]=".src/FDF.form"
 File[27]=".src/FDF.class:26.6"
 File[28]=".src/FNET_R_T.form"
@@ -59,7 +59,7 @@ File[31]="logo/fb.png"
 File[32]=".src/FCPU.module:2.19"
 File[33]=".src/FUdisks.form"
 File[34]=".src/FUdisks.class:26.6"
-File[35]=".src/FCpudb.module:0.0"
+File[35]=".src/FCpudb.module:55.107"
 File[36]=".src/JSON.module:113.37"
 File[37]=".src/Settings.class:2.19"
 File[38]=".src/Main.module:2.19"
@@ -80,7 +80,6 @@ File[52]=".src/Reports/MDRIVES_REPORT.module:12.40"
 File[53]=".src/FInputDate.form"
 File[54]=".src/MInit.module:25.23"
 File[55]=".src/FEDID.form"
-Active=56
 File[56]=".src/FEDID.class:83.25"
 File[57]=".src/Logger.class:2.19"
 File[58]=".src/Formatter.module:2.19"

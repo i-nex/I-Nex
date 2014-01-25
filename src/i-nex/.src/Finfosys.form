@@ -368,7 +368,7 @@
         Border = Border.Raised
       }
       { Label13 Label
-        Move(7,7,91,56)
+        Move(7,35,91,56)
         #Translate = False
         Font = Font["Bold,12"]
         Padding = 3
@@ -377,7 +377,7 @@
         Border = Border.Raised
       }
       { Label14 Label
-        Move(98,7,245,28)
+        Move(7,7,336,28)
         #Translate = False
         Font = Font["Bold,8"]
         PopupMenu = "Copying"
