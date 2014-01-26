@@ -104,7 +104,7 @@
       Index = 0
       Text = ("CPUINFO")
       { Timer1 #Timer
-        #Move(413,406)
+        #Move(413,399)
         Delay = 2000
       }
       { Label72 Label
@@ -353,7 +353,7 @@
         Alignment = Align.Center
       }
       { Label103 Label
-        Move(7,98,336,28)
+        Move(7,91,336,28)
         #Translate = False
         Font = Font["Bold,8"]
         Padding = 3
@@ -361,7 +361,7 @@
         Border = Border.Raised
       }
       { Label93 Label
-        Move(7,126,70,21)
+        Move(7,119,70,28)
         #Translate = False
         Font = Font["Bold,8"]
         Padding = 3
@@ -400,12 +400,6 @@
         Move(399,196,63,21)
         Text = ("More...")
         Picture = Picture["AppIcons/dialog-ok.png"]
-      }
-      { ProgressBar7 ProgressBar
-        Move(77,126,266,21)
-        #Translate = False
-        Font = Font["Bold,8"]
-        ToolTip = "CPU Usage"
       }
       Index = 1
       Text = ("CPUID")
@@ -613,6 +607,12 @@
         }
       }
       Index = 0
+    }
+    { ProgressBar7 ProgressBar
+      Move(119,462,343,14)
+      #Translate = False
+      Font = Font["Bold,8"]
+      ToolTip = "CPU Usage"
     }
     Index = 1
     Text = "GPU"
