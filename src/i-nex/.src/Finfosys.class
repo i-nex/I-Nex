@@ -50,7 +50,7 @@ Public Sub Form_Open()
   Endif
   
   Logs("Check whereis inex-cpuid and get JSON Data", Logger.Info)
-      Exec [ChkPrm.ChkExecDir("inex-cpuid")] Wait To BUFFER
+      Exec [ChkPrm.ChkExecDir("i-nex-cpuid")] Wait To BUFFER
   Logs("Decode JSON Data", Logger.Info)
       DATAT = JSON.Decode(BUFFER)
   Logs("Add Values CPUID", Logger.Info)
@@ -435,13 +435,23 @@ Public Sub grafika()
     Label105.Text = "OpenGL Vendor: " & Replace(opengl_vendor_string, "\n", "")
     Label106.Text = "OpenGL Renderer: " & Replace(opengl_renderer_string, "\n", "")
     Label107.Text = "OpenGL Version: " & Replace(opengl_version_string, "\n", "")
+    Try Label220.Text = "Server glx vendor: "
+    Try Label221.Text = "Server glx version: "
+    Try Label222.Text = "Client glx vendor: "
+    Try Label224.Text = "Client glx version: "
+    Try Label225.Text = "GLX version: " 
 
   Else
-    Try Exec ["/usr/bin/inex-glinfo"] Wait To opengl_vendor_string
+    Try Exec ["/usr/bin/i-nex-glinfo"] Wait To opengl_vendor_string
     Try GLX_GFX = JSON.Decode(opengl_vendor_string)
     Try Label105.Text = "OpenGL Vendor: " & GLX_GFX["GL_VENDOR"]
     Try Label106.Text = "OpenGL Renderer: " & GLX_GFX["GL_RENDERER"]
     Try Label107.Text = "OpenGL Version: " & GLX_GFX["GL_VERSION"]
+    Try Label220.Text = "Server glx vendor: " & GLX_GFX["SERVER_GLX_VENDOR"]
+    Try Label221.Text = "Server glx version: " & GLX_GFX["SERVER_GLX_VERSION"]
+    Try Label222.Text = "Client glx vendor: " & GLX_GFX["CLIENT_GLX_VENDOR"]
+    Try Label224.Text = "Client glx version: " & GLX_GFX["CLIENT_GLX_VERSION"]
+    Try Label225.Text = "GLX version: " & GLX_GFX["GLX_VERSION"]
   Endif
   
   Shell "" & ChkPrm.ChkExecDir("lspci") & " -v -s `lspci | awk '/VGA/{print $1}'` | grep 'Kernel driver in use:' | cut -d ':' -f 2" Wait To Kernel_driver_in_use
@@ -591,7 +601,7 @@ Public Sub dospam_uptime()
   Dim USAGE_BUFFER As String
   Dim USAGE As Collection
   Shell "users | tr ' ' '\n' | wc -l" Wait To Users
-  Exec [ChkPrm.ChkExecDir("inex-usage")] Wait To USAGE_BUFFER
+  Exec [ChkPrm.ChkExecDir("i-nex-usage")] Wait To USAGE_BUFFER
   USAGE = JSON.Decode(USAGE_BUFFER)
   
   Label85.Text = "Total:   " & 

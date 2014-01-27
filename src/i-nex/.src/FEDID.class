@@ -32,7 +32,7 @@ Public Sub Form_Open()
  
  Logs("Execute edid", Logger.Info)
  
- data = Shell "xrandr --verbose | inex-edid" For Input
+ data = Shell "xrandr --verbose | i-nex-edid" For Input
 
  While Not Eof(data)
         Line Input #data, sLine

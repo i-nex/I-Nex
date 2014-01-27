@@ -8,11 +8,11 @@ bindir="/usr/bin/"
 	mkdir -p /usr/share/i-nex/pastebinit/
 	mkdir -p /usr/share/i-nex/pastebinit/pastebin.d/
 	install -m 0755 usr/bin/i-nex $bindir
-	install -m 0755 usr/bin/inex-edid $bindir
-	install -m 0755 usr/bin/inex-cpuid $bindir
-	install -m 0755 usr/bin/inex-usage $bindir
-	install -m 0755 usr/bin/inex-cpusage $bindir
-	install -m 0755 usr/bin/inex-glinfo $bindir
+	install -m 0755 usr/bin/i-nex-edid $bindir
+	install -m 0755 usr/bin/i-nex-cpuid $bindir
+	install -m 0755 usr/bin/i-nex-usage $bindir
+	install -m 0755 usr/bin/i-nex-cpusage $bindir
+	install -m 0755 usr/bin/i-nex-glinfo $bindir
 	install -m 0755 usr/bin/i-nex.gambas $bindir
 	install -m 0755 usr/share/pixmaps/i-nex.xpm /usr/share/pixmaps/
 	install -m 0755 usr/share/applications/i-nex.desktop /usr/share/applications/

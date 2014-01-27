@@ -18,7 +18,7 @@ Public CPUusage As Process
 Private CPUusageOutput As String
 Public Sub GetUSAGE()
 
-  CPUusage = Exec ["/usr/bin/inex-cpusage"] For Input Output As "CPUusage"
+  CPUusage = Exec ["/usr/bin/i-nex-cpusage"] For Input Output As "CPUusage"
 
 End
 

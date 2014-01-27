@@ -7,5 +7,4 @@ pastebinit usr/share/i-nex/pastebinit
 pastebinit.xml usr/share/i-nex/pastebinit
 README usr/share/i-nex/pastebinit
 release.conf usr/share/i-nex/pastebinit
-inex-edid usr/bin
 i-nex usr/bin

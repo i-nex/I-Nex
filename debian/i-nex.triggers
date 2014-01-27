@@ -1,5 +1,4 @@
+activate /usr/share/menu
 activate /usr/share/applications
 activate /usr/share/man
-activate /usr/share/mime/packages
 activate /usr/share/icons/hicolor
-activate /usr/share/menu

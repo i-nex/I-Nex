@@ -65,11 +65,11 @@ dependency_build ?= git \
 
 make:
 	@printf "\033[1;31mCompile edid-decode as inex-decode \033[0m$1\n"
-	$(CC) -o inex-edid edid-decode.c $(CFLAGS) $(additional_confflags)
-	$(CC) -o inex-cpuid cpu.c -static $(CC_OPTS_LIBCPUID) $(additional_confflags)
-	$(CC) -o inex-usage free.c -static $(CC_OPTS_LIBPROCPS) $(additional_confflags)
-	$(CC) -o inex-cpusage cpusage.c $(additional_confflags)
-	$(CC) -o inex-glinfo glinfo.c -O2 $(libx11) $(libgl) $(libxext) $(additional_confflags)
+	$(CC) -o i-nex-edid edid-decode.c $(CFLAGS) $(additional_confflags)
+	$(CC) -o i-nex-cpuid cpu.c -static $(CC_OPTS_LIBCPUID) $(additional_confflags)
+	$(CC) -o i-nex-usage free.c -static $(CC_OPTS_LIBPROCPS) $(additional_confflags)
+	$(CC) -o i-nex-cpusage cpusage.c $(additional_confflags)
+	$(CC) -o i-nex-glinfo glinfo.c -O2 $(libx11) $(libgl) $(libxext) $(additional_confflags)
 	@printf "\033[1;31mCompile src/i-nex stage 1 \033[0m$1\n"
 	$(GBC) $(GBCOPTS) src/i-nex
 	@printf "\033[1;31mCompile src/i-nex stage 2 \033[0m$1\n"
@@ -93,19 +93,19 @@ self:
 	mkdir -p inex/usr/share/i-nex/pastebinit/
 	mkdir -p inex/usr/share/i-nex/pastebinit/pastebin.d/
 	chmod +x i-nex
-	chmod +x inex-edid
-	chmod +x inex-cpuid
-	chmod +x inex-usage
-	chmod +x inex-cpusage
-	chmod +x inex-glinfo
+	chmod +x i-nex-edid
+	chmod +x i-nex-cpuid
+	chmod +x i-nex-usage
+	chmod +x i-nex-cpusage
+	chmod +x i-nex-glinfo
 	chmod +x debian/check_kernel
 	chmod +x debian/i-nex-lspci
 	$(INSTALL) 0755 i-nex inex$(bindir)
-	$(INSTALL) 0755 inex-edid inex$(bindir)
-	$(INSTALL) 0755 inex-cpuid inex$(bindir)
-	$(INSTALL) 0755 inex-usage inex$(bindir)
-	$(INSTALL) 0755 inex-cpusage inex$(bindir)
-	$(INSTALL) 0755 inex-glinfo inex$(bindir)
+	$(INSTALL) 0755 i-nex-edid inex$(bindir)
+	$(INSTALL) 0755 i-nex-cpuid inex$(bindir)
+	$(INSTALL) 0755 i-nex-usage inex$(bindir)
+	$(INSTALL) 0755 i-nex-cpusage inex$(bindir)
+	$(INSTALL) 0755 i-nex-glinfo inex$(bindir)
 	$(INSTALL) 0755 src/i-nex/i-nex.gambas inex$(bindir)
 	$(INSTALL) 0755 pixmaps/pixmaps/i-nex.xpm inex/usr/share/pixmaps/
 	$(INSTALL) 0755 debian/i-nex.desktop inex/usr/share/applications/
@@ -161,11 +161,11 @@ self:
 	
 clean:
 
-	$(RM_COM) $(RMFILE_OPT) inex-edid
-	$(RM_COM) $(RMFILE_OPT) inex-cpuid
-	$(RM_COM) $(RMFILE_OPT) inex-usage
-	$(RM_COM) $(RMFILE_OPT) inex-cpusage
-	$(RM_COM) $(RMFILE_OPT) inex-glinfo
+	$(RM_COM) $(RMFILE_OPT) i-nex-edid
+	$(RM_COM) $(RMFILE_OPT) i-nex-cpuid
+	$(RM_COM) $(RMFILE_OPT) i-nex-usage
+	$(RM_COM) $(RMFILE_OPT) i-nex-cpusage
+	$(RM_COM) $(RMFILE_OPT) i-nex-glinfo
 	$(RM_COM) $(RMDIR_OPT) `find . -name ".gambas"`
 	$(RM_COM) $(RMDIR_OPT) `find . -name "*.gambas"`
 	$(RM_COM) $(RMDIR_OPT) `find . -name ".directory"`
@@ -195,18 +195,19 @@ install:
 	mkdir -p $(DESTDIR)/usr/share/i-nex/pastebinit/
 	mkdir -p $(DESTDIR)/usr/share/i-nex/pastebinit/pastebin.d/
 	chmod +x i-nex
-	chmod +x inex-edid
-	chmod +x inex-cpuid
-	chmod +x inex-usage
-	chmod +x inex-cpusage
-	chmod +x inex-glinfo
+	chmod +x i-nex-edid
+	chmod +x i-nex-cpuid
+	chmod +x i-nex-usage
+	chmod +x i-nex-cpusage
+	chmod +x i-nex-glinfo
 	chmod +x debian/check_kernel
 	chmod +x debian/i-nex-lspci
 	$(INSTALL) 0755 i-nex $(DESTDIR)$(bindir)
-	$(INSTALL) 0755 inex-edid $(DESTDIR)$(bindir)
-	$(INSTALL) 0755 inex-cpuid $(DESTDIR)$(bindir)
-	$(INSTALL) 0755 inex-usage $(DESTDIR)$(bindir)
-	$(INSTALL) 0755 inex-cpusage $(DESTDIR)$(bindir)
+	$(INSTALL) 0755 i-nex-edid $(DESTDIR)$(bindir)
+	$(INSTALL) 0755 i-nex-cpuid $(DESTDIR)$(bindir)
+	$(INSTALL) 0755 i-nex-usage $(DESTDIR)$(bindir)
+	$(INSTALL) 0755 i-nex-cpusage $(DESTDIR)$(bindir)
+	$(INSTALL) 0755 i-nex-glinfo $(DESTDIR)$(bindir)
 	$(INSTALL) 0755 src/i-nex/i-nex.gambas $(DESTDIR)$(bindir)
 	$(INSTALL) 0755 debian/i-nex.desktop $(DESTDIR)/usr/share/applications/
 	$(INSTALL) 0755 debian/check_kernel $(DESTDIR)/usr/bin/
@@ -224,11 +225,11 @@ install:
 uninstall:
 
 	rm $(DESTDIR)$(bindir)/i-nex
-	rm $(DESTDIR)$(bindir)/inex-edid
-	rm $(DESTDIR)$(bindir)/inex-cpuid
-	rm $(DESTDIR)$(bindir)/inex-usage
-	rm $(DESTDIR)$(bindir)/inex-cpusage
-	rm $(DESTDIR)$(bindir)/inex-glinfo
+	rm $(DESTDIR)$(bindir)/i-nex-edid
+	rm $(DESTDIR)$(bindir)/i-nex-cpuid
+	rm $(DESTDIR)$(bindir)/i-nex-usage
+	rm $(DESTDIR)$(bindir)/i-nex-cpusage
+	rm $(DESTDIR)$(bindir)/i-nex-glinfo
 	rm $(DESTDIR)$(bindir)/i-nex.gambas
 	rm $(DESTDIR)/usr/share/pixmaps/i-nex.xpm
 	rm $(DESTDIR)/usr/share/applications/i-nex.desktop
