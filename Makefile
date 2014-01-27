@@ -66,6 +66,7 @@ make:
 	$(CC) -o inex-cpuid cpu.c -static $(CC_OPTS_LIBCPUID) $(additional_confflags)
 	$(CC) -o inex-usage free.c -static $(CC_OPTS_LIBPROCPS) $(additional_confflags)
 	$(CC) -o inex-cpusage cpusage.c $(additional_confflags)
+	$(CC) -o inex-glinfo glinfo.c -O2 -lX11 -lGL -lXext
 	@printf "\033[1;31mCompile src/i-nex stage 1 \033[0m$1\n"
 	$(GBC) $(GBCOPTS) src/i-nex
 	@printf "\033[1;31mCompile src/i-nex stage 2 \033[0m$1\n"
@@ -93,6 +94,7 @@ self:
 	chmod +x inex-cpuid
 	chmod +x inex-usage
 	chmod +x inex-cpusage
+	chmod +x inex-glinfo
 	chmod +x debian/check_kernel
 	chmod +x debian/i-nex-lspci
 	$(INSTALL) 0755 i-nex inex$(bindir)
@@ -100,6 +102,7 @@ self:
 	$(INSTALL) 0755 inex-cpuid inex$(bindir)
 	$(INSTALL) 0755 inex-usage inex$(bindir)
 	$(INSTALL) 0755 inex-cpusage inex$(bindir)
+	$(INSTALL) 0755 inex-glinfo inex$(bindir)
 	$(INSTALL) 0755 src/i-nex/i-nex.gambas inex$(bindir)
 	$(INSTALL) 0755 pixmaps/pixmaps/i-nex.xpm inex/usr/share/pixmaps/
 	$(INSTALL) 0755 debian/i-nex.desktop inex/usr/share/applications/
@@ -159,6 +162,7 @@ clean:
 	$(RM_COM) $(RMFILE_OPT) inex-cpuid
 	$(RM_COM) $(RMFILE_OPT) inex-usage
 	$(RM_COM) $(RMFILE_OPT) inex-cpusage
+	$(RM_COM) $(RMFILE_OPT) inex-glinfo
 	$(RM_COM) $(RMDIR_OPT) `find . -name ".gambas"`
 	$(RM_COM) $(RMDIR_OPT) `find . -name "*.gambas"`
 	$(RM_COM) $(RMDIR_OPT) `find . -name ".directory"`
@@ -192,6 +196,7 @@ install:
 	chmod +x inex-cpuid
 	chmod +x inex-usage
 	chmod +x inex-cpusage
+	chmod +x inex-glinfo
 	chmod +x debian/check_kernel
 	chmod +x debian/i-nex-lspci
 	$(INSTALL) 0755 i-nex $(DESTDIR)$(bindir)
@@ -220,6 +225,7 @@ uninstall:
 	rm $(DESTDIR)$(bindir)/inex-cpuid
 	rm $(DESTDIR)$(bindir)/inex-usage
 	rm $(DESTDIR)$(bindir)/inex-cpusage
+	rm $(DESTDIR)$(bindir)/inex-glinfo
 	rm $(DESTDIR)$(bindir)/i-nex.gambas
 	rm $(DESTDIR)/usr/share/pixmaps/i-nex.xpm
 	rm $(DESTDIR)/usr/share/applications/i-nex.desktop

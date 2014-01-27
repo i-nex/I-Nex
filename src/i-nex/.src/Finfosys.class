@@ -424,19 +424,30 @@ Public Sub grafika()
   Dim available_resolutions, Kernel_driver_in_use As String
   Dim rozdzielczosc, gpu, memory_prefetchable, memory_non_prefetchable As String
   Dim opengl_vendor_string, opengl_renderer_string, opengl_version_string As String
+  Dim GLX_GFX As Collection
   
   If ChkPrm.chkExec("glxinfo") = True Then
-    Shell "" & ChkPrm.ChkExecDir("lspci") & " | grep 'VGA' | cut -d ':' -f3 | cut -d '(' -f 1" Wait To gpu
     'lspci -v -s `lspci | awk '/VGA/{print $1}'` | grep 'Kernel driver in use:' | cut -d ':' -f 2
-    Shell "" & ChkPrm.ChkExecDir("lspci") & " -v -s `lspci | awk '/VGA/{print $1}'` | grep 'Kernel driver in use:' | cut -d ':' -f 2" Wait To Kernel_driver_in_use
     Shell "glxinfo | grep 'OpenGL vendor string:' | sed -n '1p' | cut -d ':' -f 2" Wait To opengl_vendor_string
     Shell "glxinfo | grep 'OpenGL renderer string:' | sed -n '1p' | cut -d ':' -f 2" Wait To opengl_renderer_string
     Shell "glxinfo | grep 'OpenGL version string:' | sed -n '1p' | cut -d ':' -f 2" Wait To opengl_version_string
+
+    Label105.Text = "OpenGL Vendor: " & Replace(opengl_vendor_string, "\n", "")
+    Label106.Text = "OpenGL Renderer: " & Replace(opengl_renderer_string, "\n", "")
+    Label107.Text = "OpenGL Version: " & Replace(opengl_version_string, "\n", "")
+
   Else
-    Message.Warning("Not found glxinfo")
+    Try Exec ["/usr/bin/inex-glinfo"] Wait To opengl_vendor_string
+    Try GLX_GFX = JSON.Decode(opengl_vendor_string)
+    Try Label105.Text = "OpenGL Vendor: " & GLX_GFX["GL_VENDOR"]
+    Try Label106.Text = "OpenGL Renderer: " & GLX_GFX["GL_RENDERER"]
+    Try Label107.Text = "OpenGL Version: " & GLX_GFX["GL_VERSION"]
   Endif
   
+  Shell "" & ChkPrm.ChkExecDir("lspci") & " -v -s `lspci | awk '/VGA/{print $1}'` | grep 'Kernel driver in use:' | cut -d ':' -f 2" Wait To Kernel_driver_in_use
+  Shell "" & ChkPrm.ChkExecDir("lspci") & " | grep 'VGA' | cut -d ':' -f3 | cut -d '(' -f 1" Wait To gpu
   Shell "xdpyinfo | grep 'dimensions:' | cut -d ':' -f 2" Wait To rozdzielczosc
+  
   Exec ["/bin/bash", "/usr/bin/i-nex-lspci", "nonprefetchable"] Wait To memory_non_prefetchable
   Exec ["/bin/bash", "/usr/bin/i-nex-lspci", "prefetchable"] Wait To memory_prefetchable
   
@@ -452,9 +463,6 @@ Public Sub grafika()
   Label136.Text = "Kernel driver in use: " & Replace(Kernel_driver_in_use, "\n", "")
   Label64.Text = "Total Memory prefetchable: " & Replace(memory_prefetchable, "\n", " - ")
   Label146.Text = "Total Memory non-prefetchable: " & Replace(memory_non_prefetchable, "\n", " - ")
-  Label105.Text = "OpenGL Vendor: " & Replace(opengl_vendor_string, "\n", "")
-  Label106.Text = "OpenGL Renderer: " & Replace(opengl_renderer_string, "\n", "")
-  Label107.Text = "OpenGL Version: " & Replace(opengl_version_string, "\n", "")
   Label108.Text = "Present resolution: " & Replace(rozdzielczosc, "\n", "")
   TextBox1.Text = RTrim(Replace(gpu, "\n", ""))
   Label109.Text = Replace(available_resolutions, "\n", "")
