@@ -6,6 +6,8 @@ AS_ROOT = sudo
 CFLAGS = -g -Wall
 LSB_CS = $(shell lsb_release -cs)
 CC_OPTS_LIBCPUID = $(shell pkg-config libcpuid --cflags --libs)
+libgl = $(shell pkg-config gl --cflags --libs)
+libx11 = $(shell pkg-config x11 --cflags --libs)
 GBC = /usr/bin/gbc3
 GBCOPTS = -eagtpmv
 GBA = gba3
@@ -66,7 +68,7 @@ make:
 	$(CC) -o inex-cpuid cpu.c -static $(CC_OPTS_LIBCPUID) $(additional_confflags)
 	$(CC) -o inex-usage free.c -static $(CC_OPTS_LIBPROCPS) $(additional_confflags)
 	$(CC) -o inex-cpusage cpusage.c $(additional_confflags)
-	$(CC) -o inex-glinfo glinfo.c -O2 -lX11 -lGL -lXext
+	$(CC) -o inex-glinfo glinfo.c -O2 $(libx11) $(libgl) $(additional_confflags)
 	@printf "\033[1;31mCompile src/i-nex stage 1 \033[0m$1\n"
 	$(GBC) $(GBCOPTS) src/i-nex
 	@printf "\033[1;31mCompile src/i-nex stage 2 \033[0m$1\n"
