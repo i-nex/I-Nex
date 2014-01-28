@@ -16,8 +16,14 @@ Public Report As Collection = [("0"): ("========================================
                                ("4"): (Finfosys.Label105.Text),
                                ("5"): (Finfosys.Label106.Text),
                                ("6"): (Finfosys.Label107.Text),
-                               ("7"): (Finfosys.Label108.Text),
-                               ("8"): (Finfosys.Label109.Text)]
+                               ("7"): (Finfosys.Label220.Text),
+                               ("8"): (Finfosys.Label221.Text),
+                               ("9"): (Finfosys.Label222.Text),
+                               ("10"): (Finfosys.Label224.Text),
+                               ("11"): (Finfosys.Label225.Text),
+                               ("12"): (Finfosys.Label108.Text),
+                               ("13"): (Finfosys.Label109.Text)]
+
 Public Sub _inits()
  Dim All, All2 As Integer
  DATA_RETURN = Null

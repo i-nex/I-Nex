@@ -18,8 +18,8 @@
 Public Logs As New Logger
 Public temp_acpi As Boolean = Exist("/sys/bus/acpi/devices/LNXTHERM:00/thermal_zone/temp")
 Public temp_acpi_thm As Boolean = Exist("/proc/acpi/thermal_zone/THM0/temperature")
-Public temp_hwmon As Boolean = Access("/sys/class/hwmon/hwmon0/device/temp2_input", gb.Read)
-Public temp_hwmon2 As Boolean = Access("/sys/class/hwmon/hwmon0/temp1_input", gb.Read)
+Public temp_hwmon As Boolean = Exist("/sys/class/hwmon/hwmon0/device/temp2_input")
+Public temp_hwmon2 As Boolean = Exist("/sys/class/hwmon/hwmon0/temp1_input")
 Public temp_coretemp As Boolean = Exist("/sys/devices/platform/coretemp.0/temp2_input")
 
 Public Temperature As String

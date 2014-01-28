@@ -353,7 +353,7 @@
         Alignment = Align.Center
       }
       { Label103 Label
-        Move(7,91,336,28)
+        Move(7,63,336,28)
         #Translate = False
         Font = Font["Bold,8"]
         Padding = 3
@@ -361,14 +361,14 @@
         Border = Border.Raised
       }
       { Label93 Label
-        Move(7,119,70,28)
+        Move(7,91,70,28)
         #Translate = False
         Font = Font["Bold,8"]
         Padding = 3
         Border = Border.Raised
       }
       { Label13 Label
-        Move(7,35,91,56)
+        Move(7,7,91,56)
         #Translate = False
         Font = Font["Bold,12"]
         Padding = 3
@@ -377,7 +377,7 @@
         Border = Border.Raised
       }
       { Label14 Label
-        Move(7,7,336,28)
+        Move(98,7,245,28)
         #Translate = False
         Font = Font["Bold,8"]
         PopupMenu = "Copying"
@@ -1611,30 +1611,58 @@
     Index = 6
     Text = "Kernel"
     { Frame22 Frame
-      Move(0,0,469,224)
+      Move(0,0,469,329)
       Font = Font["Bold,8"]
       Text = ("Installed kernels:")
-      { TextLabel25 TextLabel
-        Move(6,24,216,24)
-      }
-      { TextLabel26 TextLabel
-        Move(6,186,444,24)
-      }
       { VBox1 VBox
-        Move(0,42,469,140)
+        Move(0,161,469,161)
         { ListBox1 ListBox
           Move(0,0,270,96)
           Font = Font["8"]
           Expand = True
         }
       }
+      { TextLabel18 TextLabel
+        Move(14,112,441,21)
+        Font = Font["Bold,8"]
+        Padding = 3
+        Text = ("TextLabel18")
+        Alignment = Align.Left
+      }
+      { TextLabel16 TextLabel
+        Move(14,70,441,21)
+        Font = Font["Bold,8"]
+        Padding = 3
+        Text = ("TextLabel16")
+        Alignment = Align.Left
+      }
+      { TextLabel17 TextLabel
+        Move(14,91,441,21)
+        Font = Font["Bold,8"]
+        Padding = 3
+        Text = ("TextLabel17")
+        Alignment = Align.Left
+      }
+      { TextLabel7 TextLabel
+        Move(14,49,441,21)
+        Font = Font["Bold,8"]
+        Padding = 3
+        Text = ("TextLabel7")
+        Alignment = Align.Left
+      }
+      { TextLabel26 TextLabel
+        Move(14,28,441,21)
+        Font = Font["Bold,8"]
+        Padding = 3
+        Alignment = Align.Left
+      }
     }
     { Frame14 Frame
-      Move(0,234,469,119)
+      Move(0,329,469,147)
       Font = Font["Bold,8"]
       Text = ("Kernel command line:")
       { HBox26 HBox
-        Move(0,21,469,77)
+        Move(0,21,469,119)
         { TextArea3 TextArea
           Move(0,0,450,54)
           Font = Font["8"]
@@ -1643,11 +1671,6 @@
           Wrap = True
         }
       }
-    }
-    { Button6 Button
-      Move(186,360,96,24)
-      Font = Font["8"]
-      Text = ("Show modules")
     }
     Index = 7
     Text = "Memory"
@@ -2455,5 +2478,10 @@
     Font = Font["Bold,8"]
     Text = "Decode DIMMS"
     Picture = Picture["AppIcons/gtk-yes.png"]
+  }
+  { Button6 Button
+    Move(315,511,98,28)
+    Font = Font["8"]
+    Text = ("Show modules")
   }
 }

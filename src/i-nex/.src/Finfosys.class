@@ -301,20 +301,30 @@ Public Sub ComboBox1_Click()
 End
 
 Public Sub kernel()
-  Dim found_kernels, cur_used, All_Kernels, for_add, Kernel_command_line As String
+  Dim found_kernels, All_Kernels, for_add, Kernel_command_line As String
   Dim kernels, i As Integer
+  Dim UNAME_DATA As String
+  Dim UNAME As Collection
+  Try Exec ["/usr/bin/i-nex-uname"] Wait To UNAME_DATA
+  Try UNAME = JSON.Decode(UNAME_DATA)
   Shell "ls /boot | grep 'vmlinuz*' | wc -l" Wait To All_Kernels
   kernels = Replace(Replace(All_Kernels, " ", ""), "\n", "")
+  
   For i = 1 To kernels
    Shell "ls /boot | grep 'vmlinuz*' | cut -d '/' -f 3 | sed -n '" & i & "p'" Wait To for_add
    for_add = Replace(Replace(for_add, " ", ""), "\n", "")
    ListBox1.Add(for_add, i)
   Next
+  
   Shell "ls /boot/vmlinuz* | cut -d '/' -f 3 | wc -l" Wait To found_kernels
-  Shell "uname -r" Wait To cur_used
   Shell "cat /proc/cmdline" Wait To Kernel_command_line
-  TextLabel25.Text = "Found " & found_kernels & " kernels:"
-  TextLabel26.Text = "Currently used: " & cur_used & ""
+  
+  Frame22.Text = "Installed Kernels: " & found_kernels
+  Try TextLabel7.Text = "System name:  " & UNAME["System_name"]
+  Try TextLabel16.Text = "Nodename:    " & UNAME["Nodename"]
+  Try TextLabel17.Text = "Release:     " & UNAME["Release"]
+  Try TextLabel18.Text = "Version:     " & UNAME["Version"]
+  Try TextLabel26.Text = "Machine:     " & UNAME["Machine"]
   TextArea3.Text = Kernel_command_line
 End
 
@@ -423,37 +433,20 @@ End
 Public Sub grafika()
   Dim available_resolutions, Kernel_driver_in_use As String
   Dim rozdzielczosc, gpu, memory_prefetchable, memory_non_prefetchable As String
-  Dim opengl_vendor_string, opengl_renderer_string, opengl_version_string As String
+  Dim GL As String
   Dim GLX_GFX As Collection
-  
-  If ChkPrm.chkExec("glxinfo") = True Then
-    'lspci -v -s `lspci | awk '/VGA/{print $1}'` | grep 'Kernel driver in use:' | cut -d ':' -f 2
-    Shell "glxinfo | grep 'OpenGL vendor string:' | sed -n '1p' | cut -d ':' -f 2" Wait To opengl_vendor_string
-    Shell "glxinfo | grep 'OpenGL renderer string:' | sed -n '1p' | cut -d ':' -f 2" Wait To opengl_renderer_string
-    Shell "glxinfo | grep 'OpenGL version string:' | sed -n '1p' | cut -d ':' -f 2" Wait To opengl_version_string
 
-    Label105.Text = "OpenGL Vendor: " & Replace(opengl_vendor_string, "\n", "")
-    Label106.Text = "OpenGL Renderer: " & Replace(opengl_renderer_string, "\n", "")
-    Label107.Text = "OpenGL Version: " & Replace(opengl_version_string, "\n", "")
-    Try Label220.Text = "Server glx vendor: "
-    Try Label221.Text = "Server glx version: "
-    Try Label222.Text = "Client glx vendor: "
-    Try Label224.Text = "Client glx version: "
-    Try Label225.Text = "GLX version: " 
+  Try Exec ["/usr/bin/i-nex-glinfo"] Wait To GL
+  Try GLX_GFX = JSON.Decode(GL)
+  Try Label105.Text = "OpenGL Vendor: " & GLX_GFX["GL_VENDOR"]
+  Try Label106.Text = "OpenGL Renderer: " & GLX_GFX["GL_RENDERER"]
+  Try Label107.Text = "OpenGL Version: " & GLX_GFX["GL_VERSION"]
+  Try Label220.Text = "Server glx vendor: " & GLX_GFX["SERVER_GLX_VENDOR"]
+  Try Label221.Text = "Server glx version: " & GLX_GFX["SERVER_GLX_VERSION"]
+  Try Label222.Text = "Client glx vendor: " & GLX_GFX["CLIENT_GLX_VENDOR"]
+  Try Label224.Text = "Client glx version: " & GLX_GFX["CLIENT_GLX_VERSION"]
+  Try Label225.Text = "GLX version: " & GLX_GFX["GLX_VERSION"]
 
-  Else
-    Try Exec ["/usr/bin/i-nex-glinfo"] Wait To opengl_vendor_string
-    Try GLX_GFX = JSON.Decode(opengl_vendor_string)
-    Try Label105.Text = "OpenGL Vendor: " & GLX_GFX["GL_VENDOR"]
-    Try Label106.Text = "OpenGL Renderer: " & GLX_GFX["GL_RENDERER"]
-    Try Label107.Text = "OpenGL Version: " & GLX_GFX["GL_VERSION"]
-    Try Label220.Text = "Server glx vendor: " & GLX_GFX["SERVER_GLX_VENDOR"]
-    Try Label221.Text = "Server glx version: " & GLX_GFX["SERVER_GLX_VERSION"]
-    Try Label222.Text = "Client glx vendor: " & GLX_GFX["CLIENT_GLX_VENDOR"]
-    Try Label224.Text = "Client glx version: " & GLX_GFX["CLIENT_GLX_VERSION"]
-    Try Label225.Text = "GLX version: " & GLX_GFX["GLX_VERSION"]
-  Endif
-  
   Shell "" & ChkPrm.ChkExecDir("lspci") & " -v -s `lspci | awk '/VGA/{print $1}'` | grep 'Kernel driver in use:' | cut -d ':' -f 2" Wait To Kernel_driver_in_use
   Shell "" & ChkPrm.ChkExecDir("lspci") & " | grep 'VGA' | cut -d ':' -f3 | cut -d '(' -f 1" Wait To gpu
   Shell "xdpyinfo | grep 'dimensions:' | cut -d ':' -f 2" Wait To rozdzielczosc
@@ -565,6 +558,7 @@ Public Sub Wykrywanie_procesorow()
   Shell "grep 'physical id' /proc/cpuinfo | sed -n '" & eloaders & "' | cut -d ':' -f 2" Wait To physical_id
   Shell "grep 'power management' /proc/cpuinfo | sed -n '" & eloaders & "' | cut -d ':' -f 2" Wait To power_management
   Label14.Text = Replace(cpu, "\n", "")
+  Label14.Tooltip = Replace(cpu, "\n", "")
   flags = Replace(flags, "\n", "")
   'FFlags._init
   Label71.Text = "Flags: " & FFlags.instructions
@@ -924,19 +918,20 @@ Public Sub Reportthisw_Click()
 End
 
 Public Sub TabStrip1_Click()
- If TabStrip1.Current.Text = "CPU" Then
+TabPanel1_Click()
+ If TabStrip1.Current.Text Like "*CPU*" Then
   ComboBox1.Visible = True
  Else
   ComboBox1.Visible = False
  Endif
- If TabStrip1.Current.Text = "GPU" Then
+ If TabStrip1.Current.Text Like "*GPU*" Then
   ComboBox8.Visible = True
   Button11.Visible = True
  Else
   ComboBox8.Visible = False
   Button11.Visible = False
  Endif
- If TabStrip1.Current.Text = "Drives" Then
+ If TabStrip1.Current.Text Like "*Drives*" Then
   HBox19.Visible = True
   Button8.Visible = True
   Button14.Visible = True
@@ -953,9 +948,12 @@ Public Sub TabStrip1_Click()
  Else
   Button4.Visible = False
  Endif
- 
+ If TabStrip1.Current.Text Like "*Kernel*" Then
+  Button6.Visible = True
+ Else
+  Button6.Visible = False
+ Endif
  Me.Text = "I-Nex / " & TabStrip1.Current.Text 
- TabPanel1_Click()
 End
 
 Public Sub Form_Move()
