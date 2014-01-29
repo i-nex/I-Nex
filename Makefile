@@ -65,12 +65,12 @@ dependency_build ?= git \
 
 make:
 	@printf "\033[1;31mCompile edid-decode as inex-decode \033[0m$1\n"
-	$(CC) -o i-nex-edid JSON/edid-decode.c $(CFLAGS) $(additional_confflags)
-	$(CC) -o i-nex-cpuid JSON/cpu.c -static $(CC_OPTS_LIBCPUID) $(additional_confflags)
-	$(CC) -o i-nex-usage JSON/free.c -static $(CC_OPTS_LIBPROCPS) $(additional_confflags)
-	$(CC) -o i-nex-cpusage JSON/cpusage.c $(additional_confflags)
-	$(CC) -o i-nex-glinfo JSON/glinfo.c $(libx11) $(libgl) $(libxext) $(additional_confflags)
-	$(CC) -o i-nex-uname JSON/uname.c $(additional_confflags)
+	$(CC) -o i-nex-edid JSON/i-nex-edid.c $(CFLAGS) $(additional_confflags)
+	$(CC) -o i-nex-cpuid JSON/i-nex-cpuid.c -static $(CC_OPTS_LIBCPUID) $(additional_confflags)
+	$(CC) -o i-nex-usage JSON/i-nex-usage.c -static $(CC_OPTS_LIBPROCPS) $(additional_confflags)
+	$(CC) -o i-nex-cpusage JSON/i-nex-cpusage.c $(additional_confflags)
+	$(CC) -o i-nex-glinfo JSON/i-nex-glinfo.c $(libx11) $(libgl) $(libxext) $(additional_confflags)
+	$(CC) -o i-nex-uname JSON/i-nex-uname.c $(additional_confflags)
 	@printf "\033[1;31mCompile src/i-nex stage 1 \033[0m$1\n"
 	$(GBC) $(GBCOPTS) src/i-nex
 	@printf "\033[1;31mCompile src/i-nex stage 2 \033[0m$1\n"

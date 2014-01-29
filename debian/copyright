@@ -88,7 +88,7 @@ License: GPL-3+
  License version 3 can be found in the file
  `/usr/share/common-licenses/GPL-3'.
 
-Files: edid-decode.c
+Files: JSON/i-nex-edid.c
 Copyright: Red Hat, Inc.
 License: Copyright 2006-2009 Red Hat, Inc.
   Permission is hereby granted, free of charge, to any person obtaining a
@@ -107,7 +107,19 @@ License: Copyright 2006-2009 Red Hat, Inc.
   IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
   CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  
- 
+Files: JSON/*.c
+Copyright: 2011-2014 eloaders <eloaders@linux.pl>
+License: GPL-3+
+ This software is licensed to you under the GNU General Public License,
+ version 3 (GPLv3). There is NO WARRANTY for this software, express or
+ implied, including the implied warranties of MERCHANTABILITY or FITNESS
+ FOR A PARTICULAR PURPOSE. You should have received a copy of GPLv3
+ along with this software; if not, see <http://www.gnu.org/licenses/>.
+ .
+ On Ubuntu and Debian systems, the full text of the GNU General Public
+ License version 3 can be found in the file
+ `/usr/share/common-licenses/GPL-3'.
+
 Files: src/i-nex/Database/Logos/*
 Copyright: Intel, AMD
 License: Registered trademarks

@@ -71,7 +71,7 @@ int main() {
 		printf("	},\n");
 		printf("	\"USED_PLUS_CACHED\": %ld ,\n", (kb_main_used - buffers_plus_cached)/1024);
 		printf("	\"FREE_PLUS_CACHED\": %ld ,\n", (kb_main_free + buffers_plus_cached)/1024);
-		printf("			\"TOTAL\": {\n");			
+		printf("			\"TOTAL\": {\n");
 		printf("			\"TOTAL\": {\n");
 		printf("				\"TOTAL\": %ld ,\n", (kb_main_total + kb_swap_total)/1024);
 		printf("				\"USED\": %ld ,\n", (kb_main_used + kb_swap_used)/1024);
