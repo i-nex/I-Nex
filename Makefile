@@ -110,7 +110,7 @@ self:
 	$(INSTALL) 0755 i-nex-glinfo inex$(bindir)
 	$(INSTALL) 0755 i-nex-uname inex$(bindir)
 	$(INSTALL) 0755 src/i-nex/i-nex.gambas inex$(bindir)
-	$(INSTALL) 0755 pixmaps/pixmaps/i-nex.xpm inex/usr/share/pixmaps/
+	$(INSTALL) 0755 pixmaps/i-nex-128.png inex/usr/share/pixmaps/
 	$(INSTALL) 0755 debian/i-nex.desktop inex/usr/share/applications/
 	$(INSTALL) 0755 debian/check_kernel inex/usr/bin/
 	$(INSTALL) 0755 debian/i-nex-lspci inex/usr/bin/

@@ -1,8 +1,0 @@
-?package(i-nex): needs="X11" \
-                     section="Applications/System/Hardware" \
-                     title="i-nex" \
-                     longtitle="I-Nex Viewing System Device Information." \
-                     icon="/usr/share/pixmaps/i-nex.xpm" \
-                     icon32x32="/usr/share/pixmaps/i-nex-32.xpm" \
-                     icon16x16="/usr/share/pixmaps/i-nex-16.xpm" \
-                     command="/usr/bin/i-nex.gambas"

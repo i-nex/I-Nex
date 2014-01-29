@@ -1,4 +1,4 @@
 activate /usr/share/menu
 activate /usr/share/applications
+activate /usr/share/pixmaps
 activate /usr/share/man
-activate /usr/share/icons/hicolor
