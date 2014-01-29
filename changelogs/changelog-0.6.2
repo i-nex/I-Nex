@@ -1,0 +1,391 @@
+commit a9d4d76e750bd7099de36a91c6794f7dc093861a
+Author: eloaders <eloaders@linux.pl>
+Date:   Tue Jan 28 16:38:51 2014 +0100
+
+    New uname JSON. MV files to JSON folder. Fixes in thermal.
+
+commit 7d55397906b10190019f00bf4276c5527ca2d5dc
+Author: eloaders <eloaders@linux.pl>
+Date:   Mon Jan 27 15:57:25 2014 +0100
+
+    UPD License
+
+commit 97564bd56615e85d36e78c7e3885bd33a828fbcc
+Author: eloaders <eloaders@linux.pl>
+Date:   Mon Jan 27 13:18:46 2014 +0100
+
+    Cosmetic changes in GPU tab
+
+commit ee0af95dfd678c035010566a85e2fff1ec749d3c
+Author: eloaders <eloaders@linux.pl>
+Date:   Mon Jan 27 12:06:30 2014 +0100
+
+    Fix lsb-release
+
+commit 64aed65706c642d956b6825a7a26c9f9453c86ad
+Author: eloaders <eloaders@linux.pl>
+Date:   Mon Jan 27 02:55:12 2014 +0100
+
+    gcc -o inex-glinfo glinfo.c -O2  -lX11    -O2
+    
+    /tmp/ccXNE0wK.o: In function `main':
+    glinfo.c:(.text.startup+0x3c): undefined reference to
+    `glXChooseFBConfig'
+    glinfo.c:(.text.startup+0x4a): undefined reference to
+    `glXGetVisualFromFBConfig'
+    glinfo.c:(.text.startup+0x86): undefined reference to `glXCreatePixmap'
+    glinfo.c:(.text.startup+0xa2): undefined reference to
+    `glXCreateNewContext'
+    glinfo.c:(.text.startup+0xb0): undefined reference to `glXMakeCurrent'
+    glinfo.c:(.text.startup+0xc4): undefined reference to `glGetString'
+    glinfo.c:(.text.startup+0xe2): undefined reference to `glGetString'
+    glinfo.c:(.text.startup+0x100): undefined reference to `glGetString'
+    collect2: error: ld returned 1 exit status
+    make[1]: *** [make] Error 1
+    make[1]: Leaving directory `/build/buildd/i-nex-0.6.2'
+    dh_auto_build: make -j1 returned exit code 2
+    make: *** [build-arch] Error 2
+    dpkg-buildpackage: error: debian/rules build-arch gave error exit status 2
+
+commit c8f00297869ef5a77663a0c1049a66ea6804e4ae
+Author: eloaders <eloaders@linux.pl>
+Date:   Mon Jan 27 02:34:22 2014 +0100
+
+    gcc -o inex-glinfo glinfo.c -O2 -lX11 -lGL -lXext
+    
+    /usr/bin/ld: cannot find -lGL
+    /usr/bin/ld: cannot find -lXext
+    collect2: error: ld returned 1 exit status
+    make[1]: *** [make] Error 1
+    make[1]: Leaving directory
+    `/build/buildd/i-nex-0.6.2+bzr531+20140127~ubuntu14.04.1'
+    dh_auto_build: make -j1 returned exit code 2
+    make: *** [build-arch] Error 2
+    dpkg-buildpackage: error: debian/rules build-arch gave error exit status 2
+
+commit df2131d682ee63e4dc0db06a2ac4dc23b3d6d79f
+Author: eloaders <eloaders@linux.pl>
+Date:   Mon Jan 27 01:26:09 2014 +0100
+
+    Add: inex-glinfo. Rm dep mesa-utils
+
+commit 5a9a37b17c0c717ad28f853b214dbe615ee63d36
+Author: eloaders <eloaders@linux.pl>
+Date:   Sun Jan 26 20:44:59 2014 +0100
+
+    Move CPU Usage progressbar
+
+commit 38fb28ea2d706490970dc4fd871b9d4667eaa5c0
+Author: eloaders <eloaders@linux.pl>
+Date:   Sun Jan 26 20:44:40 2014 +0100
+
+    Fix Temp: °C
+
+commit c7cb904a7ff84aa9e0654ea7a726c3593609b3d8
+Author: eloaders <eloaders@linux.pl>
+Date:   Sat Jan 25 19:31:27 2014 +0100
+
+    Add Server Workstation Xeon, Atom, Opteron Database and Logos.
+    
+    Atom S1220         Opteron X2 870 HE  Xeon E3-1230L v3  Xeon E5-2609 v2
+       Xeon E5640
+    Atom S1240         Opteron X2 875     Xeon E3-1230 v2   Xeon E5-2620
+          Xeon E5645
+    Atom S1260         Opteron X2 875 HE  Xeon E3-1230 v3   Xeon E5-2620 v2
+       Xeon E5649
+    Celeron P1053      Opteron X2 880     Xeon E3-1235      Xeon E5-2630
+          Xeon E7-8850
+    Opteron 144        Opteron X2 885     Xeon E3-1240      Xeon E5-2630L
+         Xeon E7-8860
+    Opteron 146        Opteron X2 890     Xeon E3-1240 v2   Xeon E5-2630L v2
+      Xeon E7-8870
+    Opteron 148        Opteron  3320 EE   Xeon E3-1240 v3   Xeon E5-2630 v2
+       Xeon L5506
+    Opteron 150        Opteron  3350 HE   Xeon E3-1245      Xeon E5-2637
+          Xeon L5508
+    Opteron 152        Opteron  3380      Xeon E3-1245 v2   Xeon E5-2637 v2
+       Xeon L5518
+    Opteron 154        Opteron  4310 EE   Xeon E3-1245 v3   Xeon E5-2640
+          Xeon L5520
+    Opteron 156        Opteron  4332 HE   Xeon E3-1260L     Xeon E5-2640 v2
+       Xeon L5530
+    Opteron 2350 HE    Opteron  4334      Xeon E3-1265L v2  Xeon E5-2643
+          Xeon L5609
+    Opteron 246 HE     Opteron  4340      Xeon E3-1265L v3  Xeon E5-2643 v2
+       Xeon L5618
+    Opteron 248 HE     Opteron  4376 HE   Xeon E3-1270      Xeon E5-2648L
+         Xeon L5630
+    Opteron 250 HE     Opteron  4386      Xeon E3-1270 v2   Xeon E5-2650
+          Xeon L5638
+    Opteron 252        Opteron  43CX EE   Xeon E3-1270 v3   Xeon E5-2650L
+         Xeon L5640
+    Opteron 254        Opteron  43GK HE   Xeon E3-1275      Xeon E5-2650L v2
+      Xeon MP 2.83
+    Opteron 6168       Pentium 350        Xeon E3-1275 v2   Xeon E5-2650 v2
+       Xeon MP 3.00
+    Opteron 6262 HE    Xeon 2.8           Xeon E3-1275 v3   Xeon E5-2658
+          Xeon MP 3.16
+    Opteron 6272       Xeon 3.0           Xeon E3-1280      Xeon E5-2660
+          Xeon MP 3.33
+    Opteron 6274       Xeon 3.2           Xeon E3-1280 v2   Xeon E5-2660 v2
+       Xeon MP 3.50
+    Opteron 6276       Xeon 3.4           Xeon E3-1280 v3   Xeon E5-2665
+          Xeon MP 3.66
+    Opteron 6278       Xeon 3.6           Xeon E3-1285L v3  Xeon E5-2667
+          Xeon MP 7020 Dual-Core
+    Opteron 6282 SE    Xeon 5030          Xeon E3-1285 v3   Xeon E5-2667 v2
+       Xeon MP 7030 Dual-Core
+    Opteron 6284 SE    Xeon 5040          Xeon E3-1290      Xeon E5-2670
+          Xeon MP 7040 Dual-Core
+    Opteron 6348       Xeon 5050          Xeon E3-1290 v2   Xeon E5-2670 v2
+       Xeon MP 7041 Dual-Core
+    Opteron 6366 HE    Xeon 5060          Xeon E5-1410      Xeon E5-2680
+          Xeon W3503
+    Opteron 6376       Xeon 5063          Xeon E5-1428L     Xeon E5-2680 v2
+       Xeon W3505
+    Opteron 6378       Xeon 5080          Xeon E5-1620      Xeon E5-2687W
+         Xeon W3520
+    Opteron 6380       Xeon 5110          Xeon E5-1620 v2   Xeon E5-2687W v2
+      Xeon W3530
+    Opteron 6386 SE    Xeon 5120          Xeon E5-1650      Xeon E5-2690
+          Xeon W3540
+    Opteron 846 HE     Xeon 5130          Xeon E5-1650 v2   Xeon E5-2690 v2
+       Xeon W3550
+    Opteron 848 HE     Xeon 5140          Xeon E5-1660      Xeon E5-2692 v2
+       Xeon W3565
+    Opteron 850 HE     Xeon 5148          Xeon E5-1660 v2   Xeon E5-2695 v2
+       Xeon W3570
+    Opteron 852        Xeon 5150          Xeon E5-2403      Xeon E5-2697 v2
+       Xeon W3580
+    Opteron 854        Xeon 5160          Xeon E5-2403 v2   Xeon E5-4603
+          Xeon W3670
+    Opteron 856        Xeon 7110M         Xeon E5-2407      Xeon E5-4607
+          Xeon W3680
+    Opteron X2 165     Xeon 7110N         Xeon E5-2407 v2   Xeon E5-4610
+          Xeon W3690
+    Opteron X2 170     Xeon 7120M         Xeon E5-2418L     Xeon E5-4617
+          Xeon W5580
+    Opteron X2 175     Xeon 7120N         Xeon E5-2420      Xeon E5-4620
+          Xeon W5590
+    Opteron X2 180     Xeon 7130M         Xeon E5-2420 v2   Xeon E5-4640
+          Xeon X5550
+    Opteron X2 185     Xeon 7130N         Xeon E5-2428L     Xeon E5-4650
+          Xeon X5560
+    Opteron X2 260 HE  Xeon 7140M         Xeon E5-2430      Xeon E5-4650L
+         Xeon X5570
+    Opteron X2 265     Xeon 7140N         Xeon E5-2430L     Xeon E5502
+            Xeon X5647
+    Opteron X2 265 HE  Xeon E3-1105C      Xeon E5-2430 v2   Xeon E5503
+            Xeon X5650
+    Opteron X2 270     Xeon E3-1125C      Xeon E5-2440      Xeon E5504
+            Xeon X5660
+    Opteron X2 270 HE  Xeon E3-1220       Xeon E5-2440 v2   Xeon E5506
+            Xeon X5667
+    Opteron X2 275     Xeon E3-1220L      Xeon E5-2448L     Xeon E5507
+            Xeon X5670
+    Opteron X2 275 HE  Xeon E3-1220L v2   Xeon E5-2450      Xeon E5520
+            Xeon X5672
+    Opteron X2 280     Xeon E3-1220L v3   Xeon E5-2450L     Xeon E5530
+            Xeon X5675
+    Opteron X2 285     Xeon E3-1220 v2    Xeon E5-2450 v2   Xeon E5540
+            Xeon X5677
+    Opteron X2 290     Xeon E3-1220 v3    Xeon E5-2470      Xeon E5603
+            Xeon X5680
+    Opteron X2 860 HE  Xeon E3-1225       Xeon E5-2470 v2   Xeon E5606
+            Xeon X5687
+    Opteron X2 865     Xeon E3-1225 v2    Xeon E5-2603      Xeon E5607
+            Xeon X5690
+    Opteron X2 865 HE  Xeon E3-1225 v3    Xeon E5-2603 v2   Xeon E5620
+            Xeon X5698
+    Opteron X2 870     Xeon E3-1230       Xeon E5-2609      Xeon E5630
+
+commit 48e7aa381b96af90317fdd13568bb4e414cb6d94
+Author: eloaders <eloaders@linux.pl>
+Date:   Sat Jan 25 17:12:15 2014 +0100
+
+    Fixes detection of CPU in AMD Triple, Six, Quad Core Processor
+
+commit eea1198244ebeeb3aa2cef824e2a454198114781
+Author: eloaders <eloaders@linux.pl>
+Date:   Sat Jan 25 16:30:02 2014 +0100
+
+    MK dir changelogs, new i-nex icon etc
+
+commit 4ce523119d295d54b04592bd96c04770d68d89f4
+Author: eloaders <eloaders@linux.pl>
+Date:   Sat Jan 25 02:38:50 2014 +0100
+
+    Fix intel database and AMD APU Processors detection
+
+commit aee0799b7a1680d53bf5a7c3a63d9a5886251f6b
+Author: eloaders <eloaders@linux.pl>
+Date:   Fri Jan 24 13:21:03 2014 +0100
+
+    Add New CPUs to database:
+    
+    Core i7-4790
+    Core i5-4690
+    Core i3-4360
+    Core i5-4590
+    Pentium G3450
+    Celeron G1840
+    Core i7-4790S
+    Core i5-4590S
+    Core i3-4150T
+    Core i7-4960X
+    Core i7-4930K
+    Core i7-4820K
+    Core i7-4771
+    Core i3-4340
+    Core i3-4330
+    Core i3-4330T
+    Core i3-4130T
+    Core i3-4130
+    Pentium G3430
+    Pentium G3420
+    Pentium G3420T
+    Pentium G3220
+    Core i5-4440
+    Core i5-4440S
+    Pentium G3220T
+    Celeron G1630
+    Celeron G1620T
+    Core i7-3910K
+    Core i7-4770K
+    Core i5-4670K
+    Core i5-4430
+    Core i5-4430S
+    Core i5-4570T
+    Core i7-4770
+    Core i7-4770S
+    Core i7-4770T
+    Core i7-4765T
+    Core i5-4670
+    Core i5-4570
+    Core i5-4670S
+    Core i5-4670T
+    Core i5-4570S
+    Core i7-4770R
+    Core i5-4670R
+    Core i5-4570R
+    Core i5-4570TE
+    Core i7-4770TE
+    Pentium G2020
+    Pentium G2010
+    Pentium G2020T
+    Pentium G2130
+    Core i3-3210
+    Celeron G1610
+    Celeron G1620
+    Celeron G1610T
+    Core i5-3335S
+    Core i7-3970X
+    Core i3-3225
+    Core i3-3220T
+    Core i3-3220
+    Core i3-3240
+    Core i3-3240T
+    Core i5-3330
+    Core i5-3330S
+    Core i5-3350P
+    Pentium G2120
+    Pentium G2100T
+    Pentium G645
+    Pentium G645T
+    Celeron G555
+    Celeron G465
+    Pentium G640
+    Pentium G870
+    Pentium G640T
+    Pentium G860T
+    Core i5-3470
+    Core i5-3470S
+    Core i5-3470T
+    Core i5-3475S
+    Core i5-3570
+    Core i5-3570S
+    Celeron G550
+    Core i3-2115C
+    Core i7-3770K
+    Core i7-3770
+    Core i7-3770S
+    Core i7-3770T
+    Core i5-3570K
+    Core i5-3550
+    Core i5-3550S
+    Core i5-3570T
+    Core i5-3450
+    Core i5-3450S
+    Core i7-3820
+    Core i5-2550K
+    Core i5-2450P
+    Core i5-2380P
+    Celeron G460
+    Core i7-3960X
+    Core i7-3930K
+    Core i7-2700K
+    Core i3-2130
+    Core i3-2125
+    Core i3-2120T
+    Core i5-2320
+    Pentium G630
+    Pentium G630T
+    Pentium G632
+    Pentium G860
+    Celeron G530
+    Celeron G540
+    Celeron G530T
+    Celeron G440
+    Celeron G550T
+    Celeron G540T
+    Core i7-980
+    Core i3-2102
+    Core i5-2405S
+    Core i5-2310
+    Core i3-2105
+    Pentium G620
+    Pentium G620T
+    Pentium G622
+    Pentium G840
+    Pentium G850
+    Core i7-4790
+    Core i5-4690
+    Core i3-4360
+    Core i5-4590
+    Pentium G3450
+    Celeron G1840
+    Core i7-4790S
+    Core i5-4590S
+    Core i3-4150T
+    Core i7-4960X
+    Core i7-4940MX
+    Core i7-4910MQ
+    Core i7-4810MQ
+    Core i3-4000M
+    Pentium 987
+    Pentium 2030M
+    Pentium Dual-Core T4400
+    Pentium SU4100
+    Pentium Dual-Core T4400
+
+commit e198db319f070286f36a2a28d0abf4b58c3f82cd
+Author: eloaders <eloaders@linux.pl>
+Date:   Fri Jan 24 12:14:07 2014 +0100
+
+    Fix version
+
+commit 17306f67e1f242bdd15c32627c3715ba2786c835
+Author: eloaders <eloaders@linux.pl>
+Date:   Fri Jan 24 02:43:11 2014 +0100
+
+    resize main tab
+
+commit 2f3c44ff0366d6479db9a5ddfe1fd02977d4c659
+Author: eloaders <eloaders@linux.pl>
+Date:   Fri Jan 24 01:18:11 2014 +0100
+
+    Show CPU Usage in CPUINFO tab.
+    
+    New program named as inex-cpusage.
+    Fix manpages.
+    Add changelog for 0.6.0.

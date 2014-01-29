@@ -11,3 +11,4 @@ install:
 	$(INSTALL) 0755 changelog-0.5.6 $(DESTDIR)/usr/share/doc/i-nex/
 	$(INSTALL) 0755 changelog-0.5.8 $(DESTDIR)/usr/share/doc/i-nex/
 	$(INSTALL) 0755 changelog-0.6.0 $(DESTDIR)/usr/share/doc/i-nex/
+	$(INSTALL) 0755 changelog-0.6.2 $(DESTDIR)/usr/share/doc/i-nex/
