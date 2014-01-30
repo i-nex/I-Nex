@@ -9,6 +9,7 @@ Component=gb.image
 Component=gb.qt4
 Component=gb.form
 Component=gb.desktop
+Description="I-Nex is an application that gathers information for hardware components available on your system and displays it using an user interface similar to the popular Windows tool CPU-Z.\n\nI-Nex can display information for the following components: CPU, GPU, Motherboard, Sound, Hard disks, RAM, Network and USB as well as some system info like the hostname, Linux distribution and version, Xorg, GCC, GLX versions and Linux Kernel info.\n\n\nThe difference between I-Nex and the other hardware information GUI tools available for Linux is that the information is better organized and is displayed faster (than lshw-gtk for instance). Also, the hardware information is presented in a way that’s easier to understand than other such tools.\n\nBesides being able to display hardware information, I-Nex can also generate an advanced report for which you can select what to include and optionally send the report to a service such as Pastebin (and others). It also features an option to take a screenshot of the I-Nex window directly from the application."
 Authors="eloaders"
 Environment="LANG=C\nLC_ALL=C\nLIBOVERLAY_SCROLLBAR=0\nAPPMENU_DISPLAY_BOTH=1\nSHELL=/bin/bash"
 TabSize=1

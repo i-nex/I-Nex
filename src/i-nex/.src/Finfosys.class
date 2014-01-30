@@ -160,7 +160,7 @@ Public Sub Form_Open()
                          .Height = 21
                          .Border = Border.Raised
                          .Padding = 3
-                         .Font.Bold = True
+                         .Font.Size = 8
                          .Text = MTRR[i - 1]
                     End With
     Next
@@ -319,7 +319,7 @@ Public Sub kernel()
   Shell "ls /boot/vmlinuz* | cut -d '/' -f 3 | wc -l" Wait To found_kernels
   Shell "cat /proc/cmdline" Wait To Kernel_command_line
   
-  Frame22.Text = "Installed Kernels: " & found_kernels
+  Label228.Text = "Installed Kernels: " & found_kernels
   Try TextLabel7.Text = "System name:  " & UNAME["System_name"]
   Try TextLabel16.Text = "Nodename:    " & UNAME["Nodename"]
   Try TextLabel17.Text = "Release:     " & UNAME["Release"]
@@ -747,19 +747,19 @@ Public Sub refreshing()
  Label58.Text = "Read ahead kb: " & Disk_Drives.read_ahead_kb & ""
  Label59.Text = "Scheduler: " & Disk_Drives.scheduler & ""
  
-Label126.Text = "logical_block_size: " & Disk_Drives.logical_block_size & "" ' logical_block_size
-Label127.Text = "iostats: " & Disk_Drives.iostats & "" ' iostats
-Label128.Text = "minimum_io_size: " & Disk_Drives.minimum_io_size & "" ' minimum_io_size
-Label129.Text = "nomerges: " & Disk_Drives.nomerges & "" ' nomerges
-Label130.Text = "nr_requests: " & Disk_Drives.nr_requests & "" ' nr_requests
-Label131.Text = "optimal_io_size: " & Disk_Drives.optimal_io_size & "" ' optimal_io_size
-Label132.Text = "physical_block_size: " & Disk_Drives.physical_block_size & "" ' physical_block_size
-Label133.Text = "rotational: " & Disk_Drives.rotational & "" ' rotational
-Label134.Text = "rq_affinity: " & Disk_Drives.rq_affinity & "" ' rq_affinity
+Label126.Text = "Logical block size: " & Disk_Drives.logical_block_size & "" ' logical_block_size
+Label127.Text = "IO stats: " & Disk_Drives.iostats & "" ' iostats
+Label128.Text = "Minimum IO size: " & Disk_Drives.minimum_io_size & "" ' minimum_io_size
+Label129.Text = "Nomerges: " & Disk_Drives.nomerges & "" ' nomerges
+Label130.Text = "Nr requests: " & Disk_Drives.nr_requests & "" ' nr_requests
+Label131.Text = "Optimal IO size: " & Disk_Drives.optimal_io_size & "" ' optimal_io_size
+Label132.Text = "Physical block size: " & Disk_Drives.physical_block_size & "" ' physical_block_size
+Label133.Text = "Rotational: " & Disk_Drives.rotational & "" ' rotational
+Label134.Text = "Rq affinity: " & Disk_Drives.rq_affinity & "" ' rq_affinity
  
  Label123.Text = "BDI max_ratio: " & Disk_Drives.max_ratio & "" 
  Label124.Text = "BDI min_ratio: " & Disk_Drives.min_ratio & "" 
- Label125.Text = "BDI stable_pages_required: " & Disk_Drives.stable_pages_required & "" 
+ Label125.Text = "BDI stable pages required: " & Disk_Drives.stable_pages_required & "" 
  
  If Disk_Drives.removable Like "0" Then
  Label45.Text = "Removable: No"

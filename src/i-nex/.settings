@@ -24,13 +24,13 @@ SearchComment=False
 SearchString=True
 
 [OpenFile]
+Active=1
 File[1]=".src/Finfosys.form"
 File[2]=".src/Global.class:15.70"
-Active=3
 File[3]=".src/About.form"
 File[4]=".src/About.class:17.16"
 File[5]=".src/battery.module:15.70"
-File[6]=".src/Disk_Drives.module:15.70"
+File[6]=".src/Disk_Drives.module:141.54"
 File[7]=".src/ScreenShot.form"
 File[8]=".src/ScreenShot.class:15.70"
 File[9]=".src/ScreenShotM.module:15.70"
@@ -49,7 +49,7 @@ File[21]=".src/net.module:15.70"
 File[22]="Data/report-ng.sh:5.3"
 File[23]=".src/Distribution_Detect.module:15.70"
 File[24]=".src/FFlags.module:15.70"
-File[25]=".src/Finfosys.class:303.19"
+File[25]=".src/Finfosys.class:321.10"
 File[26]=".src/FDF.form"
 File[27]=".src/FDF.class:15.70"
 File[28]=".src/FNET_R_T.form"
