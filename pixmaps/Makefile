@@ -23,6 +23,6 @@ uninstall:
 	
 clean:
 	
-	rm i-nex-16.png
-	rm i-nex-32.png
-	rm i-nex-128.png
+	rm -f i-nex-16.png
+	rm -f i-nex-32.png
+	rm -f i-nex-128.png
