@@ -21,7 +21,7 @@ Public temp_acpi_thm As Boolean = Exist("/proc/acpi/thermal_zone/THM0/temperatur
 Public temp_hwmon As Boolean = Exist("/sys/class/hwmon/hwmon0/device/temp2_input")
 Public temp_hwmon2 As Boolean = Exist("/sys/class/hwmon/hwmon0/temp1_input")
 Public temp_coretemp As Boolean = Exist("/sys/devices/platform/coretemp.0/temp2_input")
-
+'
 Public Temperature As String
 Public calculate As Float
 Public supporttemp As Boolean = False
@@ -59,8 +59,15 @@ Public Sub _inits()
  Endif
  
  If temp_coretemp = True Then
- Shell "cat /sys/devices/platform/coretemp.0/temp2_input" Wait To Temperature
  supporttemp = True
+ Shell "cat /sys/devices/platform/coretemp.0/temp2_input" Wait To Temperature
+ Else
+  supporttemp = False
+ Endif
+ 
+ If Access("/sys/class/hwmon/hwmon0/device/temp1_input", gb.Read) = True Then
+  supporttemp = True
+  Shell "cat /sys/class/hwmon/hwmon0/device/temp1_input" Wait To Temperature
  Else
   supporttemp = False
  Endif
@@ -70,7 +77,7 @@ Public Sub _inits()
  Else
   calculate = CFloat(Val(Temperature))
  Endif
-
+ 
  'hFile = Open "/sys/devices/platform/coretemp.0/temp2_input" For Input
 
  'While Not Eof(hFile)
