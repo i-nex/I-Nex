@@ -70,21 +70,9 @@ Public Sub Button8_Click()
 
 End
 
-Public Sub Button3_Click()
-
- Desktop.Open("http://mmaciek12.deviantart.com/")
-
-End
-
-Public Sub Button10_Click()
-
- Desktop.Open("mailto:mmaciek123@gmail.com")
-
-End
-
 Public Sub Button4_Click()
 
- Desktop.Open("http://tuxportal.pl/")
+ Desktop.Open("http://i-nex.linux.pl/")
 
 End
 
