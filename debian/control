@@ -31,9 +31,7 @@ Vcs-Git: https://github.com/eloaders/I-Nex.git
 
 Package: i-nex
 Architecture: any
-Depends: ${shlibs:Depends},
-  ${python:Depends},
-  ${misc:Depends},
+Depends: ${shlibs:Depends}, ${misc:Depends}, ${python:Depends},
   gambas3-runtime (>= 3.4.0),  
   gambas3-gb-image (>= 3.0.90), 
   gambas3-gb-image (<< 3.99.0), 
