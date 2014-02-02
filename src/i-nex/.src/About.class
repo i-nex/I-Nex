@@ -23,7 +23,9 @@ Public Sub Form_Open()
      Try Me.X = Settings["Window/X", Me.X]
      Try Me.Y = Settings["Window/Y", Me.Y]
   Endif
-  
+
+  Label6.Text = "I-Nex " & Application.Version
+
 End
 
 Public Sub Button1_Click()

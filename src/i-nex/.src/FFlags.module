@@ -63,14 +63,14 @@ Public Sub _init()
   instructions = instructions & "NX-Bit, "
  Endif
  'Instructions for detect AMD64,vmx, ht
- If dec_instructions Like "*lm*" Then
+ If dec_instructions Like "* lm *" Then
   Finfosys.ToolButton1.Picture = Picture["Data/check_true.png"]
   X86_X64 = "True"
  Else
   Finfosys.ToolButton1.Picture = Picture["Data/check_false.png"]
   X86_X64 = "False" 
  Endif
- If dec_instructions Like "*svm*" Then
+ If dec_instructions Like "*svm *" Then
   Finfosys.ToolButton2.Picture = Picture["Data/check_true.png"]
   VIRT = "True"
  Else

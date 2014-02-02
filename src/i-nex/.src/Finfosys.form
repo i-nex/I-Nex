@@ -807,218 +807,170 @@
     Index = 2
     Text = "Mobo"
     Picture = Picture["AppIcons/Finfosys/hardinfo.png"]
-    { Frame1 Frame
-      Move(0,0,469,112)
+    { Label229 Label
+      Move(0,0,469,21)
       #Translate = False
-      Font = Font["Bold,9"]
+      Font = Font["Bold,8"]
       Text = "Board"
-      { TextLabel1 TextLabel
-        Move(7,21,455,21)
-        #Translate = False
-        Font = Font["Bold,8"]
-        Text = "TextLabel1"
-        Alignment = Align.Left
-        Border = Border.Raised
-      }
-      { TextLabel2 TextLabel
-        Move(7,42,455,21)
-        #Translate = False
-        Font = Font["Bold,8"]
-        Text = "TextLabel2"
-        Alignment = Align.Left
-        Border = Border.Raised
-      }
-      { TextLabel3 TextLabel
-        Move(7,63,455,21)
-        #Translate = False
-        Font = Font["Bold,8"]
-        Text = "TextLabel3"
-        Alignment = Align.Left
-        Border = Border.Raised
-      }
-      { TextLabel4 TextLabel
-        Move(7,84,455,21)
-        #Translate = False
-        Font = Font["Bold,8"]
-        Text = "TextLabel4"
-        Alignment = Align.Left
-        Border = Border.Raised
-      }
+      Alignment = Align.Center
     }
-    { Frame3 Frame
-      Move(0,112,469,91)
+    { TextBox2 TextBox
+      Move(0,21,469,28)
       #Translate = False
-      Font = Font["Bold,9"]
+      Font = Font["8"]
+      Text = "TextBox2"
+      ReadOnly = True
+    }
+    { TextBox3 TextBox
+      Move(0,49,469,28)
+      #Translate = False
+      Font = Font["8"]
+      Text = "TextBox3"
+      ReadOnly = True
+    }
+    { TextBox4 TextBox
+      Move(0,77,469,28)
+      #Translate = False
+      Font = Font["8"]
+      Text = "TextBox4"
+      ReadOnly = True
+    }
+    { TextBox5 TextBox
+      Move(0,105,469,28)
+      #Translate = False
+      Font = Font["8"]
+      Text = "TextBox5"
+      ReadOnly = True
+    }
+    { Label230 Label
+      Move(0,133,469,21)
+      #Translate = False
+      Font = Font["Bold,8"]
       Text = "Bios"
-      { TextLabel5 TextLabel
-        Move(7,21,455,21)
-        #Translate = False
-        Font = Font["Bold,8"]
-        Text = "TextLabel5"
-        Alignment = Align.Left
-        Border = Border.Raised
-      }
-      { TextLabel6 TextLabel
-        Move(7,42,455,21)
-        #Translate = False
-        Font = Font["Bold,8"]
-        Text = "TextLabel6"
-        Alignment = Align.Left
-        Border = Border.Raised
-      }
-      { TextLabel14 TextLabel
-        Move(7,63,455,21)
-        #Translate = False
-        Font = Font["Bold,8"]
-        Text = "TextLabel14"
-        Alignment = Align.Left
-        Border = Border.Raised
-      }
+      Alignment = Align.Center
     }
-    { Frame4 Frame
-      Move(0,203,469,112)
+    { TextBox6 TextBox
+      Move(0,154,469,28)
       #Translate = False
-      Font = Font["Bold,9"]
+      Text = "TextBox6"
+      ReadOnly = True
+    }
+    { TextBox21 TextBox
+      Move(0,182,469,28)
+      #Translate = False
+      Text = "TextBox21"
+      ReadOnly = True
+    }
+    { TextBox22 TextBox
+      Move(0,210,469,28)
+      #Translate = False
+      Text = "TextBox22"
+      ReadOnly = True
+    }
+    { Label231 Label
+      Move(0,238,469,21)
+      #Translate = False
+      Font = Font["Bold,8"]
       Text = "Chassis"
-      { TextLabel8 TextLabel
-        Move(7,21,455,21)
-        #Translate = False
-        Font = Font["Bold,8"]
-        Text = "TextLabel8"
-        Alignment = Align.Left
-        Border = Border.Raised
-      }
-      { TextLabel9 TextLabel
-        Move(7,42,455,21)
-        #Translate = False
-        Font = Font["Bold,8"]
-        Text = "TextLabel9"
-        Alignment = Align.Left
-        Border = Border.Raised
-      }
-      { TextLabel10 TextLabel
-        Move(7,63,455,21)
-        #Translate = False
-        Font = Font["Bold,8"]
-        Text = "TextLabel10"
-        Alignment = Align.Left
-        Border = Border.Raised
-      }
-      { TextLabel11 TextLabel
-        Move(7,84,455,21)
-        #Translate = False
-        Font = Font["Bold,8"]
-        Text = "TextLabel11"
-        Alignment = Align.Left
-        Border = Border.Raised
-      }
+      Alignment = Align.Center
+      Transparent = True
     }
-    { Frame5 Frame
-      Move(0,315,469,77)
-      #Translate = False
-      Font = Font["Bold,9"]
-      Text = "Product"
-      { TextLabel12 TextLabel
-        Move(7,21,455,21)
-        #Translate = False
-        Font = Font["Bold,8"]
-        Text = "TextLabel12"
-        Alignment = Align.TopLeft
-        Border = Border.Raised
-      }
-      { TextLabel13 TextLabel
-        Move(7,42,455,21)
-        #Translate = False
-        Font = Font["Bold,8"]
-        Text = "TextLabel13"
-        Alignment = Align.TopLeft
-        Border = Border.Raised
-      }
+    { TextBox23 TextBox
+      Move(0,259,469,28)
+      Text = ("TextBox23")
+      ReadOnly = True
+    }
+    { TextBox24 TextBox
+      Move(0,287,469,28)
+      Text = ("TextBox24")
+      ReadOnly = True
+    }
+    { TextBox25 TextBox
+      Move(0,315,469,28)
+      Text = ("TextBox25")
+      ReadOnly = True
+    }
+    { TextBox26 TextBox
+      Move(0,343,469,28)
+      Text = ("TextBox26")
+      ReadOnly = True
+    }
+    { Label232 Label
+      Move(0,371,469,21)
+      Font = Font["Bold,8"]
+      Text = ("Product")
+      Alignment = Align.Center
+    }
+    { TextBox27 TextBox
+      Move(0,392,469,28)
+      Text = ("TextBox27")
+      ReadOnly = True
+    }
+    { TextBox28 TextBox
+      Move(0,420,469,28)
+      Text = ("TextBox28")
+      ReadOnly = True
     }
     Index = 3
     Text = "Audio"
     Picture = Picture["AppIcons/Finfosys/audio-card.png"]
-    { HBox21 HBox
-      Move(6,6,156,24)
-      { ComboBox6 ComboBox
-        Move(0,0,144,24)
-        #Translate = False
-        Font = Font["8"]
-        Expand = True
-        ReadOnly = True
-      }
-    }
-    { HBox15 HBox
-      Move(7,35,455,28)
-      { Label9 Label
-        Move(0,0,144,24)
-        Font = Font["Bold,10"]
-        AutoResize = True
-        Text = ("Version:   ")
-      }
-      { TextBox44 TextBox
-        Move(132,0,144,24)
-        Font = Font["8"]
-        Expand = True
-        ReadOnly = True
-      }
-    }
     { HPanel7 HPanel
-      Move(6,66,455,126)
+      Move(7,35,455,56)
       { Label73 Label
         Move(0,0,140,28)
         #Translate = False
         Font = Font["8"]
+        Padding = 3
         AutoResize = True
-        Border = Border.Plain
+        Border = Border.Raised
       }
-      { Label18 Label
+      { Label78 Label
         Move(140,0,315,28)
         #Translate = False
         Font = Font["8"]
         Expand = True
-        Border = Border.Plain
+        Padding = 3
+        Border = Border.Raised
       }
-      { Label74 Label
+      { Label9 Label
         Move(0,28,455,28)
-        #Translate = False
         Font = Font["8"]
         Expand = True
-        Border = Border.Plain
-      }
-      { Label77 Label
-        Move(0,56,455,28)
-        #Translate = False
-        Font = Font["8"]
-        Expand = True
-        Border = Border.Plain
-      }
-      { Label78 Label
-        Move(0,84,455,28)
-        #Translate = False
-        Font = Font["8"]
-        Expand = True
-        Border = Border.Plain
+        Padding = 3
+        Text = ("Label9")
+        Border = Border.Raised
       }
     }
     { VSplit1 VSplit
-      Move(7,189,455,259)
+      Move(0,91,469,385)
       { TextArea18 TextArea
-        Move(0,18,455,91)
+        Move(0,21,455,91)
         #Translate = False
         Font = Font["8"]
         Expand = True
         Text = "N/A"
         ReadOnly = True
-        ScrollBar = Scroll.None
       }
       { TextArea1 TextArea
-        Move(0,162,455,98)
+        Move(7,245,455,98)
         #Translate = False
         Font = Font["8"]
         Expand = True
         ReadOnly = True
       }
+    }
+    { ComboBox6 ComboBox
+      Move(7,7,252,28)
+      #Translate = False
+      Font = Font["8"]
+      Expand = True
+      ReadOnly = True
+    }
+    { ComboBox9 ComboBox
+      Move(259,7,203,28)
+      Font = Font["8"]
+      ReadOnly = True
+      Text = ("ComboBox9")
     }
     Index = 4
     Text = "Drives"

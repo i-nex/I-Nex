@@ -17,52 +17,60 @@
 
 Public Logs As New Logger
 Public Version As String
-Public Modules As String
-Public Devices As String
-Public Codec As String
-Public Cards As String
+Public ASOUND_ID As String
+Public ASOUND_CODEC As String
+Public ASOUND_ALSADV As String
+Public ASOUND_INPUT As String
 Public Id As String
 Public hwdep As String
 Public pcm As String
 Public sound_cards As String
 
-Public Sub _init()
-  Dim ListAllDiscs, risultato As String
-  Dim righe As New String[]
-  Dim count As Integer
-  Dim riga As New String[]
-  Dim lista As New String[]
-  Logs("Add Drives to ComboBox..", Logger.Info)
-  Shell "ls /proc/asound | grep card[0-9]" To ListAllDiscs
-  righe = Split(ListAllDiscs, "\n", "%%", True)
-  For count = 0 To righe.Max
-  riga = Split(righe[count], " ", "%%", True)
-  risultato = Replace(riga[0], " ", "")
-  lista.add(risultato)
+Public Sub _inits()
+  Dim ASOUND_CARDS As String
+  Dim ASOUND_CARDS_LIST As String[]
+  Dim i As Integer
+  
+  Shell "grep '\\[' /proc/asound/cards | cut -d ':' -f 2" Wait To ASOUND_CARDS
+  ASOUND_CARDS_LIST = Split(ASOUND_CARDS, "\n", "%%")
+  For i = 1 To ASOUND_CARDS_LIST.Count - 1
+   If ASOUND_CARDS_LIST[i] = Null Then
+    ASOUND_CARDS_LIST.Delete(i)
+   Endif
   Next
-  Finfosys.ComboBox6.List = lista
-  Finfosys.ComboBox6.Index = 0
-  _get_informations()
+   Finfosys.ComboBox6.List = ASOUND_CARDS_LIST
+   Finfosys.ComboBox6.Index = 0
+   _get_informations()
 End
 
 Public Sub _get_informations()
- 
- Shell "lspci | grep 'udio' | cut -d ':' -f 3 | cut -d '(' -f 1" Wait To sound_cards
- Shell "cat /proc/asound/version" Wait To Version
- Shell "cat /proc/asound/modules" Wait To Modules
- Shell "cat /proc/asound/devices" Wait To Devices
- Shell "grep 'Codec:' /proc/asound/" & Finfosys.ComboBox6.Text & "/codec#0 | cut -d ':' -f 2" Wait To Codec
- Shell "cat /proc/asound/" & Finfosys.ComboBox6.Text & "/id" Wait To Id
- Shell "cat /proc/asound/cards" Wait To Cards
- Shell "cat /proc/asound/hwdep" Wait To hwdep
- Shell "cat /proc/asound/pcm" Wait To pcm
- Version = Replace(Version, "\n", "")
- Modules = Replace(modules, "\n", "")
- Codec = Replace(Codec, "\n", "")
- Cards = Replace(Cards, "\n", "")
- Id = Replace(Id, "\n", "")
- hwdep = Replace(hwdep, "\n", "")
- pcm = Replace(pcm, "\n", "")
- 'Devices = Replace(Devices, "\n", "")
+   Dim ASOUND_INPUT As String
+   Dim ASOUND_INPUT_LIST_NAME As String
+   Dim ASOUND_INPUT_LIST As String[]
+   Dim i As Integer
+   Try ASOUND_ID = File.Load("/proc/asound/card" & Finfosys.ComboBox6.Index & "/id")
+   Try ASOUND_ALSADV = File.Load("/proc/asound/version")
+   ASOUND_ID = Replace(ASOUND_ID, "\n", "")
+   Shell "grep 'Codec:' /proc/asound/" & ASOUND_ID & "/codec*" Wait To ASOUND_CODEC
+   Finfosys.Label73.Text = Replace(ASOUND_CODEC, "\n", "") & "  "
+   Finfosys.Label9.Text = Replace(Replace(ASOUND_ALSADV, "\n", ""), "Advanced Linux Sound Architecture", "ALSA")
+   Shell "ls /sys/class/sound/card" & Finfosys.ComboBox6.Index & " | grep input | sort" Wait To ASOUND_INPUT
+   ASOUND_INPUT_LIST = Split(ASOUND_INPUT, "\n", "%%")
+   
+   For i = 1 To ASOUND_INPUT_LIST.Count - 1
+    If ASOUND_INPUT_LIST[i] = Null Then
+       ASOUND_INPUT_LIST.Delete(i)
+    Endif
+   Next
+   Finfosys.ComboBox9.List = ASOUND_INPUT_LIST
+   Finfosys.ComboBox9.Index = 0
+   'ComboBox9
+   'file:///sys/class/sound/card0/input6/name
+   
+End
+
+Public Sub _INPUT_NAME()
+ Try Finfosys.Label78.text = Replace(File.Load("/sys/class/sound/card" & Finfosys.ComboBox6.Index & "/" & Finfosys.ComboBox9.Text & "/name"), "\n", "")
+ Try Finfosys.TextArea18.text = File.Load("/proc/asound/card" & Finfosys.ComboBox6.Index & "/codec#0")
  
 End

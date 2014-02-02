@@ -197,6 +197,8 @@ Public Sub Form_Open()
       Object.Call(FGraphic, "_inits")
   Logs("Call to Graphic", Logger.Info)
       Object.Call(FGraphic, "_check")
+  Logs("Check sound cards", Logger.Info)
+      Object.Call(Asound_Drives, "_inits")
   Logs("Check for default display manager", Logger.Info)
   If default_display_manager = True Then
      Label4.Visible = True
@@ -281,8 +283,6 @@ Public Sub Form_Open()
  bios()
  Logs("Check Kernels", Logger.Info)
  kernel()
- Logs("Check sound cards", Logger.Info)
- dzwiek()
  Logs("Check graphic card", Logger.Info)
  grafika()
  ''END Uruchomienie instrukcji dla poszczególnych zakładek w celu wydobycia informacji z systemu
@@ -328,52 +328,39 @@ Public Sub kernel()
   TextArea3.Text = Kernel_command_line
 End
 
-Public Sub dzwiek()
-
-  TextArea18.Text = Asound_Drives.sound_cards
-  TextBox44.Text = Asound_Drives.Version
-  Label18.Text = "Codec:   " & Asound_Drives.Codec
-  Label73.Text = "ID:   " & Asound_Drives.Id & "   "
-  Label74.Text = "Modules:   " & Asound_Drives.Modules
-  Label77.Text = "HWdep:   " & Asound_Drives.hwdep
-  Label78.Text = "PCM:   " & Asound_Drives.pcm
-  TextArea1.Text = Asound_Drives.Devices
-
-End
-
 Public Sub bios()
-  Exec ["cat", "/sys/devices/virtual/dmi/id/board_vendor"] Wait To TextLabel1.Text
-  Exec ["cat", "/sys/devices/virtual/dmi/id/board_version"] Wait To TextLabel2.Text
-  Exec ["cat", "/sys/devices/virtual/dmi/id/board_name"] Wait To TextLabel3.Text
-  Exec ["cat", "/sys/devices/virtual/dmi/id/board_asset_tag"] Wait To TextLabel4.Text
+  Exec ["cat", "/sys/devices/virtual/dmi/id/board_vendor"] Wait To TextBox2.Text
+  Exec ["cat", "/sys/devices/virtual/dmi/id/board_version"] Wait To TextBox3.Text
+  Exec ["cat", "/sys/devices/virtual/dmi/id/board_name"] Wait To TextBox4.Text
+  Exec ["cat", "/sys/devices/virtual/dmi/id/board_asset_tag"] Wait To TextBox5.Text
   
-  Exec ["cat", "/sys/devices/virtual/dmi/id/bios_vendor"] Wait To TextLabel5.Text
-  Exec ["cat", "/sys/devices/virtual/dmi/id/bios_version"] Wait To TextLabel6.Text
-  Exec ["cat", "/sys/devices/virtual/dmi/id/bios_date"] Wait To TextLabel14.Text
+  Exec ["cat", "/sys/devices/virtual/dmi/id/bios_vendor"] Wait To TextBox6.Text
+  Exec ["cat", "/sys/devices/virtual/dmi/id/bios_version"] Wait To TextBox21.Text
+  Exec ["cat", "/sys/devices/virtual/dmi/id/bios_date"] Wait To TextBox22.Text
   
-  Exec ["cat", "/sys/devices/virtual/dmi/id/chassis_vendor"] Wait To TextLabel8.Text
-  Exec ["cat", "/sys/devices/virtual/dmi/id/chassis_version"] Wait To TextLabel9.Text
-  Exec ["cat", "/sys/devices/virtual/dmi/id/chassis_type"] Wait To TextLabel10.Text
-  Exec ["cat", "/sys/devices/virtual/dmi/id/chassis_asset_tag"] Wait To TextLabel11.Text
+  Exec ["cat", "/sys/devices/virtual/dmi/id/chassis_vendor"] Wait To TextBox23.Text
+  Exec ["cat", "/sys/devices/virtual/dmi/id/chassis_version"] Wait To TextBox24.Text
+  Exec ["cat", "/sys/devices/virtual/dmi/id/chassis_type"] Wait To TextBox25.Text
+  Exec ["cat", "/sys/devices/virtual/dmi/id/chassis_asset_tag"] Wait To TextBox26.Text
   
-  Exec ["cat", "/sys/devices/virtual/dmi/id/product_name"] Wait To TextLabel12.Text
-  Exec ["cat", "/sys/devices/virtual/dmi/id/product_version"] Wait To TextLabel13.Text
-  TextLabel1.Text = "Board Vendor:   " & Replace(TextLabel1.Text, "\n", "")
-  TextLabel2.Text = "Board Version:   " & Replace(TextLabel2.Text, "\n", "")
-  TextLabel3.Text = "Board Name:   " & Replace(TextLabel3.Text, "\n", "")
-  TextLabel4.Text = "Board Asset Tag:  " & Replace(TextLabel4.Text, "\n", "")
+  Exec ["cat", "/sys/devices/virtual/dmi/id/product_name"] Wait To TextBox27.Text
+  Exec ["cat", "/sys/devices/virtual/dmi/id/product_version"] Wait To TextBox28.Text
+  TextBox2.Text = "Board Vendor:   " & Replace(TextBox2.Text, "\n", "")
+  TextBox3.Text = "Board Version:   " & Replace(TextBox3.Text, "\n", "")
+  TextBox4.Text = "Board Name:   " & Replace(TextBox4.Text, "\n", "")
+  TextBox5.Text = "Board Asset Tag:  " & Replace(TextBox5.Text, "\n", "")
   
-  TextLabel5.Text = "Bios Vendor:   " & Replace(TextLabel5.Text, "\n", "")
-  TextLabel6.Text = "Bios Version:   " & Replace(TextLabel6.Text, "\n", "")
-  TextLabel14.Text = "Bios Date:   " & Replace(TextLabel14.Text, "\n", "")
+  TextBox6.Text = "Bios Vendor:   " & Replace(TextBox6.Text, "\n", "")
+  TextBox21.Text = "Bios Version:   " & Replace(TextBox21.Text, "\n", "")
+  TextBox22.Text = "Bios Date:   " & Replace(TextBox22.Text, "\n", "")
   
-  TextLabel8.Text = "Chassis Vendor:   " & Replace(TextLabel8.Text, "\n", "")
-  TextLabel9.Text = "Chassis Version:   " & Replace(TextLabel9.Text, "\n", "")
-  TextLabel10.Text = "Chassis Type:   " & Replace(TextLabel10.Text, "\n", "")
-  TextLabel11.Text = "Chassis Asset Tag:   " & Replace(TextLabel11.Text, "\n", "")
+  TextBox23.Text = "Chassis Vendor:   " & Replace(TextBox23.Text, "\n", "")
+  TextBox24.Text = "Chassis Version:   " & Replace(TextBox24.Text, "\n", "")
+  TextBox25.Text = "Chassis Type:   " & Replace(TextBox25.Text, "\n", "")
+  TextBox26.Text = "Chassis Asset Tag:   " & Replace(TextBox26.Text, "\n", "")
   
-  TextLabel12.Text = "Product Name:   " & Replace(TextLabel12.Text, "\n", "")
-  TextLabel13.Text = "Product Version:   " & Replace(TextLabel13.Text, "\n", "")
+  TextBox27.Text = "Product Name:   " & Replace(TextBox27.Text, "\n", "")
+  TextBox28.Text = "Product Version:   " & Replace(TextBox28.Text, "\n", "")
 End
 
 Public Sub System()
@@ -470,6 +457,7 @@ Public Sub grafika()
   TextBox1.Text = RTrim(Replace(gpu, "\n", ""))
   Label109.Text = Replace(available_resolutions, "\n", "")
   Global.kartagraficzna()
+  ComboBox8.Index = 1
 End
 
 Public Sub Wykrywanie_procesorow()
@@ -1002,5 +990,11 @@ End
 Public Sub Button4_Click()
 
  FDIMM.Show
+
+End
+
+Public Sub ComboBox9_Click()
+
+ Asound_Drives._INPUT_NAME()
 
 End
