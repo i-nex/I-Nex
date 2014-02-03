@@ -32,12 +32,13 @@ Public DATAT As Collection
 
 Public Sub Form_Open()
   Dim default_display_manager As Boolean = Exist("/etc/X11/default-display-manager")
-  Dim cpuz0, cpuz1, cpuz2, cpuz3, cpuz4, cpuz5, cpuz6, cpuz7, cpuz8, cpuz9, cpuz10, cpuz11 As String
+  Dim cpus As String
   Dim i As Integer
   Dim data As Stream
   Dim MaxCount As Integer
   Dim sLine As String
   Dim MTRR As New String[]
+  Shell "ls /sys/devices/system/cpu/ | grep cpu[0-9]" Wait To cpus
   Logs("Starting log", Logger.Info)
   Button4.Visible = False
   Object.Call(MCPUSAGE, "GetUSAGE")
@@ -184,6 +185,15 @@ Public Sub Form_Open()
     Next
   Endif
   
+    'Procesor
+  Logs("Check available procesors", Logger.Info)
+  Try data = Shell "ls /sys/devices/system/cpu/ | grep cpu[0-9]" For Input
+
+  While Not Eof(data)
+        Line Input #data, sLine
+        ComboBox1.Add(sLine, MaxCount)
+  Wend
+  
   If User.Name = "root" Then
     Message.Error(("Running as root is not allowed!\n " & User.Home & ""))
   Endif
@@ -228,70 +238,7 @@ Public Sub Form_Open()
   'Check temperature. If temterature is OK then timer start 1500/ms. Check temp 1500/ms
   Timer1.Start
   TextLabel21.Visible = False
-  'Procesor
-  Logs("Check available procesors", Logger.Info)
-  Shell "ls /sys/devices/system/cpu/ | grep -v save | sed -n '1p'" Wait To cpuz0
-  Shell "ls /sys/devices/system/cpu/ | grep -v save | sed -n '2p'" Wait To cpuz1
-  Shell "ls /sys/devices/system/cpu/ | grep -v save | sed -n '3p'" Wait To cpuz2
-  Shell "ls /sys/devices/system/cpu/ | grep -v save | sed -n '4p'" Wait To cpuz3
-  Shell "ls /sys/devices/system/cpu/ | grep -v save | sed -n '5p'" Wait To cpuz4
-  Shell "ls /sys/devices/system/cpu/ | grep -v save | sed -n '6p'" Wait To cpuz5
-  Shell "ls /sys/devices/system/cpu/ | grep -v save | sed -n '7p'" Wait To cpuz6
-  Shell "ls /sys/devices/system/cpu/ | grep -v save | sed -n '8p'" Wait To cpuz7
-  Shell "ls /sys/devices/system/cpu/ | grep -v save | sed -n '9p'" Wait To cpuz8
-  Shell "ls /sys/devices/system/cpu/ | grep -v save | sed -n '10p'" Wait To cpuz9
-  Shell "ls /sys/devices/system/cpu/ | grep -v save | sed -n '11p'" Wait To cpuz10
-  Shell "ls /sys/devices/system/cpu/ | grep -v save | sed -n '12p'" Wait To cpuz11
-  Logs("Replaces new line to space", Logger.Info)
-  cpuz0 = Replace(cpuz0, "\n", "")
-  cpuz1 = Replace(cpuz1, "\n", "")
-  cpuz2 = Replace(cpuz2, "\n", "")
-  cpuz3 = Replace(cpuz3, "\n", "")
-  cpuz4 = Replace(cpuz4, "\n", "")
-  cpuz5 = Replace(cpuz5, "\n", "")
-  cpuz6 = Replace(cpuz6, "\n", "")
-  cpuz7 = Replace(cpuz7, "\n", "")
-  cpuz8 = Replace(cpuz8, "\n", "")
-  cpuz9 = Replace(cpuz9, "\n", "")
-  cpuz10 = Replace(cpuz10, "\n", "")
-  cpuz11 = Replace(cpuz11, "\n", "")
 
-  If (cpuz0 = "cpu0") = True Then
-      ComboBox1.Add("Processor0")
-  Endif
-     If (cpuz1 = "cpu1") = True Then
-         ComboBox1.Add("Processor1")
-     Endif
-        If (cpuz2 = "cpu2") = True Then
-            ComboBox1.Add("Processor2")
-        Endif
-           If (cpuz3 = "cpu3") = True Then
-               ComboBox1.Add("Processor3")
-           Endif
-              If (cpuz4 = "cpu4") = True Then
-                  ComboBox1.Add("Processor4")
-              Endif
-                 If (cpuz5 = "cpu5") = True Then
-                     ComboBox1.Add("Processor5")
-                 Endif
-                 If (cpuz6 = "cpu6") = True Then
-                     ComboBox1.Add("Processor6")
-                 Endif
-              If (cpuz7 = "cpu7") = True Then
-                  ComboBox1.Add("Processor7")
-              Endif
-           If (cpuz8 = "cpu8") = True Then
-               ComboBox1.Add("Processor8")
-           Endif
-        If (cpuz9 = "cpu9") = True Then
-            ComboBox1.Add("Processor9")
-        Endif
-     If (cpuz10 = "cpu10") = True Then
-         ComboBox1.Add("Processor10")
-     Endif
-  If (cpuz11 = "cpu11") = True Then
-      ComboBox1.Add("Processor11")
-  Endif
 'Uruchomienie instrukcji dla poszczególnych zakładek w celu wydobycia informacji z systemu
  Logs("Check Dospam uptime", Logger.Info)
  dospam_uptime()
@@ -304,8 +251,8 @@ Public Sub Form_Open()
  Logs("Check graphic card", Logger.Info)
  grafika()
  ''END Uruchomienie instrukcji dla poszczególnych zakładek w celu wydobycia informacji z systemu
- Logs("Set Combobox to Processor0", Logger.Info)
- ComboBox1.Text = "Processor0" ''Ustawienie combobox na Procesor0 / W przeciwnym wypadku nie pokaże nic
+ Logs("Set Combobox to cpu0", Logger.Info)
+ ComboBox1.Text = "cpu0" ''Ustawienie combobox na Procesor0 / W przeciwnym wypadku nie pokaże nic
  
  Label25.Text = Application.version
  Logs(Label25.Text, Logger.Info)
@@ -479,90 +426,27 @@ Public Sub grafika()
 End
 
 Public Sub Wykrywanie_procesorow()
-  Dim eloaders, eloaders2, eloaders3 As String
   Dim obrazekcpu, cpu_MHz, power_management As String
   Dim model, stepping, cpu_family, bogomips As String
   Dim address_sizes, cache_size, ldata, linstruction As String
   Dim physical_id, cpu_cores, level3cache As String
-  
-  If ComboBox1.Text = "Processor0" Then
-  eloaders = "1p"
-  eloaders2 = "cpu0"
-  eloaders3 = "1p"
-  Endif
-  If ComboBox1.Text = "Processor1" Then
-  eloaders = "2p"
-  eloaders2 = "cpu1"
-  eloaders3 = "3p"
-  Endif
-  If ComboBox1.Text = "Processor2" Then
-  eloaders = "3p"
-  eloaders2 = "cpu2"
-  eloaders3 = "5p"
-  Endif
-  If ComboBox1.Text = "Processor3" Then
-  eloaders = "4p"
-  eloaders2 = "cpu3"
-  eloaders3 = "7p"
-  Endif
-  If ComboBox1.Text = "Processor4" Then
-  eloaders = "5p"
-  eloaders2 = "cpu4"
-  eloaders3 = "9p"
-  Endif
-  If ComboBox1.Text = "Processor5" Then
-  eloaders = "6p"
-  eloaders2 = "cpu5"
-  eloaders3 = "11p"
-  Endif
-  If ComboBox1.Text = "Processor6" Then
-  eloaders = "7p"
-  eloaders2 = "cpu6"
-  eloaders3 = "13p"
-  Endif
-  If ComboBox1.Text = "Processor7" Then
-  eloaders = "8p"
-  eloaders2 = "cpu7"
-  eloaders3 = "15p"
-  Endif
-  If ComboBox1.Text = "Processor8" Then
-  eloaders = "9p"
-  eloaders2 = "cpu8"
-  eloaders3 = "17p"
-  Endif
-  If ComboBox1.Text = "Processor9" Then
-  eloaders = "10p"
-  eloaders2 = "cpu9"
-  eloaders3 = "19p"
-  Endif
-  If ComboBox1.Text = "Processor10" Then
-  eloaders = "11p"
-  eloaders2 = "cpu10"
-  eloaders3 = "21p"
-  Endif
-  If ComboBox1.Text = "Processor11" Then
-  eloaders = "12p"
-  eloaders2 = "cpu11"
-  eloaders3 = "23p"
-  Endif
-  
-  Shell "grep 'vendor_id' /proc/cpuinfo | sed -n '" & eloaders & "' | cut -d ':' -f 2" Wait To obrazekcpu
-  Shell "grep 'model name' /proc/cpuinfo | sed -n '" & eloaders & "' | cut -d ':' -f 2 | cut -d '@' -f 1" Wait To cpu
-  Shell "grep 'vendor_id' /proc/cpuinfo | sed -n '" & eloaders & "' | cut -d ':' -f 2" Wait To vendor_id
-  Shell "grep 'flags' /proc/cpuinfo | sed -n '" & eloaders & "' | cut -d ':' -f 2" Wait To flags
-  Shell "grep 'cpu MHz' /proc/cpuinfo | sed -n '" & eloaders & "' | cut -d ':' -f 2" Wait To cpu_MHz
-  Shell "grep 'model' /proc/cpuinfo | sed -n '" & eloaders3 & "' | cut -d ':' -f 2" Wait To model
-  Shell "grep 'stepping' /proc/cpuinfo | sed -n '" & eloaders & "' | cut -d ':' -f 2" Wait To stepping
-  Shell "grep 'cpu family' /proc/cpuinfo | sed -n '" & eloaders & "' | cut -d ':' -f 2" Wait To cpu_family
-  Shell "grep 'bogomips' /proc/cpuinfo | sed -n '" & eloaders & "' | cut -d ':' -f 2" Wait To bogomips
-  Shell "grep 'address sizes' /proc/cpuinfo | sed -n '" & eloaders & "' | cut -d ':' -f 2" Wait To address_sizes
-  Shell "cat /sys/devices/system/cpu/" & eloaders2 & "/cache/index2/size" Wait To cache_size
-  Shell "cat /sys/devices/system/cpu/" & eloaders2 & "/cache/index0/size" Wait To ldata
-  Shell "cat /sys/devices/system/cpu/" & eloaders2 & "/cache/index1/size" Wait To linstruction
-  Shell "cat /sys/devices/system/cpu/" & eloaders2 & "/cache/index3/size" Wait To level3cache
+  Shell "grep 'vendor_id' /proc/cpuinfo | sed -n '" & CFloat(ComboBox1.Index + 1) & "p' | cut -d ':' -f 2" Wait To obrazekcpu
+  Shell "grep 'model name' /proc/cpuinfo | sed -n '" & CFloat(ComboBox1.Index + 1) & "p' | cut -d ':' -f 2 | cut -d '@' -f 1" Wait To cpu
+  Shell "grep 'vendor_id' /proc/cpuinfo | sed -n '" & CFloat(ComboBox1.Index + 1) & "p' | cut -d ':' -f 2" Wait To vendor_id
+  Shell "grep 'flags' /proc/cpuinfo | sed -n '" & CFloat(ComboBox1.Index + 1) & "p' | cut -d ':' -f 2" Wait To flags
+  Shell "grep 'cpu MHz' /proc/cpuinfo | sed -n '" & CFloat(ComboBox1.Index + 1) & "p' | cut -d ':' -f 2" Wait To cpu_MHz
+  Shell "grep 'model' /proc/cpuinfo | sed -n '" & CFloat(CFloat(CFloat((ComboBox1.Index) + 1) * 2) - 1) & "p' | cut -d ':' -f 2" Wait To model
+  Shell "grep 'stepping' /proc/cpuinfo | sed -n '" & CFloat(ComboBox1.Index + 1) & "p' | cut -d ':' -f 2" Wait To stepping
+  Shell "grep 'cpu family' /proc/cpuinfo | sed -n '" & CFloat(ComboBox1.Index + 1) & "p' | cut -d ':' -f 2" Wait To cpu_family
+  Shell "grep 'bogomips' /proc/cpuinfo | sed -n '" & CFloat(ComboBox1.Index + 1) & "p' | cut -d ':' -f 2" Wait To bogomips
+  Shell "grep 'address sizes' /proc/cpuinfo | sed -n '" & CFloat(ComboBox1.Index + 1) & "p' | cut -d ':' -f 2" Wait To address_sizes
+  Shell "cat /sys/devices/system/cpu/" & Subst(ComboBox1.Current.Text) & "/cache/index2/size" Wait To cache_size
+  Shell "cat /sys/devices/system/cpu/" & Subst(ComboBox1.Current.Text) & "/cache/index0/size" Wait To ldata
+  Shell "cat /sys/devices/system/cpu/" & Subst(ComboBox1.Current.Text) & "/cache/index1/size" Wait To linstruction
+  Shell "cat /sys/devices/system/cpu/" & Subst(ComboBox1.Current.Text) & "/cache/index3/size" Wait To level3cache
   Shell "grep 'siblings' /proc/cpuinfo | sed -n '1p' | cut -d ':' -f 2" Wait To cpu_cores
-  Shell "grep 'physical id' /proc/cpuinfo | sed -n '" & eloaders & "' | cut -d ':' -f 2" Wait To physical_id
-  Shell "grep 'power management' /proc/cpuinfo | sed -n '" & eloaders & "' | cut -d ':' -f 2" Wait To power_management
+  Shell "grep 'physical id' /proc/cpuinfo | sed -n '" & CFloat(ComboBox1.Index + 1) & "p' | cut -d ':' -f 2" Wait To physical_id
+  Shell "grep 'power management' /proc/cpuinfo | sed -n '" & CFloat(ComboBox1.Index + 1) & "p' | cut -d ':' -f 2" Wait To power_management
   Label14.Text = Replace(cpu, "\n", "")
   Label14.Tooltip = Replace(cpu, "\n", "")
   flags = Replace(flags, "\n", "")
