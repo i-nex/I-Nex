@@ -42,11 +42,29 @@ Public Sub Form_Open()
   Button4.Visible = False
   Object.Call(MCPUSAGE, "GetUSAGE")
   ''Okno na środku
+  ''
   If Settings["Window/X"] = Null Then
      Me.Center
   Else
      Try Me.X = Settings["Window/X", Me.X]
      Try Me.Y = Settings["Window/Y", Me.Y]
+     'Try to set Orientation of Tabstrip
+     Try TabStrip1.Orientation = Settings["Tab/Pos", TabStrip1.Orientation]
+     'If orientation detected then this set size of main window
+     Select Case TabStrip1.Orientation
+      Case 1
+       Logs("TabStrip1.Orientation Left", Logger.Info)
+       Orientation_Left_Click()
+      Case 2
+       Logs("TabStrip1.Orientation Right", Logger.Info)
+       Orientation_Right_Click()
+      Case 19
+       Logs("TabStrip1.Orientation Top", Logger.Info)
+       Orientation_Top_Click()
+      Case 35
+       Logs("TabStrip1.Orientation Bottom", Logger.Info)
+       Orientation_Bottom_Click()
+     End Select
   Endif
   
   Logs("Check whereis inex-cpuid and get JSON Data", Logger.Info)
@@ -574,10 +592,6 @@ Public Sub Button2_Click()
    ScreenShot.Show
 End
 
-Public Sub Button1_Click()
-  Form_Close()
-End
-
 Public Sub dospam_uptime()
   Dim Users As String
   Dim USAGE_BUFFER As String
@@ -863,25 +877,34 @@ End
 Public Sub Orientation_Top_Click()
  
  TabStrip1.Orientation = Align.Top
- 
+ Me.W = Int(Label25.X + 365)
+ TabStrip1.W = Int(Label25.X + 365)
+ Button1.X = Int(Label25.X + 300)
 End
 
 Public Sub Orientation_Bottom_Click()
  
  TabStrip1.Orientation = Align.Bottom
- 
+ Me.W = Int(Label25.X + 365)
+ TabStrip1.W = Int(Label25.X + 365)
+ Button1.X = Int(Label25.X + 300)
 End
 
 Public Sub Orientation_Left_Click()
  
  TabStrip1.Orientation = Align.Left
+ Me.W = Int(Label25.X + 390)
+ TabStrip1.W = Int(Label25.X + 390)
+ Button1.X = Int(Label25.X + 325)
  
 End
 
 Public Sub Orientation_Right_Click()
  
  TabStrip1.Orientation = Align.Right
- 
+ Me.W = Int(Label25.X + 390)
+ TabStrip1.W = Int(Label25.X + 390)
+ Button1.X = Int(Label25.X + 325)
 End
 
 Public Sub Reportthisw_Click()
@@ -944,24 +967,6 @@ TabPanel1_Click()
  Me.Text = "I-Nex / " & TabStrip1.Current.Text 
 End
 
-Public Sub Form_Move()
- 
- Settings["Window/X"] = Me.X
- Settings["Window/Y"] = Me.Y
- 
-End
-
-Public Sub Form_Close()
- 
-  Settings["Window/X"] = Me.X
-  Settings["Window/Y"] = Me.Y
-  Logs("Good bye!", Logger.Info)
-  MCPUSAGE.CPUusage.Kill
-  Me.Close
- 
-End
-
-
 Public Sub Button11_Click()
 
  FEDID.Show
@@ -997,4 +1002,26 @@ Public Sub ComboBox9_Click()
 
  Asound_Drives._INPUT_NAME()
 
+End
+
+Public Sub Button1_Click()
+  Form_Close()
+End
+
+Public Sub Form_Move()
+ 
+ Settings["Window/X"] = Me.X
+ Settings["Window/Y"] = Me.Y
+ 
+End
+
+Public Sub Form_Close()
+ 
+  Settings["Window/X"] = Me.X
+  Settings["Window/Y"] = Me.Y
+  Settings["Tab/Pos"] = TabStrip1.Orientation
+  Logs("Good bye!", Logger.Info)
+  MCPUSAGE.CPUusage.Kill
+  Me.Close
+ 
 End

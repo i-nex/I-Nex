@@ -941,24 +941,6 @@
         Border = Border.Raised
       }
     }
-    { VSplit1 VSplit
-      Move(0,91,469,385)
-      { TextArea18 TextArea
-        Move(0,21,455,91)
-        #Translate = False
-        Font = Font["8"]
-        Expand = True
-        Text = "N/A"
-        ReadOnly = True
-      }
-      { TextArea1 TextArea
-        Move(7,245,455,98)
-        #Translate = False
-        Font = Font["8"]
-        Expand = True
-        ReadOnly = True
-      }
-    }
     { ComboBox6 ComboBox
       Move(7,7,252,28)
       #Translate = False
@@ -971,6 +953,14 @@
       Font = Font["8"]
       ReadOnly = True
       Text = ("ComboBox9")
+    }
+    { TextArea18 TextArea
+      Move(7,91,455,385)
+      #Translate = False
+      Font = Font["8"]
+      Expand = True
+      Text = "N/A"
+      ReadOnly = True
     }
     Index = 4
     Text = "Drives"
