@@ -190,13 +190,12 @@ Static Public Sub ikonaprocka()
 End
 
 Static Public Sub kartagraficzna()
+  If Finfosys.TextBox1.Text Like "*ati*" Then
+  Finfosys.PictureBox1.Picture = Picture["Data/Karta_graficzna/ati.png"]
+  Endif
   
   If Finfosys.TextBox1.Text Like "*intel*" Then
   Finfosys.PictureBox1.Picture = Picture["Data/Karta_graficzna/intel.png"]
-  Endif
-  
-  If Finfosys.TextBox1.Text Like "*ATI Technologies*" Or "*Advanced Micro Devices*" Then
-  Finfosys.PictureBox1.Picture = Picture["Data/Karta_graficzna/ati.png"]
   Endif
   
   If Finfosys.TextBox1.Text Like "*nVidia*" Then
