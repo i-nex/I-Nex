@@ -108,7 +108,7 @@
         Delay = 2000
       }
       { Label72 Label
-        Move(7,217,168,21)
+        Move(7,217,147,21)
         #Translate = False
         Font = Font["Bold,8"]
         Foreground = &H9F300E&
@@ -117,10 +117,11 @@
         Border = Border.Raised
       }
       { ToolButton1 ToolButton
-        Move(154,217,21,21)
+        Move(133,217,21,21)
+        Picture = Picture["Data/check_false.png"]
       }
       { Label98 Label
-        Move(175,217,182,21)
+        Move(154,217,161,21)
         #Translate = False
         Font = Font["Bold,8"]
         Foreground = &H9F300E&
@@ -129,19 +130,21 @@
         Border = Border.Raised
       }
       { ToolButton2 ToolButton
-        Move(336,217,21,21)
+        Move(294,217,21,21)
+        Picture = Picture["Data/check_false.png"]
       }
       { Label99 Label
-        Move(357,217,105,21)
+        Move(315,217,147,21)
         #Translate = False
         Font = Font["Bold,8"]
         Foreground = &H9F300E&
         Padding = 3
-        Text = "HT:"
+        Text = "Hyper-Threading:"
         Border = Border.Raised
       }
       { ToolButton3 ToolButton
         Move(441,217,21,21)
+        Picture = Picture["Data/check_false.png"]
       }
       { Label71 Label
         Move(7,196,455,21)

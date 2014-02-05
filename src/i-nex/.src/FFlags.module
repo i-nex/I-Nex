@@ -22,69 +22,69 @@ Public VIRT As String
 Public instructions As String
 Public dec_instructions As String
 Public Sub _init()
- 
- Shell "grep 'flags' /proc/cpuinfo | sed -n '1p'" Wait To dec_instructions
- If dec_instructions Like "*mmxext*" Then
+ Shell "grep 'flags' /proc/cpuinfo | sed -n '1p' | cut -d ':' -f 2" Wait To dec_instructions
+ If dec_instructions Like "* mmxext *" Then
   instructions = instructions & "MMX(+), "
  Endif
- If dec_instructions Like "*mmx*" Then
+ If dec_instructions Like "* mmx *" Then
   instructions = instructions & "MMX, " 
  Endif
- If dec_instructions Like "*3dnowext*" Then
+ If dec_instructions Like "* 3dnowext *" Then
   instructions = instructions & "3DNow!(+), "
  Endif
- If dec_instructions Like "*sse*" Then
+ If dec_instructions Like "* sse *" Then
   instructions = instructions & "SSE, " 
  Endif
- If dec_instructions Like "*3dnow*" Then
+ If dec_instructions Like "* 3dnow *" Then
   instructions = instructions & "3DNow!, "
  Endif
- If dec_instructions Like "*sse2*" Then
+ If dec_instructions Like "* sse2 *" Then
   instructions = instructions & "SSE2, "
  Endif
- If dec_instructions Like "*pni*" Then
+ If dec_instructions Like "* pni *" Then
   instructions = instructions & "SSE3, "
  Endif
- If dec_instructions Like "*ssse3*" Then
+ If dec_instructions Like "* ssse3 *" Then
   instructions = instructions & "SSSE3, "
  Endif
- If dec_instructions Like "*sse4_2*" Then
+ If dec_instructions Like "* sse4_2 *" Then
   instructions = instructions & "SSE4.2, "
  Endif
- If dec_instructions Like "*sse4_1*" Then
+ If dec_instructions Like "* sse4_1 *" Then
   instructions = instructions & "SSE4.1, "
  Endif
- If dec_instructions Like "*sse4a*" Then
+ If dec_instructions Like "* sse4a *" Then
   instructions = instructions & "SSE4a, "
  Endif
- If dec_instructions Like "*nx*" And Finfosys.vendor_id Like "*GenuineIntel*" Then
+ If dec_instructions Like "* nx *" And Finfosys.vendor_id Like "*Intel*" Then
   instructions = instructions & "XD-Bit, "
  Else
   instructions = instructions & "NX-Bit, "
  Endif
+ 
  'Instructions for detect AMD64,vmx, ht
  If dec_instructions Like "* lm *" Then
   Finfosys.ToolButton1.Picture = Picture["Data/check_true.png"]
   X86_X64 = "True"
  Else
   Finfosys.ToolButton1.Picture = Picture["Data/check_false.png"]
-  X86_X64 = "False" 
+  X86_X64 = "False"
  Endif
- If dec_instructions Like "*svm *" Then
+
+ If dec_instructions Like "* vmx *" Then
   Finfosys.ToolButton2.Picture = Picture["Data/check_true.png"]
   VIRT = "True"
- Else
-  Finfosys.ToolButton2.Picture = Picture["Data/check_false.png"]
-  VIRT = "False"
- Endif
- If dec_instructions Like "*vmx*" Then
+ Else If dec_instructions Like "* svm *" Then
   Finfosys.ToolButton2.Picture = Picture["Data/check_true.png"]
   HTT = "True"
  Else
   Finfosys.ToolButton2.Picture = Picture["Data/check_false.png"]
   HTT = "False"
+  VIRT = "False"
  Endif
+ 
  ht()
+ HyperTransport()
 End
 
 Public Sub ht()
@@ -107,4 +107,13 @@ Public Sub ht()
         HTT = "True"
      Endif
   Endif
+End
+
+Public Sub HyperTransport()
+ 
+ If Finfosys.vendor_id Like "*AuthenticAMD*" And dec_instructions Like "*ht*" Then
+  Finfosys.ToolButton3.Picture = Picture["Data/check_true.png"]
+  Finfosys.Label99.Text = "Hyper-Transport:"
+ Endif
+ 
 End
