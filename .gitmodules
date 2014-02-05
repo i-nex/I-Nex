@@ -1,0 +1,3 @@
+[submodule "libcpuid"]
+	path = libcpuid
+	url = https://github.com/eloaders/libcpuid.git
