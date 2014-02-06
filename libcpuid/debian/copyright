@@ -1,0 +1,8 @@
+Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: libcpuid
+Source: https://launchpad.net/i-nex
+
+
+Files: *
+Copyright: 2011-2012 Veselin Georgiev <anrieff@gmail.com>
+License: LGPL v3
