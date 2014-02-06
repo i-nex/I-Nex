@@ -1,12 +1,11 @@
 #!/usr/bin/make -f
 include i-nex.mk
-
+make: build-inex
 build-inex:
-	./src/configure
-	$(MAKE) -C src
+	cd ./src && ./configure --bindir=$(bindir)
 	$(MAKE) -C pixmaps
 	$(MAKE) -C JSON
-	
+	$(MAKE) -C src
 deb:
 	
 	$(AS_ROOT) $(PKG_INSTALL) $(dependency_build)
@@ -88,7 +87,8 @@ self:
 	printf "\033[1;31m:: \033[0m$1\n" & $(MAKESELF) $(MAKESELF_OPT) --bzip2 --complevel $(COMPRESSION_SELF_LEVEL) ./inex i-nex.$(ARCH)_git$(GIT_RV).bzip2.run $(APP_NAME) $(INSTALL_SELF_SCRIPT); \
 	fi
 	mv ./*.run ../
-	
+
+distclean: clean
 clean:
 
 	$(RM_COM) $(RMDIR_OPT) `find . -name ".gambas"`
@@ -124,7 +124,6 @@ install:
 	chmod +x debian/check_kernel
 	chmod +x debian/i-nex-lspci
 	$(INSTALL) 0755 i-nex $(DESTDIR)$(bindir)
-	$(INSTALL) 0755 src/i-nex/i-nex.gambas $(DESTDIR)$(bindir)
 	$(INSTALL) 0755 debian/i-nex.desktop $(DESTDIR)/usr/share/applications/
 	$(INSTALL) 0755 debian/check_kernel $(DESTDIR)/usr/bin/
 	$(INSTALL) 0755 debian/i-nex-lspci $(DESTDIR)/usr/bin/
@@ -138,6 +137,7 @@ install:
 	$(MAKE) -C manpages install
 	$(MAKE) -C docs install
 	$(MAKE) -C JSON install
+	$(MAKE) -C src install 
 	
 uninstall:
 
@@ -174,5 +174,3 @@ rmgambas:
 	$(RM_COM) $(RMFILE_OPT) /usr/lib/gambas3/gb.gui.so
 	$(RM_COM) $(RMFILE_OPT) /usr/lib/gambas3/gb.image.so
 	$(RM_COM) $(RMFILE_OPT) /usr/lib/gambas3/gb.qt4.so
-	
-make: build-inex
