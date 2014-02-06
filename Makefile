@@ -1,81 +1,11 @@
 #!/usr/bin/make -f
-GIT_RV = $(shell git rev-list HEAD | wc -l)
-BUILD_PACKAGE = $(shell ./build-deb)
-PKG_INSTALL = apt-get install
-AS_ROOT = sudo
-CFLAGS = -g -Wall
-LSB_CS = $(shell lsb_release -cs)
-CC_OPTS_LIBCPUID = $(shell pkg-config libcpuid --cflags --libs)
-libgl = $(shell pkg-config gl --cflags --libs)
-libx11 = $(shell pkg-config x11 --cflags --libs)
-libxext = $(shell pkg-config xext --cflags --libs)
-GBC = /usr/bin/gbc3
-GBCOPTS = -eagtpm
-GBA = gba3
-CC = gcc
-ARCH=$(shell uname -m)
-bindir ?= /usr/bin
-INSTALL = install -m
-bzr_revision = 
-BUILD_SELF_EXECUTABLE = ./build-selfexecutable
-RM_COM = rm
-RMFILE_OPT = -f
-RMDIR_OPT = -Rf
-COMPRESSION_SELF_LEVEL = 9
-MAKESELF = ./makeself.sh
-MAKESELF_OPT = --nowait
-APP_NAME= I-Nex
-INSTALL_SELF_SCRIPT = ./install-self
-ifeq ($(ARCH),x86)
-additional_confflags := --disable-sse2
-endif
-ifeq ($(ARCH),x86_64)
-additional_confflags := -O2
-endif
-ifeq ($(LSB_CS),precise)
-CC_OPTS_LIBPROCPS = -lproc
-else
-CC_OPTS_LIBPROCPS = $(shell pkg-config libprocps --cflags --libs)
-endif
-dependency_build ?= git \
-		    devscripts \
-		    pkg-config \
-		    dpkg-dev \
-		    gambas3-dev \
-		    gambas3-gb-image \
-		    gambas3-gb-gtk \
-		    gambas3-gb-form \
-		    gambas3-gb-desktop \
-		    gambas3-gb-form-stock \
-		    dpkg \
-		    grep \
-		    mount \
-		    procps \
-		    x11-xserver-utils \
-		    lsb-release \
-		    bash \
-		    coreutils \
-		    sed \
-		    pciutils \
-		    x11-utils \
-		    mesa-utils \
-		    hostname \
-		    libcpuid11 \
-		    libprocps0-dev
+include i-nex.mk
 
-make:
-	@printf "\033[1;31mCompile edid-decode as inex-decode \033[0m$1\n"
-	$(CC) -o i-nex-edid JSON/i-nex-edid.c $(CFLAGS) $(additional_confflags)
-	$(CC) -o i-nex-cpuid JSON/i-nex-cpuid.c -static $(CC_OPTS_LIBCPUID) $(additional_confflags)
-	$(CC) -o i-nex-usage JSON/i-nex-usage.c -static $(CC_OPTS_LIBPROCPS) $(additional_confflags)
-	$(CC) -o i-nex-cpusage JSON/i-nex-cpusage.c $(additional_confflags)
-	$(CC) -o i-nex-glinfo JSON/i-nex-glinfo.c $(libx11) $(libgl) $(libxext) $(additional_confflags)
-	$(CC) -o i-nex-uname JSON/i-nex-uname.c $(additional_confflags)
-	@printf "\033[1;31mCompile src/i-nex stage 1 \033[0m$1\n"
-	$(GBC) $(GBCOPTS) src/i-nex
-	@printf "\033[1;31mCompile src/i-nex stage 2 \033[0m$1\n"
-	$(GBA) src/i-nex
+build-inex:
+	./src/configure
+	$(MAKE) -C src
 	$(MAKE) -C pixmaps
+	$(MAKE) -C JSON
 	
 deb:
 	
@@ -114,12 +44,9 @@ self:
 	$(INSTALL) 0755 debian/i-nex.desktop inex/usr/share/applications/
 	$(INSTALL) 0755 debian/check_kernel inex/usr/bin/
 	$(INSTALL) 0755 debian/i-nex-lspci inex/usr/bin/
-	$(INSTALL) 0755 I-Nex.LICENSE inex/usr/share/doc/i-nex/
-	$(INSTALL) 0755 Pastebinit.LICENSE inex/usr/share/i-nex/pastebinit/
 	$(INSTALL) 0755 pastebin.d/* inex/usr/share/i-nex/pastebinit/pastebin.d/
 	$(INSTALL) 0755 pastebinit inex/usr/share/i-nex/pastebinit/
 	$(INSTALL) 0755 pastebinit.xml inex/usr/share/i-nex/pastebinit/
-	$(INSTALL) 0755 README inex/usr/share/i-nex/pastebinit/
 	$(INSTALL) 0755 release.conf inex/usr/share/i-nex/pastebinit/
 	$(INSTALL) 0775 usr/bin/gbx3 inex/usr/bin/gbx3
 	$(INSTALL) 0775 usr/bin/gbr3 inex/usr/bin/gbr3
@@ -164,12 +91,6 @@ self:
 	
 clean:
 
-	$(RM_COM) $(RMFILE_OPT) i-nex-edid
-	$(RM_COM) $(RMFILE_OPT) i-nex-cpuid
-	$(RM_COM) $(RMFILE_OPT) i-nex-usage
-	$(RM_COM) $(RMFILE_OPT) i-nex-cpusage
-	$(RM_COM) $(RMFILE_OPT) i-nex-glinfo
-	$(RM_COM) $(RMFILE_OPT) i-nex-uname
 	$(RM_COM) $(RMDIR_OPT) `find . -name ".gambas"`
 	$(RM_COM) $(RMDIR_OPT) `find . -name "*.gambas"`
 	$(RM_COM) $(RMDIR_OPT) `find . -name ".directory"`
@@ -189,37 +110,24 @@ clean:
 	$(RM_COM) $(RMDIR_OPT) debian/changelog1
 	$(RM_COM) $(RMDIR_OPT) inex
 	$(RM_COM) $(RMDIR_OPT) usr
+	$(MAKE) -C src distclean
 	$(MAKE) -C pixmaps clean
+	$(MAKE) -C JSON clean
 	
 install:
 	mkdir -p $(DESTDIR)$(bindir)
 	mkdir -p $(DESTDIR)/usr/share/pixmaps/
 	mkdir -p $(DESTDIR)/usr/share/applications/
-	mkdir -p $(DESTDIR)/usr/share/doc/i-nex/
 	mkdir -p $(DESTDIR)/usr/share/i-nex/pastebinit/
 	mkdir -p $(DESTDIR)/usr/share/i-nex/pastebinit/pastebin.d/
 	chmod +x i-nex
-	chmod +x i-nex-edid
-	chmod +x i-nex-cpuid
-	chmod +x i-nex-usage
-	chmod +x i-nex-cpusage
-	chmod +x i-nex-glinfo
-	chmod +x i-nex-uname
 	chmod +x debian/check_kernel
 	chmod +x debian/i-nex-lspci
 	$(INSTALL) 0755 i-nex $(DESTDIR)$(bindir)
-	$(INSTALL) 0755 i-nex-edid $(DESTDIR)$(bindir)
-	$(INSTALL) 0755 i-nex-cpuid $(DESTDIR)$(bindir)
-	$(INSTALL) 0755 i-nex-usage $(DESTDIR)$(bindir)
-	$(INSTALL) 0755 i-nex-cpusage $(DESTDIR)$(bindir)
-	$(INSTALL) 0755 i-nex-glinfo $(DESTDIR)$(bindir)
-	$(INSTALL) 0755 i-nex-uname $(DESTDIR)$(bindir)
 	$(INSTALL) 0755 src/i-nex/i-nex.gambas $(DESTDIR)$(bindir)
 	$(INSTALL) 0755 debian/i-nex.desktop $(DESTDIR)/usr/share/applications/
 	$(INSTALL) 0755 debian/check_kernel $(DESTDIR)/usr/bin/
 	$(INSTALL) 0755 debian/i-nex-lspci $(DESTDIR)/usr/bin/
-	$(INSTALL) 0755 I-Nex.LICENSE $(DESTDIR)/usr/share/doc/i-nex/
-	$(INSTALL) 0755 Pastebinit.LICENSE $(DESTDIR)/usr/share/i-nex/pastebinit/
 	$(INSTALL) 0755 pastebin.d/* $(DESTDIR)/usr/share/i-nex/pastebinit/pastebin.d/
 	$(INSTALL) 0755 pastebinit $(DESTDIR)/usr/share/i-nex/pastebinit/
 	$(INSTALL) 0755 pastebinit.xml $(DESTDIR)/usr/share/i-nex/pastebinit/
@@ -227,6 +135,9 @@ install:
 	$(INSTALL) 0755 release.conf $(DESTDIR)/usr/share/i-nex/pastebinit/
 	$(MAKE) -C pixmaps install
 	$(MAKE) -C changelogs install
+	$(MAKE) -C manpages install
+	$(MAKE) -C docs install
+	$(MAKE) -C JSON install
 	
 uninstall:
 
@@ -263,3 +174,5 @@ rmgambas:
 	$(RM_COM) $(RMFILE_OPT) /usr/lib/gambas3/gb.gui.so
 	$(RM_COM) $(RMFILE_OPT) /usr/lib/gambas3/gb.image.so
 	$(RM_COM) $(RMFILE_OPT) /usr/lib/gambas3/gb.qt4.so
+	
+make: build-inex

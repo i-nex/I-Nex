@@ -1,0 +1,293 @@
+Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: I-Nex
+Upstream-Contact: eloaders <eloaders@linux.pl>
+Source: https://launchpad.net/i-nex
+
+Files: src/i-nex/*
+Copyright: 2011-2014 eloaders <eloaders@linux.pl>
+License: LGPL-3+
+ I-Nex free software: you can redistribute it and/or modify
+ it under the terms of the GNU Lesser General Public License as published 
+ by the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+ .
+ I-Nex is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+ .
+ You should have received a copy of the GNU General Public License
+ along with I-Nex.  If not, see <http://www.gnu.org/licenses/>.
+ .
+ On Ubuntu and Debian systems, the full text of the GNU General Public
+ License version 3 can be found in the file
+ `/usr/share/common-licenses/LGPL-3'.
+ 
+Files: debian/*
+Copyright: 2011-2014 eloaders <eloaders@linux.pl>
+License: GPL-3+
+ This software is licensed to you under the GNU General Public License,
+ version 3 (GPLv3). There is NO WARRANTY for this software, express or
+ implied, including the implied warranties of MERCHANTABILITY or FITNESS
+ FOR A PARTICULAR PURPOSE. You should have received a copy of GPLv3
+ along with this software; if not, see <http://www.gnu.org/licenses/>.
+ .
+ On Ubuntu and Debian systems, the full text of the GNU General Public
+ License version 3 can be found in the file
+ `/usr/share/common-licenses/GPL-3'.
+
+Files: pastebin.d/*
+Copyright: 2006-2010, Stéphane Graber, Daniel Bartlett, David Paleino
+License: GPL-3+
+ This software is licensed to you under the GNU General Public License,
+ version 3 (GPLv3). There is NO WARRANTY for this software, express or
+ implied, including the implied warranties of MERCHANTABILITY or FITNESS
+ FOR A PARTICULAR PURPOSE. You should have received a copy of GPLv3
+ along with this software; if not, see <http://www.gnu.org/licenses/>.
+ .
+ On Ubuntu and Debian systems, the full text of the GNU General Public
+ License version 3 can be found in the file
+ `/usr/share/common-licenses/GPL-3'.
+
+Files: pastebinit
+Copyright: 2006-2010, Stéphane Graber, Daniel Bartlett, David Paleino
+License: GPL-3+
+ This software is licensed to you under the GNU General Public License,
+ version 3 (GPLv3). There is NO WARRANTY for this software, express or
+ implied, including the implied warranties of MERCHANTABILITY or FITNESS
+ FOR A PARTICULAR PURPOSE. You should have received a copy of GPLv3
+ along with this software; if not, see <http://www.gnu.org/licenses/>.
+ .
+ On Ubuntu and Debian systems, the full text of the GNU General Public
+ License version 3 can be found in the file
+ `/usr/share/common-licenses/GPL-3'.
+
+Files: pastebinit.xml
+Copyright: 2006-2010, Stéphane Graber, Daniel Bartlett, David Paleino
+License: GPL-3+
+ This software is licensed to you under the GNU General Public License,
+ version 3 (GPLv3). There is NO WARRANTY for this software, express or
+ implied, including the implied warranties of MERCHANTABILITY or FITNESS
+ FOR A PARTICULAR PURPOSE. You should have received a copy of GPLv3
+ along with this software; if not, see <http://www.gnu.org/licenses/>.
+ .
+ On Ubuntu and Debian systems, the full text of the GNU General Public
+ License version 3 can be found in the file
+ `/usr/share/common-licenses/GPL-3'.
+
+Files: release.conf
+Copyright: 2006-2010, Stéphane Graber, Daniel Bartlett, David Paleino
+License: GPL-3+
+ This software is licensed to you under the GNU General Public License,
+ version 3 (GPLv3). There is NO WARRANTY for this software, express or
+ implied, including the implied warranties of MERCHANTABILITY or FITNESS
+ FOR A PARTICULAR PURPOSE. You should have received a copy of GPLv3
+ along with this software; if not, see <http://www.gnu.org/licenses/>.
+ .
+ On Ubuntu and Debian systems, the full text of the GNU General Public
+ License version 3 can be found in the file
+ `/usr/share/common-licenses/GPL-3'.
+
+Files: JSON/i-nex-edid.c
+Copyright: Red Hat, Inc.
+License: Copyright 2006-2009 Red Hat, Inc.
+  Permission is hereby granted, free of charge, to any person obtaining a
+  copy of this software and associated documentation files (the "Software"),
+  to deal in the Software without restriction, including without limitation
+  on the rights to use, copy, modify, merge, publish, distribute, sub
+  license, and/or sell copies of the Software, and to permit persons to whom
+  the Software is furnished to do so, subject to the following conditions:
+  The above copyright notice and this permission notice (including the next
+  paragraph) shall be included in all copies or substantial portions of the
+  Software.
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.  IN NO EVENT SHALL
+  THE AUTHORS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
+  IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+  CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+ 
+Files: JSON/*.c
+Copyright: 2011-2014 eloaders <eloaders@linux.pl>
+License: GPL-3+
+ This software is licensed to you under the GNU General Public License,
+ version 3 (GPLv3). There is NO WARRANTY for this software, express or
+ implied, including the implied warranties of MERCHANTABILITY or FITNESS
+ FOR A PARTICULAR PURPOSE. You should have received a copy of GPLv3
+ along with this software; if not, see <http://www.gnu.org/licenses/>.
+ .
+ On Ubuntu and Debian systems, the full text of the GNU General Public
+ License version 3 can be found in the file
+ `/usr/share/common-licenses/GPL-3'.
+
+Files: src/i-nex/Database/Logos/*
+Copyright: Intel, AMD
+License: Registered trademarks
+  Copyright ©Intel Corporation. All rights reserved. Intel Corporation, 2200 Mission College Blvd., Santa Clara, CA 95052-8119, USA.
+  © Copyright 1994, 1995, 1996, 1997, 1998, 1999, 2000 Advanced Micro Devices, Inc.
+  
+Files: src/i-nex/Processors/*
+Copyright: Intel, AMD
+License: Registered trademarks
+  Copyright ©Intel Corporation. All rights reserved. Intel Corporation, 2200 Mission College Blvd., Santa Clara, CA 95052-8119, USA.
+  © Copyright 1994, 1995, 1996, 1997, 1998, 1999, 2000 Advanced Micro Devices, Inc.
+
+Files: src/i-nex/Database/Distlogos/*
+Copyright: deviantdark <http://deviantdark.deviantart.com/>
+License: Registered trademarks 
+  deviantdark <http://deviantdark.deviantart.com/>
+
+Files: src/i-nex/Data/Karta_graficzna/*
+Copyright: ATI, Intel
+License: Registered trademarks 
+  Copyright ©Intel Corporation. All rights reserved. Intel Corporation, 2200 Mission College Blvd., Santa Clara, CA 95052-8119, USA.
+  © Copyright 1994, 1995, 1996, 1997, 1998, 1999, 2000 Advanced Micro Devices, Inc.
+
+Files: src/i-nex/Data/Karta_graficzna/nvidia.png
+Copyright: nVidia
+License: Registered trademarks 
+  The full legal notice for the images installed by
+  I-Nex is available from the NVIDIA
+  web site: http://developer.nvidia.com/object/legal_info.html
+  The Legal information posted on the website and last modified on 01/06/2006
+  is repeated below:
+  The materials on this web site (the "Site") are provided by NVIDIA(R)
+  Corporation ("NVIDIA") as a service to its customers and may be used for
+  informational purposes only. Single copies may be downloaded subject to the
+  provisions below. By downloading any materials from this site, you agree to
+  these terms, unless the materials are accompanied by a separate download
+  agreement, in which case the terms of that Agreement shall control your
+  rights to use the materials. If you do not agree to them, do not use the
+  site or download any materials from it.
+  TRADEMARK INFORMATION
+  NVIDIA, the NVIDIA logo, 3DFX, 3DFX INTERACTIVE, the 3dfx Logo, STB, STB
+  Systems and Design, the STB Logo, the StarBox Logo, NVIDIA nForce, GeForce,
+  NVIDIA Quadro, NVDVD, NVIDIA Personal Cinema, NVIDIA Soundstorm, Vanta,
+  TNT2, TNT, RIVA, RIVA TNT, VOODOO, VOODOO GRAPHICS, WAVEBAY, Accuview
+  Antialiasing, the Audio & Nth Superscript Design Logo, CineFX, the
+  Communications & Nth Superscript Design Logo, Detonator, Digital Vibrance
+  Control, DualNet, FlowFX, ForceWare, GIGADUDE, Glide, GOFORCE, the
+  Graphics & Nth Superscript Design Logo, Intellisample, M-BUFFER, nfiniteFX,
+  NV, NVChess, nView, NVKeystone, NVOptimizer, NVPinball, NVRotate, NVSensor,
+  NVSync, the Platform & Nth Superscript Design Logo, PowerMizer, Quincunx
+  Antialiasing, Sceneshare, See What You've Been Missing, StreamThru,
+  SuperStability, T-BUFFER, The Way It's Meant to be Played Logo, TwinBank ,
+  TwinView and the Video & Nth Superscript Design Logo are registered
+  trademarks or trademarks of NVIDIA Corporation in the United States and/or
+  other countries. Other company and product names may be trademarks or
+  registered trademarks of the respective owners with which they are
+  associated.
+  NVIDIA's trademarks may be used publicly with permission only from NVIDIA,
+  and nothing in this Agreement shall be construed as granting such
+  permission. Fair use of NVIDIA's trademarks in advertising and promotion of
+  NVIDIA products requires proper acknowledgment.
+  PERFORMANCE INFORMATION
+  Performance tests and ratings are measured using specific computer systems
+  and/or components and reflect the approximate performance of NVIDIA
+  products as measured by those tests. Any difference in system hardware or
+  software design or configuration may affect actual performance.
+  SINGLE COPY LICENSE
+  The materials at this Site are copyrighted and any unauthorized use of any
+  materials at this Site may violate copyright, trademark, and other laws.
+  You may download one copy of the information or software ("Materials")
+  found on NVIDIA sites on a single computer for your personal,
+  non-commercial internal use only unless specifically licensed to do
+  otherwise by NVIDIA in writing or as allowed by any license terms which
+  accompany or are provided with individual Materials. This is a license, not
+  a transfer of title, and is subject to the following restrictions: you may
+  not: (a) modify the Materials or use them for any commercial purpose, or
+  any public display, performance, sale or rental; (b) decompile, reverse
+  engineer, or disassemble software Materials except and only to the extent
+  permitted by applicable law or unless specifically licensed to do otherwise
+  by NVIDIA in writing or as allowed by any license terms which accompany or
+  are provided with individual Materials; (c) remove any copyright or other
+  proprietary notices from the Materials; (d) transfer the Materials to any
+  other person or entity. You agree to prevent any unauthorized copying of
+  the Materials.
+  OWNERSHIP OF MATERIALS
+  Materials are copyrighted and are protected by worldwide copyright laws and
+  treaty provisions. They may not be copied, reproduced, modified, published,
+  uploaded, posted, transmitted, or distributed in any way, without NVIDIA's
+  prior written permission. Except as expressly provided herein, NVIDIA and
+  its suppliers do not grant any express or implied right to you under any
+  patents, copyrights, trademarks, trade secret or any other intellectual
+  property or proprietary right.
+  CLAIMS OF COPYRIGHT INFRINGEMENT
+  NVIDIA and its affiliates respect the intellectual property of others. If
+  you believe that your work has been copied in a way that constitutes
+  copyright infringement, please follow our Notice and Procedure for Making
+  Claims of Copyright Infringement.
+  TERMINATION OF THIS LICENSE
+  NVIDIA may terminate this license at any time if you are in breach of the
+  terms of this Agreement. Upon termination, you will immediately destroy the
+  Materials, and certify to NVIDIA that you have done so.
+  DISCLAIMER
+  THE MATERIALS ARE PROVIDED "AS IS" WITHOUT ANY EXPRESS OR IMPLIED WARRANTY
+  OF ANY KIND INCLUDING WARRANTIES OF MERCHANTABILITY, TITLE, NONINFRINGEMENT
+  OF INTELLECTUAL PROPERTY, OR FITNESS FOR ANY PARTICULAR PURPOSE. IN NO
+  EVENT SHALL NVIDIA OR ITS SUPPLIERS BE LIABLE FOR ANY DAMAGES WHATSOEVER
+  (INCLUDING, WITHOUT LIMITATION, DAMAGES FOR LOSS OF PROFITS, BUSINESS
+  INTERRUPTION, LOSS OF INFORMATION) ARISING OUT OF THE USE OF OR INABILITY
+  TO USE THE MATERIALS, EVEN IF NVIDIA HAS BEEN ADVISED OF THE POSSIBILITY OF
+  SUCH DAMAGES. BECAUSE SOME JURISDICTIONS PROHIBIT THE EXCLUSION OR
+  LIMITATION OF LIABILITY FOR CONSEQUENTIAL OR INCIDENTAL DAMAGES, THE ABOVE
+  LIMITATION MAY NOT APPLY TO YOU. NVIDIA does not warrant the accuracy or
+  completeness of the information, text, graphics, links or other items
+  contained within these materials. NVIDIA may make changes to these
+  materials, or to the products described therein, at any time without
+  notice, but makes no commitment to update the Materials.
+  U.S. GOVERNMENT RESTRICTED RIGHTS
+  If the Materials are being licensed by the U.S. Government, the Materials
+  and related documentation are commercial computer software and
+  documentation developed exclusively at private expense, and (a) if acquired
+  by or on behalf of a civilian agency, shall be subject to the terms of this
+  computer software license as specified in 48 C.F.R. 12.212 of the Federal
+  Acquisition Regulations and its successors; and (b) if acquired by or on
+  behalf of units of the Department of Defense ("DOD") shall be subject to
+  the terms of this commercial computer software license as specified in 48
+  C.F.R. 227.7202-2, DOD FAR Supplement and its successors. Use of the
+  Materials by the Government constitutes acknowledgment of NVIDIA's
+  proprietary rights in them.
+  USER SUBMISSIONS
+  Any material, information or other communication you transmit or post to
+  this Site will be considered non-confidential and non-proprietary
+  ("Communications"). NVIDIA will have no obligations with respect to the
+  Communications. NVIDIA and its designees will be free to copy, disclose,
+  distribute, incorporate and otherwise use the Communications and all data,
+  images, sounds, text, and other things embodied therein for any and all
+  commercial or non-commercial purposes. You are prohibited from posting or
+  transmitting to or from this Site any unlawful, threatening, libelous,
+  defamatory, obscene, pornographic, or other material that would violate any
+  law in any jurisdiction.
+  LINKS TO OTHER MATERIALS
+  The linked sites are not under the control of NVIDIA and NVIDIA is not
+  responsible for the content of any linked site or any link contained in a
+  linked site. NVIDIA reserves the right to terminate any link or linking
+  program at any time. NVIDIA does not endorse companies or products to which
+  it links and reserves the right to note as such on its web pages. If you
+  decide to access any of the third party sites linked to this Site, you do
+  this entirely at your own risk.
+  APPLICABLE LAWS
+  This site is controlled by NVIDIA from its offices within the United States
+  of America. NVIDIA makes no representation that Materials in the site are
+  appropriate or available for use in other locations, and access to them
+  from territories where their content is illegal is prohibited. Those who
+  choose to access this Site from other locations do so on their own
+  initiative and are responsible for compliance with applicable local laws.
+  You may not use or export the Materials in violation of U.S. export laws
+  and regulations. Any claim relating to the Materials shall be governed by
+  the internal substantive laws of the State of California. NVIDIA and you
+  hereby agree that all disputes arising out of this Agreement shall be
+  subject to the exclusive jurisdiction of and venue in the federal and state
+  courts within Santa Clara County, California, and both parties hereby
+  consent to the personal and exclusive jurisdiction and venue of these
+  courts.
+  GENERAL
+  NVIDIA may revise these Terms at any time by updating this posting. You
+  should visit this page from time to time to review the then-current Terms
+  because they are binding on you, and any use of the Site constitutes
+  acceptance of the terms contained herein. Certain provisions of these Terms
+  may be superseded by expressly designated legal notices or terms located on
+  particular pages at this Site.
+  Copyright (C) 1997-2004 NVIDIA Corporation. All rights reserved. NVIDIA
+  Corporation, 2701 San Tomas Expressway Santa Clara, CA 95050, USA.

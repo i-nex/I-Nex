@@ -5,6 +5,5 @@ debian/i-nex-lspci usr/bin
 pastebin.d usr/share/i-nex/pastebinit
 pastebinit usr/share/i-nex/pastebinit
 pastebinit.xml usr/share/i-nex/pastebinit
-README usr/share/i-nex/pastebinit
 release.conf usr/share/i-nex/pastebinit
 i-nex usr/bin
