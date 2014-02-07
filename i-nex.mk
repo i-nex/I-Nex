@@ -1,5 +1,9 @@
 #!/usr/bin/make -f
-APP_NAME= 			I-Nex
+VERSION = 			$(shell grep 'Version=' src/i-nex/.project | cut -d '=' -f 2)
+PN = 				i-nex
+PREFIX ?= 			/usr
+DOCDIR = 			$(PREFIX)/share/doc/$(PN)-$(VERSION)
+APP_NAME= 			$(PN)
 GIT_RV = 			$(shell git rev-list HEAD | wc -l)
 BUILD_PACKAGE = 		$(shell ./build-deb)
 LSB_CS = 			$(shell lsb_release -cs)
@@ -46,6 +50,16 @@ CC_OPTS_LIBPROCPS = 		-lproc
 else
 CC_OPTS_LIBPROCPS = 		$(shell pkg-config libprocps --cflags --libs)
 endif
+
+NO_COLOR=\033[0m
+OK_COLOR=\033[92m
+ERROR_COLOR=\033[91m
+WARN_COLOR=\033[93m
+ACTION_COLOR=\033[95m
+OK_STRING=$(OK_COLOR)✔
+ERROR_STRING=$(ERROR_COLOR)✖
+WARN_STRING=$(WARN_COLOR)⚑
+
 dependency_build ?= git \
 		    devscripts \
 		    pkg-config \
