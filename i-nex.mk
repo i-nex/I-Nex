@@ -1,4 +1,5 @@
 #!/usr/bin/make -f
+APP_NAME= 			I-Nex
 GIT_RV = 			$(shell git rev-list HEAD | wc -l)
 BUILD_PACKAGE = 		$(shell ./build-deb)
 LSB_CS = 			$(shell lsb_release -cs)
@@ -23,14 +24,23 @@ RMDIR_OPT = 			-Rf
 COMPRESSION_SELF_LEVEL = 	9
 MAKESELF = 			./makeself.sh
 MAKESELF_OPT = 			--nowait
-APP_NAME= 			I-Nex
 INSTALL_SELF_SCRIPT = 		./install-self
+STATIC = 			true
+
+ifeq ($(STATIC),true)
+YESNO_LINK =
+endif
+ifeq ($(ARCH),x86_64)
+YESNO_LINK = -static
+endif
+
 ifeq ($(ARCH),x86)
 additional_confflags := 	--disable-sse2
 endif
 ifeq ($(ARCH),x86_64)
 additional_confflags := 	-O2
 endif
+
 ifeq ($(LSB_CS),precise)
 CC_OPTS_LIBPROCPS = 		-lproc
 else

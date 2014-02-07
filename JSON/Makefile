@@ -5,9 +5,9 @@ make-binary:
 	@echo -e '\033[1;32mCompile i-nex-edid\033[0m'
 	$(CC) -o i-nex-edid i-nex-edid.c $(CFLAGS) $(additional_confflags)
 	@echo -e '\033[1;32mCompile i-nex-cpuid\033[0m'
-	$(CC) -o i-nex-cpuid i-nex-cpuid.c -static $(CC_OPTS_LIBCPUID) $(additional_confflags)
+	$(CC) -o i-nex-cpuid i-nex-cpuid.c $(YESNO_LINK) $(CC_OPTS_LIBCPUID) $(additional_confflags)
 	@echo -e '\033[1;32mCompile i-nex-usage\033[0m'
-	$(CC) -o i-nex-usage i-nex-usage.c -static $(CC_OPTS_LIBPROCPS) $(additional_confflags)
+	$(CC) -o i-nex-usage i-nex-usage.c $(YESNO_LINK) $(CC_OPTS_LIBPROCPS) $(additional_confflags)
 	@echo -e '\033[1;32mCompile i-nex-cpusage\033[0m'
 	$(CC) -o i-nex-cpusage i-nex-cpusage.c $(additional_confflags)
 	@echo -e '\033[1;32mCompile i-nex-glinfo\033[0m'
