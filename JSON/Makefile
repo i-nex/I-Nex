@@ -2,17 +2,18 @@
 include ../i-nex.mk 
 make: make-binary
 make-binary:
-	@echo -e '\033[1;32mCompile i-nex-edid\033[0m'
+
+	@echo -e '$(OK_COLOR)Compile i-nex-edid $(OK_STRING)$(NO_COLOR)'
 	$(CC) -o i-nex-edid i-nex-edid.c $(CFLAGS) $(additional_confflags)
-	@echo -e '\033[1;32mCompile i-nex-cpuid\033[0m'
+	@echo -e '$(OK_COLOR)Compile i-nex-cpuid $(OK_STRING)$(NO_COLOR)'
 	$(CC) -o i-nex-cpuid i-nex-cpuid.c $(YESNO_LINK) $(CC_OPTS_LIBCPUID) $(additional_confflags)
-	@echo -e '\033[1;32mCompile i-nex-usage\033[0m'
+	@echo -e '$(OK_COLOR)Compile i-nex-usage $(OK_STRING)$(NO_COLOR)'
 	$(CC) -o i-nex-usage i-nex-usage.c $(YESNO_LINK) $(CC_OPTS_LIBPROCPS) $(additional_confflags)
-	@echo -e '\033[1;32mCompile i-nex-cpusage\033[0m'
+	@echo -e '$(OK_COLOR)Compile i-nex-cpusage $(OK_STRING)$(NO_COLOR)'
 	$(CC) -o i-nex-cpusage i-nex-cpusage.c $(additional_confflags)
-	@echo -e '\033[1;32mCompile i-nex-glinfo\033[0m'
+	@echo -e '$(OK_COLOR)Compile i-nex-glinfo $(OK_STRING)$(NO_COLOR)'
 	$(CC) -o i-nex-glinfo i-nex-glinfo.c $(libx11) $(libgl) $(libxext) $(additional_confflags)
-	@echo -e '\033[1;32mCompile i-nex-uname\033[0m'
+	@echo -e '$(OK_COLOR)Compile i-nex-uname $(OK_STRING)$(NO_COLOR)'
 	$(CC) -o i-nex-uname i-nex-uname.c $(additional_confflags)
 	
 install: install-bin
@@ -32,6 +33,7 @@ install-bin:
 	$(INSTALL) 0755 i-nex-glinfo $(DESTDIR)$(bindir)
 	$(INSTALL) 0755 i-nex-uname $(DESTDIR)$(bindir)
 clean:
+	@echo -e '$(ACTION_COLOR)Clean$(NO_COLOR)'
 	$(RM_COM) $(RMFILE_OPT) i-nex-edid
 	$(RM_COM) $(RMFILE_OPT) i-nex-cpuid
 	$(RM_COM) $(RMFILE_OPT) i-nex-usage
