@@ -1,9 +1,0 @@
-src/i-nex/i-nex.gambas usr/bin
-debian/i-nex.desktop usr/share/applications
-debian/check_kernel usr/bin
-debian/i-nex-lspci usr/bin
-pastebin.d usr/share/i-nex/pastebinit
-pastebinit usr/share/i-nex/pastebinit
-pastebinit.xml usr/share/i-nex/pastebinit
-release.conf usr/share/i-nex/pastebinit
-i-nex usr/bin

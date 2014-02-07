@@ -1,6 +1,6 @@
 #!/usr/bin/make -f
 include ../i-nex.mk 
-
+make: make-binary
 make-binary:
 	@echo -e '\033[1;32mCompile i-nex-edid\033[0m'
 	$(CC) -o i-nex-edid i-nex-edid.c $(CFLAGS) $(additional_confflags)
@@ -15,6 +15,7 @@ make-binary:
 	@echo -e '\033[1;32mCompile i-nex-uname\033[0m'
 	$(CC) -o i-nex-uname i-nex-uname.c $(additional_confflags)
 	
+install: install-bin
 install-bin:
 
 	mkdir -p $(DESTDIR)$(bindir)
@@ -37,5 +38,3 @@ clean:
 	$(RM_COM) $(RMFILE_OPT) i-nex-cpusage
 	$(RM_COM) $(RMFILE_OPT) i-nex-glinfo
 	$(RM_COM) $(RMFILE_OPT) i-nex-uname
-	
-install: make-binary install-bin

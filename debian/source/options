@@ -1,3 +1,0 @@
-# Use bzip2 instead of gzip
-compression = "xz"
-compression-level = 9
