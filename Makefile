@@ -1,5 +1,6 @@
 #!/usr/bin/make -f
 include i-nex.mk
+PWD = $(shell pwd)
 make: build-inex
 build-inex:
 	cd ./src && ./configure --bindir=$(bindir)
@@ -110,7 +111,7 @@ clean:
 	$(RM_COM) $(RMDIR_OPT) debian/changelog1
 	$(RM_COM) $(RMDIR_OPT) inex
 	$(RM_COM) $(RMDIR_OPT) usr
-	$(MAKE) -C src distclean
+	if test -f "src/Makefile" ; then $(MAKE) -C src distclean ; fi
 	$(MAKE) -C pixmaps clean
 	$(MAKE) -C JSON clean
 	
