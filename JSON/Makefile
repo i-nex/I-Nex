@@ -1,6 +1,13 @@
 #!/usr/bin/make -f
 include ../i-nex.mk 
-make: make-binary
+make: check-static make-binary
+check-static:
+ifeq ($(STATIC),true)
+	@echo -e '$(WARN_COLOR)Compile Static $(WARN_STRING)$(NO_COLOR)'
+else
+	@echo -e '$(OK_COLOR)Compile Not Static $(OK_STRING)$(NO_COLOR)'
+endif
+
 make-binary:
 
 	@echo -e '$(OK_COLOR)Compile i-nex-edid $(OK_STRING)$(NO_COLOR)'
@@ -16,16 +23,18 @@ make-binary:
 	@echo -e '$(OK_COLOR)Compile i-nex-uname $(OK_STRING)$(NO_COLOR)'
 	$(CC) -o i-nex-uname i-nex-uname.c $(additional_confflags)
 	
-install: install-bin
-install-bin:
+install: install-set-executables install-bin
+install-set-executables:
 
-	mkdir -p $(DESTDIR)$(bindir)
 	chmod +x i-nex-edid
 	chmod +x i-nex-cpuid
 	chmod +x i-nex-usage
 	chmod +x i-nex-cpusage
 	chmod +x i-nex-glinfo
 	chmod +x i-nex-uname
+
+install-bin:
+	mkdir -p $(DESTDIR)$(bindir)
 	$(INSTALL) 0755 i-nex-edid $(DESTDIR)$(bindir)
 	$(INSTALL) 0755 i-nex-cpuid $(DESTDIR)$(bindir)
 	$(INSTALL) 0755 i-nex-usage $(DESTDIR)$(bindir)
@@ -33,7 +42,7 @@ install-bin:
 	$(INSTALL) 0755 i-nex-glinfo $(DESTDIR)$(bindir)
 	$(INSTALL) 0755 i-nex-uname $(DESTDIR)$(bindir)
 clean:
-	@echo -e '$(ACTION_COLOR)Clean$(NO_COLOR)'
+	@echo -e '$(ACTION_COLOR)Clean JSON$(NO_COLOR)'
 	$(RM_COM) $(RMFILE_OPT) i-nex-edid
 	$(RM_COM) $(RMFILE_OPT) i-nex-cpuid
 	$(RM_COM) $(RMFILE_OPT) i-nex-usage
