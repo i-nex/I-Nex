@@ -23,7 +23,7 @@
 * openSUSE [Question:243542](https://answers.launchpad.net/i-nex/+question/243542)
 * Fedora 20
 
-
+### Wymagania odnośnie bibliotek
 * Gambas3
   * gambas3-runtime (>= 3.5.0)
   * gambas3-gb-image (>= 3.5.0)
@@ -38,9 +38,11 @@
 * libprocps
   * libprocps3 | libprocps0 | libproc
 
-** More details are in the [requirements doc](doc/install/requirements.md)
+** Więcej informacji w [requirements doc](requirements.md)
 
 ### Kompilacja
+#### Ze źródeł bez trzorzenia pakietu
+
 #### Ubuntu
 Dodanie repozytoriów:
 
