@@ -1,8 +1,17 @@
 #!/usr/bin/make -f
 
 include i-nex.mk
-
 make: build-inex build-json build-pixmaps
+
+install: install-create-dirs install-pastebinit-and-other \
+	 install-pixmaps install-changelogs install-manpages \
+	 install-docs install-json install-inex install-scripts
+	 
+clean: clean-pixmaps clean-json clean-inex clean-all
+
+distclean: clean
+
+sysclean: uninstall rmgambas
 
 build-inex:
 	@echo -e '\033[1;32mBuild I-Nex...\033[0m'
@@ -14,10 +23,6 @@ build-pixmaps:
 	@echo -e '\033[1;32mBuild Pixmaps...\033[0m'
 	$(MAKE) -C pixmaps
 	
-install: install-create-dirs install-pastebinit-and-other \
-	 install-pixmaps install-changelogs install-manpages \
-	 install-docs install-json install-inex install-scripts \
-	 
 install-create-dirs:
 	mkdir -p $(DESTDIR)$(bindir)
 	mkdir -p $(DESTDIR)$(PREFIX)/share/pixmaps/
@@ -31,7 +36,6 @@ install-pastebinit-and-other:
 	$(INSTALL) 0755 pastebin.d/* $(DESTDIR)$(PREFIX)/share/i-nex/pastebinit/pastebin.d/
 	$(INSTALL) 0755 pastebinit $(DESTDIR)$(PREFIX)/share/i-nex/pastebinit/
 	$(INSTALL) 0755 pastebinit.xml $(DESTDIR)$(PREFIX)/share/i-nex/pastebinit/
-	$(INSTALL) 0755 README $(DESTDIR)$(PREFIX)/share/i-nex/pastebinit/
 	$(INSTALL) 0755 release.conf $(DESTDIR)$(PREFIX)/share/i-nex/pastebinit/
 	
 install-pixmaps:
@@ -61,9 +65,17 @@ install-inex:
 install-scripts:
 	@echo -e '\033[1;32mInstall Scripts...\033[0m'
 	$(MAKE) -C Scripts install
-
-distclean: clean
-clean: clean-pixmaps clean-json clean-inex
+	 
+clean-pixmaps: 
+	$(MAKE) -C pixmaps clean
+	
+clean-json:
+	$(MAKE) -C JSON clean
+	
+clean-inex:
+	if test -f "src/Makefile" ; then $(MAKE) -C src distclean ; fi
+	
+clean-all:
 	$(RM_COM) $(RMDIR_OPT) `find . -name ".gambas"`
 	$(RM_COM) $(RMDIR_OPT) `find . -name "*.gambas"`
 	$(RM_COM) $(RMDIR_OPT) `find . -name ".directory"`
@@ -79,16 +91,6 @@ clean: clean-pixmaps clean-json clean-inex
 	$(RM_COM) $(RMDIR_OPT) debian/i-nex.substvars
 	$(RM_COM) $(RMDIR_OPT) debian/changelog1
 	
-clean-pixmaps: 
-	$(MAKE) -C pixmaps clean
-	
-clean-json:
-	$(MAKE) -C JSON clean
-	
-clean-inex:
-	if test -f "src/Makefile" ; then $(MAKE) -C src distclean ; fi
-	
-sysclean: uninstall rmgambas
 uninstall:
 	rm $(DESTDIR)$(bindir)/i-nex
 	rm $(DESTDIR)$(bindir)/i-nex-edid
