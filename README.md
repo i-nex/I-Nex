@@ -54,7 +54,6 @@
 ** Więcej informacji w [requirements doc](requirements.md)
 
 ### Kompilacja
-#### Ze źródeł bez trzorzenia pakietu
 
 #### Ubuntu
 Dodanie repozytoriów:
@@ -83,3 +82,5 @@ Budowanie pakietu deb:
     fakeroot debian/rules binary
     cd ..
     sudo dpkg -i ./i-nex*.deb
+
+### Kompilacja ze źródeł bez trzorzenia pakietu
