@@ -797,14 +797,34 @@ int main(void)
 	printf("					\"HAVEWEBSITE\": 1 ,\n");
 	printf("					\"DESC\": \"RdRand instruction\"\n");
 	printf("			},\n");
-	printf("			\"92\": {\n");
-	printf("					\"VALUE\": %s \n", data.flags[CPU_FEATURE_HT] ? "1 ," : "0 ,");
-	printf("					\"NAME\": \"CPU_FEATURE_HT\",\n");
-	printf("					\"FEATURE\": \"ht\",\n");
-	printf("					\"WEBSITE\": \"http://en.wikipedia.org/wiki/Hyper-Threading\",\n");
-	printf("					\"HAVEWEBSITE\": 1 ,\n");
-	printf("					\"DESC\": \"Hyper-threading supported (but might be disabled)\"\n");
-	printf("			},\n");
+	if (data.vendor == VENDOR_INTEL) {
+	  printf("			\"92\": {\n");
+	  printf("					\"VALUE\": %s \n", data.flags[CPU_FEATURE_HT] ? "1 ," : "0 ,");
+	  printf("					\"NAME\": \"CPU_FEATURE_HT\",\n");
+	  printf("					\"FEATURE\": \"ht\",\n");
+	  printf("					\"WEBSITE\": \"http://en.wikipedia.org/wiki/Hyper-Threading\",\n");
+	  printf("					\"HAVEWEBSITE\": 1 ,\n");
+	  printf("					\"DESC\": \"Hyper-threading supported (but might be disabled)\"\n");
+	  printf("			},\n");
+	} else if (data.vendor == VENDOR_AMD) {
+	  printf("			\"92\": {\n");
+	  printf("					\"VALUE\": %s \n", data.flags[CPU_FEATURE_HT] ? "1 ," : "0 ,");
+	  printf("					\"NAME\": \"CPU_FEATURE_HT\",\n");
+	  printf("					\"FEATURE\": \"ht\",\n");
+	  printf("					\"WEBSITE\": \"http://en.wikipedia.org/wiki/HyperTransport\",\n");
+	  printf("					\"HAVEWEBSITE\": 1 ,\n");
+	  printf("					\"DESC\": \"HyperTransport (HT)\"\n");
+	  printf("			},\n");
+	} else {
+	  printf("			\"92\": {\n");
+	  printf("					\"VALUE\": 0 \n");
+	  printf("					\"NAME\": \"CPU_FEATURE_RESERVED\",\n");
+	  printf("					\"FEATURE\": \"Reserved space\",\n");
+	  printf("					\"WEBSITE\": \"Reserved space\",\n");
+	  printf("					\"HAVEWEBSITE\": 0 ,\n");
+	  printf("					\"DESC\": \"Reserved space\"\n");
+	  printf("			},\n");
+	}
 	printf("			\"93\": {\n");
 	printf("					\"VALUE\": %s \n", data.flags[CPU_FEATURE_MMX] ? "1 ," : "0 ,");
 	printf("					\"NAME\": \"CPU_FEATURE_MMX\",\n");
