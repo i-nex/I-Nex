@@ -337,7 +337,7 @@ int main(void)
 	printf("					\"VALUE\": %s \n", data.flags[CPU_FEATURE_SS] ? "1 ," : "0 ,");
 	printf("					\"NAME\": \"CPU_FEATURE_SS\",\n");
 	printf("					\"FEATURE\": \"ss\",\n");
-	printf("					\"WEBSITE\": \"http://en.wikipedia.org/wiki/Ss\",\n");
+	printf("					\"WEBSITE\": \"http://en.wikipedia.org/wiki/Cache_snooping\",\n");
 	printf("					\"HAVEWEBSITE\": 1 ,\n");
 	printf("					\"DESC\": \"Self-snoop\"\n");
 	printf("			},\n");
