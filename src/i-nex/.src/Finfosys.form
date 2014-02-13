@@ -368,19 +368,11 @@
         Text = "Label103"
         Border = Border.Raised
       }
-      { Label93 Label
-        Move(7,91,91,28)
-        #Translate = False
-        Font = Font["Bold,8"]
-        Foreground = &H0000FF&
-        Padding = 3
-        Border = Border.Raised
-      }
       { Label13 Label
         Move(7,7,91,56)
         #Translate = False
         Font = Font["Bold,16"]
-        Foreground = &H2C2C2C&
+        Foreground = &HFF7F00&
         Padding = 3
         Text = "Label13"
         Alignment = Align.Center
@@ -412,6 +404,15 @@
         Font = Font["Bold,8"]
         Text = ("More...")
         Picture = Picture["AppIcons/dialog-ok.png"]
+      }
+      { LCDLabel1 LCDLabel
+        Move(14,91,322,28)
+        #Translate = False
+        Font = Font["Bold,8"]
+        Alignment = Align.Left
+        Sheared = True
+        Padding = 3
+        HighlightColor = &H9F5913&
       }
       Index = 1
       Text = ("CPUID")

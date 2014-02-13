@@ -701,9 +701,11 @@ Public Sub Timer1_Timer()
   dospam_uptime()
   thermal_zone._inits
   If thermal_zone.supporttemp = True Then
-   Label93.Text = "Temp: " & (thermal_zone.calculate / 1000) & " °C"
+   'Label93.Text = "Temp: " & (thermal_zone.calculate / 1000) & " °C"
+   LCDLabel1.Text = "Temp: " & (thermal_zone.calculate / 1000) & " °C"
   Else
-   Label93.Visible = False
+   'Label93.Visible = False
+    LCDLabel1.Visible = False
   Endif
   
 End
