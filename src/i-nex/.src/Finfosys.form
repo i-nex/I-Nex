@@ -126,11 +126,12 @@
         Font = Font["Bold,8"]
         Foreground = &H9F300E&
         Padding = 3
-        Text = "Hardware Virtualization:"
+        Text = "HW Virtualization:"
         Border = Border.Raised
       }
       { ToolButton2 ToolButton
         Move(294,217,21,21)
+        ToolTip = ("Supported by CPU")
         Picture = Picture["Data/check_false.png"]
       }
       { Label99 Label
@@ -406,13 +407,19 @@
         Picture = Picture["AppIcons/dialog-ok.png"]
       }
       { LCDLabel1 LCDLabel
-        Move(14,91,322,28)
+        Move(14,91,322,21)
         #Translate = False
         Font = Font["Bold,8"]
         Alignment = Align.Left
         Sheared = True
         Padding = 3
         HighlightColor = &H9F5913&
+      }
+      { ToolButton4 ToolButton
+        Move(273,217,21,21)
+        ToolTip = ("Enabled in bios")
+        Text = ("ToolButton4")
+        Picture = Picture["Data/check_false.png"]
       }
       Index = 1
       Text = ("CPUID")

@@ -82,7 +82,11 @@ Public Sub _init()
   HTT = "False"
   VIRT = "False"
  Endif
- 
+ If Exist("/dev/kvm") = True Then
+  Finfosys.ToolButton4.Picture = Picture["Data/check_true.png"]
+ Else
+  Finfosys.ToolButton4.Picture = Picture["Data/check_false.png"]
+ Endif
  ht()
  HyperTransport()
 End
