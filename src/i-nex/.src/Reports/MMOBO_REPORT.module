@@ -3,22 +3,22 @@
 Public DATA_RETURN As String
 Public Report As Collection = [("0"): ("========================================================================================================================="),
                                ("1"): ("___________________Board___________________"),
-                               ("2"): (Finfosys.TextLabel1.Text),
-                               ("3"): (Finfosys.TextLabel2.Text),
-                               ("4"): (Finfosys.TextLabel3.Text),
-                               ("5"): (Finfosys.TextLabel4.Text),
+                               ("2"): (Finfosys.TextBox2.Text),
+                               ("3"): (Finfosys.TextBox3.Text),
+                               ("4"): (Finfosys.TextBox4.Text),
+                               ("5"): (Finfosys.TextBox5.Text),
                                ("6"): ("___________________Bios____________________"),
-                               ("7"): (Finfosys.TextLabel5.Text),
-                               ("8"): (Finfosys.TextLabel6.Text),
-                               ("9"): (Finfosys.TextLabel14.Text),
+                               ("7"): (Finfosys.TextBox6.Text),
+                               ("8"): (Finfosys.TextBox21.Text),
+                               ("9"): (Finfosys.TextBox22.Text),
                                ("10"): ("_________________Chassis__________________"),
-                               ("11"): (Finfosys.TextLabel8.Text),
-                               ("12"): (Finfosys.TextLabel9.Text),
-                               ("13"): (Finfosys.TextLabel10.Text),
-                               ("14"): (Finfosys.TextLabel11.Text),
+                               ("11"): (Finfosys.TextBox23.Text),
+                               ("12"): (Finfosys.TextBox24.Text),
+                               ("13"): (Finfosys.TextBox25.Text),
+                               ("14"): (Finfosys.TextBox26.Text),
                                ("15"): ("_________________Product__________________"), 
-                               ("14"): (Finfosys.TextLabel12.Text),
-                               ("14"): (Finfosys.TextLabel13.Text)]
+                               ("14"): (Finfosys.TextBox27.Text),
+                               ("14"): (Finfosys.TextBox28.Text)]
 Public Sub _inits()
 Dim All As Integer
  DATA_RETURN = Null
