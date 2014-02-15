@@ -8,7 +8,7 @@ Report = [("0"): ("========================================================" & F
                                ("2"): (Finfosys.Label14.Text),
                                ("3"): (Finfosys.Label12.Text),
                                ("4"): (Finfosys.Label103.Text),
-                               ("5"): (Finfosys.Label93.Text),
+                               ("5"): (Finfosys.LCDLabel1.Text),
                                ("6"): (Finfosys.Label97.Text),
                                ("7"): (Finfosys.Label6.Text),
                                ("8"): (Finfosys.Label7.Text),
