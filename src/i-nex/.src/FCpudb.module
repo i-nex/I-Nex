@@ -37,6 +37,9 @@ Public Sub _inits()
    Case Like "*intel*"
     Logs("Use Intel CPU Database", Logger.Info)
     buffer = File.Load("Database/intel")
+   Case Like "*Pentium*"
+    Logs("Use Intel CPU Database", Logger.Info)
+    buffer = File.Load("Database/intel")
   End Select
   Logs("Decode CPU Database", Logger.Info)
   database = JSON.Decode(buffer)
