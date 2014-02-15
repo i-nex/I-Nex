@@ -703,6 +703,7 @@ Public Sub Timer1_Timer()
   If thermal_zone.supporttemp = True Then
    'Label93.Text = "Temp: " & (thermal_zone.calculate / 1000) & " °C"
    LCDLabel1.Text = "Temp: " & (thermal_zone.calculate / 1000) & " °C"
+   LCDLabel1.Text = Replace(LCDLabel1.Text, ".", " . ")
   Else
    'Label93.Visible = False
     LCDLabel1.Visible = False
