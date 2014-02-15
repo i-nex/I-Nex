@@ -21,15 +21,25 @@ Public Sub Form_Open()
   Select Case Application.Args[1]
    
    Case "--help"
-    Print ("" & Application.name & "" & Application.version & " running on:\n\nArchitecture: " & System.Architecture & ""
-           "\nSystem Family:  " & System.Family & ""
-           "\nGambas Version: " & System.FullVersion & ""
-           "\nSystem Charset: " & System.Charset & ""
-           "\nHostname:       " & System.Host & ""
+    Print ("\n  " & Application.name & "  " & Application.version & " running on:\n"
+           "\n  Architecture: " & System.Architecture & ""
            "\n"
-           "\nUsage: " & Application.name & ".gambas [Options]"
-           "\nOptions:"
-           "\n--help                           (Chow Help)")
+           "\n  System Family:           " & System.Family & ""
+           "\n  Gambas Version:          " & System.FullVersion & ""
+           "\n  System Charset:          " & System.Charset & ""
+           "\n  Hostname:                " & System.Host & ""
+           "\n  "
+           "\n  Usage: env VARIABLE=\"STRING\"  " & Application.name & ".gambas [Options]"
+           "\n  Options:"
+           "\n          --help                       (Chow Help)"
+           "\n"
+           "\n  Env Variables:"
+           "\n"
+           "\n                INEXCPU_VENDOR"
+           "\n"
+           "\n  Example:"
+           "\n"
+           "\n                env INEXCPU_VENDOR=\"Pentium(R) Dual-Core CPU       T4200  \" ./i-nex.gambas")
     S = False
     Me.Close
    
