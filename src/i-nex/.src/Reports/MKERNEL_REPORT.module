@@ -1,11 +1,13 @@
 ' Gambas module file
 
 Public DATA_RETURN As String
-Public Report As Collection = [("0"): ("========================================================================================================================="),
-                               ("1"): (Finfosys.TextLabel25.Text),
-                               ("2"): (Finfosys.ListBox1.Text),
-                               ("3"): (Finfosys.TextLabel26.Text),
-                               ("4"): (Finfosys.TextArea3.Text)]
+Public Report As Collection = [("0"): ("=================================================== Machine ============================================================="),
+                               ("1"): (Finfosys.TextLabel26.Text),
+                               ("2"): (Finfosys.TextLabel7.Text),
+                               ("3"): (Finfosys.TextLabel16.Text),
+                               ("4"): (Finfosys.TextLabel17.Text),
+                               ("5"): (Finfosys.TextLabel18.Text),
+                               ("6"): ("================================================ Installed Kernels ======================================================")]
 Public Sub _inits()
 Dim All As Integer
  DATA_RETURN = Null
@@ -17,6 +19,10 @@ Dim All As Integer
   Wait 0.01
   
   Next
- 
  Shell "echo '" & DATA_RETURN & "'>>" & FReport_Gen.ButtonBox1.Text & "" Wait 
+ For All = 0 To Finfosys.ListBox1.Count - 1
+   Shell "echo '" & Finfosys.ListBox1.List[All] & "'>>" & FReport_Gen.ButtonBox1.Text & "" Wait 
+ Next
+ Shell "echo '===================================================== Cmdline ==========================================================='>>" & FReport_Gen.ButtonBox1.Text & "" Wait
+ Shell "echo '" & Finfosys.TextArea3.Text & "'>>" & FReport_Gen.ButtonBox1.Text & "" Wait
 End
