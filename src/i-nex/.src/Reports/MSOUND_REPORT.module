@@ -1,27 +1,20 @@
 ' Gambas module file
 
 Public DATA_RETURN As String
-Public Report As Collection = [("0"): ("========================================================================================================================="),
-                               ("1"): (Finfosys.TextBox44.Text),
-                               ("2"): (Finfosys.Label73.Text),
-                               ("3"): (Finfosys.Label18.Text),
-                               ("4"): (Finfosys.Label74.Text),
-                               ("5"): (Finfosys.Label77.Text),
-                               ("6"): (Finfosys.Label78.Text),
-                               ("7"): (Finfosys.TextArea18.Text),
-                               ("8"): (Finfosys.TextArea1.Text)]
+Public Report As Collection = [("0"): ("===============================================" & Finfosys.ComboBox6.Text & "==================================================="),
+                               ("1"): (Finfosys.Label73.Text),
+                               ("2"): (Finfosys.Label78.Text),
+                               ("3"): (Finfosys.Label9.Text),
+                               ("4"): (Finfosys.TextArea18.Text)]
 Public Sub _inits()
  Dim All, All2 As Integer
  DATA_RETURN = Null
- For All2 = 0 To Finfosys.ComboBox6.Count - 1
-  
-  For All = 0 To Report.Count
-  FReport_Gen.ProgressBar1.Value = All / Report.Count
-  DATA_RETURN = DATA_RETURN & "\n" & Report[All]
-  Wait 0.01
+ For All = 0 To Finfosys.ComboBox6.Count - 1
+ FReport_Gen.ProgressBar1.Value = All / Finfosys.ComboBox6.Count - 1
+  For All2 = 0 To Report.Count - 1
+   FReport_Gen.ProgressBar1.Value = All2 / Report.Count - 1
+   DATA_RETURN = DATA_RETURN & "\n" & Report[All2]
   Next
-  Wait 0.01
-  Finfosys.ComboBox6.Index = All2
  Next
  Shell "echo '" & DATA_RETURN & "'>>" & FReport_Gen.ButtonBox1.Text & "" Wait
 End
