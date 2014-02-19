@@ -83,4 +83,9 @@ Budowanie pakietu deb:
     cd ..
     sudo dpkg -i ./i-nex*.deb
 
-### Kompilacja ze źródeł bez trzorzenia pakietu
+### Please report all bugs on the official forum of the project. 
+
+# Forum does not require confirmation of email address. 
+# Enables login by OpenID.
+
+[Report Bug](http://i-nex.linux.pl/bbs/categories)
