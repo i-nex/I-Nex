@@ -33,10 +33,10 @@ install-create-dirs:
 install-pastebinit-and-other:
 	@echo -e '\033[1;32mInstall pastebinit and other...\033[0m'
 	$(INSTALL) 0755 debian/i-nex.desktop $(DESTDIR)$(PREFIX)/share/applications/
-	$(INSTALL) 0755 pastebin.d/* $(DESTDIR)$(PREFIX)/share/i-nex/pastebinit/pastebin.d/
 	$(INSTALL) 0755 pastebinit $(DESTDIR)$(PREFIX)/share/i-nex/pastebinit/
 	$(INSTALL) 0755 pastebinit.xml $(DESTDIR)$(PREFIX)/share/i-nex/pastebinit/
 	$(INSTALL) 0755 release.conf $(DESTDIR)$(PREFIX)/share/i-nex/pastebinit/
+	$(MAKE) -C pastebin.d install
 	
 install-pixmaps:
 	@echo -e '\033[1;32mInstall pixmaps...\033[0m'
