@@ -45,4 +45,26 @@ Public Sub _inits()
  Do_not_print = Null
  Logs("Execute report-ng.sh", Logger.Info)
  Exec ["/bin/bash", "" & User.Home & "/.i-nex/report-ng.sh"] Wait
+ 
+ If Settings["FirstRun/Value"] = "True" Then
+    If Settings["FirstRun/AppVer"] < Application.Version Then
+
+       Desktop.Open("http://i-nex.linux.pl/" & Application.Version & "")
+       Settings["FirstRun/AppVer"] = Application.Version
+
+    Else
+
+       Logs("This is not first run of I-Nex", Logger.Info)
+
+    Endif
+
+
+ Else
+
+    Desktop.Open("http://i-nex.linux.pl")
+    Settings["FirstRun/Value"] = "True"
+    Settings["FirstRun/AppVer"] = Application.Version
+
+ Endif
+ 
 End
