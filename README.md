@@ -1,7 +1,7 @@
 ## I-Nex: System and Hardware information tool
 
 ![logo](https://raw2.github.com/eloaders/I-Nex/master/src/i-nex/logo/i-nex.0.4.x.png)
-
+![okno](http://wstaw.org/m/2014/02/24/02202014003011573_1.png)
 ### I-Nex jest aplikacją Open Source, która wyświetla informacje o podzespołach komputera jak i samym systemie operacyjnym.
 
 * Wyświetla informacje w przyjaznej formie, opartej na kartach.
