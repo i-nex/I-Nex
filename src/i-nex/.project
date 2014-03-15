@@ -4,7 +4,6 @@ Title=I-Nex
 Startup=Start_App_Args
 Icon=logo/i-nex.0.4.x.png
 Version=0.6.4
-VersionFile=1
 Component=gb.image
 Component=gb.qt4
 Component=gb.form

@@ -70,7 +70,7 @@ Public Sub _inits()
   cpucache = Replace(Replace(Replace(cpucache, "Triple", ""), "Six", ""), "Quad", "")
   For z = 0 To database["DATABASE"].Count - 1
     If database["DATABASE"][z]["PROCESSOR_MODEL_NAME"] Like "*" & cpucache & "*" Then 
-
+      Finfosys.PictureBox3.Name = database["DATABASE"][z]["PROCESSOR_SOCKET_IMAGE"]
       Finfosys.PictureBox3.Picture = Picture["Database/Logos/" & database["DATABASE"][z]["PROCESSOR_SOCKET_IMAGE"] & ""]
       Finfosys.Label103.Text = " Integrated GPU: " & database["DATABASE"][z]["PROCESSOR_INTEGRATEDGRAPHIC"]
       Finfosys.Label104.Text = " TDP: " & database["DATABASE"][z]["PROCESSOR_TDP"]

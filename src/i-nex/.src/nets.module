@@ -1,0 +1,142 @@
+' Gambas module file
+
+' Copyright(C) 2011-2014, Michał Głowienka aka eloaders <eloaders@linux.pl>
+'
+' This program is free software; you can redistribute it and/or modify
+' it under the terms of the GNU General Public License as published by
+' the Free Software Foundation; either version 3 of the License, or
+' (at your option) any later version.
+'
+' This program is distributed in the hope that it will be useful,
+' but WITHOUT ANY WARRANTY; without even the implied warranty of
+' MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+' GNU General Public License for more details.
+'
+' You should have received a copy of the GNU General Public License
+' along with this program. If not, see <http://www.gnu.org/licenses/>.
+
+Public Logs As New Logger
+Public device_assign_type As String
+Public subsystem_device As String
+Public subsystem_vendor As String
+Public device_address As String
+Public device_addr_len As String
+Public device_broadcast As String
+Public device_carrier As String
+Public device_dev_id As String
+Public device_dormant As String
+Public device_duplex As String
+Public device_flags As String
+Public device_ifalias As String
+Public device_ifindex As String
+Public device_iflink As String
+Public device_link_mode As String
+Public device_mtu As String
+Public device_netdev_group As String '
+Public device_operstate As String
+Public device_speed As String
+Public device_tx_queue_len As String
+Public device_type As String
+Public lspci As String
+Private set_interface As String
+
+Public Sub inits()
+  Dim sdx As String
+  Dim Avail_Net As Integer 
+  Dim Max_Net As Integer
+  Dim cache As String
+  Logs("Add Network Devices to ComboBox", Logger.Info)
+  Shell "ls /sys/class/net/ | wc -l" Wait To cache
+  Max_Net = Replace(Replace(cache, " ", ""), "\n", "")
+  For Avail_Net = 1 To Max_Net
+   Shell "ls /sys/class/net/ | sed -n '" & Avail_Net & "p'" Wait To sdx
+   sdx = Replace(sdx, "\n", "")
+   Finfosys.ComboBox2.Add(sdx)
+  Next
+  Shell "ls /sys/class/net/ | sed -n '1p'" Wait To set_interface
+  set_interface = Replace(set_interface, "\n", "")
+  Finfosys.ComboBox2.Text = set_interface
+End
+
+Public Sub get_informations_about_net_interface()
+ 
+ Shell "cat /sys/class/net/" & Finfosys.ComboBox2.Text & "/addr_assign_type" Wait To device_assign_type
+ Shell "cat /sys/class/net/" & Finfosys.ComboBox2.Text & "/device/device" Wait To subsystem_device
+ Shell "cat /sys/class/net/" & Finfosys.ComboBox2.Text & "/device/vendor" Wait To subsystem_vendor
+ Shell "cat /sys/class/net/" & Finfosys.ComboBox2.Text & "/address" Wait To device_address
+ Shell "cat /sys/class/net/" & Finfosys.ComboBox2.Text & "/addr_len" Wait To device_addr_len
+ Shell "cat /sys/class/net/" & Finfosys.ComboBox2.Text & "/broadcast" Wait To device_broadcast
+ Shell "cat /sys/class/net/" & Finfosys.ComboBox2.Text & "/carrier" Wait To device_carrier
+ Shell "cat /sys/class/net/" & Finfosys.ComboBox2.Text & "/dev_id" Wait To device_dev_id
+ Shell "cat /sys/class/net/" & Finfosys.ComboBox2.Text & "/dormant" Wait To device_dormant
+ Shell "cat /sys/class/net/" & Finfosys.ComboBox2.Text & "/duplex" Wait To device_duplex
+ Shell "cat /sys/class/net/" & Finfosys.ComboBox2.Text & "/flags" Wait To device_flags
+ Shell "cat /sys/class/net/" & Finfosys.ComboBox2.Text & "/ifalias" Wait To device_ifalias
+ Shell "cat /sys/class/net/" & Finfosys.ComboBox2.Text & "/ifindex" Wait To device_ifindex
+ Shell "cat /sys/class/net/" & Finfosys.ComboBox2.Text & "/iflink" Wait To device_iflink
+ Shell "cat /sys/class/net/" & Finfosys.ComboBox2.Text & "/link_mode" Wait To device_link_mode
+ Shell "cat /sys/class/net/" & Finfosys.ComboBox2.Text & "/mtu" Wait To device_mtu
+ Shell "cat /sys/class/net/" & Finfosys.ComboBox2.Text & "/netdev_group" Wait To device_netdev_group
+ Shell "cat /sys/class/net/" & Finfosys.ComboBox2.Text & "/operstate" Wait To device_operstate
+ Shell "cat /sys/class/net/" & Finfosys.ComboBox2.Text & "/speed" Wait To device_speed
+ Shell "cat /sys/class/net/" & Finfosys.ComboBox2.Text & "/tx_queue_len" Wait To device_tx_queue_len
+ Shell "cat /sys/class/net/" & Finfosys.ComboBox2.Text & "/type" Wait To device_type
+ subsystem_device = Replace(subsystem_device, "\n", "")
+ subsystem_vendor = Replace(subsystem_vendor, "\n", "")
+  If subsystem_device Like "*0x*" Then
+  Shell "lspci -d " & subsystem_vendor & ":" & subsystem_device & " | cut -d ':' -f 3 | cut -d '(' -f 1" Wait To lspci
+     lspci = Replace(lspci, "\n", "")
+  Else
+     lspci = Null
+  Endif
+ 
+ _replace()
+End
+
+Public Sub _replace()
+ 
+ device_address = Replace(device_address, "\n", "")
+ device_addr_len = Replace(device_addr_len, "\n", "")
+ device_assign_type = Replace(device_assign_type, "\n", "")
+ device_broadcast = Replace(device_broadcast, "\n", "")
+ device_carrier = Replace(device_carrier, "\n", "")
+ device_dev_id = Replace(device_dev_id, "\n", "")
+ device_dormant = Replace(device_dormant, "\n", "")
+ device_duplex = Replace(device_duplex, "\n", "")
+ device_flags = Replace(device_flags, "\n", "")
+ device_ifalias = Replace(device_ifalias, "\n", "")
+ device_ifindex = Replace(device_ifindex, "\n", "")
+ device_iflink = Replace(device_iflink, "\n", "")
+ device_link_mode = Replace(device_link_mode, "\n", "")
+ device_mtu = Replace(device_mtu, "\n", "")
+ device_netdev_group = Replace(device_netdev_group, "\n", "")
+ device_operstate = Replace(device_operstate, "\n", "")
+ device_speed = Replace(device_speed, "\n", "")
+ device_tx_queue_len = Replace(device_tx_queue_len, "\n", "")
+ device_type = Replace(device_type, "\n", "")
+ net_dev()
+End
+
+Public Sub net_dev()
+ Finfosys.Label157.Text = "Device address: " & device_address
+ Finfosys.Label158.Text = "Device addr len: " & device_addr_len
+ Finfosys.Label159.Text = "Assign type: " & device_assign_type
+ Finfosys.Label160.Text = "Broadcast: " & device_broadcast
+ Finfosys.Label161.Text = "Carrier: " & device_carrier
+ Finfosys.Label162.Text = "Dev id: " & device_dev_id
+ Finfosys.Label163.Text = "Dormant: " & device_dormant
+ Finfosys.Label164.Text = "Duplex: " & device_duplex
+ Finfosys.Label165.Text = "Flags: " & device_flags
+ Finfosys.Label166.Text = "Ifalias: " & device_ifalias
+ Finfosys.Label167.Text = "Ifindex: " & device_ifindex
+ Finfosys.Label168.Text = "Iflink: " & device_iflink
+ Finfosys.Label169.Text = "Link mode: " & device_link_mode
+ Finfosys.Label170.Text = "MTU: " & device_mtu
+ Finfosys.Label171.Text = "Netdev group: " & device_netdev_group
+ Finfosys.Label172.Text = "Operstate: " & device_operstate
+ Finfosys.Label173.Text = "Speed: " & device_speed
+ Finfosys.Label174.Text = "Tx queue len: " & device_tx_queue_len
+ Finfosys.Label175.Text = "Type: " & device_type
+End
+
+

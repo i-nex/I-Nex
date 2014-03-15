@@ -53,6 +53,7 @@ Public Sub _inits()
  
  If DV Like "*Ubuntu*" And DE Like "*KDE*" Then
   Finfosys.PictureBox2.Picture = Picture["Database/Distlogos/kubuntu.png"]
+  Finfosys.PictureBox2.Name = "kubuntu.png"
  Endif
  If DV Like "*Ubuntu*" And DE Like "*XFCE*" Then
   Finfosys.PictureBox2.Picture = Picture["Database/Distlogos/xubuntu.png"]

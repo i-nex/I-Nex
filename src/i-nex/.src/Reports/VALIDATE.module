@@ -1,0 +1,146 @@
+' Gambas module file
+
+Public REQUEST_ID As Collection
+Public VARIABLES_STREAM As String
+Public temporr As String = Temp()
+Public VALIDATE_VARIABLES As Collection = [("" & Rnd(100) & ""): (Rnd(200))]
+
+Public Sub _inits()
+VALIDATE_VARIABLES.Add("UNKNOWN", "SUBMITED_BY")
+'Begin CPU Tab
+VALIDATE_VARIABLES.Add(Finfosys.PictureBox3.Name, "CPU_LOGO")
+VALIDATE_VARIABLES.Add(Finfosys.Label13.Text, "CPU_VENDOR")
+VALIDATE_VARIABLES.Add(Finfosys.Label14.Text, "CPU_NAME")
+VALIDATE_VARIABLES.Add(Finfosys.Label12.Text, "CPU_SPEED")
+VALIDATE_VARIABLES.Add(Finfosys.Label103.Text, "CPU_INTEGRATED_GRAPH")
+VALIDATE_VARIABLES.Add(Finfosys.Label97.Text, "CPU_FAMILY")
+VALIDATE_VARIABLES.Add(Finfosys.Label6.Text, "CPU_MODEL")
+VALIDATE_VARIABLES.Add(Finfosys.Label7.Text, "CPU_STEPPING")
+VALIDATE_VARIABLES.Add(Finfosys.Label8.Text, "CPU_CORES")
+VALIDATE_VARIABLES.Add(Finfosys.Label19.Text, "CPU_PHY")
+VALIDATE_VARIABLES.Add(Finfosys.Label11.Text, "CPU_ADRE_SIZES")
+VALIDATE_VARIABLES.Add(Finfosys.Label10.Text, "CPU_BOGOMIPS")
+VALIDATE_VARIABLES.Add(Finfosys.Label71.Text, "CPU_FLAGS")
+
+VALIDATE_VARIABLES.Add(FFlags.X86_X64, "CPU_X86_64")
+VALIDATE_VARIABLES.Add(FFlags.VIRT, "CPU_HW_VIRT")
+VALIDATE_VARIABLES.Add(FFlags.HTT, "CPU_HT")
+
+VALIDATE_VARIABLES.Add(Finfosys.Label15.Text, "CPU_POWER_MANGAMENT")
+'CPU Data from the manufacturer
+VALIDATE_VARIABLES.Add(Finfosys.Label104.Text, "CPU_TDP")
+VALIDATE_VARIABLES.Add(Finfosys.Label110.Text, "CPU_PPS")
+VALIDATE_VARIABLES.Add(Finfosys.Label113.Text, "CPU_DIE_SIZE")
+VALIDATE_VARIABLES.Add(Finfosys.Label114.Text, "CPU_PACKAGE")
+VALIDATE_VARIABLES.Add(Finfosys.Label116.Text, "CPU_TURBOCLOCK")
+VALIDATE_VARIABLES.Add(Finfosys.Label118.Text, "CPU_VOLTAGE")
+VALIDATE_VARIABLES.Add(Finfosys.Label120.Text, "CPU_PART")
+VALIDATE_VARIABLES.Add(Finfosys.Label111.Text, "CPU_SOCKET")
+VALIDATE_VARIABLES.Add(Finfosys.Label112.Text, "CPU_TRANSISTORS")
+VALIDATE_VARIABLES.Add(Finfosys.Label115.Text, "CPU_TCASEMAX")
+VALIDATE_VARIABLES.Add(Finfosys.Label117.Text, "CPU_MULTIPLIER")
+VALIDATE_VARIABLES.Add(Finfosys.Label119.Text, "CPU_CODENAME")
+VALIDATE_VARIABLES.Add(Finfosys.Label121.Text, "CPU_MEMORY_SUPPORT")
+'CPU Data from the manufacturer END
+'CPU CACHE
+VALIDATE_VARIABLES.Add(Finfosys.Label1.Text, "CPU_CACHE_L1D")
+VALIDATE_VARIABLES.Add(Finfosys.Label2.Text, "CPU_CACHE_L1I")
+VALIDATE_VARIABLES.Add(Finfosys.Label3.Text, "CPU_CACHE_L2")
+VALIDATE_VARIABLES.Add(Finfosys.Label5.Text, "CPU_CACHE_L3")
+'CPUCACHE END
+'End CPU Tab
+' Begin mobo
+VALIDATE_VARIABLES.Add(Finfosys.TextBox2.Text, "INEX_MOTHERBOARD_VENDOR1")
+VALIDATE_VARIABLES.Add(Finfosys.TextBox3.Text, "INEX_MOTHERBOARD_VENDOR2")
+VALIDATE_VARIABLES.Add(Finfosys.TextBox4.Text, "INEX_MOTHERBOARD_VENDOR3")
+VALIDATE_VARIABLES.Add(Finfosys.TextBox5.Text, "INEX_MOTHERBOARD_VENDOR4")
+
+VALIDATE_VARIABLES.Add(Finfosys.TextBox6.Text, "INEX_MOTHERBOARD_VENDOR5")
+VALIDATE_VARIABLES.Add(Finfosys.TextBox21.Text, "INEX_MOTHERBOARD_VENDOR6")
+VALIDATE_VARIABLES.Add(Finfosys.TextBox22.Text, "INEX_MOTHERBOARD_VENDOR7")
+
+VALIDATE_VARIABLES.Add(Finfosys.TextBox23.Text, "INEX_MOTHERBOARD_VENDOR8")
+VALIDATE_VARIABLES.Add(Finfosys.TextBox24.Text, "INEX_MOTHERBOARD_VENDOR9")
+VALIDATE_VARIABLES.Add(Finfosys.TextBox25.Text, "INEX_MOTHERBOARD_VENDOR10")
+VALIDATE_VARIABLES.Add(Finfosys.TextBox26.Text, "INEX_MOTHERBOARD_VENDOR11")
+
+VALIDATE_VARIABLES.Add(Finfosys.TextBox27.Text, "INEX_MOTHERBOARD_VENDOR12")
+VALIDATE_VARIABLES.Add(Finfosys.TextBox28.Text, "INEX_MOTHERBOARD_VENDOR13")
+'end mobo
+'begin gpu
+VALIDATE_VARIABLES.Add(Finfosys.PictureBox1.Name, "GPU_LOGO")
+VALIDATE_VARIABLES.Add(Finfosys.TextBox1.Text, "GPU_MODEL")
+VALIDATE_VARIABLES.Add(Finfosys.Label105.Text, "GPU_OGL_VENDOR")
+VALIDATE_VARIABLES.Add(Finfosys.Label106.Text, "GPU_OGL_RENDERER")
+VALIDATE_VARIABLES.Add(Finfosys.Label107.Text, "GPU_OGL_VERSION")
+VALIDATE_VARIABLES.Add(Finfosys.LabeL222.Text, "GPU_CLI_GLX_VENDOR")
+VALIDATE_VARIABLES.Add(Finfosys.LabeL224.Text, "GPU_CLI_GLX_VERSION")
+VALIDATE_VARIABLES.Add(Finfosys.Label220.Text, "GPU_SRV_GLX_VENDOR")
+VALIDATE_VARIABLES.Add(Finfosys.Label221.Text, "GPU_SRV_GLX_VERSION")
+VALIDATE_VARIABLES.Add(Finfosys.Label225.Text, "GPU_GLX_VERSION")
+VALIDATE_VARIABLES.Add(Finfosys.Label136.Text, "GPU_KRN_DRV_IN_USE")
+VALIDATE_VARIABLES.Add(Finfosys.Label64.Text, "GPU_TOT_MEM_PRE")
+VALIDATE_VARIABLES.Add(Finfosys.Label146.Text, "GPU_TOT_MEM_NON_PRE")
+VALIDATE_VARIABLES.Add(Finfosys.Label108.Text, "GPU_PRESENT_RESOLUTION")
+VALIDATE_VARIABLES.Add(Finfosys.Label109.Text, "GPU_RESOLUTIONS")
+'end gpu
+
+VALIDATE_VARIABLES.Add(System.Domain, "SYSTEM_DOMAIN")
+VALIDATE_VARIABLES.Add(Application.Version, "INEX_VERSION")
+VALIDATE_VARIABLES.Add(Finfosys.Label4.Text, "DISTRO_VENDOR")
+VALIDATE_VARIABLES.Add(Finfosys.Label135.Text, "DISTRO_VENDOR2")
+VALIDATE_VARIABLES.Add(Finfosys.Label37.Text, "DISTRO_VENDOR3")
+VALIDATE_VARIABLES.Add(Finfosys.Label60.Text, "DISTRO_VENDOR4")
+VALIDATE_VARIABLES.Add(Finfosys.Label61.Text, "DISTRO_VENDOR5")
+VALIDATE_VARIABLES.Add(Finfosys.Label62.Text, "DISTRO_VENDOR6")
+VALIDATE_VARIABLES.Add(Finfosys.Label63.Text, "DISTRO_VENDOR7")
+VALIDATE_VARIABLES.Add(Finfosys.Label148.Text, "DISTRO_VENDOR8")
+VALIDATE_VARIABLES.Add(Finfosys.Label147.Text, "DISTRO_VENDOR9")
+
+VALIDATE_VARIABLES.Add(Finfosys.Label138.Text, "DISTRO_VENDOR10")
+VALIDATE_VARIABLES.Add(Finfosys.Label143.Text, "DISTRO_VENDOR11")
+
+VALIDATE_VARIABLES.Add(Finfosys.Label140.Text, "DISTRO_VENDOR12")
+VALIDATE_VARIABLES.Add(Finfosys.Label142.Text, "DISTRO_VENDOR13")
+
+VALIDATE_VARIABLES.Add(Finfosys.Label141.Text, "DISTRO_VENDOR14")
+VALIDATE_VARIABLES.Add(Finfosys.Label153.Text, "DISTRO_VENDOR15")
+
+VALIDATE_VARIABLES.Add(Finfosys.Label150.Text, "DISTRO_VENDOR15")
+VALIDATE_VARIABLES.Add(Finfosys.Label152.Text, "DISTRO_VENDOR15")
+
+VALIDATE_VARIABLES.Add(Finfosys.Label139.Text, "DISTRO_VENDOR16")
+VALIDATE_VARIABLES.Add(Finfosys.Label144.Text, "DISTRO_VENDOR17")
+
+VALIDATE_VARIABLES.Add(Finfosys.Label137.Text, "DISTRO_VENDOR18")
+VALIDATE_VARIABLES.Add(Finfosys.Label145.Text, "DISTRO_VENDOR19")
+
+VALIDATE_VARIABLES.Add(Finfosys.Label149.Text, "DISTRO_VENDOR20")
+VALIDATE_VARIABLES.Add(Finfosys.Label151.Text, "DISTRO_VENDOR21")
+
+VALIDATE_VARIABLES.Add(Finfosys.PictureBox2.Name, "DISTRO_LOGO")
+VALIDATE_VARIABLES.Add("" & Date & Time & "", "DATE_TIME")
+VALIDATE_VARIABLES.Add(Finfosys.DATAT, "CPUID")
+VALIDATE_VARIABLES.Add(Finfosys.UNAME, "UNAME")
+VALIDATE_VARIABLES.Add(Finfosys.USAGE, "USAGE")
+ScreenShotM.pic = Desktop.Screenshot(Finfosys.X, Finfosys.Y, Finfosys.W + 12, Finfosys.H + 30)
+ScreenShotM.pic.Save("~/.i-nex/datata.png", 9)
+Wait 1.0
+temporr = Base64(File.Load(User.Home &/ ".i-nex/datata.png"))
+
+VALIDATE_VARIABLES.Add(temporr, "SCREENSHOT")
+VARIABLES_STREAM = JSON.Encode(VALIDATE_VARIABLES)
+File.Save(User.Home & "/.i-nex/VALID.datasrc", VARIABLES_STREAM)
+File.Save(User.Home & "/.i-nex/VALID", Base64(VARIABLES_STREAM))
+End
+
+Public Function SendReportToServer(whereisfile As String, Submit As String, Url As String, Optional user_name As String, Optional api_key As String) As String
+   Dim RedirectURL As String
+   Shell "/usr/bin/curl --form uploadfile=@" & whereisfile & " --form submit=\"" & Submit & "\" " & Url & " --form user_name=" & user_name & " --form api_key=" & api_key & "" Wait To RedirectURL
+   RedirectURL = Replace(Replace(RedirectURL, "\r", ""), "\n", "")
+   If RedirectURL Begins "http" Then
+    Return Subst(RedirectURL)
+   Endif
+   Return 0
+   'curl --form uploadfile=@VALID --form submit="Validate" --form user_name="Michal" --form api_key="5WK5WRHFWARQRFEBPZ7HWXADKC6SS" http://127.0.0.1/inex.r
+End

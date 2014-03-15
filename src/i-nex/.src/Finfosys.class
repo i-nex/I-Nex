@@ -29,7 +29,8 @@ Public Logs As New Logger
 Public GDF As String
 Public BUFFER As String
 Public DATAT As Collection
-
+Public UNAME As Collection
+Public USAGE As Collection
 Public Sub Form_Open()
   Dim default_display_manager As Boolean = Exist("/etc/X11/default-display-manager")
   Dim cpus As String
@@ -220,7 +221,7 @@ Public Sub Form_Open()
   Logs("Check for Input Drives", Logger.Info)
       Object.Call(Input_Devices, "_inits")
   Logs("Check available network devices", Logger.Info)
-      Object.Call(net, "inits")
+      Object.Call(nets, "inits")
   Logs("Check available graphic DSub, DVI etc", Logger.Info)
       Object.Call(FGraphic, "_inits")
   Logs("Call to Graphic", Logger.Info)
@@ -269,7 +270,6 @@ Public Sub kernel()
   Dim found_kernels, All_Kernels, for_add, Kernel_command_line As String
   Dim kernels, i As Integer
   Dim UNAME_DATA As String
-  Dim UNAME As Collection
   Try Exec ["/usr/bin/i-nex-uname"] Wait To UNAME_DATA
   Try UNAME = JSON.Decode(UNAME_DATA)
   Shell "ls /boot | grep 'vmlinuz*' | wc -l" Wait To All_Kernels
@@ -472,14 +472,13 @@ Public Sub Wykrywanie_procesorow()
 End
 
 Public Sub Button2_Click()
-   ScreenShotM.pic = Desktop.Screenshot(Me.X, Me.Y, Me.W + 4, Me.H + 30)
+   ScreenShotM.pic = Desktop.Screenshot(Me.X, Me.Y, Me.W + 12, Me.H + 30)
    ScreenShot.Show
 End
 
 Public Sub dospam_uptime()
   Dim Users As String
   Dim USAGE_BUFFER As String
-  Dim USAGE As Collection
   Shell "users | tr ' ' '\n' | wc -l" Wait To Users
   Exec [ChkPrm.ChkExecDir("i-nex-usage")] Wait To USAGE_BUFFER
   USAGE = JSON.Decode(USAGE_BUFFER)
@@ -725,10 +724,10 @@ Public Sub Button13_Click()
 End
 
 Public Sub ComboBox2_Click()
- net.get_informations_about_net_interface()
- TextBox56.Text = net.subsystem_device
- TextBox57.Text = net.subsystem_vendor
- TextArea4.Text = net.lspci
+ nets.get_informations_about_net_interface()
+ TextBox56.Text = nets.subsystem_device
+ TextBox57.Text = nets.subsystem_vendor
+ TextArea4.Text = nets.lspci
 End
 
 Public Sub Button8_Click()
@@ -911,4 +910,10 @@ Public Sub Form_Close()
   MCPUSAGE.CPUusage.Kill
   Me.Close
  
+End
+
+Public Sub Button17_Click()
+ VALIDATE._inits()
+ FValidate.Show
+
 End

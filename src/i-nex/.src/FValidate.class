@@ -1,0 +1,33 @@
+' Gambas class file
+
+
+Public Sub Form_Open()
+
+  If Settings["Window/X"] = Null Then
+     Me.Center
+  Else
+     Try Me.X = (Settings["Window/X", Me.X] - 45)
+     Try Me.Y = (Settings["Window/Y", Me.Y] + 200)
+  Endif
+  Try TextBox1.Text = Settings["Cerbero/USERNAME"]
+  Try TextBox2.Text = Settings["Cerbero/API"]
+End
+
+Public Sub Button3_Click()
+
+ Me.Close
+
+End
+
+Public Sub Button2_Click()
+
+ Settings["Cerbero/USERNAME"] = TextBox1.Text
+ Settings["Cerbero/API"] = TextBox2.Text
+ TextBox3.Text = VALIDATE.SendReportToServer(User.Home & "/.i-nex/VALID", "Validate", "http://i-nex.pl/", TextBox1.Text, TextBox2.Text)
+End
+
+Public Sub Button1_Click()
+
+ Desktop.Open(TextBox3.Text)
+
+End

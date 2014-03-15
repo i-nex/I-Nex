@@ -1,0 +1,44 @@
+# Gambas Form File 3.0
+
+{ Form Form
+  MoveScaled(0,0,86,17)
+  Resizable = False
+  { TextBox1 TextBox
+    MoveScaled(16,1,69,4)
+  }
+  { TextBox2 TextBox
+    MoveScaled(16,5,69,4)
+  }
+  { Label1 Label
+    MoveScaled(1,1,15,4)
+    Font = Font["Bold,8"]
+    Text = ("Username:")
+  }
+  { Label2 Label
+    MoveScaled(1,5,15,4)
+    Font = Font["Bold,8"]
+    Text = ("Private API Key:")
+  }
+  { TextBox3 TextBox
+    MoveScaled(16,9,65,4)
+  }
+  { Button1 Button
+    MoveScaled(81,9,4,4)
+    Picture = Picture["AppIcons/applications-internet.png"]
+  }
+  { Button2 Button
+    MoveScaled(69,13,16,4)
+    Text = ("Send")
+    Picture = Picture["AppIcons/dialog-ok.png"]
+  }
+  { Label3 Label
+    MoveScaled(1,9,15,4)
+    Font = Font["Bold,8"]
+    Text = ("Link:")
+  }
+  { Button3 Button
+    MoveScaled(58,13,11,4)
+    Text = ("Close")
+    Picture = Picture["AppIcons/application-exit2.png"]
+  }
+}
