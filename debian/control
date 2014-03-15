@@ -38,7 +38,8 @@ Depends: ${shlibs:Depends}, ${misc:Depends}, ${python:Depends},
   bash (>= 4.1),
   coreutils (>= 7.4),
   sed (>= 4.2),
-  python-configobj
+  python-configobj,
+  curl
 Replaces: i-nex
 Recommends:
   mount (>= 2.17),
