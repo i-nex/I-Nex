@@ -1,6 +1,5 @@
 ' Gambas class file
 
-
 Public Sub Form_Open()
 
   If Settings["Window/X"] = Null Then
@@ -29,5 +28,14 @@ End
 Public Sub Button1_Click()
 
  Desktop.Open(TextBox3.Text)
+
+End
+
+Public Sub Button4_Click()
+ Dim all As Integer
+ Dim i As Integer
+ Inc i
+   Print Last.Value
+ 
 
 End

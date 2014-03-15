@@ -818,8 +818,10 @@ Public Sub TabStrip1_Click()
 TabPanel1_Click()
  If TabStrip1.Current.Text Like "*CPU*" Then
   ComboBox1.Visible = True
+  Button17.Visible = True
  Else
   ComboBox1.Visible = False
+  Button17.Visible = False
  Endif
  If TabStrip1.Current.Text Like "*GPU*" Then
   ComboBox8.Visible = True

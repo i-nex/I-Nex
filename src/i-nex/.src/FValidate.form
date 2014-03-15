@@ -1,7 +1,7 @@
 # Gambas Form File 3.0
 
 { Form Form
-  MoveScaled(0,0,86,17)
+  MoveScaled(0,0,86,18)
   Resizable = False
   { TextBox1 TextBox
     MoveScaled(16,1,69,4)
