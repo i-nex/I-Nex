@@ -5,8 +5,8 @@ Public Sub Form_Open()
   If Settings["Window/X"] = Null Then
      Me.Center
   Else
-     Try Me.X = (Settings["Window/X", Me.X] - 45)
-     Try Me.Y = (Settings["Window/Y", Me.Y] + 200)
+     Try Me.X = Settings["Window/X", Me.X]
+     Try Me.Y = Settings["Window/Y", Me.Y]
   Endif
   Try TextBox1.Text = Settings["Cerbero/USERNAME"]
   Try TextBox2.Text = Settings["Cerbero/API"]
@@ -22,20 +22,10 @@ Public Sub Button2_Click()
 
  Settings["Cerbero/USERNAME"] = TextBox1.Text
  Settings["Cerbero/API"] = TextBox2.Text
- TextBox3.Text = VALIDATE.SendReportToServer(User.Home & "/.i-nex/VALID", "Validate", "http://i-nex.pl/", TextBox1.Text, TextBox2.Text)
 End
 
 Public Sub Button1_Click()
 
- Desktop.Open(TextBox3.Text)
-
-End
-
-Public Sub Button4_Click()
- Dim all As Integer
- Dim i As Integer
- Inc i
-   Print Last.Value
- 
+ Desktop.Open("http://i-nex.pl/inex.r?signup")
 
 End

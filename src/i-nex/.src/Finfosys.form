@@ -76,8 +76,8 @@
     Move(28,511,28,28)
     #Translate = False
     Font = Font["8"]
-    ToolTip = "You found a bug in I-Nex?\nPlease click this button and write in forum about bug which you have found."
-    Picture = Picture["AppIcons/mail-mark-important.png"]
+    ToolTip = "Options"
+    Picture = Picture["icon:/16/options"]
   }
   { TabStrip1 TabStrip
     Move(0,0,476,511)
@@ -2471,8 +2471,13 @@
     Font = Font["8,Bold"]
     Text = ("Show modules")
   }
-  { Button17 Button
+  { !Button17 Button
     Move(210,511,112,28)
+    #Public = True
+    Font = Font["Bold,8"]
+    Background = &H00BA8B&
+    ToolTip = ("Publish data online")
     Text = ("Validate")
+    Picture = Picture["icon:/16/new"]
   }
 }

@@ -1,44 +1,53 @@
 # Gambas Form File 3.0
 
 { Form Form
-  MoveScaled(0,0,86,18)
+  MoveScaled(0,0,68,38)
+  Text = ("Options")
   Resizable = False
-  { TextBox1 TextBox
-    MoveScaled(16,1,69,4)
-  }
-  { TextBox2 TextBox
-    MoveScaled(16,5,69,4)
-  }
-  { Label1 Label
-    MoveScaled(1,1,15,4)
+  { Frame1 Frame
+    MoveScaled(0,0,68,21)
     Font = Font["Bold,8"]
-    Text = ("Username:")
-  }
-  { Label2 Label
-    MoveScaled(1,5,15,4)
-    Font = Font["Bold,8"]
-    Text = ("Private API Key:")
-  }
-  { TextBox3 TextBox
-    MoveScaled(16,9,65,4)
-  }
-  { Button1 Button
-    MoveScaled(81,9,4,4)
-    Picture = Picture["AppIcons/applications-internet.png"]
+    Text = ("Cerbero")
+    { TextBox2 TextBox
+      MoveScaled(1,15,66,4)
+    }
+    { TextBox1 TextBox
+      MoveScaled(1,7,66,4)
+    }
+    { Label1 Label
+      MoveScaled(1,3,15,4)
+      Font = Font["Bold,8"]
+      Text = ("Username:")
+    }
+    { Label2 Label
+      MoveScaled(1,11,15,4)
+      Font = Font["Bold,8"]
+      Text = ("Private API Key:")
+    }
   }
   { Button2 Button
-    MoveScaled(69,13,16,4)
-    Text = ("Send")
+    MoveScaled(43,34,16,4)
+    Text = ("Save")
     Picture = Picture["AppIcons/dialog-ok.png"]
   }
-  { Label3 Label
-    MoveScaled(1,9,15,4)
-    Font = Font["Bold,8"]
-    Text = ("Link:")
+  { TextLabel1 TextLabel
+    MoveScaled(1,22,66,6)
+    Font = Font["Bold,9"]
+    Text = ("To obtain a user name and a private key. You need to register to I-Nex Cebrero")
+    Alignment = Align.Center
+  }
+  { Button1 Button
+    MoveScaled(23,29,22,4)
+    Font = Font["8"]
+    Text = ("Register on Cerbero")
+    Picture = Picture["AppIcons/applications-internet.png"]
   }
   { Button3 Button
-    MoveScaled(58,13,11,4)
-    Text = ("Close")
+    MoveScaled(59,34,9,4)
+    #Translate = False
+    Font = Font["8,Bold"]
+    ToolTip = "Close this program"
+    Text = "Close"
     Picture = Picture["AppIcons/application-exit2.png"]
   }
 }

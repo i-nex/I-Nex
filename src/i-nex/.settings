@@ -1,5 +1,6 @@
 [Bookmarks]
 CFlags=[9]
+Finfosys=[]
 
 [Breakpoints]
 Count=0
@@ -27,7 +28,7 @@ SearchString=True
 File[1]=".src/Finfosys.form"
 File[2]=".src/Global.class:204.27"
 File[3]=".src/About.form"
-File[4]=".src/About.class:26.46"
+File[4]=".src/About.class:92.97"
 File[5]=".src/battery.module:15.70"
 File[6]=".src/Disk_Drives.module:19.29"
 File[7]=".src/ScreenShot.form"
@@ -46,9 +47,10 @@ File[19]=".src/FModules.class:15.70"
 File[20]=".src/Input_Devices.module:15.70"
 File[21]=".src/Network.module:15.70"
 File[22]="Data/report-ng.sh:5.3"
-File[23]=".src/Distribution_Detect.module:65.43"
+File[23]=".src/Distribution_Detect.module:96.10"
 File[24]=".src/FFlags.module:19.14"
-File[25]=".src/Finfosys.class:823.26"
+Active=25
+File[25]=".src/Finfosys.class:900.29"
 File[26]=".src/FDF.form"
 File[27]=".src/FDF.class:15.70"
 File[28]=".src/FNET_R_T.form"
@@ -88,10 +90,9 @@ File[61]=".src/FDIMM.form"
 File[62]=".src/FDIMM.class:15.70"
 File[63]=".src/Reports/FCPUID_REPORT.module:28.92"
 File[64]=".src/MCPUSAGE.module:9.65"
-Active=65
-File[65]=".src/Reports/VALIDATE.module:120.13"
+File[65]=".src/Reports/VALIDATE.module:144.155"
 File[66]=".src/FValidate.form"
-File[67]=".src/FValidate.class:37.19"
+File[67]=".src/FValidate.class:16.1"
 Count=67
 
 [Watches]

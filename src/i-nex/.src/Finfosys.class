@@ -716,13 +716,6 @@ Public Sub Button6_Click()
 
 End
 
-Public Sub Button13_Click()
-
- Desktop.Open("http://i-nex.linux.pl/board/")
- Logs("Reporting bug to http://tuxportal.pl/forum/", Logger.Info)
-
-End
-
 Public Sub ComboBox2_Click()
  nets.get_informations_about_net_interface()
  TextBox56.Text = nets.subsystem_device
@@ -915,7 +908,13 @@ Public Sub Form_Close()
 End
 
 Public Sub Button17_Click()
+ Dim URL As String
  VALIDATE._inits()
- FValidate.Show
+ URL = VALIDATE.SendReportToServer(User.Home & "/.i-nex/VALID", "Validate", "http://i-nex.pl/", Settings["Cerbero/USERNAME"], Settings["Cerbero/API"])
+ Clipboard.Copy(URL)
+ Desktop.Open(URL)
+End
 
+Public Sub Button13_Click()
+FValidate.Show
 End
