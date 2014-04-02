@@ -1,40 +1,38 @@
-# Maintainer: aaditya <aaditya_gnulinux[at]zoho[dot]com>
-
-pkgname=i-nex
-_prgname=I-Nex
-pkgver=0.6.0
+pkgname=i-nex-dev
+pkgver=0.6.4
+_git=0.6.4
 pkgrel=1
 pkgdesc="System information tool like hardinfo, sysinfo"
 arch=('i686' 'x86_64')
-url="https://github.com/eloaders/I-Nex"
+url="http://i-nex.linux.pl/"
 license=('LGPL3')
-depends=('gambas3-gb-gtk' 'gambas3-gb-desktop' 'gambas3-gb-settings' 'gambas3-gb-form-dialog' 'gambas3-gb-qt4' 'gambas3-gb-form-mdi' 'gambas3-gb-form-stock' 'xorg-server-utils' 'lsb-release' 'mesa-demos')
-makedepends=('gambas3-devel')
-conflicts=('i-nex-bzr')
-source=("https://github.com/eloaders/I-Nex/archive/master.zip")
-sha1sums=('SKIP')
+depends=('procps-ng' 'gambas3-runtime' 'gambas3-gb-image' 'gambas3-gb-gtk' 'gambas3-gb-form'
+         'gambas3-gb-desktop' 'gambas3-gb-settings' 'gambas3-gb-form-dialog' 'gambas3-gb-qt4'
+         'gambas3-gb-form-mdi' 'gambas3-gb-form-stock' 'util-linux' 'procps' 'python2' 'libcpuid'
+         'xorg-server-utils' 'gksu' 'lsb-release' 'coreutils' 'pciutils' 'inetutils' 'mesa-demos')
+makedepends=('gambas3-devel' 'gcc' 'imagemagick')
+source=("$pkgname-$pkgver-$pkgrel.tar.gz::https://github.com/eloaders/I-Nex/archive/$_git.tar.gz")
+sha256sums=('SKIP')
+provides=(i-nex)
+conflicts=(i-nex)
+
+prepare() {
+  cd "$srcdir/I-Nex-$_git"
+  # make it dynamic
+  sed -i -e 's|^STATIC.*|STATIC = false|' i-nex.mk
+  cd src
+  autoreconf --install
+  ./configure --prefix=/usr
+}
 
 build() {
-  cd "${_prgname}-master/src/i-nex"
-  echo "Starting make..."
-  gbc3 -eagtpmv
-  gba3
-  cd "../.."
-  gcc edid-decode.c -g -Wall -o inex-edid
-  gcc -o inex-cpuid cpu.c -static `pkg-config libcpuid --cflags --libs`
+  cd "$srcdir/I-Nex-$_git"
+
+  make
 }
 
 package() {
-  cd "${_prgname}-master"
-  sed -i 's|i-nex.gambas|i-nex|' debian/i-nex.desktop
-  install -Dm755 inex-edid "$pkgdir/usr/bin/inex-edid"
-  install -Dm755 inex-cpuid "$pkgdir/usr/bin/inex-cpuid"
-  install -Dm755 src/i-nex/i-nex.gambas "$pkgdir/usr/bin/i-nex"
-  install -Dm644 src/i-nex/logo/i-nex.0.4.x.png "$pkgdir/usr/share/pixmaps/i-nex.0.4.x.png"
-  install -Dm644 debian/i-nex.desktop "$pkgdir/usr/share/applications/i-nex.desktop"
-  install -dm755 "$pkgdir/usr/share/i-nex/pastebinit"
-  cp -r pastebin.d pastebinit{,.xml} release.conf "$pkgdir/usr/share/i-nex/pastebinit"
-  sed -i 's|python$|python2|' "$pkgdir/usr/share/i-nex/pastebinit/pastebinit"
-}
-
-# vim:set ts=2 sw=2 et:
+  cd "$srcdir/I-Nex-$_git"
+  mkdir -p "$pkgdir/usr/share/applications"
+  make install DESTDIR="${pkgdir}"
+} 
