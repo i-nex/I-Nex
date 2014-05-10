@@ -1,0 +1,4 @@
+#!/bin/bash
+if which curl >/dev/null; then
+    /usr/bin/yes| curl http://i-nex.pl/?downloadcount=1 1>/dev/null
+fi
