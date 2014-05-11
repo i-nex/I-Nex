@@ -850,7 +850,8 @@ TabPanel1_Click()
  Else
   Button6.Visible = False
  Endif
- Me.Text = "I-Nex / " & TabStrip1.Current.Text 
+ Me.Text = "I-Nex / " & TabStrip1.Current.Text
+
 End
 
 Public Sub Button11_Click()
@@ -869,8 +870,13 @@ Public Sub TabPanel1_Click()
 
  If TabPanel1.Current.Text = "CPUID" Then
   ComboBox1.Visible = False
+  Button17.Visible = False
  Else If TabPanel1.Current.Text = "CPUINFO" Then
   ComboBox1.Visible = True
+  Button17.Visible = True
+ Else
+  ComboBox1.Visible = False
+  Button17.Visible = False
  Endif
 
 End
@@ -916,8 +922,8 @@ Public Sub Button17_Click()
  Dim URL As String
  VALIDATE._inits()
  URL = VALIDATE.SendReportToServer(User.Home & "/.i-nex/VALID", "Validate", "http://i-nex.pl/", Settings["Cerbero/USERNAME"], Settings["Cerbero/API"])
- Clipboard.Copy(URL)
- Desktop.Open(URL)
+ FCopyUrl.TextBox1.Text = URL
+ FCopyUrl.Show
 End
 
 Public Sub Button13_Click()

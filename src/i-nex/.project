@@ -1,5 +1,5 @@
 # Gambas Project File 3.0
-# Compiled with Gambas 3.5.2
+# Compiled with Gambas 3.5.3
 Title=I-Nex
 Startup=Start_App_Args
 Icon=logo/i-nex.0.4.x.png
