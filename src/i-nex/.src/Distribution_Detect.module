@@ -64,6 +64,9 @@ Public Sub _inits()
   Case Like "*LinuxDeepin*"
    Finfosys.PictureBox2.Picture = Picture["Database/Distlogos/LinuxDeepin.png"]
    Finfosys.PictureBox2.Name = "LinuxDeepin.png"
+  Case Like "*netrunner*"
+   Finfosys.PictureBox2.Picture = Picture["Database/Distlogos/netrunner.png"]
+   Finfosys.PictureBox2.Name = "netrunner.png"
  End Select
  
  If DV Like "*Ubuntu*" And DE Like "*KDE*" Then
