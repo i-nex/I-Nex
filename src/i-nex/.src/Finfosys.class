@@ -816,10 +816,10 @@ Public Sub TabStrip1_Click()
 TabPanel1_Click()
  If TabStrip1.Current.Text Like "*CPU*" Then
   ComboBox1.Visible = True
-  Button17.Visible = True
+  MenuButton1.Visible = True
  Else
   ComboBox1.Visible = False
-  Button17.Visible = False
+  MenuButton1.Visible = False
  Endif
  If TabStrip1.Current.Text Like "*GPU*" Then
   ComboBox8.Visible = True
@@ -870,13 +870,13 @@ Public Sub TabPanel1_Click()
 
  If TabPanel1.Current.Text = "CPUID" Then
   ComboBox1.Visible = False
-  Button17.Visible = False
+  MenuButton1.Visible = False
  Else If TabPanel1.Current.Text = "CPUINFO" Then
   ComboBox1.Visible = True
-  Button17.Visible = True
+  MenuButton1.Visible = True
  Else
   ComboBox1.Visible = False
-  Button17.Visible = False
+  MenuButton1.Visible = False
  Endif
 
 End
@@ -918,14 +918,27 @@ Public Sub Form_Close()
  
 End
 
-Public Sub Button17_Click()
+Public Sub Button13_Click()
+FValidate.Show
+End
+
+Public Sub MenuButton1_Click()
+
  Dim URL As String
  VALIDATE._inits()
  URL = VALIDATE.SendReportToServer(User.Home & "/.i-nex/VALID", "Validate", "http://i-nex.pl/", Settings["Cerbero/USERNAME"], Settings["Cerbero/API"])
  FCopyUrl.TextBox1.Text = URL
  FCopyUrl.Show
+
 End
 
-Public Sub Button13_Click()
-FValidate.Show
+Public Sub Savevalid_Click()
+ VALIDATE._inits()
+ Dialog.SaveFile
+ If Exist(Dialog.Path) = True Then
+  Kill Dialog.Path
+ Endif
+ Copy User.Home & "/.i-nex/VALID" To Dialog.Path
+ 
+ 
 End

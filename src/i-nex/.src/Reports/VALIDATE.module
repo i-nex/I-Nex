@@ -8,6 +8,7 @@ Public DMESG As String
 Public LSPCI As String
 Public LSUSB As String
 Public CPUINFO As String
+
 Public Sub _inits()
 CPUINFO = File.Load("/proc/cpuinfo")
 Exec [ChkPrm.ChkExecDir("dmesg")] Wait To DMESG

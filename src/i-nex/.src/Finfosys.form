@@ -43,6 +43,14 @@
       Picture = Picture["icon:/16/make"]
     }
   }
+  { Menu2 Menu
+    Text = ("Menu2")
+    Visible = False
+    { Savevalid Menu
+      Text = ("Save Validate data")
+      Picture = Picture["AppIcons/document-save.png"]
+    }
+  }
   { Button2 Button
     Move(0,511,28,28)
     #Translate = False
@@ -2471,13 +2479,12 @@
     Font = Font["8,Bold"]
     Text = ("Show modules")
   }
-  { !Button17 Button
+  { MenuButton1 MenuButton
     Move(210,511,112,28)
-    #Public = True
     Font = Font["Bold,8"]
-    Background = &H00BA8B&
-    ToolTip = ("Publish data online")
+    Foreground = &H0000FF&
     Text = ("Validate")
-    Picture = Picture["icon:/16/new"]
+    Picture = Picture["icon:/16/server"]
+    Menu = "Menu2"
   }
 }
