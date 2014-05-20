@@ -41,14 +41,14 @@ Public Sub _check()
   Try status = File.Load("/sys/class/drm/" & Finfosys.ComboBox8.Text & "/status")
   Try enabled = File.Load("/sys/class/drm/" & Finfosys.ComboBox8.Text & "/enabled")
   Try dpms = File.Load("/sys/class/drm/" & Finfosys.ComboBox8.Text & "/dpms")
-  Shell "/usr/bin/i-nex-edid /sys/class/drm/" & Finfosys.ComboBox8.Text & "/edid | grep 'ASCII string' | cut -d ':' -f 2" Wait To monitor_name
-  Shell "/usr/bin/i-nex-edid /sys/class/drm/" & Finfosys.ComboBox8.Text & "/edid | grep 'voltage level'" Wait To voltage_level
-  Shell "/usr/bin/i-nex-edid /sys/class/drm/" & Finfosys.ComboBox8.Text & "/edid | grep 'Manufacturer:' | cut -d ':' -f 2" Wait To manufacturer
-  Shell "/usr/bin/i-nex-edid /sys/class/drm/" & Finfosys.ComboBox8.Text & "/edid | grep 'Serial number:' | cut -d ':' -f 2" Wait To serial_number
-  Shell "/usr/bin/i-nex-edid /sys/class/drm/" & Finfosys.ComboBox8.Text & "/edid | grep 'Gamma:' | cut -d ':' -f 2" Wait To Gamma
-  Shell "/usr/bin/i-nex-edid /sys/class/drm/" & Finfosys.ComboBox8.Text & "/edid | grep 'Maximum image size:' | cut -d ':' -f 2" Wait To Maximum_image_size
+  Shell "/usr/bin/i-nex-edid /sys/class/drm/" & Finfosys.ComboBox8.Text & "/edid 2>/dev/null | grep 'ASCII string' | cut -d ':' -f 2" Wait To monitor_name
+  Shell "/usr/bin/i-nex-edid /sys/class/drm/" & Finfosys.ComboBox8.Text & "/edid 2>/dev/null | grep 'voltage level'" Wait To voltage_level
+  Shell "/usr/bin/i-nex-edid /sys/class/drm/" & Finfosys.ComboBox8.Text & "/edid 2>/dev/null | grep 'Manufacturer:' | cut -d ':' -f 2" Wait To manufacturer
+  Shell "/usr/bin/i-nex-edid /sys/class/drm/" & Finfosys.ComboBox8.Text & "/edid 2>/dev/null | grep 'Serial number:' | cut -d ':' -f 2" Wait To serial_number
+  Shell "/usr/bin/i-nex-edid /sys/class/drm/" & Finfosys.ComboBox8.Text & "/edid 2>/dev/null | grep 'Gamma:' | cut -d ':' -f 2" Wait To Gamma
+  Shell "/usr/bin/i-nex-edid /sys/class/drm/" & Finfosys.ComboBox8.Text & "/edid 2>/dev/null | grep 'Maximum image size:' | cut -d ':' -f 2" Wait To Maximum_image_size
   If IsNull(monitor_name) Then
-   Shell "/usr/bin/i-nex-edid /sys/class/drm/" & Finfosys.ComboBox8.Text & "/edid | grep 'Monitor name:' | cut -d ':' -f 2" Wait To monitor_name
+   Shell "/usr/bin/i-nex-edid /sys/class/drm/" & Finfosys.ComboBox8.Text & "/edid 2>/dev/null | grep 'Monitor name:' | cut -d ':' -f 2" Wait To monitor_name
   Endif
  Endif
 
