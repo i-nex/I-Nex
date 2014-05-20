@@ -28,7 +28,9 @@ Public Sub _inits()
   For Avail_Interfaces = 1 To Max_Interfaces
    Shell "ls /sys/class/drm/ | grep 'card[0-9]' | sed -n '" & Avail_Interfaces & "p'" Wait To Interfaces_X
    Interfaces_X = Replace(Interfaces_X, "\n", "")
+   If Interfaces_X Like "*-*" Then
    Finfosys.ComboBox8.Add(Interfaces_X)
+   Endif
   Next
   
 End
