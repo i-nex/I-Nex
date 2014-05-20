@@ -406,7 +406,12 @@ Public Sub grafika()
 
   Shell "" & ChkPrm.ChkExecDir("lspci") & " -v -s `lspci | awk '/VGA/{print $1}'` | grep 'Kernel driver in use:' | cut -d ':' -f 2" Wait To Kernel_driver_in_use
   Shell "" & ChkPrm.ChkExecDir("lspci") & " | grep 'VGA' | cut -d ':' -f3 | cut -d '(' -f 1 | sed -n '1p'" Wait To gpu
-  Shell "xdpyinfo | grep 'dimensions:' | cut -d ':' -f 2" Wait To rozdzielczosc
+  
+  If ChkPrm.ChkExec("xdpyinfo") = True Then
+   Shell "xdpyinfo | grep 'dimensions:' | cut -d ':' -f 2" Wait To rozdzielczosc
+  Else
+    Message.Warning("Not found xdpyinfo")
+  Endif
   
   Exec ["/bin/bash", "/usr/bin/i-nex-lspci", "nonprefetchable"] Wait To memory_non_prefetchable
   Exec ["/bin/bash", "/usr/bin/i-nex-lspci", "prefetchable"] Wait To memory_prefetchable
@@ -938,7 +943,9 @@ Public Sub Savevalid_Click()
  If Exist(Dialog.Path) = True Then
   Kill Dialog.Path
  Endif
- Copy User.Home & "/.i-nex/VALID" To Dialog.Path
- 
+ Try Copy User.Home & "/.i-nex/VALID" To Dialog.Path
+ If Error Then 
+  Logs("Not chosen where you want to save the report", Logger.Error)
+ Endif
  
 End
