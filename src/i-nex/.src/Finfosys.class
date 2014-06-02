@@ -517,9 +517,6 @@ Public Sub dospam_uptime()
   Label91.Text = "SWAP Total: " & 
                  Int(USAGE["SWAP_TOTAL"]) & 
                  " MB "
-  TextLabel15.Text = "Physical Memory Used: " & 
-                 Int(USAGE["PHYS_MEM_USED"]) & 
-                " MB "
   TextLabel24.Text = "SWAP memory used: " & 
                  Int(USAGE["SWAP_USED"]) & 
                  " MB"
@@ -536,8 +533,8 @@ Public Sub dospam_uptime()
                    "load average: " & Int(USAGE["LOAD_AVG_1MIN"]) & " " &
                    ", " & Int(USAGE["LOAD_AVG_5MIN"]) & " " &
                    ", " & Int(USAGE["LOAD_AVG_15MIN"])
+  Label74.Text = USAGE["NUMBER_OF_PROCESSES"]
   
-  Try ProgressBar6.Value = Int(USAGE["PHYS_MEM_USED"]) / Int(USAGE["TOTAL_VIRTUAL_MEM"])
   Try ProgressBar1.Value = Int(USAGE["USED_PLUS_CACHED"]) / Int(USAGE["MEMORY_TOTAL"])
   Try ProgressBar4.Value = Int(USAGE["SWAP_USED"]) / Int(USAGE["SWAP_TOTAL"])
   

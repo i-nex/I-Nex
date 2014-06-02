@@ -1647,56 +1647,53 @@
       Border = Border.Raised
     }
     { Separator5 Separator
-      Move(0,231,469,21)
+      Move(0,196,469,21)
       #Translate = False
     }
     { Label176 Label
-      Move(0,210,343,21)
+      Move(0,175,343,21)
       Font = Font["Bold,8"]
       Padding = 3
       Text = ("Label176")
       Border = Border.Raised
     }
-    { ProgressBar6 ProgressBar
-      Move(0,105,469,21)
-    }
     { Label85 Label
-      Move(0,126,189,21)
+      Move(0,91,189,21)
       Font = Font["Bold,8"]
       Expand = True
       Padding = 3
       Border = Border.Raised
     }
     { Label86 Label
-      Move(0,147,189,21)
+      Move(0,112,189,21)
       Font = Font["Bold,8"]
       Expand = True
       Padding = 3
       Border = Border.Raised
     }
     { Label87 Label
-      Move(0,168,189,21)
+      Move(0,133,189,21)
       Font = Font["Bold,8"]
       Expand = True
       Padding = 3
       Border = Border.Raised
     }
     { Label88 Label
-      Move(0,189,189,21)
+      Move(0,154,189,21)
       Font = Font["Bold,8"]
       Expand = True
       Padding = 3
       Border = Border.Raised
     }
     { Label89 Label
-      Move(189,126,154,21)
+      Move(189,91,154,21)
       Font = Font["Bold,8"]
       Expand = True
       Padding = 3
       Border = Border.Raised
     }
     { Label90 Label
-      Move(189,147,154,21)
+      Move(189,112,154,21)
       Font = Font["Bold,8"]
       Expand = True
       Padding = 3
@@ -1704,7 +1701,7 @@
       Border = Border.Raised
     }
     { Label91 Label
-      Move(189,189,154,21)
+      Move(189,154,154,21)
       Font = Font["Bold,8"]
       Expand = True
       Padding = 3
@@ -1718,25 +1715,30 @@
       Alignment = Align.Center
       Border = Border.Raised
     }
-    { TextLabel15 TextLabel
-      Move(0,84,469,21)
-      Font = Font["Bold,8"]
-      Padding = 1
-      Text = ("TextLabel15")
-      Alignment = Align.Center
-      Border = Border.Raised
-    }
     { ScrollView2 ScrollView
-      Move(0,252,469,224)
+      Move(0,217,469,259)
       Font = Font["8"]
     }
     { Label227 Label
-      Move(154,231,168,21)
+      Move(154,196,168,21)
       #Translate = False
       Font = Font["Bold,8"]
       Text = "MTRR"
       Alignment = Align.Center
       Transparent = True
+    }
+    { Label74 Label
+      Move(350,119,112,77)
+      Font = Font["Bold,20"]
+      Foreground = &HFF7F00&
+      Alignment = Align.Center
+    }
+    { Label77 Label
+      Move(343,91,119,21)
+      Font = Font["Bold,8"]
+      Text = ("Processes ↓")
+      Alignment = Align.Center
+      Border = Border.Raised
     }
     Index = 8
     Text = "Network"

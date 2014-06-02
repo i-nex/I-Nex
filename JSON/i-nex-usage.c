@@ -36,9 +36,6 @@ int main() {
 		if(sysinfo(&sys_info) != 0)
 		    perror("sysinfo");
     
-		physMemUsed *= sys_info.mem_unit;
-		totalVirtualMem += sys_info.totalswap;
-		totalVirtualMem *= sys_info.mem_unit;
 		total_bytes = sys_info.mem_unit * sys_info.totalram; 
   
 		days = sys_info.uptime / 86400;
@@ -98,8 +95,6 @@ int main() {
 		printf("	\"FREE_SWAP\": %ld ,\n", sys_info.freeswap /1024/1024);
 		printf("	\"TOTAL_HIGH\": %ld ,\n", sys_info.totalhigh /1024/1024);
 		printf("	\"FREE_HIGH\": %ld ,\n", sys_info.freehigh /1024/1024);
-		printf("	\"PHYS_MEM_USED\": %llu ,\n", physMemUsed /1024/1024);
-		printf("	\"TOTAL_VIRTUAL_MEM\": %llu ,\n", totalVirtualMem /1024/1024);
 		printf("	\"NUMBER_OF_PROCESSES\": %d \n", sys_info.procs);
 		printf("}\n");
 
