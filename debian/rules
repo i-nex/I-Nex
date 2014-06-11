@@ -7,7 +7,6 @@ else
 COMPRESSION = 		-- -z9 -Zxz
 endif
 override_dh_auto_configure:
-	autoreconf --install src
 	dh_auto_configure --sourcedirectory=src
 override_dh_pysupport:
 	dh_python2
