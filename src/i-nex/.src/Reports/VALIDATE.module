@@ -10,10 +10,7 @@ Public LSUSB As String
 Public CPUINFO As String
 
 Public Sub _inits()
-CPUINFO = File.Load("/proc/cpuinfo")
-Exec [ChkPrm.ChkExecDir("dmesg")] Wait To DMESG
-Exec [ChkPrm.ChkExecDir("lspci")] Wait To LSPCI
-Exec [ChkPrm.ChkExecDir("lsusb")] Wait To LSUSB
+
 VALIDATE_VARIABLES.Add("UNKNOWN", "SUBMITED_BY")
 'Begin CPU Tab
 VALIDATE_VARIABLES.Add(Finfosys.PictureBox3.Name, "CPU_LOGO")
@@ -131,11 +128,6 @@ VALIDATE_VARIABLES.Add("" & Date & " " & Time & "", "DATE_TIME")
 VALIDATE_VARIABLES.Add(Finfosys.DATAT, "CPUID")
 VALIDATE_VARIABLES.Add(Finfosys.UNAME, "UNAME")
 VALIDATE_VARIABLES.Add(Finfosys.USAGE, "USAGE")
-
-VALIDATE_VARIABLES.Add(DMESG, "DMESG")
-VALIDATE_VARIABLES.Add(LSPCI, "LSPCI")
-VALIDATE_VARIABLES.Add(LSUSB, "LSUSB")
-VALIDATE_VARIABLES.Add(CPUINFO, "CPUINFO")
 
 ScreenShotM.pic = Desktop.Screenshot(Finfosys.X, Finfosys.Y, Finfosys.W + 12, Finfosys.H + 30)
 ScreenShotM.pic.Save("~/.i-nex/datata.png", 9)
