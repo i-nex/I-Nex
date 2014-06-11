@@ -1,7 +1,10 @@
-#!/usr/bin/env python
-# Written by Stephane Graber <stgraber@stgraber.org>
+#!/usr/bin/python3
+# -*- coding: utf-8 -*-
+
+# Author: Stéphane Graber <stgraber@ubuntu.com>
+# Written by Stéphane Graber <stgraber@stgraber.org>
 #            Daniel Bartlett <dan@f-box.org>
-# Last modification : Mon Jan 28 22:33:23 CET 2008
+# Last modification : Mon Jan  6 18:46:46 EST 2014
 
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -17,31 +20,22 @@
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
-file_extension_map = {
-    r'^.+\.(patch|diff)$':            'diff',
-    r'^.+\.sh$':                      'bash',
-    r'^.+\.pl$':                      'perl',
-    r'^.+\.py$':                      'python',
-    r'^.+\.rb$':                      'ruby',
-    r'^.+\.tcl$':                     'tcl',
-    r'^.+\.lua$':                     'lua',
-    r'^.+\.vim$':                     'vim',
-    r'^.+\.bat$':                     'winbatch',
-    r'^.+\.xml$':                     'xml',
-    r'^.+\.spec$':                    'rpmspec',
-    r'^.+\.php(\d)?':                 'php',
-    r'^.+\.sql$':                     'sql',
-    r'^.+\.java$':                    'java5',
-    r'^.+\.properties$':              'properties',
-    r'^.+\.[ch]$':                    'c',
-    r'^.+\.(cc|cxx|cpp|hh|hxx|hpp)$': 'cpp',
-    r'^CMake.+':                      'cmake',
-    r'^/+\.cmake$':                   'cmake',
-    r'^(GNU)?[Mm]akefile$':           'make',
-    r'^.+\.mk$':                      'make',
-}
+from __future__ import print_function
 
-defaultPB = "http://susepaste.org" #Default pastebin
+import sys
+if sys.version[0] == "2":
+    from ConfigParser import SafeConfigParser
+    from urllib import urlencode
+    from urllib import FancyURLopener
+else:
+    from configparser import SafeConfigParser
+    from urllib.parse import urlencode
+    from urllib.request import FancyURLopener
+
+# Set the default pastebin
+defaultPB = "http://pastebin.com"
+
+# Now try to override it with a distributor pastebin
 try:
     import lsb_release
     release = lsb_release.get_distro_information()['ID'].lower()
@@ -55,24 +49,32 @@ except ImportError:
     pass
 
 try:
-    import urllib, os, sys, re, getopt, xml.dom.minidom, gettext
-    try:
-        import json # For python 2.6 and newer
-    except ImportError:
-        try:
-            import simplejson as json
-        except ImportError:
-            json = None
-    from gettext import gettext as _
-    import configobj
+    import getopt
+    import gettext
+    import os
+    import re
+    import socket
+    import xml.dom.minidom
 
+    try:
+        import json
+    except ImportError:
+        json = None
+
+    _ = gettext.gettext
     gettext.textdomain("pastebinit")
 
-    version = "1.3" #Version number to show in the usage
+    # Timeout after 5s
+    socket.setdefaulttimeout(15)
+
+    # Version number to show in the usage
+    version = "1.4.1"
     configfile = os.path.expanduser("~/.pastebinit.xml")
 
     # Custom urlopener to handle 401's
-    class pasteURLopener(urllib.FancyURLopener):
+    class pasteURLopener(FancyURLopener):
+        version = "Pastebinit v%s" % version
+
         def http_error_401(self, url, fp, errcode, errmsg, headers, data=None):
             return None
 
@@ -83,38 +85,39 @@ try:
         #  - user's overrides in ~/.pastebin.d
         # Files found later override files found earlier.
         pastebind = {}
-        for confdir in ['/usr/share/i-nex/pastebinit/pastebin.d','/etc/pastebin.d','/usr/local/etc/pastebin.d',
+        for confdir in ['/usr/share/i-nex/pastebinit/pastebin.d', '/etc/pastebin.d',
+                        '/usr/local/etc/pastebin.d',
                         os.path.expanduser('~/.pastebin.d'),
-                        os.path.join(os.path.dirname(__file__), 'pastebin.d')]:
+                        os.path.join(
+                            os.path.dirname(
+                                os.path.realpath(__file__)), 'pastebin.d')]:
             try:
                 confdirlist = os.listdir(confdir)
             except OSError:
                 continue
 
             for fileitem in confdirlist:
-                if fileitem.startswith('.'):
+                if fileitem.startswith('.') or not fileitem.endswith('.conf'):
                     continue
 
                 filename = os.path.join(confdir, fileitem)
+                instance = SafeConfigParser()
                 try:
-                    bininstance = configobj.ConfigObj(filename)
-                except configobj.ConfigObjError, e:
-                    print >> sys.stderr, '%s: %s' % (filename, e)
+                    instance.read(filename)
+                except UnicodeError:
                     continue
 
-                try:
-                    section = bininstance['pastebin']
-                except KeyError:
-                    print >> sys.stderr, _('%s: no section [pastebin]') % filename
+                if not instance.has_section('pastebin'):
+                    print(_('%s: no section [pastebin]') % filename,
+                          file=sys.stderr)
                     continue
 
-                try:
-                    basename = section['basename']
-                except KeyError:
-                    print >> sys.stderr, _("%s: no 'basename' in [pastebin]") % filename
+                if not instance.has_option('pastebin', 'basename'):
+                    print(_("%s: no 'basename' in [pastebin]") % filename,
+                          file=sys.stderr)
                     continue
 
-                pastebind[basename] = bininstance
+                pastebind[instance.get('pastebin', 'basename')] = instance
         return pastebind
 
     # pastey.net obfuscates parent ids for replies.  Rather than taking the
@@ -126,8 +129,9 @@ try:
             return ""
         url_opener = pasteURLopener()
         page = url_opener.open(website + '/' + parentid, None)
-        matches = re.split('<input.*?name="' + paramname + '".*?value="(.*?)"', page.read())
-        if len(matches) <= 1 or re.match(parentid, matches[1]) == None:
+        matches = re.split('<input.*?name="' + paramname + '".*?value="(.*?)"',
+                           page.read())
+        if len(matches) <= 1 or re.match(parentid, matches[1]) is None:
             # The obfuscated version didn't begin with the partial version,
             # or unable to find the obfuscated version for some reason!
             # Create a paste with no parent (should we throw, instead?)
@@ -135,16 +139,23 @@ try:
         return matches[1]
 
     #Return the parameters depending of the pastebin used
-    def getParameters(website, pastebind, content, user, jabberid, version, format, parentpid, permatag, title, username, password):
+    def getParameters(website, pastebind, content, user, jabberid, version,
+                      format, parentpid, permatag, title, username,
+                      password):
         "Return the parameters array for the selected pastebin"
         params = {}
-        for pastebin in pastebind:
-            if re.search(pastebind[pastebin]['pastebin']['regexp'], website):
-                if "sizelimit" in pastebind[pastebin]['pastebin']:
-                    params['sizelimit'] = pastebind[pastebin]['pastebin']['sizelimit']
+        for paste_name, paste_config in pastebind.items():
+            basename = paste_config.get('pastebin', 'basename')
+            if basename == website or paste_name == website:
+                website = "http://%s" % basename
 
-                for param in pastebind[pastebin]['format'].keys():
-                    paramname = pastebind[pastebin]['format'][param]
+            if re.search(paste_config.get('pastebin', 'regexp'), website):
+                if paste_config.has_option('pastebin', 'sizelimit'):
+                    params['sizelimit'] = paste_config.get('pastebin',
+                                                           'sizelimit')
+
+                for param in paste_config.options('format'):
+                    paramname = paste_config.get('format', param)
                     if param == 'user':
                         params[paramname] = user
                     elif param == 'content':
@@ -156,7 +167,8 @@ try:
                     elif param == 'format':
                         params[paramname] = format
                     elif param == 'parentpid':
-                        params[paramname] = doParentFixup(website, paramname, parentpid)
+                        params[paramname] = doParentFixup(website, paramname,
+                                                          parentpid)
                     elif param == 'permatag':
                         params[paramname] = permatag
                     elif param == 'username':
@@ -166,11 +178,14 @@ try:
                     elif param == 'jabberid':
                         params[paramname] = jabberid
                     else:
-                        params[paramname] = pastebind[pastebin]['defaults'][param]
+                        params[paramname] = paste_config.get('defaults', param)
         if params:
-            return params
+            return website, params
         else:
-            sys.exit(_("Unknown website, please post a bugreport to request this pastebin to be added (%s)") % website)
+            print(_("Unknown website, please post a bugreport to request "
+                    "this pastebin to be added (%s)") % website,
+                  file=sys.stderr)
+            sys.exit(1)
 
     #XML Handling methods
     def getText(nodelist):
@@ -178,7 +193,7 @@ try:
         for node in nodelist:
             if node.nodeType == node.TEXT_NODE:
                 rc = rc + node.data
-        return rc.encode('utf-8')
+        return rc
 
     def getNodes(nodes, title):
         return nodes.getElementsByTagName(title)
@@ -190,21 +205,26 @@ try:
         return getText(getFirstNode(nodes, title).childNodes)
 
     # Display usage instructions
-    def Usage():
-        print "pastebinit v" + version
-        print _("Reads on stdin for input or takes a filename as first parameter")
-        print _("Optional arguments (not supported by all pastebins):")
-        print _("\t-a <author:default is '%s'>") % user
-        print _("\t-b <pastebin url:default is '%s'>") % website
-        print _("\t-f <format of paste:default is '%s'>") % format
-        print _("\t-h This help screen")
-        print _("\t-i <input file>")
-        print _("\t-l List all supported pastebins")
-        print _("\t-j <jabberid for notifications:default is '%s'>") % jabberid
-        print _("\t-m <permatag for all versions of a post:default is blank>")
-        print _("\t-r <parent posts ID:defaults to none>")
-        print _("\t-t <title of paste:default is blank>")
-        print _("\t-u <username> -p <password>")
+    def Usage(fd=sys.stdout):
+        print("pastebinit v" + version, file=fd)
+        print(_("Reads on stdin for input or takes a list of filenames "
+                "as parameters"), file=fd)
+        print(_("Optional arguments (not supported by all pastebins):"),
+              file=fd)
+        print(_("\t-a <author:default is '%s'>") % user, file=fd)
+        print(_("\t-b <pastebin url:default is '%s'>") % website, file=fd)
+        print(_("\t-f <format of paste:default is '%s'>") % format, file=fd)
+        print(_("\t-h This help screen"), file=fd)
+        print(_("\t-i <input file>"), file=fd)
+        print(_("\t-l List all supported pastebins"), file=fd)
+        print(_("\t-j <jabberid for notifications:default is '%s'>") %
+              jabberid, file=fd)
+        print(_("\t-m <permatag for all versions of a post:default is blank>"),
+              file=fd)
+        print(_("\t-r <parent posts ID:defaults to none>"), file=fd)
+        print(_("\t-t <title of paste:default is blank>"), file=fd)
+        print(_("\t-u <username> -p <password>"), file=fd)
+        print(_("\t-v Print the version number"), file=fd)
 
     # Set defaults
     website = defaultPB
@@ -215,15 +235,15 @@ try:
     format = "text"
     username = ""
     password = ""
-    filename = ""
+    filenames = []
     content = ""
     parentpid = ""
 
     #Example configuration file string
     configexample = """\
 <pastebinit>
-<pastebin>http://susepaste.org</pastebin>
-<author>SUSEuser</author>
+<pastebin>http://paste.debian.net</pastebin>
+<author>A pastebinit user</author>
 <jabberid>nobody@nowhere.org</jabberid>
 <format>text</format>
 </pastebinit>
@@ -236,7 +256,8 @@ try:
         f.close()
         gotconfigxml = True
     except KeyboardInterrupt:
-        sys.exit(_("KeyboardInterrupt caught."))
+        print(_("KeyboardInterrupt caught."), file=sys.stderr)
+        sys.exit(1)
     except:
         gotconfigxml = False
 
@@ -244,38 +265,46 @@ try:
     if gotconfigxml:
         try:
             configxml = xml.dom.minidom.parseString(configtext)
-            for variable,key in (('pastebin','website'),('author','user'),('format','format'),('jabberid','jabberid')):
+            for variable, key in (('pastebin', 'website'), ('author', 'user'),
+                                  ('format', 'format'),
+                                  ('jabberid', 'jabberid')):
                 try:
                     value = getFirstNodeText(configxml, variable)
-                    vars()[key]=value
+                    vars()[key] = value
                 except:
                     pass
         except KeyboardInterrupt:
-            sys.exit(_("KeyboardInterrupt caught."))
+            print(_("KeyboardInterrupt caught."), file=sys.stderr)
+            sys.exit(1)
         except:
-            print _("Error parsing configuration file!")
-            print _("Please ensure that your configuration file looks similar to the following:")
-            print configexample
+            print(_("Error parsing configuration file!"), file=sys.stderr)
+            print(_("Please ensure that your configuration file looks "
+                    "similar to the following:"), file=sys.stderr)
+            print(configexample, file=sys.stderr)
             sys.exit(1)
 
     # Get options
     try:
-        optlist, list = getopt.getopt(sys.argv[1:], 'hli:f:b:a:r:j:t:m:u:p:')
+        optlist, arglist = getopt.getopt(sys.argv[1:],
+                                         'hvli:f:b:a:r:j:t:m:u:p:')
     except KeyboardInterrupt:
-        sys.exit(_("KeyboardInterrupt caught."))
+        print(_("KeyboardInterrupt caught."), file=sys.stderr)
+        sys.exit(1)
     except getopt.GetoptError:
-        print _("Invalid arguments!\n")
-        Usage()
+        print(_("Invalid arguments!\n"), file=sys.stderr)
+        Usage(sys.stderr)
         sys.exit(1)
 
-    pastebind = preloadPastebins() #get the config from /etc/pastebin.d/
+    # Get the config
+    pastebind = preloadPastebins()
+
     # Iterate through options
     for opt in optlist:
         if opt[0] == "-h":
             Usage()
-            sys.exit(1)
+            sys.exit(0)
         if opt[0] == "-i":
-            filename = opt[1]
+            filenames.append(opt[1])
         elif opt[0] == "-f":
             format = opt[1]
         elif opt[0] == "-b":
@@ -287,9 +316,9 @@ try:
         elif opt[0] == "-j":
             jabberid = opt[1]
         elif opt[0] == "-l":
-            print _("Supported pastebins:")
+            print(_("Supported pastebins:"))
             for pastebin in sorted(pastebind):
-                print "- %s" % pastebin
+                print("- %s" % pastebin)
             sys.exit(0)
         elif opt[0] == "-t":
             title = opt[1]
@@ -299,93 +328,122 @@ try:
             username = opt[1]
         elif opt[0] == "-p":
             password = opt[1]
+        elif opt[0] == "-v":
+            print("pastebinit v" + version)
+            sys.exit(0)
 
-    if filename == "" and len(list) >= 1:
-        filename = list[0]
+    filenames += arglist
 
-    #If - is specified as a filename read from stdin, otherwise load the specified file.
-    if (filename == "" or filename == "-") and content == "":
-        content = sys.stdin.read()
-    elif content == "":
+    if not filenames:
+        filenames.append("-")
+
+    contents = []
+    for filename in filenames:
+        # If - is specified as a filename read from stdin
+        # otherwise load the specified files.
+        if filename == "-":
+            content = sys.stdin.read()
+        else:
+            try:
+                with open(filename, "rb") as fd:
+                    content = fd.read()
+            except KeyboardInterrupt:
+                print(_("KeyboardInterrupt caught."), file=sys.stderr)
+                sys.exit(1)
+            except:
+                print(_("Unable to read from: %s") % filename, file=sys.stderr)
+                sys.exit(1)
+
+        if not content:
+            print(_("You are trying to send an empty document, exiting."),
+                  file=sys.stderr)
+            sys.exit(1)
+
+        contents.append(content)
+
+    for content in contents:
+        # Get the parameter array
+        website, params = getParameters(website, pastebind, content, user,
+                                        jabberid, version, format, parentpid,
+                                        permatag, title, username, password)
+
+        if not website.endswith("/"):
+            website += "/"
+
+        if "sizelimit" in params:
+            if len(content) > int(params['sizelimit']):
+                print(_("The content you are trying to send exceeds "
+                        "the pastebin's size limit."), file=sys.stderr)
+                sys.exit(1)
+            else:
+                del params['sizelimit']
+
+        reLink = None
+        tmp_page = ""
+        if "page" in params:
+            website += params['page']
+            tmp_page = params['page']
+            del params["page"]
+        if "regexp" in params:
+            reLink = params['regexp']
+            del params["regexp"]
+        if "target_url" in params:
+            target_url = params["target_url"]
+            del params["target_url"]
+        else:
+            target_url = None
+        if 'post_format' in params:
+            post_format = params['post_format']
+            del params['post_format']
+        else:
+            post_format = 'standard'
+
+        url_opener = pasteURLopener()
+
+        if post_format == 'json':
+            if json:
+                params = json.dumps(params)
+                url_opener.addheader('Content-type', 'text/json')
+            else:
+                print(_("Could not find any json library."), file=sys.stderr)
+                sys.exit(1)
+        else:
+            # Convert to a format usable with the HTML POST
+            params = urlencode(params)
+
+        # Send the informations and be redirected to the final page
         try:
-            f = open(filename)
-            content = f.read()
-            f.close()
+            page = url_opener.open(website, params)
+        except Exception as e:
+            print(_("Failed to contact the server: %s") % e, file=sys.stderr)
+            sys.exit(1)
+
+        try:
+            # Check if we have to apply a regexp
+            if reLink:
+                if target_url:
+                    website = target_url
+                else:
+                    website = website.replace(tmp_page, "")
+
+                if reLink == '(.*)':
+                    print(page.read().decode('utf-8').strip())
+                else:
+                    # Print the result of the regexp
+                    print(website + re.split(reLink,
+                          page.read().decode('utf-8'))[1])
+            else:
+                # Get the final page and show the url
+                print(page.url)
         except KeyboardInterrupt:
-            sys.exit(_("KeyboardInterrupt caught."))
+            print(_("KeyboardInterrupt caught."), file=sys.stderr)
+            sys.exit(1)
         except:
-            sys.exit(_("Unable to read from: %s") % filename)
-    if not content:
-        sys.exit(_("You are trying to send an empty document, exiting."))
-    if format == "auto_guess":
-        for _r, _f in file_extension_map.iteritems():
-            if re.match(_r, filename):
-                format = _f
-                break
-            pass
-        pass
-
-    params = getParameters(website, pastebind, content, user, jabberid, version, format, parentpid, permatag, title, username, password) #Get the parameters array
-
-    if not website.endswith("/"):
-        website += "/"
-
-    if "sizelimit" in params:
-        if len(content) > int(params['sizelimit']):
-            sys.exit(_("The content you are trying to send exceeds the pastebin's size limit."))
-        else:
-            del params['sizelimit']
-
-    reLink = None
-    tmp_page = ""
-    if "page" in params:
-        website += params['page']
-        tmp_page = params['page']
-        del params["page"]
-    if "regexp" in params:
-        reLink = params['regexp']
-        del params["regexp"]
-    if "target_url" in params:
-        target_url = params["target_url"]
-        del params["target_url"]
-    else:
-        target_url = None
-    if 'post_format' in params:
-        post_format = params['post_format']
-        del params['post_format']
-    else:
-        post_format = 'standard'
-
-    url_opener = pasteURLopener()
-
-    if post_format == 'json':
-        if json:
-            params = json.dumps(params)
-            url_opener.addheader('Content-type: text/json')
-        else:
-            sys.exit(_("Could not find any json library."))
-    else:
-        params = urllib.urlencode(params) #Convert to a format usable with the HTML POST
-
-    page = url_opener.open(website, params) #Send the informations and be redirected to the final page
-
-    try:
-        if reLink: #Check if we have to apply a regexp
-            if target_url:
-                website = target_url
-            else:
-                website = website.replace(tmp_page, "")
-
-            if reLink == '(.*)':
-                print page.read().strip()
-            else:
-                print website + re.split(reLink, page.read())[1] #Print the result of the Regexp
-        else:
-            print page.url #Get the final page and show the ur
-    except KeyboardInterrupt:
-        sys.exit(_("KeyboardInterrupt caught."))
-    except:
-        sys.exit(_("Unable to read or parse the result page, it could be a server timeout or a change server side, try with another pastebin."))
+            print(_("Unable to read or parse the result page, it could be a "
+                    "server timeout or a change server side, "
+                    "try with another pastebin."), file=sys.stderr)
+            sys.exit(1)
 
 except KeyboardInterrupt:
-    sys.exit(_("KeyboardInterrupt caught."))
+    print(_("KeyboardInterrupt caught."), file=sys.stderr)
+    sys.exit(1)

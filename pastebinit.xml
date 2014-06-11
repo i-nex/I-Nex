@@ -4,7 +4,7 @@
   <!ENTITY dhfirstname "<firstname>Stephane</firstname>">
   <!ENTITY dhsurname   "<surname>Graber</surname>">
   <!-- Please adjust the date whenever revising the manpage. -->
-  <!ENTITY dhdate      "<date>January 09, 2011</date>">
+  <!ENTITY dhdate      "<date>January 06, 2014</date>">
   <!ENTITY dhsection   "<manvolnum>1</manvolnum>">
   <!ENTITY dhemail     "<email>stgraber@ubuntu.com</email>">
   <!ENTITY dhusername  "Stephane Graber">
@@ -22,7 +22,7 @@
       &dhemail;
     </address>
     <copyright>
-      <year>2007-2011</year>
+      <year>2007-2014</year>
       <holder>&dhusername;</holder>
     </copyright>
     &dhdate;
@@ -52,7 +52,7 @@
     <para><command>&dhpackage;</command> reads text and sends it to a
     "pastebin" on the internet, returning the URL to the user.</para>
     <para>It allows the text to be passed through a pipe (|) or from
-    a file passed as an argument.</para> 
+    files as arguments.</para> 
   </refsect1>
   <refsect1>
     <title>OPTIONS</title>
@@ -63,12 +63,11 @@
           <term><option>-a <arg>author</arg></option> (default: $USER)</term>
         </varlistentry>
         <varlistentry>
-          <term><option>-b <arg>pastebin url</arg></option> (default is susepaste)</term>
+          <term><option>-b <arg>pastebin url</arg></option> (default is distro-specific with a fallback to pastebin.com)</term>
         </varlistentry>
         <varlistentry>
           <term><option>-f <arg>format for syntax-highlighting</arg></option> (default: text)
-          (check pastebin's website for complete list, example: python). The special argument
-          "auto_guess" (<option>-f auto_guess</option>) will trigger format guessing from file extension</term>
+          (check pastebin's website for complete list, example: python)</term>
         </varlistentry>
         <varlistentry>
           <term><option>-h</option> Help screen</term>
@@ -96,6 +95,9 @@
         </varlistentry>
         <varlistentry>
           <term><option>-p <arg>password</arg></option> (default: none)</term>
+        </varlistentry>
+        <varlistentry>
+          <term><option>-v</option> Version number</term>
         </varlistentry>
       </variablelist>
     </refsect2>
