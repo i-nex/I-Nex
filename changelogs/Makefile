@@ -24,3 +24,4 @@ compress-changelogs:
 	gzip -9 "$(DESTDIR)$(PREFIX)$(DOCSDIR)/changelog-0.6.0"
 	gzip -9 "$(DESTDIR)$(PREFIX)$(DOCSDIR)/changelog-0.6.2"
 	gzip -9 "$(DESTDIR)$(PREFIX)$(DOCSDIR)/changelog-0.6.4"
+	gzip -9 "$(DESTDIR)$(PREFIX)$(DOCSDIR)/changelog-0.6.6"
