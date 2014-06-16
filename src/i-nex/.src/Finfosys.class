@@ -228,6 +228,8 @@ Public Sub Form_Open()
       Object.Call(FGraphic, "_check")
   Logs("Check sound cards", Logger.Info)
       Object.Call(Asound_Drives, "_inits")
+  Logs("Call To ipinfo.io for network settings", Logger.Info)
+      Object.Call(Network, "IP_INFO")
   Logs("Check for default display manager", Logger.Info)
   If default_display_manager = True Then
      Label4.Visible = True
@@ -945,4 +947,10 @@ Public Sub Savevalid_Click()
   Logs("Not chosen where you want to save the report", Logger.Error)
  Endif
  
+End
+
+Public Sub Button17_Click()
+
+ Desktop.Open("https://www.google.com/maps/search/" & Label237.Text & "")
+
 End

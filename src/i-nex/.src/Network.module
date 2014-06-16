@@ -139,4 +139,18 @@ Public Sub net_dev()
  Finfosys.Label175.Text = "Type: " & device_type
 End
 
+Public Function IP_INFO()
+ Dim IPINFOIO_BUF As String
+ Dim IPINFOIO_JSON As Collection
+ Try Exec ["curl", "ipinfo.io"] Wait To IPINFOIO_BUF
+ Try IPINFOIO_JSON = JSON.Decode(IPINFOIO_BUF)
+ 'https://www.google.com/maps/search/54.6052,18.2355
+ Try Finfosys.Label93.Text = IPINFOIO_JSON["ip"]
+ Try Finfosys.Label233.Text = IPINFOIO_JSON["hostname"]
+ Try Finfosys.Label234.Text = IPINFOIO_JSON["city"]
+ Try Finfosys.Label235.Text = IPINFOIO_JSON["region"]
+ Try Finfosys.Label236.Text = IPINFOIO_JSON["country"]
+ Try Finfosys.Label237.Text = IPINFOIO_JSON["loc"]
+ Try Finfosys.Label238.Text = IPINFOIO_JSON["org"]
+End
 
