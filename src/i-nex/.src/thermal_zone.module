@@ -72,6 +72,13 @@ Public Sub _inits()
   supporttemp = False
  Endif
  
+ If Access("/sys/class/hwmon/hwmon0/temp2_input", gb.Read) = True Then
+  supporttemp = True
+  Shell "cat /sys/class/hwmon/hwmon0/temp2_input" Wait To Temperature
+ Else
+  supporttemp = False
+ Endif
+ 
  If Temperature = Null Then
  Logs("Not found temp", Logger.Error)
  Else
