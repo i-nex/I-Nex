@@ -5,7 +5,6 @@
   #Scaled = False
   Resizable = False
   Border = False
-  Opacity = 0
   { TextBox1 TextBox
     Move(0,0,714,28)
     Text = ("TextBox1")
