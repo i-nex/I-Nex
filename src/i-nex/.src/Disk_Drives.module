@@ -63,10 +63,10 @@ Public Sub _inits()
   Dim Max_HDD As Integer
   Dim cache As String
   Logs("Add Drives to ComboBox", Logger.Info)
-  Shell "ls /sys/block/ | grep -e 'sd' -e 'sr' | tr ' ' '\n' | wc -l" Wait To cache
+  Shell "ls /sys/block/ | grep -e \"sd\" -e \"sr\" | tr ' ' '\n' | wc -l" Wait To cache
   Max_HDD = Val(cache)
   For Avail_HDD = 1 To Max_HDD
-   Shell "ls /sys/block/ | grep -e 'sd' -e 'sr' | tr ' ' '\n' | sed -n '" & Avail_HDD & "p'" Wait To sdx
+   Shell "ls /sys/block/ | grep -e \"sd\" -e \"sr\" | tr ' ' '\n' | sed -n '" & Avail_HDD & "p'" Wait To sdx
    sdx = Replace(sdx, "\n", "")
    Finfosys.ComboBox4.Add(sdx)
   Next
@@ -80,7 +80,7 @@ Public Sub _init_2()
   Dim riga As New String[]
   Dim lista As New String[]
   Logs("Add Drives to ComboBox..", Logger.Info)
-  Shell "ls /sys/block/" & Finfosys.ComboBox4.Text & " | grep 'sd' | sort -V" To ListAllDiscs
+  Shell "ls /sys/block/" & Finfosys.ComboBox4.Text & " | grep \"sd\" | sort -V" To ListAllDiscs
   righe = Split(ListAllDiscs, "\n", "%%", True)
   For count = 0 To righe.Max
   riga = Split(righe[count], " ", "%%", True)
@@ -127,7 +127,7 @@ Public Sub get_informations()
   Shell "cat /sys/block/" & Finfosys.ComboBox4.Text & "/bdi/min_ratio" Wait To min_ratio
   Shell "cat /sys/block/" & Finfosys.ComboBox4.Text & "/bdi/stable_pages_required" Wait To stable_pages_required
   Shell "sed -n '2p' /proc/swaps | awk {'print $1'} | cut -d '/' -f 3" Wait To check_swap
-  Shell "df | grep '" & Finfosys.ComboBox3.Text & "' | awk {'print $5'} | sed -n '1p'" Wait To used
+  Shell "df | grep \"" & Finfosys.ComboBox3.Text & "\" | awk {'print $5'} | sed -n '1p'" Wait To used
   Logs("Get informations of Drives Done", Logger.Info)
   Logs("Replace new line to Null", Logger.Info)
   rm_new_line()
@@ -185,17 +185,17 @@ Public Sub disks()
   mount_point = Null
   device_uuid = Null
   If Finfosys.ComboBox3.Text Not Like "" Then
-  Shell "grep -w '" & Finfosys.ComboBox3.Text & "' /proc/mounts | awk {'print $4'}" Wait To mount_widtch
+  Shell "grep -w \"" & Finfosys.ComboBox3.Text & "\" /proc/mounts | awk {'print $4'}" Wait To mount_widtch
   Endif
-  Shell "LC_ALL=C df | grep -w '" & Finfosys.ComboBox3.Text & "' | awk {'print $6, $7'} | sed -n '1p'" Wait To mount_point
-  Shell "ls -l /dev/disk/by-uuid/ | grep -w " & Finfosys.ComboBox3.Text & " | awk {'print $9'}" Wait To device_uuid
+  Shell "LC_ALL=C df | grep -w \"" & Finfosys.ComboBox3.Text & "\" | awk {'print $6, $7'} | sed -n \"1p\"" Wait To mount_point
+  Shell "ls -l /dev/disk/by-uuid/ | grep -w \"" & Finfosys.ComboBox3.Text & "\" | awk {'print $9'}" Wait To device_uuid
   
   device_uuid = Replace(Replace(device_uuid, " ", ""), "\n", "")
-  Shell "grep -w '" & Finfosys.ComboBox3.Text & "' /proc/mounts | awk {'print $3'}" Wait To filesystem_type
+  Shell "grep -w \"" & Finfosys.ComboBox3.Text & "\" /proc/mounts | awk {'print $3'}" Wait To filesystem_type
   filesystem_type = Replace(Replace(filesystem_type, " ", ""), "\n", "")
 
   If IsNull(mount_widtch) And Not IsNull(device_uuid) Then
-  Shell "grep -w '" & device_uuid & "' /proc/mounts | awk {'print $4'}" Wait To mount_widtch
+  Shell "grep -w \"" & device_uuid & "\" /proc/mounts | awk {'print $4'}" Wait To mount_widtch
   Endif
   
   
@@ -203,10 +203,10 @@ Public Sub disks()
   
 
   If IsNull(filesystem_type) Or IsBlank(filesystem_type) And Not IsNull(device_uuid) Then
-  Shell "grep -w '" & device_uuid & "' /proc/mounts | awk {'print $3'}" Wait To filesystem_type
+  Shell "grep -w \"" & device_uuid & "\" /proc/mounts | awk {'print $3'}" Wait To filesystem_type
   Endif
   If IsNull(filesystem_type) Or IsBlank(filesystem_type) Then
-   Shell "ls -l /sys/fs/*/* | grep -w " & Finfosys.ComboBox3.Text & " | cut -d '/' -f 4" Wait To filesystem_type
+   Shell "ls -l /sys/fs/*/* | grep -w \"" & Finfosys.ComboBox3.Text & "\" | cut -d '/' -f 4" Wait To filesystem_type
   Endif
   filesystem_type = Replace(Replace(filesystem_type, " ", ""), "\n", "")
   
@@ -215,7 +215,7 @@ Public Sub disks()
   Endif
   
   If mount_point Like "*Mounted on*" Then 
-  Shell "LC_ALL=C df | grep -w '" & Finfosys.ComboBox4.Text & "' | awk {'print $6, $7'} | sed -n '1p'" Wait To mount_point
+  Shell "LC_ALL=C df | grep -w \"" & Finfosys.ComboBox4.Text & "\" | awk {'print $6, $7'} | sed -n '1p'" Wait To mount_point
   Endif
   mount_point = Replace(mount_point, "\n", "")
 End

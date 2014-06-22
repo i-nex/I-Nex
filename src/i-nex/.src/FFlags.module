@@ -22,7 +22,7 @@ Public VIRT As String
 Public instructions As String
 Public dec_instructions As String
 Public Sub _init()
- Shell "grep 'flags' /proc/cpuinfo | sed -n '1p' | cut -d ':' -f 2" Wait To dec_instructions
+ Shell "grep \"flags\" /proc/cpuinfo | sed -n \"1p\" | cut -d \":\" -f 2" Wait To dec_instructions
  If dec_instructions Like "* mmxext *" Then
   instructions = instructions & "MMX(+), "
  Endif
@@ -93,8 +93,8 @@ End
 
 Public Sub ht()
   Dim NUMLOG, NUMPHY As String
-  Shell "grep 'processor' /proc/cpuinfo | wc -l" Wait To NUMPHY
-  Shell "grep 'cpu cores' /proc/cpuinfo | sed -n '1p' | cut -d ':' -f 2" Wait To NUMLOG
+  Shell "grep \"processor\" /proc/cpuinfo | wc -l" Wait To NUMPHY
+  Shell "grep \"cpu cores\" /proc/cpuinfo | sed -n \"1p\" | cut -d \":\" -f 2" Wait To NUMLOG
   
   If NUMLOG = Null Then
    Logs("CPU Cores is Null", Logger.Info)

@@ -592,7 +592,7 @@ Public Sub Button7_Click()
   Dim dpkg As String
   Dim rpm As String
   Dim pkg As String
-  Shell "grep '^Status: install ok installed' /var/lib/dpkg/status | wc -l" Wait To dpkg
+  Shell "grep \"^Status: install ok installed\" /var/lib/dpkg/status | wc -l" Wait To dpkg
   Shell "rpm -qa | wc -l" Wait To rpm
   Shell "pacman -Q|wc -l" Wait To pkg
   TextLabel21.Visible = True
