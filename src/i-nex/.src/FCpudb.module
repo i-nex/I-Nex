@@ -102,9 +102,12 @@ Public Sub _inits()
       Finfosys.Label120.Text = " Part: " & database["DATABASE"][z]["PROCESSOR_PART"]
       Finfosys.Label121.Text = " Memory support: " & database["DATABASE"][z]["PROCESSOR_MEMORYSUPPORT"]
       i = z
-      Break
     Endif
   Next
   Logs("Current position of processor = " & cpucache & " is = " & z & "", Logger.Info)
+  Logs("Detect CPU As = " & database["DATABASE"][i]["PROCESSOR_MODEL_NAME"] & "", Logger.Info)
+  Logs("\nIf Detected CPU is wrong CPU. \n"
+       "Please submit report at launchpad project page \n"
+       "https://bugs.launchpad.net/i-nex \n", Logger.Info)
   database = Null
 End
