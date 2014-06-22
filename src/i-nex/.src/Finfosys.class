@@ -433,7 +433,24 @@ Public Sub grafika()
   Label108.Text = "Present resolution: " & Replace(rozdzielczosc, "\n", "")
   TextBox1.Text = RTrim(Replace(gpu, "\n", ""))
   Label109.Text = Replace(available_resolutions, "\n", "")
-  Global.kartagraficzna()
+  
+  'GPU Logo Detection
+  If RTrim(Replace(gpu, "\n", "")) Like "*ati*" Then
+  Finfosys.PictureBox1.Picture = Picture["Data/GPU_LOGO/ati.png"]
+  Finfosys.PictureBox1.Name = "ati.png"
+  Endif
+  
+  If RTrim(Replace(gpu, "\n", "")) Like "*intel*" Then
+  Finfosys.PictureBox1.Picture = Picture["Data/GPU_LOGO/intel.png"]
+  Finfosys.PictureBox1.Name = "intel.png"
+  Endif
+  
+  If RTrim(Replace(gpu, "\n", "")) Like "*nVidia*" Then
+  Finfosys.PictureBox1.Picture = Picture["Data/GPU_LOGO/nvidia.png"]
+  Finfosys.PictureBox1.Name = "nvidia.png"
+  Endif
+  'GPU Logo Detection End
+  
   ComboBox8.Index = 1
 End
 
@@ -478,7 +495,6 @@ Public Sub Wykrywanie_procesorow()
   Label10.Text = "Bogomips: " & Replace(bogomips, "\n", "")
   Label11.Text = "Address sizes: " & Replace(address_sizes, "\n", "")
   Label15.Text = "Power mangament: " & Replace(power_management, "\n", "")
-  Global.ikonaprocka()
   Logs("Get info from database", Logger.Info)
   Object.Call(FCpudb, "_inits")
 End
