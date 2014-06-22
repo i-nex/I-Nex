@@ -5,7 +5,8 @@ make: build-inex build-json build-pixmaps
 
 install: install-create-dirs install-pastebinit-and-other \
 	 install-pixmaps install-changelogs install-manpages \
-	 install-docs install-json install-inex install-scripts
+	 install-docs install-json install-inex install-scripts \
+	 link-inex
 	 
 clean: clean-pixmaps clean-json clean-inex clean-all
 
@@ -124,3 +125,6 @@ rmgambas:
 	$(RM_COM) $(RMFILE_OPT) $(PREFIX)/lib/gambas3/gb.gui.so
 	$(RM_COM) $(RMFILE_OPT) $(PREFIX)/lib/gambas3/gb.image.so
 	$(RM_COM) $(RMFILE_OPT) $(PREFIX)/lib/gambas3/gb.qt4.so
+
+link-inex:
+	ln -s /usr/bin/i-nex.gambas $(DESTDIR)$(bindir)/i-nex
