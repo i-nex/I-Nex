@@ -31,7 +31,7 @@ Public Sub _inits()
   Dim ASOUND_CARDS_LIST As String[]
   Dim i As Integer
   
-  Shell "grep '\\[' /proc/asound/cards | cut -d ':' -f 2" Wait To ASOUND_CARDS
+  Shell "grep \"\\[\" /proc/asound/cards | cut -d \":\" -f 2" Wait To ASOUND_CARDS
   ASOUND_CARDS_LIST = Split(ASOUND_CARDS, "\n", "%%")
   For i = 1 To ASOUND_CARDS_LIST.Count - 1
    If ASOUND_CARDS_LIST[i] = Null Then
@@ -51,7 +51,7 @@ Public Sub _get_informations()
    Try ASOUND_ID = File.Load("/proc/asound/card" & Finfosys.ComboBox6.Index & "/id")
    Try ASOUND_ALSADV = File.Load("/proc/asound/version")
    ASOUND_ID = Replace(ASOUND_ID, "\n", "")
-   Shell "grep 'Codec:' /proc/asound/" & ASOUND_ID & "/codec*" Wait To ASOUND_CODEC
+   Shell "grep \"Codec:\" /proc/asound/" & ASOUND_ID & "/codec*" Wait To ASOUND_CODEC
    Finfosys.Label73.Text = Replace(ASOUND_CODEC, "\n", "") & "  "
    Finfosys.Label9.Text = Replace(Replace(ASOUND_ALSADV, "\n", ""), "Advanced Linux Sound Architecture", "ALSA")
    Shell "ls /sys/class/sound/card" & Finfosys.ComboBox6.Index & " | grep input | sort" Wait To ASOUND_INPUT
