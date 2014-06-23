@@ -2227,7 +2227,7 @@ fi
 # Define the identity of the package.
 
  PACKAGE=i-nex
- VERSION=0.6.6
+ VERSION=7.0.0
 
 
 cat >>confdefs.h <<_ACEOF

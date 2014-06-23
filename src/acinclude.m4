@@ -20,7 +20,7 @@ AC_DEFUN([GB_INIT_PROJECT],
   fi
 
   ##AM_INIT_AUTOMAKE($1, `cat $1/.project | grep "^Version=" | sed s/"Version="//g`)
-  AM_INIT_AUTOMAKE($1, 0.6.6)
+  AM_INIT_AUTOMAKE($1, 7.0.0)
 
   ## List of needed components
   COMPONENTS=`cat $1/.project | grep "^Component=" | sed s/"Component="//g`

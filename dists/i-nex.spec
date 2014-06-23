@@ -17,7 +17,7 @@
 
 
 Name:           i-nex
-Version:        0.6.4
+Version:        7.0.0
 Release:        1
 Summary:        System information tool
 

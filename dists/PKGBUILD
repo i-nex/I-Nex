@@ -1,6 +1,6 @@
 pkgname=i-nex-dev
-pkgver=0.6.4
-_git=0.6.4
+pkgver=7.0.0
+_git=7.0.0
 pkgrel=1
 pkgdesc="System information tool like hardinfo, sysinfo"
 arch=('i686' 'x86_64')

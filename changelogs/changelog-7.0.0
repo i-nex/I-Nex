@@ -1,0 +1,137 @@
+commit 4fcdeef8ac64a67fcf6b16ccb527436b558d3902
+Author: eloaders <eloaders@linux.pl>
+Date:   Mon Jun 23 18:01:10 2014 +0200
+
+    Remove Adfly
+
+commit fbf6f5c11537b5a7442faf41002134934d4ed115
+Author: eloaders <eloaders@linux.pl>
+Date:   Mon Jun 23 18:00:57 2014 +0200
+
+    Fixes in detection of GPU ChkPrm
+
+commit 1f0a3d218bbc66b2a56bdd206b56d1626705ad33
+Author: eloaders <eloaders@linux.pl>
+Date:   Mon Jun 23 18:00:29 2014 +0200
+
+    Fix About license position
+
+commit 9f3a1b97e02d81fbc6c36332a91274542697c52a
+Author: eloaders <eloaders@linux.pl>
+Date:   Mon Jun 23 15:18:48 2014 +0200
+
+    Add report-ng code to screenfetch. Print all data to one file as JSON format
+
+commit c19e30659f0045f18492261118dda0716d733715
+Author: eloaders <eloaders@linux.pl>
+Date:   Mon Jun 23 14:25:57 2014 +0200
+
+    Fuck yeah :)
+
+commit 6f1f93568bfac08bf52cb45a3a966ea96a2e5edf
+Author: eloaders <eloaders@linux.pl>
+Date:   Mon Jun 23 14:25:37 2014 +0200
+
+    Some ASOUND Fixes
+
+commit d39e09b19c66528783b9bb1e0834c78af9447036
+Author: eloaders <eloaders@linux.pl>
+Date:   Mon Jun 23 14:25:24 2014 +0200
+
+    Speed up Drives detection
+
+commit 14f2144fbf4ee042e40594261f425fd53cdb9315
+Author: eloaders <eloaders@linux.pl>
+Date:   Mon Jun 23 02:15:00 2014 +0200
+
+    Update Autotools
+
+commit 41059a4c31e79e5e15dd1daed7adba432ef7e74c
+Author: eloaders <eloaders@linux.pl>
+Date:   Mon Jun 23 01:58:50 2014 +0200
+
+    Remove Old CPU Logos. Remove Global class and move GPU Logos to Finfosys.class
+
+commit 2d1af3ff6de12a59bac47e11f59637378a5267e0
+Author: eloaders <eloaders@linux.pl>
+Date:   Mon Jun 23 01:28:18 2014 +0200
+
+    Update AMD Database
+
+commit f4e0495170af15cd60bc7573d1f7ec1af36067ef
+Author: eloaders <eloaders@linux.pl>
+Date:   Mon Jun 23 01:28:06 2014 +0200
+
+    Update Intel Database
+
+commit 98210fed66a0bfb133eb2864512111fe82288c3b
+Author: eloaders <eloaders@linux.pl>
+Date:   Mon Jun 23 01:26:50 2014 +0200
+
+    Not print Raw EDID in logfile
+
+commit 1298316a40b4646d333178bee932c379ed0e78b9
+Author: eloaders <eloaders@linux.pl>
+Date:   Mon Jun 23 01:26:16 2014 +0200
+
+    Replace ' to \"
+
+commit f74daaf19c042aa46c723d6a77b2cc327af3cc64
+Author: eloaders <eloaders@linux.pl>
+Date:   Sun Jun 22 19:02:37 2014 +0200
+
+    Remove Break if CPU has found And print help log.
+
+commit 2ca47252adfce8b3d531f76a24cf13cb922ecd1d
+Author: eloaders <eloaders@linux.pl>
+Date:   Sun Jun 22 19:02:00 2014 +0200
+
+    Update Atom Database
+
+commit 740707e74f1c7e9b4970c0499981db93cd4b61d6
+Author: eloaders <eloaders@linux.pl>
+Date:   Sun Jun 22 19:01:46 2014 +0200
+
+    Update AMD Database
+
+commit 5e99a35d69494b20341a7e0a259cff550fa4ba09
+Author: eloaders <eloaders@linux.pl>
+Date:   Sun Jun 22 19:01:33 2014 +0200
+
+    Update Intel Database
+
+commit 570fc48628102c6ee21e0f2b3303205cec10fbbd
+Author: eloaders <eloaders@linux.pl>
+Date:   Sun Jun 22 15:17:02 2014 +0200
+
+    Link /usr/bin/i-nex.gambas to /usr/bin/i-nex
+
+commit dbe52d0248a16fbb85aeaee7144f4a5032f7ee49
+Author: eloaders <eloaders@linux.pl>
+Date:   Sat Jun 21 14:02:45 2014 +0200
+
+    Fix Bug. Detect AMD APU As Sempron :)
+
+commit 1ab4a053d041cc23b9e1ac17a23f730e25dddb04
+Author: eloaders <eloaders@linux.pl>
+Date:   Wed Jun 18 03:15:19 2014 +0200
+
+    Fix opacity
+
+commit 7cff8719d0131ff6942e3783c2e7e8fefb749fb2
+Author: eloaders <eloaders@linux.pl>
+Date:   Mon Jun 16 17:16:48 2014 +0200
+
+    Fix Thermal Zone in IDB D425KT
+
+commit 2bdc9b431c2aa3f93185a23ae5372eecb79dd597
+Author: eloaders <eloaders@linux.pl>
+Date:   Mon Jun 16 16:27:28 2014 +0200
+
+    Add ipinfo.io GUI to Network card
+
+commit 8f7b8714a1c227cfd42adf0e04389adac97dc28f
+Author: eloaders <eloaders@linux.pl>
+Date:   Sun Jun 15 15:11:47 2014 +0200
+
+    Update Kubuntu & OpenSUSE stickers
