@@ -332,6 +332,8 @@ End
 
 Public Sub System()
   Dim hostname, arch, gcc, timezone, xorg_version, glx_version As String
+  Dim SCREENFETCH As Collection
+  SCREENFETCH = JSON.Decode(File.Load(User.Home & "/.i-nex/screenfetch.json"))
   Shell "cat /etc/timezone || grep ^TIMEZONE= /etc/sysconfig/clock | cut -d '=' -f 2" Wait To timezone
   If timezone = Null Or "" Then
     Shell "timedatectl status | grep Timezone: |awk '{print $2}'" Wait To timezone
@@ -357,30 +359,23 @@ Public Sub System()
   Label141.Text = "X.Org Version: " & Replace(xorg_version, "\n", "")
   Label142.Text = "GLX Version: " & Replace(glx_version, "\n", "")
   Distribution_Detect._inits
-  Label4.Text = "Distro Vendor: " & Replace(Replace(Replace(File.Load("" & User.Home & "/.i-nex/DistributionVendor.conf"), "\n", ""), " ", ""), "\n", "")
-  Label135.Text = "Distro Release: " & Replace(Replace(Replace(File.Load("" & User.Home & "/.i-nex/DistributionRelease.conf"), "\n", ""), " ", ""), "\n", "")
-  Label144.Text = Replace(File.Load("" & User.Home & "/.i-nex/Binutils.conf"), "\n", "")
-  Label145.Text = "Linux C Library: " & Replace(File.Load("" & User.Home & "/.i-nex/Lnxclib.conf"), "\n", "")
-  Label37.Text = "Desktop environment: " & Replace(File.Load("" & User.Home & "/.i-nex/DE.conf"), "\n", "")
-  Label60.Text = "Window manager: " & Replace(Replace(Replace(File.Load("" & User.Home & "/.i-nex/WM.conf"), "\n", ""), " ", ""), "\n", "")
-  Label61.Text = "Window manager Theme: " & Replace(Replace(Replace(File.Load("" & User.Home & "/.i-nex/Win_theme.conf"), "\n", ""), " ", ""), "\n", "")
-  Label62.Text = "GTK+ 2 Theme: " & Replace(Replace(Replace(File.Load("" & User.Home & "/.i-nex/gtk2Theme.conf"), "\n", ""), " ", ""), "\n", "")
-  Label63.Text = "GTK+ 3 Theme: " & Replace(Replace(Replace(File.Load("" & User.Home & "/.i-nex/gtk3Theme.conf"), "\n", ""), " ", ""), "\n", "")
-  Label147.Text = "GTK Font: " & Replace(Replace(Replace(File.Load("" & User.Home & "/.i-nex/gtkFont.conf"), "\n", ""), " ", ""), "\n", "")
-  Label148.Text = "GTK Icons: " & Replace(Replace(Replace(File.Load("" & User.Home & "/.i-nex/gtkIcons.conf"), "\n", ""), " ", ""), "\n", "")
-  Label149.Text = "GNU Make Version: " & Replace(Replace(Replace(File.Load("" & User.Home & "/.i-nex/GNUMAKE.conf"), "\n", ""), " ", ""), "\n", "")
-  Label150.Text = "PPP: " & Replace(Replace(Replace(File.Load("" & User.Home & "/.i-nex/PPP.conf"), "\n", ""), " ", ""), "\n", "")
-  Label151.Text = "Dynamic linker (ldd): " & Replace(Replace(Replace(File.Load("" & User.Home & "/.i-nex/DYNAMIC_LINKER.conf"), "\n", ""), " ", ""), "\n", "")
-  Label152.Text = "Net-tools: " & Replace(Replace(Replace(File.Load("" & User.Home & "/.i-nex/NETTOOLS.conf"), "\n", ""), " ", ""), "\n", "")
-  Label153.Text = "Wireless-tools: " & Replace(Replace(Replace(File.Load("" & User.Home & "/.i-nex/WIRELESS_TOOLS.conf"), "\n", ""), " ", ""), "\n", "")
-' DE.conf
-' WM.conf
-' Win_theme.conf
-' gtk2Theme.conf
-' gtk3Theme.conf
-' gtkFont.conf
-' gtkIcons.conf
-
+  
+  Label4.Text = "Distro Vendor: " & SCREENFETCH["Distro"]
+  Label135.Text = "Distro Release: " & SCREENFETCH["Distro_Release"]
+  Label144.Text = SCREENFETCH["BINUTILS"]
+  Label145.Text = "Linux C Library: " & SCREENFETCH["LNXCLIB"]
+  Label37.Text = "Desktop environment: " & SCREENFETCH["DE"]
+  Label60.Text = "Window manager: " & SCREENFETCH["WM"]
+  Label61.Text = "Window manager Theme: " & SCREENFETCH["WinTheme"]
+  Label62.Text = "GTK+ 2 Theme: " & SCREENFETCH["GTK2Theme"]
+  Label63.Text = "GTK+ 3 Theme: " & SCREENFETCH["GTK3Theme"]
+  Label147.Text = "GTK Font: " & SCREENFETCH["GTKFont"]
+  Label148.Text = "GTK Icons: " & SCREENFETCH["GTKIcons"]
+  Label149.Text = "GNU Make Version: " & SCREENFETCH["GNUMAKE"]
+  Label150.Text = "PPP: " & SCREENFETCH["PPP"]
+  Label151.Text = "Dynamic linker (ldd): " & SCREENFETCH["DYNAMIC_LINKER"]
+  Label152.Text = "Net-tools: " & SCREENFETCH["NETTOOLS"]
+  Label153.Text = "Wireless-tools: " & SCREENFETCH["WIRELESS_TOOLS"]
 
 End
 

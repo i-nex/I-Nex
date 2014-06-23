@@ -26,7 +26,6 @@ Public Sub _inits()
   Logs("i-nex in home folder is exist", Logger.Info)
   Logs("Try to remove files", Logger.Info)
   Try Kill User.Home & "/.i-nex/screenfetch-dev"
-  Try Kill User.Home & "/.i-nex/report-ng.sh"
   
  Else
   Logs("i-nex in home folder not exist", Logger.Error)
@@ -37,14 +36,10 @@ Public Sub _inits()
  Logs("Copy nedded files", Logger.Info)
  Logs("Copy screenfetch-dev from Data/screenfetch-dev to " & User.Home &/ ".i-nex/screenfetch-dev", Logger.Info)
   Copy "Data/screenfetch-dev" To User.Home &/ ".i-nex/screenfetch-dev"
- Logs("Copy report-ng.sh from Data/report-ng.sh to " & User.Home &/ ".i-nex/report-ng.sh", Logger.Info)
-  Copy "Data/report-ng.sh" To User.Home &/ ".i-nex/report-ng.sh"
  Logs("Execute copied files", Logger.Info)
  Logs("Execute screenfetch-dev", Logger.Info)
  Exec ["/bin/bash", "" & User.Home & "/.i-nex/screenfetch-dev"] Wait To Do_not_print
  Do_not_print = Null
- Logs("Execute report-ng.sh", Logger.Info)
- Exec ["/bin/bash", "" & User.Home & "/.i-nex/report-ng.sh"] Wait
  
  If Settings["FirstRun/Value"] = "True" Then
     If Settings["FirstRun/AppVer"] < Application.Version Then

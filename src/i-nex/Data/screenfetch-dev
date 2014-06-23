@@ -3365,13 +3365,33 @@ done
 infoDisplay
 [ "$screenshot" == "1" ] && takeShot
 [ "$exportTheme" == "1" ] && themeExport
-echo $DE > ~/.i-nex/DE.conf
-echo $WM > ~/.i-nex/WM.conf
-echo $distro > ~/.i-nex/DistributionVendor.conf
-echo $distro_release > ~/.i-nex/DistributionRelease.conf
-echo $Win_theme > ~/.i-nex/Win_theme.conf
-echo $gtk2Theme > ~/.i-nex/gtk2Theme.conf
-echo $gtk3Theme > ~/.i-nex/gtk3Theme.conf
-echo $gtkIcons > ~/.i-nex/gtkIcons.conf
-echo $gtkFont > ~/.i-nex/gtkFont.conf
+BINUTILS=("Binutils $(ld -v | egrep -o '[0-9]+\.[0-9\.]+')")
+LNXCLIB=$(sed -n -e '/^.*\/libc-\([^/]*\)\.so$/{s//\1/;p;q}' < /proc/self/maps)
+GNUMAKE=$(make --version 2>&1 | awk -F, '{print $1}' | awk '/GNU Make/{print $NF}')
+PPP=$(pppd --version 2>&1| grep version | awk 'NR==1{print $3}')
+#Dynamic linker (ldd)
+DYNAMIC_LINKER=$(ldd -v > /dev/null 2>&1 && ldd -v || ldd --version |head -n 1 | awk 'NR==1{print $NF}')
+NETTOOLS=$(ifconfig --version 2>&1 | grep tools | awk 'NR==1{print $NF}')
+WIRELESS_TOOLS=$(iwconfig --version 2>&1 | awk '(NR==1 && ($3 == "version")) {print $4}')
+
+cat > ~/.i-nex/screenfetch.json <<EOF
+{
+  "DE": "$DE",
+  "WM": "$WM",
+  "Distro": "$distro",
+  "Distro_Release": "$distro_release",
+  "WinTheme": "$Win_theme",
+  "GTK2Theme": "$gtk2Theme",
+  "GTK3Theme": "$gtk3Theme",
+  "GTKIcons": "$gtkIcons",
+  "GTKFont": "$gtkFont",
+  "BINUTILS": "$BINUTILS",
+  "LNXCLIB": "$LNXCLIB",
+  "GNUMAKE": "$GNUMAKE",
+  "PPP": "$PPP",
+  "DYNAMIC_LINKER": "$DYNAMIC_LINKER",
+  "NETTOOLS": "$NETTOOLS",
+  "WIRELESS_TOOLS": "$WIRELESS_TOOLS",
+}
+EOF
 exit 0
