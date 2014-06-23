@@ -93,90 +93,48 @@ End
 
 Public Sub get_informations()
   Logs("Get informations of Drives", Logger.Info)
-  Shell "cat /sys/block/" & Finfosys.ComboBox4.Text & "/device/model" Wait To device_model
-  Shell "cat /sys/block/" & Finfosys.ComboBox4.Text & "/device/vendor" Wait To device_vendor
-  Shell "cat /sys/block/" & Finfosys.ComboBox4.Text & "/device/rev" Wait To device_rev
-  Shell "cat /sys/block/" & Finfosys.ComboBox4.Text & "/device/max_sectors" Wait To max_sectors
-  Shell "cat /sys/block/" & Finfosys.ComboBox4.Text & "/device/state" Wait To device_state
-  Shell "cat /sys/block/" & Finfosys.ComboBox4.Text & "/device/modalias" Wait To modalias
-  Shell "cat /sys/block/" & Finfosys.ComboBox4.Text & "/removable" Wait To removable
-  Shell "cat /sys/block/" & Finfosys.ComboBox4.Text & "/ext_range" Wait To ext_range
-  Shell "cat /sys/block/" & Finfosys.ComboBox4.Text & "/range" Wait To range
-  Shell "cat /sys/block/" & Finfosys.ComboBox4.Text & "/queue/add_random" Wait To add_random
-  Shell "cat /sys/block/" & Finfosys.ComboBox4.Text & "/queue/discard_granularity" Wait To discard_granularity
-  Shell "cat /sys/block/" & Finfosys.ComboBox4.Text & "/queue/discard_max_bytes" Wait To discard_max_bytes
-  Shell "cat /sys/block/" & Finfosys.ComboBox4.Text & "/queue/discard_zeroes_data" Wait To discard_zeroes_data
-  Shell "cat /sys/block/" & Finfosys.ComboBox4.Text & "/queue/hw_sector_size" Wait To hw_sector_size
-  Shell "cat /sys/block/" & Finfosys.ComboBox4.Text & "/queue/iostats" Wait To hw_sector_size ' iostats
-  Shell "cat /sys/block/" & Finfosys.ComboBox4.Text & "/queue/logical_block_size" Wait To logical_block_size ' logical_block_size
-  Shell "cat /sys/block/" & Finfosys.ComboBox4.Text & "/queue/max_hw_sectors_kb" Wait To max_hw_sectors_kb
-  Shell "cat /sys/block/" & Finfosys.ComboBox4.Text & "/queue/max_sectors_kb" Wait To max_sectors_kb
-  Shell "cat /sys/block/" & Finfosys.ComboBox4.Text & "/queue/max_segments" Wait To max_segments
-  Shell "cat /sys/block/" & Finfosys.ComboBox4.Text & "/queue/max_segment_size" Wait To max_segment_size
-  Shell "cat /sys/block/" & Finfosys.ComboBox4.Text & "/queue/minimum_io_size" Wait To minimum_io_size ' minimum_io_size
-  Shell "cat /sys/block/" & Finfosys.ComboBox4.Text & "/queue/nomerges" Wait To nomerges ' nomerges
-  Shell "cat /sys/block/" & Finfosys.ComboBox4.Text & "/queue/nr_requests" Wait To nr_requests ' nr_requests
-  Shell "cat /sys/block/" & Finfosys.ComboBox4.Text & "/queue/optimal_io_size" Wait To optimal_io_size ' optimal_io_size
-  Shell "cat /sys/block/" & Finfosys.ComboBox4.Text & "/queue/physical_block_size" Wait To physical_block_size ' physical_block_size
-  Shell "cat /sys/block/" & Finfosys.ComboBox4.Text & "/queue/read_ahead_kb" Wait To read_ahead_kb
-  Shell "cat /sys/block/" & Finfosys.ComboBox4.Text & "/queue/scheduler" Wait To scheduler
-  Shell "cat /sys/block/" & Finfosys.ComboBox4.Text & "/queue/rotational" Wait To rotational ' rotational
-  Shell "cat /sys/block/" & Finfosys.ComboBox4.Text & "/queue/rq_affinity" Wait To rq_affinity ' rq_affinity
-  Shell "cat /sys/block/" & Finfosys.ComboBox4.Text & "/" & Finfosys.ComboBox3.Text & "/size" Wait To real_size
-  Shell "cat /sys/block/" & Finfosys.ComboBox4.Text & "/bdi/max_ratio" Wait To max_ratio
-  Shell "cat /sys/block/" & Finfosys.ComboBox4.Text & "/bdi/min_ratio" Wait To min_ratio
-  Shell "cat /sys/block/" & Finfosys.ComboBox4.Text & "/bdi/stable_pages_required" Wait To stable_pages_required
-  Shell "sed -n '2p' /proc/swaps | awk {'print $1'} | cut -d '/' -f 3" Wait To check_swap
-  Shell "df | grep \"" & Finfosys.ComboBox3.Text & "\" | awk {'print $5'} | sed -n '1p'" Wait To used
-  Logs("Get informations of Drives Done", Logger.Info)
-  Logs("Replace new line to Null", Logger.Info)
-  rm_new_line()
-  disks()
-End
+  Try device_model = Replace(File.Load("/sys/block/" & Finfosys.ComboBox4.Text & "/device/model"), "\n", "")
+  Try device_vendor = Replace(File.Load("/sys/block/" & Finfosys.ComboBox4.Text & "/device/vendor"), "\n", "")
+  Try device_rev = Replace(File.Load("/sys/block/" & Finfosys.ComboBox4.Text & "/device/rev"), "\n", "")
+  Try max_sectors = Replace(File.Load("/sys/block/" & Finfosys.ComboBox4.Text & "/device/max_sectors"), "\n", "")
+  Try device_state = Replace(File.Load("/sys/block/" & Finfosys.ComboBox4.Text & "/device/state"), "\n", "")
+  Try modalias = Replace(File.Load("/sys/block/" & Finfosys.ComboBox4.Text & "/device/modalias"), "\n", "")
+  Try removable = Replace(File.Load("/sys/block/" & Finfosys.ComboBox4.Text & "/removable"), "\n", "")
+  Try ext_range = Replace(File.Load("/sys/block/" & Finfosys.ComboBox4.Text & "/ext_range"), "\n", "")
+  Try range = Replace(File.Load("/sys/block/" & Finfosys.ComboBox4.Text & "/range"), "\n", "")
+  Try add_random = Replace(File.Load("/sys/block/" & Finfosys.ComboBox4.Text & "/queue/add_random"), "\n", "")
+  Try discard_granularity = Replace(File.Load("/sys/block/" & Finfosys.ComboBox4.Text & "/queue/discard_granularity"), "\n", "")
+  Try discard_max_bytes = Replace(File.Load("/sys/block/" & Finfosys.ComboBox4.Text & "/queue/discard_max_bytes"), "\n", "")
+  Try discard_zeroes_data = Replace(File.Load("/sys/block/" & Finfosys.ComboBox4.Text & "/queue/discard_zeroes_data"), "\n", "")
+  Try hw_sector_size = Replace(File.Load("/sys/block/" & Finfosys.ComboBox4.Text & "/queue/hw_sector_size"), "\n", "")
+  Try iostats = Replace(File.Load("/sys/block/" & Finfosys.ComboBox4.Text & "/queue/iostats"), "\n", "")
+  Try logical_block_size = Replace(File.Load("/sys/block/" & Finfosys.ComboBox4.Text & "/queue/logical_block_size"), "\n", "")
+  Try max_hw_sectors_kb = Replace(File.Load("/sys/block/" & Finfosys.ComboBox4.Text & "/queue/max_hw_sectors_kb"), "\n", "")
+  Try max_sectors_kb = Replace(File.Load("/sys/block/" & Finfosys.ComboBox4.Text & "/queue/max_sectors_kb"), "\n", "")
+  Try max_segments = Replace(File.Load("/sys/block/" & Finfosys.ComboBox4.Text & "/queue/max_segments"), "\n", "")
+  Try max_segment_size = Replace(File.Load("/sys/block/" & Finfosys.ComboBox4.Text & "/queue/max_segment_size"), "\n", "")
+  Try minimum_io_size = Replace(File.Load("/sys/block/" & Finfosys.ComboBox4.Text & "/queue/minimum_io_size"), "\n", "")
+  Try nomerges = Replace(File.Load("/sys/block/" & Finfosys.ComboBox4.Text & "/queue/nomerges"), "\n", "")
+  Try nr_requests = Replace(File.Load("/sys/block/" & Finfosys.ComboBox4.Text & "/queue/nr_requests"), "\n", "")
+  Try optimal_io_size = Replace(File.Load("/sys/block/" & Finfosys.ComboBox4.Text & "/queue/optimal_io_size"), "\n", "")
+  Try physical_block_size = Replace(File.Load("/sys/block/" & Finfosys.ComboBox4.Text & "/queue/physical_block_size"), "\n", "")
+  Try read_ahead_kb = Replace(File.Load("/sys/block/" & Finfosys.ComboBox4.Text & "/queue/read_ahead_kb"), "\n", "")
+  Try scheduler = Replace(File.Load("/sys/block/" & Finfosys.ComboBox4.Text & "/queue/scheduler"), "\n", "")
+  Try rotational = Replace(File.Load("/sys/block/" & Finfosys.ComboBox4.Text & "/queue/rotational"), "\n", "")
+  Try rq_affinity = Replace(File.Load("/sys/block/" & Finfosys.ComboBox4.Text & "/queue/rq_affinity"), "\n", "")
+  
+  Try real_size = ((Replace(File.Load("/sys/block/" & Finfosys.ComboBox4.Text & "/" & Finfosys.ComboBox3.Text & "/size"), "\n", "") / 1024000) / 2) & " GB"
+  
+  Try max_ratio = Replace(File.Load("/sys/block/" & Finfosys.ComboBox4.Text & "/bdi/max_ratio"), "\n", "")
+  Try min_ratio = Replace(File.Load("/sys/block/" & Finfosys.ComboBox4.Text & "/bdi/min_ratio"), "\n", "")
+  Try stable_pages_required = Replace(File.Load("/sys/block/" & Finfosys.ComboBox4.Text & "/bdi/stable_pages_required"), "\n", "")
+  
+  Shell "sed -n \"2p\" /proc/swaps | awk {'print $1'} | cut -d \"/\" -f 3" Wait To check_swap
+  Shell "LC_ALL=C df | grep \"" & Finfosys.ComboBox3.Text & "\" | awk {'print $5'} | sed -n '1p'" Wait To used
+  Used = Replace(Replace(Used, "%", ""), "\n", "")
 
-Public Sub rm_new_line()
- 
-  device_model = Replace(device_model, "\n", "")
-  device_vendor = Replace(device_vendor, "\n", "")
-  device_uuid = Replace(device_uuid, "\n", "")
-  real_size = ((Replace(real_size, "\n", "") / 1024000) / 2) & " GB"
-  filesystem_type = Replace(filesystem_type, "\n", "")
-  mount_widtch = Replace(mount_widtch, "\n", "")
-  device_rev = Replace(device_rev, "\n", "")
-  max_sectors = Replace(max_sectors, "\n", "")
-  device_state = Replace(device_state, "\n", "")
-  modalias = Replace(modalias, "\n", "")
-  Used = Replace(Used, "\n", "")
-  Used = Replace(Used, "%", "")
-  check_swap = Replace(Replace(check_swap, "", ""), "\n", "")
-  removable = Replace(removable, "\n", "")
-  ext_range = Replace(ext_range, "\n", "")
-  range = Replace(range, "\n", "")
-  add_random = Replace(add_random, "\n", "")
-  discard_granularity = Replace(discard_granularity, "\n", "")
-  discard_max_bytes = Replace(discard_max_bytes, "\n", "")
-  discard_zeroes_data = Replace(discard_zeroes_data, "\n", "")
-  hw_sector_size = Replace(hw_sector_size, "\n", "")
-  max_hw_sectors_kb = Replace(max_hw_sectors_kb, "\n", "")
-  max_sectors_kb = Replace(max_sectors_kb, "\n", "")
-  max_segments = Replace(max_segments, "\n", "")
-  max_segment_size = Replace(max_segment_size, "\n", "")
-  read_ahead_kb = Replace(read_ahead_kb, "\n", "")
-  scheduler = Replace(scheduler, "\n", "")
-  max_ratio = Replace(max_ratio, "\n", "")
-  min_ratio = Replace(min_ratio, "\n", "")
-  stable_pages_required = Replace(stable_pages_required, "\n", "")
-  logical_block_size = Replace(logical_block_size, "\n", "") ' logical_block_size
-  iostats = Replace(iostats, "\n", "") 'iostats
-  minimum_io_size = Replace(minimum_io_size, "\n", "") ' minimum_io_size
-  nomerges = Replace(nomerges, "\n", "") ' nomerges
-  nr_requests = Replace(nr_requests, "\n", "") ' nr_requests
-  optimal_io_size = Replace(optimal_io_size, "\n", "") ' optimal_io_size
-  physical_block_size = Replace(physical_block_size, "\n", "") ' physical_block_size
-  rotational = Replace(rotational, "\n", "") ' rotational
-  rq_affinity = Replace(rq_affinity, "\n", "") ' rq_affinity
-  Logs("Replace new line to Null Done", Logger.Info)
- 
+  Logs("Get informations of Drives Done", Logger.Info)
+  disks()
 End
 
 Public Sub disks()
@@ -184,26 +142,25 @@ Public Sub disks()
   mount_widtch = Null
   mount_point = Null
   device_uuid = Null
-  If Finfosys.ComboBox3.Text Not Like "" Then
-  Shell "grep -w \"" & Finfosys.ComboBox3.Text & "\" /proc/mounts | awk {'print $4'}" Wait To mount_widtch
-  Endif
-  Shell "LC_ALL=C df | grep -w \"" & Finfosys.ComboBox3.Text & "\" | awk {'print $6, $7'} | sed -n \"1p\"" Wait To mount_point
-  Shell "ls -l /dev/disk/by-uuid/ | grep -w \"" & Finfosys.ComboBox3.Text & "\" | awk {'print $9'}" Wait To device_uuid
   
-  device_uuid = Replace(Replace(device_uuid, " ", ""), "\n", "")
-  Shell "grep -w \"" & Finfosys.ComboBox3.Text & "\" /proc/mounts | awk {'print $3'}" Wait To filesystem_type
-  filesystem_type = Replace(Replace(filesystem_type, " ", ""), "\n", "")
+  If Finfosys.ComboBox3.Text Not Like "" Then
+   Shell "grep -w \"" & Finfosys.ComboBox3.Text & "\" /proc/mounts | awk {'print $4'}" Wait To mount_widtch
+  Endif
+   Shell "LC_ALL=C df | grep -w \"" & Finfosys.ComboBox3.Text & "\" | awk {'print $6, $7'} | sed -n \"1p\"" Wait To mount_point
+   Shell "ls -l /dev/disk/by-uuid/ | grep -w \"" & Finfosys.ComboBox3.Text & "\" | awk {'print $9'}" Wait To device_uuid
+  
+   device_uuid = Replace(Replace(device_uuid, " ", ""), "\n", "")
+    Shell "grep -w \"" & Finfosys.ComboBox3.Text & "\" /proc/mounts | awk {'print $3'}" Wait To filesystem_type
+    filesystem_type = Replace(Replace(filesystem_type, " ", ""), "\n", "")
 
   If IsNull(mount_widtch) And Not IsNull(device_uuid) Then
-  Shell "grep -w \"" & device_uuid & "\" /proc/mounts | awk {'print $4'}" Wait To mount_widtch
+   Shell "grep -w \"" & device_uuid & "\" /proc/mounts | awk {'print $4'}" Wait To mount_widtch
   Endif
   
-  
   mount_widtch = Replace(mount_widtch, "\n", "")
-  
 
   If IsNull(filesystem_type) Or IsBlank(filesystem_type) And Not IsNull(device_uuid) Then
-  Shell "grep -w \"" & device_uuid & "\" /proc/mounts | awk {'print $3'}" Wait To filesystem_type
+   Shell "grep -w \"" & device_uuid & "\" /proc/mounts | awk {'print $3'}" Wait To filesystem_type
   Endif
   If IsNull(filesystem_type) Or IsBlank(filesystem_type) Then
    Shell "ls -l /sys/fs/*/* | grep -w \"" & Finfosys.ComboBox3.Text & "\" | cut -d '/' -f 4" Wait To filesystem_type
@@ -211,11 +168,11 @@ Public Sub disks()
   filesystem_type = Replace(Replace(filesystem_type, " ", ""), "\n", "")
   
   If IsNull(device_uuid) Then
-  filesystem_type = Null
+   filesystem_type = Null
   Endif
   
   If mount_point Like "*Mounted on*" Then 
-  Shell "LC_ALL=C df | grep -w \"" & Finfosys.ComboBox4.Text & "\" | awk {'print $6, $7'} | sed -n '1p'" Wait To mount_point
+   Shell "LC_ALL=C df | grep -w \"" & Finfosys.ComboBox4.Text & "\" | awk {'print $6, $7'} | sed -n '1p'" Wait To mount_point
   Endif
   mount_point = Replace(mount_point, "\n", "")
 End
