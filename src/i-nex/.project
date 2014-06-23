@@ -14,14 +14,13 @@ Environment="LANG=C\nLC_ALL=C\nLIBOVERLAY_SCROLLBAR=0\nAPPMENU_DISPLAY_BOTH=1\nS
 TabSize=1
 ControlPublic=1
 ModulePublic=1
-ExecPath=/home/michal/Pulpit/i-nex.gambas
 SourcePath=/home/michal/Pulpit
 Maintainer=eloaders
 Vendor=i-nex
 Address=eloaders@linux.pl
 Url=http://i-nex.linux.pl/
 License=General Public Licence
-PackageName=i-nex-0.6.4
+PackageName=i-nex-0.6.6
 Packager=1
 Systems=autotools
 Menus=archlinux:"Applications/System/Administration"
