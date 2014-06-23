@@ -401,27 +401,14 @@ Public Sub grafika()
   Try Label224.Text = "Client glx version: " & Replace(CliVersS, "\n", "")
   Try Label225.Text = "GLX version: " & Replace(GLXV, "\n", "")
 
-  Shell "" & ChkPrm.ChkExecDir("lspci") & " -v -s `lspci | awk '/VGA/{print $1}'` | grep 'Kernel driver in use:' | cut -d ':' -f 2" Wait To Kernel_driver_in_use
-  Shell "" & ChkPrm.ChkExecDir("lspci") & " | grep 'VGA' | cut -d ':' -f3 | cut -d '(' -f 1 | sed -n '1p'" Wait To gpu
-  
-  If ChkPrm.ChkExec("xdpyinfo") = True Then
-   Shell "xdpyinfo | grep 'dimensions:' | cut -d ':' -f 2" Wait To rozdzielczosc
-  Else
-    Message.Warning("Not found xdpyinfo")
-  Endif
+  Shell ChkPrm.ChkExecDir("lspci") & " -v -s `lspci | awk '/VGA/{print $1}'` | grep \"Kernel driver in use:\" | cut -d ':' -f 2" Wait To Kernel_driver_in_use
+  Shell ChkPrm.ChkExecDir("lspci") & " | grep 'VGA' | cut -d ':' -f3 | cut -d '(' -f 1 | sed -n '1p'" Wait To gpu
+  Shell ChkPrm.ChkExecDir("xrandr") & " | grep current | grep 'Screen 0:' | cut -d ':' -f 2" Wait To available_resolutions
+  Shell ChkPrm.ChkExecDir("xdpyinfo") & " | grep 'dimensions:' | cut -d ':' -f 2" Wait To rozdzielczosc
   
   Exec ["/bin/bash", "/usr/bin/i-nex-lspci", "nonprefetchable"] Wait To memory_non_prefetchable
   Exec ["/bin/bash", "/usr/bin/i-nex-lspci", "prefetchable"] Wait To memory_prefetchable
-  
-  'Rozdzielczość
-  If ChkPrm.ChkExec("xrandr") = True Then
-    Shell "xrandr | grep current | grep 'Screen 0:' | cut -d ':' -f 2" Wait To available_resolutions
-    ''Koniec sprawdzenia dostępnych rozdzielczości.
-    ''Sprawdzane są tylko rozdzielczości dla Screen 0.
-    ''W przyszłości trzeba będzie dać Combobox w którym będzie do wyboru Creen 0, Screen 1 itd.
-  Else
-    Message.Warning("Not found xrandr")
-  Endif
+
   Label136.Text = "Kernel driver in use: " & Replace(Kernel_driver_in_use, "\n", "")
   Label64.Text = "Total Memory prefetchable: " & Replace(memory_prefetchable, "\n", " - ")
   Label146.Text = "Total Memory non-prefetchable: " & Replace(memory_non_prefetchable, "\n", " - ")
