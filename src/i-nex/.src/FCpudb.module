@@ -64,6 +64,9 @@ Public Sub _inits()
   
   'For the purpose of the database, certain words have to be converted to an empty value.
   cpucache = Replace(Replace(Replace(Replace(cpucache, "with", "*"), "APU", "*"), "Graphics", "*"), "Radeon", "*")
+  'Fix for APU with Radeon(TM) R7 Graphics
+   cpucache = Replace(cpucache, "R7", "")
+  '
   cpucache = Replace(Replace(Replace(Replace(Replace(Replace(Replace(cpucache, "Intel", ""), " ", "*"), "R", ""), "CPU", ""), "TM", ""), ")", ""), "(", "")
   cpucache = Replace(Replace(Replace(Replace(cpucache, "AMD", "*"), "Dual-Core", "*"), "Processor", "*"), "tm", "*")
   cpucache = Replace(cpucache, "HD", "*")
