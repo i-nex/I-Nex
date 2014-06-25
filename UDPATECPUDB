@@ -1,0 +1,4 @@
+#!/bin/bash
+wget http://i-nex.pl/inex.r?download=atom -O ./src/i-nex/Database/atom
+wget http://i-nex.pl/inex.r?download=intel -O ./src/i-nex/Database/intel
+wget http://i-nex.pl/inex.r?download=amd -O ./src/i-nex/Database/amd
