@@ -465,10 +465,10 @@ Public Sub Wykrywanie_procesorow()
   Label71.Text = "Flags: " & FFlags.instructions
   Label13.Text = UCase$(Replace(Replace(Replace(vendor_id, "Authentic", ""), "Genuine", ""), "\n", ""))
   Label12.Text = Replace(cpu_MHz, "\n", "") & " MHz"
-  Label1.Text = "L1 Data:        " & Replace(ldata, "\n", "")
+  Label1.Text = "L1 Data: " & Replace(ldata, "\n", "")
   Label2.Text = "L1 instruction: " & Replace(linstruction, "\n", "")
-  Label3.Text = "Level 2:        " & Replace(cache_size, "\n", "")
-  Label5.Text = "Level 3:        " & Replace(level3cache, "\n", "")
+  Label3.Text = "Level 2: " & Replace(cache_size, "\n", "")
+  Label5.Text = "Level 3: " & Replace(level3cache, "\n", "")
   Label97.Text = "Family: " & Replace(cpu_family, "\n", "")
   Label6.Text = "Model: " & Replace(model, "\n", "")
   Label7.Text = "Stepping: " & Replace(stepping, "\n", "")
