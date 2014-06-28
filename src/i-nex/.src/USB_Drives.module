@@ -48,36 +48,16 @@ End
 
 Public Sub get_informations()
  'Product = File.Load("/sys/bus/usb/devices/usb1/product")
- Shell "cat /sys/bus/usb/devices/" & Finfosys.ComboBox5.Text & "/product" Wait To Product
- Shell "cat /sys/bus/usb/devices/" & Finfosys.ComboBox5.Text & "/bMaxPower" Wait To bMaxPower
- Shell "cat /sys/bus/usb/devices/" & Finfosys.ComboBox5.Text & "/manufacturer" Wait To manufacturer
- Shell "cat /sys/bus/usb/devices/" & Finfosys.ComboBox5.Text & "/speed" Wait To speed
- Shell "cat /sys/bus/usb/devices/" & Finfosys.ComboBox5.Text & "/version" Wait To Version
- Shell "cat /sys/bus/usb/devices/" & Finfosys.ComboBox5.Text & "/idProduct" Wait To idProduct
- Shell "cat /sys/bus/usb/devices/" & Finfosys.ComboBox5.Text & "/idVendor" Wait To idVendor
- Shell "cat /sys/bus/usb/devices/" & Finfosys.ComboBox5.Text & "/serial" Wait To Serial
- Shell "lsusb -d " & idVendor & ":" & idProduct & "" Wait To lsusb
- export_informations()
-End
-
-Public Sub export_informations()
- Product = Replace(Product, "\n", "")
- bMaxPower = Replace(bMaxPower, "\n", "")
- manufacturer = Replace(manufacturer, "\n", "")
- speed = Replace(speed, "\n", "")
- Version = Replace(Version, "\n", "")
- idProduct = Replace(idProduct, "\n", "")
- idVendor = Replace(idVendor, "\n", "")
+ Try Finfosys.TextBox40.Text = Replace(File.Load("/sys/bus/usb/devices/" & Finfosys.ComboBox5.Text & "/product"), "\n", "")
+ Try Finfosys.TextBox41.Text = Replace(File.Load("/sys/bus/usb/devices/" & Finfosys.ComboBox5.Text & "/bMaxPower"), "\n", "")
+ Try Finfosys.TextBox42.Text = Replace(File.Load("/sys/bus/usb/devices/" & Finfosys.ComboBox5.Text & "/manufacturer"), "\n", "")
+ Try Finfosys.TextBox46.Text = Replace(File.Load("/sys/bus/usb/devices/" & Finfosys.ComboBox5.Text & "/speed"), "\n", "") & " MB"
+ Try Finfosys.TextBox49.Text = Replace(File.Load("/sys/bus/usb/devices/" & Finfosys.ComboBox5.Text & "/version"), "\n", "")
+ Try Finfosys.TextBox50.Text = Replace(File.Load("/sys/bus/usb/devices/" & Finfosys.ComboBox5.Text & "/idProduct"), "\n", "")
+ Try Finfosys.TextBox51.Text = Replace(File.Load("/sys/bus/usb/devices/" & Finfosys.ComboBox5.Text & "/idVendor"), "\n", "")
+ Try Finfosys.TextBox54.Text = Replace(File.Load("/sys/bus/usb/devices/" & Finfosys.ComboBox5.Text & "/serial"), "\n", "")
  Shell "lsusb -d " & idVendor & ":" & idProduct & "" Wait To lsusb
  lsusb = Replace(lsusb, "\n", "")
- Serial = Replace(Serial, "\n", "")
- Finfosys.TextBox40.Text = Product
- Finfosys.TextBox41.Text = bMaxPower
- Finfosys.TextBox42.Text = manufacturer
  Finfosys.TextBox46.Text = speed & " MB"
- Finfosys.TextBox49.Text = Version
- Finfosys.TextBox50.Text = idProduct
- Finfosys.TextBox51.Text = idVendor
  Finfosys.TextBox43.Text = lsusb
- Finfosys.TextBox54.Text = Serial
 End
