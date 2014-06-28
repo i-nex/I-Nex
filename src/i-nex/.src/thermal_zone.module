@@ -16,89 +16,56 @@
 ' along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 Public Logs As New Logger
-Public temp_acpi As Boolean = Exist("/sys/bus/acpi/devices/LNXTHERM:00/thermal_zone/temp")
-Public temp_acpi_thm As Boolean = Exist("/proc/acpi/thermal_zone/THM0/temperature")
-Public temp_hwmon As Boolean = Exist("/sys/class/hwmon/hwmon0/device/temp2_input")
-Public temp_hwmon2 As Boolean = Exist("/sys/class/hwmon/hwmon0/temp1_input")
-Public temp_coretemp As Boolean = Exist("/sys/devices/platform/coretemp.0/temp2_input")
-'
 Public Temperature As String
+Public CriticalTemperature As String
 Public calculate As Float
-Public supporttemp As Boolean = False
-Public hFile As File
-Public sLine As String
-
+Public calculatecrit As Float
+Public supporttemp As Boolean '= False
+Public supportcritical As Boolean
+Public TemperaturesDirectiories As Collection
+Public TemperatureCriticalDirectories As Collection
 Public Sub _inits()
+ Dim i As Integer
+ TemperaturesDirectiories = [("0"): ("/sys/bus/acpi/devices/LNXTHERM:00/thermal_zone/temp"),
+                             ("1"): ("/proc/acpi/thermal_zone/THM0/temperature"),
+                             ("2"): ("/sys/class/hwmon/hwmon0/device/temp2_input"),
+                             ("3"): ("/sys/class/hwmon/hwmon0/temp1_input"),
+                             ("4"): ("/sys/devices/platform/coretemp.0/temp2_input"),
+                             ("5"): ("/sys/class/hwmon/hwmon0/device/temp1_input"), 
+                             ("6"): ("/sys/class/hwmon/hwmon0/temp2_input"),
+                             ("7"): ("/sys/bus/acpi/drivers/ATK0110/ATK0110:00/hwmon/hwmon0/temp1_input"),
+                             ("8"): ("/sys/devices/virtual/thermal/thermal_zone0/temp")]
  
- If temp_acpi_thm = True Then
- Shell "cat /proc/acpi/thermal_zone/THM0/temperature" Wait To Temperature
- supporttemp = True
- Else
-  supporttemp = False
- Endif
+ TemperatureCriticalDirectories = [("0"): ("/sys/devices/platform/coretemp.0/temp2_crit")]
  
- If temp_acpi = True Then
- Shell "cat /sys/bus/acpi/devices/LNXTHERM:00/thermal_zone/temp" Wait To Temperature
- supporttemp = True
- Else
-  supporttemp = False
- Endif
+ For i = 0 To TemperaturesDirectiories.Count
+  If Exist(TemperaturesDirectiories[i]) = True Then
+   Try Temperature = File.Load(TemperaturesDirectiories[i])
+   supporttemp = True
+   Break
+  Endif
+ Next
  
- If temp_hwmon = True Then
- Shell "cat /sys/class/hwmon/hwmon0/device/temp2_input" Wait To Temperature
- supporttemp = True
- Else
-  supporttemp = False
- Endif
+ For i = 0 To TemperatureCriticalDirectories.Count
+  If Exist(TemperatureCriticalDirectories[i]) = True Then
+   Try CriticalTemperature = File.Load(TemperatureCriticalDirectories[i])
+   supportcritical = True
+   Break
+  Endif
+ Next
  
- If temp_hwmon2 = True Then
- Shell "cat /sys/class/hwmon/hwmon0/temp1_input" Wait To Temperature
- supporttemp = True
+ If CriticalTemperature = Null Then
+ Logs("Not found crit temp", Logger.Error)
+ supportcritical = False
  Else
-  supporttemp = False
- Endif
- 
- If temp_coretemp = True Then
- supporttemp = True
- Shell "cat /sys/devices/platform/coretemp.0/temp2_input" Wait To Temperature
- Else
-  supporttemp = False
- Endif
- 
- If Access("/sys/class/hwmon/hwmon0/device/temp1_input", gb.Read) = True Then
-  supporttemp = True
-  Shell "cat /sys/class/hwmon/hwmon0/device/temp1_input" Wait To Temperature
- Else
-  supporttemp = False
- Endif
- 
- If Access("/sys/class/hwmon/hwmon0/temp2_input", gb.Read) = True Then
-  supporttemp = True
-  Shell "cat /sys/class/hwmon/hwmon0/temp2_input" Wait To Temperature
- Else
-  supporttemp = False
+  calculatecrit = CFloat(Val(Replace(CriticalTemperature, "\n", "")))
  Endif
  
  If Temperature = Null Then
  Logs("Not found temp", Logger.Error)
+ supporttemp = False
  Else
-  calculate = CFloat(Val(Temperature))
+  calculate = CFloat(Val(Replace(Temperature, "\n", "")))
  Endif
- 
- 'hFile = Open "/sys/devices/platform/coretemp.0/temp2_input" For Input
-
- 'While Not Eof(hFile)
- 'Line Input #hFile, sLine
- 'Print sLine
- 'Wend
- 'calculate = Replace(Replace(Temperature, " ", ""), "\n", "")
- 'hwmon For New 2.6.39, 3. x linux kernels
-        '/sys/class/hwmon/hwmon0/temp1_input',
-        '/sys/devices/platform/coretemp.0/temp1_input',
-        '/sys/bus/acpi/devices/LNXTHERM\:00/thermal_zone/temp',
-        '/sys/devices/virtual/thermal/thermal_zone0/temp',
-        '/sys/bus/acpi/drivers/ATK0110/ATK0110:00/hwmon/hwmon0/temp1_input',
-        'Debian Sid / Experimental On AMD - 64
-        '/sys/class/hwmon/hwmon0/device/temp1_input'
  
 End
