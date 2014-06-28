@@ -1,6 +1,6 @@
 pkgname=i-nex
 pkgver=7.0.0
-_git=7.0.0
+_git=$(git describe --tags `git rev-list --tags --max-count=1`)
 pkgrel=1
 pkgdesc="System information tool like hardinfo, sysinfo"
 arch=('i686' 'x86_64')
@@ -10,15 +10,18 @@ depends=('procps-ng' 'gambas3-runtime' 'gambas3-gb-image' 'gambas3-gb-gtk' 'gamb
          'gambas3-gb-desktop' 'gambas3-gb-settings' 'gambas3-gb-form-dialog' 'gambas3-gb-qt4'
          'gambas3-gb-form-mdi' 'gambas3-gb-form-stock' 'util-linux' 'procps' 'python2' 'libcpuid'
          'xorg-server-utils' 'lsb-release' 'coreutils' 'pciutils' 'inetutils' 'mesa-demos' 'curl')
-makedepends=('gambas3-devel' 'gcc' 'imagemagick')
-source=("$pkgname-$pkgver-$pkgrel.tar.gz::https://github.com/eloaders/I-Nex/archive/$_git.tar.gz")
+makedepends=('gambas3-devel' 'gcc' 'imagemagick' 'git')
+source=("$pkgname"::'git://github.com/eloaders/I-Nex.git')
 sha256sums=('SKIP')
 replaces=(i-nex-dev)
 provides=(i-nex-dev)
 conflicts=(i-nex-dev)
- 
+pkgver() {
+  cd "$srcdir/$pkgname"
+  printf "$_git.r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+}
 prepare() {
-  cd "$srcdir/I-Nex-$_git"
+  cd "$srcdir/$pkgname"
   # make it dynamic
   sed -i -e 's|^STATIC.*|STATIC = false|' i-nex.mk
   cd src
@@ -27,13 +30,13 @@ prepare() {
 }
  
 build() {
-  cd "$srcdir/I-Nex-$_git"
+  cd "$srcdir/$pkgname"
  
   make
 }
  
 package() {
-  cd "$srcdir/I-Nex-$_git"
+  cd "$srcdir/$pkgname"
   mkdir -p "$pkgdir/usr/share/applications"
   make install DESTDIR="${pkgdir}"
 }
