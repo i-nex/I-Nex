@@ -1,26 +1,25 @@
 # Gambas Form File 3.0
 
 { Form Form
-  Move(0,0,714,56)
+  Move(0,0,658,56)
   #Scaled = False
   Resizable = False
-  Border = False
   { TextBox1 TextBox
-    Move(0,0,714,28)
+    Move(0,0,602,28)
     Text = ("TextBox1")
   }
   { Button1 Button
-    Move(315,28,28,28)
+    Move(630,28,28,28)
     ToolTip = ("Close")
     Picture = Picture["AppIcons/application-exit2.png"]
   }
   { Button2 Button
-    Move(343,28,28,28)
+    Move(630,0,28,28)
     ToolTip = ("Open i default web browser")
     Picture = Picture["AppIcons/applications-internet.png"]
   }
   { Button3 Button
-    Move(371,28,28,28)
+    Move(602,0,28,28)
     ToolTip = ("Copy")
     Picture = Picture["AppIcons/edit-copy.png"]
   }
