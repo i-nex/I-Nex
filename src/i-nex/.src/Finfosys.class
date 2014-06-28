@@ -75,34 +75,34 @@ Public Sub Form_Open()
       DATAT = JSON.Decode(BUFFER)
   Logs("Add Values CPUID", Logger.Info)
   
-      Label92.Text = "" & DATAT["VENDOR_STR"]
-      Label193.Text = "" & DATAT["CPU_CODENAME"]
-      Label194.Text = "" & DATAT["BRAND_STR"]
-      Label195.Text = "Cores:  " & DATAT["NUM_CORES"]
-      Label196.Text = "Logical CPUS:  " & DATAT["NUM_LOGICAL_CPUS"]
-      Label197.Text = "Total Logical CPUS:  " & DATAT["TOTAL_LOGICAL_CPUS"]
-      Label198.Text = "Family:  " & DATAT["FAMILY"]
-      Label199.Text = "Model:  " & DATAT["MODEL"]
-      Label200.Text = "Stepping:  " & DATAT["STEPPING"]
-      Label201.Text = "Ext Family:  " & DATAT["EXT_FAMILY"]
-      Label202.Text = "Ext Model:  " & DATAT["EXT_MODEL"]
-      Label203.Text = "CPU Clock:  " & DATAT["CPU_CLOCK"]
-      Label204.Text = "CPU Clock BY OS:  " & DATAT["CPU_CLOCK_BY_OS"]
-      Label205.Text = "CPU Clock BY IC:  " & DATAT["CPU_CLOCK_BY_IC"]
-      Label206.Text = "CPU Clock Measure:  " & DATAT["CPU_CLOCK_MEASURE"]
-      Label207.Text = "Mark TSC:  " & DATAT["MARK_TSC"]
-      Label208.Text = "Mark SYS Clock:  " & DATAT["MARK_SYS_CLOCK"]
-      Label209.Text = "L1 Data:  " & DATAT["L1_DATA_CACHE"]
-      Label210.Text = "L1 Instr:  " & DATAT["L1_INSTRUCTION_CACHE"]
-      Label211.Text = "L2 Cache:  " & DATAT["L2_CACHE"]
-      Label212.Text = "L3 Cache:  " & DATAT["L3_CACHE"]
-      Label213.Text = "L1 Assoc:  " & DATAT["L1_ASSOC"]
-      Label214.Text = "L2 Assoc:  " & DATAT["L2_ASSOC"]
-      Label215.Text = "L3 Assoc:  " & DATAT["L3_ASSOC"]
-      Label216.Text = "L1 Cacheline:  " & DATAT["L1_CACHELINE"]
-      Label217.Text = "L2 Cacheline:  " & DATAT["L2_CACHELINE"]
-      Label218.Text = "L3 Cacheline:  " & DATAT["L3_CACHELINE"]
-      Label219.Text = "SSE Size:  " & DATAT["SSE_SIZE"]
+      Label92.Text = DATAT["VENDOR_STR"]
+      Label193.Text = DATAT["CPU_CODENAME"]
+      Label194.Text = DATAT["BRAND_STR"]
+      Label195.Text = "Cores: " & DATAT["NUM_CORES"]
+      Label196.Text = "Logical CPUS: " & DATAT["NUM_LOGICAL_CPUS"]
+      Label197.Text = "Total Logical CPUS: " & DATAT["TOTAL_LOGICAL_CPUS"]
+      Label198.Text = "Family: " & DATAT["FAMILY"]
+      Label199.Text = "Model: " & DATAT["MODEL"]
+      Label200.Text = "Stepping: " & DATAT["STEPPING"]
+      Label201.Text = "Ext Family: " & DATAT["EXT_FAMILY"]
+      Label202.Text = "Ext Model: " & DATAT["EXT_MODEL"]
+      Label203.Text = "CPU Clock: " & DATAT["CPU_CLOCK"]
+      Label204.Text = "CPU Clock BY OS: " & DATAT["CPU_CLOCK_BY_OS"]
+      Label205.Text = "CPU Clock BY IC: " & DATAT["CPU_CLOCK_BY_IC"]
+      Label206.Text = "CPU Clock Measure: " & DATAT["CPU_CLOCK_MEASURE"]
+      Label207.Text = "Mark TSC: " & DATAT["MARK_TSC"]
+      Label208.Text = "Mark SYS Clock: " & DATAT["MARK_SYS_CLOCK"]
+      Label209.Text = "L1 Data: " & DATAT["L1_DATA_CACHE"]
+      Label210.Text = "L1 Instr: " & DATAT["L1_INSTRUCTION_CACHE"]
+      Label211.Text = "L2 Cache: " & DATAT["L2_CACHE"]
+      Label212.Text = "L3 Cache: " & DATAT["L3_CACHE"]
+      Label213.Text = "L1 Assoc: " & DATAT["L1_ASSOC"]
+      Label214.Text = "L2 Assoc: " & DATAT["L2_ASSOC"]
+      Label215.Text = "L3 Assoc: " & DATAT["L3_ASSOC"]
+      Label216.Text = "L1 Cacheline: " & DATAT["L1_CACHELINE"]
+      Label217.Text = "L2 Cacheline: " & DATAT["L2_CACHELINE"]
+      Label218.Text = "L3 Cacheline: " & DATAT["L3_CACHELINE"]
+      Label219.Text = "SSE Size: " & DATAT["SSE_SIZE"]
 
   Logs("Create Labels ToolButtons TextLabels in ScrollView1", Logger.Info)
   For i = 1 To 94
@@ -240,6 +240,7 @@ Public Sub Form_Open()
   Endif
   'Check temperature. If temterature is OK then timer start 1500/ms. Check temp 1500/ms
   Timer1.Start
+  Timer1.Delay = 1500
   TextLabel21.Visible = False
 
 'Uruchomienie instrukcji dla poszczególnych zakładek w celu wydobycia informacji z systemu
@@ -336,8 +337,9 @@ Public Sub System()
   SCREENFETCH = JSON.Decode(File.Load(User.Home & "/.i-nex/screenfetch.json"))
   Shell "cat /etc/timezone || grep ^TIMEZONE= /etc/sysconfig/clock | cut -d '=' -f 2" Wait To timezone
   If timezone = Null Or "" Then
-    Shell "timedatectl status | grep Timezone: |awk '{print $2}'" Wait To timezone
+    Shell "timedatectl status | grep \"Time zone:\" | cut -d \":\" -f 2 | cut -d \"(\" -f 1" Wait To timezone
   Endif
+  'Detect heap size
   For Each sLine In Split(File.Load("/proc/self/maps"), "\n")
       If InStr(sLine, "[heap]") Then
         aScan = Scan(sLine, "*-* *")
@@ -345,11 +347,12 @@ Public Sub System()
         Break
       Endif
   Next
+  'End od detect heap size
   hostname = System.Host
   arch = System.Architecture
   Shell "gcc -dumpversion" Wait To gcc
-  Shell "cat /var/log/Xorg.0.log | grep 'X.Org X Server' | awk {'print $4'}" Wait To xorg_version
-  Shell "glxinfo | grep 'GLX version:' | sed -n '1p' | cut -d ':' -f 2" Wait To glx_version
+  Shell "cat /var/log/Xorg.0.log | grep \"X.Org X Server\" | awk {'print $4'}" Wait To xorg_version
+  Shell ChkPrm.ChkExecDir("glxinfo") & "| grep \"GLX version:\" | sed -n '1p' | cut -d ':' -f 2" Wait To glx_version
   'Shell "echo $SHELL" Wait To TextBox67.Text
   Label135.Text = "System SHELL: " & System.Shell
   Label137.Text = "GCC Version: " & Replace(gcc, "\n", "")
@@ -587,14 +590,13 @@ Public Sub Button3_Click()
 End
 
 Public Sub Button7_Click()
-  Dim dpkg As String
-  Dim rpm As String
-  Dim pkg As String
-  Shell "grep \"^Status: install ok installed\" /var/lib/dpkg/status | wc -l" Wait To dpkg
-  Shell "rpm -qa | wc -l" Wait To rpm
-  Shell "pacman -Q|wc -l" Wait To pkg
+  Dim packages As String
+  Shell "grep \"^Status: install ok installed\" /var/lib/dpkg/status | wc -l" Wait To packages
+  Shell "rpm -qa | wc -l" Wait To packages
+  Shell "pacman -Q|wc -l" Wait To packages
   TextLabel21.Visible = True
-  TextLabel21.Text = "" & dpkg & " deb, " & rpm & " rpm, " & pkg & "pkg, Packages are installed "
+
+  TextLabel21.Text = packages & " Packages are installed "
 End
 
 Public Sub Button10_Click()
@@ -707,14 +709,15 @@ Public Sub Timer1_Timer()
   dospam_uptime()
   thermal_zone._inits
   If thermal_zone.supporttemp = True Then
-   'Label93.Text = "Temp: " & (thermal_zone.calculate / 1000) & " °C"
-   LCDLabel1.Text = "Temp: " & (thermal_zone.calculate / 1000) & " °C"
-   LCDLabel1.Text = Replace(LCDLabel1.Text, ".", " . ")
+   LCDLabel1.Text = Replace("Temp: " & (thermal_zone.calculate / 1000) & " °C", ".", " . ")
   Else
-   'Label93.Visible = False
     LCDLabel1.Visible = False
   Endif
-  
+  If thermal_zone.supportcritical = True Then
+   LCDLabel2.Text = Replace("Crit: " & (thermal_zone.calculatecrit / 1000) & " °C", ".", " . ")
+  Else
+   LCDLabel2.Visible = False
+  Endif
 End
 
 Public Sub Button6_Click()
