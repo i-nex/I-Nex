@@ -41,15 +41,8 @@ Public Sub _inits()
 End
 
 Public Sub _get_informations()
- 
- Shell "cat /sys/class/input/" & Finfosys.ComboBox7.Text & "/name" Wait To Name
- Shell "cat /sys/class/input/" & Finfosys.ComboBox7.Text & "/phys" Wait To Phys
- Shell "cat /sys/class/input/" & Finfosys.ComboBox7.Text & "/modalias" Wait To Modalias
- Name = Replace(Name, "\n", "")
- Phys = Replace(Phys, "\n", "")
- Modalias = Replace(Modalias, "\n", "")
- Finfosys.Label82.Text = "Name:   " & Name
- Finfosys.Label83.Text = "Phys:   " & Phys
- Finfosys.TextBox45.Text = Modalias
+ Try Finfosys.Label82.Text = "Name:   " & Replace(File.Load("/sys/class/input/" & Finfosys.ComboBox7.Text & "/name"), "\n", "")
+ Try Finfosys.Label83.Text = "Phys:   " & Replace(File.Load("/sys/class/input/" & Finfosys.ComboBox7.Text & "/phys"), "\n", "")
+ Try Finfosys.TextBox45.Text = Replace(File.Load("/sys/class/input/" & Finfosys.ComboBox7.Text & "/modalias"), "\n", "")
 End
 
