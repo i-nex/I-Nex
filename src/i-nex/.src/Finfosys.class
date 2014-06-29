@@ -449,7 +449,6 @@ Public Sub Wykrywanie_procesorow()
   Shell "grep \"vendor_id\" /proc/cpuinfo | sed -n \"" & CFloat(ComboBox1.Index + 1) & "p\" | cut -d \":\" -f 2" Wait To obrazekcpu
   Shell "grep \"model name\" /proc/cpuinfo | sed -n \"" & CFloat(ComboBox1.Index + 1) & "p\" | cut -d \":\" -f 2 | cut -d '@' -f 1" Wait To cpu
   Shell "grep \"vendor_id\" /proc/cpuinfo | sed -n \"" & CFloat(ComboBox1.Index + 1) & "p\" | cut -d \":\" -f 2" Wait To vendor_id
-  Shell "grep \"flags\" /proc/cpuinfo | sed -n \"" & CFloat(ComboBox1.Index + 1) & "p\" | cut -d \":\" -f 2" Wait To flags
   Shell "grep \"cpu MHz\" /proc/cpuinfo | sed -n \"" & CFloat(ComboBox1.Index + 1) & "p\" | cut -d \":\" -f 2" Wait To cpu_MHz
   Shell "grep \"model\" /proc/cpuinfo | sed -n \"" & CFloat(CFloat(CFloat((ComboBox1.Index) + 1) * 2) - 1) & "p\" | cut -d \":\" -f 2" Wait To model
   Shell "grep \"stepping\" /proc/cpuinfo | sed -n \"" & CFloat(ComboBox1.Index + 1) & "p\" | cut -d \":\" -f 2" Wait To stepping
@@ -465,8 +464,6 @@ Public Sub Wykrywanie_procesorow()
   Shell "grep \"power management\" /proc/cpuinfo | sed -n \"" & CFloat(ComboBox1.Index + 1) & "p\" | cut -d \":\" -f 2" Wait To power_management
   Label14.Text = Replace(cpu, "\n", "")
   Label14.Tooltip = Replace(cpu, "\n", "")
-  flags = Replace(flags, "\n", "")
-  'FFlags._init
   Label71.Text = "Flags: " & FFlags.instructions
   Label13.Text = UCase$(Replace(Replace(Replace(vendor_id, "Authentic", ""), "Genuine", ""), "\n", ""))
   Label12.Text = Replace(cpu_MHz, "\n", "") & " MHz"
