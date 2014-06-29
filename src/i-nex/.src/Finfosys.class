@@ -31,6 +31,7 @@ Public BUFFER As String
 Public DATAT As Collection
 Public UNAME As Collection
 Public USAGE As Collection
+Public SCREENFETCH As Collection
 Public Sub Form_Open()
   Dim default_display_manager As Boolean = Exist("/etc/X11/default-display-manager")
   Dim cpus As String
@@ -204,8 +205,6 @@ Public Sub Form_Open()
       Finfosys.TabStrip1[11].Visible = False
   Logs("Call to MInit for copy nedded files to I-Nex config dir in User.Home", Logger.Info)
       Object.Call(MInit, "_inits")
-  Logs("Call to Distribution_Detect", Logger.Info)
-      Object.Call(Distribution_Detect, "_inits")
   Logs("Settings default dir = " & Settings.DefaultDir & "", Logger.Info)
       Button14.Visible = ChkPrm.ChkExec("udisks")
   Logs("Check for Battery", Logger.Info)
@@ -248,6 +247,8 @@ Public Sub Form_Open()
  dospam_uptime()
  Logs("Check System", Logger.Info)
  System()
+ Logs("Call to Distribution_Detect", Logger.Info)
+ Object.Call(Distribution_Detect, "_inits")
  Logs("Check Bios", Logger.Info)
  bios()
  Logs("Check Kernels", Logger.Info)
@@ -297,43 +298,26 @@ Public Sub kernel()
 End
 
 Public Sub bios()
-  Exec ["cat", "/sys/devices/virtual/dmi/id/board_vendor"] Wait To TextBox2.Text
-  Exec ["cat", "/sys/devices/virtual/dmi/id/board_version"] Wait To TextBox3.Text
-  Exec ["cat", "/sys/devices/virtual/dmi/id/board_name"] Wait To TextBox4.Text
-  Exec ["cat", "/sys/devices/virtual/dmi/id/board_asset_tag"] Wait To TextBox5.Text
+  Try TextBox2.Text = "Board Vendor:   " & Replace(File.Load("/sys/devices/virtual/dmi/id/board_vendor"), "\n", "")
+  Try TextBox3.Text = "Board Version:   " & Replace(File.Load("/sys/devices/virtual/dmi/id/board_version"), "\n", "")
+  Try TextBox4.Text = "Board Name:   " & Replace(File.Load("/sys/devices/virtual/dmi/id/board_name"), "\n", "")
+  Try TextBox5.Text = "Board Asset Tag:  " & Replace(File.Load("/sys/devices/virtual/dmi/id/board_asset_tag"), "\n", "")
   
-  Exec ["cat", "/sys/devices/virtual/dmi/id/bios_vendor"] Wait To TextBox6.Text
-  Exec ["cat", "/sys/devices/virtual/dmi/id/bios_version"] Wait To TextBox21.Text
-  Exec ["cat", "/sys/devices/virtual/dmi/id/bios_date"] Wait To TextBox22.Text
+  Try TextBox6.Text = "Bios Vendor:   " & Replace(File.Load("/sys/devices/virtual/dmi/id/bios_vendor"), "\n", "")
+  Try TextBox21.Text = "Bios Version:   " & Replace(File.Load("/sys/devices/virtual/dmi/id/bios_version"), "\n", "")
+  Try TextBox22.Text = "Bios Date:   " & Replace(File.Load("/sys/devices/virtual/dmi/id/bios_date"), "\n", "")
   
-  Exec ["cat", "/sys/devices/virtual/dmi/id/chassis_vendor"] Wait To TextBox23.Text
-  Exec ["cat", "/sys/devices/virtual/dmi/id/chassis_version"] Wait To TextBox24.Text
-  Exec ["cat", "/sys/devices/virtual/dmi/id/chassis_type"] Wait To TextBox25.Text
-  Exec ["cat", "/sys/devices/virtual/dmi/id/chassis_asset_tag"] Wait To TextBox26.Text
+  Try TextBox23.Text = "Chassis Vendor:   " & Replace(File.Load("/sys/devices/virtual/dmi/id/chassis_vendor"), "\n", "")
+  Try TextBox24.Text = "Chassis Version:   " & Replace(File.Load("/sys/devices/virtual/dmi/id/chassis_version"), "\n", "")
+  Try TextBox25.Text = "Chassis Type:   " & Replace(File.Load("/sys/devices/virtual/dmi/id/chassis_asset_tag"), "\n", "")
+  Try TextBox26.Text = "Chassis Asset Tag:   " & Replace(File.Load("/sys/devices/virtual/dmi/id/product_name"), "\n", "")
   
-  Exec ["cat", "/sys/devices/virtual/dmi/id/product_name"] Wait To TextBox27.Text
-  Exec ["cat", "/sys/devices/virtual/dmi/id/product_version"] Wait To TextBox28.Text
-  TextBox2.Text = "Board Vendor:   " & Replace(TextBox2.Text, "\n", "")
-  TextBox3.Text = "Board Version:   " & Replace(TextBox3.Text, "\n", "")
-  TextBox4.Text = "Board Name:   " & Replace(TextBox4.Text, "\n", "")
-  TextBox5.Text = "Board Asset Tag:  " & Replace(TextBox5.Text, "\n", "")
-  
-  TextBox6.Text = "Bios Vendor:   " & Replace(TextBox6.Text, "\n", "")
-  TextBox21.Text = "Bios Version:   " & Replace(TextBox21.Text, "\n", "")
-  TextBox22.Text = "Bios Date:   " & Replace(TextBox22.Text, "\n", "")
-  
-  TextBox23.Text = "Chassis Vendor:   " & Replace(TextBox23.Text, "\n", "")
-  TextBox24.Text = "Chassis Version:   " & Replace(TextBox24.Text, "\n", "")
-  TextBox25.Text = "Chassis Type:   " & Replace(TextBox25.Text, "\n", "")
-  TextBox26.Text = "Chassis Asset Tag:   " & Replace(TextBox26.Text, "\n", "")
-  
-  TextBox27.Text = "Product Name:   " & Replace(TextBox27.Text, "\n", "")
-  TextBox28.Text = "Product Version:   " & Replace(TextBox28.Text, "\n", "")
+  Try TextBox27.Text = "Product Name:   " & Replace(File.Load("/sys/devices/virtual/dmi/id/product_name"), "\n", "")
+  Try TextBox28.Text = "Product Version:   " & Replace(File.Load("/sys/devices/virtual/dmi/id/product_version"), "\n", "")
 End
 
 Public Sub System()
   Dim hostname, arch, gcc, timezone, xorg_version, glx_version As String
-  Dim SCREENFETCH As Collection
   SCREENFETCH = JSON.Decode(File.Load(User.Home & "/.i-nex/screenfetch.json"))
   Shell "cat /etc/timezone | grep ^TIMEZONE= /etc/sysconfig/clock | cut -d '=' -f 2" Wait To timezone
   If timezone = Null Or "" Then
