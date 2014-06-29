@@ -1247,7 +1247,7 @@
       Border = Border.Raised
     }
     { Label48 Label
-      Move(91,175,70,21)
+      Move(105,175,70,21)
       #Translate = False
       Visible = False
       Font = Font["8,Bold"]
