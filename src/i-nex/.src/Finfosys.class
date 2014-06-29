@@ -335,7 +335,7 @@ Public Sub System()
   Dim hostname, arch, gcc, timezone, xorg_version, glx_version As String
   Dim SCREENFETCH As Collection
   SCREENFETCH = JSON.Decode(File.Load(User.Home & "/.i-nex/screenfetch.json"))
-  Shell "cat /etc/timezone || grep ^TIMEZONE= /etc/sysconfig/clock | cut -d '=' -f 2" Wait To timezone
+  Shell "cat /etc/timezone | grep ^TIMEZONE= /etc/sysconfig/clock | cut -d '=' -f 2" Wait To timezone
   If timezone = Null Or "" Then
     Shell "timedatectl status | grep \"Time zone:\" | cut -d \":\" -f 2 | cut -d \"(\" -f 1" Wait To timezone
   Endif
