@@ -221,7 +221,7 @@ Public Sub Form_Open()
   Logs("Check for Input Drives", Logger.Info)
       Object.Call(Input_Devices, "_inits")
   Logs("Check available network devices", Logger.Info)
-      Object.Call(nets, "inits")
+      Object.Call(Network, "inits")
   Logs("Check available graphic DSub, DVI etc", Logger.Info)
       Object.Call(FGraphic, "_inits")
   Logs("Call to Graphic", Logger.Info)
@@ -727,10 +727,10 @@ Public Sub Button6_Click()
 End
 
 Public Sub ComboBox2_Click()
- nets.get_informations_about_net_interface()
- TextBox56.Text = nets.subsystem_device
- TextBox57.Text = nets.subsystem_vendor
- TextArea4.Text = nets.lspci
+ Network.get_informations_about_net_interface()
+ TextBox56.Text = Network.subsystem_device
+ TextBox57.Text = Network.subsystem_vendor
+ TextArea4.Text = Network.lspci
 End
 
 Public Sub Button8_Click()
