@@ -15,23 +15,30 @@ distclean: clean
 sysclean: uninstall rmgambas
 
 build-inex:
+
 	@echo -e '\033[1;32mBuild I-Nex...\033[0m'
 	$(MAKE) -C src
+	
 build-json:
+
 	@echo -e '\033[1;32mBuild JSON...\033[0m'
 	$(MAKE) -C JSON
+	
 build-pixmaps:
+
 	@echo -e '\033[1;32mBuild Pixmaps...\033[0m'
 	$(MAKE) -C pixmaps
 	
 install-create-dirs:
+
 	mkdir -p $(DESTDIR)$(bindir)
-	mkdir -p $(DESTDIR)$(PREFIX)/share/pixmaps/
-	mkdir -p $(DESTDIR)$(PREFIX)/share/applications/
-	mkdir -p $(DESTDIR)$(PREFIX)/share/i-nex/pastebinit/
-	mkdir -p $(DESTDIR)$(PREFIX)/share/i-nex/pastebinit/pastebin.d/
+	mkdir -p $(DESTDIR)$(PREFIX)/share/pixmaps
+	mkdir -p $(DESTDIR)$(PREFIX)/share/applications
+	mkdir -p $(DESTDIR)$(PREFIX)/share/i-nex/pastebinit
+	mkdir -p $(DESTDIR)$(PREFIX)/share/i-nex/pastebinit/pastebin.d
 	
 install-pastebinit-and-other:
+
 	@echo -e '\033[1;32mInstall pastebinit and other...\033[0m'
 	$(INSTALL) 0755 debian/i-nex.desktop $(DESTDIR)$(PREFIX)/share/applications/
 	$(INSTALL) 0755 pastebinit $(DESTDIR)$(PREFIX)/share/i-nex/pastebinit/
@@ -40,43 +47,54 @@ install-pastebinit-and-other:
 	$(MAKE) -C pastebin.d install
 	
 install-pixmaps:
+
 	@echo -e '\033[1;32mInstall pixmaps...\033[0m'
 	$(MAKE) -C pixmaps install
 	
 install-changelogs:
+
 	@echo -e '\033[1;32mInstall changelogs...\033[0m'
 	$(MAKE) -C changelogs install
 	
 install-manpages:
+
 	@echo -e '\033[1;32mInstall manpages...\033[0m'
 	$(MAKE) -C manpages install
 	
 install-docs:
+
 	@echo -e '\033[1;32mInstall docs...\033[0m'
 	$(MAKE) -C docs install
 	
 install-json:
+
 	@echo -e '\033[1;32mInstall JSON...\033[0m'
 	$(MAKE) -C JSON install
 	
 install-inex:
+
 	@echo -e '\033[1;32mInstall I-Nex...\033[0m'
 	$(MAKE) -C src install
 
 install-scripts:
+
 	@echo -e '\033[1;32mInstall Scripts...\033[0m'
 	$(MAKE) -C Scripts install
 	 
-clean-pixmaps: 
+clean-pixmaps:
+
 	$(MAKE) -C pixmaps clean
 	
 clean-json:
+
 	$(MAKE) -C JSON clean
 	
 clean-inex:
+
 	if test -f "src/Makefile" ; then $(MAKE) -C src distclean ; fi
 	
 clean-all:
+
 	$(RM_COM) $(RMDIR_OPT) `find . -name ".gambas"`
 	$(RM_COM) $(RMDIR_OPT) `find . -name "*.gambas"`
 	$(RM_COM) $(RMDIR_OPT) `find . -name ".directory"`
@@ -93,6 +111,7 @@ clean-all:
 	$(RM_COM) $(RMDIR_OPT) debian/changelog1
 	
 uninstall:
+
 	rm $(DESTDIR)$(bindir)/i-nex
 	rm $(DESTDIR)$(bindir)/i-nex-edid
 	rm $(DESTDIR)$(bindir)/i-nex-cpuid
@@ -109,6 +128,7 @@ uninstall:
 	$(RM_COM) $(RMDIR_OPT) $(DESTDIR)$(PREFIX)/share/i-nex
 	
 rmgambas:
+
 	$(RM_COM) $(RMFILE_OPT) $(PREFIX)/bin/gbx3
 	$(RM_COM) $(RMFILE_OPT) $(PREFIX)/bin/gbr3
 	$(RM_COM) $(RMFILE_OPT) $(PREFIX)/lib/gambas3/gb.debug.so
@@ -127,4 +147,5 @@ rmgambas:
 	$(RM_COM) $(RMFILE_OPT) $(PREFIX)/lib/gambas3/gb.qt4.so
 
 link-inex:
+
 	ln -s /usr/bin/i-nex.gambas $(DESTDIR)$(bindir)/i-nex

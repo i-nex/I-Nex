@@ -60,29 +60,3 @@ ACTION_COLOR		=	\033[95m
 OK_STRING		=	$(OK_COLOR)✔
 ERROR_STRING		=	$(ERROR_COLOR)✖
 WARN_STRING		=	$(WARN_COLOR)⚑
-
-dependency_build ?= git \
-		    devscripts \
-		    pkg-config \
-		    dpkg-dev \
-		    gambas3-dev \
-		    gambas3-gb-image \
-		    gambas3-gb-gtk \
-		    gambas3-gb-form \
-		    gambas3-gb-desktop \
-		    gambas3-gb-form-stock \
-		    dpkg \
-		    grep \
-		    mount \
-		    procps \
-		    x11-xserver-utils \
-		    lsb-release \
-		    bash \
-		    coreutils \
-		    sed \
-		    pciutils \
-		    x11-utils \
-		    mesa-utils \
-		    hostname \
-		    libcpuid11 \
-		    libprocps0-dev 
