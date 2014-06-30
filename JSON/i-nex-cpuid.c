@@ -868,7 +868,7 @@ int main(void)
 	printf("			\"98\": {\n");
 	printf("					\"VALUE\": %s \n", data.flags[CPU_FEATURE_PA] ? "1 ," : "0 ,");
 	printf("					\"NAME\": \"CPU_FEATURE_PA\",\n");
-	printf("					\"FEATURE\": \"mtrr\",\n");
+	printf("					\"FEATURE\": \"pa\",\n");
 	printf("					\"WEBSITE\": \"\",\n");
 	printf("					\"HAVEWEBSITE\": 0 ,\n");
 	printf("					\"DESC\": \"Processor accumulator\"\n");
