@@ -852,8 +852,8 @@ int main(void)
 	printf("			\"96\": {\n");
 	printf("					\"VALUE\": %s \n", data.flags[CPU_FEATURE_APERFMPERF] ? "1 ," : "0 ,");
 	printf("					\"NAME\": \"CPU_FEATURE_APERFMPERF\",\n");
-	printf("					\"FEATURE\": \"mtrr\",\n");
-	printf("					\"WEBSITE\": \"aperfmperf\",\n");
+	printf("					\"FEATURE\": \"aperfmperf\",\n");
+	printf("					\"WEBSITE\": \"\",\n");
 	printf("					\"HAVEWEBSITE\": 0 ,\n");
 	printf("					\"DESC\": \"MPERF/APERF MSRs support\"\n");
 	printf("			},\n");
