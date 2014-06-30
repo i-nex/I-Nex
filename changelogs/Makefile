@@ -11,6 +11,7 @@ install-changelogs:
 	install -Dm644 $(CHANGELOG_FILES) $(DESTDIR)$(PREFIX)$(DOCSDIR)/
 
 compress-changelogs:
+
 	@echo -e '\033[1;32mCompress Changelogs...\033[0m'
 	gzip -9 "$(DESTDIR)$(PREFIX)$(DOCSDIR)/changelog-0.4.6"
 	gzip -9 "$(DESTDIR)$(PREFIX)$(DOCSDIR)/changelog-0.4.8"
