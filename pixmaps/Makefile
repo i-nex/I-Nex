@@ -1,13 +1,12 @@
 #!/usr/bin/make -f
 include ../i-nex.mk
 make: 
-
 	convert i-nex.png -resize 16x16 i-nex-16.png
 	convert i-nex.png -resize 32x32 i-nex-32.png
 	convert i-nex.png -resize 128x128 i-nex-128.png
 	
 install:
-	mkdir -p ${DESTDIR}${datarootdir}/pixmaps
+	mkdir -p ${DESTDIR}$(PREFIX)/share/pixmaps
 	${INSTALL} 644 i-nex.png $(DESTDIR)$(PREFIX)/share/pixmaps/
 	${INSTALL} 644 i-nex-16.png $(DESTDIR)$(PREFIX)/share/pixmaps/
 	${INSTALL} 644 i-nex-32.png $(DESTDIR)$(PREFIX)/share/pixmaps/
