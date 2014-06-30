@@ -14,10 +14,10 @@
 '
 ' You should have received a copy of the GNU General Public License
 ' along with this program. If not, see <http://www.gnu.org/licenses/>.
-Private ToolButton[95] As ToolButton
-Private Label[95] As Label  ' Dim the array of controls
-Private Button[95] As Button
-Private TextLabel[95] As TextLabel
+Private ToolButton[99] As ToolButton
+Private Label[99] As Label  ' Dim the array of controls
+Private Button[99] As Button
+Private TextLabel[99] As TextLabel
 Private YESNO As Picture
 Public AllowLog As Boolean
 Public sLine As String
@@ -106,7 +106,7 @@ Public Sub Form_Open()
       Label219.Text = "SSE Size: " & DATAT["SSE_SIZE"]
 
   Logs("Create Labels ToolButtons TextLabels in ScrollView1", Logger.Info)
-  For i = 1 To 94
+  For i = 1 To 98
       Label[i] = New Label(ScrollView1)
       ToolButton[i] = New ToolButton(ScrollView1)
       Button[i] = New Button(ScrollView1) As "Buttongroup"
