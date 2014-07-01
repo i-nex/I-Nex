@@ -24,42 +24,42 @@ Public dec_instructions As String
 Public Sub _init()
  Shell "grep \"flags\" /proc/cpuinfo | sed -n \"1p\" | cut -d \":\" -f 2" Wait To dec_instructions
  If dec_instructions Like "* mmxext *" Then
-  instructions = instructions & "MMX(+), "
+  instructions &= "MMX(+), "
  Endif
  If dec_instructions Like "* mmx *" Then
-  instructions = instructions & "MMX, " 
+  instructions &= "MMX, " 
  Endif
  If dec_instructions Like "* 3dnowext *" Then
-  instructions = instructions & "3DNow!(+), "
+  instructions &= "3DNow!(+), "
  Endif
  If dec_instructions Like "* sse *" Then
-  instructions = instructions & "SSE, " 
+  instructions &= "SSE, " 
  Endif
  If dec_instructions Like "* 3dnow *" Then
-  instructions = instructions & "3DNow!, "
+  instructions &= "3DNow!, "
  Endif
  If dec_instructions Like "* sse2 *" Then
-  instructions = instructions & "SSE2, "
+  instructions &= "SSE2, "
  Endif
  If dec_instructions Like "* pni *" Then
-  instructions = instructions & "SSE3, "
+  instructions &= "SSE3, "
  Endif
  If dec_instructions Like "* ssse3 *" Then
-  instructions = instructions & "SSSE3, "
+  instructions &= "SSSE3, "
  Endif
  If dec_instructions Like "* sse4_2 *" Then
-  instructions = instructions & "SSE4.2, "
+  instructions &= "SSE4.2, "
  Endif
  If dec_instructions Like "* sse4_1 *" Then
-  instructions = instructions & "SSE4.1, "
+  instructions &= "SSE4.1, "
  Endif
  If dec_instructions Like "* sse4a *" Then
-  instructions = instructions & "SSE4a, "
+  instructions &= "SSE4a, "
  Endif
  If dec_instructions Like "* nx *" And Finfosys.vendor_id Like "*Intel*" Then
-  instructions = instructions & "XD-Bit, "
+  instructions &= "XD-Bit, "
  Else
-  instructions = instructions & "NX-Bit, "
+  instructions &= "NX-Bit, "
  Endif
  
  'Instructions for detect AMD64,vmx, ht
