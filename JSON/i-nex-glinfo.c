@@ -128,11 +128,18 @@ static const struct { int major, minor; } gl_versions[] = {
    {4, 1},
    {4, 2},
    {4, 3},
+   {4, 4},
    {0, 0} /* end of list */
 };
 
 #define NUM_GL_VERSIONS ELEMENTS(gl_versions)
 
+/**
+ * Version of the context that was created
+ *
+ * 20, 21, 30, 31, 32, etc.
+ */
+static int version;
 
 /**
  * GL Error checking/warning.
@@ -144,6 +151,137 @@ CheckError(int line)
    n = glGetError();
    if (n)
       printf("Warning: GL error 0x%x at line %d\n", n, line);
+}
+
+
+/**
+ * Return the GL enum name for a numeric value.
+ * We really only care about the compressed texture formats for now.
+ */
+static const char *
+enum_name(GLenum val)
+{
+   static const struct {
+      const char *name;
+      GLenum val;
+   } enums [] = {
+      { "GL_COMPRESSED_ALPHA", 0x84E9 },
+      { "GL_COMPRESSED_LUMINANCE", 0x84EA },
+      { "GL_COMPRESSED_LUMINANCE_ALPHA", 0x84EB },
+      { "GL_COMPRESSED_INTENSITY", 0x84EC },
+      { "GL_COMPRESSED_RGB", 0x84ED },
+      { "GL_COMPRESSED_RGBA", 0x84EE },
+      { "GL_COMPRESSED_TEXTURE_FORMATS", 0x86A3 },
+      { "GL_COMPRESSED_RGB", 0x84ED },
+      { "GL_COMPRESSED_RGBA", 0x84EE },
+      { "GL_COMPRESSED_TEXTURE_FORMATS", 0x86A3 },
+      { "GL_COMPRESSED_ALPHA", 0x84E9 },
+      { "GL_COMPRESSED_LUMINANCE", 0x84EA },
+      { "GL_COMPRESSED_LUMINANCE_ALPHA", 0x84EB },
+      { "GL_COMPRESSED_INTENSITY", 0x84EC },
+      { "GL_COMPRESSED_SRGB", 0x8C48 },
+      { "GL_COMPRESSED_SRGB_ALPHA", 0x8C49 },
+      { "GL_COMPRESSED_SLUMINANCE", 0x8C4A },
+      { "GL_COMPRESSED_SLUMINANCE_ALPHA", 0x8C4B },
+      { "GL_COMPRESSED_RED", 0x8225 },
+      { "GL_COMPRESSED_RG", 0x8226 },
+      { "GL_COMPRESSED_RED_RGTC1", 0x8DBB },
+      { "GL_COMPRESSED_SIGNED_RED_RGTC1", 0x8DBC },
+      { "GL_COMPRESSED_RG_RGTC2", 0x8DBD },
+      { "GL_COMPRESSED_SIGNED_RG_RGTC2", 0x8DBE },
+      { "GL_COMPRESSED_RGB8_ETC2", 0x9274 },
+      { "GL_COMPRESSED_SRGB8_ETC2", 0x9275 },
+      { "GL_COMPRESSED_RGB8_PUNCHTHROUGH_ALPHA1_ETC2", 0x9276 },
+      { "GL_COMPRESSED_SRGB8_PUNCHTHROUGH_ALPHA1_ETC2", 0x9277 },
+      { "GL_COMPRESSED_RGBA8_ETC2_EAC", 0x9278 },
+      { "GL_COMPRESSED_SRGB8_ALPHA8_ETC2_EAC", 0x9279 },
+      { "GL_COMPRESSED_R11_EAC", 0x9270 },
+      { "GL_COMPRESSED_SIGNED_R11_EAC", 0x9271 },
+      { "GL_COMPRESSED_RG11_EAC", 0x9272 },
+      { "GL_COMPRESSED_SIGNED_RG11_EAC", 0x9273 },
+      { "GL_COMPRESSED_ALPHA_ARB", 0x84E9 },
+      { "GL_COMPRESSED_LUMINANCE_ARB", 0x84EA },
+      { "GL_COMPRESSED_LUMINANCE_ALPHA_ARB", 0x84EB },
+      { "GL_COMPRESSED_INTENSITY_ARB", 0x84EC },
+      { "GL_COMPRESSED_RGB_ARB", 0x84ED },
+      { "GL_COMPRESSED_RGBA_ARB", 0x84EE },
+      { "GL_COMPRESSED_TEXTURE_FORMATS_ARB", 0x86A3 },
+      { "GL_COMPRESSED_RGBA_BPTC_UNORM_ARB", 0x8E8C },
+      { "GL_COMPRESSED_SRGB_ALPHA_BPTC_UNORM_ARB", 0x8E8D },
+      { "GL_COMPRESSED_RGB_BPTC_SIGNED_FLOAT_ARB", 0x8E8E },
+      { "GL_COMPRESSED_RGB_BPTC_UNSIGNED_FLOAT_ARB", 0x8E8F },
+      { "GL_COMPRESSED_RGBA_ASTC_4x4_KHR", 0x93B0 },
+      { "GL_COMPRESSED_RGBA_ASTC_5x4_KHR", 0x93B1 },
+      { "GL_COMPRESSED_RGBA_ASTC_5x5_KHR", 0x93B2 },
+      { "GL_COMPRESSED_RGBA_ASTC_6x5_KHR", 0x93B3 },
+      { "GL_COMPRESSED_RGBA_ASTC_6x6_KHR", 0x93B4 },
+      { "GL_COMPRESSED_RGBA_ASTC_8x5_KHR", 0x93B5 },
+      { "GL_COMPRESSED_RGBA_ASTC_8x6_KHR", 0x93B6 },
+      { "GL_COMPRESSED_RGBA_ASTC_8x8_KHR", 0x93B7 },
+      { "GL_COMPRESSED_RGBA_ASTC_10x5_KHR", 0x93B8 },
+      { "GL_COMPRESSED_RGBA_ASTC_10x6_KHR", 0x93B9 },
+      { "GL_COMPRESSED_RGBA_ASTC_10x8_KHR", 0x93BA },
+      { "GL_COMPRESSED_RGBA_ASTC_10x10_KHR", 0x93BB },
+      { "GL_COMPRESSED_RGBA_ASTC_12x10_KHR", 0x93BC },
+      { "GL_COMPRESSED_RGBA_ASTC_12x12_KHR", 0x93BD },
+      { "GL_COMPRESSED_SRGB8_ALPHA8_ASTC_4x4_KHR", 0x93D0 },
+      { "GL_COMPRESSED_SRGB8_ALPHA8_ASTC_5x4_KHR", 0x93D1 },
+      { "GL_COMPRESSED_SRGB8_ALPHA8_ASTC_5x5_KHR", 0x93D2 },
+      { "GL_COMPRESSED_SRGB8_ALPHA8_ASTC_6x5_KHR", 0x93D3 },
+      { "GL_COMPRESSED_SRGB8_ALPHA8_ASTC_6x6_KHR", 0x93D4 },
+      { "GL_COMPRESSED_SRGB8_ALPHA8_ASTC_8x5_KHR", 0x93D5 },
+      { "GL_COMPRESSED_SRGB8_ALPHA8_ASTC_8x6_KHR", 0x93D6 },
+      { "GL_COMPRESSED_SRGB8_ALPHA8_ASTC_8x8_KHR", 0x93D7 },
+      { "GL_COMPRESSED_SRGB8_ALPHA8_ASTC_10x5_KHR", 0x93D8 },
+      { "GL_COMPRESSED_SRGB8_ALPHA8_ASTC_10x6_KHR", 0x93D9 },
+      { "GL_COMPRESSED_SRGB8_ALPHA8_ASTC_10x8_KHR", 0x93DA },
+      { "GL_COMPRESSED_SRGB8_ALPHA8_ASTC_10x10_KHR", 0x93DB },
+      { "GL_COMPRESSED_SRGB8_ALPHA8_ASTC_12x10_KHR", 0x93DC },
+      { "GL_COMPRESSED_SRGB8_ALPHA8_ASTC_12x12_KHR", 0x93DD },
+      { "GL_COMPRESSED_RGB_FXT1_3DFX", 0x86B0 },
+      { "GL_COMPRESSED_RGBA_FXT1_3DFX", 0x86B1 },
+      { "GL_COMPRESSED_LUMINANCE_LATC1_EXT", 0x8C70 },
+      { "GL_COMPRESSED_SIGNED_LUMINANCE_LATC1_EXT", 0x8C71 },
+      { "GL_COMPRESSED_LUMINANCE_ALPHA_LATC2_EXT", 0x8C72 },
+      { "GL_COMPRESSED_SIGNED_LUMINANCE_ALPHA_LATC2_EXT", 0x8C73 },
+      { "GL_COMPRESSED_RED_RGTC1_EXT", 0x8DBB },
+      { "GL_COMPRESSED_SIGNED_RED_RGTC1_EXT", 0x8DBC },
+      { "GL_COMPRESSED_RED_GREEN_RGTC2_EXT", 0x8DBD },
+      { "GL_COMPRESSED_SIGNED_RED_GREEN_RGTC2_EXT", 0x8DBE },
+      { "GL_COMPRESSED_RGB_S3TC_DXT1_EXT", 0x83F0 },
+      { "GL_COMPRESSED_RGBA_S3TC_DXT1_EXT", 0x83F1 },
+      { "GL_COMPRESSED_RGBA_S3TC_DXT3_EXT", 0x83F2 },
+      { "GL_COMPRESSED_RGBA_S3TC_DXT5_EXT", 0x83F3 },
+      { "GL_COMPRESSED_SRGB_EXT", 0x8C48 },
+      { "GL_COMPRESSED_SRGB_ALPHA_EXT", 0x8C49 },
+      { "GL_COMPRESSED_SLUMINANCE_EXT", 0x8C4A },
+      { "GL_COMPRESSED_SLUMINANCE_ALPHA_EXT", 0x8C4B },
+      { "GL_COMPRESSED_SRGB_S3TC_DXT1_EXT", 0x8C4C },
+      { "GL_COMPRESSED_SRGB_ALPHA_S3TC_DXT1_EXT", 0x8C4D },
+      { "GL_COMPRESSED_SRGB_ALPHA_S3TC_DXT3_EXT", 0x8C4E },
+      { "GL_COMPRESSED_SRGB_ALPHA_S3TC_DXT5_EXT", 0x8C4F },
+      { "GL_PALETTE4_RGB8_OES", 0x8B90 },
+      { "GL_PALETTE4_RGBA8_OES", 0x8B91 },
+      { "GL_PALETTE4_R5_G6_B5_OES", 0x8B92 },
+      { "GL_PALETTE4_RGBA4_OES", 0x8B93 },
+      { "GL_PALETTE4_RGB5_A1_OES", 0x8B94 },
+      { "GL_PALETTE8_RGB8_OES", 0x8B95 },
+      { "GL_PALETTE8_RGBA8_OES", 0x8B96 },
+      { "GL_PALETTE8_R5_G6_B5_OES", 0x8B97 },
+      { "GL_PALETTE8_RGBA4_OES", 0x8B98 },
+      { "GL_PALETTE8_RGB5_A1_OES", 0x8B99 }
+   };
+   const int n = sizeof(enums) / sizeof(enums[0]);
+   static char buffer[100];
+   int i;
+   for (i = 0; i < n; i++) {
+      if (enums[i].val == val) {
+         return enums[i].name;
+      }
+   }
+   /* enum val not found, just print hexadecimal value into static buffer */
+   snprintf(buffer, sizeof(buffer), "0x%x", val);
+   return buffer;
 }
 
 
@@ -374,6 +512,24 @@ print_program_limits(GLenum target)
 #endif /* GL_ARB_vertex_program / GL_ARB_fragment_program */
 }
 
+struct token_name {
+   GLenum token;
+   const char *name;
+};
+
+static void
+print_shader_limit_list(const struct token_name *lim)
+{
+   GLint max[1];
+   unsigned i;
+
+   for (i = 0; lim[i].token; i++) {
+      glGetIntegerv(lim[i].token, max);
+      if (glGetError() == GL_NO_ERROR) {
+	 printf("        %s = %d\n", lim[i].name, max[0]);
+      }
+   }
+}
 
 /**
  * Print interesting limits for vertex/fragment shaders.
@@ -381,11 +537,6 @@ print_program_limits(GLenum target)
 static void
 print_shader_limits(GLenum target)
 {
-   struct token_name {
-      GLenum token;
-      const char *name;
-   };
-#if defined(GL_ARB_vertex_shader)
    static const struct token_name vertex_limits[] = {
       { GL_MAX_VERTEX_UNIFORM_COMPONENTS_ARB, "GL_MAX_VERTEX_UNIFORM_COMPONENTS_ARB" },
       { GL_MAX_VARYING_FLOATS_ARB, "GL_MAX_VARYING_FLOATS_ARB" },
@@ -394,42 +545,42 @@ print_shader_limits(GLenum target)
       { GL_MAX_VERTEX_TEXTURE_IMAGE_UNITS_ARB, "GL_MAX_VERTEX_TEXTURE_IMAGE_UNITS_ARB" },
       { GL_MAX_COMBINED_TEXTURE_IMAGE_UNITS_ARB, "GL_MAX_COMBINED_TEXTURE_IMAGE_UNITS_ARB" },
       { GL_MAX_TEXTURE_COORDS_ARB, "GL_MAX_TEXTURE_COORDS_ARB" },
+      { GL_MAX_VERTEX_OUTPUT_COMPONENTS  , "GL_MAX_VERTEX_OUTPUT_COMPONENTS  " },
       { (GLenum) 0, NULL }
    };
-#endif
-#if defined(GL_ARB_fragment_shader)
    static const struct token_name fragment_limits[] = {
       { GL_MAX_FRAGMENT_UNIFORM_COMPONENTS_ARB, "GL_MAX_FRAGMENT_UNIFORM_COMPONENTS_ARB" },
       { GL_MAX_TEXTURE_COORDS_ARB, "GL_MAX_TEXTURE_COORDS_ARB" },
       { GL_MAX_TEXTURE_IMAGE_UNITS_ARB, "GL_MAX_TEXTURE_IMAGE_UNITS_ARB" },
+      { GL_MAX_FRAGMENT_INPUT_COMPONENTS , "GL_MAX_FRAGMENT_INPUT_COMPONENTS " },
       { (GLenum) 0, NULL }
    };
-#endif
-   GLint max[1];
-   int i;
+   static const struct token_name geometry_limits[] = {
+      { GL_MAX_GEOMETRY_UNIFORM_COMPONENTS, "GL_MAX_GEOMETRY_UNIFORM_COMPONENTS" },
+      { GL_MAX_GEOMETRY_TEXTURE_IMAGE_UNITS, "GL_MAX_GEOMETRY_TEXTURE_IMAGE_UNITS" },
+      { GL_MAX_GEOMETRY_OUTPUT_VERTICES  , "GL_MAX_GEOMETRY_OUTPUT_VERTICES  " },
+      { GL_MAX_GEOMETRY_TOTAL_OUTPUT_COMPONENTS, "GL_MAX_GEOMETRY_TOTAL_OUTPUT_COMPONENTS" },
+      { GL_MAX_GEOMETRY_INPUT_COMPONENTS , "GL_MAX_GEOMETRY_INPUT_COMPONENTS " },
+      { GL_MAX_GEOMETRY_OUTPUT_COMPONENTS, "GL_MAX_GEOMETRY_OUTPUT_COMPONENTS" },
+      { (GLenum) 0, NULL }
+   };
 
-#if defined(GL_ARB_vertex_shader)
-   if (target == GL_VERTEX_SHADER_ARB) {
+   switch (target) {
+   case GL_VERTEX_SHADER:
       printf("    GL_VERTEX_SHADER_ARB:\n");
-      for (i = 0; vertex_limits[i].token; i++) {
-         glGetIntegerv(vertex_limits[i].token, max);
-         if (glGetError() == GL_NO_ERROR) {
-            printf("        %s = %d\n", vertex_limits[i].name, max[0]);
-         }
-      }
-   }
-#endif
-#if defined(GL_ARB_fragment_shader)
-   if (target == GL_FRAGMENT_SHADER_ARB) {
+      print_shader_limit_list(vertex_limits);
+      break;
+
+   case GL_FRAGMENT_SHADER:
       printf("    GL_FRAGMENT_SHADER_ARB:\n");
-      for (i = 0; fragment_limits[i].token; i++) {
-         glGetIntegerv(fragment_limits[i].token, max);
-         if (glGetError() == GL_NO_ERROR) {
-            printf("        %s = %d\n", fragment_limits[i].name, max[0]);
-         }
-      }
+      print_shader_limit_list(fragment_limits);
+      break;
+
+   case GL_GEOMETRY_SHADER:
+      printf("    GL_GEOMETRY_SHADER:\n");
+      print_shader_limit_list(geometry_limits);
+      break;
    }
-#endif
 }
 
 
@@ -488,9 +639,6 @@ print_limits(const char *extensions, const char *oglstring)
 #if defined(GL_NV_texture_rectangle)
       { 1, GL_MAX_RECTANGLE_TEXTURE_SIZE_NV, "GL_MAX_RECTANGLE_TEXTURE_SIZE_NV", "GL_NV_texture_rectangle" },
 #endif
-#if defined(GL_ARB_texture_compression)
-      { 1, GL_NUM_COMPRESSED_TEXTURE_FORMATS_ARB, "GL_NUM_COMPRESSED_TEXTURE_FORMATS_ARB", "GL_ARB_texture_compression" },
-#endif
 #if defined(GL_ARB_multitexture)
       { 1, GL_MAX_TEXTURE_UNITS_ARB, "GL_MAX_TEXTURE_UNITS_ARB", "GL_ARB_multitexture" },
 #endif
@@ -536,6 +684,18 @@ print_limits(const char *extensions, const char *oglstring)
       printf("    GL_MAX_CONVOLUTION_WIDTH/HEIGHT = %d, %d\n", max[0], max[1]);
    }
 
+   if (extension_supported("GL_ARB_texture_compression", extensions)) {
+      GLint i, n;
+      GLint *formats;
+      glGetIntegerv(GL_NUM_COMPRESSED_TEXTURE_FORMATS, &n);
+      printf("    GL_NUM_COMPRESSED_TEXTURE_FORMATS = %d\n", n);
+      formats = (GLint *) malloc(n * sizeof(GLint));
+      glGetIntegerv(GL_COMPRESSED_TEXTURE_FORMATS, formats);
+      for (i = 0; i < n; i++) {
+         printf("        %s\n", enum_name(formats[i]));
+      }
+      free(formats);
+   }
 #if defined(GL_ARB_vertex_program)
    if (extension_supported("GL_ARB_vertex_program", extensions)) {
       print_program_limits(GL_VERTEX_PROGRAM_ARB);
@@ -546,16 +706,15 @@ print_limits(const char *extensions, const char *oglstring)
       print_program_limits(GL_FRAGMENT_PROGRAM_ARB);
    }
 #endif
-#if defined(GL_ARB_vertex_shader)
    if (extension_supported("GL_ARB_vertex_shader", extensions)) {
       print_shader_limits(GL_VERTEX_SHADER_ARB);
    }
-#endif
-#if defined(GL_ARB_fragment_shader)
    if (extension_supported("GL_ARB_fragment_shader", extensions)) {
       print_shader_limits(GL_FRAGMENT_SHADER_ARB);
    }
-#endif
+   if (version >= 32) {
+      print_shader_limits(GL_GEOMETRY_SHADER);
+   }
 }
 
 
@@ -740,7 +899,7 @@ create_context_flags(Display *dpy, GLXFBConfig fbconfig, int major, int minor,
    if (CreateContextErrorFlag)
       context = 0;
 
-   if (direct) {
+   if (context && direct) {
       if (!glXIsDirect(dpy, context)) {
          glXDestroyContext(dpy, context);
          return 0;
@@ -759,7 +918,7 @@ create_context_flags(Display *dpy, GLXFBConfig fbconfig, int major, int minor,
  */
 static GLXContext
 create_context_with_config(Display *dpy, GLXFBConfig config,
-                           Bool coreProfile, Bool direct)
+                           Bool coreProfile, Bool es2Profile, Bool direct)
 {
    GLXContext ctx = 0;
 
@@ -783,6 +942,19 @@ create_context_with_config(Display *dpy, GLXFBConfig config,
             return ctx;
       }
       /* couldn't get core profile context */
+      return 0;
+   }
+
+   if (es2Profile) {
+#ifdef GLX_CONTEXT_ES2_PROFILE_BIT_EXT
+      if (extension_supported("GLX_EXT_create_context_es2_profile",
+                              glXQueryExtensionsString(dpy, 0))) {
+         ctx = create_context_flags(dpy, config, 2, 0, 0x0,
+                                    GLX_CONTEXT_ES2_PROFILE_BIT_EXT,
+                                    direct);
+         return ctx;
+      }
+#endif
       return 0;
    }
 
@@ -831,8 +1003,8 @@ choose_xvisinfo(Display *dpy, int scrnum)
 
 static Bool
 print_screen_info(Display *dpy, int scrnum, Bool allowDirect,
-                  Bool coreProfile, Bool limits, Bool singleLine,
-                  Bool coreWorked)
+                  Bool coreProfile, Bool es2Profile, Bool limits,
+                  Bool singleLine, Bool coreWorked)
 {
    Window win;
    XSetWindowAttributes attr;
@@ -842,7 +1014,8 @@ print_screen_info(Display *dpy, int scrnum, Bool allowDirect,
    XVisualInfo *visinfo;
    int width = 100, height = 100;
    GLXFBConfig *fbconfigs;
-   const char *oglstring = coreProfile ? "OpenGL core profile" : "OpenGL";
+   const char *oglstring = coreProfile ? "OpenGL core profile" :
+                           es2Profile ? "OpenGL ES profile" : "OpenGL";
 
    root = RootWindow(dpy, scrnum);
 
@@ -852,29 +1025,30 @@ print_screen_info(Display *dpy, int scrnum, Bool allowDirect,
    fbconfigs = choose_fb_config(dpy, scrnum);
    if (fbconfigs) {
       ctx = create_context_with_config(dpy, fbconfigs[0],
-                                       coreProfile, allowDirect);
+                                       coreProfile, es2Profile, allowDirect);
       if (!ctx && allowDirect && !coreProfile) {
          /* try indirect */
          ctx = create_context_with_config(dpy, fbconfigs[0],
-                                          coreProfile, False);
+                                          coreProfile, es2Profile, False);
       }
 
       visinfo = glXGetVisualFromFBConfig(dpy, fbconfigs[0]);
       XFree(fbconfigs);
    }
-   else {
+   else if (!coreProfile && !es2Profile) {
       visinfo = choose_xvisinfo(dpy, scrnum);
       if (visinfo)
 	 ctx = glXCreateContext(dpy, visinfo, NULL, allowDirect);
-   }
+   } else
+      visinfo = NULL;
 
-   if (!visinfo) {
+   if (!visinfo && !coreProfile && !es2Profile) {
       fprintf(stderr, "Error: couldn't find RGB GLX visual or fbconfig\n");
       return False;
    }
 
    if (!ctx) {
-      if (!coreProfile)
+      if (!coreProfile && !es2Profile)
 	 fprintf(stderr, "Error: glXCreateContext failed\n");
       XFree(visinfo);
       return False;
@@ -908,7 +1082,6 @@ print_screen_info(Display *dpy, int scrnum, Bool allowDirect,
       int glxVersionMinor;
       char *displayName = NULL;
       char *colon = NULL, *period = NULL;
-      int version; /* 20, 21, 30, 31, 32, etc */
 
       CheckError(__LINE__);
       /* Get list of GL extensions */
@@ -988,7 +1161,7 @@ print_screen_info(Display *dpy, int scrnum, Bool allowDirect,
 #endif
       CheckError(__LINE__);
 #ifdef GL_VERSION_3_0
-      if (version >= 30) {
+      if (version >= 30 && !es2Profile) {
          GLint flags;
          glGetIntegerv(GL_CONTEXT_FLAGS, &flags);
          printf("%s context flags: %s\n", oglstring, context_flags_string(flags));
@@ -996,7 +1169,7 @@ print_screen_info(Display *dpy, int scrnum, Bool allowDirect,
 #endif
       CheckError(__LINE__);
 #ifdef GL_VERSION_3_2
-      if (version >= 32) {
+      if (version >= 32 && !es2Profile) {
          GLint mask;
          glGetIntegerv(GL_CONTEXT_PROFILE_MASK, &mask);
          printf("%s profile mask: %s\n", oglstring, profile_mask_string(mask));
@@ -1728,8 +1901,9 @@ main(int argc, char *argv[])
       print_display_info(dpy);
       for (scrnum = 0; scrnum < numScreens; scrnum++) {
          mesa_hack(dpy, scrnum);
-         coreWorked = print_screen_info(dpy, scrnum, allowDirect, True, limits, singleLine, False);
-         print_screen_info(dpy, scrnum, allowDirect, False, limits, singleLine, coreWorked);
+         coreWorked = print_screen_info(dpy, scrnum, allowDirect, True, False, limits, singleLine, False);
+         print_screen_info(dpy, scrnum, allowDirect, False, False, limits, singleLine, coreWorked);
+         print_screen_info(dpy, scrnum, allowDirect, False, True, False, singleLine, True);
 
          printf("\n");
          print_visual_info(dpy, scrnum, mode);
