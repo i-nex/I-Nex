@@ -19,7 +19,7 @@ make-binary:
 	@echo -e '$(OK_COLOR)Compile i-nex-cpusage $(OK_STRING)$(NO_COLOR)'
 	$(CC) -o i-nex-cpusage i-nex-cpusage.c $(additional_confflags)
 	@echo -e '$(OK_COLOR)Compile i-nex-glinfo $(OK_STRING)$(NO_COLOR)'
-	$(CC) -o i-nex-glinfo i-nex-glinfo.c $(libx11) $(libgl) $(libxext) $(additional_confflags)
+	$(CC) -o i-nex-glinfo glinfo_common.c i-nex-glinfo.c $(libx11) $(libgl) $(libxext) $(additional_confflags)
 	@echo -e '$(OK_COLOR)Compile i-nex-uname $(OK_STRING)$(NO_COLOR)'
 	$(CC) -o i-nex-uname i-nex-uname.c $(additional_confflags)
 	
