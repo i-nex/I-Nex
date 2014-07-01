@@ -5,8 +5,7 @@ make: build-inex build-json build-pixmaps
 
 install: install-pastebinit-and-other \
 	 install-pixmaps install-changelogs install-manpages \
-	 install-docs install-json install-inex install-scripts \
-	 link-inex
+	 install-docs install-json install-inex install-scripts
 	 
 clean: clean-pixmaps clean-json clean-inex clean-all
 
