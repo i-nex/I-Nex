@@ -3,7 +3,7 @@
 include i-nex.mk
 make: build-inex build-json build-pixmaps
 
-install: install-create-dirs install-pastebinit-and-other \
+install: install-pastebinit-and-other \
 	 install-pixmaps install-changelogs install-manpages \
 	 install-docs install-json install-inex install-scripts \
 	 link-inex
@@ -29,16 +29,11 @@ build-pixmaps:
 	@echo -e '\033[1;32mBuild Pixmaps...\033[0m'
 	$(MAKE) -C pixmaps
 	
-install-create-dirs:
-
-	mkdir -p $(DESTDIR)$(bindir)
-	mkdir -p $(DESTDIR)$(PREFIX)/share/pixmaps
+install-pastebinit-and-other:
+	@echo -e '\033[1;32mCreate nedded dirs...\033[0m'
 	mkdir -p $(DESTDIR)$(PREFIX)/share/applications
 	mkdir -p $(DESTDIR)$(PREFIX)/share/i-nex/pastebinit
 	mkdir -p $(DESTDIR)$(PREFIX)/share/i-nex/pastebinit/pastebin.d
-	
-install-pastebinit-and-other:
-
 	@echo -e '\033[1;32mInstall pastebinit and other...\033[0m'
 	$(INSTALL) 0755 debian/i-nex.desktop $(DESTDIR)$(PREFIX)/share/applications/
 	$(INSTALL) 0755 pastebinit $(DESTDIR)$(PREFIX)/share/i-nex/pastebinit/
@@ -110,51 +105,3 @@ clean-all:
 	$(RM_COM) $(RMDIR_OPT) debian/i-nex.substvars
 	$(RM_COM) $(RMDIR_OPT) debian/changelog1
 	
-uninstall:
-
-	rm $(DESTDIR)$(bindir)/i-nex
-	rm $(DESTDIR)$(bindir)/i-nex-edid
-	rm $(DESTDIR)$(bindir)/i-nex-cpuid
-	rm $(DESTDIR)$(bindir)/i-nex-usage
-	rm $(DESTDIR)$(bindir)/i-nex-cpusage
-	rm $(DESTDIR)$(bindir)/i-nex-glinfo
-	rm $(DESTDIR)$(bindir)/i-nex-uname
-	rm $(DESTDIR)$(bindir)/i-nex.gambas
-	rm $(DESTDIR)$(PREFIX)/share/pixmaps/i-nex.xpm
-	rm $(DESTDIR)$(PREFIX)/share/applications/i-nex.desktop
-	rm $(DESTDIR)$(bindir)/check_kernel
-	rm $(DESTDIR)$(bindir)/i-nex-lspci
-	$(RM_COM) $(RMDIR_OPT) $(DESTDIR)$(PREFIX)/share/doc/i-nex
-	$(RM_COM) $(RMDIR_OPT) $(DESTDIR)$(PREFIX)/share/i-nex
-	
-rmgambas:
-
-	$(RM_COM) $(RMFILE_OPT) $(PREFIX)/bin/gbx3
-	$(RM_COM) $(RMFILE_OPT) $(PREFIX)/bin/gbr3
-	$(RM_COM) $(RMFILE_OPT) $(PREFIX)/lib/gambas3/gb.debug.so
-	$(RM_COM) $(RMFILE_OPT) $(PREFIX)/lib/gambas3/gb.desktop.gambas
-	$(RM_COM) $(RMFILE_OPT) $(PREFIX)/lib/gambas3/gb.desktop.so
-	$(RM_COM) $(RMFILE_OPT) $(PREFIX)/lib/gambas3/gb.draw.so
-	$(RM_COM) $(RMFILE_OPT) $(PREFIX)/lib/gambas3/gb.eval.so
-	$(RM_COM) $(RMFILE_OPT) $(PREFIX)/lib/gambas3/gb.form.gambas
-	$(RM_COM) $(RMFILE_OPT) $(PREFIX)/lib/gambas3/gb.form.stock.gambas
-	$(RM_COM) $(RMFILE_OPT) $(PREFIX)/lib/gambas3/gb.geom.so
-	$(RM_COM) $(RMFILE_OPT) $(PREFIX)/lib/gambas3/gb.gtk.so
-	$(RM_COM) $(RMFILE_OPT) $(PREFIX)/lib/gambas3/gb.gui.base.gambas
-	$(RM_COM) $(RMFILE_OPT) $(PREFIX)/lib/gambas3/gb.gui.opengl.so
-	$(RM_COM) $(RMFILE_OPT) $(PREFIX)/lib/gambas3/gb.gui.so
-	$(RM_COM) $(RMFILE_OPT) $(PREFIX)/lib/gambas3/gb.image.so
-	$(RM_COM) $(RMFILE_OPT) $(PREFIX)/lib/gambas3/gb.qt4.so
-
-link-inex:
-
-	ln -s /usr/bin/i-nex.gambas $(DESTDIR)$(bindir)/i-nex
-	
-.MAKE: build-inex build-json build-pixmaps
-
-.PHONY: clean-pixmaps clean-json clean-inex clean-all \
-	build-inex build-json build-pixmaps \
-	install-create-dirs install-pastebinit-and-other \
-	install-pixmaps install-changelogs install-manpages \
-	install-docs install-json install-inex install-scripts \
-	link-inex
