@@ -7,7 +7,7 @@ else
 COMPRESSION = 		-- -z9 -Zxz
 endif
 override_dh_autoreconf:
-	dh_autoreconf -i src
+	cd src && autoreconf -i
 override_dh_auto_configure:
 	dh_auto_configure --sourcedirectory=src
 override_dh_pysupport:
@@ -17,4 +17,4 @@ override_dh_builddeb:
 override_dh_fixperms:
 	dh_fixperms
 %:
-	dh $@
+	dh $@  --with autoreconf

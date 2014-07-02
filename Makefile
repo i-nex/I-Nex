@@ -104,6 +104,13 @@ clean-all:
 	$(RM_COM) $(RMDIR_OPT) debian/i-nex.postrm.debhelper
 	$(RM_COM) $(RMDIR_OPT) debian/i-nex.substvars
 	$(RM_COM) $(RMDIR_OPT) debian/changelog1
+	$(RM_COM) $(RMDIR_OPT) src/autom4te.cache
+	$(RM_COM) $(RMDIR_OPT) src/config.log
+	$(RM_COM) $(RMDIR_OPT) src/config.status
+	$(RM_COM) $(RMDIR_OPT) src/configure
+	$(RM_COM) $(RMDIR_OPT) src/install-sh
+	$(RM_COM) $(RMDIR_OPT) src/missing
+
 
 link-inex:
 	ln -s /usr/bin/i-nex.gambas $(DESTDIR)$(bindir)/i-nex
