@@ -5,7 +5,8 @@ make: build-inex build-json build-pixmaps
 
 install: install-pastebinit-and-other \
 	 install-pixmaps install-changelogs install-manpages \
-	 install-docs install-json install-inex install-scripts
+	 install-docs install-json install-inex install-scripts \
+	 link-inex
 	 
 clean: clean-pixmaps clean-json clean-inex clean-all
 
@@ -103,4 +104,6 @@ clean-all:
 	$(RM_COM) $(RMDIR_OPT) debian/i-nex.postrm.debhelper
 	$(RM_COM) $(RMDIR_OPT) debian/i-nex.substvars
 	$(RM_COM) $(RMDIR_OPT) debian/changelog1
-	
+
+link-inex:
+	ln -s /usr/bin/i-nex.gambas $(DESTDIR)$(bindir)/i-nex
