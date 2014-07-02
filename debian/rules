@@ -6,6 +6,8 @@ COMPRESSION = 		-- -z9 -Zgzip
 else
 COMPRESSION = 		-- -z9 -Zxz
 endif
+override_dh_autoreconf:
+	dh_autoreconf -i src
 override_dh_auto_configure:
 	dh_auto_configure --sourcedirectory=src
 override_dh_pysupport:
