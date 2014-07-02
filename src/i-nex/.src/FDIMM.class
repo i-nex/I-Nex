@@ -29,7 +29,7 @@ Public Sub Form_Open()
      Try Me.Y = Settings["Window/Y", Me.Y]
   Endif
  
- Logs("Execute edid", Logger.Info)
+ Logs("Execute decode-dimms", Logger.Info)
  
  data = Exec [ChkPrm.ChkExecDir("decode-dimms")] For Input
 
