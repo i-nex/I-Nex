@@ -193,9 +193,20 @@ Public Sub Form_Open()
 
   While Not Eof(data)
         Line Input #data, sLine
+        MaxCount += 1
         ComboBox1.Add(sLine, MaxCount)
   Wend
-  
+  'Locate kernels
+  MaxCount = 0
+  Try data = Shell "ls /boot | grep 'vmlinuz*'" For Input
+
+  While Not Eof(data)
+        Line Input #data, sLine
+        MaxCount += 1
+        ListBox1.Add(sLine, MaxCount)
+  Wend
+  Label228.Text = "Installed Kernels: " & CString(MaxCount)
+  'End of locate kernels
   If User.Name = "root" Then
     Message.Error(("Running as root is not allowed!\n " & User.Home & ""))
   Endif
@@ -271,24 +282,11 @@ Public Sub ComboBox1_Click()
 End
 
 Public Sub kernel()
-  Dim found_kernels, All_Kernels, for_add, Kernel_command_line As String
-  Dim kernels, i As Integer
+  Dim Kernel_command_line As String
   Dim UNAME_DATA As String
   Try Exec ["/usr/bin/i-nex-uname"] Wait To UNAME_DATA
   Try UNAME = JSON.Decode(UNAME_DATA)
-  Shell "ls /boot | grep 'vmlinuz*' | wc -l" Wait To All_Kernels
-  kernels = Replace(Replace(All_Kernels, " ", ""), "\n", "")
-  
-  For i = 1 To kernels
-   Shell "ls /boot | grep 'vmlinuz*' | cut -d '/' -f 3 | sed -n '" & i & "p'" Wait To for_add
-   for_add = Replace(Replace(for_add, " ", ""), "\n", "")
-   ListBox1.Add(for_add, i)
-  Next
-  
-  Shell "ls /boot/vmlinuz* | cut -d '/' -f 3 | wc -l" Wait To found_kernels
   Shell "cat /proc/cmdline" Wait To Kernel_command_line
-  
-  Label228.Text = "Installed Kernels: " & found_kernels
   Try TextLabel7.Text = "System name:  " & UNAME["System_name"]
   Try TextLabel16.Text = "Nodename:    " & UNAME["Nodename"]
   Try TextLabel17.Text = "Release:     " & UNAME["Release"]
