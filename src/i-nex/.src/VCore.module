@@ -1,0 +1,18 @@
+' Gambas module file
+
+Public VCoreDirectiories As Collection
+Public CoreVoltage As String
+Public Visible As Boolean = False
+Public Sub _init()
+ Dim i As Integer
+ VCoreDirectiories = [("0"): ("/sys/class/hwmon/hwmon0/device/in0_input"),
+                      ("1"): ("/sys/class/hwmon/hwmon1/device/in0_input")]
+ 
+ For i = 0 To VCoreDirectiories.Count
+  If Access(VCoreDirectiories[i], gb.Read) = True Then
+   Try CoreVoltage = Replace(File.Load(VCoreDirectiories[i]), "\n", "")
+   CoreVoltage = Left(CoreVoltage, +1) & "." & Right(CoreVoltage, +3) & " V"
+   Visible = True
+  Endif
+ Next
+End
