@@ -3,6 +3,7 @@
 { Form Form
   MoveScaled(0,0,68,38)
   Text = ("Options")
+  Icon = Picture["192.png"]
   Resizable = False
   { Frame1 Frame
     MoveScaled(0,0,68,21)
