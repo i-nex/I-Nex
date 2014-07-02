@@ -442,6 +442,14 @@
         Padding = 3
         HighlightColor = &HFF0000&
       }
+      { LCDLabel3 LCDLabel
+        Move(182,91,154,35)
+        Font = Font["Bold,9"]
+        Text = ("Voltage")
+        Sheared = True
+        Padding = 3
+        HighlightColor = &HFF7F00&
+      }
       Index = 1
       Text = ("CPUID")
       { ScrollView1 ScrollView
@@ -667,19 +675,21 @@
     { Label105 Label
       Move(7,35,455,21)
       #Translate = False
-      Font = Font["8,Bold"]
+      Font = Font["Bold,8"]
+      Foreground = &H9F004F&
       Padding = 3
       Border = Border.Raised
     }
     { Label107 Label
       Move(7,77,329,21)
       #Translate = False
-      Font = Font["8"]
+      Font = Font["Bold,8"]
+      Foreground = &H9F004F&
       Padding = 3
       Border = Border.Raised
     }
     { Label108 Label
-      Move(7,280,455,21)
+      Move(7,322,455,21)
       #Translate = False
       Font = Font["8"]
       Padding = 3
@@ -688,12 +698,13 @@
     { Label106 Label
       Move(7,56,455,21)
       #Translate = False
-      Font = Font["8,Bold"]
+      Font = Font["Bold,8"]
+      Foreground = &H9F004F&
       Padding = 3
       Border = Border.Raised
     }
     { Label109 Label
-      Move(7,301,455,21)
+      Move(7,343,455,21)
       #Translate = False
       Font = Font["8"]
       Alignment = Align.Center
@@ -702,20 +713,22 @@
     { TextBox1 TextBox
       Move(7,7,455,28)
       #Translate = False
-      Font = Font["8"]
+      Font = Font["Bold,8"]
+      Background = Color.TooltipBackground
+      Foreground = Color.Foreground
       Text = "TextBox1"
       Alignment = Align.Left
       ReadOnly = True
     }
     { Label136 Label
-      Move(7,217,455,21)
+      Move(7,259,455,21)
       Font = Font["8"]
       Padding = 3
       Text = ("Label136")
       Border = Border.Raised
     }
     { Label64 Label
-      Move(7,238,455,21)
+      Move(7,280,455,21)
       #Translate = False
       Font = Font["8"]
       Padding = 3
@@ -723,7 +736,7 @@
       Border = Border.Raised
     }
     { Label146 Label
-      Move(7,259,455,21)
+      Move(7,301,455,21)
       #Translate = False
       Font = Font["8"]
       Padding = 3
@@ -733,39 +746,44 @@
     { Label220 Label
       Move(7,140,329,21)
       Font = Font["8"]
+      Foreground = &H9F0000&
       Padding = 3
       Border = Border.Raised
     }
     { Label221 Label
       Move(7,161,329,21)
       Font = Font["8"]
+      Foreground = &H9F0000&
       Padding = 3
       Border = Border.Raised
     }
     { Label222 Label
       Move(7,98,329,21)
       Font = Font["8"]
+      Foreground = &H9F0000&
       Padding = 3
       Border = Border.Raised
     }
     { Label224 Label
       Move(7,119,329,21)
       Font = Font["8"]
+      Foreground = &H9F0000&
       Padding = 3
       Border = Border.Raised
     }
     { Label225 Label
       Move(7,182,329,21)
       Font = Font["8"]
+      Foreground = &H9F0000&
       Padding = 3
       Border = Border.Raised
     }
     { Separator13 Separator
-      Move(0,322,469,21)
+      Move(0,364,469,21)
       Font = Font["8"]
     }
     { Label156 Label
-      Move(175,448,287,21)
+      Move(231,448,231,21)
       Font = Font["8"]
       Padding = 3
       Border = Border.Raised
@@ -777,64 +795,80 @@
       Border = Border.Raised
     }
     { Label102 Label
-      Move(7,385,455,21)
+      Move(231,406,231,21)
       #Translate = False
       Font = Font["8"]
       Padding = 3
       Border = Border.Raised
     }
     { Label101 Label
-      Move(7,343,455,21)
+      Move(7,385,357,21)
       #Translate = False
       Font = Font["8"]
       Padding = 3
       Border = Border.Raised
     }
     { Label100 Label
-      Move(7,364,455,21)
+      Move(7,406,224,21)
       #Translate = False
       Font = Font["8"]
       Padding = 3
       Border = Border.Raised
     }
     { Label155 Label
-      Move(7,448,168,21)
+      Move(7,427,168,21)
       Font = Font["8"]
       Padding = 3
       Border = Border.Raised
     }
     { Label67 Label
-      Move(175,406,287,21)
+      Move(364,385,98,21)
       #Translate = False
       Font = Font["8"]
       Padding = 3
       Border = Border.Raised
     }
     { Label66 Label
-      Move(7,427,168,21)
+      Move(112,448,119,21)
       #Translate = False
       Font = Font["8"]
       Padding = 3
       Border = Border.Raised
     }
     { Label65 Label
-      Move(7,406,168,21)
+      Move(7,448,105,21)
       #Translate = False
       Font = Font["8"]
       Padding = 3
       Border = Border.Raised
     }
     { Separator14 Separator
-      Move(0,203,469,14)
+      Move(0,245,469,14)
       Font = Font["8"]
     }
     { Label226 Label
-      Move(196,322,70,21)
+      Move(196,364,70,21)
       #Translate = False
       Font = Font["Bold,8"]
       Text = "EDID"
       Alignment = Align.Center
       Transparent = True
+    }
+    { Label246 Label
+      Move(7,203,329,21)
+      Font = Font["Bold,8"]
+      Foreground = &H9F004F&
+      ToolTip = ("OpenGL ES profile version string")
+      Padding = 3
+      Border = Border.Raised
+    }
+    { Label247 Label
+      Move(7,224,329,21)
+      Font = Font["Bold,8"]
+      Foreground = &H9F004F&
+      ToolTip = ("OpenGL ES profile shading language version string")
+      Padding = 3
+      Border = Border.Raised
     }
     Index = 2
     Text = "Mobo"
