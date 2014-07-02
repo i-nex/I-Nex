@@ -1,0 +1,42 @@
+# Maintainer : Philip Müller <philm@manjaro.org>
+
+pkgname=i-nex
+pkgver=7.0.0
+_git=7.0.0
+pkgrel=1
+pkgdesc="System information tool like hardinfo, sysinfo"
+arch=('i686' 'x86_64')
+url="http://i-nex.linux.pl/"
+license=('LGPL3')
+depends=('gambas3-runtime' 'gambas3-gb-image' 'gambas3-gb-form'
+         'gambas3-gb-desktop' 'gambas3-gb-settings' 'gambas3-gb-qt4'
+         'gambas3-gb-form-stock' 'python2' 'libcpuid'
+         'xorg-server-utils' 'lsb-release' 'curl' 'mesa-demos')
+makedepends=('gambas3-devel' 'gcc' 'imagemagick')
+source=("$pkgname-$pkgver-$pkgrel.tar.gz::https://github.com/eloaders/I-Nex/archive/$_git.tar.gz")
+sha256sums=('3f15461f3fef45ce542185ac5885f3d8d635fa4156ae178aa20c89b1f6ec1954')
+replaces=('i-nex-bzr' 'i-nex-dev' 'i-nex-git')
+provides=('i-nex' 'i-nex-bzr' 'i-nex-dev' 'i-nex-git')
+conflicts=('i-nex' 'i-nex-bzr' 'i-nex-dev' 'i-nex-git')
+
+prepare() {
+  cd "$srcdir/I-Nex-$_git"
+  # make it dynamic
+  sed -i -e 's|^STATIC.*|STATIC = false|' i-nex.mk
+  cd src
+  autoreconf -i
+}
+
+build() {
+  cd "$srcdir/I-Nex-$_git"
+  cd src
+  ./configure --prefix=/usr
+  cd ..
+  make
+}
+
+package() {
+  cd "$srcdir/I-Nex-$_git"
+  make install DESTDIR="${pkgdir}"
+  sed -i 's|python3$|python2|' "$pkgdir/usr/share/i-nex/pastebinit/pastebinit"
+} 
