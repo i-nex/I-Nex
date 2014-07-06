@@ -15,8 +15,9 @@
 ' You should have received a copy of the GNU General Public License
 ' along with this program. If not, see <http://www.gnu.org/licenses/>.
 
-Public {Null} As Variant
+Property Read {Null} As Variant
 
+Private $vNull As Variant
 Private $sStr As String
 Private $iPos As Integer
 Private $bUseNull As Boolean
@@ -145,20 +146,31 @@ Private Sub ReadNumber(sNumber As String) As Variant
   
   Dim sCar As String
   Dim vNumber As Variant
+  Dim bFloat As Boolean
   
   Do
     sCar = GetChar()
     If Not sCar Then Break
-    If InStr("-+0123456789eE.", sCar) = 0 Then 
+    If InStr(".eE", sCar) Then
+      bFloat = True
+    Else If InStr("-+0123456789", sCar) = 0 Then 
       Dec $iPos
       Break
     Endif
     sNumber &= sCar
   Loop
   
-  Try vNumber = CFloat(sNumber)
-  If IsNull(vNumber) Then Error.Raise("Incorrect number")
-  Return vNumber
+  If bFloat Then
+    Try vNumber = CFloat(sNumber)
+    If Not Error Then Return vNumber
+  Else
+    Try vNumber = CInt(sNumber)
+    If Not Error Then Return vNumber
+    Try vNumber = CLong(sNumber)
+    If Not Error Then Return vNumber
+  Endif
+  
+  Error.Raise("Incorrect number")
   
 End
 
@@ -255,13 +267,13 @@ Private Sub WriteValue(vVal As Variant)
 End
 
 
-Public Sub Decode(JSONString As String, Optional bUseNull As Boolean) As Variant
+Public Sub Decode(JSONString As String, Optional UseNull As Boolean) As Variant
   
   Dim vVal As Variant
   $sStr = JSONString
   $iPos = 1
-  $bUseNull = bUseNull
-  If bUseNull And If IsNull({Null}) Then {Null} = VarPtr({Null})
+  $bUseNull = UseNull
+  If UseNull And If IsNull($vNull) Then $vNull = VarPtr($vNull)
   vVal = ReadValue()
   $bUseNull = False
   $sStr = ""
@@ -275,4 +287,10 @@ Public Sub Encode(Value As Variant) As String
   WriteValue(Value)
   Return $sStr
   
+End
+
+Private Function Null_Read() As Variant
+
+  Return $vNull
+
 End
