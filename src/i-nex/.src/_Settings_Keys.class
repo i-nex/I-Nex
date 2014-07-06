@@ -15,6 +15,8 @@
 ' You should have received a copy of the GNU General Public License
 ' along with this program. If not, see <http://www.gnu.org/licenses/>.
 
+Create Static
+
 Public _Slot As Collection
 Public _Parent As String
 
@@ -22,8 +24,12 @@ Private $aKeys As String[]
 
 Public Sub _get(Parent As String) As _Settings_Keys
   
-  _Parent &/= Parent
-  Return _Settings_Keys
+  Dim hKeys As _Settings_Keys
+  
+  hKeys = New _Settings_Keys
+  hKeys._Slot = _Slot
+  hKeys._Parent = _Parent &/ Parent
+  Return hKeys
   
 End
 
