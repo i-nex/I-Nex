@@ -444,10 +444,11 @@ Public Sub Wykrywanie_procesorow()
   Shell "grep \"cpu family\" /proc/cpuinfo | sed -n \"" & CFloat(ComboBox1.Index + 1) & "p\" | cut -d \":\" -f 2" Wait To cpu_family
   Shell "grep \"bogomips\" /proc/cpuinfo | sed -n \"" & CFloat(ComboBox1.Index + 1) & "p\" | cut -d \":\" -f 2" Wait To bogomips
   Shell "grep \"address sizes\" /proc/cpuinfo | sed -n \"" & CFloat(ComboBox1.Index + 1) & "p\" | cut -d \":\" -f 2" Wait To address_sizes
-  Shell "cat /sys/devices/system/cpu/" & Subst(ComboBox1.Current.Text) & "/cache/index2/size" Wait To cache_size
-  Shell "cat /sys/devices/system/cpu/" & Subst(ComboBox1.Current.Text) & "/cache/index0/size" Wait To ldata
-  Shell "cat /sys/devices/system/cpu/" & Subst(ComboBox1.Current.Text) & "/cache/index1/size" Wait To linstruction
-  Shell "cat /sys/devices/system/cpu/" & Subst(ComboBox1.Current.Text) & "/cache/index3/size" Wait To level3cache
+  Try cache_size = Replace(File.Load("/sys/devices/system/cpu/" & Subst(ComboBox1.Current.Text) & "/cache/index2/size"), "\n", "")
+  Try ldata = Replace(File.Load("/sys/devices/system/cpu/" & Subst(ComboBox1.Current.Text) & "/cache/index0/size"), "\n", "")
+  Try linstruction = Replace(File.Load("/sys/devices/system/cpu/" & Subst(ComboBox1.Current.Text) & "/cache/index1/size"), "\n", "")
+  Try level3cache = Replace(File.Load("/sys/devices/system/cpu/" & Subst(ComboBox1.Current.Text) & "/cache/index3/size"), "\n", "")
+  
   Shell "grep \"siblings\" /proc/cpuinfo | sed -n \"1p\" | cut -d \":\" -f 2" Wait To cpu_cores
   Shell "grep \"physical id\" /proc/cpuinfo | sed -n \"" & CFloat(ComboBox1.Index + 1) & "p\" | cut -d \":\" -f 2" Wait To physical_id
   Shell "grep \"power management\" /proc/cpuinfo | sed -n \"" & CFloat(ComboBox1.Index + 1) & "p\" | cut -d \":\" -f 2" Wait To power_management
@@ -456,10 +457,6 @@ Public Sub Wykrywanie_procesorow()
   Label71.Text = "Flags: " & FFlags.instructions
   Label13.Text = UCase$(Replace(Replace(Replace(vendor_id, "Authentic", ""), "Genuine", ""), "\n", ""))
   Label12.Text = Replace(cpu_MHz, "\n", "") & " MHz"
-  Label1.Text = "L1 Data: " & Replace(ldata, "\n", "")
-  Label2.Text = "L1 instruction: " & Replace(linstruction, "\n", "")
-  Label3.Text = "Level 2: " & Replace(cache_size, "\n", "")
-  Label5.Text = "Level 3: " & Replace(level3cache, "\n", "")
   Label97.Text = "Family: " & Replace(cpu_family, "\n", "")
   Label6.Text = "Model: " & Replace(model, "\n", "")
   Label7.Text = "Stepping: " & Replace(stepping, "\n", "")
@@ -468,6 +465,10 @@ Public Sub Wykrywanie_procesorow()
   Label10.Text = "Bogomips: " & Replace(bogomips, "\n", "")
   Label11.Text = "Address sizes: " & Replace(address_sizes, "\n", "")
   Label15.Text = "Power mangament: " & Replace(power_management, "\n", "")
+  Label1.Text = "L1 Data: " & ldata
+  Label2.Text = "L1 instruction: " & linstruction
+  Label3.Text = "Level 2: " & cache_size
+  Label5.Text = "Level 3: " & level3cache
   Logs("Get info from database", Logger.Info)
   Object.Call(FCpudb, "_inits")
 End
