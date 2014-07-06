@@ -14,6 +14,7 @@
 '
 ' You should have received a copy of the GNU General Public License
 ' along with this program. If not, see <http://www.gnu.org/licenses/>.
+Public INEXGLINFO As Process
 Private ToolButton[99] As ToolButton
 Private Label[99] As Label  ' Dim the array of controls
 Private Button[99] As Button
@@ -367,31 +368,43 @@ End
 Public Sub grafika()
   Dim available_resolutions, Kernel_driver_in_use As String
   Dim rozdzielczosc, gpu, memory_prefetchable, memory_non_prefetchable As String
-  Dim OpenGLVS, OpenGLRS, OpenGLVRS, SrvGLXVS, SrvGLXVerS, CliGLXVenSt, CliVersS, GLXV, OpenGLESPVS, OpenGLESPSLVS As String
-  Shell "/usr/bin/i-nex-glinfo | grep \"OpenGL vendor string:\" | cut -d ':' -f 2" Wait To OpenGLVS
-  Shell "/usr/bin/i-nex-glinfo | grep \"OpenGL renderer string:\" | cut -d ':' -f 2" Wait To OpenGLRS
-  Shell "/usr/bin/i-nex-glinfo | grep \"OpenGL version string:\" | cut -d ':' -f 2" Wait To OpenGLVRS
-  Shell "/usr/bin/i-nex-glinfo | grep \"server glx vendor string:\" | cut -d ':' -f 2" Wait To SrvGLXVS
-  Shell "/usr/bin/i-nex-glinfo | grep \"server glx version string:\" | cut -d ':' -f 2" Wait To SrvGLXVerS
-  Shell "/usr/bin/i-nex-glinfo | grep \"client glx vendor string:\" | cut -d ':' -f 2" Wait To CliGLXVenSt
-  Shell "/usr/bin/i-nex-glinfo | grep \"client glx version string:\" | cut -d ':' -f 2" Wait To CliVersS
-  Shell "/usr/bin/i-nex-glinfo | grep \"GLX version:\" | cut -d ':' -f 2" Wait To GLXV
-  Shell "/usr/bin/i-nex-glinfo | grep \"OpenGL ES profile version string:\" | cut -d ':' -f 2" Wait To OpenGLESPVS
-  Shell "/usr/bin/i-nex-glinfo | grep \"OpenGL ES profile shading language version string:\" | cut -d ':' -f 2" Wait To OpenGLESPSLVS
-  
-  Try Label105.Text = "OpenGL Vendor: " & Replace(OpenGLVS, "\n", "")
-  Try Label106.Text = "OpenGL Renderer: " & Replace(OpenGLRS, "\n", "")
-  Try Label107.Text = "OpenGL Version: " & Replace(OpenGLVRS, "\n", "")
-  'OpenGL ES profile version string
-  'OpenGL ES profile shading language version String
-  Try Label246.Text = "OpenGLES PVS: " & Replace(OpenGLESPVS, "\n", "")
-  Try Label247.Text = "OpenGLES PSLVS: " & Replace(OpenGLESPSLVS, "\n", "")
-  
-  Try Label220.Text = "Server glx vendor: " & Replace(SrvGLXVS, "\n", "")
-  Try Label221.Text = "Server glx version: " & Replace(SrvGLXVerS, "\n", "")
-  Try Label222.Text = "Client glx vendor: " & Replace(CliGLXVenSt, "\n", "")
-  Try Label224.Text = "Client glx version: " & Replace(CliVersS, "\n", "")
-  Try Label225.Text = "GLX version: " & Replace(GLXV, "\n", "")
+  Dim GLIXNFO As String
+  Dim GLX As String[]
+  Dim strings As String
+  Exec ["/usr/bin/i-nex-glinfo"] Wait To GLIXNFO
+  GLX = Split(GLIXNFO, "\n", "")
+  For Each strings In GLX
+   If strings Like "*OpenGL vendor string:*" Then
+    Try Label105.Text = "OpenGL Vendor: " & Replace(strings, "OpenGL vendor string:", "")
+   Endif
+   If strings Like "*OpenGL renderer string:*" Then
+    Try Label106.Text = "OpenGL Renderer: " & Replace(strings, "OpenGL renderer string:", "")
+   Endif
+   If strings Like "*OpenGL version string:*" Then
+    Try Label107.Text = "OpenGL Version: " & Replace(strings, "OpenGL version string:", "")
+   Endif
+   If strings Like "*server glx vendor string:*" Then
+    Try Label220.Text = "Server glx vendor: " & Replace(strings, "server glx vendor string:", "")
+   Endif
+   If strings Like "*server glx version string:*" Then
+    Try Label221.Text = "Server glx version: " & Replace(strings, "server glx version string:", "")
+   Endif
+   If strings Like "*client glx vendor string:*" Then
+    Try Label222.Text = "Client glx vendor: " & Replace(strings, "client glx vendor string:", "")
+   Endif
+   If strings Like "*client glx version string:*" Then
+    Try Label224.Text = "Client glx version: " & Replace(strings, "client glx version string:", "")
+   Endif
+   If strings Like "*GLX version:*" Then
+    Try Label225.Text = "GLX version: " & Replace(strings, "GLX version:", "")
+   Endif
+   If strings Like "*OpenGL ES profile version string:*" Then
+    Try Label246.Text = "OpenGLES PVS: " & Replace(strings, "OpenGL ES profile version string:", "")
+   Endif
+   If strings Like "*OpenGL ES profile shading language version string:*" Then
+    Try Label247.Text = "OpenGLES PSLVS: " & Replace(strings, "OpenGL ES profile shading language version string:", "")
+   Endif
+  Next
 
   Shell ChkPrm.ChkExecDir("lspci") & " -v -s `lspci | awk '/VGA/{print $1}'` | grep \"Kernel driver in use:\" | cut -d ':' -f 2" Wait To Kernel_driver_in_use
   Shell ChkPrm.ChkExecDir("lspci") & " | grep 'VGA' | cut -d ':' -f3 | cut -d '(' -f 1 | sed -n '1p'" Wait To gpu
