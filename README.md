@@ -88,4 +88,4 @@ Budowanie pakietu deb:
 ### Forum does not require confirmation of email address. 
 ### Enables login by OpenID.
 
-# [Report Bug](http://i-nex.linux.pl/bbs/categories)
+# [Report Bug](http://forum.i-nex.pl/)
