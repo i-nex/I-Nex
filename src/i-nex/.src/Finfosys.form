@@ -2246,132 +2246,8 @@
     Index = 10
     Text = "USB | Input"
     Picture = Picture["AppIcons/Finfosys/drive-harddisk-usb.png"]
-    { HBox12 HBox
-      Move(0,0,468,24)
-      { Label70 Label
-        Move(0,0,144,24)
-        Font = Font["Bold"]
-        Padding = 4
-        AutoResize = True
-        Text = ("Usb device plugged:   ")
-      }
-      { ComboBox5 ComboBox
-        Move(168,0,144,24)
-        ReadOnly = True
-      }
-    }
-    { HPanel3 HPanel
-      Move(0,36,468,156)
-      { Label75 Label
-        Move(0,0,96,24)
-        Font = Font["Bold"]
-        Padding = 4
-        AutoResize = True
-        Text = ("Manufacturer:   ")
-      }
-      { TextBox42 TextBox
-        Move(150,0,144,24)
-        Expand = True
-        ReadOnly = True
-      }
-      { Label68 Label
-        Move(0,24,66,24)
-        Font = Font["Bold"]
-        Padding = 4
-        AutoResize = True
-        Text = ("Product:   ")
-      }
-      { TextBox40 TextBox
-        Move(150,24,144,24)
-        Expand = True
-        ReadOnly = True
-      }
-      { Label69 Label
-        Move(0,48,78,24)
-        Font = Font["Bold"]
-        Padding = 4
-        AutoResize = True
-        Text = ("Max power:   ")
-      }
-      { TextBox41 TextBox
-        Move(150,48,144,24)
-        Expand = True
-        ReadOnly = True
-      }
-      { Label79 Label
-        Move(0,72,144,24)
-        Font = Font["Bold"]
-        Padding = 4
-        AutoResize = True
-        Text = ("Speed:   ")
-      }
-      { TextBox46 TextBox
-        Move(150,72,144,24)
-        Expand = True
-        ReadOnly = True
-      }
-      { Label76 Label
-        Move(0,96,144,24)
-        Font = Font["Bold"]
-        Padding = 4
-        AutoResize = True
-        Text = ("Version:   ")
-      }
-      { TextBox49 TextBox
-        Move(150,96,144,24)
-        Expand = True
-        ReadOnly = True
-      }
-      { Label94 Label
-        Move(0,119,144,24)
-        Font = Font["Bold"]
-        Padding = 4
-        AutoResize = True
-        Text = ("Serial")
-      }
-      { TextBox54 TextBox
-        Move(150,120,144,24)
-        Expand = True
-        ReadOnly = True
-      }
-    }
-    { HBox23 HBox
-      Move(0,198,468,24)
-      { Label81 Label
-        Move(0,0,78,24)
-        Font = Font["Bold"]
-        Padding = 4
-        AutoResize = True
-        Text = ("idVendor:   ")
-      }
-      { TextBox51 TextBox
-        Move(72,0,144,24)
-        Expand = True
-        ReadOnly = True
-      }
-      { Label80 Label
-        Move(222,0,144,24)
-        Font = Font["Bold"]
-        Padding = 4
-        AutoResize = True
-        Text = ("idProduct:   ")
-      }
-      { TextBox50 TextBox
-        Move(324,0,144,24)
-        Expand = True
-        ReadOnly = True
-      }
-    }
-    { HPanel2 HPanel
-      Move(0,228,468,24)
-      { TextBox43 TextBox
-        Move(0,0,144,24)
-        Expand = True
-        ReadOnly = True
-      }
-    }
     { HBox22 HBox
-      Move(6,420,456,24)
+      Move(7,448,456,24)
       { Label84 Label
         Move(0,0,114,24)
         Padding = 3
@@ -2386,17 +2262,129 @@
       }
     }
     { Label83 Label
-      Move(6,390,456,24)
+      Move(7,420,456,24)
       Padding = 3
       Border = Border.Plain
     }
     { Label82 Label
-      Move(6,360,456,24)
+      Move(7,392,456,24)
       Padding = 4
       Border = Border.Plain
     }
     { ComboBox7 ComboBox
-      Move(6,330,144,24)
+      Move(7,364,98,28)
+      ReadOnly = True
+    }
+    { Label70 Label
+      Move(7,0,154,28)
+      Font = Font["Bold"]
+      Padding = 4
+      Text = ("Usb device plugged:   ")
+      Border = Border.Raised
+    }
+    { ComboBox5 ComboBox
+      Move(168,0,105,28)
+      ReadOnly = True
+    }
+    { Label75 Label
+      Move(7,28,112,28)
+      Font = Font["Bold,8"]
+      Padding = 4
+      Text = ("Manufacturer:   ")
+      Border = Border.Raised
+    }
+    { TextBox42 TextBox
+      Move(119,28,343,28)
+      Expand = True
+      ReadOnly = True
+    }
+    { Label68 Label
+      Move(7,56,112,28)
+      Font = Font["Bold,8"]
+      Padding = 4
+      Text = ("Product:   ")
+      Border = Border.Raised
+    }
+    { TextBox40 TextBox
+      Move(119,56,343,28)
+      Expand = True
+      ReadOnly = True
+    }
+    { Label69 Label
+      Move(7,112,112,28)
+      Font = Font["Bold,8"]
+      Padding = 4
+      Text = ("Max power:   ")
+      Border = Border.Raised
+    }
+    { TextBox41 TextBox
+      Move(119,112,343,28)
+      Expand = True
+      ReadOnly = True
+    }
+    { Label79 Label
+      Move(7,84,112,28)
+      Font = Font["Bold"]
+      Padding = 4
+      Text = ("Speed:   ")
+      Border = Border.Raised
+    }
+    { TextBox46 TextBox
+      Move(119,84,343,28)
+      Expand = True
+      ReadOnly = True
+    }
+    { Label76 Label
+      Move(7,140,112,28)
+      Font = Font["Bold"]
+      Padding = 4
+      Text = ("Version:   ")
+      Border = Border.Raised
+    }
+    { TextBox49 TextBox
+      Move(119,140,343,28)
+      Expand = True
+      ReadOnly = True
+    }
+    { Label94 Label
+      Move(7,168,112,28)
+      Font = Font["Bold"]
+      Padding = 4
+      Text = ("Serial")
+      Border = Border.Raised
+    }
+    { TextBox54 TextBox
+      Move(119,168,343,28)
+      Expand = True
+      ReadOnly = True
+    }
+    { TextBox51 TextBox
+      Move(98,196,147,28)
+      Expand = True
+      ReadOnly = True
+    }
+    { Label81 Label
+      Move(7,196,91,28)
+      Font = Font["Bold"]
+      Padding = 4
+      Text = ("idVendor:   ")
+      Border = Border.Raised
+    }
+    { Label80 Label
+      Move(7,224,91,28)
+      Font = Font["Bold"]
+      Padding = 4
+      Text = ("idProduct:   ")
+      Border = Border.Raised
+    }
+    { TextBox50 TextBox
+      Move(98,224,147,28)
+      Expand = True
+      ReadOnly = True
+    }
+    { TextBox43 TextBox
+      Move(7,252,455,28)
+      Expand = True
       ReadOnly = True
     }
     Index = 11
