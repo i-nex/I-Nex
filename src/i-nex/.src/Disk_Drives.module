@@ -130,6 +130,10 @@ Public Sub get_informations()
   Try stable_pages_required = Replace(File.Load("/sys/block/" & Finfosys.ComboBox4.Text & "/bdi/stable_pages_required"), "\n", "")
   
   Shell "sed -n \"2p\" /proc/swaps | awk {'print $1'} | cut -d \"/\" -f 3" Wait To check_swap
+  If check_swap Not Like Finfosys.ComboBox3.Text Then
+   Shell "blkid | grep swap | cut -d \":\" -f 1 | cut -d \"/\" -f 3" Wait To check_swap
+  Endif
+  Print check_swap
   Shell "LC_ALL=C df | grep \"" & Finfosys.ComboBox3.Text & "\" | awk {'print $5'} | sed -n '1p'" Wait To used
   Used = Replace(Replace(Used, "%", ""), "\n", "")
 
@@ -175,4 +179,15 @@ Public Sub disks()
    Shell "LC_ALL=C df | grep -w \"" & Finfosys.ComboBox4.Text & "\" | awk {'print $6, $7'} | sed -n '1p'" Wait To mount_point
   Endif
   mount_point = Replace(mount_point, "\n", "")
+  
+  ' Fixes for blkid (Manjaro Linux) (Arch Based)
+  If IsNull(device_uuid) = True Then
+   Shell "blkid | grep " & Finfosys.ComboBox3.Text & " | awk {'print $4'} | tr '\"' ' ' | tr 'UUID=' ' '" Wait To device_uuid
+   device_uuid = Replace(device_uuid, " ", "")
+  Endif
+  If IsNull(filesystem_type) = True Then
+   Shell "blkid | grep " & Finfosys.ComboBox3.Text & " | awk {'print $5'} | tr '\"' ' ' | tr 'TYPE=' ' '" Wait To filesystem_type
+   filesystem_type = Replace(filesystem_type, " ", "")
+  Endif
+   
 End
