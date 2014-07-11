@@ -181,7 +181,7 @@ Public Sub disks()
   mount_point = Replace(mount_point, "\n", "")
   
   ' Fixes for blkid (Manjaro Linux) (Arch Based)
-  If IsNull(device_uuid) = True Then
+  If Len(device_uuid) < 9 Then
    Shell "blkid | grep " & Finfosys.ComboBox3.Text & " | awk {'print $4'} | tr '\"' ' ' | tr 'UUID=' ' '" Wait To device_uuid
    device_uuid = Replace(device_uuid, " ", "")
   Endif
