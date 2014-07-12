@@ -444,6 +444,7 @@
       }
       { LCDLabel3 LCDLabel
         Move(182,91,154,35)
+        Visible = False
         Font = Font["Bold,9"]
         Text = ("Voltage")
         Sheared = True
