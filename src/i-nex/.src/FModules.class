@@ -22,10 +22,10 @@ Public Actual_Module As String
 Public Sub Form_Open()
  Dim i As Integer
  If ChkPrm.ChkExec("modinfo") = True Then
- Shell "cat /proc/modules | awk {'print $1'} | wc -l" Wait To All_Found_Modules_String
+ Shell "ls /sys/module/ | sort | cut -d \"/\" -f 1 | wc -l" Wait To All_Found_Modules_String
  All_Found_Modules = Replace(Replace(All_Found_Modules_String, " ", ""), "\n", "")
  For i = 1 To All_Found_Modules
-  Shell "cat /proc/modules | awk {'print $1'} | sed -n '" & i & "p'" Wait To Actual_Module
+  Shell "ls /sys/module/ | sort | cut -d \"/\" -f 1 | sed -n '" & i & "p'" Wait To Actual_Module
   Actual_Module = Replace(Replace(Actual_Module, " ", ""), "\n", "")
   ComboBox1.Add(Actual_Module)
  Next
@@ -42,8 +42,8 @@ Public Sub Form_Open()
 End
 
 Public Sub ComboBox1_Click()
-
- Shell "modinfo " & ComboBox1.Text & "" Wait To TextArea1.Text
+ 
+ Exec ["modinfo", ComboBox1.text] Wait To TextArea1.Text
 
 End
 
