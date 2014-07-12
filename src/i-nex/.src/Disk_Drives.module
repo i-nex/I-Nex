@@ -133,7 +133,6 @@ Public Sub get_informations()
   If check_swap Not Like Finfosys.ComboBox3.Text Then
    Shell "blkid | grep swap | cut -d \":\" -f 1 | cut -d \"/\" -f 3" Wait To check_swap
   Endif
-  Print check_swap
   Shell "LC_ALL=C df | grep \"" & Finfosys.ComboBox3.Text & "\" | awk {'print $5'} | sed -n '1p'" Wait To used
   Used = Replace(Replace(Used, "%", ""), "\n", "")
 
