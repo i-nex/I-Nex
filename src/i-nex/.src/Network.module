@@ -75,7 +75,7 @@ End
 Public Function IP_INFO()
  Dim IPINFOIO_BUF As String
  Dim IPINFOIO_JSON As Collection
- Try Exec ["curl", "ipinfo.io"] Wait To IPINFOIO_BUF
+ Try Exec ["curl", "ipinfo.io"] To IPINFOIO_BUF
  Try IPINFOIO_JSON = JSON.Decode(IPINFOIO_BUF)
  'https://www.google.com/maps/search/54.6052,18.2355
  Try Finfosys.Label93.Text = IPINFOIO_JSON["ip"]
