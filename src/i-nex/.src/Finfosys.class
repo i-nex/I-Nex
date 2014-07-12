@@ -197,6 +197,8 @@ Public Sub Form_Open()
         MaxCount += 1
         ComboBox1.Add(sLine, MaxCount)
   Wend
+  
+  Try Close #data
   'Locate kernels
   MaxCount = 0
   Try data = Shell "ls /boot | grep 'vmlinuz*'" For Input
@@ -206,6 +208,8 @@ Public Sub Form_Open()
         MaxCount += 1
         ListBox1.Add(sLine, MaxCount)
   Wend
+  
+  Try Close #data
   Label228.Text = "Installed Kernels: " & CString(MaxCount)
   'End of locate kernels
   If User.Name = "root" Then
