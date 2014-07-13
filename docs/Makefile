@@ -1,10 +1,10 @@
 #!/usr/bin/make -f
 include ../i-nex.mk 
-create-dir:
-	@echo -e '\033[1;32mCreate directory...\033[0m'
-	mkdir -p $(DESTDIR)$(PREFIX)$(DOCSDIR)
+install: install-doc compress-doc
 
 install-doc:
+	@echo -e '\033[1;32mCreate directory...\033[0m'
+	mkdir -p $(DESTDIR)$(PREFIX)$(DOCSDIR)
 	@echo -e '\033[1;32mInstalling Docs...\033[0m'
 	install -Dm644 copyright "$(DESTDIR)$(PREFIX)$(DOCSDIR)/copyright"
 	install -Dm644 I-Nex.LICENSE "$(DESTDIR)$(PREFIX)$(DOCSDIR)/I-Nex.LICENSE"
@@ -15,5 +15,3 @@ compress-doc:
 	gzip -9 "$(DESTDIR)$(PREFIX)$(DOCSDIR)/copyright"
 	gzip -9 "$(DESTDIR)$(PREFIX)$(DOCSDIR)/I-Nex.LICENSE"
 	gzip -9 "$(DESTDIR)$(PREFIX)$(DOCSDIR)/Pastebinit.LICENSE"
-	
-install: create-dir install-doc compress-doc
