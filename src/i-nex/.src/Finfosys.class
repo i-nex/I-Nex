@@ -33,6 +33,10 @@ Public DATAT As Collection
 Public UNAME As Collection
 Public USAGE As Collection
 Public SCREENFETCH As Collection
+Public L0LEVEL As String
+Public L1LEVEL As String
+Public L2LEVEL As String
+Public L3LEVEL As String
 Public Sub Form_Open()
   Dim default_display_manager As Boolean = Exist("/etc/X11/default-display-manager")
   Dim cpus As String
@@ -450,8 +454,13 @@ End
 Public Sub Wykrywanie_procesorow()
   Dim obrazekcpu, cpu_MHz, power_management As String
   Dim model, stepping, cpu_family, bogomips As String
-  Dim address_sizes, cache_size, ldata, linstruction As String
+  Dim address_sizes As String
   Dim physical_id, cpu_cores, level3cache As String
+  Dim L0TYPE, L1TYPE, L2TYPE, L3TYPE As String
+  Dim INDEX0, INDEX1, INDEX2, INDEX3 As String
+  Dim L0WAYS, L1WAYS, L2WAYS, L3WAYS As String
+  Dim COHERENCY0, COHERENCY1, COHERENCY2, COHERENCY3 As String
+  Dim NUMOFSETS0, NUMOFSETS1, NUMOFSETS2, NUMOFSETS3 As String
   Shell "grep \"vendor_id\" /proc/cpuinfo | sed -n \"" & CFloat(ComboBox1.Index + 1) & "p\" | cut -d \":\" -f 2" Wait To obrazekcpu
   Shell "grep \"model name\" /proc/cpuinfo | sed -n \"" & CFloat(ComboBox1.Index + 1) & "p\" | cut -d \":\" -f 2 | cut -d '@' -f 1" Wait To cpu
   Shell "grep \"vendor_id\" /proc/cpuinfo | sed -n \"" & CFloat(ComboBox1.Index + 1) & "p\" | cut -d \":\" -f 2" Wait To vendor_id
@@ -461,11 +470,45 @@ Public Sub Wykrywanie_procesorow()
   Shell "grep \"cpu family\" /proc/cpuinfo | sed -n \"" & CFloat(ComboBox1.Index + 1) & "p\" | cut -d \":\" -f 2" Wait To cpu_family
   Shell "grep \"bogomips\" /proc/cpuinfo | sed -n \"" & CFloat(ComboBox1.Index + 1) & "p\" | cut -d \":\" -f 2" Wait To bogomips
   Shell "grep \"address sizes\" /proc/cpuinfo | sed -n \"" & CFloat(ComboBox1.Index + 1) & "p\" | cut -d \":\" -f 2" Wait To address_sizes
-  Try cache_size = Replace(File.Load("/sys/devices/system/cpu/" & Subst(ComboBox1.Current.Text) & "/cache/index2/size"), "\n", "")
-  Try ldata = Replace(File.Load("/sys/devices/system/cpu/" & Subst(ComboBox1.Current.Text) & "/cache/index0/size"), "\n", "")
-  Try linstruction = Replace(File.Load("/sys/devices/system/cpu/" & Subst(ComboBox1.Current.Text) & "/cache/index1/size"), "\n", "")
-  Try level3cache = Replace(File.Load("/sys/devices/system/cpu/" & Subst(ComboBox1.Current.Text) & "/cache/index3/size"), "\n", "")
   
+  Try INDEX0 = Replace(File.Load("/sys/devices/system/cpu/" & Subst(ComboBox1.Current.Text) & "/cache/index0/size"), "\n", "")
+  Try INDEX1 = Replace(File.Load("/sys/devices/system/cpu/" & Subst(ComboBox1.Current.Text) & "/cache/index1/size"), "\n", "")
+  Try INDEX2 = Replace(File.Load("/sys/devices/system/cpu/" & Subst(ComboBox1.Current.Text) & "/cache/index2/size"), "\n", "")
+  Try INDEX3 = Replace(File.Load("/sys/devices/system/cpu/" & Subst(ComboBox1.Current.Text) & "/cache/index3/size"), "\n", "")
+  Try L0TYPE = Replace(File.Load("/sys/devices/system/cpu/" & Subst(ComboBox1.Current.Text) & "/cache/index0/type"), "\n", "")
+  Try L1TYPE = Replace(File.Load("/sys/devices/system/cpu/" & Subst(ComboBox1.Current.Text) & "/cache/index1/type"), "\n", "")
+  Try L2TYPE = Replace(File.Load("/sys/devices/system/cpu/" & Subst(ComboBox1.Current.Text) & "/cache/index2/type"), "\n", "")
+  Try L3TYPE = Replace(File.Load("/sys/devices/system/cpu/" & Subst(ComboBox1.Current.Text) & "/cache/index3/type"), "\n", "")
+  Try L0LEVEL = Replace(File.Load("/sys/devices/system/cpu/" & Subst(ComboBox1.Current.Text) & "/cache/index0/level"), "\n", "")
+  Try L1LEVEL = Replace(File.Load("/sys/devices/system/cpu/" & Subst(ComboBox1.Current.Text) & "/cache/index1/level"), "\n", "")
+  Try L2LEVEL = Replace(File.Load("/sys/devices/system/cpu/" & Subst(ComboBox1.Current.Text) & "/cache/index2/level"), "\n", "")
+  Try L3LEVEL = Replace(File.Load("/sys/devices/system/cpu/" & Subst(ComboBox1.Current.Text) & "/cache/index3/level"), "\n", "")
+  Try L0WAYS = Replace(File.Load("/sys/devices/system/cpu/" & Subst(ComboBox1.Current.Text) & "/cache/index0/ways_of_associativity"), "\n", "")
+  Try L1WAYS = Replace(File.Load("/sys/devices/system/cpu/" & Subst(ComboBox1.Current.Text) & "/cache/index1/ways_of_associativity"), "\n", "")
+  Try L2WAYS = Replace(File.Load("/sys/devices/system/cpu/" & Subst(ComboBox1.Current.Text) & "/cache/index2/ways_of_associativity"), "\n", "")
+  Try L3WAYS = Replace(File.Load("/sys/devices/system/cpu/" & Subst(ComboBox1.Current.Text) & "/cache/index3/ways_of_associativity"), "\n", "")
+  Try COHERENCY0 = Replace(File.Load("/sys/devices/system/cpu/" & Subst(ComboBox1.Current.Text) & "/cache/index0/coherency_line_size"), "\n", "")
+  Try COHERENCY1 = Replace(File.Load("/sys/devices/system/cpu/" & Subst(ComboBox1.Current.Text) & "/cache/index1/coherency_line_size"), "\n", "")
+  Try COHERENCY2 = Replace(File.Load("/sys/devices/system/cpu/" & Subst(ComboBox1.Current.Text) & "/cache/index2/coherency_line_size"), "\n", "")
+  Try COHERENCY3 = Replace(File.Load("/sys/devices/system/cpu/" & Subst(ComboBox1.Current.Text) & "/cache/index3/coherency_line_size"), "\n", "")
+  Try NUMOFSETS0 = Replace(File.Load("/sys/devices/system/cpu/" & Subst(ComboBox1.Current.Text) & "/cache/index0/number_of_sets"), "\n", "")
+  Try NUMOFSETS1 = Replace(File.Load("/sys/devices/system/cpu/" & Subst(ComboBox1.Current.Text) & "/cache/index1/number_of_sets"), "\n", "")
+  Try NUMOFSETS2 = Replace(File.Load("/sys/devices/system/cpu/" & Subst(ComboBox1.Current.Text) & "/cache/index2/number_of_sets"), "\n", "")
+  Try NUMOFSETS3 = Replace(File.Load("/sys/devices/system/cpu/" & Subst(ComboBox1.Current.Text) & "/cache/index3/number_of_sets"), "\n", "")
+  
+  Label1.Text = "Cache L" & L0LEVEL & " " & INDEX0 & " " & L0TYPE & ",  WOA: " & L0WAYS & ",  CLS: " & COHERENCY0 & ",  NOS: " & NUMOFSETS0
+  Label1.Tooltip = "Cache L" & L0LEVEL & " " & INDEX0 & " " & L0TYPE & ",  Ways of associativity: " & L0WAYS & ",  Coherency line size: " & COHERENCY0 & ",  Number of sets: " & NUMOFSETS0
+  Label2.Text = "Cache L" & L1LEVEL & " " & INDEX1 & " " & L1TYPE & ",  WOA: " & L1WAYS & ",  CLS: " & COHERENCY1 & ",  NOS: " & NUMOFSETS1
+  Label2.Tooltip = "Cache L" & L1LEVEL & " " & INDEX1 & " " & L1TYPE & ",  Ways of associativity: " & L1WAYS & ",  Coherency line size: " & COHERENCY1 & ",  Number of sets: " & NUMOFSETS1
+  Label3.Text = "Cache L" & L2LEVEL & " " & INDEX2 & " " & L2TYPE & ",  WOA: " & L2WAYS & ",  CLS: " & COHERENCY2 & ",  NOS: " & NUMOFSETS2
+  Label3.Tooltip = "Cache L" & L2LEVEL & " " & INDEX2 & " " & L2TYPE & ",  Ways of associativity: " & L2WAYS & ",  Coherency line size: " & COHERENCY2 & ",  Number of sets: " & NUMOFSETS2
+  If IsNull(L3LEVEL) = False Then
+   Label5.Text = "Cache L" & L3LEVEL & " " & INDEX3 & " " & L3TYPE & ",  WOA: " & L3WAYS & ",  CLS: " & COHERENCY3 & ",  NOS: " & NUMOFSETS3
+   Label5.Tooltip = "Cache L" & L3LEVEL & " " & INDEX3 & " " & L3TYPE & ",  Ways of associativity: " & L3WAYS & ",  Coherency line size: " & COHERENCY3 & ",  Number of sets: " & NUMOFSETS3
+  Else
+   Label5.Visible = False
+  Endif
+   
   Shell "grep \"siblings\" /proc/cpuinfo | sed -n \"1p\" | cut -d \":\" -f 2" Wait To cpu_cores
   Shell "grep \"physical id\" /proc/cpuinfo | sed -n \"" & CFloat(ComboBox1.Index + 1) & "p\" | cut -d \":\" -f 2" Wait To physical_id
   Shell "grep \"power management\" /proc/cpuinfo | sed -n \"" & CFloat(ComboBox1.Index + 1) & "p\" | cut -d \":\" -f 2" Wait To power_management
@@ -482,10 +525,6 @@ Public Sub Wykrywanie_procesorow()
   Label10.Text = "Bogomips: " & Replace(bogomips, "\n", "")
   Label11.Text = "Address sizes: " & Replace(address_sizes, "\n", "")
   Label15.Text = "Power mangament: " & Replace(power_management, "\n", "")
-  Label1.Text = "L1 Data: " & ldata
-  Label2.Text = "L1 instruction: " & linstruction
-  Label3.Text = "Level 2: " & cache_size
-  Label5.Text = "Level 3: " & level3cache
   Logs("Get info from database", Logger.Info)
   Object.Call(FCpudb, "_inits")
 End
