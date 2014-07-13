@@ -23,6 +23,7 @@ AS_ROOT 		= 	sudo
 CFLAGS 			= 	-g -Wall
 bindir 			= 	$(PREFIX)/bin
 INSTALL 		= 	install -m
+MKDIR_P			=	mkdir -p
 BUILD_SELF_EXECUTABLE 	= 	./build-selfexecutable
 RM_COM 			= 	rm
 RMFILE_OPT 		= 	-f
