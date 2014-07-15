@@ -131,6 +131,9 @@ Public Sub Form_Open()
                       .Font.Size = 8
                       .Tooltip = DATAT["Flags"][i]["NAME"]
                       .Text = DATAT["Flags"][i]["DESC"]
+                      If DATAT["Flags"][i]["NAME"] = "CPU_FEATURE_RESERVED" Then
+                       .Visible = False
+                      Endif
                   End With
                   With ToolButton[i]
                            .X = 420
@@ -139,6 +142,9 @@ Public Sub Form_Open()
                            .Height = 21
                            .Picture = YESNO
                            .Tooltip = DATAT["Flags"][i]["VALUE"]
+                           If DATAT["Flags"][i]["NAME"] = "CPU_FEATURE_RESERVED" Then
+                           .Visible = False
+                           Endif
                   End With
                   With Button[i]
                        .X = 400
@@ -163,6 +169,9 @@ Public Sub Form_Open()
                           .Foreground = 6
                           .Alignment = Align.Center
                           .Text = DATAT["Flags"][i]["FEATURE"]
+                          If DATAT["Flags"][i]["NAME"] = "CPU_FEATURE_RESERVED" Then
+                          .Visible = False
+                          Endif
                   End With
   Next
 

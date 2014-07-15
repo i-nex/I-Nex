@@ -817,7 +817,7 @@ int main(void)
 	  printf("			},\n");
 	} else {
 	  printf("			\"92\": {\n");
-	  printf("					\"VALUE\": 0 \n");
+	  printf("					\"VALUE\": 0 ,\n");
 	  printf("					\"NAME\": \"CPU_FEATURE_RESERVED\",\n");
 	  printf("					\"FEATURE\": \"Reserved space\",\n");
 	  printf("					\"WEBSITE\": \"Reserved space\",\n");
@@ -840,6 +840,7 @@ int main(void)
 	printf("					\"WEBSITE\": \"http://en.wikipedia.org/wiki/Memory_type_range_register\",\n");
 	printf("					\"HAVEWEBSITE\": 1 ,\n");
 	printf("					\"DESC\": \"Memory type range registers\"\n");
+	if (data.vendor == VENDOR_AMD) {
 	printf("			},\n");
 	printf("			\"95\": {\n");
 	printf("					\"VALUE\": %s \n", data.flags[CPU_FEATURE_CPB] ? "1 ," : "0 ,");
@@ -872,6 +873,40 @@ int main(void)
 	printf("					\"WEBSITE\": \"\",\n");
 	printf("					\"HAVEWEBSITE\": 0 ,\n");
 	printf("					\"DESC\": \"Processor accumulator\"\n");
+	} else {
+	printf("			},\n");
+	printf("			\"95\": {\n");
+	printf("					\"VALUE\": 0 ,\n");
+	printf("					\"NAME\": \"CPU_FEATURE_RESERVED\",\n");
+	printf("					\"FEATURE\": \"Reserved space\",\n");
+	printf("					\"WEBSITE\": \"Reserved space\",\n");
+	printf("					\"HAVEWEBSITE\": 0 ,\n");
+	printf("					\"DESC\": \"Reserved space\"\n");
+	printf("			},\n");
+	printf("			\"96\": {\n");
+	printf("					\"VALUE\": 0 ,\n");
+	printf("					\"NAME\": \"CPU_FEATURE_RESERVED\",\n");
+	printf("					\"FEATURE\": \"Reserved space\",\n");
+	printf("					\"WEBSITE\": \"Reserved space\",\n");
+	printf("					\"HAVEWEBSITE\": 0 ,\n");
+	printf("					\"DESC\": \"Reserved space\"\n");
+	printf("			},\n");
+	printf("			\"97\": {\n");
+	printf("					\"VALUE\": 0 ,\n");
+	printf("					\"NAME\": \"CPU_FEATURE_RESERVED\",\n");
+	printf("					\"FEATURE\": \"Reserved space\",\n");
+	printf("					\"WEBSITE\": \"Reserved space\",\n");
+	printf("					\"HAVEWEBSITE\": 0 ,\n");
+	printf("					\"DESC\": \"Reserved space\"\n");
+	printf("			},\n");
+	printf("			\"98\": {\n");
+	printf("					\"VALUE\": 0 ,\n");
+	printf("					\"NAME\": \"CPU_FEATURE_RESERVED\",\n");
+	printf("					\"FEATURE\": \"Reserved space\",\n");
+	printf("					\"WEBSITE\": \"Reserved space\",\n");
+	printf("					\"HAVEWEBSITE\": 0 ,\n");
+	printf("					\"DESC\": \"Reserved space\"\n");
+	}
 	printf("			}\n");
 	printf("	},\n");
 	printf("	\"L1_DATA_CACHE\": \"%d\",\n", data.l1_data_cache);
