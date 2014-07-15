@@ -17,7 +17,7 @@ sysclean: uninstall rmgambas
 build-inex:
 
 	@echo -e '\033[1;32mBuild I-Nex...\033[0m'
-	$(MAKE) -C src
+	$(MAKE) -C I-Nex
 	
 build-json:
 
@@ -69,7 +69,7 @@ install-json:
 install-inex:
 
 	@echo -e '\033[1;32mInstall I-Nex...\033[0m'
-	$(MAKE) -C src install
+	$(MAKE) -C I-Nex install
 
 install-scripts:
 
@@ -86,17 +86,17 @@ clean-json:
 	
 clean-inex:
 
-	if test -f "src/Makefile" ; then $(MAKE) -C src distclean ; fi
+	if test -f "I-Nex/Makefile" ; then $(MAKE) -C I-Nex distclean ; fi
 	
 clean-all:
 
 	$(RM_COM) $(RMDIR_OPT) `find . -name ".gambas"`
 	$(RM_COM) $(RMDIR_OPT) `find . -name "*.gambas"`
 	$(RM_COM) $(RMDIR_OPT) `find . -name ".directory"`
-	$(RM_COM) $(RMFILE_OPT) src/i-nex/.lang/*.pot
-	$(RM_COM) $(RMFILE_OPT) src/i-nex/.lang/*.po
-	$(RM_COM) $(RMFILE_OPT) src/i-nex/.lang/*.mo
-	$(RM_COM) $(RMDIR_OPT) src/i-nex/.gambas
+	$(RM_COM) $(RMFILE_OPT) I-Nex/i-nex/.lang/*.pot
+	$(RM_COM) $(RMFILE_OPT) I-Nex/i-nex/.lang/*.po
+	$(RM_COM) $(RMFILE_OPT) I-Nex/i-nex/.lang/*.mo
+	$(RM_COM) $(RMDIR_OPT) I-Nex/i-nex/.gambas
 	$(RM_COM) $(RMDIR_OPT) debian/files
 	$(RM_COM) $(RMDIR_OPT) debian/i-nex
 	$(RM_COM) $(RMDIR_OPT) debian/i-nex.debhelper.log
@@ -104,12 +104,12 @@ clean-all:
 	$(RM_COM) $(RMDIR_OPT) debian/i-nex.postrm.debhelper
 	$(RM_COM) $(RMDIR_OPT) debian/i-nex.substvars
 	$(RM_COM) $(RMDIR_OPT) debian/changelog1
-	$(RM_COM) $(RMDIR_OPT) src/autom4te.cache
-	$(RM_COM) $(RMDIR_OPT) src/config.log
-	$(RM_COM) $(RMDIR_OPT) src/config.status
-	$(RM_COM) $(RMDIR_OPT) src/configure
-	$(RM_COM) $(RMDIR_OPT) src/install-sh
-	$(RM_COM) $(RMDIR_OPT) src/missing
+	$(RM_COM) $(RMDIR_OPT) I-Nex/autom4te.cache
+	$(RM_COM) $(RMDIR_OPT) I-Nex/config.log
+	$(RM_COM) $(RMDIR_OPT) I-Nex/config.status
+	$(RM_COM) $(RMDIR_OPT) I-Nex/configure
+	$(RM_COM) $(RMDIR_OPT) I-Nex/install-sh
+	$(RM_COM) $(RMDIR_OPT) I-Nex/missing
 
 
 link-inex:

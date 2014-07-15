@@ -24,13 +24,13 @@ prepare() {
   cd $pkgname
   # make it dynamic
   sed -i -e 's|^STATIC.*|STATIC = false|' i-nex.mk
-  cd src
+  cd I-Nex
   autoreconf -i
 }
  
 build() {
   cd $pkgname
-  cd src
+  cd I-Nex
   ./configure --prefix=/usr
   cd ..
   make
