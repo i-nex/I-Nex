@@ -6,7 +6,7 @@ install-doc: install_copyright \
 	     install_i_nex_LICENSE \
 	     install_Pastebinit_LICENSE
 
-compress-doc: compress-copyright \
+compress-doc: compress_copyright \
 	      compress_i_nex_LICENSE \
 	      compress_Pastebinit_LICENSE
 
