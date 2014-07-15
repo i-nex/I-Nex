@@ -7,9 +7,9 @@ else
 COMPRESSION = 		-- -z9 -Zxz
 endif
 override_dh_autoreconf:
-	cd src && autoreconf -i
+	cd I-Nex && autoreconf -i
 override_dh_auto_configure:
-	dh_auto_configure --sourcedirectory=src
+	dh_auto_configure --sourcedirectory=I-Nex
 override_dh_pysupport:
 	dh_python2
 override_dh_builddeb:
