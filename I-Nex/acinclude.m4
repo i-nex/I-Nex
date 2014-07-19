@@ -19,8 +19,8 @@ AC_DEFUN([GB_INIT_PROJECT],
     AC_MSG_ERROR(Cannot find .project file for $1 !)
   fi
 
-  ##AM_INIT_AUTOMAKE($1, `cat $1/.project | grep "^Version=" | sed s/"Version="//g`)
-  AM_INIT_AUTOMAKE($1, 7.0.0)
+  AM_INIT_AUTOMAKE($1, `cat $1/.project | grep "^Version=" | sed s/"Version="//g`)
+  ##AM_INIT_AUTOMAKE($1, 7.0.0)
 
   ## List of needed components
   COMPONENTS=`cat $1/.project | grep "^Component=" | sed s/"Component="//g`
