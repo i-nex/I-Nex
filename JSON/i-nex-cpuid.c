@@ -36,17 +36,6 @@ int main(void)
 		printf("Error: %s\n", cpuid_error());
 		return -3;
 	}
-	/**int a, b;
- 
-	for (a = 0; a < 5; a++)
-	{
-	  __asm__("cpuid"
-            :"=a"(b)                 // EAX into b (output)
-            :"0"(a)                  // a into EAX (input)
-            :"%ebx","%ecx","%edx");  // clobbered registers
- 
-	printf("The code %i gives %i\n", a, b);
-	}*/
 	struct cpu_mark_t mark;
 	cpu_tsc_mark(&mark);
 	cpu_tsc_unmark(&mark);
