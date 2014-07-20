@@ -1,0 +1,518 @@
+commit 5260e8809eef16c5c37affc52c6e0b375e81ca93
+Author: eloaders <eloaders@linux.pl>
+Date:   Sat Jul 19 14:23:32 2014 +0200
+
+    Changing Permission for files
+
+commit 5fd6582ce16358a66f4122eee104adcdcf474b59
+Author: eloaders <eloaders@linux.pl>
+Date:   Sat Jul 19 14:22:48 2014 +0200
+
+    Repairs version detection
+
+commit 50ee3b7b6759e45c52a44f0adf6eac6d959709a7
+Author: eloaders <eloaders@linux.pl>
+Date:   Sat Jul 19 14:22:18 2014 +0200
+
+    Remove unnecessary lines of code
+
+commit f9a8e0cf075b5f1ca1924c283bdcd23fd87e4268
+Author: eloaders <eloaders@linux.pl>
+Date:   Wed Jul 16 02:32:26 2014 +0200
+
+    Replace gzip -9 to COMPRESS
+
+commit 0d781f91a8734d4a872dee3ffb80c14182ab8eb9
+Author: eloaders <eloaders@linux.pl>
+Date:   Wed Jul 16 01:18:26 2014 +0200
+
+    Libcpuid instruction fixes
+
+commit 8d7c31822d27da266872df41d7e1fa156068cb4f
+Author: eloaders <eloaders@linux.pl>
+Date:   Tue Jul 15 20:41:42 2014 +0200
+
+    Fixes copyright install
+
+commit 292ebbcec2ec17b5355880b2578828565671c3a1
+Author: eloaders <eloaders@linux.pl>
+Date:   Tue Jul 15 20:28:44 2014 +0200
+
+    Fix
+
+commit 2f2b07173a554eced325e0d503ba11485bddebab
+Author: eloaders <eloaders@linux.pl>
+Date:   Tue Jul 15 20:23:12 2014 +0200
+
+    Better docs install.
+    
+    Choose compression:
+    METHOD="gzip -9"
+    sed -i -e 's|^COMPRESS.*|COMPRESS = $METHOD|' i-nex.mk
+
+commit 261d9b7b640604934348636b8c606ebef996997a
+Author: eloaders <eloaders@linux.pl>
+Date:   Tue Jul 15 18:32:59 2014 +0200
+
+    Fixes ubuntu peckaging. use I-Nex dir. remove src
+
+commit 64e92b39f32ea7a292985dee67d4c6de1333f9fa
+Author: eloaders <eloaders@linux.pl>
+Date:   Tue Jul 15 18:31:30 2014 +0200
+
+    Move src to I-Nex
+
+commit a92839561d7168ff3af63e5c53575d97b0ac17c3
+Author: eloaders <eloaders@linux.pl>
+Date:   Sun Jul 13 15:42:26 2014 +0200
+
+    Fixes for make -j option
+
+commit 4d02e35c477e39f77b9ce7cfe07813e8a4d58547
+Author: eloaders <eloaders@linux.pl>
+Date:   Sun Jul 13 12:26:01 2014 +0200
+
+    Fix docs
+
+commit 09703b8b24db38c351dd415b626555b484be946b
+Author: eloaders <eloaders@linux.pl>
+Date:   Sun Jul 13 12:20:11 2014 +0200
+
+    Improving the detection of processor cache
+
+commit 649207bdf11ea536b86025a47d00c023689b5064
+Author: eloaders <eloaders@linux.pl>
+Date:   Sat Jul 12 19:30:56 2014 +0200
+
+    Fix Voltage
+
+commit 595e7951246096b3a2ccba5c1dd559cef0198b01
+Author: eloaders <eloaders@linux.pl>
+Date:   Sat Jul 12 16:07:18 2014 +0200
+
+    UI Fixes
+
+commit 498f19fa38c8a5065c49993f9638ec399387c169
+Author: eloaders <eloaders@linux.pl>
+Date:   Sat Jul 12 16:07:08 2014 +0200
+
+    Add Close data
+
+commit 6591b43d11e10d7c2658c89fa556087ba481c8ad
+Author: eloaders <eloaders@linux.pl>
+Date:   Sat Jul 12 16:06:41 2014 +0200
+
+    Not use /proc/modules. Use /sys/module/
+
+commit 8e5fab46243298271b88081c76dc82883dcc8f04
+Author: eloaders <eloaders@linux.pl>
+Date:   Sat Jul 12 16:06:14 2014 +0200
+
+    Change URL bug report to http://forum.i-nex.pl
+
+commit e4e4bf426c87d2e68b3682170e866c148df4ecfa
+Author: eloaders <eloaders@linux.pl>
+Date:   Sat Jul 12 16:05:46 2014 +0200
+
+    Remove print check_swap
+
+commit 37f28a863817ede227d470897413a6d5b362b3c9
+Author: eloaders <eloaders@linux.pl>
+Date:   Sat Jul 12 16:05:29 2014 +0200
+
+    Replace Shell to Exec.
+
+commit a81cc51310c7bb9e3cca69536692a3d2d26868ed
+Author: eloaders <eloaders@linux.pl>
+Date:   Fri Jul 11 20:28:06 2014 +0200
+
+    Blkid fixes
+
+commit ece5ac45593043b30a52207bdb28dd477c82bf7b
+Author: eloaders <eloaders@linux.pl>
+Date:   Thu Jul 10 20:30:49 2014 +0200
+
+    Some fixes for Detect Drives UUID using blkid.
+    
+    This change need more fixes.
+
+commit e8792e504987dbb52df92da2392646e3ce8e8a11
+Author: eloaders <eloaders@linux.pl>
+Date:   Wed Jul 9 12:54:49 2014 +0200
+
+    Update forum URL
+
+commit 3009e235d3bfad4ccff97b962c45ce4b1e4f0503
+Author: eloaders <eloaders@linux.pl>
+Date:   Wed Jul 9 12:00:43 2014 +0200
+
+    Redesign USB tab
+
+commit aba78ddc1b53f3a134fd6a2d9a22c5afae91bb26
+Author: eloaders <eloaders@linux.pl>
+Date:   Mon Jul 7 02:34:42 2014 +0200
+
+    Redesign CPUID
+
+commit e59b9158931a5157e6f7cbfabf11ed4659bc8119
+Author: eloaders <eloaders@linux.pl>
+Date:   Sun Jul 6 21:32:08 2014 +0200
+
+    Update Settings Module
+
+commit f66ae4a72f56d774dc7256950b230b27ce938644
+Author: eloaders <eloaders@linux.pl>
+Date:   Sun Jul 6 21:31:34 2014 +0200
+
+    Update JSON module
+
+commit 4e4e0ce4f7deda2bbde069fdc4400a0c29fa7e7c
+Author: eloaders <eloaders@linux.pl>
+Date:   Sun Jul 6 16:04:10 2014 +0200
+
+    Speed up GPU Detection
+
+commit 849dad47e5b807861bde8fd9b19027cb74fd7d0b
+Author: eloaders <eloaders@linux.pl>
+Date:   Sun Jul 6 14:14:45 2014 +0200
+
+    Speed up LCache detection
+
+commit 2fbc484277e381e3dda3053613a4e2e6614318bd
+Author: eloaders <eloaders@linux.pl>
+Date:   Thu Jul 3 14:22:23 2014 +0200
+
+    Add cpu crit temps
+
+commit 233e07574fe81d6d2759136f0a757e64e81e9bf6
+Author: eloaders <eloaders@linux.pl>
+Date:   Wed Jul 2 21:00:06 2014 +0200
+
+    Update pkgbuilds
+
+commit 4b126cbce9a05c29824308e1ba7f55883d4344f3
+Author: eloaders <eloaders@linux.pl>
+Date:   Wed Jul 2 20:05:24 2014 +0200
+
+    Add dh-autoreconf Build-Depends
+
+commit 2e88dca94faba16bf56eb993446852fa2f80e2e7
+Author: eloaders <eloaders@linux.pl>
+Date:   Wed Jul 2 19:27:51 2014 +0200
+
+    Fix logs. Not edid.
+
+commit 88ad7eb713f795d1a5daddcbccddea5ba9e8b789
+Author: eloaders <eloaders@linux.pl>
+Date:   Wed Jul 2 19:27:30 2014 +0200
+
+    Fix Window Icon
+
+commit c918b6e2011c51300cea35995d2b7aa2a6317247
+Author: eloaders <eloaders@linux.pl>
+Date:   Wed Jul 2 18:32:49 2014 +0200
+
+    Add locate kernels.
+
+commit f89634727be08058c084558bc2a4b30eb645ceae
+Author: eloaders <eloaders@linux.pl>
+Date:   Wed Jul 2 13:41:23 2014 +0200
+
+    Autoreconf fixes
+
+commit a1a80dcb9f300c89b16d440e2df408da439a3b75
+Author: eloaders <eloaders@linux.pl>
+Date:   Wed Jul 2 12:24:51 2014 +0200
+
+    Fix prew commit
+
+commit c1021a832793a93d124402af39fe7c1b99406caf
+Author: eloaders <eloaders@linux.pl>
+Date:   Wed Jul 2 12:16:47 2014 +0200
+
+    Add OpenGL ES and VCore
+
+commit 36eae33cfa5195b2013c5b256da338460ef1efa4
+Author: eloaders <eloaders@linux.pl>
+Date:   Wed Jul 2 02:38:37 2014 +0200
+
+    link-inex
+
+commit 53e307f7f0e79786c63a46523ff6cd7b5b5fd066
+Author: eloaders <eloaders@linux.pl>
+Date:   Wed Jul 2 02:35:28 2014 +0200
+
+    Try to fix build ubuntu errors
+
+commit 4d4d850aad0067d53f242e3deab3ad5c9c9298e2
+Author: eloaders <eloaders@linux.pl>
+Date:   Wed Jul 2 01:28:34 2014 +0200
+
+    Move reusable, non-GLX code into glinfo_common.[ch]
+
+commit 8289cec486b635ee610083477616151665cb70e3
+Author: eloaders <eloaders@linux.pl>
+Date:   Wed Jul 2 00:54:58 2014 +0200
+
+    Update Code.
+
+commit 9526fb00c19e6c8045a6231700eb5634eba7387e
+Author: eloaders <eloaders@linux.pl>
+Date:   Tue Jul 1 17:05:14 2014 +0200
+
+    Some Fixes in flags
+
+commit eb6c01252ecaf98a3ffb12506269358279613ac3
+Author: eloaders <eloaders@linux.pl>
+Date:   Tue Jul 1 11:38:34 2014 +0200
+
+    Fix link-inex
+
+commit 3724f9ebed50efeb45ec8ae7b112b6f9b5e38b9d
+Author: eloaders <eloaders@linux.pl>
+Date:   Tue Jul 1 11:33:51 2014 +0200
+
+    Try fix Makefile:76: polecenia dla obiektu 'install-scripts' nie powiodły się
+
+commit 17394de22bf092cea4beb7c45d8206516585bb60
+Author: eloaders <eloaders@linux.pl>
+Date:   Tue Jul 1 11:30:57 2014 +0200
+
+    Fixes
+
+commit 515043c4beb08a3c9dd6c0d51b344946b9a680d6
+Author: eloaders <eloaders@linux.pl>
+Date:   Tue Jul 1 11:25:25 2014 +0200
+
+    Pixmaps fixes
+
+commit fdfe2ab79d713a3d021dba5a517443aa274c7fda
+Author: eloaders <eloaders@linux.pl>
+Date:   Tue Jul 1 00:07:02 2014 +0200
+
+    Fix pixmaps dir
+
+commit af3d36abf90949a38e53283debc5ccf828bed8c2
+Author: eloaders <eloaders@linux.pl>
+Date:   Mon Jun 30 18:35:08 2014 +0200
+
+    Fix aperfmperf
+
+commit 7849ee10ca51faa81bada7b0070807e03886a78a
+Author: eloaders <eloaders@linux.pl>
+Date:   Mon Jun 30 17:52:32 2014 +0200
+
+    Fix changelogs makefile
+
+commit 24643e3afc2313594e9b9c1ab3c0ec81e1c92cac
+Author: eloaders <eloaders@linux.pl>
+Date:   Mon Jun 30 17:44:20 2014 +0200
+
+    Fixes makefile
+
+commit c8c7934a7894961cf1ac7c807fdcf0dd8ae43057
+Author: eloaders <eloaders@linux.pl>
+Date:   Mon Jun 30 17:17:25 2014 +0200
+
+    Deleting unnecessary files.
+    
+    autoreconf creates it anew
+
+commit de424ad4ecb00247771e2882ebed30b310540abc
+Author: eloaders <eloaders@linux.pl>
+Date:   Mon Jun 30 15:05:19 2014 +0200
+
+    Makefile fixes
+
+commit fd67736bf6dd800df2af8b74aacb91be87a26730
+Author: eloaders <eloaders@linux.pl>
+Date:   Mon Jun 30 14:43:49 2014 +0200
+
+    Some Makefile fixes
+
+commit 24666919f66a32cfc9a6620e05d33d55d12d4411
+Author: eloaders <eloaders@linux.pl>
+Date:   Mon Jun 30 12:19:26 2014 +0200
+
+    Fix Processor accumulator
+
+commit 5b2259d345a60752d054c347b7170c2f4d9de511
+Author: eloaders <eloaders@linux.pl>
+Date:   Mon Jun 30 11:30:05 2014 +0200
+
+    Add 4 new instructions
+    
+    CPU_FEATURE_CPB,	Core performance boost
+    CPU_FEATURE_APERFMPERF,	MPERF/APERF MSRs support
+    CPU_FEATURE_PFI,	Processor Feedback Interface support
+    CPU_FEATURE_PA,		Processor accumulator
+
+commit fd4c36dceb73795b34fc83256bde947774789fe8
+Author: eloaders <eloaders@linux.pl>
+Date:   Mon Jun 30 00:46:57 2014 +0200
+
+    Repair the previous revision.
+    
+    Mobo decoding acceleration
+
+commit 5475a052a91ea2907244581875b410876b05ccb9
+Author: eloaders <eloaders@linux.pl>
+Date:   Mon Jun 30 00:45:41 2014 +0200
+
+    Removing unnecessary feature detection slowing logo for distribution
+
+commit 4ad50decf6ec9a606a24cb5b8d877acfda5c1489
+Author: eloaders <eloaders@linux.pl>
+Date:   Sun Jun 29 22:51:13 2014 +0200
+
+    Fix SWAP detection
+
+commit 48e1d790a53caeb9afff413f3b10ea99448a4821
+Author: eloaders <eloaders@linux.pl>
+Date:   Sun Jun 29 22:14:43 2014 +0200
+
+    Fix Intel i5/7/3 logo size
+
+commit b633ccac9f69540de80ec652322bfe055ef935ab
+Author: eloaders <eloaders@linux.pl>
+Date:   Sun Jun 29 16:50:25 2014 +0200
+
+    Removing unnecessary code for the detection of processor instructions.
+
+commit d407930c95993040a0185f5017d936b01123f890
+Author: eloaders <eloaders@linux.pl>
+Date:   Sun Jun 29 15:24:54 2014 +0200
+
+    Add xdriinfo
+
+commit 64c2c740a143de74ad184f9ded48a7b4d036182e
+Author: eloaders <eloaders@linux.pl>
+Date:   Sun Jun 29 14:52:01 2014 +0200
+
+    Remove two || from shell
+
+commit a5e1585fd8ec29f98ef2adad276076068545a089
+Author: eloaders <eloaders@linux.pl>
+Date:   Sun Jun 29 14:51:41 2014 +0200
+
+    New Manjaro logo
+
+commit 4834a64ada56ca41501fea54737803b2f275fc79
+Author: eloaders <eloaders@linux.pl>
+Date:   Sun Jun 29 13:04:27 2014 +0200
+
+    Remove nets
+
+commit c3761fe1ecb6ec1c14d4599faf89ef7a89d61afd
+Author: eloaders <eloaders@linux.pl>
+Date:   Sun Jun 29 00:30:40 2014 +0200
+
+    Speeding up detection of network interfaces.
+
+commit a4d89dd0a39618847455e1a3886c1332479bb33c
+Author: eloaders <eloaders@linux.pl>
+Date:   Sat Jun 28 23:31:45 2014 +0200
+
+    Speed Up decoding USB Drives
+
+commit 07357c1cd7c800eba3f63d4849381b9a515c99b4
+Author: eloaders <eloaders@linux.pl>
+Date:   Sat Jun 28 23:20:00 2014 +0200
+
+    Input Fixes.
+
+commit 135ab7557bcb9c5bee0e732fe9c2306398e1f074
+Author: eloaders <eloaders@linux.pl>
+Date:   Sat Jun 28 20:16:32 2014 +0200
+
+    Some fixes in position of buttons. Add Border
+
+commit 7cddd90d301745046c776bae914aa6aca749856f
+Author: eloaders <eloaders@linux.pl>
+Date:   Sat Jun 28 20:16:02 2014 +0200
+
+    Add testing GPUTEMP
+
+commit 836c229c38bc04377df568ab8ed5b1e922b077d4
+Author: eloaders <eloaders@linux.pl>
+Date:   Sat Jun 28 20:15:44 2014 +0200
+
+    Add Stable pkgbuild
+
+commit 04c924bcc74e2220a74eb3d64633e6fba15d6b5a
+Author: eloaders <eloaders@linux.pl>
+Date:   Sat Jun 28 20:15:34 2014 +0200
+
+    Add daily pkgbuild
+
+commit 77e7fcb2e69f86fc9fdbf524f05571f2eb736994
+Author: eloaders <eloaders@linux.pl>
+Date:   Sat Jun 28 16:08:10 2014 +0200
+
+    Faster and correct way to detect CPU temperature and the critical temperature
+
+commit c4676ae06187fdb763031ba620dd71c9b85183a5
+Author: eloaders <eloaders@linux.pl>
+Date:   Sat Jun 28 16:06:59 2014 +0200
+
+    Changing the size and position of controls
+
+commit 4e8bf62bc89f57951b3084ec4a77cb6fe79ca4ff
+Author: eloaders <eloaders@linux.pl>
+Date:   Sat Jun 28 16:06:24 2014 +0200
+
+    Removing unnecessary spaces
+
+commit 705ead341ad9b1d791f0be5e651d959741e193fb
+Author: eloaders <eloaders@linux.pl>
+Date:   Fri Jun 27 22:26:38 2014 +0200
+
+    Cache fixes
+
+commit 2b26707b3fe9f30eded6f45416dc55fc86cb6e89
+Author: eloaders <eloaders@linux.pl>
+Date:   Thu Jun 26 21:07:21 2014 +0200
+
+    Fix I-Nex for manjaro
+
+commit 82ceba6dd2d8ea8aae27cc145052c367e29f152d
+Author: eloaders <eloaders@linux.pl>
+Date:   Wed Jun 25 22:38:30 2014 +0200
+
+    Fix curl manjaro depends
+
+commit 0442169523cccbef7b9f96dd453d834c94409309
+Author: eloaders <eloaders@linux.pl>
+Date:   Wed Jun 25 22:29:17 2014 +0200
+
+    Add Core i7-4710MQ & Core 2 Duo L9400
+
+commit 1fa2401ec713382590f7a6f49d831cf9d311f7d2
+Author: eloaders <eloaders@linux.pl>
+Date:   Wed Jun 25 22:28:57 2014 +0200
+
+    Add Athlon 64 X2 TK-57ary
+
+commit b7c6fff64f5966216c4eaef4c56cb9591678eac0
+Author: eloaders <eloaders@linux.pl>
+Date:   Wed Jun 25 21:52:03 2014 +0200
+
+    Add script to update cpudb
+
+commit 20b655224e94ec6c689e50b53c51376b188c46a2
+Author: eloaders <eloaders@linux.pl>
+Date:   Wed Jun 25 21:51:48 2014 +0200
+
+    Udpate Cpud database Atom, Intel, AMD
+
+commit f13ae1016518e4c77d432bbb3c35ccec60319839
+Author: eloaders <eloaders@linux.pl>
+Date:   Wed Jun 25 00:14:12 2014 +0200
+
+    Fix for APU with Radeon(TM) R7 Graphics
+
+commit f075f5bffdb892d036e32aeba161e9f3e1477b48
+Author: eloaders <eloaders@linux.pl>
+Date:   Wed Jun 25 00:13:52 2014 +0200
+
+    Update Intel Database

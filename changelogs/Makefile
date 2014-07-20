@@ -29,4 +29,4 @@ compress-changelogs:
 	${COMPRESS} $(DESTDIR)$(PREFIX)$(DOCSDIR)/changelog-0.6.4
 	${COMPRESS} $(DESTDIR)$(PREFIX)$(DOCSDIR)/changelog-0.6.6
 	${COMPRESS} $(DESTDIR)$(PREFIX)$(DOCSDIR)/changelog-7.0.0
-	
+	${COMPRESS} $(DESTDIR)$(PREFIX)$(DOCSDIR)/changelog-7.2.0
