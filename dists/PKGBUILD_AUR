@@ -1,7 +1,7 @@
 # Maintainer: eloaders <eloaders at linux dot pl>
 
 pkgname=i-nex-git
-pkgver=7.0.0.41.geb6c012
+pkgver=7.0.0.85.g7b583e6
 pkgrel=1
 pkgdesc="System information tool like hardinfo, sysinfo"
 arch=('i686' 'x86_64')
