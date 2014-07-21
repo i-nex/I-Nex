@@ -33,10 +33,10 @@ Public DATAT As Collection
 Public UNAME As Collection
 Public USAGE As Collection
 Public SCREENFETCH As Collection
-Public L0LEVEL As String
-Public L1LEVEL As String
-Public L2LEVEL As String
-Public L3LEVEL As String
+Public INDEX0 As String
+Public INDEX1 As String
+Public INDEX2 As String
+Public INDEX3 As String
 Public Sub Form_Open()
   Dim default_display_manager As Boolean = Exist("/etc/X11/default-display-manager")
   Dim cpus As String
@@ -466,7 +466,7 @@ Public Sub Wykrywanie_procesorow()
   Dim address_sizes As String
   Dim physical_id, cpu_cores, level3cache As String
   Dim L0TYPE, L1TYPE, L2TYPE, L3TYPE As String
-  Dim INDEX0, INDEX1, INDEX2, INDEX3 As String
+  Dim L0LEVEL, L1LEVEL, L2LEVEL, L3LEVEL As String
   Dim L0WAYS, L1WAYS, L2WAYS, L3WAYS As String
   Dim COHERENCY0, COHERENCY1, COHERENCY2, COHERENCY3 As String
   Dim NUMOFSETS0, NUMOFSETS1, NUMOFSETS2, NUMOFSETS3 As String
