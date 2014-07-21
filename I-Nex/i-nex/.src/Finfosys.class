@@ -428,7 +428,7 @@ Public Sub grafika()
   Shell ChkPrm.ChkExecDir("xrandr") & " | grep current | grep 'Screen 0:' | cut -d ':' -f 2" Wait To available_resolutions
   Shell ChkPrm.ChkExecDir("xdpyinfo") & " | grep 'dimensions:' | cut -d ':' -f 2" Wait To rozdzielczosc
   If IsNull(Kernel_driver_in_use) Or IsSpace(Kernel_driver_in_use) = True Then
-   Exec [ChkPrm.ChkExecDir("xdriinfo")] Wait To Kernel_driver_in_use
+   Try Exec [ChkPrm.ChkExecDir("xdriinfo")] Wait To Kernel_driver_in_use
   Endif
   Exec ["/bin/bash", "/usr/bin/i-nex-lspci", "nonprefetchable"] Wait To memory_non_prefetchable
   Exec ["/bin/bash", "/usr/bin/i-nex-lspci", "prefetchable"] Wait To memory_prefetchable

@@ -3,7 +3,7 @@
 Title=I-Nex
 Startup=Start_App_Args
 Icon=logo/i-nex.0.4.x.png
-Version=7.2.0
+Version=7.2.1
 Component=gb.image
 Component=gb.qt4
 Component=gb.form
@@ -20,7 +20,7 @@ Vendor=i-nex
 Address=eloaders@linux.pl
 Url=http://i-nex.linux.pl/
 License=General Public Licence
-PackageName=i-nex-7.2.0
+PackageName=i-nex-7.2.1
 Packager=1
 Systems=autotools
 Menus=archlinux:"Applications/System/Administration"
