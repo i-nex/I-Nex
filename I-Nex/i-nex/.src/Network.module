@@ -22,10 +22,7 @@ Public lspci As String
 Private set_interface As String
 
 Public Sub inits()
-  Dim sdx As String
   Dim Avail_Net As Integer 
-  Dim Max_Net As Integer
-  Dim cache As String
   Logs("Add Network Devices to ComboBox", Logger.Info)
   Finfosys.ComboBox2.Clear
   For Avail_Net = 1 To Dir("/sys/class/net/").Count

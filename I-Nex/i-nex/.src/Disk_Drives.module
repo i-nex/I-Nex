@@ -58,7 +58,6 @@ Public rotational As String ' rotational
 Public rq_affinity As String ' rq_affinity
 
 Public Sub _inits()
-  Dim sdx As String
   Dim Avail_HDD As Integer 
   Logs("Add Drives to ComboBox", Logger.Info)
   Finfosys.ComboBox4.Clear
@@ -71,12 +70,7 @@ Public Sub _inits()
 End
 
 Public Sub _init_2()
- 
-  Dim ListAllDiscs, risultato As String
-  Dim righe As New String[]
   Dim count As Integer
-  Dim riga As New String[]
-  Dim lista As New String[]
   Logs("Add Drives to ComboBox..", Logger.Info)
   Finfosys.ComboBox3.Clear
   For count = 1 To Dir("/sys/block/" & Finfosys.ComboBox4.Text & "", "sd*").Count
