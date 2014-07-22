@@ -60,15 +60,13 @@ Public rq_affinity As String ' rq_affinity
 Public Sub _inits()
   Dim sdx As String
   Dim Avail_HDD As Integer 
-  Dim Max_HDD As Integer
-  Dim cache As String
   Logs("Add Drives to ComboBox", Logger.Info)
-  Shell "ls /sys/block/ | grep -e \"sd\" -e \"sr\" | tr ' ' '\n' | wc -l" Wait To cache
-  Max_HDD = Val(cache)
-  For Avail_HDD = 1 To Max_HDD
-   Shell "ls /sys/block/ | grep -e \"sd\" -e \"sr\" | tr ' ' '\n' | sed -n '" & Avail_HDD & "p'" Wait To sdx
-   sdx = Replace(sdx, "\n", "")
-   Finfosys.ComboBox4.Add(sdx)
+  Finfosys.ComboBox4.Clear
+  For Avail_HDD = 1 To Dir("/sys/block/", "sd*").Count
+   Finfosys.ComboBox4.Add(Dir("/sys/block/", "sd*")[Avail_HDD - 1])
+  Next
+  For Avail_HDD = 1 To Dir("/sys/block/", "sr*").Count
+   Finfosys.ComboBox4.Add(Dir("/sys/block/", "sr*")[Avail_HDD - 1])
   Next
 End
 
@@ -80,14 +78,14 @@ Public Sub _init_2()
   Dim riga As New String[]
   Dim lista As New String[]
   Logs("Add Drives to ComboBox..", Logger.Info)
-  Shell "ls /sys/block/" & Finfosys.ComboBox4.Text & " | grep \"sd\" | sort -V" To ListAllDiscs
-  righe = Split(ListAllDiscs, "\n", "%%", True)
-  For count = 0 To righe.Max
-  riga = Split(righe[count], " ", "%%", True)
-  risultato = Replace(riga[0], " ", "")
-  lista.add(risultato)
+  Finfosys.ComboBox3.Clear
+  For count = 1 To Dir("/sys/block/" & Finfosys.ComboBox4.Text & "", "sd*").Count
+   Finfosys.ComboBox3.Add(Dir("/sys/block/" & Finfosys.ComboBox4.Text & "", "" & Left$(Finfosys.ComboBox4.Text, - 1) & "*")[count - 1])
   Next
-  Finfosys.ComboBox3.List = lista
+  
+  For count = 1 To Dir("/sys/block/" & Finfosys.ComboBox4.Text & "", "sr*").Count
+   Finfosys.ComboBox3.Add(Dir("/sys/block/" & Finfosys.ComboBox4.Text & "", "" & Left$(Finfosys.ComboBox4.Text, - 1) & "*")[count - 1])
+  Next
   Finfosys.ComboBox3.Index = 0
 End
 
