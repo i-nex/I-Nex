@@ -27,16 +27,11 @@ Public Sub inits()
   Dim Max_Net As Integer
   Dim cache As String
   Logs("Add Network Devices to ComboBox", Logger.Info)
-  Shell "ls /sys/class/net/ | wc -l" Wait To cache
-  Max_Net = Replace(Replace(cache, " ", ""), "\n", "")
-  For Avail_Net = 1 To Max_Net
-   Shell "ls /sys/class/net/ | sed -n '" & Avail_Net & "p'" Wait To sdx
-   sdx = Replace(sdx, "\n", "")
-   Finfosys.ComboBox2.Add(sdx)
+  Finfosys.ComboBox2.Clear
+  For Avail_Net = 1 To Dir("/sys/class/net/").Count
+   Finfosys.ComboBox2.Add(Dir("/sys/class/net/")[Avail_Net - 1])
   Next
-  Shell "ls /sys/class/net/ | sed -n '1p'" Wait To set_interface
-  set_interface = Replace(set_interface, "\n", "")
-  Finfosys.ComboBox2.Text = set_interface
+  Finfosys.ComboBox2.Index = 0
 End
 
 Public Sub get_informations_about_net_interface()
