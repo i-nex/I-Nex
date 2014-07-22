@@ -24,8 +24,10 @@ Public AllowLog As Boolean
 Public sLine As String
 Public aScan As String[]
 Public cpu As String
-Public flags As String
-Public vendor_id As String
+Public CPU_FLAGS As New String[]
+Public CPU_VENDOR_ID As New String[]
+Public CPU_PROCESSOR As New String[]
+Public CPU_CPU_CORES As New String[]
 Public Logs As New Logger
 Public GDF As String
 Public BUFFER As String
@@ -461,24 +463,122 @@ Public Sub grafika()
 End
 
 Public Sub Wykrywanie_procesorow()
-  Dim obrazekcpu, cpu_MHz, power_management As String
-  Dim model, stepping, cpu_family, bogomips As String
-  Dim address_sizes As String
-  Dim physical_id, cpu_cores, level3cache As String
   Dim L0TYPE, L1TYPE, L2TYPE, L3TYPE As String
   Dim L0LEVEL, L1LEVEL, L2LEVEL, L3LEVEL As String
   Dim L0WAYS, L1WAYS, L2WAYS, L3WAYS As String
   Dim COHERENCY0, COHERENCY1, COHERENCY2, COHERENCY3 As String
   Dim NUMOFSETS0, NUMOFSETS1, NUMOFSETS2, NUMOFSETS3 As String
-  Shell "grep \"vendor_id\" /proc/cpuinfo | sed -n \"" & CFloat(ComboBox1.Index + 1) & "p\" | cut -d \":\" -f 2" Wait To obrazekcpu
-  Shell "grep \"model name\" /proc/cpuinfo | sed -n \"" & CFloat(ComboBox1.Index + 1) & "p\" | cut -d \":\" -f 2 | cut -d '@' -f 1" Wait To cpu
-  Shell "grep \"vendor_id\" /proc/cpuinfo | sed -n \"" & CFloat(ComboBox1.Index + 1) & "p\" | cut -d \":\" -f 2" Wait To vendor_id
-  Shell "grep \"cpu MHz\" /proc/cpuinfo | sed -n \"" & CFloat(ComboBox1.Index + 1) & "p\" | cut -d \":\" -f 2" Wait To cpu_MHz
-  Shell "grep \"model\" /proc/cpuinfo | sed -n \"" & CFloat(CFloat(CFloat((ComboBox1.Index) + 1) * 2) - 1) & "p\" | cut -d \":\" -f 2" Wait To model
-  Shell "grep \"stepping\" /proc/cpuinfo | sed -n \"" & CFloat(ComboBox1.Index + 1) & "p\" | cut -d \":\" -f 2" Wait To stepping
-  Shell "grep \"cpu family\" /proc/cpuinfo | sed -n \"" & CFloat(ComboBox1.Index + 1) & "p\" | cut -d \":\" -f 2" Wait To cpu_family
-  Shell "grep \"bogomips\" /proc/cpuinfo | sed -n \"" & CFloat(ComboBox1.Index + 1) & "p\" | cut -d \":\" -f 2" Wait To bogomips
-  Shell "grep \"address sizes\" /proc/cpuinfo | sed -n \"" & CFloat(ComboBox1.Index + 1) & "p\" | cut -d \":\" -f 2" Wait To address_sizes
+  Dim CPUINFO_PROC As File
+  Dim sIcon As String
+  Dim sLine As String
+  Dim iPos As Integer
+  Dim Character As Integer
+  Dim sKey As String
+  Dim sVal As String
+  Dim CPU_FAMILYz As New String[]
+  Dim CPU_MODEL As New String[]
+  Dim CPU_MODEL_NAME As New String[]
+  Dim CPU_STEPPING As New String[]
+  Dim CPU_MICROCODE As New String[]
+  Dim CPU_CPU_MHZ As New String[]
+  Dim CPU_CACHE_SIZE As New String[]
+  Dim CPU_PHYSICAL_ID As New String[]
+  Dim CPU_SIBLINGS As New String[]
+  Dim CPU_CORE_ID As New String[]
+  Dim CPU_APICID As New String[]
+  Dim CPU_INITIAL_APICID As New String[]
+  Dim CPU_FPU As New String[]
+  Dim CPU_FPU_EXCEPTION As New String[]
+  Dim CPU_CPUID_LEVEL As New String[]
+  Dim CPU_WP As New String[]
+  Dim CPU_BOGOMIPS As New String[]
+  Dim CPU_CLFLUSH_SIZE As New String[]
+  Dim CPU_CACHE_ALIGNMENT As New String[]
+  Dim CPU_ADRESS_SIZES As New String[]
+  Dim CPU_POWER_MANAGEMENT As New String[]
+  CPUINFO_PROC = Open "/proc/cpuinfo"
+  
+  For Each sLine In CPUINFO_PROC.Lines
+    sLine = Trim(sLine)
+    If Not sLine Then Continue 
+
+    iPos = InStr(sLine, ":")
+    If iPos = 0 Then Continue
+
+    sKey = Trim(Left$(sLine, iPos - 1))
+    sVal = Trim(Mid$(sLine, iPos + 1))
+
+    Select Case sKey
+      Case "processor"
+       CPU_PROCESSOR.Add(sVal)
+      Case "vendor_id"
+       CPU_VENDOR_ID.Add(sVal)
+      Case "cpu family"
+       CPU_FAMILYz.Add(sVal)
+      Case "model"
+       CPU_MODEL.Add(sVal)
+      Case "model name"
+       Character = InStr(sVal, "@")
+       CPU_MODEL_NAME.Add(Trim(Left$(sVal, Character - 1)))
+      Case "stepping"
+       CPU_STEPPING.Add(sVal)
+      Case "microcode"
+       CPU_MICROCODE.Add(sVal)
+      Case "cpu MHz"
+       CPU_CPU_MHZ.Add(sVal)
+      Case "cache size"
+       CPU_CACHE_SIZE.Add(sVal)
+      Case "physical id"
+       CPU_PHYSICAL_ID.Add(sVal)
+      Case "siblings"
+       CPU_SIBLINGS.Add(sVal)
+      Case "core id"
+       CPU_CORE_ID.Add(sVal)
+      Case "cpu cores"
+       CPU_CPU_CORES.Add(sVal)
+      Case "apicid"
+       CPU_APICID.Add(sVal)
+      Case "initial apicid"
+       CPU_INITIAL_APICID.Add(sVal)
+      Case "fpu"
+       CPU_FPU.Add(sVal)
+      Case "fpu_exception"
+       CPU_FPU_EXCEPTION.Add(sVal)
+      Case "cpuid level"
+       CPU_CPUID_LEVEL.Add(sVal)
+      Case "wp"
+       CPU_WP.Add(sVal)
+      Case "flags"
+       CPU_FLAGS.Add(sVal)
+      Case "bogomips"
+       CPU_BOGOMIPS.Add(sVal)
+      Case "clflush size"
+       CPU_CLFLUSH_SIZE.Add(sVal)
+      Case "cache_alignment"
+       CPU_CACHE_ALIGNMENT.Add(sVal)
+      Case "address sizes"
+       CPU_ADRESS_SIZES.Add(sVal)
+      Case "power management"
+       CPU_POWER_MANAGEMENT.Add(sVal)
+    End Select
+  
+  Next
+  
+  Close #CPUINFO_PROC
+
+  Label14.Text = Replace(CPU_MODEL_NAME[CFloat(ComboBox1.Index)], "\n", "")
+  Label14.Tooltip = Replace(CPU_MODEL_NAME[CFloat(ComboBox1.Index)], "\n", "")
+  Label71.Text = "Flags: " & FFlags.instructions
+  Label13.Text = UCase$(Replace(Replace(Replace(CPU_VENDOR_ID[CFloat(ComboBox1.Index)], "Authentic", ""), "Genuine", ""), "\n", ""))
+  Label12.Text = Replace(CPU_CPU_MHZ[CFloat(ComboBox1.Index)], "\n", "") & " MHz"
+  Label97.Text = "Family: " & Replace(CPU_FAMILYz[CFloat(ComboBox1.Index)], "\n", "")
+  Label6.Text = "Model: " & Replace(CPU_MODEL[CFloat(ComboBox1.Index)], "\n", "")
+  Label7.Text = "Stepping: " & Replace(CPU_STEPPING[CFloat(ComboBox1.Index)], "\n", "")
+  Label8.Text = "Cores: " & Replace(CPU_SIBLINGS[CFloat(ComboBox1.Index)], "\n", "")
+  Label19.Text = "Phy id: " & Replace(CPU_PHYSICAL_ID[CFloat(ComboBox1.Index)], "\n", "")
+  Label10.Text = "Bogomips: " & Replace(CPU_BOGOMIPS[CFloat(ComboBox1.Index)], "\n", "")
+  Label11.Text = "Address sizes: " & Replace(CPU_ADRESS_SIZES[CFloat(ComboBox1.Index)], "\n", "")
+  Label15.Text = "Power mangament: " & Replace(CPU_POWER_MANAGEMENT[CFloat(ComboBox1.Index)], "\n", "")
   
   Try INDEX0 = Replace(File.Load("/sys/devices/system/cpu/" & Subst(ComboBox1.Current.Text) & "/cache/index0/size"), "\n", "")
   Try INDEX1 = Replace(File.Load("/sys/devices/system/cpu/" & Subst(ComboBox1.Current.Text) & "/cache/index1/size"), "\n", "")
@@ -505,35 +605,68 @@ Public Sub Wykrywanie_procesorow()
   Try NUMOFSETS2 = Replace(File.Load("/sys/devices/system/cpu/" & Subst(ComboBox1.Current.Text) & "/cache/index2/number_of_sets"), "\n", "")
   Try NUMOFSETS3 = Replace(File.Load("/sys/devices/system/cpu/" & Subst(ComboBox1.Current.Text) & "/cache/index3/number_of_sets"), "\n", "")
   
-  Label1.Text = "Cache L" & L0LEVEL & " " & INDEX0 & " " & L0TYPE & ",  WOA: " & L0WAYS & ",  CLS: " & COHERENCY0 & ",  NOS: " & NUMOFSETS0
-  Label1.Tooltip = "Cache L" & L0LEVEL & " " & INDEX0 & " " & L0TYPE & ",  Ways of associativity: " & L0WAYS & ",  Coherency line size: " & COHERENCY0 & ",  Number of sets: " & NUMOFSETS0
-  Label2.Text = "Cache L" & L1LEVEL & " " & INDEX1 & " " & L1TYPE & ",  WOA: " & L1WAYS & ",  CLS: " & COHERENCY1 & ",  NOS: " & NUMOFSETS1
-  Label2.Tooltip = "Cache L" & L1LEVEL & " " & INDEX1 & " " & L1TYPE & ",  Ways of associativity: " & L1WAYS & ",  Coherency line size: " & COHERENCY1 & ",  Number of sets: " & NUMOFSETS1
-  Label3.Text = "Cache L" & L2LEVEL & " " & INDEX2 & " " & L2TYPE & ",  WOA: " & L2WAYS & ",  CLS: " & COHERENCY2 & ",  NOS: " & NUMOFSETS2
-  Label3.Tooltip = "Cache L" & L2LEVEL & " " & INDEX2 & " " & L2TYPE & ",  Ways of associativity: " & L2WAYS & ",  Coherency line size: " & COHERENCY2 & ",  Number of sets: " & NUMOFSETS2
+  Label1.Text = Subst("Cache L&1  &2  &3  WOA: &4  CLS: &5  NOS: &6",
+                         L0LEVEL,
+                         INDEX0,
+                         L0TYPE,
+                         L0WAYS,
+                         COHERENCY0,
+                         NUMOFSETS0)
+  Label1.Tooltip = Subst("Cache L&1  &2  &3  WOA: &4  CLS: &5  NOS: &6",
+                         L0LEVEL,
+                         INDEX0,
+                         L0TYPE,
+                         L0WAYS,
+                         COHERENCY0,
+                         NUMOFSETS0)
+  Label2.Text = Subst("Cache L&1  &2  &3  WOA: &4  CLS: &5  NOS: &6",
+                         L1LEVEL,
+                         INDEX1,
+                         L1TYPE,
+                         L1WAYS,
+                         COHERENCY1,
+                         NUMOFSETS1)
+  Label2.Tooltip = Subst("Cache L&1  &2  &3  WOA: &4  CLS: &5  NOS: &6",
+                         L1LEVEL,
+                         INDEX1,
+                         L1TYPE,
+                         L1WAYS,
+                         COHERENCY1,
+                         NUMOFSETS1)
+  Label3.Text = Subst("Cache L&1  &2  &3  WOA: &4  CLS: &5  NOS: &6",
+                         L2LEVEL,
+                         INDEX2,
+                         L2TYPE,
+                         L2WAYS,
+                         COHERENCY2,
+                         NUMOFSETS2)
+  Label3.Tooltip = Subst("Cache L&1  &2  &3  WOA: &4  CLS: &5  NOS: &6",
+                         L2LEVEL,
+                         INDEX2,
+                         L2TYPE,
+                         L2WAYS,
+                         COHERENCY2,
+                         NUMOFSETS2)
+  
   If IsNull(L3LEVEL) = False Then
-   Label5.Text = "Cache L" & L3LEVEL & " " & INDEX3 & " " & L3TYPE & ",  WOA: " & L3WAYS & ",  CLS: " & COHERENCY3 & ",  NOS: " & NUMOFSETS3
-   Label5.Tooltip = "Cache L" & L3LEVEL & " " & INDEX3 & " " & L3TYPE & ",  Ways of associativity: " & L3WAYS & ",  Coherency line size: " & COHERENCY3 & ",  Number of sets: " & NUMOFSETS3
-  Else
-   Label5.Visible = False
-  Endif
    
-  Shell "grep \"siblings\" /proc/cpuinfo | sed -n \"1p\" | cut -d \":\" -f 2" Wait To cpu_cores
-  Shell "grep \"physical id\" /proc/cpuinfo | sed -n \"" & CFloat(ComboBox1.Index + 1) & "p\" | cut -d \":\" -f 2" Wait To physical_id
-  Shell "grep \"power management\" /proc/cpuinfo | sed -n \"" & CFloat(ComboBox1.Index + 1) & "p\" | cut -d \":\" -f 2" Wait To power_management
-  Label14.Text = Replace(cpu, "\n", "")
-  Label14.Tooltip = Replace(cpu, "\n", "")
-  Label71.Text = "Flags: " & FFlags.instructions
-  Label13.Text = UCase$(Replace(Replace(Replace(vendor_id, "Authentic", ""), "Genuine", ""), "\n", ""))
-  Label12.Text = Replace(cpu_MHz, "\n", "") & " MHz"
-  Label97.Text = "Family: " & Replace(cpu_family, "\n", "")
-  Label6.Text = "Model: " & Replace(model, "\n", "")
-  Label7.Text = "Stepping: " & Replace(stepping, "\n", "")
-  Label8.Text = "Cores: " & Replace(cpu_cores, "\n", "")
-  Label19.Text = "Phy id: " & Replace(physical_id, "\n", "")
-  Label10.Text = "Bogomips: " & Replace(bogomips, "\n", "")
-  Label11.Text = "Address sizes: " & Replace(address_sizes, "\n", "")
-  Label15.Text = "Power mangament: " & Replace(power_management, "\n", "")
+    Label5.Text = Subst("Cache L&1  &2  &3  WOA: &4  CLS: &5  NOS: &6",
+                         L3LEVEL,
+                         INDEX3,
+                         L3TYPE,
+                         L3WAYS,
+                         COHERENCY3,
+                         NUMOFSETS3)
+    Label5.Tooltip = Subst("Cache L&1  &2  &3  WOA: &4  CLS: &5  NOS: &6",
+                         L3LEVEL,
+                         INDEX3,
+                         L3TYPE,
+                         L3WAYS,
+                         COHERENCY3,
+                         NUMOFSETS3)
+   Else
+    Label5.Visible = False
+  Endif
   Logs("Get info from database", Logger.Info)
   Object.Call(FCpudb, "_inits")
 End

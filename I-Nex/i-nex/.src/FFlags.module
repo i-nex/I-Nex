@@ -22,7 +22,7 @@ Public VIRT As String
 Public instructions As String
 Public dec_instructions As String
 Public Sub _init()
- Shell "grep \"flags\" /proc/cpuinfo | sed -n \"1p\" | cut -d \":\" -f 2" Wait To dec_instructions
+ dec_instructions = Replace(Finfosys.CPU_FLAGS[CFloat(Finfosys.ComboBox1.Index)], "\n", "")
  If dec_instructions Like "* mmxext *" Then
   instructions &= "MMX(+), "
  Endif
@@ -55,8 +55,8 @@ Public Sub _init()
  Endif
  If dec_instructions Like "* sse4a *" Then
   instructions &= "SSE4a, "
- Endif
- If dec_instructions Like "* nx *" And Finfosys.vendor_id Like "*Intel*" Then
+ Endif 
+ If dec_instructions Like "* nx *" And Finfosys.CPU_VENDOR_ID[CFloat(Finfosys.ComboBox1.Index)] Like "*Intel*" Then
   instructions &= "XD-Bit, "
  Else
   instructions &= "NX-Bit, "
@@ -92,15 +92,14 @@ Public Sub _init()
 End
 
 Public Sub ht()
-  Dim NUMLOG, NUMPHY As String
-  Shell "grep \"processor\" /proc/cpuinfo | wc -l" Wait To NUMPHY
-  Shell "grep \"cpu cores\" /proc/cpuinfo | sed -n \"1p\" | cut -d \":\" -f 2" Wait To NUMLOG
+  Dim NUMLOG, NUMPHY As Float
+  'CString(Finfosys.CPU_PROCESSOR.Count)
+  NUMPHY = Finfosys.CPU_PROCESSOR.Count
+  NUMLOG = CFloat(Finfosys.CPU_CPU_CORES[CFloat(Finfosys.ComboBox1.Index)])
   
   If NUMLOG = Null Then
    Logs("CPU Cores is Null", Logger.Info)
   Else
-   NUMLOG = CFloat(Val(Replace(Replace(NUMLOG, " ", ""), "\n", "")))
-   NUMPHY = CFloat(Val(Replace(Replace(NUMPHY, " ", ""), "\n", "")))
      If NUMPHY = NUMLOG Then
         Finfosys.ToolButton3.Picture = Picture["Data/check_false.png"]
         Logs("Not detect HT", Logger.Info)
@@ -115,7 +114,7 @@ End
 
 Public Sub HyperTransport()
  
- If Finfosys.vendor_id Like "*AuthenticAMD*" And dec_instructions Like "*ht*" Then
+ If Finfosys.CPU_VENDOR_ID[CFloat(Finfosys.ComboBox1.Index)] Like "*AMD*" And dec_instructions Like "*ht*" Then
   Finfosys.ToolButton3.Picture = Picture["Data/check_true.png"]
   Finfosys.Label99.Text = "Hyper-Transport:"
  Endif
