@@ -80,6 +80,10 @@ Public Sub _inits()
   
   cpucache = Replace(cpucache, "Core2", "Core 2")
   
+  If cpucache Like "*Graphic*" Then
+    cpucache = Replace(cpucache, "Graphic", "*")
+  Endif
+  
   If cpucache Like "*Quad*" Or "*Core*" Or "*Dual*" Then
    cpucache = Replace(cpucache, "Quad", "*")
    cpucache = Replace(cpucache, "Core", "*")

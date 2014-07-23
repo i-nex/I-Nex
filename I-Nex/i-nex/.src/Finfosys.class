@@ -288,7 +288,7 @@ Public Sub Form_Open()
  grafika()
  ''END Uruchomienie instrukcji dla poszczególnych zakładek w celu wydobycia informacji z systemu
  Logs("Set Combobox to cpu0", Logger.Info)
- ComboBox1.Text = "cpu0" ''Ustawienie combobox na Procesor0 / W przeciwnym wypadku nie pokaże nic
+ ComboBox1.Index = 0 ''Ustawienie combobox na Procesor0 / W przeciwnym wypadku nie pokaże nic
  
  Label25.Text = Application.version
  Logs(Label25.Text, Logger.Info)
@@ -667,6 +667,7 @@ Public Sub Wykrywanie_procesorow()
    Else
     Label5.Visible = False
   Endif
+  
   Logs("Get info from database", Logger.Info)
   Object.Call(FCpudb, "_inits")
 End
