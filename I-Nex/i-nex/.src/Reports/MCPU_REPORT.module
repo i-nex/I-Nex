@@ -38,7 +38,7 @@ End
 
 Public Sub _inits()
  Dim All, All2 As Float
- 
+ Dim hFile As File
  DATA_RETURN = Null
  refresh()
  
@@ -54,5 +54,12 @@ Public Sub _inits()
   Wait 0.01
   Finfosys.ComboBox1.Index = All2
  Next
- Shell "echo '" & DATA_RETURN & "'>>" & FReport_Gen.ButtonBox1.Text & "" Wait
+ 
+ If Exist(FReport_Gen.ButtonBox1.Text) Then  
+    hFile = Open FReport_Gen.ButtonBox1.Text For Write Append 
+ Else 
+    hFile = Open FReport_Gen.ButtonBox1.Text For Write Create
+ Endif 
+ Print #hFile, DATA_RETURN
+ Close #hFile
 End

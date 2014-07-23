@@ -2,41 +2,47 @@
 
 Public Sub _inits()
  Dim i As Integer
- Shell "echo '==========================================================CPUID==================================================================='>>" & FReport_Gen.ButtonBox1.Text & "" Wait
- Shell "echo '" & "" & Finfosys.DATAT["VENDOR_STR"] & "'>>" & FReport_Gen.ButtonBox1.Text & "" Wait
- Shell "echo '" & "" & Finfosys.DATAT["CPU_CODENAME"] & "'>>" & FReport_Gen.ButtonBox1.Text & "" Wait
- Shell "echo '" & "" & Finfosys.DATAT["BRAND_STR"] & "'>>" & FReport_Gen.ButtonBox1.Text & "" Wait
- Shell "echo '" & "Cores:  " & Finfosys.DATAT["NUM_CORES"] & "'>>" & FReport_Gen.ButtonBox1.Text & "" Wait
- Shell "echo '" & "Logical CPUS:  " & Finfosys.DATAT["NUM_LOGICAL_CPUS"] & "'>>" & FReport_Gen.ButtonBox1.Text & "" Wait
- Shell "echo '" & "Total Logical CPUS:  " & Finfosys.DATAT["TOTAL_LOGICAL_CPUS"] & "'>>" & FReport_Gen.ButtonBox1.Text & "" Wait
- Shell "echo '" & "Family:  " & Finfosys.DATAT["FAMILY"] & "'>>" & FReport_Gen.ButtonBox1.Text & "" Wait
- Shell "echo '" & "Model:  " & Finfosys.DATAT["MODEL"] & "'>>" & FReport_Gen.ButtonBox1.Text & "" Wait
- Shell "echo '" & "Stepping:  " & Finfosys.DATAT["STEPPING"] & "'>>" & FReport_Gen.ButtonBox1.Text & "" Wait
- Shell "echo '" & "Ext Family:  " & Finfosys.DATAT["EXT_FAMILY"] & "'>>" & FReport_Gen.ButtonBox1.Text & "" Wait
- Shell "echo '" & "Ext Model:  " & Finfosys.DATAT["EXT_MODEL"] & "'>>" & FReport_Gen.ButtonBox1.Text & "" Wait
- Shell "echo '" & "CPU Clock:  " & Finfosys.DATAT["CPU_CLOCK"] & "'>>" & FReport_Gen.ButtonBox1.Text & "" Wait
- Shell "echo '" & "CPU Clock BY OS:  " & Finfosys.DATAT["CPU_CLOCK_BY_OS"] & "'>>" & FReport_Gen.ButtonBox1.Text & "" Wait
- Shell "echo '" & "CPU Clock BY IC:  " & Finfosys.DATAT["CPU_CLOCK_BY_IC"] & "'>>" & FReport_Gen.ButtonBox1.Text & "" Wait
- Shell "echo '" & "CPU Clock Measure:  " & Finfosys.DATAT["CPU_CLOCK_MEASURE"] & "'>>" & FReport_Gen.ButtonBox1.Text & "" Wait
- Shell "echo '" & "Mark TSC:  " & Finfosys.DATAT["MARK_TSC"] & "'>>" & FReport_Gen.ButtonBox1.Text & "" Wait
- Shell "echo '" & "Mark SYS Clock:  " & Finfosys.DATAT["MARK_SYS_CLOCK"] & "'>>" & FReport_Gen.ButtonBox1.Text & "" Wait
- Shell "echo '" & "L1 Data:  " & Finfosys.DATAT["L1_DATA_CACHE"] & "'>>" & FReport_Gen.ButtonBox1.Text & "" Wait
- Shell "echo '" & "L1 Instr:  " & Finfosys.DATAT["L1_INSTRUCTION_CACHE"] & "'>>" & FReport_Gen.ButtonBox1.Text & "" Wait
- Shell "echo '" & "L2 Cache:  " & Finfosys.DATAT["L2_CACHE"] & "'>>" & FReport_Gen.ButtonBox1.Text & "" Wait
- Shell "echo '" & "L3 Cache:  " & Finfosys.DATAT["L3_CACHE"] & "'>>" & FReport_Gen.ButtonBox1.Text & "" Wait
- Shell "echo '" & "L1 Assoc:  " & Finfosys.DATAT["L1_ASSOC"] & "'>>" & FReport_Gen.ButtonBox1.Text & "" Wait
- Shell "echo '" & "L2 Assoc:  " & Finfosys.DATAT["L2_ASSOC"] & "'>>" & FReport_Gen.ButtonBox1.Text & "" Wait
- Shell "echo '" & "L3 Assoc:  " & Finfosys.DATAT["L3_ASSOC"] & "'>>" & FReport_Gen.ButtonBox1.Text & "" Wait
- Shell "echo '" & "L1 Cacheline:  " & Finfosys.DATAT["L1_CACHELINE"] & "'>>" & FReport_Gen.ButtonBox1.Text & "" Wait
- Shell "echo '" & "L2 Cacheline:  " & Finfosys.DATAT["L2_CACHELINE"] & "'>>" & FReport_Gen.ButtonBox1.Text & "" Wait
- Shell "echo '" & "L3 Cacheline:  " & Finfosys.DATAT["L3_CACHELINE"] & "'>>" & FReport_Gen.ButtonBox1.Text & "" Wait
- Shell "echo '" & "SSE Size:  " & Finfosys.DATAT["SSE_SIZE"] & "'>>" & FReport_Gen.ButtonBox1.Text & "" Wait
- Shell "echo '==========================================================FLAGS==================================================================='>>" & FReport_Gen.ButtonBox1.Text & "" Wait
+ Dim hFile As File
+ If Exist(FReport_Gen.ButtonBox1.Text) Then  
+    hFile = Open FReport_Gen.ButtonBox1.Text For Write Append 
+ Else 
+    hFile = Open FReport_Gen.ButtonBox1.Text For Write Create
+ Endif 
+ Print #hFile, "==========================================================CPUID==================================================================="
+ Print #hFile, Finfosys.DATAT["VENDOR_STR"]
+ Print #hFile, Finfosys.DATAT["CPU_CODENAME"]
+ Print #hFile, Finfosys.DATAT["BRAND_STR"]
+ Print #hFile, "Cores:  " & Finfosys.DATAT["NUM_CORES"] & ""
+ Print #hFile, "Logical CPUS:  " & Finfosys.DATAT["NUM_LOGICAL_CPUS"] & ""
+ Print #hFile, "Total Logical CPUS:  " & Finfosys.DATAT["TOTAL_LOGICAL_CPUS"] & ""
+ Print #hFile, "Family:  " & Finfosys.DATAT["FAMILY"] & ""
+ Print #hFile, "Model:  " & Finfosys.DATAT["MODEL"] & ""
+ Print #hFile, "Stepping:  " & Finfosys.DATAT["STEPPING"] & ""
+ Print #hFile, "Ext Family:  " & Finfosys.DATAT["EXT_FAMILY"] & ""
+ Print #hFile, "Ext Model:  " & Finfosys.DATAT["EXT_MODEL"] & ""
+ Print #hFile, "CPU Clock:  " & Finfosys.DATAT["CPU_CLOCK"] & ""
+ Print #hFile, "CPU Clock BY OS:  " & Finfosys.DATAT["CPU_CLOCK_BY_OS"] & ""
+ Print #hFile, "CPU Clock BY IC:  " & Finfosys.DATAT["CPU_CLOCK_BY_IC"] & ""
+ Print #hFile, "CPU Clock Measure:  " & Finfosys.DATAT["CPU_CLOCK_MEASURE"] & ""
+ Print #hFile, "Mark TSC:  " & Finfosys.DATAT["MARK_TSC"] & ""
+ Print #hFile, "Mark SYS Clock:  " & Finfosys.DATAT["MARK_SYS_CLOCK"] & ""
+ Print #hFile, "L1 Data:  " & Finfosys.DATAT["L1_DATA_CACHE"] & ""
+ Print #hFile, "L1 Instr:  " & Finfosys.DATAT["L1_INSTRUCTION_CACHE"] & ""
+ Print #hFile, "L2 Cache:  " & Finfosys.DATAT["L2_CACHE"] & ""
+ Print #hFile, "L3 Cache:  " & Finfosys.DATAT["L3_CACHE"] & ""
+ Print #hFile, "L1 Assoc:  " & Finfosys.DATAT["L1_ASSOC"] & ""
+ Print #hFile, "L2 Assoc:  " & Finfosys.DATAT["L2_ASSOC"] & ""
+ Print #hFile, "L3 Assoc:  " & Finfosys.DATAT["L3_ASSOC"] & ""
+ Print #hFile, "L1 Cacheline:  " & Finfosys.DATAT["L1_CACHELINE"] & ""
+ Print #hFile, "L2 Cacheline:  " & Finfosys.DATAT["L2_CACHELINE"] & ""
+ Print #hFile, "L3 Cacheline:  " & Finfosys.DATAT["L3_CACHELINE"] & ""
+ Print #hFile, "SSE Size:  " & Finfosys.DATAT["SSE_SIZE"] & ""
+ Print #hFile, "==========================================================FLAGS==================================================================="
  For i = 1 To 94
   FReport_Gen.ProgressBar1.Value = i / 94
-  Shell "echo '" & Finfosys.DATAT["Flags"][i]["DESC"] & " | " & Finfosys.DATAT["Flags"][i]["FEATURE"] & " | " & get_value(0, i) & " | " & "'>>" & FReport_Gen.ButtonBox1.Text & "" Wait
+  Print #hFile, Finfosys.DATAT["Flags"][i]["DESC"] & " | " & Finfosys.DATAT["Flags"][i]["FEATURE"] & " | " & get_value(0, i)
  Next
- 'Shell "echo '" & DATA_RETURN & "'>>" & FReport_Gen.ButtonBox1.Text & "" Wait
+ Close #hFile 
 End
 
 Function get_value(Value As Integer, Pos As Integer) As String
