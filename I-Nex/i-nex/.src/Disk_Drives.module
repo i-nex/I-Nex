@@ -133,6 +133,7 @@ Public Sub get_informations()
 End
 
 Public Sub disks()
+  Dim i As Integer
   filesystem_type = Null
   mount_widtch = Null
   mount_point = Null
@@ -142,8 +143,16 @@ Public Sub disks()
    Shell "grep -w \"" & Finfosys.ComboBox3.Text & "\" /proc/mounts | awk {'print $4'}" Wait To mount_widtch
   Endif
    Shell "LC_ALL=C df | grep -w \"" & Finfosys.ComboBox3.Text & "\" | awk {'print $6, $7'} | sed -n \"1p\"" Wait To mount_point
-   Shell "ls -l /dev/disk/by-uuid/ | grep -w \"" & Replace(Finfosys.ComboBox3.Text, " ", "") & "\" | awk {'print $9'}" Wait To device_uuid
-   Print device_uuid
+   'Shell "ls -l /dev/disk/by-uuid/ | grep -w \"" & Replace(Finfosys.ComboBox3.Text, " ", "") & "\" | awk {'print $9'}" Wait To device_uuid
+   Print Dir("/dev/disk/by-uuid/", "*").Count
+   For i = 0 To Dir("/dev/disk/by-uuid/", "*", gb.File).Count - 1
+    With Stat("/dev/disk/by-uuid/" & Dir("/dev/disk/by-uuid/", "*")[i])
+    If .Link Like "*" & Replace(Finfosys.ComboBox3.Text, " ", " ") & "*" Then
+     device_uuid = Dir("/dev/disk/by-uuid/", "*")[i]
+    Endif
+    End With
+   Next
+   
    device_uuid = Replace(Replace(device_uuid, " ", ""), "\n", "")
     Shell "grep -w \"" & Finfosys.ComboBox3.Text & "\" /proc/mounts | awk {'print $3'}" Wait To filesystem_type
     filesystem_type = Replace(Replace(filesystem_type, " ", ""), "\n", "")
