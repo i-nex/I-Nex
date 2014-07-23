@@ -20,75 +20,70 @@ Public HTT As String
 Public X86_X64 As String
 Public VIRT As String
 Public instructions As String
-Public dec_instructions As String
 Public Sub _init()
- dec_instructions = Replace(Finfosys.CPU_FLAGS[CFloat(Finfosys.ComboBox1.Index)], "\n", "")
- If dec_instructions Like "* mmxext *" Then
-  instructions &= "MMX(+), "
- Endif
- If dec_instructions Like "* mmx *" Then
-  instructions &= "MMX, " 
- Endif
- If dec_instructions Like "* 3dnowext *" Then
-  instructions &= "3DNow!(+), "
- Endif
- If dec_instructions Like "* sse *" Then
-  instructions &= "SSE, " 
- Endif
- If dec_instructions Like "* 3dnow *" Then
-  instructions &= "3DNow!, "
- Endif
- If dec_instructions Like "* sse2 *" Then
-  instructions &= "SSE2, "
- Endif
- If dec_instructions Like "* pni *" Then
-  instructions &= "SSE3, "
- Endif
- If dec_instructions Like "* ssse3 *" Then
-  instructions &= "SSSE3, "
- Endif
- If dec_instructions Like "* sse4_2 *" Then
-  instructions &= "SSE4.2, "
- Endif
- If dec_instructions Like "* sse4_1 *" Then
-  instructions &= "SSE4.1, "
- Endif
- If dec_instructions Like "* sse4a *" Then
-  instructions &= "SSE4a, "
- Endif 
- If dec_instructions Like "* nx *" And Finfosys.CPU_VENDOR_ID[CFloat(Finfosys.ComboBox1.Index)] Like "*Intel*" Then
-  instructions &= "XD-Bit, "
- Else
-  instructions &= "NX-Bit, "
- Endif
- 
- 'Instructions for detect AMD64,vmx, ht
- If dec_instructions Like "* lm *" Then
-  Finfosys.ToolButton1.Picture = Picture["Data/check_true.png"]
-  X86_X64 = "True"
- Else
-  Finfosys.ToolButton1.Picture = Picture["Data/check_false.png"]
-  X86_X64 = "False"
- Endif
+ Dim flags As String[]
+ Dim OneFlag As String
+ Finfosys.ToolButton2.Picture = Picture["Data/check_false.png"]
+ Finfosys.ToolButton1.Picture = Picture["Data/check_false.png"]
+ X86_X64 = "False"
+ HTT = "False"
+ VIRT = "False"
+ For Each OneFlag In Split(Finfosys.CPU_FLAGS[CFloat(Finfosys.ComboBox1.Index)], " ", "%%")
+  Select Case OneFlag
+   Case "mmxext"
+    instructions &= "MMX(+), "
+   Case "mmx"
+    instructions &= "MMX, " 
+   Case "3dnowext"
+    instructions &= "3DNow!(+), "
+   Case "sse"
+    instructions &= "SSE, " 
+   Case "3dnow"
+    instructions &= "3DNow!, "
+   Case "sse2"
+    instructions &= "SSE2, "
+   Case "pni"
+    instructions &= "SSE3, "
+   Case "ssse3"
+    instructions &= "SSSE3, "
+   Case "sse4_2"
+    instructions &= "SSE4.2, "
+   Case "sse4_1"
+    instructions &= "SSE4.1, "
+   Case "sse4a"
+    instructions &= "SSE4a, "
+   Case "nx"
+    If Finfosys.CPU_VENDOR_ID[CFloat(Finfosys.ComboBox1.Index)] Like "*Intel*" Then
+     instructions &= "XD-Bit, "
+    Else
+     instructions &= "NX-Bit, "
+    Endif
+   Case "lm"
+    Finfosys.ToolButton1.Picture = Picture["Data/check_true.png"]
+    X86_X64 = "True"
+   Case "vmx"
+    Finfosys.ToolButton2.Picture = Picture["Data/check_true.png"]
+    VIRT = "True"
+   Case "svm"
+    Finfosys.ToolButton2.Picture = Picture["Data/check_true.png"]
+    HTT = "True"
+   Case "ht"
+    If Finfosys.CPU_VENDOR_ID[CFloat(Finfosys.ComboBox1.Index)] Like "*AMD*" Then
+     Finfosys.ToolButton3.Picture = Picture["Data/check_true.png"]
+     Finfosys.Label99.Text = "Hyper-Transport:"
+    Endif
+   Case "lm"
+    Finfosys.ToolButton1.Picture = Picture["Data/check_true.png"]
+    X86_X64 = "True"
+  End Select
+ Next
 
- If dec_instructions Like "* vmx *" Then
-  Finfosys.ToolButton2.Picture = Picture["Data/check_true.png"]
-  VIRT = "True"
- Else If dec_instructions Like "* svm *" Then
-  Finfosys.ToolButton2.Picture = Picture["Data/check_true.png"]
-  HTT = "True"
- Else
-  Finfosys.ToolButton2.Picture = Picture["Data/check_false.png"]
-  HTT = "False"
-  VIRT = "False"
- Endif
  If Exist("/dev/kvm") = True Then
   Finfosys.ToolButton4.Picture = Picture["Data/check_true.png"]
  Else
   Finfosys.ToolButton4.Picture = Picture["Data/check_false.png"]
  Endif
  ht()
- HyperTransport()
 End
 
 Public Sub ht()
@@ -110,13 +105,4 @@ Public Sub ht()
         HTT = "True"
      Endif
   Endif
-End
-
-Public Sub HyperTransport()
- 
- If Finfosys.CPU_VENDOR_ID[CFloat(Finfosys.ComboBox1.Index)] Like "*AMD*" And dec_instructions Like "*ht*" Then
-  Finfosys.ToolButton3.Picture = Picture["Data/check_true.png"]
-  Finfosys.Label99.Text = "Hyper-Transport:"
- Endif
- 
 End
