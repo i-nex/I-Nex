@@ -59,31 +59,31 @@ Public Sub _inits()
   Logs("Decode CPU Database", Logger.Info)
   database = JSON.Decode(buffer) 'Convert JSON data to Collection
   buffer = Null
-  cpucache = Finfosys.Label14.Text
+  cpucache = Finfosys.Label14.Text & "*"
   Logs("Replace CPU Strings to Null", Logger.Info)
   
   'For the purpose of the database, certain words have to be converted to an empty value.
   cpucache = Replace(Replace(Replace(Replace(cpucache, "with", "*"), "APU", "*"), "Graphics", "*"), "Radeon", "*")
   'Fix for APU with Radeon(TM) R7 Graphics
-   cpucache = Replace(cpucache, "R7", "")
+   cpucache = Replace(cpucache, "R7", "*")
   '
-  cpucache = Replace(Replace(Replace(Replace(Replace(Replace(Replace(cpucache, "Intel", ""), " ", "*"), "R", ""), "CPU", ""), "TM", ""), ")", ""), "(", "")
+  cpucache = Replace(Replace(Replace(Replace(Replace(Replace(Replace(cpucache, "Intel", "*"), " ", "*"), "R", "*"), "CPU", "*"), "TM", "*"), ")", "*"), "(", "*")
   cpucache = Replace(Replace(Replace(Replace(cpucache, "AMD", "*"), "Dual-Core", "*"), "Processor", "*"), "tm", "*")
   cpucache = Replace(cpucache, "HD", "*")
   
   If cpucache Like "*Eight-Core*" Or "*Triple-Core*" Or "*Six-Core*" Or "*Quad-Core*" Then
-   cpucache = Replace(cpucache, "Eight-Core", "")
-   cpucache = Replace(cpucache, "Triple-Core", "")
-   cpucache = Replace(cpucache, "Six-Core", "")
-   cpucache = Replace(cpucache, "Quad-Core", "")
+   cpucache = Replace(cpucache, "Eight-Core", "*")
+   cpucache = Replace(cpucache, "Triple-Core", "*")
+   cpucache = Replace(cpucache, "Six-Core", "*")
+   cpucache = Replace(cpucache, "Quad-Core", "*")
   Endif
   
   cpucache = Replace(cpucache, "Core2", "Core 2")
   
   If cpucache Like "*Quad*" Or "*Core*" Or "*Dual*" Then
-   cpucache = Replace(cpucache, "Quad", "")
-   cpucache = Replace(cpucache, "Core", "")
-   cpucache = Replace(cpucache, "Dual", "")
+   cpucache = Replace(cpucache, "Quad", "*")
+   cpucache = Replace(cpucache, "Core", "*")
+   cpucache = Replace(cpucache, "Dual", "*")
   Endif
   
   For z = 0 To database["DATABASE"].Count - 1
