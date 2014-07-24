@@ -208,16 +208,18 @@ Public Sub Form_Open()
   ComboBox1.List = Dir("/sys/devices/system/cpu/", "cpu[0-9]")
   'Locate kernels
   MaxCount = 0
-  Try data = Shell "ls /boot | grep 'vmlinuz*'" For Input
-
-  While Not Eof(data)
-        Line Input #data, sLine
-        MaxCount += 1
-        ListBox1.Add(sLine, MaxCount)
-  Wend
+  ' Try data = Shell "ls /boot | grep 'vmlinuz*'" For Input
+  ' 
+  ' While Not Eof(data)
+  '       Line Input #data, sLine
+  '       MaxCount += 1
+  '       ListBox1.Add(sLine, MaxCount)
+  ' Wend
+  ' 
+  ' Try Close #data
   
-  Try Close #data
-  Label228.Text = "Installed Kernels: " & CString(MaxCount)
+  ListBox1.List = Dir("/boot/", "vmlinuz*")
+  Label228.Text = "Installed Kernels: " & CString(Dir("/boot/", "vmlinuz*").Count)
   'End of locate kernels
   If User.Name = "root" Then
     Message.Error(("Running as root is not allowed!\n " & User.Home & ""))
