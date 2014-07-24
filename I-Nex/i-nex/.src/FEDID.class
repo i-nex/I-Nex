@@ -89,6 +89,7 @@ Public Sub Form_Open()
       Endif
     End With
  Next
+ Close #data
 End
 
 Public Sub Button1_Click()
