@@ -17,7 +17,9 @@
 
 Public Sub Form_Open()
   Dim S As Boolean = True
-  
+  Dim SCREENFETCH As Process
+  SCREENFETCH = Exec ["bash"] For Write
+  Write #SCREENFETCH, File.Load("Data/screenfetch-dev")
   Select Case Application.Args[1]
    
    Case "--help"
