@@ -40,7 +40,7 @@ scriptVersion="3.2.2"
 #display="distro host kernel uptime pkgs shell res de wm wmtheme gtk disk cpu gpu mem"
 display=( distro host kernel uptime pkgs shell res de wm wmtheme gtk cpu gpu mem )
 # Display Type: ASCII or Text
-display_type="ASCII"
+display_type="Text"
 
 # Colors to use for the information found. These are set below according to distribution. If you would like to set your OWN color scheme for these, uncomment the lines below and edit them to your heart's content.
 # textcolor="\e[0m"
