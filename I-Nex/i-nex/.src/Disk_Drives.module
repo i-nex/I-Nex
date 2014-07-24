@@ -138,7 +138,8 @@ Public Sub disks()
   mount_widtch = Null
   mount_point = Null
   device_uuid = Null
-
+   
+   If IsNull(Finfosys.ComboBox3.Text) = False Then
    For i = 0 To Dir("/dev/disk/by-uuid/", "*", gb.File).Count - 1
     With Stat("/dev/disk/by-uuid/" & Dir("/dev/disk/by-uuid/", "*")[i])
     If .Link Like "*" & Replace(Finfosys.ComboBox3.Text, " ", " ") & "*" Then
@@ -146,20 +147,25 @@ Public Sub disks()
     Endif
     End With
    Next
+   Endif
    
    If Access("/proc/mounts", gb.Read) = True Then
    MOUNTS_PROC = Open "/proc/mounts"
    For Each MountsLine In MOUNTS_PROC.Lines
     For i = 0 To Split(MountsLine, " ", "%%").Count - 1
-     If Split(MountsLine, " ", "%%")[i] Like "*" & Finfosys.ComboBox3.Text & "*" Then
-      mount_point = Split(MountsLine, " ", "%%")[1]
-      filesystem_type = Split(MountsLine, " ", "%%")[2]
-      mount_widtch = Split(MountsLine, " ", "%%")[3]
-     Endif
-     If Split(MountsLine, " ", "%%")[i] Like "*" & device_uuid & "*" Then
-      mount_point = Split(MountsLine, " ", "%%")[1]
-      filesystem_type = Split(MountsLine, " ", "%%")[2]
-      mount_widtch = Split(MountsLine, " ", "%%")[3]
+     If IsNull(Finfosys.ComboBox3.Text) = False Then
+      If Split(MountsLine, " ", "%%")[i] Like "*" & Finfosys.ComboBox3.Text & "*" Then
+       mount_point = Split(MountsLine, " ", "%%")[1]
+       filesystem_type = Split(MountsLine, " ", "%%")[2]
+       mount_widtch = Split(MountsLine, " ", "%%")[3]
+      Endif
+      If IsNull(device_uuid) = False Then
+       If Split(MountsLine, " ", "%%")[i] Like "*" & device_uuid & "*" Then
+        mount_point = Split(MountsLine, " ", "%%")[1]
+        filesystem_type = Split(MountsLine, " ", "%%")[2]
+        mount_widtch = Split(MountsLine, " ", "%%")[3]
+       Endif
+      Endif
      Endif
     Next
    Next
@@ -170,8 +176,10 @@ Public Sub disks()
    SWAPS_PROC = Open "/proc/swaps"
     For Each SwapsLine In SWAPS_PROC.Lines
      For i = 0 To Split(SwapsLine, " ", "%%").Count - 1
-      If Split(SwapsLine, " ", "%%")[i] Like "*" & Finfosys.ComboBox3.Text & "*" Then
-       check_swap = Replace(Split(SwapsLine, " ", "%%")[0], "/dev/", "")
+      If IsNull(Finfosys.ComboBox3.Text) = False Then
+       If Split(SwapsLine, " ", "%%")[i] Like "*" & Finfosys.ComboBox3.Text & "*" Then
+        check_swap = Replace(Split(SwapsLine, " ", "%%")[0], "/dev/", "")
+       Endif
       Endif
      Next
     Next
