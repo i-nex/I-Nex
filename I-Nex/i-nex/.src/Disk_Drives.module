@@ -120,11 +120,7 @@ Public Sub get_informations()
   Try max_ratio = Replace(File.Load("/sys/block/" & Finfosys.ComboBox4.Text & "/bdi/max_ratio"), "\n", "")
   Try min_ratio = Replace(File.Load("/sys/block/" & Finfosys.ComboBox4.Text & "/bdi/min_ratio"), "\n", "")
   Try stable_pages_required = Replace(File.Load("/sys/block/" & Finfosys.ComboBox4.Text & "/bdi/stable_pages_required"), "\n", "")
-  
-  Shell "sed -n \"2p\" /proc/swaps | awk {'print $1'} | cut -d \"/\" -f 3" Wait To check_swap
-  If check_swap Not Like Finfosys.ComboBox3.Text Then
-   Shell "blkid | grep swap | cut -d \":\" -f 1 | cut -d \"/\" -f 3" Wait To check_swap
-  Endif
+
   Shell "LC_ALL=C df | grep \"" & Finfosys.ComboBox3.Text & "\" | awk {'print $5'} | sed -n '1p'" Wait To used
   Used = Replace(Replace(Used, "%", ""), "\n", "")
 
@@ -134,17 +130,15 @@ End
 
 Public Sub disks()
   Dim i As Integer
+  Dim MOUNTS_PROC As File
+  Dim SWAPS_PROC As File
+  Dim MountsLine As String
+  Dim SwapsLine As String
   filesystem_type = Null
   mount_widtch = Null
   mount_point = Null
   device_uuid = Null
-  
-  If IsNull(Finfosys.ComboBox3.Text) = False Then
-   Shell "grep -w \"" & Finfosys.ComboBox3.Text & "\" /proc/mounts | awk {'print $4'}" Wait To mount_widtch
-  Endif
-   Shell "LC_ALL=C df | grep -w \"" & Finfosys.ComboBox3.Text & "\" | awk {'print $6, $7'} | sed -n \"1p\"" Wait To mount_point
-   'Shell "ls -l /dev/disk/by-uuid/ | grep -w \"" & Replace(Finfosys.ComboBox3.Text, " ", "") & "\" | awk {'print $9'}" Wait To device_uuid
-   Print Dir("/dev/disk/by-uuid/", "*").Count
+
    For i = 0 To Dir("/dev/disk/by-uuid/", "*", gb.File).Count - 1
     With Stat("/dev/disk/by-uuid/" & Dir("/dev/disk/by-uuid/", "*")[i])
     If .Link Like "*" & Replace(Finfosys.ComboBox3.Text, " ", " ") & "*" Then
@@ -153,41 +147,34 @@ Public Sub disks()
     End With
    Next
    
-   device_uuid = Replace(Replace(device_uuid, " ", ""), "\n", "")
-    Shell "grep -w \"" & Finfosys.ComboBox3.Text & "\" /proc/mounts | awk {'print $3'}" Wait To filesystem_type
-    filesystem_type = Replace(Replace(filesystem_type, " ", ""), "\n", "")
-
-  If IsNull(mount_widtch) And Not IsNull(device_uuid) Then
-   Shell "grep -w \"" & device_uuid & "\" /proc/mounts | awk {'print $4'}" Wait To mount_widtch
-  Endif
-  
-  mount_widtch = Replace(mount_widtch, "\n", "")
-
-  If IsNull(filesystem_type) Or IsBlank(filesystem_type) And Not IsNull(device_uuid) Then
-   Shell "grep -w \"" & device_uuid & "\" /proc/mounts | awk {'print $3'}" Wait To filesystem_type
-  Endif
-  If IsNull(filesystem_type) Or IsBlank(filesystem_type) Then
-   Shell "ls -l /sys/fs/*/* | grep -w \"" & Finfosys.ComboBox3.Text & "\" | cut -d '/' -f 4" Wait To filesystem_type
-  Endif
-  filesystem_type = Replace(Replace(filesystem_type, " ", ""), "\n", "")
-  
-  If IsNull(device_uuid) Then
-   filesystem_type = Null
-  Endif
-  
-  If mount_point Like "*Mounted on*" Then 
-   Shell "LC_ALL=C df | grep -w \"" & Finfosys.ComboBox4.Text & "\" | awk {'print $6, $7'} | sed -n '1p'" Wait To mount_point
-  Endif
-  mount_point = Replace(mount_point, "\n", "")
-  
-  ' Fixes for blkid (Manjaro Linux) (Arch Based)
-  If Len(device_uuid) < 9 Then
-   Shell "blkid | grep " & Finfosys.ComboBox3.Text & " | awk {'print $4'} | tr '\"' ' ' | tr 'UUID=' ' '" Wait To device_uuid
-   device_uuid = Replace(device_uuid, " ", "")
-  Endif
-  If IsNull(filesystem_type) = True Then
-   Shell "blkid | grep " & Finfosys.ComboBox3.Text & " | awk {'print $5'} | tr '\"' ' ' | tr 'TYPE=' ' '" Wait To filesystem_type
-   filesystem_type = Replace(filesystem_type, " ", "")
-  Endif
+   If Access("/proc/mounts", gb.Read) = True Then
+   MOUNTS_PROC = Open "/proc/mounts"
+   For Each MountsLine In MOUNTS_PROC.Lines
+    For i = 0 To Split(MountsLine, " ", "%%").Count - 1
+     If Split(MountsLine, " ", "%%")[i] Like "*" & Finfosys.ComboBox3.Text & "*" Then
+      mount_point = Split(MountsLine, " ", "%%")[1]
+      filesystem_type = Split(MountsLine, " ", "%%")[2]
+      mount_widtch = Split(MountsLine, " ", "%%")[3]
+     Endif
+     If Split(MountsLine, " ", "%%")[i] Like "*" & device_uuid & "*" Then
+      mount_point = Split(MountsLine, " ", "%%")[1]
+      filesystem_type = Split(MountsLine, " ", "%%")[2]
+      mount_widtch = Split(MountsLine, " ", "%%")[3]
+     Endif
+    Next
+   Next
+   Close #MOUNTS_PROC
+   Endif
    
+   If Access("/proc/swaps", gb.Read) = True Then
+   SWAPS_PROC = Open "/proc/swaps"
+    For Each SwapsLine In SWAPS_PROC.Lines
+     For i = 0 To Split(SwapsLine, " ", "%%").Count - 1
+      If Split(SwapsLine, " ", "%%")[i] Like "*" & Finfosys.ComboBox3.Text & "*" Then
+       check_swap = Replace(Split(SwapsLine, " ", "%%")[0], "/dev/", "")
+      Endif
+     Next
+    Next
+   Close #SWAPS_PROC
+   Endif
 End
