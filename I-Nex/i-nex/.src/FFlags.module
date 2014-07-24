@@ -21,7 +21,6 @@ Public X86_X64 As String
 Public VIRT As String
 Public instructions As String
 Public Sub _init()
- Dim flags As String[]
  Dim OneFlag As String
  Finfosys.ToolButton2.Picture = Picture["Data/check_false.png"]
  Finfosys.ToolButton1.Picture = Picture["Data/check_false.png"]
