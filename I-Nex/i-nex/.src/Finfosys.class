@@ -205,15 +205,7 @@ Public Sub Form_Open()
   
     'Procesor
   Logs("Check available procesors", Logger.Info)
-  Try data = Shell "ls /sys/devices/system/cpu/ | grep cpu[0-9]" For Input
-
-  While Not Eof(data)
-        Line Input #data, sLine
-        MaxCount += 1
-        ComboBox1.Add(sLine, MaxCount)
-  Wend
-  
-  Try Close #data
+  ComboBox1.List = Dir("/sys/devices/system/cpu/", "cpu[0-9]")
   'Locate kernels
   MaxCount = 0
   Try data = Shell "ls /boot | grep 'vmlinuz*'" For Input
@@ -496,8 +488,9 @@ Public Sub Wykrywanie_procesorow()
   Dim CPU_CACHE_ALIGNMENT As New String[]
   Dim CPU_ADRESS_SIZES As New String[]
   Dim CPU_POWER_MANAGEMENT As New String[]
-  CPUINFO_PROC = Open "/proc/cpuinfo"
   
+  CPUINFO_PROC = Open "/proc/cpuinfo"
+
   For Each sLine In CPUINFO_PROC.Lines
     sLine = Trim(sLine)
     If Not sLine Then Continue 
