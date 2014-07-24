@@ -14,22 +14,10 @@
 '
 ' You should have received a copy of the GNU General Public License
 ' along with this program. If not, see <http://www.gnu.org/licenses/>.
-
-Public All_Found_Modules As Float
-Public All_Found_Modules_String As String
-Public Actual_Module As String
-
 Public Sub Form_Open()
  Dim i As Integer
  If ChkPrm.ChkExec("modinfo") = True Then
- Shell "ls /sys/module/ | sort | cut -d \"/\" -f 1 | wc -l" Wait To All_Found_Modules_String
- All_Found_Modules = Replace(Replace(All_Found_Modules_String, " ", ""), "\n", "")
- For i = 1 To All_Found_Modules
-  Shell "ls /sys/module/ | sort | cut -d \"/\" -f 1 | sed -n '" & i & "p'" Wait To Actual_Module
-  Actual_Module = Replace(Replace(Actual_Module, " ", ""), "\n", "")
-  ComboBox1.Add(Actual_Module)
- Next
-  ComboBox1.Text = Actual_Module
+ ComboBox1.List = Dir("/sys/module/")
  Else
   Me.Close
  Endif
