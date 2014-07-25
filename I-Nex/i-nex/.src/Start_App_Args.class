@@ -20,6 +20,8 @@ Public Sub Form_Open()
   Dim SCREENFETCH As Process
   SCREENFETCH = Exec ["bash"] For Write
   Write #SCREENFETCH, File.Load("Data/screenfetch-dev")
+  SCREENFETCH.Wait
+  SCREENFETCH.Kill
   Select Case Application.Args[1]
    
    Case "--help"
