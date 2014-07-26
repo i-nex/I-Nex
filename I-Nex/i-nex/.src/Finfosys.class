@@ -330,7 +330,12 @@ End
 
 Public Sub System()
   Dim hostname, arch, gcc, timezone, xorg_version, glx_version As String
+  Dim SCREENFETCH_P As Process
+  SCREENFETCH_P = Exec [System.Path &/ "bin/bash"] For Write
+  Write #SCREENFETCH_P, File.Load("Data/screenfetch-dev")
+  SCREENFETCH_P.Wait
   SCREENFETCH = JSON.Decode(File.Load(User.Home & "/.i-nex/screenfetch.json"))
+  
   Shell "cat /etc/timezone | grep ^TIMEZONE= /etc/sysconfig/clock | cut -d '=' -f 2" Wait To timezone
   If timezone = Null Or "" Then
     Shell "timedatectl status | grep \"Time zone:\" | cut -d \":\" -f 2 | cut -d \"(\" -f 1" Wait To timezone
@@ -375,7 +380,8 @@ Public Sub System()
   Label151.Text = "Dynamic linker (ldd): " & SCREENFETCH["DYNAMIC_LINKER"]
   Label152.Text = "Net-tools: " & SCREENFETCH["NETTOOLS"]
   Label153.Text = "Wireless-tools: " & SCREENFETCH["WIRELESS_TOOLS"]
-
+  SCREENFETCH_P.Kill
+  SCREENFETCH.Clear
 End
 
 Public Sub grafika()
