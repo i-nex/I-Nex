@@ -116,5 +116,5 @@ Public Sub _inits()
   Logs("\nIf Detected CPU is wrong CPU. \n"
        "Please submit report at forum \n"
        "http://forum.i-nex.pl/ \n", Logger.Info)
-  database = Null
+  database.Clear
 End
