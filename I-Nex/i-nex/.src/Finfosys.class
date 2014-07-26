@@ -496,9 +496,11 @@ Public Sub Wykrywanie_procesorow()
   Dim CPU_CACHE_ALIGNMENT As New String[]
   Dim CPU_ADRESS_SIZES As New String[]
   Dim CPU_POWER_MANAGEMENT As New String[]
-  
-  CPUINFO_PROC = Open "/proc/cpuinfo"
-
+  If IsNull(MStart.CPUINFO_FILE) = True Then
+   CPUINFO_PROC = Open "/proc/cpuinfo"
+  Else
+   CPUINFO_PROC = Open MStart.CPUINFO_FILE
+  Endif
   For Each sLine In CPUINFO_PROC.Lines
     sLine = Trim(sLine)
     If Not sLine Then Continue 

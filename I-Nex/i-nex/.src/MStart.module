@@ -1,0 +1,43 @@
+' Gambas module file
+
+Public CPUINFO_FILE As String
+Public Sub Main()
+  Dim PrintErr As Boolean = True
+  Select Case Application.Args[1]
+   Case "--help"
+    Print ("\n  " & Application.name & "  " & Application.version & " running on:\n"
+           "\n  Architecture: " & System.Architecture & ""
+           "\n"
+           "\n  System Family:           " & System.Family & ""
+           "\n  Gambas Version:          " & System.FullVersion & ""
+           "\n  System Charset:          " & System.Charset & ""
+           "\n  Hostname:                " & System.Host & ""
+           "\n  "
+           "\n  Usage: env VARIABLE=\"STRING\"  " & Application.name & ".gambas [Options]"
+           "\n  Options:"
+           "\n          --help                       (Chow Help)"
+           "\n"
+           "\n  Env Variables:"
+           "\n"
+           "\n                INEXCPU_VENDOR"
+           "\n"
+           "\n  Example:"
+           "\n"
+           "\n                env INEXCPU_VENDOR=\"Pentium(R) Dual-Core CPU       T4200  \" ./i-nex.gambas")
+   Case "--about"
+    About.Show
+    PrintErr = False
+   Case "--cpuinfo"
+    CPUINFO_FILE = Application.Args[2]
+    Finfosys.Show
+    PrintErr = False
+   Case ""
+    Finfosys.Show
+    PrintErr = False
+  End Select
+  If PrintErr = True Then
+   Print ("\nInvalid arguments\n"
+          "Use --help to show options\n")
+  Endif
+ 
+End
