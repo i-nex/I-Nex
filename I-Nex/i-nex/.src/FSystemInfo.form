@@ -1,0 +1,66 @@
+# Gambas Form File 3.0
+
+{ Form Form
+  MoveScaled(0,0,68,77)
+  Background = Color.TextBackground
+  Text = ("I-Nex Library")
+  Icon = Picture["i-nex.png"]
+  Resizable = False
+  Arrangement = Arrange.Vertical
+  Spacing = True
+  Margin = True
+  { HBox2 HBox
+    MoveScaled(1,0,58,7)
+    Background = Color.TextBackground
+    AutoResize = True
+    Spacing = True
+    { PictureBox1 PictureBox
+      MoveScaled(0,0,7,7)
+      Picture = Picture["icon:/large/system"]
+      AutoResize = True
+      Alignment = Align.Center
+    }
+    { TextLabel1 TextLabel
+      MoveScaled(12,0,46,5)
+      Font = Font["Bold"]
+      Expand = True
+      Text = ("Library Informations")
+      Alignment = Align.Normal
+    }
+  }
+  { Panel3 Panel
+    MoveScaled(1,11,63,27)
+    Expand = True
+    Arrangement = Arrange.Vertical
+    Spacing = True
+    Margin = True
+    Border = Border.Plain
+    { gvwInfo GridView
+      MoveScaled(3,4,49,22)
+      Expand = True
+      Border = False
+      Grid = False
+      ScrollBar = Scroll.Vertical
+    }
+  }
+  { HBox1 HBox
+    MoveScaled(0,59,66,4)
+    Spacing = True
+    { Panel1 Panel
+      MoveScaled(4,0,4,4)
+      Expand = True
+    }
+    { btnCopy Button
+      MoveScaled(23,0,18,4)
+      Text = ("&Copy")
+      Picture = Picture["icon:/small/copy"]
+    }
+    { btnClose Button
+      MoveScaled(48,0,18,4)
+      Text = ("Close")
+      Picture = Picture["icon:/16/close"]
+      Default = True
+      Cancel = True
+    }
+  }
+}

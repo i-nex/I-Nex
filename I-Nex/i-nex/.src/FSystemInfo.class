@@ -1,0 +1,219 @@
+' Gambas class file
+
+Private $sInfo As String
+
+Public Sub btnClose_Click()
+
+  Me.Close
+
+End
+
+Public Sub btnCopy_Click()
+
+  Clipboard.Copy($sInfo)
+
+End
+
+' Private Sub FindLibraryRec(sDir As String, sPattern As String) As String
+'   
+'   Dim sSubDir As String
+'   Dim sLib As String
+'   Dim aDir As String[]
+'   
+'   Try aDir = Dir(sDir, sPattern)
+'   If aDir And If aDir.Count = 1 Then Return aDir[0]
+'   
+'   Try aDir = Dir(sDir, "*", gb.Directory)
+'   If Not Error Then
+'     For Each sSubDir In aDir
+'       sLib = FindLibraryRec(sDir &/ sSubDir, sPattern)
+'       If sLib Then Return sLib
+'     Next
+'   Endif
+'   
+' End
+
+Private Sub ReadLsbRelease(sPath As String) As Collection
+
+  Dim cCol As New Collection
+  Dim sLine As String
+  Dim aLine As String[]
+  
+  For Each sLine In Split(File.Load(sPath), "\n", "", True)
+    
+    aLine = Scan(sLine, "*=*")
+    Try cCol[aLine[0]] = UnQuote(aLine[1])
+    
+  Next
+  
+  Return cCol
+  
+End
+
+Private Sub GetDistribution() As String
+
+  Dim cDist As Collection = ["lsb-release": "/etc/lsb-release", 
+                             "vector": "/etc/vector-version", 
+                             "slackware": "/etc/slackware-version", 
+                             "debian": "/etc/debian_version",
+                             "redhat": "/etc/redhat-release", 
+                             "arch": "/etc/arch-release", 
+                             "SuSE": "/etc/SuSE-release", 
+                             "gentoo": "/etc/gentoo-release", 
+                             "conectiva": "/etc/conectiva-release", 
+                             "mandriva": "/etc/mandriva-release", 
+                             "pardus": "/etc/pardus-release", 
+                             "kanotix": "/etc/kanotix-release"]
+  Dim sPath As String
+  Dim sDistro As String
+  Dim cData As Collection
+  Dim iPos As Integer
+
+  For Each sPath In cDist
+    sDistro = cDist.Key
+
+    If Not Exist(sPath) Then Continue
+
+    If sDistro = "lsb-release" Then
+      cData = ReadLsbRelease(sPath)
+      sDistro = cData["DISTRIB_DESCRIPTION"]
+      If sDistro Then Return sDistro
+      Return cData["DISTRIB_ID"] & " " & cData["DISTRIB_RELEASE"]
+    Else
+      Return sDistro & " " & Trim(File.Load(sPath))
+    Endif
+    
+  Next
+  
+  sDistro = File.Load("/etc/issue")
+  If sDistro Then
+    iPos = InStr(sDistro, "\\")
+    If iPos Then sDistro = Left(sDistro, iPos - 1)
+  Endif
+  Return Trim(sDistro)
+
+End
+
+Public Sub Form_Open()
+
+  Dim aText As New String[]
+  Dim aLib As New String[]
+  Dim sTemp As String
+  Dim sFile As String
+  Dim cSearch As Collection
+  Dim cFile As Collection
+  Dim sPattern As String
+  Dim sText As String
+  Dim I As Integer
+  Dim aLine As String[]
+  Dim sDir As String
+  
+  Inc Application.Busy
+  ' 
+  ' 'txtInfo.Font = Font[Settings["/ConsoleFont", Project.DEFAULT_FONT]]
+  ' 
+  ' aText.Add("[System]")
+  ' aText.Add("Gambas=" & System.FullVersion)
+  ' aText.Add("OperatingSystem=" & System.Family)
+  ' 
+  ' Exec ["uname", "-r"] To sTemp
+  ' aText.Add("Kernel=" & Trim(sTemp))
+  ' 
+  ' aText.Add("Architecture=" & System.Architecture)
+  ' aText.Add("Distribution=" & GetDistribution())
+  ' aText.Add("Desktop=" & Desktop.Type)
+  ' aText.Add("Theme=" & Style.Name)
+  ' aText.Add("Language=" & System.Language)
+  ' 
+  ' If System.Family = "FreeBSD" Then
+  '   Exec ["sysctl", "-n", "hw.physmem"] To sTemp
+  '   sTemp = CStr(CInt(sTemp) \ 1024)
+  ' Else
+  '   Exec ["cat", "/proc/meminfo"] To sTemp
+  '   Try sTemp = Scan(sTemp, "*MemTotal:*\n*")[1]
+  '   If Error Then 
+  '     sTemp = ""
+  '   Else
+  '     While Not IsDigit(Right(sTemp))
+  '       sTemp = Left(sTemp, -1)
+  '     Wend
+  '     sTemp = Trim(sTemp)
+  '   Endif
+  ' Endif
+  ' 
+  ' If sTemp Then
+  '   Try sTemp = Format(CInt(sTemp) / 1024, "0") & "M"
+  '   If Not Error Then aText.Add("Memory=" & sTemp)
+  ' Endif
+  If Settings["Window/X"] = Null Then
+     Me.Center
+  Else
+     Try Me.X = Settings["Window/X", Me.X]
+     Try Me.Y = Settings["Window/Y", Me.Y]
+  Endif
+  cSearch = ["Qt4": "libQtCore.so.*.*.*",
+             "Qt5": "libQt5Core.so.*.*.*",
+             "GTK2+": "libgtk-x11-2*.so.*.*.*",
+             "GTK3+": "libgtk-3.so.*.*.*",
+             "SDL": "libSDL-1.*.so.*.*.*", 
+             "GStreamer": "libgstreamer-*.so.*.*.*", 
+             "Poppler": "libpoppler.so.*.*.*", 
+             "Curl": "libcurl.so.*.*.*", 
+             "OpenGL": "libGL.so.*.*.*", 
+             "Cairo": "libcairo.so.*.*.*", 
+             "DBus": "libdbus-[0-9].so.*.*.*",
+             "Udev": "libudev.so.*.*.*",
+             "KDE Webkit": "libkdewebkit.so.*.*.*",
+             "Intel DRM": "libdrm_intel.so.*.*.*",
+             "Nouveau DRM": "libdrm_nouveau.so.*.*.*",
+             "Radeon DRM": "libdrm_radeon.so.*.*.*",
+             "Libdrm": "libdrm.so.*.*.*",
+             "PulseAudio": "libpulse.so.*.*.*"]
+  cFile = New Collection
+  
+  aText.Add("[Libraries]")
+  For Each sDir In ["/lib", "/usr/lib"]
+    For Each sFile In RDir(sDir, "", gb.File, False).Sort(gb.IgnoreCase)
+      sFile = File.Name(sFile)
+      For Each sPattern In cSearch
+        If sFile Like sPattern And If Not cFile.Exist(sFile) Then
+          aLib.Add(cSearch.Key & "=" & sFile)
+          cFile[sFile] = True
+          Break
+        Endif
+      Next
+    Next
+  Next
+
+  aText.Insert(aLib.Sort())
+  
+  gvwInfo.Rows.Count = aText.Count
+  gvwInfo.Columns.Count = 3
+  I = 0
+  For Each sText In aText
+    If Left(sText) = "[" Then
+      With gvwInfo[I, 0]
+        .Text = Mid$(sText, 2, -1)
+        .Font.Bold = True
+        .Font.Underline = True
+        .ColumnSpan = 3
+        .Padding = 4
+      End With
+    Else
+      aLine = Split(sText, "=")
+      gvwInfo[I, 0].Text = Space$(4) & Trim(aLine[0])
+      gvwInfo[I, 0].Padding = 4
+      gvwInfo[I, 2].Text = Trim(aLine[1])
+      gvwInfo[I, 2].Padding = 4
+    Endif
+    Inc I
+  Next
+  
+  gvwInfo.Columns[0].Width = -1
+  gvwInfo.Columns[1].Width = Desktop.Scale * 2
+  
+  $sInfo = aText.Join("\n")
+  
+  Dec Application.Busy
+
+End

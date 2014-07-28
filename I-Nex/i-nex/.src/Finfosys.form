@@ -1412,7 +1412,7 @@
       ReadOnly = True
     }
     { TextLabel21 TextLabel
-      Move(84,413,378,28)
+      Move(84,413,301,28)
       #Translate = False
       Font = Font["Bold,8"]
       Padding = 3
@@ -1608,6 +1608,11 @@
       Font = Font["8"]
       Padding = 3
       Border = Border.Raised
+    }
+    { Button18 Button
+      Move(392,413,70,28)
+      Font = Font["Bold,8"]
+      Text = ("Library")
     }
     Index = 6
     Text = "Kernel"
