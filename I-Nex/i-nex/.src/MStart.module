@@ -30,6 +30,7 @@ Public Sub Main()
            "\n  Usage: env VARIABLE=\"STRING\"  " & Application.name & ".gambas [Options]"
            "\n  Options:"
            "\n          --help                       (Chow Help)"
+           "\n          --library                       (Chow library)"
            "\n"
            "\n  Env Variables:"
            "\n"
@@ -40,6 +41,9 @@ Public Sub Main()
            "\n                env INEXCPU_VENDOR=\"Pentium(R) Dual-Core CPU       T4200  \" ./i-nex.gambas")
    Case "--about"
     About.Show
+    PrintErr = False
+   Case "--library"
+    FSystemInfo.Show
     PrintErr = False
    Case "--cpuinfo"
     CPUINFO_FILE = Application.Args[2]

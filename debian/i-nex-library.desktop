@@ -1,0 +1,13 @@
+ 
+[Desktop Entry]
+Name=I-Nex Library
+Comment=I-Nex System Library Information.
+GenericName=I-Nex System Library Information.
+Exec=/usr/bin/i-nex.gambas --library
+Icon=/usr/share/pixmaps/i-nex-128.png
+Terminal=false
+StartupNotify=true
+Type=Application
+Categories=System;
+Version=1.0
+Encoding=UTF-8

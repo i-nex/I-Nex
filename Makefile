@@ -36,6 +36,7 @@ install-pastebinit-and-other:
 	mkdir -p $(DESTDIR)$(PREFIX)/share/i-nex/pastebinit/pastebin.d
 	@echo -e '\033[1;32mInstall pastebinit and other...\033[0m'
 	$(INSTALL) 0755 debian/i-nex.desktop $(DESTDIR)$(PREFIX)/share/applications/
+	$(INSTALL) 0755 debian/i-nex-library.desktop $(DESTDIR)$(PREFIX)/share/applications/
 	$(INSTALL) 0755 pastebinit $(DESTDIR)$(PREFIX)/share/i-nex/pastebinit/
 	$(INSTALL) 0755 pastebinit.xml $(DESTDIR)$(PREFIX)/share/i-nex/pastebinit/
 	$(INSTALL) 0755 release.conf $(DESTDIR)$(PREFIX)/share/i-nex/pastebinit/
