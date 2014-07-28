@@ -18,7 +18,7 @@
 Public Logs As New Logger
 Public i As Integer
 Public database As Collection
-Public Sub _inits()
+Function _inits()
   Dim buffer As String
   Dim cpucache As String
   Dim z As Integer
@@ -89,7 +89,7 @@ Public Sub _inits()
    cpucache = Replace(cpucache, "Core", "*")
    cpucache = Replace(cpucache, "Dual", "*")
   Endif
-  
+
   For z = 0 To database["DATABASE"].Count - 1
     If database["DATABASE"][z]["PROCESSOR_MODEL_NAME"] Like "*" & cpucache & "*" Then 
       Finfosys.PictureBox3.Name = database["DATABASE"][z]["PROCESSOR_SOCKET_IMAGE"]
