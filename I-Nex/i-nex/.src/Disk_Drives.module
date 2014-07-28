@@ -115,15 +115,15 @@ Public Sub get_informations()
   Try rotational = Replace(File.Load("/sys/block/" & Finfosys.ComboBox4.Text & "/queue/rotational"), "\n", "")
   Try rq_affinity = Replace(File.Load("/sys/block/" & Finfosys.ComboBox4.Text & "/queue/rq_affinity"), "\n", "")
   
-  Try real_size = ((Replace(File.Load("/sys/block/" & Finfosys.ComboBox4.Text & "/" & Finfosys.ComboBox3.Text & "/size"), "\n", "") / 1024000) / 2) & " GB"
-  
+  Try real_size = CLong(Replace(File.Load("/sys/block/" & Finfosys.ComboBox4.Text & "/" & Finfosys.ComboBox3.Text & "/size"), "\n", "") * 512)
+  ' Print Fix(real_size / 1024)
+  ' Print Fix(real_size / 1024 / 1024)
   Try max_ratio = Replace(File.Load("/sys/block/" & Finfosys.ComboBox4.Text & "/bdi/max_ratio"), "\n", "")
   Try min_ratio = Replace(File.Load("/sys/block/" & Finfosys.ComboBox4.Text & "/bdi/min_ratio"), "\n", "")
   Try stable_pages_required = Replace(File.Load("/sys/block/" & Finfosys.ComboBox4.Text & "/bdi/stable_pages_required"), "\n", "")
 
   Shell "LC_ALL=C df | grep \"" & Finfosys.ComboBox3.Text & "\" | awk {'print $5'} | sed -n '1p'" Wait To used
   Used = Replace(Replace(Used, "%", ""), "\n", "")
-
   Logs("Get informations of Drives Done", Logger.Info)
   disks()
 End
@@ -134,11 +134,13 @@ Public Sub disks()
   Dim SWAPS_PROC As File
   Dim MountsLine As String
   Dim SwapsLine As String
+  Dim FREE_SPACE As String
   filesystem_type = Null
   mount_widtch = Null
   mount_point = Null
   device_uuid = Null
-   
+  FREE_SPACE = Null
+  
    If IsNull(Finfosys.ComboBox3.Text) = False Then
    For i = 0 To Dir("/dev/disk/by-uuid/", "*", gb.File).Count - 1
     With Stat("/dev/disk/by-uuid/" & Dir("/dev/disk/by-uuid/", "*")[i])
@@ -185,4 +187,7 @@ Public Sub disks()
     Next
    Close #SWAPS_PROC
    Endif
+   
+   Try FREE_SPACE = Fix(Dfree(mount_point) / 1024 / 1024)
+   Finfosys.Label248.Text = "Free:  " & FREE_SPACE
 End
