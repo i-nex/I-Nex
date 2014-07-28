@@ -82,11 +82,17 @@ Private Sub Format_Write(Value As String)
 End
 
 Private Sub _Write(sLine As String)
-
+  Dim LOG_FILE As File
   If $sOutput = ":stdout" Then
     Print sLine
     If Access("/tmp/", gb.Write) = True Then
-    Shell "echo '" & sLine & "' >>/tmp" &/ Application.Name & ".log"
+     If Exist("/tmp/" & Application.Name & ".log") Then  
+       LOG_FILE = Open "/tmp/" & Application.Name & ".log" For Write Append 
+      Else 
+       LOG_FILE = Open "/tmp/" & Application.Name & ".log" For Write Create
+     Endif 
+     Write #LOG_FILE, sLine
+     Close #LOG_FILE
     Endif
   Else
     Print #$sLogFile, sLine
