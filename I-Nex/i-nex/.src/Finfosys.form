@@ -1095,7 +1095,7 @@
       Border = Border.Raised
     }
     { !Label38 Label
-      Move(7,175,294,21)
+      Move(7,175,224,21)
       #Public = True
       #Translate = False
       Font = Font["8"]
@@ -1397,7 +1397,7 @@
       Font = Font["8"]
     }
     { Label248 Label
-      Move(301,175,161,21)
+      Move(231,175,231,21)
       Font = Font["8"]
       Padding = 3
       Text = ("Label248")

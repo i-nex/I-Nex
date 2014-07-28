@@ -116,6 +116,8 @@ Public Sub get_informations()
   Try rq_affinity = Replace(File.Load("/sys/block/" & Finfosys.ComboBox4.Text & "/queue/rq_affinity"), "\n", "")
   
   Try real_size = CLong(Replace(File.Load("/sys/block/" & Finfosys.ComboBox4.Text & "/" & Finfosys.ComboBox3.Text & "/size"), "\n", "") * 512)
+  ' Print Replace(File.Load("/sys/block/" & Finfosys.ComboBox4.Text & "/" & Finfosys.ComboBox3.Text & "/size"), "\n", "")
+  ' Print real_size
   ' Print Fix(real_size / 1024)
   ' Print Fix(real_size / 1024 / 1024)
   Try max_ratio = Replace(File.Load("/sys/block/" & Finfosys.ComboBox4.Text & "/bdi/max_ratio"), "\n", "")
