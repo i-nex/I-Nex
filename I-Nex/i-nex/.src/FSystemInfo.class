@@ -1,5 +1,20 @@
 ' Gambas class file
 
+' Copyright(C) 2011-2014, Michał Głowienka aka eloaders <eloaders@linux.pl>
+'
+' This program is free software; you can redistribute it and/or modify
+' it under the terms of the GNU General Public License as published by
+' the Free Software Foundation; either version 3 of the License, or
+' (at your option) any later version.
+'
+' This program is distributed in the hope that it will be useful,
+' but WITHOUT ANY WARRANTY; without even the implied warranty of
+' MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+' GNU General Public License for more details.
+'
+' You should have received a copy of the GNU General Public License
+' along with this program. If not, see <http://www.gnu.org/licenses/>.
+
 Private $sInfo As String
 
 Public Sub btnClose_Click()
@@ -33,66 +48,66 @@ End
 '   
 ' End
 
-Private Sub ReadLsbRelease(sPath As String) As Collection
-
-  Dim cCol As New Collection
-  Dim sLine As String
-  Dim aLine As String[]
-  
-  For Each sLine In Split(File.Load(sPath), "\n", "", True)
-    
-    aLine = Scan(sLine, "*=*")
-    Try cCol[aLine[0]] = UnQuote(aLine[1])
-    
-  Next
-  
-  Return cCol
-  
-End
-
-Private Sub GetDistribution() As String
-
-  Dim cDist As Collection = ["lsb-release": "/etc/lsb-release", 
-                             "vector": "/etc/vector-version", 
-                             "slackware": "/etc/slackware-version", 
-                             "debian": "/etc/debian_version",
-                             "redhat": "/etc/redhat-release", 
-                             "arch": "/etc/arch-release", 
-                             "SuSE": "/etc/SuSE-release", 
-                             "gentoo": "/etc/gentoo-release", 
-                             "conectiva": "/etc/conectiva-release", 
-                             "mandriva": "/etc/mandriva-release", 
-                             "pardus": "/etc/pardus-release", 
-                             "kanotix": "/etc/kanotix-release"]
-  Dim sPath As String
-  Dim sDistro As String
-  Dim cData As Collection
-  Dim iPos As Integer
-
-  For Each sPath In cDist
-    sDistro = cDist.Key
-
-    If Not Exist(sPath) Then Continue
-
-    If sDistro = "lsb-release" Then
-      cData = ReadLsbRelease(sPath)
-      sDistro = cData["DISTRIB_DESCRIPTION"]
-      If sDistro Then Return sDistro
-      Return cData["DISTRIB_ID"] & " " & cData["DISTRIB_RELEASE"]
-    Else
-      Return sDistro & " " & Trim(File.Load(sPath))
-    Endif
-    
-  Next
-  
-  sDistro = File.Load("/etc/issue")
-  If sDistro Then
-    iPos = InStr(sDistro, "\\")
-    If iPos Then sDistro = Left(sDistro, iPos - 1)
-  Endif
-  Return Trim(sDistro)
-
-End
+' Private Sub ReadLsbRelease(sPath As String) As Collection
+' 
+'   Dim cCol As New Collection
+'   Dim sLine As String
+'   Dim aLine As String[]
+'   
+'   For Each sLine In Split(File.Load(sPath), "\n", "", True)
+'     
+'     aLine = Scan(sLine, "*=*")
+'     Try cCol[aLine[0]] = UnQuote(aLine[1])
+'     
+'   Next
+'   
+'   Return cCol
+'   
+' End
+' 
+' Private Sub GetDistribution() As String
+' 
+'   Dim cDist As Collection = ["lsb-release": "/etc/lsb-release", 
+'                              "vector": "/etc/vector-version", 
+'                              "slackware": "/etc/slackware-version", 
+'                              "debian": "/etc/debian_version",
+'                              "redhat": "/etc/redhat-release", 
+'                              "arch": "/etc/arch-release", 
+'                              "SuSE": "/etc/SuSE-release", 
+'                              "gentoo": "/etc/gentoo-release", 
+'                              "conectiva": "/etc/conectiva-release", 
+'                              "mandriva": "/etc/mandriva-release", 
+'                              "pardus": "/etc/pardus-release", 
+'                              "kanotix": "/etc/kanotix-release"]
+'   Dim sPath As String
+'   Dim sDistro As String
+'   Dim cData As Collection
+'   Dim iPos As Integer
+' 
+'   For Each sPath In cDist
+'     sDistro = cDist.Key
+' 
+'     If Not Exist(sPath) Then Continue
+' 
+'     If sDistro = "lsb-release" Then
+'       cData = ReadLsbRelease(sPath)
+'       sDistro = cData["DISTRIB_DESCRIPTION"]
+'       If sDistro Then Return sDistro
+'       Return cData["DISTRIB_ID"] & " " & cData["DISTRIB_RELEASE"]
+'     Else
+'       Return sDistro & " " & Trim(File.Load(sPath))
+'     Endif
+'     
+'   Next
+'   
+'   sDistro = File.Load("/etc/issue")
+'   If sDistro Then
+'     iPos = InStr(sDistro, "\\")
+'     If iPos Then sDistro = Left(sDistro, iPos - 1)
+'   Endif
+'   Return Trim(sDistro)
+' 
+' End
 
 Public Sub Form_Open()
 
