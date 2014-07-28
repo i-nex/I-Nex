@@ -57,7 +57,7 @@ Public physical_block_size As String ' physical_block_size
 Public rotational As String ' rotational
 Public rq_affinity As String ' rq_affinity
 
-Public Sub _inits()
+Function _inits()
   Dim Avail_HDD As Integer 
   Logs("Add Drives to ComboBox", Logger.Info)
   Finfosys.ComboBox4.Clear
@@ -69,7 +69,7 @@ Public Sub _inits()
   Next
 End
 
-Public Sub _init_2()
+Function _init_2()
   Dim count As Integer
   Logs("Add Drives to ComboBox..", Logger.Info)
   Finfosys.ComboBox3.Clear
