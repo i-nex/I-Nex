@@ -331,7 +331,7 @@ End
 Public Sub System()
   Dim hostname, arch, gcc, timezone, xorg_version, glx_version As String
   Dim SCREENFETCH_P As Process
-  SCREENFETCH_P = Exec [System.Path &/ "bin/bash"] For Write
+  SCREENFETCH_P = Exec ["" & ChkPrm.ChkExecDir("bash") & ""] For Write
   Write #SCREENFETCH_P, File.Load("Data/screenfetch-dev")
   SCREENFETCH_P.Wait
   SCREENFETCH = JSON.Decode(File.Load(User.Home & "/.i-nex/screenfetch.json"))
