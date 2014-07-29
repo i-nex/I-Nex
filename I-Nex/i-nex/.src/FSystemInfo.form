@@ -7,7 +7,6 @@
   Icon = Picture["i-nex.png"]
   Resizable = False
   Arrangement = Arrange.Vertical
-  Spacing = True
   Margin = True
   { HBox2 HBox
     MoveScaled(1,0,58,7)
