@@ -85,6 +85,8 @@ Function _init_2()
 End
 
 Public Sub get_informations()
+  Dim FREE_SPACE As String
+  FREE_SPACE = Null
   Logs("Get informations of Drives", Logger.Info)
   Try device_model = Replace(File.Load("/sys/block/" & Finfosys.ComboBox4.Text & "/device/model"), "\n", "")
   Try device_vendor = Replace(File.Load("/sys/block/" & Finfosys.ComboBox4.Text & "/device/vendor"), "\n", "")
@@ -126,7 +128,38 @@ Public Sub get_informations()
   Used = Replace(Replace(Used, "%", ""), "\n", "")
   Logs("Get informations of Drives Done", Logger.Info)
   disks()
+   mount_point = Replace(mount_point, "\\040", " ")
+   Try FREE_SPACE = CalculateFreeSpace(Dfree(mount_point))
+   Finfosys.Label248.Text = "Free:  " & FREE_SPACE
 End
+
+Function CalculateFreeSpace(Size As Float) As String
+  Dim REAL_SIZE_KIB As Float
+  Dim REAL_SIZE_MB As Float
+  Dim REAL_SIZE_GB As Float
+  Dim iPos As Integer
+  REAL_SIZE_KIB = (Size / 1024)
+  REAL_SIZE_MB = (Size / 1024 / 1024)
+  REAL_SIZE_GB = (Size / 1024 / 1024 / 1024)
+
+  Inc iPos
+  If CLong(REAL_SIZE_GB) > 0 Then
+   
+   iPos = InStr(CString(REAL_SIZE_GB), ".")
+   Return Left$(CString(REAL_SIZE_GB), iPos + 1) & " GB"
+   
+  Else If CLong(REAL_SIZE_MB) > 0 Then
+   iPos = InStr(CString(REAL_SIZE_MB), ".")
+   Return Left$(CString(REAL_SIZE_MB), iPos + 1) & " MB"
+   
+  Else If CLong(REAL_SIZE_KIB) > 0 Then
+   iPos = InStr(CString(REAL_SIZE_KIB), ".")
+   Return Left$(CString(REAL_SIZE_KIB), iPos + 1) & " KiB"
+   
+  Endif
+  Dec iPos
+End
+
 
 Function CalculateSIZE(BlockSize As Float) As String
   Dim REAL_SIZE_BYTES As Float
@@ -168,12 +201,10 @@ Public Sub disks()
   Dim SWAPS_PROC As File
   Dim MountsLine As String
   Dim SwapsLine As String
-  Dim FREE_SPACE As String
   filesystem_type = Null
   mount_widtch = Null
   mount_point = Null
   device_uuid = Null
-  FREE_SPACE = Null
   
    If IsNull(Finfosys.ComboBox3.Text) = False Then
    For i = 0 To Dir("/dev/disk/by-uuid/", "*", gb.File).Count - 1
@@ -221,10 +252,5 @@ Public Sub disks()
     Next
    Close #SWAPS_PROC
    Endif
-   
-   Try FREE_SPACE = Fix(Dfree(mount_point) / 1024 / 1024)
-   ' Print CFloat(Dfree(mount_point) / 1024)
-   ' Print CFloat(Dfree(mount_point) / 1024 / 1024)
-   ' Print CFloat(Dfree(mount_point) / 1024 / 1024 / 1024)
-   Finfosys.Label248.Text = "Free:  " & FREE_SPACE
+
 End
