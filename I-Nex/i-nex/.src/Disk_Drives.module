@@ -128,33 +128,38 @@ Public Sub get_informations()
   disks()
 End
 
-Function CalculateSIZE(Optional BlockSize As Integer) As String
-  Dim REAL_SIZE_BYTES As Integer
-  Dim REAL_SIZE_KIB As Integer
-  Dim REAL_SIZE_MB As Integer
-  Dim REAL_SIZE_GB As Integer
- 'echo $[  $(cat /sys/block/sda/size) / 2 ]
+Function CalculateSIZE(Optional BlockSize As Float) As String
+  Dim REAL_SIZE_BYTES As Float
+  Dim REAL_SIZE_KIB As Float
+  Dim REAL_SIZE_MB As Float
+  Dim REAL_SIZE_GB As Float
+  Dim iPos As Integer
+
   REAL_SIZE_BYTES = (BlockSize * 512)
   REAL_SIZE_KIB = (BlockSize / 2)
   REAL_SIZE_MB = (BlockSize / 2 / 1024)
   REAL_SIZE_GB = (BlockSize / 2 / 1024 / 1024)
-  Print REAL_SIZE_BYTES
-  Print REAL_SIZE_KIB
-  Print REAL_SIZE_MB
-  Print REAL_SIZE_GB
-  If REAL_SIZE_GB > 0 Then
-   Return Ceil(REAL_SIZE_GB) & " GB"
-  Endif 
-  If REAL_SIZE_MB > 0 Then
-   Return Ceil(REAL_SIZE_MB) & " MB"
-  Endif 
-  If REAL_SIZE_KIB > 0 Then
-   Return Ceil(REAL_SIZE_KIB) & " KiB"
-  Endif 
-  If REAL_SIZE_BYTES > 0 Then
-   Return Ceil(REAL_SIZE_BYTES) & " Bytes"
-  Endif
+
+  Inc iPos
+  If CLong(REAL_SIZE_GB) > 0 Then
    
+   iPos = InStr(CString(REAL_SIZE_GB), ".")
+   Return Left$(CString(REAL_SIZE_GB), iPos + 1) & " GB"
+   
+  Else If CLong(REAL_SIZE_MB) > 0 Then
+   iPos = InStr(CString(REAL_SIZE_MB), ".")
+   Return Left$(CString(REAL_SIZE_MB), iPos + 1) & " MB"
+   
+  Else If CLong(REAL_SIZE_KIB) > 0 Then
+   iPos = InStr(CString(REAL_SIZE_KIB), ".")
+   Return Left$(CString(REAL_SIZE_KIB), iPos + 1) & " KiB"
+   
+  Else If CLong(REAL_SIZE_BYTES) > 0 Then
+   iPos = InStr(CString(REAL_SIZE_BYTES), ".")
+   Return Left$(CString(REAL_SIZE_BYTES), iPos + 1) & " Bytes"
+   
+  Endif
+  Dec iPos
 End
 
 Public Sub disks()
@@ -217,6 +222,6 @@ Public Sub disks()
    Close #SWAPS_PROC
    Endif
    
-   Try FREE_SPACE = Ceil(Dfree(mount_point) / 1024 / 1024)
+   Try FREE_SPACE = Fix(Dfree(mount_point) / 1024 / 1024)
    Finfosys.Label248.Text = "Free:  " & FREE_SPACE
 End
