@@ -140,13 +140,13 @@ Function CalculateSIZE(Optional BlockSize As Float) As String
   REAL_SIZE_GB = (BlockSize / 2 / 1024 / 1024)
 
   If REAL_SIZE_GB > 0 Then
-   Return Int(REAL_SIZE_GB) & " GB"
+   Return Ceil(REAL_SIZE_GB) & " GB"
   Else If REAL_SIZE_MB > 0 Then
-   Return Int(REAL_SIZE_MB) & " MB"
+   Return Ceil(REAL_SIZE_MB) & " MB"
   Else If REAL_SIZE_KIB > 0 Then
-   Return Int(REAL_SIZE_KIB) & " KiB"
+   Return Ceil(REAL_SIZE_KIB) & " KiB"
   Else If REAL_SIZE_BYTES > 0 Then
-   Return Int(REAL_SIZE_BYTES) & " Bytes"
+   Return Ceil(REAL_SIZE_BYTES) & " Bytes"
   Endif
    
 End
@@ -211,6 +211,6 @@ Public Sub disks()
    Close #SWAPS_PROC
    Endif
    
-   Try FREE_SPACE = Fix(Dfree(mount_point) / 1024 / 1024)
+   Try FREE_SPACE = Ceil(Dfree(mount_point) / 1024 / 1024)
    Finfosys.Label248.Text = "Free:  " & FREE_SPACE
 End
