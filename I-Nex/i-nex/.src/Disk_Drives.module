@@ -128,24 +128,30 @@ Public Sub get_informations()
   disks()
 End
 
-Function CalculateSIZE(Optional BlockSize As Float) As String
-  Dim REAL_SIZE_BYTES As Float
-  Dim REAL_SIZE_KIB As Float
-  Dim REAL_SIZE_MB As Float
-  Dim REAL_SIZE_GB As Float
+Function CalculateSIZE(Optional BlockSize As Integer) As String
+  Dim REAL_SIZE_BYTES As Integer
+  Dim REAL_SIZE_KIB As Integer
+  Dim REAL_SIZE_MB As Integer
+  Dim REAL_SIZE_GB As Integer
  'echo $[  $(cat /sys/block/sda/size) / 2 ]
   REAL_SIZE_BYTES = (BlockSize * 512)
   REAL_SIZE_KIB = (BlockSize / 2)
   REAL_SIZE_MB = (BlockSize / 2 / 1024)
   REAL_SIZE_GB = (BlockSize / 2 / 1024 / 1024)
-
+  Print REAL_SIZE_BYTES
+  Print REAL_SIZE_KIB
+  Print REAL_SIZE_MB
+  Print REAL_SIZE_GB
   If REAL_SIZE_GB > 0 Then
    Return Ceil(REAL_SIZE_GB) & " GB"
-  Else If REAL_SIZE_MB > 0 Then
+  Endif 
+  If REAL_SIZE_MB > 0 Then
    Return Ceil(REAL_SIZE_MB) & " MB"
-  Else If REAL_SIZE_KIB > 0 Then
+  Endif 
+  If REAL_SIZE_KIB > 0 Then
    Return Ceil(REAL_SIZE_KIB) & " KiB"
-  Else If REAL_SIZE_BYTES > 0 Then
+  Endif 
+  If REAL_SIZE_BYTES > 0 Then
    Return Ceil(REAL_SIZE_BYTES) & " Bytes"
   Endif
    
