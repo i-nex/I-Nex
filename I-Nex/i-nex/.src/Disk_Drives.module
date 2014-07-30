@@ -22,6 +22,7 @@ Public device_vendor As String
 Public mount_point As String
 Public device_uuid As String
 Public real_size As String
+Public real_size2 As Long
 Public filesystem_type As String
 Public mount_widtch As String
 Public device_rev As String
@@ -114,12 +115,9 @@ Public Sub get_informations()
   Try scheduler = Replace(File.Load("/sys/block/" & Finfosys.ComboBox4.Text & "/queue/scheduler"), "\n", "")
   Try rotational = Replace(File.Load("/sys/block/" & Finfosys.ComboBox4.Text & "/queue/rotational"), "\n", "")
   Try rq_affinity = Replace(File.Load("/sys/block/" & Finfosys.ComboBox4.Text & "/queue/rq_affinity"), "\n", "")
+
+  Try real_size = CalculateSIZE(CLong(Replace(File.Load("/sys/block/" & Finfosys.ComboBox4.Text & "/" & Finfosys.ComboBox3.Text & "/size"), "\n", "")))
   
-  Try real_size = CLong(Replace(File.Load("/sys/block/" & Finfosys.ComboBox4.Text & "/" & Finfosys.ComboBox3.Text & "/size"), "\n", "") * 512)
-  ' Print Replace(File.Load("/sys/block/" & Finfosys.ComboBox4.Text & "/" & Finfosys.ComboBox3.Text & "/size"), "\n", "")
-  ' Print real_size
-  ' Print Fix(real_size / 1024)
-  ' Print Fix(real_size / 1024 / 1024)
   Try max_ratio = Replace(File.Load("/sys/block/" & Finfosys.ComboBox4.Text & "/bdi/max_ratio"), "\n", "")
   Try min_ratio = Replace(File.Load("/sys/block/" & Finfosys.ComboBox4.Text & "/bdi/min_ratio"), "\n", "")
   Try stable_pages_required = Replace(File.Load("/sys/block/" & Finfosys.ComboBox4.Text & "/bdi/stable_pages_required"), "\n", "")
@@ -128,6 +126,29 @@ Public Sub get_informations()
   Used = Replace(Replace(Used, "%", ""), "\n", "")
   Logs("Get informations of Drives Done", Logger.Info)
   disks()
+End
+
+Function CalculateSIZE(Optional BlockSize As Float) As String
+  Dim REAL_SIZE_BYTES As Float
+  Dim REAL_SIZE_KIB As Float
+  Dim REAL_SIZE_MB As Float
+  Dim REAL_SIZE_GB As Float
+ 'echo $[  $(cat /sys/block/sda/size) / 2 ]
+  REAL_SIZE_BYTES = (BlockSize * 512)
+  REAL_SIZE_KIB = (BlockSize / 2)
+  REAL_SIZE_MB = (BlockSize / 2 / 1024)
+  REAL_SIZE_GB = (BlockSize / 2 / 1024 / 1024)
+
+  If REAL_SIZE_GB > 0 Then
+   Return Int(REAL_SIZE_GB) & " GB"
+  Else If REAL_SIZE_MB > 0 Then
+   Return Int(REAL_SIZE_MB) & " MB"
+  Else If REAL_SIZE_KIB > 0 Then
+   Return Int(REAL_SIZE_KIB) & " KiB"
+  Else If REAL_SIZE_BYTES > 0 Then
+   Return Int(REAL_SIZE_BYTES) & " Bytes"
+  Endif
+   
 End
 
 Public Sub disks()
