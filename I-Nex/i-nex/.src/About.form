@@ -118,7 +118,7 @@
         Alignment = Align.Center
       }
       { HBox5 HBox
-        Move(6,156,427,28)
+        Move(7,154,427,28)
         { Button11 Button
           Move(0,0,96,24)
           Expand = True
@@ -129,6 +129,19 @@
           Expand = True
           Text = ("Mail")
         }
+      }
+      { HBox3 HBox
+        Move(7,224,427,28)
+        { Button10 Button
+          Move(102,0,96,24)
+          Expand = True
+          Text = ("Mail")
+        }
+      }
+      { Label2 Label
+        Move(98,196,224,21)
+        Text = ("Paweł Baranowski (pavbaranov)")
+        Alignment = Align.Center
       }
     }
     Index = 2
