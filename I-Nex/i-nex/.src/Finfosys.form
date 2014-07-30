@@ -1403,9 +1403,11 @@
       Text = ("Label248")
       Border = Border.Raised
     }
-    { Label250 Label
+    { !Label250 Label
       Move(7,175,147,21)
+      #Public = True
       Font = Font["8"]
+      Padding = 3
       Border = Border.Raised
     }
     Index = 5
