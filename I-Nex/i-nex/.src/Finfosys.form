@@ -1095,7 +1095,7 @@
       Border = Border.Raised
     }
     { !Label38 Label
-      Move(7,175,224,21)
+      Move(154,175,161,21)
       #Public = True
       #Translate = False
       Font = Font["8"]
@@ -1397,10 +1397,15 @@
       Font = Font["8"]
     }
     { Label248 Label
-      Move(231,175,231,21)
+      Move(315,175,147,21)
       Font = Font["8"]
       Padding = 3
       Text = ("Label248")
+      Border = Border.Raised
+    }
+    { Label250 Label
+      Move(7,175,147,21)
+      Font = Font["8"]
       Border = Border.Raised
     }
     Index = 5

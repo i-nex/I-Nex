@@ -819,7 +819,8 @@ Public Sub refreshing()
  
  Label16.Text = "Device model: " & Disk_Drives.device_model & ""
  Label17.Text = "Device vendor: " & Disk_Drives.device_vendor & ""
- Label38.Text = "Device real size: " & Disk_Drives.real_size & ""
+ Label38.Text = "Partition size: " & Disk_Drives.partition_size & ""
+ Label250.Text = "Device size: " & Disk_Drives.real_size & "" 
  Label39.Text = "Filesystem type: " & Disk_Drives.filesystem_type & ""
  Label41.Text = "Device rev: " & Disk_Drives.device_rev & ""
  Label42.Text = "Max sectors: " & Disk_Drives.max_sectors & ""

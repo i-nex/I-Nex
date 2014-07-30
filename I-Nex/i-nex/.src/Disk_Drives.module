@@ -22,7 +22,7 @@ Public device_vendor As String
 Public mount_point As String
 Public device_uuid As String
 Public real_size As String
-Public real_size2 As Long
+Public partition_size As String
 Public filesystem_type As String
 Public mount_widtch As String
 Public device_rev As String
@@ -116,8 +116,8 @@ Public Sub get_informations()
   Try rotational = Replace(File.Load("/sys/block/" & Finfosys.ComboBox4.Text & "/queue/rotational"), "\n", "")
   Try rq_affinity = Replace(File.Load("/sys/block/" & Finfosys.ComboBox4.Text & "/queue/rq_affinity"), "\n", "")
 
-  Try real_size = CalculateSIZE(CLong(Replace(File.Load("/sys/block/" & Finfosys.ComboBox4.Text & "/" & Finfosys.ComboBox3.Text & "/size"), "\n", "")))
-  
+  Try partition_size = CalculateSIZE(CLong(Replace(File.Load("/sys/block/" & Finfosys.ComboBox4.Text & "/" & Finfosys.ComboBox3.Text & "/size"), "\n", "")))
+  Try real_size = CalculateSIZE(CLong(Replace(File.Load("/sys/block/" & Finfosys.ComboBox4.Text & "/size"), "\n", "")))
   Try max_ratio = Replace(File.Load("/sys/block/" & Finfosys.ComboBox4.Text & "/bdi/max_ratio"), "\n", "")
   Try min_ratio = Replace(File.Load("/sys/block/" & Finfosys.ComboBox4.Text & "/bdi/min_ratio"), "\n", "")
   Try stable_pages_required = Replace(File.Load("/sys/block/" & Finfosys.ComboBox4.Text & "/bdi/stable_pages_required"), "\n", "")
@@ -128,7 +128,7 @@ Public Sub get_informations()
   disks()
 End
 
-Function CalculateSIZE(Optional BlockSize As Float) As String
+Function CalculateSIZE(BlockSize As Float) As String
   Dim REAL_SIZE_BYTES As Float
   Dim REAL_SIZE_KIB As Float
   Dim REAL_SIZE_MB As Float
@@ -223,5 +223,8 @@ Public Sub disks()
    Endif
    
    Try FREE_SPACE = Fix(Dfree(mount_point) / 1024 / 1024)
+   ' Print CFloat(Dfree(mount_point) / 1024)
+   ' Print CFloat(Dfree(mount_point) / 1024 / 1024)
+   ' Print CFloat(Dfree(mount_point) / 1024 / 1024 / 1024)
    Finfosys.Label248.Text = "Free:  " & FREE_SPACE
 End
