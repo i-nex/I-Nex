@@ -29,8 +29,9 @@ Public Sub Main()
            "\n  "
            "\n  Usage: env VARIABLE=\"STRING\"  " & Application.name & ".gambas [Options]"
            "\n  Options:"
-           "\n          --help                       (Chow Help)"
-           "\n          --library                       (Chow library)"
+           "\n          --help                          (Chow Help)"
+           "\n          --library                    (Chow library)"
+           "\n          --cpuinfo    (Use cpuinfo instead of /proc)"
            "\n"
            "\n  Env Variables:"
            "\n"
@@ -48,6 +49,9 @@ Public Sub Main()
    Case "--cpuinfo"
     CPUINFO_FILE = Application.Args[2]
     Finfosys.Show
+    PrintErr = False
+   Case "--conv"
+    MConvert.Convert(Application.Args[2], Application.Args[3], Application.Args[4])
     PrintErr = False
    Case ""
     Finfosys.Show

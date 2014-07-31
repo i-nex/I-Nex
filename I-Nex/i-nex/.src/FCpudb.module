@@ -17,7 +17,7 @@
 
 Public Logs As New Logger
 Public i As Integer
-Public database As Collection
+Public database As New Collection
 Function _inits()
   Dim buffer As String
   Dim cpucache As String
@@ -43,6 +43,22 @@ Function _inits()
    Logs("Use Intel Xeon CPU Database", Logger.Info)
     buffer = File.Load("Database/Xeon") 'Load the database to a temporary buffer
     Finfosys.Label14.Text = Replace(Finfosys.Label14.Text, "Intel", "")
+  '
+  '
+  Else If Finfosys.Label14.Text Like "*i3*" Then
+   Logs("Use Intel i3 CPU Database", Logger.Info)
+    buffer = File.Load("Database/i3") 'Load the database to a temporary buffer
+    Finfosys.Label14.Text = Replace(Finfosys.Label14.Text, "Intel", "")
+  Else If Finfosys.Label14.Text Like "*i5*" Then
+   Logs("Use Intel i5 CPU Database", Logger.Info)
+    buffer = File.Load("Database/i5") 'Load the database to a temporary buffer
+    Finfosys.Label14.Text = Replace(Finfosys.Label14.Text, "Intel", "")
+  Else If Finfosys.Label14.Text Like "*i7*" Then
+   Logs("Use Intel i7 CPU Database", Logger.Info)
+    buffer = File.Load("Database/i7") 'Load the database to a temporary buffer
+    Finfosys.Label14.Text = Replace(Finfosys.Label14.Text, "Intel", "")
+  '
+  '
   Else If Finfosys.Label14.Text Like "*atom*" Then
    Logs("Use Intel Atom CPU Database", Logger.Info)
     buffer = File.Load("Database/atom") 'Load the database to a temporary buffer
@@ -92,6 +108,7 @@ Function _inits()
 
   For z = 0 To database["DATABASE"].Count - 1
     If database["DATABASE"][z]["PROCESSOR_MODEL_NAME"] Like "*" & cpucache & "*" Then 
+      Print database["DATABASE"][z]["PROCESSOR_MODEL_NAME"]
       Finfosys.PictureBox3.Name = database["DATABASE"][z]["PROCESSOR_SOCKET_IMAGE"]
       Finfosys.PictureBox3.Picture = Picture["Database/Logos/" & database["DATABASE"][z]["PROCESSOR_SOCKET_IMAGE"] & ""]
       Finfosys.Label103.Text = " Integrated GPU: " & database["DATABASE"][z]["PROCESSOR_INTEGRATEDGRAPHIC"]
