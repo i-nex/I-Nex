@@ -35,6 +35,14 @@ Function _inits()
    Logs("Use AMD Opteron CPU Database", Logger.Info)
     buffer = File.Load("Database/Opteron") 'Load the database to a temporary buffer
     Finfosys.Label14.Text = Replace(Finfosys.Label14.Text, "AMD", "")
+  '
+  '
+  Else If Finfosys.Label14.Text Like "*amd*A6*" Then
+   Logs("Use AMD A6 CPU Database", Logger.Info)
+    buffer = File.Load("Database/A6") 'Load the database to a temporary buffer
+    Finfosys.Label14.Text = Replace(Finfosys.Label14.Text, "AMD", "")
+  '
+  '
   Else If Finfosys.Label14.Text Like "*amd*" Then
    Logs("Use AMD CPU Database", Logger.Info)
     buffer = File.Load("Database/amd") 'Load the database to a temporary buffer
