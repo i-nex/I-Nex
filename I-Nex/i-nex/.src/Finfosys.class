@@ -860,14 +860,14 @@ Label134.Text = "Rq affinity: " & Disk_Drives.rq_affinity & "" ' rq_affinity
  If Disk_Drives.removable Like "1" Then
  Label45.Text = "Removable: Yes"
  Endif
- If Disk_Drives.Used <> 0 Then
- Try ProgressBar2.Value = Disk_Drives.Used / 100
- ProgressBar2.ToolTip = Disk_Drives.Used & "%"
- Endif
- If Disk_Drives.Used = Null Then
- ProgressBar2.Value = 0
- ProgressBar2.ToolTip = "Unknown"
- Endif
+ ' If Disk_Drives.Used <> 0 Then
+ ' Try ProgressBar2.Value = Disk_Drives.Used / 100
+ ' ProgressBar2.ToolTip = Disk_Drives.Used & "%"
+ ' Endif
+ ' If Disk_Drives.Used = Null Then
+ ' ProgressBar2.Value = 0
+ ' ProgressBar2.ToolTip = "Unknown"
+ ' Endif
  If IsNull(ComboBox3.Text) = False Then
  If Disk_Drives.check_swap Like "*" & ComboBox3.Text & "*" Then
  Label48.Visible = True

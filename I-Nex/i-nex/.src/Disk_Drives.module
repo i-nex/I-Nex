@@ -118,22 +118,25 @@ Public Sub get_informations()
   Try rotational = Replace(File.Load("/sys/block/" & Finfosys.ComboBox4.Text & "/queue/rotational"), "\n", "")
   Try rq_affinity = Replace(File.Load("/sys/block/" & Finfosys.ComboBox4.Text & "/queue/rq_affinity"), "\n", "")
 
-  Try partition_size = CalculateSIZE(CLong(Replace(File.Load("/sys/block/" & Finfosys.ComboBox4.Text & "/" & Finfosys.ComboBox3.Text & "/size"), "\n", "")))
-  Try real_size = CalculateSIZE(CLong(Replace(File.Load("/sys/block/" & Finfosys.ComboBox4.Text & "/size"), "\n", "")))
+  Try partition_size = CalculateSIZE(CLong(Replace(File.Load("/sys/block/" & Finfosys.ComboBox4.Text & "/" & Finfosys.ComboBox3.Text & "/size"), "\n", "")), True)
+  Try real_size = CalculateSIZE(CLong(Replace(File.Load("/sys/block/" & Finfosys.ComboBox4.Text & "/size"), "\n", "")), True)
   Try max_ratio = Replace(File.Load("/sys/block/" & Finfosys.ComboBox4.Text & "/bdi/max_ratio"), "\n", "")
   Try min_ratio = Replace(File.Load("/sys/block/" & Finfosys.ComboBox4.Text & "/bdi/min_ratio"), "\n", "")
   Try stable_pages_required = Replace(File.Load("/sys/block/" & Finfosys.ComboBox4.Text & "/bdi/stable_pages_required"), "\n", "")
 
-  Shell "LC_ALL=C df | grep \"" & Finfosys.ComboBox3.Text & "\" | awk {'print $5'} | sed -n '1p'" Wait To used
-  Used = Replace(Replace(Used, "%", ""), "\n", "")
   Logs("Get informations of Drives Done", Logger.Info)
   disks()
    mount_point = Replace(mount_point, "\\040", " ")
-   Try FREE_SPACE = CalculateFreeSpace(Dfree(mount_point))
+   Try FREE_SPACE = CalculateFreeSpace(Dfree(mount_point), True)
    Finfosys.Label248.Text = "Free:  " & FREE_SPACE
+   Finfosys.ProgressBar2.Value = 0
+   Used = Null
+   Try Used = (Val(CalculateSIZE(CLong(Replace(File.Load("/sys/block/" & Finfosys.ComboBox4.Text & "/" & Finfosys.ComboBox3.Text & "/size"), "\n", "")))) - Val(CalculateFreeSpace(Dfree(mount_point))))
+   Try Finfosys.ProgressBar2.Value = Val(Used) / Val(CalculateSIZE(CLong(Replace(File.Load("/sys/block/" & Finfosys.ComboBox4.Text & "/" & Finfosys.ComboBox3.Text & "/size"), "\n", ""))))
+
 End
 
-Function CalculateFreeSpace(Size As Float) As String
+Function CalculateFreeSpace(Size As Float, Optional ReturnIn As Boolean) As String
   Dim REAL_SIZE_KIB As Float
   Dim REAL_SIZE_MB As Float
   Dim REAL_SIZE_GB As Float
@@ -146,22 +149,31 @@ Function CalculateFreeSpace(Size As Float) As String
   If CLong(REAL_SIZE_GB) > 0 Then
    
    iPos = InStr(CString(REAL_SIZE_GB), ".")
+   If ReturnIn = True Then
    Return Left$(CString(REAL_SIZE_GB), iPos + 1) & " GB"
-   
+   Else
+    Return Left$(CString(REAL_SIZE_GB), iPos + 1)
+   Endif
   Else If CLong(REAL_SIZE_MB) > 0 Then
    iPos = InStr(CString(REAL_SIZE_MB), ".")
+   If ReturnIn = True Then
    Return Left$(CString(REAL_SIZE_MB), iPos + 1) & " MB"
-   
+   Else
+     Return Left$(CString(REAL_SIZE_MB), iPos + 1)
+   Endif
   Else If CLong(REAL_SIZE_KIB) > 0 Then
    iPos = InStr(CString(REAL_SIZE_KIB), ".")
+   If ReturnIn = True Then
    Return Left$(CString(REAL_SIZE_KIB), iPos + 1) & " KiB"
-   
+   Else
+    Return Left$(CString(REAL_SIZE_KIB), iPos + 1)
+   Endif
   Endif
   Dec iPos
 End
 
 
-Function CalculateSIZE(BlockSize As Float) As String
+Function CalculateSIZE(BlockSize As Float, Optional ReturnIn As Boolean) As String
   Dim REAL_SIZE_BYTES As Float
   Dim REAL_SIZE_KIB As Float
   Dim REAL_SIZE_MB As Float
@@ -177,20 +189,32 @@ Function CalculateSIZE(BlockSize As Float) As String
   If CLong(REAL_SIZE_GB) > 0 Then
    
    iPos = InStr(CString(REAL_SIZE_GB), ".")
+   If ReturnIn = True Then
    Return Left$(CString(REAL_SIZE_GB), iPos + 1) & " GB"
-   
+   Else
+    Return Left$(CString(REAL_SIZE_GB), iPos + 1)
+   Endif
   Else If CLong(REAL_SIZE_MB) > 0 Then
    iPos = InStr(CString(REAL_SIZE_MB), ".")
+   If ReturnIn = True Then
    Return Left$(CString(REAL_SIZE_MB), iPos + 1) & " MB"
-   
+   Else
+    Return Left$(CString(REAL_SIZE_MB), iPos + 1)
+   Endif
   Else If CLong(REAL_SIZE_KIB) > 0 Then
    iPos = InStr(CString(REAL_SIZE_KIB), ".")
+   If ReturnIn = True Then
    Return Left$(CString(REAL_SIZE_KIB), iPos + 1) & " KiB"
-   
+   Else
+    Return Left$(CString(REAL_SIZE_KIB), iPos + 1)
+   Endif
   Else If CLong(REAL_SIZE_BYTES) > 0 Then
    iPos = InStr(CString(REAL_SIZE_BYTES), ".")
+   If ReturnIn = True Then
    Return Left$(CString(REAL_SIZE_BYTES), iPos + 1) & " Bytes"
-   
+   Else
+    Return Left$(CString(REAL_SIZE_BYTES), iPos + 1)
+   Endif
   Endif
   Dec iPos
 End
