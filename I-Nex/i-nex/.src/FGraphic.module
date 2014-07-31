@@ -17,7 +17,7 @@
 
 Public Logs As New Logger
 Public Sub _inits()
-   Finfosys.ComboBox8.List = Dir("/sys/class/drm/", "*card[0-9]-*")
+   Try Finfosys.ComboBox8.List = Dir("/sys/class/drm/", "*card[0-9]-*")
 End
 
 Public Sub _check()
