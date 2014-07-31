@@ -41,13 +41,11 @@ Public INDEX2 As String
 Public INDEX3 As String
 Public Sub Form_Open()
   Dim default_display_manager As Boolean = Exist("/etc/X11/default-display-manager")
-  Dim cpus As String
   Dim i As Integer
   Dim data As Stream
   Dim MaxCount As Integer
   Dim sLine As String
   Dim MTRR As New String[]
-  Shell "ls /sys/devices/system/cpu/ | grep cpu[0-9]" Wait To cpus
   Logs("Starting log", Logger.Info)
   Button4.Visible = False
   Object.Call(MCPUSAGE, "GetUSAGE")
@@ -287,6 +285,7 @@ Public Sub Form_Open()
  Label25.Text = Application.version
  Logs(Label25.Text, Logger.Info)
  TabStrip1_Click()
+ DATAT.Clear
 End
 
 Public Sub ComboBox1_Click()
@@ -296,17 +295,15 @@ Public Sub ComboBox1_Click()
 End
 
 Public Sub kernel()
-  Dim Kernel_command_line As String
   Dim UNAME_DATA As String
   Try Exec ["/usr/bin/i-nex-uname"] Wait To UNAME_DATA
   Try UNAME = JSON.Decode(UNAME_DATA)
-  Shell "cat /proc/cmdline" Wait To Kernel_command_line
   Try TextLabel7.Text = "System name:  " & UNAME["System_name"]
   Try TextLabel16.Text = "Nodename:    " & UNAME["Nodename"]
   Try TextLabel17.Text = "Release:     " & UNAME["Release"]
   Try TextLabel18.Text = "Version:     " & UNAME["Version"]
   Try TextLabel26.Text = "Machine:     " & UNAME["Machine"]
-  TextArea3.Text = Kernel_command_line
+  Try TextArea3.Text = File.Load("/proc/cmdline")
 End
 
 Public Sub bios()
@@ -731,7 +728,7 @@ Public Sub dospam_uptime()
   
   Try ProgressBar1.Value = Int(USAGE["USED_PLUS_CACHED"]) / Int(USAGE["MEMORY_TOTAL"])
   Try ProgressBar4.Value = Int(USAGE["SWAP_USED"]) / Int(USAGE["SWAP_TOTAL"])
-  
+  USAGE.Clear
 End
 
 Public Sub battery_info()
@@ -817,42 +814,42 @@ End
 
 Public Sub refreshing()
  
- Label16.Text = "Device model: " & Disk_Drives.device_model & ""
- Label17.Text = "Device vendor: " & Disk_Drives.device_vendor & ""
- Label38.Text = "Part size: " & Disk_Drives.partition_size & ""
- Label250.Text = "Disk size: " & Disk_Drives.real_size & "" 
- Label39.Text = "Filesystem type: " & Disk_Drives.filesystem_type & ""
- Label41.Text = "Device rev: " & Disk_Drives.device_rev & ""
- Label42.Text = "Max sectors: " & Disk_Drives.max_sectors & ""
- Label43.Text = "State: " & Disk_Drives.device_state & ""
- Label44.Text = "Modalias: " & Disk_Drives.modalias & ""
- Label46.Text = "Ext range: " & Disk_Drives.ext_range & ""
- Label47.Text = "Range: " & Disk_Drives.range & ""
- Label49.Text = "Add random: " & Disk_Drives.add_random & ""
- Label50.Text = "Discard granularity: " & Disk_Drives.discard_granularity & ""
- Label51.Text = "Discard max bytes: " & Disk_Drives.discard_max_bytes & ""
- Label52.Text = "Discard zeroes data: " & Disk_Drives.discard_zeroes_data & ""
- Label53.Text = "HW sector size: " & Disk_Drives.hw_sector_size & ""
- Label54.Text = "Max HW sectors kb: " & Disk_Drives.max_hw_sectors_kb & ""
- Label55.Text = "Max sectors kb: " & Disk_Drives.max_sectors_kb & ""
- Label56.Text = "Max segments: " & Disk_Drives.max_segments & ""
- Label57.Text = "Max segment size: " & Disk_Drives.max_segment_size & ""
- Label58.Text = "Read ahead kb: " & Disk_Drives.read_ahead_kb & ""
- Label59.Text = "Scheduler: " & Disk_Drives.scheduler & ""
+ Label16.Text = "Device model: " & Disk_Drives.device_model
+ Label17.Text = "Device vendor: " & Disk_Drives.device_vendor
+ Label38.Text = "Part size: " & Disk_Drives.partition_size
+ Label250.Text = "Disk size: " & Disk_Drives.real_size
+ Label39.Text = "Filesystem type: " & Disk_Drives.filesystem_type
+ Label41.Text = "Device rev: " & Disk_Drives.device_rev
+ Label42.Text = "Max sectors: " & Disk_Drives.max_sectors
+ Label43.Text = "State: " & Disk_Drives.device_state
+ Label44.Text = "Modalias: " & Disk_Drives.modalias
+ Label46.Text = "Ext range: " & Disk_Drives.ext_range
+ Label47.Text = "Range: " & Disk_Drives.range
+ Label49.Text = "Add random: " & Disk_Drives.add_random
+ Label50.Text = "Discard granularity: " & Disk_Drives.discard_granularity
+ Label51.Text = "Discard max bytes: " & Disk_Drives.discard_max_bytes
+ Label52.Text = "Discard zeroes data: " & Disk_Drives.discard_zeroes_data
+ Label53.Text = "HW sector size: " & Disk_Drives.hw_sector_size
+ Label54.Text = "Max HW sectors kb: " & Disk_Drives.max_hw_sectors_kb
+ Label55.Text = "Max sectors kb: " & Disk_Drives.max_sectors_kb
+ Label56.Text = "Max segments: " & Disk_Drives.max_segments
+ Label57.Text = "Max segment size: " & Disk_Drives.max_segment_size
+ Label58.Text = "Read ahead kb: " & Disk_Drives.read_ahead_kb
+ Label59.Text = "Scheduler: " & Disk_Drives.scheduler
  
-Label126.Text = "Logical block size: " & Disk_Drives.logical_block_size & "" ' logical_block_size
-Label127.Text = "IO stats: " & Disk_Drives.iostats & "" ' iostats
-Label128.Text = "Minimum IO size: " & Disk_Drives.minimum_io_size & "" ' minimum_io_size
-Label129.Text = "Nomerges: " & Disk_Drives.nomerges & "" ' nomerges
-Label130.Text = "Nr requests: " & Disk_Drives.nr_requests & "" ' nr_requests
-Label131.Text = "Optimal IO size: " & Disk_Drives.optimal_io_size & "" ' optimal_io_size
-Label132.Text = "Physical block size: " & Disk_Drives.physical_block_size & "" ' physical_block_size
-Label133.Text = "Rotational: " & Disk_Drives.rotational & "" ' rotational
-Label134.Text = "Rq affinity: " & Disk_Drives.rq_affinity & "" ' rq_affinity
+Label126.Text = "Logical block size: " & Disk_Drives.logical_block_size
+Label127.Text = "IO stats: " & Disk_Drives.iostats
+Label128.Text = "Minimum IO size: " & Disk_Drives.minimum_io_size
+Label129.Text = "Nomerges: " & Disk_Drives.nomerges
+Label130.Text = "Nr requests: " & Disk_Drives.nr_requests
+Label131.Text = "Optimal IO size: " & Disk_Drives.optimal_io_size
+Label132.Text = "Physical block size: " & Disk_Drives.physical_block_size
+Label133.Text = "Rotational: " & Disk_Drives.rotational
+Label134.Text = "Rq affinity: " & Disk_Drives.rq_affinity
  
- Label123.Text = "BDI max_ratio: " & Disk_Drives.max_ratio & "" 
- Label124.Text = "BDI min_ratio: " & Disk_Drives.min_ratio & "" 
- Label125.Text = "BDI stable pages required: " & Disk_Drives.stable_pages_required & "" 
+ Label123.Text = "BDI max_ratio: " & Disk_Drives.max_ratio
+ Label124.Text = "BDI min_ratio: " & Disk_Drives.min_ratio
+ Label125.Text = "BDI stable pages required: " & Disk_Drives.stable_pages_required
  
  If Disk_Drives.removable Like "0" Then
  Label45.Text = "Removable: No"
@@ -860,14 +857,6 @@ Label134.Text = "Rq affinity: " & Disk_Drives.rq_affinity & "" ' rq_affinity
  If Disk_Drives.removable Like "1" Then
  Label45.Text = "Removable: Yes"
  Endif
- ' If Disk_Drives.Used <> 0 Then
- ' Try ProgressBar2.Value = Disk_Drives.Used / 100
- ' ProgressBar2.ToolTip = Disk_Drives.Used & "%"
- ' Endif
- ' If Disk_Drives.Used = Null Then
- ' ProgressBar2.Value = 0
- ' ProgressBar2.ToolTip = "Unknown"
- ' Endif
  If IsNull(ComboBox3.Text) = False Then
  If Disk_Drives.check_swap Like "*" & ComboBox3.Text & "*" Then
  Label48.Visible = True
@@ -1140,9 +1129,8 @@ Public Sub MenuButton1_Click()
  VALIDATE._inits()
  URL = VALIDATE.SendReportToServer(User.Home & "/.i-nex/VALID", "Validate", "http://i-nex.pl/", Settings["Cerbero/USERNAME"], Settings["Cerbero/API"])
  FCopyUrl.TextBox1.Text = URL
- Dec Application.Busy
  FCopyUrl.Show
-
+ Dec Application.Busy
 End
 
 Public Sub Savevalid_Click()

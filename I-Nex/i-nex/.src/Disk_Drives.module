@@ -16,7 +16,6 @@
 ' along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 Public Logs As New Logger
-Public block_drive As String = "Finfosys.ComboBox4.Text"
 Public device_model As String
 Public device_vendor As String
 Public mount_point As String
