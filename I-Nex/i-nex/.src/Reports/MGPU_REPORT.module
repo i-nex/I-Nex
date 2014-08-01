@@ -26,6 +26,7 @@ Public Report As Collection = [("0"): ("========================================
 
 Public Sub _inits()
  Dim All, All2 As Integer
+ Dim hFile As File
  DATA_RETURN = Null
  '=============================================
  For All2 = 0 To Finfosys.ComboBox8.Count - 1
@@ -51,5 +52,11 @@ Public Sub _inits()
  
  Next
  '=============================================
- Shell "echo '" & DATA_RETURN & "'>>" & FReport_Gen.ButtonBox1.Text & "" Wait
+ If Exist(FReport_Gen.ButtonBox1.Text) Then  
+    hFile = Open FReport_Gen.ButtonBox1.Text For Write Append 
+ Else 
+    hFile = Open FReport_Gen.ButtonBox1.Text For Write Create
+ Endif 
+ Print #hFile, DATA_RETURN
+ Close #hFile
 End
