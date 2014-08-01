@@ -131,6 +131,7 @@ Public Sub get_informations()
    Try FREE_SPACE = CalculateFreeSpace(Dfree(mount_point), True)
    Finfosys.Label248.Text = "Free:  " & FREE_SPACE
    Finfosys.ProgressBar2.Value = 0
+   'Begins calculations of used space on device/partition
    Used = 0
    SIZE_W = 0
    SIZE_W_FREE = 0
@@ -139,10 +140,12 @@ Public Sub get_informations()
    Try Used = (SIZE_W - SIZE_W_FREE)
    If Used = 1 Or SIZE_W = 1 Then
     Try Finfosys.ProgressBar2.Value = 0
+   Else If Used = SIZE_W Then
+    Try Finfosys.ProgressBar2.Value = 0
    Else
     Try Finfosys.ProgressBar2.Value = Used / SIZE_W
    Endif
-
+   
 End
 
 Function CalculateFreeSpace(Size As Float, Optional ReturnIn As Boolean) As String
