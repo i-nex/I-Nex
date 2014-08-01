@@ -1834,7 +1834,7 @@
       }
     }
     { Button9 Button
-      Move(273,448,189,28)
+      Move(273,455,189,21)
       Font = Font["Bold,8"]
       Text = ("Show Receive and Transmit")
     }
@@ -1972,7 +1972,7 @@
       Border = Border.Raised
     }
     { Frame1 Frame
-      Move(7,259,455,189)
+      Move(7,259,455,196)
       Text = ("ipinfo.io")
       { Label238 Label
         Move(98,147,336,21)
@@ -2068,6 +2068,11 @@
       { Button17 Button
         Move(413,126,21,21)
         Picture = Picture["AppIcons/applications-internet.png"]
+      }
+      { Button19 Button
+        Move(21,168,112,21)
+        Font = Font["8"]
+        Text = ("Call to ipinfo.io")
       }
     }
     Index = 9

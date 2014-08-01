@@ -250,8 +250,6 @@ Public Sub Form_Open()
       Object.Call(FGraphic, "_check")
   Logs("Check sound cards", Logger.Info)
       Object.Call(Asound_Drives, "_inits")
-  Logs("Call To ipinfo.io for network settings", Logger.Info)
-      Object.Call(Network, "IP_INFO")
   Logs("Check for default display manager", Logger.Info)
   If default_display_manager = True Then
      Label4.Visible = True
@@ -1155,5 +1153,11 @@ End
 Public Sub Button18_Click()
 
  FSystemInfo.Show
+
+End
+
+Public Sub Button19_Click()
+
+ Network.IP_INFO()
 
 End
