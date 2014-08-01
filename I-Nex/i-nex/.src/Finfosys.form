@@ -1134,14 +1134,10 @@
       Padding = 3
       Border = Border.Raised
     }
-    { !ProgressBar2 ProgressBar
+    { ProgressBar2 ProgressBar
       Move(7,154,455,21)
-      #Public = True
       #Translate = False
       Font = Font["Bold"]
-      Foreground = &H9F300E&
-      Tracking = True
-      Label = False
     }
     { !TextBox48 TextBox
       Move(98,70,364,28)
@@ -1240,13 +1236,6 @@
       #Public = True
       #Translate = False
       ReadOnly = True
-    }
-    { !Label122 Label
-      Move(7,154,455,21)
-      #Public = True
-      Font = Font["Bold"]
-      ToolTip = ("used space on the partition")
-      Transparent = True
     }
     { !Label123 Label
       Move(315,420,147,21)
