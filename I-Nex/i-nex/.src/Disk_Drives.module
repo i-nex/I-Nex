@@ -146,10 +146,12 @@ Public Sub get_informations()
 End
 
 Function CalculateFreeSpace(Size As Float, Optional ReturnIn As Boolean) As String
+  Dim REAL_SIZE_BYTES As Float
   Dim REAL_SIZE_KIB As Float
   Dim REAL_SIZE_MB As Float
   Dim REAL_SIZE_GB As Float
   Dim iPos As Integer
+  REAL_SIZE_BYTES = Size
   REAL_SIZE_KIB = (Size / 1024)
   REAL_SIZE_MB = (Size / 1024 / 1024)
   REAL_SIZE_GB = (Size / 1024 / 1024 / 1024)
@@ -161,21 +163,21 @@ Function CalculateFreeSpace(Size As Float, Optional ReturnIn As Boolean) As Stri
    If ReturnIn = True Then
    Return Left$(CString(REAL_SIZE_GB), iPos + 1) & " GB"
    Else
-    Return Left$(CString(REAL_SIZE_GB), iPos + 1)
+    Return REAL_SIZE_BYTES
    Endif
   Else If CLong(REAL_SIZE_MB) > 0 Then
    iPos = InStr(CString(REAL_SIZE_MB), ".")
    If ReturnIn = True Then
    Return Left$(CString(REAL_SIZE_MB), iPos + 1) & " MB"
    Else
-     Return Left$(CString(REAL_SIZE_MB), iPos + 1)
+     Return REAL_SIZE_BYTES
    Endif
   Else If CLong(REAL_SIZE_KIB) > 0 Then
    iPos = InStr(CString(REAL_SIZE_KIB), ".")
    If ReturnIn = True Then
    Return Left$(CString(REAL_SIZE_KIB), iPos + 1) & " KiB"
    Else
-    Return Left$(CString(REAL_SIZE_KIB), iPos + 1)
+    Return REAL_SIZE_BYTES
    Endif
   Endif
   Dec iPos
@@ -201,28 +203,28 @@ Function CalculateSIZE(BlockSize As Float, Optional ReturnIn As Boolean) As Stri
    If ReturnIn = True Then
    Return Left$(CString(REAL_SIZE_GB), iPos + 1) & " GB"
    Else
-    Return Left$(CString(REAL_SIZE_GB), iPos + 1)
+    Return REAL_SIZE_BYTES
    Endif
   Else If CLong(REAL_SIZE_MB) > 0 Then
    iPos = InStr(CString(REAL_SIZE_MB), ".")
    If ReturnIn = True Then
    Return Left$(CString(REAL_SIZE_MB), iPos + 1) & " MB"
    Else
-    Return Left$(CString(REAL_SIZE_MB), iPos + 1)
+    Return REAL_SIZE_BYTES
    Endif
   Else If CLong(REAL_SIZE_KIB) > 0 Then
    iPos = InStr(CString(REAL_SIZE_KIB), ".")
    If ReturnIn = True Then
    Return Left$(CString(REAL_SIZE_KIB), iPos + 1) & " KiB"
    Else
-    Return Left$(CString(REAL_SIZE_KIB), iPos + 1)
+    Return REAL_SIZE_BYTES
    Endif
   Else If CLong(REAL_SIZE_BYTES) > 0 Then
    iPos = InStr(CString(REAL_SIZE_BYTES), ".")
    If ReturnIn = True Then
    Return Left$(CString(REAL_SIZE_BYTES), iPos + 1) & " Bytes"
    Else
-    Return Left$(CString(REAL_SIZE_BYTES), iPos + 1)
+    Return REAL_SIZE_BYTES
    Endif
   Endif
   Dec iPos
