@@ -1,43 +1,50 @@
-# Maintainer: mareex <marcus.behrendt.86[at]gmail[dot]com>
-# Contributor: Joost Bremmer <toost dot b at gmail dot com>
+# Maintainer: eloaders <eloaders at linux dot pl>
 
-pkgname=i-nex
-_prgname=I-Nex
-pkgver=7.2.0
+pkgname=i-nex-git
+pkgver=7.2.1.59.g93f63e0
 pkgrel=1
 pkgdesc="System information tool like hardinfo, sysinfo"
 arch=('i686' 'x86_64')
-url="https://github.com/eloaders/I-Nex"
+url="http://i-nex.linux.pl/"
 license=('LGPL3')
-depends=('gambas3-runtime' 'gambas3-gb-image' 'gambas3-gb-form'
-         'gambas3-gb-desktop' 'gambas3-gb-settings' 'gambas3-gb-qt4'
-         'gambas3-gb-form-stock' 'python2' 'libcpuid-git'
-         'xorg-server-utils' 'lsb-release' 'curl' 'mesa-demos')
-makedepends=('gambas3-devel' 'gcc' 'imagemagick')
-provides=('i-nex-git' 'i-nex-bzr' 'i-nex-dev')
-conflicts=('i-nex-git' 'i-nex-bzr' 'i-nex-dev')
-source=("https://github.com/eloaders/I-Nex/archive/${pkgver}.tar.gz")
-sha256sums=('e1e842a31f52c30cb0dc72856d96250de4bed3a2f9c7546b1a2dc01eecb70df6')
-
+depends=('gambas3-runtime' 
+	 'gambas3-gb-image' 
+	 'gambas3-gb-form'
+         'gambas3-gb-desktop'
+         'gambas3-gb-qt4'
+         'gambas3-gb-form-stock' 
+         'python2' 
+         'libcpuid-git'
+         'xorg-server-utils' 
+         'lsb-release' 
+         'curl')
+makedepends=('gambas3-devel' 'gcc' 'imagemagick' 'git')
+source=($pkgname::'git://github.com/eloaders/I-Nex.git')
+sha256sums=('SKIP')
+provides=('i-nex' 'i-nex-bzr' 'i-nex-dev')
+conflicts=('i-nex' 'i-nex-bzr' 'i-nex-dev')
+pkgver() {
+  cd $pkgname
+  git describe --tags | tr - .
+}
 prepare() {
-  cd "${srcdir}/${_prgname}-${pkgver}"
+  cd $pkgname
+  sed -i 's|python3$|python2|' pastebinit
   # make it dynamic
   sed -i -e 's|^STATIC.*|STATIC = false|' i-nex.mk
   cd I-Nex
   autoreconf -i
 }
-
-
+ 
 build() {
-  cd "${srcdir}/${_prgname}-${pkgver}"
+  cd $pkgname
   cd I-Nex
   ./configure --prefix=/usr
   cd ..
   make
 }
-
+ 
 package() {
-  cd "${srcdir}/${_prgname}-${pkgver}"
+  cd $pkgname
   make install DESTDIR="$pkgdir"
-  sed -i 's|python3$|python2|' "$pkgdir/usr/share/i-nex/pastebinit/pastebinit"
 }
