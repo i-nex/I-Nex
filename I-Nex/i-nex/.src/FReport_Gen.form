@@ -161,6 +161,12 @@
       Expand = True
       Text = ("Include /etc/default/grub")
     }
+    { CheckBox23 CheckBox
+      Move(0,322,168,28)
+      Font = Font["8"]
+      Expand = True
+      Text = ("Include /proc/cpuinfo")
+    }
   }
   { Separator1 Separator
     Move(231,0,14,357)

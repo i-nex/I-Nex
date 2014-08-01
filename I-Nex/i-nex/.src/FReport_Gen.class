@@ -138,6 +138,11 @@ If CheckBox9.Value = True Then
  Object.Call(MInclude, "_dmesg")
 Endif
 
+If CheckBox23.Value = True Then
+ Object.Call(MInclude, "_cpuinfo")
+Endif
+
+
 If CheckBox11.Value = True Then
  TextBox1.Text = MPastebinit.pastebin(True, ButtonBox1.Text, ComboBox1.Text)
 Endif

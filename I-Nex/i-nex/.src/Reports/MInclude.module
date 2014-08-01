@@ -84,8 +84,27 @@ Shell "dmesg >>" & FReport_Gen.ButtonBox1.Text & "" Wait
  Wait 0.01
 End
 
+Public Sub _cpuinfo()
+ Dim hFile As File
+ _ohce("CPUINFO")
+ FReport_Gen.ProgressBar1.Value = 4 / 9
+ If Exist(FReport_Gen.ButtonBox1.Text) Then  
+    hFile = Open FReport_Gen.ButtonBox1.Text For Write Append 
+ Else 
+    hFile = Open FReport_Gen.ButtonBox1.Text For Write Create
+ Endif 
+ Write #hFile, File.Load("/proc/cpuinfo")
+ Close #hFile
+ Wait 0.01
+End
+
 Public Sub _ohce(txet As String)
- 
-Shell "echo '========================================================" & txet & "=================================================================' >>" & FReport_Gen.ButtonBox1.Text & "" Wait
- 
+ Dim hFile As File
+ If Exist(FReport_Gen.ButtonBox1.Text) Then  
+    hFile = Open FReport_Gen.ButtonBox1.Text For Write Append 
+ Else 
+    hFile = Open FReport_Gen.ButtonBox1.Text For Write Create
+ Endif 
+ Print #hFile, "========================================================" & txet & "================================================================="
+ Close #hFile
 End
