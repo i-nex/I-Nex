@@ -28,7 +28,6 @@ Public device_rev As String
 Public max_sectors As String
 Public device_state As String
 Public modalias As String
-Public Used As String
 Public check_swap As String
 Public removable As String
 Public ext_range As String
@@ -85,7 +84,9 @@ End
 
 Public Sub get_informations()
   Dim FREE_SPACE As String
-  FREE_SPACE = Null
+  Dim Used As Float
+  Dim SIZE_W As Float
+  Dim SIZE_W_FREE As Float
   Logs("Get informations of Drives", Logger.Info)
   Try device_model = Replace(File.Load("/sys/block/" & Finfosys.ComboBox4.Text & "/device/model"), "\n", "")
   Try device_vendor = Replace(File.Load("/sys/block/" & Finfosys.ComboBox4.Text & "/device/vendor"), "\n", "")
@@ -126,12 +127,21 @@ Public Sub get_informations()
   Logs("Get informations of Drives Done", Logger.Info)
   disks()
    mount_point = Replace(mount_point, "\\040", " ")
+   FREE_SPACE = Null
    Try FREE_SPACE = CalculateFreeSpace(Dfree(mount_point), True)
    Finfosys.Label248.Text = "Free:  " & FREE_SPACE
    Finfosys.ProgressBar2.Value = 0
-   Used = Null
-   Try Used = (Val(CalculateSIZE(CLong(Replace(File.Load("/sys/block/" & Finfosys.ComboBox4.Text & "/" & Finfosys.ComboBox3.Text & "/size"), "\n", "")))) - Val(CalculateFreeSpace(Dfree(mount_point))))
-   Try Finfosys.ProgressBar2.Value = Val(Used) / Val(CalculateSIZE(CLong(Replace(File.Load("/sys/block/" & Finfosys.ComboBox4.Text & "/" & Finfosys.ComboBox3.Text & "/size"), "\n", ""))))
+   Used = 0
+   SIZE_W = 0
+   SIZE_W_FREE = 0
+   Try SIZE_W = CFloat(CalculateSIZE(CFloat(Replace(File.Load("/sys/block/" & Finfosys.ComboBox4.Text & "/" & Finfosys.ComboBox3.Text & "/size"), "\n", ""))))
+   Try SIZE_W_FREE = CFloat(CalculateFreeSpace(CFloat(Dfree(mount_point))))
+   Try Used = (SIZE_W - SIZE_W_FREE)
+   If Used = 1 Or SIZE_W = 1 Then
+    Try Finfosys.ProgressBar2.Value = 0
+   Else
+    Try Finfosys.ProgressBar2.Value = Used / SIZE_W
+   Endif
 
 End
 
