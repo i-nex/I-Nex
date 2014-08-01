@@ -3,7 +3,7 @@
 Title=I-Nex
 Startup=MStart
 Icon=logo/i-nex.0.4.x.png
-Version=7.2.1
+Version=7.4.0
 Component=gb.image
 Component=gb.qt4
 Component=gb.form
@@ -14,13 +14,14 @@ Environment="LANG=C\nLC_ALL=C\nLIBOVERLAY_SCROLLBAR=0\nAPPMENU_DISPLAY_BOTH=1\nS
 TabSize=1
 ControlPublic=1
 ModulePublic=1
+ExecPath=/home/michal/Desktop/i-nex.gambas
 SourcePath=/home/michal/Pulpit
 Maintainer=eloaders
 Vendor=i-nex
 Address=eloaders@linux.pl
 Url=http://i-nex.linux.pl/
 License=General Public Licence
-PackageName=i-nex-7.2.1
+PackageName=i-nex-7.4.0
 Packager=1
 Systems=autotools
 Menus=archlinux:"Applications/System/Administration"

@@ -1,3 +1,9 @@
+i-nex (7.4.0) unstable; urgency=medium
+
+  * unstable
+
+ -- eloaders <eloaders@linux.pl>  Fri, 01 Aug 2014 12:05:42 +0200
+
 i-nex (7.2.1) stable; urgency=medium
 
   * Chengelog for version 7.2.1 see file /usr/share/doc/i-nex/changelog-7.2.1
