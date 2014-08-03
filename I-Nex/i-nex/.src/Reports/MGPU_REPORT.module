@@ -11,18 +11,21 @@ Public ReportEDID As Collection = [("0"): ("====================================
                                    
 Public Report As Collection = [("0"): ("========================================================================================================================="),
                                ("1"): (Finfosys.TextBox1.Text),
-                               ("2"): (Finfosys.Label64.Text),
-                               ("3"): (Finfosys.Label146.Text),
-                               ("4"): (Finfosys.Label105.Text),
-                               ("5"): (Finfosys.Label106.Text),
-                               ("6"): (Finfosys.Label107.Text),
+                               ("2"): (Finfosys.Label105.Text),
+                               ("3"): (Finfosys.Label106.Text),
+                               ("4"): (Finfosys.Label107.Text),
+                               ("5"): (Finfosys.Label222.Text), '/
+                               ("6"): (Finfosys.Label224.Text),
                                ("7"): (Finfosys.Label220.Text),
-                               ("8"): (Finfosys.Label221.Text),
-                               ("9"): (Finfosys.Label222.Text),
-                               ("10"): (Finfosys.Label224.Text),
-                               ("11"): (Finfosys.Label225.Text),
-                               ("12"): (Finfosys.Label108.Text),
-                               ("13"): (Finfosys.Label109.Text)]
+                               ("8"): (Finfosys.Label221.Text), '//
+                               ("9"): (Finfosys.Label225.Text),
+                               ("10"): (Finfosys.Label246.Text),
+                               ("11"): (Finfosys.Label247.Text),
+                               ("12"): (Finfosys.Label136.Text),
+                               ("13"): (Finfosys.Label64.Text),
+                               ("14"): (Finfosys.Label146.Text),
+                               ("15"): (Finfosys.Label108.Text),
+                               ("16"): (Finfosys.Label109.Text)]
 
 Public Sub _inits()
  Dim All, All2 As Integer
@@ -39,7 +42,13 @@ Public Sub _inits()
  
  Next
  '=============================================
- Shell "echo '" & DATA_RETURN & "'>>" & FReport_Gen.ButtonBox1.Text & "" Wait
+ If Exist(FReport_Gen.ButtonBox1.Text) Then  
+    hFile = Open FReport_Gen.ButtonBox1.Text For Write Append 
+ Else 
+    hFile = Open FReport_Gen.ButtonBox1.Text For Write Create
+ Endif 
+ Print #hFile, DATA_RETURN
+ Close #hFile
  DATA_RETURN = Null
  '=============================================
  For All = 0 To Report.Count
