@@ -37,6 +37,6 @@ Dim hFile As File
  Else 
     hFile = Open FReport_Gen.ButtonBox1.Text For Write Create
  Endif 
- Print #hFile, DATA_RETURN
+ Write #hFile, DATA_RETURN
  Close #hFile
 End
