@@ -1,42 +1,33 @@
 ' Gambas module file
 
-Public DATA_RETURN As String
-Public Report As Collection = [("0"): ("========================================================================================================================="),
-                               ("1"): ("___________________Board___________________"),
-                               ("2"): (Finfosys.TextBox2.Text),
-                               ("3"): (Finfosys.TextBox3.Text),
-                               ("4"): (Finfosys.TextBox4.Text),
-                               ("5"): (Finfosys.TextBox5.Text),
-                               ("6"): ("___________________Bios____________________"),
-                               ("7"): (Finfosys.TextBox6.Text),
-                               ("8"): (Finfosys.TextBox21.Text),
-                               ("9"): (Finfosys.TextBox22.Text),
-                               ("10"): ("_________________Chassis__________________"),
-                               ("11"): (Finfosys.TextBox23.Text),
-                               ("12"): (Finfosys.TextBox24.Text),
-                               ("13"): (Finfosys.TextBox25.Text),
-                               ("14"): (Finfosys.TextBox26.Text),
-                               ("15"): ("_________________Product__________________"), 
-                               ("14"): (Finfosys.TextBox27.Text),
-                               ("14"): (Finfosys.TextBox28.Text)]
 Public Sub _inits()
-Dim All As Integer
 Dim hFile As File
- DATA_RETURN = Null
-  For All = 0 To Report.Count
-  
-   FReport_Gen.ProgressBar1.Value = All / Report.Count
-   DATA_RETURN = DATA_RETURN & "\n" & Report[All]
-  
-  Wait 0.01
-  
-  Next
- 
+ FReport_Gen.ProgressBar1.Value = 0
  If Exist(FReport_Gen.ButtonBox1.Text) Then  
     hFile = Open FReport_Gen.ButtonBox1.Text For Write Append 
  Else 
     hFile = Open FReport_Gen.ButtonBox1.Text For Write Create
- Endif 
- Write #hFile, DATA_RETURN
+ Endif
+ FReport_Gen.ProgressBar1.Value = 50
+ Write #hFile, "=========================================================================================================================" & "\n"
+ Write #hFile, "___________________Board___________________" & "\n"
+ Write #hFile, Finfosys.TextBox2.Text & "\n"
+ Write #hFile, Finfosys.TextBox3.Text & "\n"
+ Write #hFile, Finfosys.TextBox4.Text & "\n"
+ Write #hFile, Finfosys.TextBox5.Text & "\n"
+ Write #hFile, "___________________Bios____________________" & "\n"
+ Write #hFile, Finfosys.TextBox6.Text & "\n"
+ Write #hFile, Finfosys.TextBox21.Text & "\n"
+ Write #hFile, Finfosys.TextBox22.Text & "\n"
+ Write #hFile, "_________________Chassis__________________" & "\n"
+ Write #hFile, Finfosys.TextBox23.Text & "\n"
+ Write #hFile, Finfosys.TextBox24.Text & "\n"
+ Write #hFile, Finfosys.TextBox25.Text & "\n"
+ Write #hFile, Finfosys.TextBox26.Text & "\n"
+ Write #hFile, "_________________Product__________________" & "\n"
+ Write #hFile, Finfosys.TextBox27.Text & "\n"
+ Write #hFile, Finfosys.TextBox28.Text & "\n"
+ FReport_Gen.ProgressBar1.Value = 70
  Close #hFile
+ FReport_Gen.ProgressBar1.Value = 100
 End
