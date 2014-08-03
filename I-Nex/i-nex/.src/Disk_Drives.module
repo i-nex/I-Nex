@@ -191,11 +191,32 @@ Function CalculateFreeSpace(Size As Float, Optional ReturnIn As Boolean) As Stri
 End
 
 Function CalculateLOGICAL(BlockSize As Float) As String
- Dim LOGICAL_SIZE As Float
+ Dim LOGICAL_SIZE0 As Float
+ Dim LOGICAL_SIZE1 As Long
+ Dim LOGICAL_SIZE2 As Float
+ Dim LOGICAL_SIZE3 As Float
  Dim iPos As Integer
- LOGICAL_SIZE = (BlockSize * 512 / 1000 / 1000 / 1000)
- iPos = InStr(CString(LOGICAL_SIZE), ".")
- Return Left$(CString(LOGICAL_SIZE), iPos + 1) & " GB"
+ LOGICAL_SIZE0 = (BlockSize * 512 / 1000 / 1000 / 1000)
+ LOGICAL_SIZE1 = (BlockSize * 512 / 1000 / 1000)
+ LOGICAL_SIZE2 = (BlockSize * 512 / 1000)
+ LOGICAL_SIZE3 = (BlockSize * 512)
+ If CLong(LOGICAL_SIZE0) > 0 Then
+   iPos = InStr(CString(LOGICAL_SIZE0), ".")
+   Return Left$(CString(LOGICAL_SIZE0), iPos + 1) & " GB"
+  Else If LOGICAL_SIZE1 > 0 Then
+   iPos = InStr(CString(LOGICAL_SIZE1), ".")
+   Return Left$(CString(LOGICAL_SIZE1), iPos + 1) & " MB"
+  Else If CLong(LOGICAL_SIZE2) > 0 Then
+   iPos = InStr(CString(LOGICAL_SIZE2), ".")
+   Return Left$(CString(LOGICAL_SIZE2), iPos + 1) & " KiB"
+  Else If CLong(LOGICAL_SIZE3) > 0 Then
+   iPos = InStr(CString(LOGICAL_SIZE3), ".")
+   Return Left$(CString(LOGICAL_SIZE3), iPos + 1) & " Bytes"
+  Else
+   Return 0
+ Endif
+ 
+ 
 End
 
 Function CalculateSIZE(BlockSize As Float, Optional ReturnIn As Boolean) As String
