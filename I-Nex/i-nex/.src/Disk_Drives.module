@@ -138,8 +138,6 @@ Public Sub get_informations()
    Try SIZE_W = CFloat(CalculateSIZE(CFloat(Replace(File.Load("/sys/block/" & Finfosys.ComboBox4.Text & "/" & Finfosys.ComboBox3.Text & "/size"), "\n", ""))))
    Try SIZE_W_FREE = CFloat(CalculateFreeSpace(CFloat(Dfree(mount_point))))
    Try Used = (SIZE_W - SIZE_W_FREE)
-   Print Used
-   Print SIZE_W
    If Used > 1 And SIZE_W > 1 Then
     Try Finfosys.ProgressBar2.Value = Used / SIZE_W
    Else 
