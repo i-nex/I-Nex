@@ -87,6 +87,8 @@ Public Sub get_informations()
   Dim Used As Float
   Dim SIZE_W As Float
   Dim SIZE_W_FREE As Float
+  Logs("Deleting data from variables", Logger.Info)
+   SETNULL()
   Logs("Get informations of Drives", Logger.Info)
   Try device_model = Replace(File.Load("/sys/block/" & Finfosys.ComboBox4.Text & "/device/model"), "\n", "")
   Try device_vendor = Replace(File.Load("/sys/block/" & Finfosys.ComboBox4.Text & "/device/vendor"), "\n", "")
@@ -291,4 +293,46 @@ Public Sub disks()
    Close #SWAPS_PROC
    Endif
 
+End
+
+Function SETNULL()
+device_model = Null
+device_vendor = Null
+mount_point = Null
+device_uuid = Null
+real_size = Null
+partition_size = Null
+filesystem_type = Null
+mount_widtch = Null
+device_rev = Null
+max_sectors = Null
+device_state = Null
+modalias = Null
+check_swap = Null
+removable = Null
+ext_range = Null
+range = Null
+add_random = Null
+discard_granularity = Null
+discard_max_bytes = Null
+discard_zeroes_data = Null
+hw_sector_size = Null
+max_hw_sectors_kb = Null
+max_sectors_kb = Null
+max_segments = Null
+max_segment_size = Null
+read_ahead_kb = Null
+scheduler = Null
+max_ratio = Null
+min_ratio = Null
+stable_pages_required = Null
+logical_block_size = Null
+iostats = Null 'iostats
+minimum_io_size = Null
+nomerges = Null
+nr_requests = Null
+optimal_io_size = Null
+physical_block_size = Null
+rotational = Null
+rq_affinity = Null
 End
