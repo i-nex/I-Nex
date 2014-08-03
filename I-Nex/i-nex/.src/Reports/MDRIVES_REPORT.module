@@ -4,9 +4,9 @@ Public Report As Collection
 Public DATA_RETURN As String
 Public Sub refresh()
 Report = [("0"): ("=======================================================" & Finfosys.ComboBox4.Text & "/" & Finfosys.ComboBox3.Text & "=================================================================="),
-         ("1"): (Finfosys.Label17.Text),
-         ("2"): (Finfosys.Label41.Text),
-         ("3"): (Finfosys.Label16.Text),
+         ("1"): (Finfosys.TextBox30.Text),
+         ("2"): (Finfosys.TextBox29.Text),
+         ("3"): (Finfosys.Label41.Text),
          ("4"): (Finfosys.Label42.Text),
          ("5"): (Finfosys.Label26.Text),
          ("6"): (Finfosys.TextBox48.Text),

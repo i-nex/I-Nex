@@ -812,8 +812,8 @@ End
 
 Public Sub refreshing()
  
- Label16.Text = "Device model: " & Disk_Drives.device_model
- Label17.Text = "Device vendor: " & Disk_Drives.device_vendor
+ TextBox29.Text = "Device model: " & Disk_Drives.device_model
+ TextBox30.Text = "Device vendor: " & Disk_Drives.device_vendor
  Label38.Text = "Part size: " & Disk_Drives.partition_size
  Label250.Text = "Disk size: " & Disk_Drives.real_size
  Label39.Text = "Filesystem type: " & Disk_Drives.filesystem_type
