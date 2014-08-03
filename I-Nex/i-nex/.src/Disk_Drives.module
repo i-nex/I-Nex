@@ -56,6 +56,8 @@ Public physical_block_size As String ' physical_block_size
 Public rotational As String ' rotational
 Public rq_affinity As String ' rq_affinity
 Public CONNECTED_PORT As String
+Public Logical_Size As String
+
 Function _inits()
   Dim Avail_HDD As Integer 
   Logs("Add Drives to ComboBox", Logger.Info)
@@ -119,7 +121,7 @@ Public Sub get_informations()
   Try scheduler = Replace(File.Load("/sys/block/" & Finfosys.ComboBox4.Text & "/queue/scheduler"), "\n", "")
   Try rotational = Replace(File.Load("/sys/block/" & Finfosys.ComboBox4.Text & "/queue/rotational"), "\n", "")
   Try rq_affinity = Replace(File.Load("/sys/block/" & Finfosys.ComboBox4.Text & "/queue/rq_affinity"), "\n", "")
-
+  Try Logical_Size = CalculateLOGICAL(CFloat(Replace(File.Load("/sys/block/" & Finfosys.ComboBox4.Text & "/size"), "\n", "")))
   Try partition_size = CalculateSIZE(CLong(Replace(File.Load("/sys/block/" & Finfosys.ComboBox4.Text & "/" & Finfosys.ComboBox3.Text & "/size"), "\n", "")), True)
   Try real_size = CalculateSIZE(CLong(Replace(File.Load("/sys/block/" & Finfosys.ComboBox4.Text & "/size"), "\n", "")), True)
   Try max_ratio = Replace(File.Load("/sys/block/" & Finfosys.ComboBox4.Text & "/bdi/max_ratio"), "\n", "")
@@ -188,6 +190,13 @@ Function CalculateFreeSpace(Size As Float, Optional ReturnIn As Boolean) As Stri
   Dec iPos
 End
 
+Function CalculateLOGICAL(BlockSize As Float) As String
+ Dim LOGICAL_SIZE As Float
+ Dim iPos As Integer
+ LOGICAL_SIZE = (BlockSize * 512 / 1000 / 1000 / 1000)
+ iPos = InStr(CString(LOGICAL_SIZE), ".")
+ Return Left$(CString(LOGICAL_SIZE), iPos + 1) & " GB"
+End
 
 Function CalculateSIZE(BlockSize As Float, Optional ReturnIn As Boolean) As String
   Dim REAL_SIZE_BYTES As Float
@@ -195,12 +204,10 @@ Function CalculateSIZE(BlockSize As Float, Optional ReturnIn As Boolean) As Stri
   Dim REAL_SIZE_MB As Float
   Dim REAL_SIZE_GB As Float
   Dim iPos As Integer
-
   REAL_SIZE_BYTES = (BlockSize * 512)
   REAL_SIZE_KIB = (BlockSize / 2)
   REAL_SIZE_MB = (BlockSize / 2 / 1024)
   REAL_SIZE_GB = (BlockSize / 2 / 1024 / 1024)
-
   Inc iPos
   If CLong(REAL_SIZE_GB) > 0 Then
    
@@ -292,16 +299,18 @@ Public Sub disks()
     Next
    Close #SWAPS_PROC
    Endif
-
-    
+  '
+  '
   For i = 0 To Dir("/sys/block/", "sd*", gb.Directory).Count - 1
     With Stat("/sys/block/" & Dir("/sys/block/", "sd*")[i])
      For i2 = 0 To Split(.Link, "/").Count - 1
       If Split(.Link, "/")[i2] Like "*" & Finfosys.ComboBox4.Text & "*" Then
        If Split(.Link, "/")[5] Like "*host*" Then
-        CONNECTED_PORT = "Port:" & Space$(2) & Replace(Split(.Link, "/")[5], "host", "SATA")
+        CONNECTED_PORT = "Port:" & Space$(2) & Replace(Split(.Link, "/")[5], "host", "[S?]ATA")
        Else If Split(.Link, "/")[4] Like "*usb*" Then
         CONNECTED_PORT = "Port:" & Space$(2) & UCase(Split(.Link, "/")[4])
+       Else
+        CONNECTED_PORT = Null
        Endif
       Endif
      Next

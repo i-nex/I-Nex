@@ -816,7 +816,7 @@ Public Sub refreshing()
  TextBox30.Text = "Device vendor: " & Disk_Drives.device_vendor
  Label38.Text = "Part size: " & Disk_Drives.partition_size
  Label250.Text = "Disk size: " & Disk_Drives.real_size
- Label39.Text = "Filesystem type: " & Disk_Drives.filesystem_type
+ Label39.Text = "Filesystem: " & Disk_Drives.filesystem_type
  Label41.Text = "Device rev: " & Disk_Drives.device_rev
  Label42.Text = "Max sectors: " & Disk_Drives.max_sectors
  Label43.Text = "State: " & Disk_Drives.device_state
@@ -869,6 +869,7 @@ Label134.Text = "Rq affinity: " & Disk_Drives.rq_affinity
  TextBox53.Text = Disk_Drives.mount_widtch
  
  Label16.Text = Disk_Drives.CONNECTED_PORT
+ Label17.Text = Disk_Drives.Logical_Size
 End
 
 Public Sub ComboBox5_Click()
