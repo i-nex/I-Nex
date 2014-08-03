@@ -867,6 +867,8 @@ Label134.Text = "Rq affinity: " & Disk_Drives.rq_affinity
  TextBox48.Text = Disk_Drives.mount_point
  TextBox52.Text = Disk_Drives.device_uuid
  TextBox53.Text = Disk_Drives.mount_widtch
+ 
+ Label16.Text = Disk_Drives.CONNECTED_PORT
 End
 
 Public Sub ComboBox5_Click()

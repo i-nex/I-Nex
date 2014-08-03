@@ -55,7 +55,7 @@ Public optimal_io_size As String ' optimal_io_size
 Public physical_block_size As String ' physical_block_size
 Public rotational As String ' rotational
 Public rq_affinity As String ' rq_affinity
-
+Public CONNECTED_PORT As String
 Function _inits()
   Dim Avail_HDD As Integer 
   Logs("Add Drives to ComboBox", Logger.Info)
@@ -236,7 +236,7 @@ Function CalculateSIZE(BlockSize As Float, Optional ReturnIn As Boolean) As Stri
 End
 
 Public Sub disks()
-  Dim i As Integer
+  Dim i, i2 As Integer
   Dim MOUNTS_PROC As File
   Dim SWAPS_PROC As File
   Dim MountsLine As String
@@ -293,9 +293,24 @@ Public Sub disks()
    Close #SWAPS_PROC
    Endif
 
+    
+  For i = 0 To Dir("/sys/block/", "sd*", gb.Directory).Count - 1
+    With Stat("/sys/block/" & Dir("/sys/block/", "sd*")[i])
+     For i2 = 0 To Split(.Link, "/").Count - 1
+      If Split(.Link, "/")[i2] Like "*" & Finfosys.ComboBox4.Text & "*" Then
+       If Split(.Link, "/")[5] Like "*host*" Then
+        CONNECTED_PORT = "Port:" & Space$(2) & Replace(Split(.Link, "/")[5], "host", "SATA")
+       Else If Split(.Link, "/")[4] Like "*usb*" Then
+        CONNECTED_PORT = "Port:" & Space$(2) & UCase(Split(.Link, "/")[4])
+       Endif
+      Endif
+     Next
+    End With
+  Next
 End
 
 Function SETNULL()
+CONNECTED_PORT = Null
 device_model = Null
 device_vendor = Null
 mount_point = Null
