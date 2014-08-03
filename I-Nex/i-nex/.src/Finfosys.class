@@ -1161,3 +1161,10 @@ Public Sub Button19_Click()
  Network.IP_INFO()
 
 End
+
+Public Sub Button20_Click()
+
+ Disk_Drives._inits()
+ Disk_Drives._init_2()
+
+End

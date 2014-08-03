@@ -1168,7 +1168,7 @@
       Border = Border.Raised
     }
     { !Label59 Label
-      Move(161,455,308,21)
+      Move(161,455,266,21)
       #Public = True
       #Translate = False
       Font = Font["8,Bold"]
@@ -1176,7 +1176,7 @@
       Border = Border.Raised
     }
     { !Label123 Label
-      Move(308,434,161,21)
+      Move(294,434,133,21)
       #Public = True
       Font = Font["8"]
       Padding = 3
@@ -1184,7 +1184,7 @@
       Border = Border.Raised
     }
     { !Label124 Label
-      Move(161,434,147,21)
+      Move(161,434,133,21)
       #Public = True
       Font = Font["8"]
       Padding = 3
@@ -1398,6 +1398,10 @@
       Text = "Device UUID:   "
       Border = Border.Raised
       Transparent = True
+    }
+    { Button20 Button
+      Move(427,434,42,42)
+      Picture = Picture["AppIcons/view-refresh.png"]
     }
     Index = 5
     Text = "System"
