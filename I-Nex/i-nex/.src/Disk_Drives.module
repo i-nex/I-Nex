@@ -118,7 +118,10 @@ Public Sub get_informations()
   Try optimal_io_size = Replace(File.Load("/sys/block/" & Finfosys.ComboBox4.Text & "/queue/optimal_io_size"), "\n", "")
   Try physical_block_size = Replace(File.Load("/sys/block/" & Finfosys.ComboBox4.Text & "/queue/physical_block_size"), "\n", "")
   Try read_ahead_kb = Replace(File.Load("/sys/block/" & Finfosys.ComboBox4.Text & "/queue/read_ahead_kb"), "\n", "")
-  Try scheduler = Replace(File.Load("/sys/block/" & Finfosys.ComboBox4.Text & "/queue/scheduler"), "\n", "")
+  
+  'Try scheduler = Replace(File.Load("/sys/block/" & Finfosys.ComboBox4.Text & "/queue/scheduler"), "\n", "")
+  Try scheduler = Schedule(CString(Replace(File.Load("/sys/block/" & Finfosys.ComboBox4.Text & "/queue/scheduler"), "\n", "")))
+  
   Try rotational = Replace(File.Load("/sys/block/" & Finfosys.ComboBox4.Text & "/queue/rotational"), "\n", "")
   Try rq_affinity = Replace(File.Load("/sys/block/" & Finfosys.ComboBox4.Text & "/queue/rq_affinity"), "\n", "")
   Try Logical_Size = CalculateLOGICAL(CFloat(Replace(File.Load("/sys/block/" & Finfosys.ComboBox4.Text & "/size"), "\n", "")))
@@ -151,6 +154,25 @@ Public Sub get_informations()
     Try Finfosys.ProgressBar2.Value = 0 / 10
    Endif
 End
+
+Function Schedule(sched As String) As String
+ '[noop] deadline cfq bfq = 1 | 4
+ 'noop [deadline] cfq bfq = 6 | 8
+ 'noop deadline [cfq] bfq = 15 | 3
+ 'noop deadline cfq [bfq] = 19 | 3
+ If Mid$(sched, 2, 4) = "noop" Then
+  Return "noop"
+ Else If Mid$(sched, 7, 8) = "deadline" Then
+  Return "deadline"
+ Else If Mid$(sched, 16, 3) = "cfq" Then
+  Return "cfq"
+ Else If Mid$(sched, 20, 3) = "bfq" Then
+  Return "bfq"
+ Else
+  Return ""
+ Endif
+End
+
 
 Function CalculateFreeSpace(Size As Float, Optional ReturnIn As Boolean) As String
   Dim REAL_SIZE_BYTES As Float

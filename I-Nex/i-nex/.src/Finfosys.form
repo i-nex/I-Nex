@@ -1168,15 +1168,17 @@
       Border = Border.Raised
     }
     { !Label59 Label
-      Move(161,455,266,21)
+      Move(294,434,133,42)
       #Public = True
       #Translate = False
-      Font = Font["8,Bold"]
+      Font = Font["Bold,10"]
+      Foreground = &HFF0000&
       Padding = 3
+      Alignment = Align.Center
       Border = Border.Raised
     }
     { !Label123 Label
-      Move(294,434,133,21)
+      Move(161,455,133,21)
       #Public = True
       Font = Font["8"]
       Padding = 3

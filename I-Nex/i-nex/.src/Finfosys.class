@@ -831,7 +831,7 @@ Public Sub refreshing()
  Label56.Text = "Max segments: " & Disk_Drives.max_segments
  Label57.Text = "Max segment size: " & Disk_Drives.max_segment_size
  Label58.Text = "Read ahead kb: " & Disk_Drives.read_ahead_kb
- Label59.Text = "Scheduler: " & Disk_Drives.scheduler
+ Label59.Text = "..:Scheduler:.. \n " & Disk_Drives.scheduler
  
 Label126.Text = "Logical block size: " & Disk_Drives.logical_block_size
 Label127.Text = "IO stats: " & Disk_Drives.iostats
