@@ -283,7 +283,6 @@ Public Sub Form_Open()
  Label25.Text = Application.version
  Logs(Label25.Text, Logger.Info)
  TabStrip1_Click()
- DATAT.Clear
 End
 
 Public Sub ComboBox1_Click()
@@ -726,7 +725,6 @@ Public Sub dospam_uptime()
   
   Try ProgressBar1.Value = Int(USAGE["USED_PLUS_CACHED"]) / Int(USAGE["MEMORY_TOTAL"])
   Try ProgressBar4.Value = Int(USAGE["SWAP_USED"]) / Int(USAGE["SWAP_TOTAL"])
-  USAGE.Clear
 End
 
 Public Sub battery_info()
@@ -1114,6 +1112,8 @@ Public Sub Form_Close()
   Settings["Window/Y"] = Me.Y
   Settings["Tab/Pos"] = TabStrip1.Orientation
   Logs("Good bye!", Logger.Info)
+  USAGE.Clear
+  DATAT.Clear
   MCPUSAGE.CPUusage.Kill
   Me.Close
  
