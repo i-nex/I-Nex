@@ -24,7 +24,7 @@
       "PROCESSOR_PROCESS_SIZE": "22 nm",
       "PROCESSOR_SOCKET": "Intel Socket 1150",
       "PROCESSOR_SOCKET_IMAGE": "310.gif",
-      "PROCESSOR_MODEL_NAME": "Core i7-4790"
+      "PROCESSOR_MODEL_NAME": "i7-4790"
     },
     {
       "PROCESSOR_RELEASED": "May 2014",
@@ -51,7 +51,7 @@
       "PROCESSOR_PROCESS_SIZE": "22 nm",
       "PROCESSOR_SOCKET": "Intel Socket 1150",
       "PROCESSOR_SOCKET_IMAGE": "308.gif",
-      "PROCESSOR_MODEL_NAME": "Core i5-4690"
+      "PROCESSOR_MODEL_NAME": "i5-4690"
     },
     {
       "PROCESSOR_RELEASED": "May 2014",
@@ -78,7 +78,7 @@
       "PROCESSOR_PROCESS_SIZE": "22 nm",
       "PROCESSOR_SOCKET": "Intel Socket 1150",
       "PROCESSOR_SOCKET_IMAGE": "309.gif",
-      "PROCESSOR_MODEL_NAME": "Core i3-4360"
+      "PROCESSOR_MODEL_NAME": "i3-4360"
     },
     {
       "PROCESSOR_RELEASED": "May 2014",
@@ -105,7 +105,7 @@
       "PROCESSOR_PROCESS_SIZE": "22 nm",
       "PROCESSOR_SOCKET": "Intel Socket 1150",
       "PROCESSOR_SOCKET_IMAGE": "308.gif",
-      "PROCESSOR_MODEL_NAME": "Core i5-4590"
+      "PROCESSOR_MODEL_NAME": "i5-4590"
     },
     {
       "PROCESSOR_RELEASED": "May 2014",
@@ -185,7 +185,7 @@
       "PROCESSOR_PROCESS_SIZE": "22 nm",
       "PROCESSOR_SOCKET": "Intel Socket 1150",
       "PROCESSOR_SOCKET_IMAGE": "310.gif",
-      "PROCESSOR_MODEL_NAME": "Core i7-4790S"
+      "PROCESSOR_MODEL_NAME": "i7-4790S"
     },
     {
       "PROCESSOR_RELEASED": "May 2014",
@@ -212,7 +212,7 @@
       "PROCESSOR_PROCESS_SIZE": "22 nm",
       "PROCESSOR_SOCKET": "Intel Socket 1150",
       "PROCESSOR_SOCKET_IMAGE": "308.gif",
-      "PROCESSOR_MODEL_NAME": "Core i5-4590S"
+      "PROCESSOR_MODEL_NAME": "i5-4590S"
     },
     {
       "PROCESSOR_RELEASED": "May 2014",
@@ -239,7 +239,7 @@
       "PROCESSOR_PROCESS_SIZE": "22 nm",
       "PROCESSOR_SOCKET": "Intel Socket 1150",
       "PROCESSOR_SOCKET_IMAGE": "309.gif",
-      "PROCESSOR_MODEL_NAME": "Core i3-4150T"
+      "PROCESSOR_MODEL_NAME": "i3-4150T"
     },
     {
       "PROCESSOR_RELEASED": "Sep 2013",
@@ -266,7 +266,7 @@
       "PROCESSOR_PROCESS_SIZE": "22 nm",
       "PROCESSOR_SOCKET": "Intel Socket 2011",
       "PROCESSOR_SOCKET_IMAGE": "66.gif",
-      "PROCESSOR_MODEL_NAME": "Core i7-4960X"
+      "PROCESSOR_MODEL_NAME": "i7-4960X"
     },
     {
       "PROCESSOR_RELEASED": "Sep 2013",
@@ -293,7 +293,7 @@
       "PROCESSOR_PROCESS_SIZE": "22 nm",
       "PROCESSOR_SOCKET": "Intel Socket 2011",
       "PROCESSOR_SOCKET_IMAGE": "289.gif",
-      "PROCESSOR_MODEL_NAME": "Core i7-4930K"
+      "PROCESSOR_MODEL_NAME": "i7-4930K"
     },
     {
       "PROCESSOR_RELEASED": "Sep 2013",
@@ -320,7 +320,7 @@
       "PROCESSOR_PROCESS_SIZE": "22 nm",
       "PROCESSOR_SOCKET": "Intel Socket 2011",
       "PROCESSOR_SOCKET_IMAGE": "289.gif",
-      "PROCESSOR_MODEL_NAME": "Core i7-4820K"
+      "PROCESSOR_MODEL_NAME": "i7-4820K"
     },
     {
       "PROCESSOR_RELEASED": "Sep 2013",
@@ -346,7 +346,7 @@
       "PROCESSOR_PROCESS_SIZE": "22 nm",
       "PROCESSOR_SOCKET": "Intel Socket 1150",
       "PROCESSOR_SOCKET_IMAGE": "310.gif",
-      "PROCESSOR_MODEL_NAME": "Core i7-4771"
+      "PROCESSOR_MODEL_NAME": "i7-4771"
     },
     {
       "PROCESSOR_RELEASED": "Sep 2013",
@@ -373,7 +373,7 @@
       "PROCESSOR_PROCESS_SIZE": "22 nm",
       "PROCESSOR_SOCKET": "Intel Socket 1150",
       "PROCESSOR_SOCKET_IMAGE": "309.gif",
-      "PROCESSOR_MODEL_NAME": "Core i3-4340"
+      "PROCESSOR_MODEL_NAME": "i3-4340"
     },
     {
       "PROCESSOR_RELEASED": "Sep 2013",
@@ -400,7 +400,7 @@
       "PROCESSOR_PROCESS_SIZE": "22 nm",
       "PROCESSOR_SOCKET": "Intel Socket 1150",
       "PROCESSOR_SOCKET_IMAGE": "309.gif",
-      "PROCESSOR_MODEL_NAME": "Core i3-4330"
+      "PROCESSOR_MODEL_NAME": "i3-4330"
     },
     {
       "PROCESSOR_RELEASED": "Sep 2013",
@@ -427,7 +427,7 @@
       "PROCESSOR_PROCESS_SIZE": "22 nm",
       "PROCESSOR_SOCKET": "Intel Socket 1150",
       "PROCESSOR_SOCKET_IMAGE": "309.gif",
-      "PROCESSOR_MODEL_NAME": "Core i3-4330T"
+      "PROCESSOR_MODEL_NAME": "i3-4330T"
     },
     {
       "PROCESSOR_RELEASED": "Sep 2013",
@@ -454,7 +454,7 @@
       "PROCESSOR_PROCESS_SIZE": "22 nm",
       "PROCESSOR_SOCKET": "Intel Socket 1150",
       "PROCESSOR_SOCKET_IMAGE": "309.gif",
-      "PROCESSOR_MODEL_NAME": "Core i3-4130T"
+      "PROCESSOR_MODEL_NAME": "i3-4130T"
     },
     {
       "PROCESSOR_RELEASED": "Sep 2013",
@@ -481,7 +481,7 @@
       "PROCESSOR_PROCESS_SIZE": "22 nm",
       "PROCESSOR_SOCKET": "Intel Socket 1150",
       "PROCESSOR_SOCKET_IMAGE": "309.gif",
-      "PROCESSOR_MODEL_NAME": "Core i3-4130"
+      "PROCESSOR_MODEL_NAME": "i3-4130"
     },
     {
       "PROCESSOR_RELEASED": "Sep 2013",
@@ -616,7 +616,7 @@
       "PROCESSOR_PROCESS_SIZE": "22 nm",
       "PROCESSOR_SOCKET": "Intel Socket 1150",
       "PROCESSOR_SOCKET_IMAGE": "308.gif",
-      "PROCESSOR_MODEL_NAME": "Core i5-4440"
+      "PROCESSOR_MODEL_NAME": "i5-4440"
     },
     {
       "PROCESSOR_RELEASED": "Sep 2013",
@@ -643,7 +643,7 @@
       "PROCESSOR_PROCESS_SIZE": "22 nm",
       "PROCESSOR_SOCKET": "Intel Socket 1150",
       "PROCESSOR_SOCKET_IMAGE": "308.gif",
-      "PROCESSOR_MODEL_NAME": "Core i5-4440S"
+      "PROCESSOR_MODEL_NAME": "i5-4440S"
     },
     {
       "PROCESSOR_RELEASED": "Sep 2013",
@@ -751,7 +751,7 @@
       "PROCESSOR_PROCESS_SIZE": "32 nm",
       "PROCESSOR_SOCKET": "Intel Socket 2011",
       "PROCESSOR_SOCKET_IMAGE": "135.gif",
-      "PROCESSOR_MODEL_NAME": "Core i7-3910K"
+      "PROCESSOR_MODEL_NAME": "i7-3910K"
     },
     {
       "PROCESSOR_RELEASED": "Jun 2013",
@@ -777,7 +777,7 @@
       "PROCESSOR_PROCESS_SIZE": "22 nm",
       "PROCESSOR_SOCKET": "Intel Socket 1150",
       "PROCESSOR_SOCKET_IMAGE": "310.gif",
-      "PROCESSOR_MODEL_NAME": "Core i7-4770K"
+      "PROCESSOR_MODEL_NAME": "i7-4770K"
     },
     {
       "PROCESSOR_RELEASED": "Jun 2013",
@@ -804,7 +804,7 @@
       "PROCESSOR_PROCESS_SIZE": "22 nm",
       "PROCESSOR_SOCKET": "Intel Socket 1150",
       "PROCESSOR_SOCKET_IMAGE": "308.gif",
-      "PROCESSOR_MODEL_NAME": "Core i5-4670K"
+      "PROCESSOR_MODEL_NAME": "i5-4670K"
     },
     {
       "PROCESSOR_RELEASED": "Jun 2013",
@@ -831,7 +831,7 @@
       "PROCESSOR_PROCESS_SIZE": "22 nm",
       "PROCESSOR_SOCKET": "Intel Socket 1150",
       "PROCESSOR_SOCKET_IMAGE": "308.gif",
-      "PROCESSOR_MODEL_NAME": "Core i5-4430"
+      "PROCESSOR_MODEL_NAME": "i5-4430"
     },
     {
       "PROCESSOR_RELEASED": "Jun 2013",
@@ -858,7 +858,7 @@
       "PROCESSOR_PROCESS_SIZE": "22 nm",
       "PROCESSOR_SOCKET": "Intel Socket 1150",
       "PROCESSOR_SOCKET_IMAGE": "308.gif",
-      "PROCESSOR_MODEL_NAME": "Core i5-4430S"
+      "PROCESSOR_MODEL_NAME": "i5-4430S"
     },
     {
       "PROCESSOR_RELEASED": "Jun 2013",
@@ -885,7 +885,7 @@
       "PROCESSOR_PROCESS_SIZE": "22 nm",
       "PROCESSOR_SOCKET": "Intel Socket 1150",
       "PROCESSOR_SOCKET_IMAGE": "308.gif",
-      "PROCESSOR_MODEL_NAME": "Core i5-4570T"
+      "PROCESSOR_MODEL_NAME": "i5-4570T"
     },
     {
       "PROCESSOR_RELEASED": "Jun 2013",
@@ -911,7 +911,7 @@
       "PROCESSOR_PROCESS_SIZE": "22 nm",
       "PROCESSOR_SOCKET": "Intel Socket 1150",
       "PROCESSOR_SOCKET_IMAGE": "310.gif",
-      "PROCESSOR_MODEL_NAME": "Core i7-4770"
+      "PROCESSOR_MODEL_NAME": "i7-4770"
     },
     {
       "PROCESSOR_RELEASED": "Jun 2013",
@@ -937,7 +937,7 @@
       "PROCESSOR_PROCESS_SIZE": "22 nm",
       "PROCESSOR_SOCKET": "Intel Socket 1150",
       "PROCESSOR_SOCKET_IMAGE": "310.gif",
-      "PROCESSOR_MODEL_NAME": "Core i7-4770S"
+      "PROCESSOR_MODEL_NAME": "i7-4770S"
     },
     {
       "PROCESSOR_RELEASED": "Jun 2013",
@@ -963,7 +963,7 @@
       "PROCESSOR_PROCESS_SIZE": "22 nm",
       "PROCESSOR_SOCKET": "Intel Socket 1150",
       "PROCESSOR_SOCKET_IMAGE": "310.gif",
-      "PROCESSOR_MODEL_NAME": "Core i7-4770T"
+      "PROCESSOR_MODEL_NAME": "i7-4770T"
     },
     {
       "PROCESSOR_RELEASED": "Jun 2013",
@@ -989,7 +989,7 @@
       "PROCESSOR_PROCESS_SIZE": "22 nm",
       "PROCESSOR_SOCKET": "Intel Socket 1150",
       "PROCESSOR_SOCKET_IMAGE": "310.gif",
-      "PROCESSOR_MODEL_NAME": "Core i7-4765T"
+      "PROCESSOR_MODEL_NAME": "i7-4765T"
     },
     {
       "PROCESSOR_RELEASED": "Jun 2013",
@@ -1016,7 +1016,7 @@
       "PROCESSOR_PROCESS_SIZE": "22 nm",
       "PROCESSOR_SOCKET": "Intel Socket 1150",
       "PROCESSOR_SOCKET_IMAGE": "308.gif",
-      "PROCESSOR_MODEL_NAME": "Core i5-4670"
+      "PROCESSOR_MODEL_NAME": "i5-4670"
     },
     {
       "PROCESSOR_RELEASED": "Jun 2013",
@@ -1043,7 +1043,7 @@
       "PROCESSOR_PROCESS_SIZE": "22 nm",
       "PROCESSOR_SOCKET": "Intel Socket 1150",
       "PROCESSOR_SOCKET_IMAGE": "308.gif",
-      "PROCESSOR_MODEL_NAME": "Core i5-4570"
+      "PROCESSOR_MODEL_NAME": "i5-4570"
     },
     {
       "PROCESSOR_RELEASED": "Jun 2013",
@@ -1070,7 +1070,7 @@
       "PROCESSOR_PROCESS_SIZE": "22 nm",
       "PROCESSOR_SOCKET": "Intel Socket 1150",
       "PROCESSOR_SOCKET_IMAGE": "308.gif",
-      "PROCESSOR_MODEL_NAME": "Core i5-4670S"
+      "PROCESSOR_MODEL_NAME": "i5-4670S"
     },
     {
       "PROCESSOR_RELEASED": "Jun 2013",
@@ -1097,7 +1097,7 @@
       "PROCESSOR_PROCESS_SIZE": "22 nm",
       "PROCESSOR_SOCKET": "Intel Socket 1150",
       "PROCESSOR_SOCKET_IMAGE": "308.gif",
-      "PROCESSOR_MODEL_NAME": "Core i5-4670T"
+      "PROCESSOR_MODEL_NAME": "i5-4670T"
     },
     {
       "PROCESSOR_RELEASED": "Jun 2013",
@@ -1124,7 +1124,7 @@
       "PROCESSOR_PROCESS_SIZE": "22 nm",
       "PROCESSOR_SOCKET": "Intel Socket 1150",
       "PROCESSOR_SOCKET_IMAGE": "308.gif",
-      "PROCESSOR_MODEL_NAME": "Core i5-4570S"
+      "PROCESSOR_MODEL_NAME": "i5-4570S"
     },
     {
       "PROCESSOR_RELEASED": "Jun 2013",
@@ -1151,7 +1151,7 @@
       "PROCESSOR_PROCESS_SIZE": "22 nm",
       "PROCESSOR_SOCKET": "Intel BGA1364",
       "PROCESSOR_SOCKET_IMAGE": "310.gif",
-      "PROCESSOR_MODEL_NAME": "Core i7-4770R"
+      "PROCESSOR_MODEL_NAME": "i7-4770R"
     },
     {
       "PROCESSOR_RELEASED": "Jun 2013",
@@ -1178,7 +1178,7 @@
       "PROCESSOR_PROCESS_SIZE": "22 nm",
       "PROCESSOR_SOCKET": "Intel BGA1364",
       "PROCESSOR_SOCKET_IMAGE": "308.gif",
-      "PROCESSOR_MODEL_NAME": "Core i5-4670R"
+      "PROCESSOR_MODEL_NAME": "i5-4670R"
     },
     {
       "PROCESSOR_RELEASED": "Jun 2013",
@@ -1205,7 +1205,7 @@
       "PROCESSOR_PROCESS_SIZE": "22 nm",
       "PROCESSOR_SOCKET": "Intel BGA1364",
       "PROCESSOR_SOCKET_IMAGE": "308.gif",
-      "PROCESSOR_MODEL_NAME": "Core i5-4570R"
+      "PROCESSOR_MODEL_NAME": "i5-4570R"
     },
     {
       "PROCESSOR_RELEASED": "Jun 2013",
@@ -1232,7 +1232,7 @@
       "PROCESSOR_PROCESS_SIZE": "22 nm",
       "PROCESSOR_SOCKET": "Intel Socket 1150",
       "PROCESSOR_SOCKET_IMAGE": "308.gif",
-      "PROCESSOR_MODEL_NAME": "Core i5-4570TE"
+      "PROCESSOR_MODEL_NAME": "i5-4570TE"
     },
     {
       "PROCESSOR_RELEASED": "Jun 2013",
@@ -1258,7 +1258,7 @@
       "PROCESSOR_PROCESS_SIZE": "22 nm",
       "PROCESSOR_SOCKET": "Intel Socket 1150",
       "PROCESSOR_SOCKET_IMAGE": "310.gif",
-      "PROCESSOR_MODEL_NAME": "Core i7-4770TE"
+      "PROCESSOR_MODEL_NAME": "i7-4770TE"
     },
     {
       "PROCESSOR_RELEASED": "Jan 2013",
@@ -1393,7 +1393,7 @@
       "PROCESSOR_PROCESS_SIZE": "22 nm",
       "PROCESSOR_SOCKET": "Intel Socket 1155",
       "PROCESSOR_SOCKET_IMAGE": "62.gif",
-      "PROCESSOR_MODEL_NAME": "Core i3-3210"
+      "PROCESSOR_MODEL_NAME": "i3-3210"
     },
     {
       "PROCESSOR_RELEASED": "Dec 2012",
@@ -1501,7 +1501,7 @@
       "PROCESSOR_PROCESS_SIZE": "22 nm",
       "PROCESSOR_SOCKET": "Intel Socket 1155",
       "PROCESSOR_SOCKET_IMAGE": "63.gif",
-      "PROCESSOR_MODEL_NAME": "Core i5-3335S"
+      "PROCESSOR_MODEL_NAME": "i5-3335S"
     },
     {
       "PROCESSOR_RELEASED": "Nov 2012",
@@ -1528,7 +1528,7 @@
       "PROCESSOR_PROCESS_SIZE": "32 nm",
       "PROCESSOR_SOCKET": "Intel Socket 2011",
       "PROCESSOR_SOCKET_IMAGE": "29.gif",
-      "PROCESSOR_MODEL_NAME": "Core i7-3970X"
+      "PROCESSOR_MODEL_NAME": "i7-3970X"
     },
     {
       "PROCESSOR_RELEASED": "Sep 2012",
@@ -1555,7 +1555,7 @@
       "PROCESSOR_PROCESS_SIZE": "22 nm",
       "PROCESSOR_SOCKET": "Intel Socket 1155",
       "PROCESSOR_SOCKET_IMAGE": "62.gif",
-      "PROCESSOR_MODEL_NAME": "Core i3-3225"
+      "PROCESSOR_MODEL_NAME": "i3-3225"
     },
     {
       "PROCESSOR_RELEASED": "Sep 2012",
@@ -1582,7 +1582,7 @@
       "PROCESSOR_PROCESS_SIZE": "22 nm",
       "PROCESSOR_SOCKET": "Intel Socket 1155",
       "PROCESSOR_SOCKET_IMAGE": "62.gif",
-      "PROCESSOR_MODEL_NAME": "Core i3-3220T"
+      "PROCESSOR_MODEL_NAME": "i3-3220T"
     },
     {
       "PROCESSOR_RELEASED": "Sep 2012",
@@ -1609,7 +1609,7 @@
       "PROCESSOR_PROCESS_SIZE": "22 nm",
       "PROCESSOR_SOCKET": "Intel Socket 1155",
       "PROCESSOR_SOCKET_IMAGE": "62.gif",
-      "PROCESSOR_MODEL_NAME": "Core i3-3220"
+      "PROCESSOR_MODEL_NAME": "i3-3220"
     },
     {
       "PROCESSOR_RELEASED": "Sep 2012",
@@ -1636,7 +1636,7 @@
       "PROCESSOR_PROCESS_SIZE": "22 nm",
       "PROCESSOR_SOCKET": "Intel Socket 1155",
       "PROCESSOR_SOCKET_IMAGE": "62.gif",
-      "PROCESSOR_MODEL_NAME": "Core i3-3240"
+      "PROCESSOR_MODEL_NAME": "i3-3240"
     },
     {
       "PROCESSOR_RELEASED": "Sep 2012",
@@ -1663,7 +1663,7 @@
       "PROCESSOR_PROCESS_SIZE": "22 nm",
       "PROCESSOR_SOCKET": "Intel Socket 1155",
       "PROCESSOR_SOCKET_IMAGE": "62.gif",
-      "PROCESSOR_MODEL_NAME": "Core i3-3240T"
+      "PROCESSOR_MODEL_NAME": "i3-3240T"
     },
     {
       "PROCESSOR_RELEASED": "Sep 2012",
@@ -1690,7 +1690,7 @@
       "PROCESSOR_PROCESS_SIZE": "22 nm",
       "PROCESSOR_SOCKET": "Intel Socket 1155",
       "PROCESSOR_SOCKET_IMAGE": "63.gif",
-      "PROCESSOR_MODEL_NAME": "Core i5-3330"
+      "PROCESSOR_MODEL_NAME": "i5-3330"
     },
     {
       "PROCESSOR_RELEASED": "Sep 2012",
@@ -1717,7 +1717,7 @@
       "PROCESSOR_PROCESS_SIZE": "22 nm",
       "PROCESSOR_SOCKET": "Intel Socket 1155",
       "PROCESSOR_SOCKET_IMAGE": "63.gif",
-      "PROCESSOR_MODEL_NAME": "Core i5-3330S"
+      "PROCESSOR_MODEL_NAME": "i5-3330S"
     },
     {
       "PROCESSOR_RELEASED": "Sep 2012",
@@ -1744,7 +1744,7 @@
       "PROCESSOR_PROCESS_SIZE": "22 nm",
       "PROCESSOR_SOCKET": "Intel Socket 1155",
       "PROCESSOR_SOCKET_IMAGE": "63.gif",
-      "PROCESSOR_MODEL_NAME": "Core i5-3350P"
+      "PROCESSOR_MODEL_NAME": "i5-3350P"
     },
     {
       "PROCESSOR_RELEASED": "Sep 2012",
@@ -2041,7 +2041,7 @@
       "PROCESSOR_PROCESS_SIZE": "22 nm",
       "PROCESSOR_SOCKET": "Intel Socket 1155",
       "PROCESSOR_SOCKET_IMAGE": "63.gif",
-      "PROCESSOR_MODEL_NAME": "Core i5-3470"
+      "PROCESSOR_MODEL_NAME": "i5-3470"
     },
     {
       "PROCESSOR_RELEASED": "Jun 2012",
@@ -2068,7 +2068,7 @@
       "PROCESSOR_PROCESS_SIZE": "22 nm",
       "PROCESSOR_SOCKET": "Intel Socket 1155",
       "PROCESSOR_SOCKET_IMAGE": "63.gif",
-      "PROCESSOR_MODEL_NAME": "Core i5-3470S"
+      "PROCESSOR_MODEL_NAME": "i5-3470S"
     },
     {
       "PROCESSOR_RELEASED": "Jun 2012",
@@ -2095,7 +2095,7 @@
       "PROCESSOR_PROCESS_SIZE": "22 nm",
       "PROCESSOR_SOCKET": "Intel Socket 1155",
       "PROCESSOR_SOCKET_IMAGE": "63.gif",
-      "PROCESSOR_MODEL_NAME": "Core i5-3470T"
+      "PROCESSOR_MODEL_NAME": "i5-3470T"
     },
     {
       "PROCESSOR_RELEASED": "Jun 2012",
@@ -2122,7 +2122,7 @@
       "PROCESSOR_PROCESS_SIZE": "22 nm",
       "PROCESSOR_SOCKET": "Intel Socket 1155",
       "PROCESSOR_SOCKET_IMAGE": "63.gif",
-      "PROCESSOR_MODEL_NAME": "Core i5-3475S"
+      "PROCESSOR_MODEL_NAME": "i5-3475S"
     },
     {
       "PROCESSOR_RELEASED": "Jun 2012",
@@ -2149,7 +2149,7 @@
       "PROCESSOR_PROCESS_SIZE": "22 nm",
       "PROCESSOR_SOCKET": "Intel Socket 1155",
       "PROCESSOR_SOCKET_IMAGE": "63.gif",
-      "PROCESSOR_MODEL_NAME": "Core i5-3570"
+      "PROCESSOR_MODEL_NAME": "i5-3570"
     },
     {
       "PROCESSOR_RELEASED": "Jun 2012",
@@ -2176,7 +2176,7 @@
       "PROCESSOR_PROCESS_SIZE": "22 nm",
       "PROCESSOR_SOCKET": "Intel Socket 1155",
       "PROCESSOR_SOCKET_IMAGE": "63.gif",
-      "PROCESSOR_MODEL_NAME": "Core i5-3570S"
+      "PROCESSOR_MODEL_NAME": "i5-3570S"
     },
     {
       "PROCESSOR_RELEASED": "Jun 2012",
@@ -2230,7 +2230,7 @@
       "PROCESSOR_PROCESS_SIZE": "32 nm",
       "PROCESSOR_SOCKET": "Intel Socket 1155",
       "PROCESSOR_SOCKET_IMAGE": "14.gif",
-      "PROCESSOR_MODEL_NAME": "Core i3-2115C"
+      "PROCESSOR_MODEL_NAME": "i3-2115C"
     },
     {
       "PROCESSOR_RELEASED": "Apr 2012",
@@ -2257,7 +2257,7 @@
       "PROCESSOR_PROCESS_SIZE": "22 nm",
       "PROCESSOR_SOCKET": "Intel Socket 1155",
       "PROCESSOR_SOCKET_IMAGE": "64.gif",
-      "PROCESSOR_MODEL_NAME": "Core i7-3770K"
+      "PROCESSOR_MODEL_NAME": "i7-3770K"
     },
     {
       "PROCESSOR_RELEASED": "Apr 2012",
@@ -2284,7 +2284,7 @@
       "PROCESSOR_PROCESS_SIZE": "22 nm",
       "PROCESSOR_SOCKET": "Intel Socket 1155",
       "PROCESSOR_SOCKET_IMAGE": "64.gif",
-      "PROCESSOR_MODEL_NAME": "Core i7-3770"
+      "PROCESSOR_MODEL_NAME": "i7-3770"
     },
     {
       "PROCESSOR_RELEASED": "Apr 2012",
@@ -2311,7 +2311,7 @@
       "PROCESSOR_PROCESS_SIZE": "22 nm",
       "PROCESSOR_SOCKET": "Intel Socket 1155",
       "PROCESSOR_SOCKET_IMAGE": "64.gif",
-      "PROCESSOR_MODEL_NAME": "Core i7-3770S"
+      "PROCESSOR_MODEL_NAME": "i7-3770S"
     },
     {
       "PROCESSOR_RELEASED": "Apr 2012",
@@ -2338,7 +2338,7 @@
       "PROCESSOR_PROCESS_SIZE": "22 nm",
       "PROCESSOR_SOCKET": "Intel Socket 1155",
       "PROCESSOR_SOCKET_IMAGE": "64.gif",
-      "PROCESSOR_MODEL_NAME": "Core i7-3770T"
+      "PROCESSOR_MODEL_NAME": "i7-3770T"
     },
     {
       "PROCESSOR_RELEASED": "Apr 2012",
@@ -2365,7 +2365,7 @@
       "PROCESSOR_PROCESS_SIZE": "22 nm",
       "PROCESSOR_SOCKET": "Intel Socket 1155",
       "PROCESSOR_SOCKET_IMAGE": "63.gif",
-      "PROCESSOR_MODEL_NAME": "Core i5-3570K"
+      "PROCESSOR_MODEL_NAME": "i5-3570K"
     },
     {
       "PROCESSOR_RELEASED": "Apr 2012",
@@ -2392,7 +2392,7 @@
       "PROCESSOR_PROCESS_SIZE": "22 nm",
       "PROCESSOR_SOCKET": "Intel Socket 1155",
       "PROCESSOR_SOCKET_IMAGE": "63.gif",
-      "PROCESSOR_MODEL_NAME": "Core i5-3550"
+      "PROCESSOR_MODEL_NAME": "i5-3550"
     },
     {
       "PROCESSOR_RELEASED": "Apr 2012",
@@ -2419,7 +2419,7 @@
       "PROCESSOR_PROCESS_SIZE": "22 nm",
       "PROCESSOR_SOCKET": "Intel Socket 1155",
       "PROCESSOR_SOCKET_IMAGE": "63.gif",
-      "PROCESSOR_MODEL_NAME": "Core i5-3550S"
+      "PROCESSOR_MODEL_NAME": "i5-3550S"
     },
     {
       "PROCESSOR_RELEASED": "Apr 2012",
@@ -2446,7 +2446,7 @@
       "PROCESSOR_PROCESS_SIZE": "22 nm",
       "PROCESSOR_SOCKET": "Intel Socket 1155",
       "PROCESSOR_SOCKET_IMAGE": "63.gif",
-      "PROCESSOR_MODEL_NAME": "Core i5-3570T"
+      "PROCESSOR_MODEL_NAME": "i5-3570T"
     },
     {
       "PROCESSOR_RELEASED": "Apr 2012",
@@ -2473,7 +2473,7 @@
       "PROCESSOR_PROCESS_SIZE": "22 nm",
       "PROCESSOR_SOCKET": "Intel Socket 1155",
       "PROCESSOR_SOCKET_IMAGE": "63.gif",
-      "PROCESSOR_MODEL_NAME": "Core i5-3450"
+      "PROCESSOR_MODEL_NAME": "i5-3450"
     },
     {
       "PROCESSOR_RELEASED": "Apr 2012",
@@ -2500,7 +2500,7 @@
       "PROCESSOR_PROCESS_SIZE": "22 nm",
       "PROCESSOR_SOCKET": "Intel Socket 1155",
       "PROCESSOR_SOCKET_IMAGE": "63.gif",
-      "PROCESSOR_MODEL_NAME": "Core i5-3450S"
+      "PROCESSOR_MODEL_NAME": "i5-3450S"
     },
     {
       "PROCESSOR_RELEASED": "Feb 2012",
@@ -2527,7 +2527,7 @@
       "PROCESSOR_PROCESS_SIZE": "32 nm",
       "PROCESSOR_SOCKET": "Intel Socket 2011",
       "PROCESSOR_SOCKET_IMAGE": "135.gif",
-      "PROCESSOR_MODEL_NAME": "Core i7-3820"
+      "PROCESSOR_MODEL_NAME": "i7-3820"
     },
     {
       "PROCESSOR_RELEASED": "Jan 2012",
@@ -2554,7 +2554,7 @@
       "PROCESSOR_PROCESS_SIZE": "32 nm",
       "PROCESSOR_SOCKET": "Intel Socket 1155",
       "PROCESSOR_SOCKET_IMAGE": "28.gif",
-      "PROCESSOR_MODEL_NAME": "Core i5-2550K"
+      "PROCESSOR_MODEL_NAME": "i5-2550K"
     },
     {
       "PROCESSOR_RELEASED": "Jan 2012",
@@ -2581,7 +2581,7 @@
       "PROCESSOR_PROCESS_SIZE": "32 nm",
       "PROCESSOR_SOCKET": "Intel Socket 1155",
       "PROCESSOR_SOCKET_IMAGE": "28.gif",
-      "PROCESSOR_MODEL_NAME": "Core i5-2450P"
+      "PROCESSOR_MODEL_NAME": "i5-2450P"
     },
     {
       "PROCESSOR_RELEASED": "Jan 2012",
@@ -2608,7 +2608,7 @@
       "PROCESSOR_PROCESS_SIZE": "32 nm",
       "PROCESSOR_SOCKET": "Intel Socket 1155",
       "PROCESSOR_SOCKET_IMAGE": "28.gif",
-      "PROCESSOR_MODEL_NAME": "Core i5-2380P"
+      "PROCESSOR_MODEL_NAME": "i5-2380P"
     },
     {
       "PROCESSOR_RELEASED": "Dec 2011",
@@ -2662,7 +2662,7 @@
       "PROCESSOR_PROCESS_SIZE": "32 nm",
       "PROCESSOR_SOCKET": "Intel Socket 2011",
       "PROCESSOR_SOCKET_IMAGE": "29.gif",
-      "PROCESSOR_MODEL_NAME": "Core i7-3960X"
+      "PROCESSOR_MODEL_NAME": "i7-3960X"
     },
     {
       "PROCESSOR_RELEASED": "Nov 2011",
@@ -2689,7 +2689,7 @@
       "PROCESSOR_PROCESS_SIZE": "32 nm",
       "PROCESSOR_SOCKET": "Intel Socket 2011",
       "PROCESSOR_SOCKET_IMAGE": "135.gif",
-      "PROCESSOR_MODEL_NAME": "Core i7-3930K"
+      "PROCESSOR_MODEL_NAME": "i7-3930K"
     },
     {
       "PROCESSOR_RELEASED": "Oct 2011",
@@ -2716,7 +2716,7 @@
       "PROCESSOR_PROCESS_SIZE": "32 nm",
       "PROCESSOR_SOCKET": "Intel Socket 1155",
       "PROCESSOR_SOCKET_IMAGE": "27.gif",
-      "PROCESSOR_MODEL_NAME": "Core i7-2700K"
+      "PROCESSOR_MODEL_NAME": "i7-2700K"
     },
     {
       "PROCESSOR_RELEASED": "Sep 2011",
@@ -2743,7 +2743,7 @@
       "PROCESSOR_PROCESS_SIZE": "32 nm",
       "PROCESSOR_SOCKET": "Intel Socket 1155",
       "PROCESSOR_SOCKET_IMAGE": "14.gif",
-      "PROCESSOR_MODEL_NAME": "Core i3-2130"
+      "PROCESSOR_MODEL_NAME": "i3-2130"
     },
     {
       "PROCESSOR_RELEASED": "Sep 2011",
@@ -2770,7 +2770,7 @@
       "PROCESSOR_PROCESS_SIZE": "32 nm",
       "PROCESSOR_SOCKET": "Intel Socket 1155",
       "PROCESSOR_SOCKET_IMAGE": "14.gif",
-      "PROCESSOR_MODEL_NAME": "Core i3-2125"
+      "PROCESSOR_MODEL_NAME": "i3-2125"
     },
     {
       "PROCESSOR_RELEASED": "Sep 2011",
@@ -2797,7 +2797,7 @@
       "PROCESSOR_PROCESS_SIZE": "32 nm",
       "PROCESSOR_SOCKET": "Intel Socket 1155",
       "PROCESSOR_SOCKET_IMAGE": "14.gif",
-      "PROCESSOR_MODEL_NAME": "Core i3-2120T"
+      "PROCESSOR_MODEL_NAME": "i3-2120T"
     },
     {
       "PROCESSOR_RELEASED": "Sep 2011",
@@ -2824,7 +2824,7 @@
       "PROCESSOR_PROCESS_SIZE": "32 nm",
       "PROCESSOR_SOCKET": "Intel Socket 1155",
       "PROCESSOR_SOCKET_IMAGE": "28.gif",
-      "PROCESSOR_MODEL_NAME": "Core i5-2320"
+      "PROCESSOR_MODEL_NAME": "i5-2320"
     },
     {
       "PROCESSOR_RELEASED": "Sep 2011",
@@ -3121,7 +3121,7 @@
       "PROCESSOR_PROCESS_SIZE": "32 nm",
       "PROCESSOR_SOCKET": "Intel Socket 1366",
       "PROCESSOR_SOCKET_IMAGE": "83.gif",
-      "PROCESSOR_MODEL_NAME": "Core i7-980"
+      "PROCESSOR_MODEL_NAME": "i7-980"
     },
     {
       "PROCESSOR_RELEASED": "Jun 2011",
@@ -3148,7 +3148,7 @@
       "PROCESSOR_PROCESS_SIZE": "32 nm",
       "PROCESSOR_SOCKET": "Intel Socket 1155",
       "PROCESSOR_SOCKET_IMAGE": "14.gif",
-      "PROCESSOR_MODEL_NAME": "Core i3-2102"
+      "PROCESSOR_MODEL_NAME": "i3-2102"
     },
     {
       "PROCESSOR_RELEASED": "May 2011",
@@ -3175,7 +3175,7 @@
       "PROCESSOR_PROCESS_SIZE": "32 nm",
       "PROCESSOR_SOCKET": "Intel Socket 1155",
       "PROCESSOR_SOCKET_IMAGE": "28.gif",
-      "PROCESSOR_MODEL_NAME": "Core i5-2405S"
+      "PROCESSOR_MODEL_NAME": "i5-2405S"
     },
     {
       "PROCESSOR_RELEASED": "May 2011",
@@ -3202,7 +3202,7 @@
       "PROCESSOR_PROCESS_SIZE": "32 nm",
       "PROCESSOR_SOCKET": "Intel Socket 1155",
       "PROCESSOR_SOCKET_IMAGE": "28.gif",
-      "PROCESSOR_MODEL_NAME": "Core i5-2310"
+      "PROCESSOR_MODEL_NAME": "i5-2310"
     },
     {
       "PROCESSOR_RELEASED": "May 2011",
@@ -3229,7 +3229,7 @@
       "PROCESSOR_PROCESS_SIZE": "32 nm",
       "PROCESSOR_SOCKET": "Intel Socket 1155",
       "PROCESSOR_SOCKET_IMAGE": "14.gif",
-      "PROCESSOR_MODEL_NAME": "Core i3-2105"
+      "PROCESSOR_MODEL_NAME": "i3-2105"
     },
     {
       "PROCESSOR_RELEASED": "May 2011",
@@ -3391,7 +3391,7 @@
       "PROCESSOR_PROCESS_SIZE": "32 nm",
       "PROCESSOR_SOCKET": "Intel Socket 1366",
       "PROCESSOR_SOCKET_IMAGE": "50.gif",
-      "PROCESSOR_MODEL_NAME": "Core i7-990X"
+      "PROCESSOR_MODEL_NAME": "i7-990X"
     },
     {
       "PROCESSOR_RELEASED": "Feb 2011",
@@ -3418,7 +3418,7 @@
       "PROCESSOR_PROCESS_SIZE": "32 nm",
       "PROCESSOR_SOCKET": "Intel Socket 1155",
       "PROCESSOR_SOCKET_IMAGE": "28.gif",
-      "PROCESSOR_MODEL_NAME": "Core i5-2390T"
+      "PROCESSOR_MODEL_NAME": "i5-2390T"
     },
     {
       "PROCESSOR_RELEASED": "Feb 2011",
@@ -3445,7 +3445,7 @@
       "PROCESSOR_PROCESS_SIZE": "32 nm",
       "PROCESSOR_SOCKET": "Intel Socket 1155",
       "PROCESSOR_SOCKET_IMAGE": "14.gif",
-      "PROCESSOR_MODEL_NAME": "Core i3-2100"
+      "PROCESSOR_MODEL_NAME": "i3-2100"
     },
     {
       "PROCESSOR_RELEASED": "Feb 2011",
@@ -3472,7 +3472,7 @@
       "PROCESSOR_PROCESS_SIZE": "32 nm",
       "PROCESSOR_SOCKET": "Intel Socket 1155",
       "PROCESSOR_SOCKET_IMAGE": "14.gif",
-      "PROCESSOR_MODEL_NAME": "Core i3-2100T"
+      "PROCESSOR_MODEL_NAME": "i3-2100T"
     },
     {
       "PROCESSOR_RELEASED": "Feb 2011",
@@ -3499,7 +3499,7 @@
       "PROCESSOR_PROCESS_SIZE": "32 nm",
       "PROCESSOR_SOCKET": "Intel Socket 1155",
       "PROCESSOR_SOCKET_IMAGE": "14.gif",
-      "PROCESSOR_MODEL_NAME": "Core i3-2120"
+      "PROCESSOR_MODEL_NAME": "i3-2120"
     },
     {
       "PROCESSOR_RELEASED": "Jan 2011",
@@ -3526,7 +3526,7 @@
       "PROCESSOR_PROCESS_SIZE": "32 nm",
       "PROCESSOR_SOCKET": "Intel Socket 1155",
       "PROCESSOR_SOCKET_IMAGE": "27.gif",
-      "PROCESSOR_MODEL_NAME": "Core i7-2600K"
+      "PROCESSOR_MODEL_NAME": "i7-2600K"
     },
     {
       "PROCESSOR_RELEASED": "Jan 2011",
@@ -3580,7 +3580,7 @@
       "PROCESSOR_PROCESS_SIZE": "32 nm",
       "PROCESSOR_SOCKET": "Intel Socket 1155",
       "PROCESSOR_SOCKET_IMAGE": "27.gif",
-      "PROCESSOR_MODEL_NAME": "Core i7-2600"
+      "PROCESSOR_MODEL_NAME": "i7-2600"
     },
     {
       "PROCESSOR_RELEASED": "Jan 2011",
@@ -3607,7 +3607,7 @@
       "PROCESSOR_PROCESS_SIZE": "32 nm",
       "PROCESSOR_SOCKET": "Intel Socket 1155",
       "PROCESSOR_SOCKET_IMAGE": "28.gif",
-      "PROCESSOR_MODEL_NAME": "Core i5-2500K"
+      "PROCESSOR_MODEL_NAME": "i5-2500K"
     },
     {
       "PROCESSOR_RELEASED": "Jan 2011",
@@ -3634,7 +3634,7 @@
       "PROCESSOR_PROCESS_SIZE": "32 nm",
       "PROCESSOR_SOCKET": "Intel Socket 1155",
       "PROCESSOR_SOCKET_IMAGE": "28.gif",
-      "PROCESSOR_MODEL_NAME": "Core i5-2500"
+      "PROCESSOR_MODEL_NAME": "i5-2500"
     },
     {
       "PROCESSOR_RELEASED": "Jan 2011",
@@ -3661,7 +3661,7 @@
       "PROCESSOR_PROCESS_SIZE": "32 nm",
       "PROCESSOR_SOCKET": "Intel Socket 1155",
       "PROCESSOR_SOCKET_IMAGE": "28.gif",
-      "PROCESSOR_MODEL_NAME": "Core i5-2500S"
+      "PROCESSOR_MODEL_NAME": "i5-2500S"
     },
     {
       "PROCESSOR_RELEASED": "Jan 2011",
@@ -3688,7 +3688,7 @@
       "PROCESSOR_PROCESS_SIZE": "32 nm",
       "PROCESSOR_SOCKET": "Intel Socket 1155",
       "PROCESSOR_SOCKET_IMAGE": "27.gif",
-      "PROCESSOR_MODEL_NAME": "Core i7-2600S"
+      "PROCESSOR_MODEL_NAME": "i7-2600S"
     },
     {
       "PROCESSOR_RELEASED": "Jan 2011",
@@ -3715,7 +3715,7 @@
       "PROCESSOR_PROCESS_SIZE": "32 nm",
       "PROCESSOR_SOCKET": "Intel Socket 1155",
       "PROCESSOR_SOCKET_IMAGE": "28.gif",
-      "PROCESSOR_MODEL_NAME": "Core i5-2500T"
+      "PROCESSOR_MODEL_NAME": "i5-2500T"
     },
     {
       "PROCESSOR_RELEASED": "Jan 2011",
@@ -3742,7 +3742,7 @@
       "PROCESSOR_PROCESS_SIZE": "32 nm",
       "PROCESSOR_SOCKET": "Intel Socket 1155",
       "PROCESSOR_SOCKET_IMAGE": "28.gif",
-      "PROCESSOR_MODEL_NAME": "Core i5-2300"
+      "PROCESSOR_MODEL_NAME": "i5-2300"
     },
     {
       "PROCESSOR_RELEASED": "Jan 2011",
@@ -3769,7 +3769,7 @@
       "PROCESSOR_PROCESS_SIZE": "32 nm",
       "PROCESSOR_SOCKET": "Intel Socket 1155",
       "PROCESSOR_SOCKET_IMAGE": "28.gif",
-      "PROCESSOR_MODEL_NAME": "Core i5-2400"
+      "PROCESSOR_MODEL_NAME": "i5-2400"
     },
     {
       "PROCESSOR_RELEASED": "Jan 2011",
@@ -3796,7 +3796,7 @@
       "PROCESSOR_PROCESS_SIZE": "32 nm",
       "PROCESSOR_SOCKET": "Intel Socket 1155",
       "PROCESSOR_SOCKET_IMAGE": "28.gif",
-      "PROCESSOR_MODEL_NAME": "Core i5-2400S"
+      "PROCESSOR_MODEL_NAME": "i5-2400S"
     },
     {
       "PROCESSOR_RELEASED": "Nov 2010",
@@ -3877,7 +3877,7 @@
       "PROCESSOR_PROCESS_SIZE": "32 nm",
       "PROCESSOR_SOCKET": "Intel Socket 1156",
       "PROCESSOR_SOCKET_IMAGE": "110.gif",
-      "PROCESSOR_MODEL_NAME": "Core i3-560"
+      "PROCESSOR_MODEL_NAME": "i3-560"
     },
     {
       "PROCESSOR_RELEASED": "Aug 2010",
@@ -3985,7 +3985,7 @@
       "PROCESSOR_PROCESS_SIZE": "45 nm",
       "PROCESSOR_SOCKET": "Intel Socket 1156",
       "PROCESSOR_SOCKET_IMAGE": "84.gif",
-      "PROCESSOR_MODEL_NAME": "Core i7-870S"
+      "PROCESSOR_MODEL_NAME": "i7-870S"
     },
     {
       "PROCESSOR_RELEASED": "Jul 2010",
@@ -4012,7 +4012,7 @@
       "PROCESSOR_PROCESS_SIZE": "32 nm",
       "PROCESSOR_SOCKET": "Intel Socket 1366",
       "PROCESSOR_SOCKET_IMAGE": "83.gif",
-      "PROCESSOR_MODEL_NAME": "Core i7-970"
+      "PROCESSOR_MODEL_NAME": "i7-970"
     },
     {
       "PROCESSOR_RELEASED": "Jul 2010",
@@ -4039,7 +4039,7 @@
       "PROCESSOR_PROCESS_SIZE": "45 nm",
       "PROCESSOR_SOCKET": "Intel Socket 1156",
       "PROCESSOR_SOCKET_IMAGE": "111.gif",
-      "PROCESSOR_MODEL_NAME": "Core i5-760"
+      "PROCESSOR_MODEL_NAME": "i5-760"
     },
     {
       "PROCESSOR_RELEASED": "May 2010",
@@ -4066,7 +4066,7 @@
       "PROCESSOR_PROCESS_SIZE": "45 nm",
       "PROCESSOR_SOCKET": "Intel Socket 1156",
       "PROCESSOR_SOCKET_IMAGE": "84.gif",
-      "PROCESSOR_MODEL_NAME": "Core i7-875K"
+      "PROCESSOR_MODEL_NAME": "i7-875K"
     },
     {
       "PROCESSOR_RELEASED": "May 2010",
@@ -4093,7 +4093,7 @@
       "PROCESSOR_PROCESS_SIZE": "45 nm",
       "PROCESSOR_SOCKET": "Intel Socket 1156",
       "PROCESSOR_SOCKET_IMAGE": "84.gif",
-      "PROCESSOR_MODEL_NAME": "Core i7-880"
+      "PROCESSOR_MODEL_NAME": "i7-880"
     },
     {
       "PROCESSOR_RELEASED": "May 2010",
@@ -4120,7 +4120,7 @@
       "PROCESSOR_PROCESS_SIZE": "32 nm",
       "PROCESSOR_SOCKET": "Intel Socket 1156",
       "PROCESSOR_SOCKET_IMAGE": "15.gif",
-      "PROCESSOR_MODEL_NAME": "Core i5-655K"
+      "PROCESSOR_MODEL_NAME": "i5-655K"
     },
     {
       "PROCESSOR_RELEASED": "May 2010",
@@ -4147,7 +4147,7 @@
       "PROCESSOR_PROCESS_SIZE": "32 nm",
       "PROCESSOR_SOCKET": "Intel Socket 1156",
       "PROCESSOR_SOCKET_IMAGE": "110.gif",
-      "PROCESSOR_MODEL_NAME": "Core i3-550"
+      "PROCESSOR_MODEL_NAME": "i3-550"
     },
     {
       "PROCESSOR_RELEASED": "May 2010",
@@ -4201,7 +4201,7 @@
       "PROCESSOR_PROCESS_SIZE": "32 nm",
       "PROCESSOR_SOCKET": "Intel Socket 1156",
       "PROCESSOR_SOCKET_IMAGE": "15.gif",
-      "PROCESSOR_MODEL_NAME": "Core i5-680"
+      "PROCESSOR_MODEL_NAME": "i5-680"
     },
     {
       "PROCESSOR_RELEASED": "Apr 2010",
@@ -4255,7 +4255,7 @@
       "PROCESSOR_PROCESS_SIZE": "32 nm",
       "PROCESSOR_SOCKET": "Intel Socket 1366",
       "PROCESSOR_SOCKET_IMAGE": "50.gif",
-      "PROCESSOR_MODEL_NAME": "Core i7-980X"
+      "PROCESSOR_MODEL_NAME": "i7-980X"
     },
     {
       "PROCESSOR_RELEASED": "Feb 2010",
@@ -4282,7 +4282,7 @@
       "PROCESSOR_PROCESS_SIZE": "45 nm",
       "PROCESSOR_SOCKET": "Intel Socket 1366",
       "PROCESSOR_SOCKET_IMAGE": "82.gif",
-      "PROCESSOR_MODEL_NAME": "Core i7-930"
+      "PROCESSOR_MODEL_NAME": "i7-930"
     },
     {
       "PROCESSOR_RELEASED": "Jan 2010",
@@ -4363,7 +4363,7 @@
       "PROCESSOR_PROCESS_SIZE": "45 nm",
       "PROCESSOR_SOCKET": "Intel Socket 1156",
       "PROCESSOR_SOCKET_IMAGE": "84.gif",
-      "PROCESSOR_MODEL_NAME": "Core i7-860S"
+      "PROCESSOR_MODEL_NAME": "i7-860S"
     },
     {
       "PROCESSOR_RELEASED": "Jan 2010",
@@ -4390,7 +4390,7 @@
       "PROCESSOR_PROCESS_SIZE": "45 nm",
       "PROCESSOR_SOCKET": "Intel Socket 1156",
       "PROCESSOR_SOCKET_IMAGE": "111.gif",
-      "PROCESSOR_MODEL_NAME": "Core i5-750s"
+      "PROCESSOR_MODEL_NAME": "i5-750s"
     },
     {
       "PROCESSOR_RELEASED": "Jan 2010",
@@ -4417,7 +4417,7 @@
       "PROCESSOR_PROCESS_SIZE": "32 nm",
       "PROCESSOR_SOCKET": "Intel Socket 1156",
       "PROCESSOR_SOCKET_IMAGE": "15.gif",
-      "PROCESSOR_MODEL_NAME": "Core i5-670"
+      "PROCESSOR_MODEL_NAME": "i5-670"
     },
     {
       "PROCESSOR_RELEASED": "Jan 2010",
@@ -4444,7 +4444,7 @@
       "PROCESSOR_PROCESS_SIZE": "32 nm",
       "PROCESSOR_SOCKET": "Intel Socket 1156",
       "PROCESSOR_SOCKET_IMAGE": "15.gif",
-      "PROCESSOR_MODEL_NAME": "Core i5-660"
+      "PROCESSOR_MODEL_NAME": "i5-660"
     },
     {
       "PROCESSOR_RELEASED": "Jan 2010",
@@ -4471,7 +4471,7 @@
       "PROCESSOR_PROCESS_SIZE": "32 nm",
       "PROCESSOR_SOCKET": "Intel Socket 1156",
       "PROCESSOR_SOCKET_IMAGE": "15.gif",
-      "PROCESSOR_MODEL_NAME": "Core i5-650"
+      "PROCESSOR_MODEL_NAME": "i5-650"
     },
     {
       "PROCESSOR_RELEASED": "Jan 2010",
@@ -4498,7 +4498,7 @@
       "PROCESSOR_PROCESS_SIZE": "32 nm",
       "PROCESSOR_SOCKET": "Intel Socket 1156",
       "PROCESSOR_SOCKET_IMAGE": "110.gif",
-      "PROCESSOR_MODEL_NAME": "Core i3-540"
+      "PROCESSOR_MODEL_NAME": "i3-540"
     },
     {
       "PROCESSOR_RELEASED": "Jan 2010",
@@ -4525,7 +4525,7 @@
       "PROCESSOR_PROCESS_SIZE": "32 nm",
       "PROCESSOR_SOCKET": "Intel Socket 1156",
       "PROCESSOR_SOCKET_IMAGE": "110.gif",
-      "PROCESSOR_MODEL_NAME": "Core i3-530"
+      "PROCESSOR_MODEL_NAME": "i3-530"
     },
     {
       "PROCESSOR_RELEASED": "Jan 2010",
@@ -4552,7 +4552,7 @@
       "PROCESSOR_PROCESS_SIZE": "32 nm",
       "PROCESSOR_SOCKET": "Intel Socket 1156",
       "PROCESSOR_SOCKET_IMAGE": "15.gif",
-      "PROCESSOR_MODEL_NAME": "Core i5-661"
+      "PROCESSOR_MODEL_NAME": "i5-661"
     },
     {
       "PROCESSOR_RELEASED": "Jan 2010",
@@ -4633,7 +4633,7 @@
       "PROCESSOR_PROCESS_SIZE": "45 nm",
       "PROCESSOR_SOCKET": "Intel Socket 1366",
       "PROCESSOR_SOCKET_IMAGE": "82.gif",
-      "PROCESSOR_MODEL_NAME": "Core i7-960"
+      "PROCESSOR_MODEL_NAME": "i7-960"
     },
     {
       "PROCESSOR_RELEASED": "Sep 2009",
@@ -4660,7 +4660,7 @@
       "PROCESSOR_PROCESS_SIZE": "45 nm",
       "PROCESSOR_SOCKET": "Intel Socket 1156",
       "PROCESSOR_SOCKET_IMAGE": "84.gif",
-      "PROCESSOR_MODEL_NAME": "Core i7-870"
+      "PROCESSOR_MODEL_NAME": "i7-870"
     },
     {
       "PROCESSOR_RELEASED": "Sep 2009",
@@ -4687,7 +4687,7 @@
       "PROCESSOR_PROCESS_SIZE": "45 nm",
       "PROCESSOR_SOCKET": "Intel Socket 1156",
       "PROCESSOR_SOCKET_IMAGE": "84.gif",
-      "PROCESSOR_MODEL_NAME": "Core i7-860"
+      "PROCESSOR_MODEL_NAME": "i7-860"
     },
     {
       "PROCESSOR_RELEASED": "Sep 2009",
@@ -4714,7 +4714,7 @@
       "PROCESSOR_PROCESS_SIZE": "45 nm",
       "PROCESSOR_SOCKET": "Intel Socket 1156",
       "PROCESSOR_SOCKET_IMAGE": "111.gif",
-      "PROCESSOR_MODEL_NAME": "Core i5-750"
+      "PROCESSOR_MODEL_NAME": "i5-750"
     },
     {
       "PROCESSOR_RELEASED": "Aug 2009",
@@ -4849,7 +4849,7 @@
       "PROCESSOR_PROCESS_SIZE": "45 nm",
       "PROCESSOR_SOCKET": "Intel Socket 1366",
       "PROCESSOR_SOCKET_IMAGE": "81.gif",
-      "PROCESSOR_MODEL_NAME": "Core i7-975"
+      "PROCESSOR_MODEL_NAME": "i7-975"
     },
     {
       "PROCESSOR_RELEASED": "Jun 2009",
@@ -4876,7 +4876,7 @@
       "PROCESSOR_PROCESS_SIZE": "45 nm",
       "PROCESSOR_SOCKET": "Intel Socket 1366",
       "PROCESSOR_SOCKET_IMAGE": "82.gif",
-      "PROCESSOR_MODEL_NAME": "Core i7-950"
+      "PROCESSOR_MODEL_NAME": "i7-950"
     },
     {
       "PROCESSOR_RELEASED": "Jun 2009",
@@ -4903,7 +4903,7 @@
       "PROCESSOR_PROCESS_SIZE": "45 nm",
       "PROCESSOR_SOCKET": "Intel Socket 775",
       "PROCESSOR_SOCKET_IMAGE": "105.gif",
-      "PROCESSOR_MODEL_NAME": "Pentium Dual-Core E2210"
+      "PROCESSOR_MODEL_NAME": "Pentium Dual-E2210"
     },
     {
       "PROCESSOR_RELEASED": "May 2009",
@@ -4957,7 +4957,7 @@
       "PROCESSOR_PROCESS_SIZE": "45 nm",
       "PROCESSOR_SOCKET": "Intel Socket 775",
       "PROCESSOR_SOCKET_IMAGE": "116.gif",
-      "PROCESSOR_MODEL_NAME": "Core 2 Duo E7600"
+      "PROCESSOR_MODEL_NAME": "2 Duo E7600"
     },
     {
       "PROCESSOR_RELEASED": "May 2009",
@@ -5011,7 +5011,7 @@
       "PROCESSOR_PROCESS_SIZE": "45 nm",
       "PROCESSOR_SOCKET": "Intel Socket 775",
       "PROCESSOR_SOCKET_IMAGE": "13.gif",
-      "PROCESSOR_MODEL_NAME": "Core 2 Quad Q8400"
+      "PROCESSOR_MODEL_NAME": "2 Quad Q8400"
     },
     {
       "PROCESSOR_RELEASED": "Apr 2009",
@@ -5038,7 +5038,7 @@
       "PROCESSOR_PROCESS_SIZE": "45 nm",
       "PROCESSOR_SOCKET": "Intel Socket 775",
       "PROCESSOR_SOCKET_IMAGE": "13.gif",
-      "PROCESSOR_MODEL_NAME": "Core 2 Quad Q8400s"
+      "PROCESSOR_MODEL_NAME": "2 Quad Q8400s"
     },
     {
       "PROCESSOR_RELEASED": "Jan 2009",
@@ -5065,7 +5065,7 @@
       "PROCESSOR_PROCESS_SIZE": "45 nm",
       "PROCESSOR_SOCKET": "Intel Socket 775",
       "PROCESSOR_SOCKET_IMAGE": "13.gif",
-      "PROCESSOR_MODEL_NAME": "Core 2 Quad Q9400s"
+      "PROCESSOR_MODEL_NAME": "2 Quad Q9400s"
     },
     {
       "PROCESSOR_RELEASED": "Jan 2009",
@@ -5092,7 +5092,7 @@
       "PROCESSOR_PROCESS_SIZE": "45 nm",
       "PROCESSOR_SOCKET": "Intel Socket 775",
       "PROCESSOR_SOCKET_IMAGE": "13.gif",
-      "PROCESSOR_MODEL_NAME": "Core 2 Quad Q8200s"
+      "PROCESSOR_MODEL_NAME": "2 Quad Q8200s"
     },
     {
       "PROCESSOR_RELEASED": "Jan 2009",
@@ -5146,7 +5146,7 @@
       "PROCESSOR_PROCESS_SIZE": "45 nm",
       "PROCESSOR_SOCKET": "Intel Socket 775",
       "PROCESSOR_SOCKET_IMAGE": "116.gif",
-      "PROCESSOR_MODEL_NAME": "Core 2 Duo E7500"
+      "PROCESSOR_MODEL_NAME": "2 Duo E7500"
     },
     {
       "PROCESSOR_RELEASED": "Nov 2008",
@@ -5173,7 +5173,7 @@
       "PROCESSOR_PROCESS_SIZE": "45 nm",
       "PROCESSOR_SOCKET": "Intel Socket 775",
       "PROCESSOR_SOCKET_IMAGE": "13.gif",
-      "PROCESSOR_MODEL_NAME": "Core 2 Quad Q8300"
+      "PROCESSOR_MODEL_NAME": "2 Quad Q8300"
     },
     {
       "PROCESSOR_RELEASED": "Nov 2008",
@@ -5254,7 +5254,7 @@
       "PROCESSOR_PROCESS_SIZE": "45 nm",
       "PROCESSOR_SOCKET": "Intel Socket 1366",
       "PROCESSOR_SOCKET_IMAGE": "81.gif",
-      "PROCESSOR_MODEL_NAME": "Core i7-965"
+      "PROCESSOR_MODEL_NAME": "i7-965"
     },
     {
       "PROCESSOR_RELEASED": "Nov 2008",
@@ -5281,7 +5281,7 @@
       "PROCESSOR_PROCESS_SIZE": "45 nm",
       "PROCESSOR_SOCKET": "Intel Socket 1366",
       "PROCESSOR_SOCKET_IMAGE": "82.gif",
-      "PROCESSOR_MODEL_NAME": "Core i7-940"
+      "PROCESSOR_MODEL_NAME": "i7-940"
     },
     {
       "PROCESSOR_RELEASED": "Nov 2008",
@@ -5308,7 +5308,7 @@
       "PROCESSOR_PROCESS_SIZE": "45 nm",
       "PROCESSOR_SOCKET": "Intel Socket 1366",
       "PROCESSOR_SOCKET_IMAGE": "82.gif",
-      "PROCESSOR_MODEL_NAME": "Core i7-920"
+      "PROCESSOR_MODEL_NAME": "i7-920"
     },
     {
       "PROCESSOR_RELEASED": "Oct 2008",
@@ -5335,7 +5335,7 @@
       "PROCESSOR_PROCESS_SIZE": "45 nm",
       "PROCESSOR_SOCKET": "Intel Socket 775",
       "PROCESSOR_SOCKET_IMAGE": "116.gif",
-      "PROCESSOR_MODEL_NAME": "Core 2 Duo E7400"
+      "PROCESSOR_MODEL_NAME": "2 Duo E7400"
     },
     {
       "PROCESSOR_RELEASED": "Aug 2008",
@@ -5362,7 +5362,7 @@
       "PROCESSOR_PROCESS_SIZE": "45 nm",
       "PROCESSOR_SOCKET": "Intel Socket 775",
       "PROCESSOR_SOCKET_IMAGE": "13.gif",
-      "PROCESSOR_MODEL_NAME": "Core 2 Quad Q8200"
+      "PROCESSOR_MODEL_NAME": "2 Quad Q8200"
     },
     {
       "PROCESSOR_RELEASED": "Aug 2008",
@@ -5443,7 +5443,7 @@
       "PROCESSOR_PROCESS_SIZE": "45 nm",
       "PROCESSOR_SOCKET": "Intel Socket 775",
       "PROCESSOR_SOCKET_IMAGE": "116.gif",
-      "PROCESSOR_MODEL_NAME": "Core 2 Duo E8600"
+      "PROCESSOR_MODEL_NAME": "2 Duo E8600"
     },
     {
       "PROCESSOR_RELEASED": "Aug 2008",
@@ -5470,7 +5470,7 @@
       "PROCESSOR_PROCESS_SIZE": "45 nm",
       "PROCESSOR_SOCKET": "Intel Socket 775",
       "PROCESSOR_SOCKET_IMAGE": "116.gif",
-      "PROCESSOR_MODEL_NAME": "Core 2 Duo E7300"
+      "PROCESSOR_MODEL_NAME": "2 Duo E7300"
     },
     {
       "PROCESSOR_RELEASED": "Aug 2008",
@@ -5497,7 +5497,7 @@
       "PROCESSOR_PROCESS_SIZE": "45 nm",
       "PROCESSOR_SOCKET": "Intel Socket 775",
       "PROCESSOR_SOCKET_IMAGE": "13.gif",
-      "PROCESSOR_MODEL_NAME": "Core 2 Quad Q9400"
+      "PROCESSOR_MODEL_NAME": "2 Quad Q9400"
     },
     {
       "PROCESSOR_RELEASED": "Aug 2008",
@@ -5524,7 +5524,7 @@
       "PROCESSOR_PROCESS_SIZE": "45 nm",
       "PROCESSOR_SOCKET": "Intel Socket 775",
       "PROCESSOR_SOCKET_IMAGE": "13.gif",
-      "PROCESSOR_MODEL_NAME": "Core 2 Quad Q9650"
+      "PROCESSOR_MODEL_NAME": "2 Quad Q9650"
     },
     {
       "PROCESSOR_RELEASED": "Aug 2008",
@@ -5551,7 +5551,7 @@
       "PROCESSOR_PROCESS_SIZE": "45 nm",
       "PROCESSOR_SOCKET": "Intel Socket 775",
       "PROCESSOR_SOCKET_IMAGE": "116.gif",
-      "PROCESSOR_MODEL_NAME": "Core 2 Duo E8500"
+      "PROCESSOR_MODEL_NAME": "2 Duo E8500"
     },
     {
       "PROCESSOR_RELEASED": "May 2008",
@@ -5605,7 +5605,7 @@
       "PROCESSOR_PROCESS_SIZE": "45 nm",
       "PROCESSOR_SOCKET": "Intel Socket 775",
       "PROCESSOR_SOCKET_IMAGE": "116.gif",
-      "PROCESSOR_MODEL_NAME": "Core 2 Duo E7200"
+      "PROCESSOR_MODEL_NAME": "2 Duo E7200"
     },
     {
       "PROCESSOR_RELEASED": "Apr 2008",
@@ -5659,7 +5659,7 @@
       "PROCESSOR_PROCESS_SIZE": "45 nm",
       "PROCESSOR_SOCKET": "Intel Socket 775",
       "PROCESSOR_SOCKET_IMAGE": "116.gif",
-      "PROCESSOR_MODEL_NAME": "Core 2 Duo E8300"
+      "PROCESSOR_MODEL_NAME": "2 Duo E8300"
     },
     {
       "PROCESSOR_RELEASED": "Mar 2008",
@@ -5686,7 +5686,7 @@
       "PROCESSOR_PROCESS_SIZE": "45 nm",
       "PROCESSOR_SOCKET": "Intel Socket 775",
       "PROCESSOR_SOCKET_IMAGE": "13.gif",
-      "PROCESSOR_MODEL_NAME": "Core 2 Quad Q9450"
+      "PROCESSOR_MODEL_NAME": "2 Quad Q9450"
     },
     {
       "PROCESSOR_RELEASED": "Mar 2008",
@@ -5713,7 +5713,7 @@
       "PROCESSOR_PROCESS_SIZE": "45 nm",
       "PROCESSOR_SOCKET": "Intel Socket 775",
       "PROCESSOR_SOCKET_IMAGE": "13.gif",
-      "PROCESSOR_MODEL_NAME": "Core 2 Quad Q9550"
+      "PROCESSOR_MODEL_NAME": "2 Quad Q9550"
     },
     {
       "PROCESSOR_RELEASED": "Mar 2008",
@@ -5740,7 +5740,7 @@
       "PROCESSOR_PROCESS_SIZE": "45 nm",
       "PROCESSOR_SOCKET": "Intel Socket 775",
       "PROCESSOR_SOCKET_IMAGE": "122.gif",
-      "PROCESSOR_MODEL_NAME": "Core 2 Extreme QX9770"
+      "PROCESSOR_MODEL_NAME": "2 Extreme QX9770"
     },
     {
       "PROCESSOR_RELEASED": "Mar 2008",
@@ -5767,7 +5767,7 @@
       "PROCESSOR_PROCESS_SIZE": "45 nm",
       "PROCESSOR_SOCKET": "Intel Socket 771",
       "PROCESSOR_SOCKET_IMAGE": "122.gif",
-      "PROCESSOR_MODEL_NAME": "Core 2 Extreme QX9775"
+      "PROCESSOR_MODEL_NAME": "2 Extreme QX9775"
     },
     {
       "PROCESSOR_RELEASED": "Mar 2008",
@@ -5794,7 +5794,7 @@
       "PROCESSOR_PROCESS_SIZE": "45 nm",
       "PROCESSOR_SOCKET": "Intel Socket 775",
       "PROCESSOR_SOCKET_IMAGE": "13.gif",
-      "PROCESSOR_MODEL_NAME": "Core 2 Quad Q9300"
+      "PROCESSOR_MODEL_NAME": "2 Quad Q9300"
     },
     {
       "PROCESSOR_RELEASED": "Mar 2008",
@@ -5821,7 +5821,7 @@
       "PROCESSOR_PROCESS_SIZE": "65 nm",
       "PROCESSOR_SOCKET": "Intel Socket 775",
       "PROCESSOR_SOCKET_IMAGE": "117.gif",
-      "PROCESSOR_MODEL_NAME": "Core 2 Duo E4700"
+      "PROCESSOR_MODEL_NAME": "2 Duo E4700"
     },
     {
       "PROCESSOR_RELEASED": "Mar 2008",
@@ -5848,7 +5848,7 @@
       "PROCESSOR_PROCESS_SIZE": "65 nm",
       "PROCESSOR_SOCKET": "Intel Socket 775",
       "PROCESSOR_SOCKET_IMAGE": "104.gif",
-      "PROCESSOR_MODEL_NAME": "Pentium Dual-Core E2220"
+      "PROCESSOR_MODEL_NAME": "Pentium Dual-E2220"
     },
     {
       "PROCESSOR_RELEASED": "Jan 2008",
@@ -5902,7 +5902,7 @@
       "PROCESSOR_PROCESS_SIZE": "45 nm",
       "PROCESSOR_SOCKET": "Intel Socket 775",
       "PROCESSOR_SOCKET_IMAGE": "116.gif",
-      "PROCESSOR_MODEL_NAME": "Core 2 Duo E8190"
+      "PROCESSOR_MODEL_NAME": "2 Duo E8190"
     },
     {
       "PROCESSOR_RELEASED": "Jan 2008",
@@ -5929,7 +5929,7 @@
       "PROCESSOR_PROCESS_SIZE": "45 nm",
       "PROCESSOR_SOCKET": "Intel Socket 775",
       "PROCESSOR_SOCKET_IMAGE": "116.gif",
-      "PROCESSOR_MODEL_NAME": "Core 2 Duo E8400"
+      "PROCESSOR_MODEL_NAME": "2 Duo E8400"
     },
     {
       "PROCESSOR_RELEASED": "Jan 2008",
@@ -5956,7 +5956,7 @@
       "PROCESSOR_PROCESS_SIZE": "45 nm",
       "PROCESSOR_SOCKET": "Intel Socket 775",
       "PROCESSOR_SOCKET_IMAGE": "116.gif",
-      "PROCESSOR_MODEL_NAME": "Core 2 Duo E8200"
+      "PROCESSOR_MODEL_NAME": "2 Duo E8200"
     },
     {
       "PROCESSOR_RELEASED": "Aug 2008",
@@ -5983,7 +5983,7 @@
       "PROCESSOR_PROCESS_SIZE": "45 nm",
       "PROCESSOR_SOCKET": "Intel Socket 775",
       "PROCESSOR_SOCKET_IMAGE": "116.gif",
-      "PROCESSOR_MODEL_NAME": "Core 2 Duo E8500"
+      "PROCESSOR_MODEL_NAME": "2 Duo E8500"
     },
     {
       "PROCESSOR_RELEASED": "Dec 2007",
@@ -6010,7 +6010,7 @@
       "PROCESSOR_PROCESS_SIZE": "65 nm",
       "PROCESSOR_SOCKET": "Intel Socket 775",
       "PROCESSOR_SOCKET_IMAGE": "104.gif",
-      "PROCESSOR_MODEL_NAME": "Pentium Dual-Core E2200"
+      "PROCESSOR_MODEL_NAME": "Pentium Dual-E2200"
     },
     {
       "PROCESSOR_RELEASED": "Nov 2007",
@@ -6037,7 +6037,7 @@
       "PROCESSOR_PROCESS_SIZE": "45 nm",
       "PROCESSOR_SOCKET": "Intel Socket 775",
       "PROCESSOR_SOCKET_IMAGE": "122.gif",
-      "PROCESSOR_MODEL_NAME": "Core 2 Extreme QX9650"
+      "PROCESSOR_MODEL_NAME": "2 Extreme QX9650"
     },
     {
       "PROCESSOR_RELEASED": "Oct 2007",
@@ -6064,7 +6064,7 @@
       "PROCESSOR_PROCESS_SIZE": "65 nm",
       "PROCESSOR_SOCKET": "Intel Socket 775",
       "PROCESSOR_SOCKET_IMAGE": "117.gif",
-      "PROCESSOR_MODEL_NAME": "Core 2 Duo E4600"
+      "PROCESSOR_MODEL_NAME": "2 Duo E4600"
     },
     {
       "PROCESSOR_RELEASED": "Oct 2007",
@@ -6118,7 +6118,7 @@
       "PROCESSOR_PROCESS_SIZE": "65 nm",
       "PROCESSOR_SOCKET": "Intel Socket 775",
       "PROCESSOR_SOCKET_IMAGE": "104.gif",
-      "PROCESSOR_MODEL_NAME": "Pentium Dual-Core E2180"
+      "PROCESSOR_MODEL_NAME": "Pentium Dual-E2180"
     },
     {
       "PROCESSOR_RELEASED": "Jul 2007",
@@ -6145,7 +6145,7 @@
       "PROCESSOR_PROCESS_SIZE": "65 nm",
       "PROCESSOR_SOCKET": "Intel Socket 775",
       "PROCESSOR_SOCKET_IMAGE": "119.gif",
-      "PROCESSOR_MODEL_NAME": "Core 2 Quad Q6600 (95W)"
+      "PROCESSOR_MODEL_NAME": "2 Quad Q6600 (95W)"
     },
     {
       "PROCESSOR_RELEASED": "Jul 2007",
@@ -6172,7 +6172,7 @@
       "PROCESSOR_PROCESS_SIZE": "65 nm",
       "PROCESSOR_SOCKET": "Intel Socket 775",
       "PROCESSOR_SOCKET_IMAGE": "117.gif",
-      "PROCESSOR_MODEL_NAME": "Core 2 Duo E4400"
+      "PROCESSOR_MODEL_NAME": "2 Duo E4400"
     },
     {
       "PROCESSOR_RELEASED": "Jul 2007",
@@ -6199,7 +6199,7 @@
       "PROCESSOR_PROCESS_SIZE": "65 nm",
       "PROCESSOR_SOCKET": "Intel Socket 775",
       "PROCESSOR_SOCKET_IMAGE": "117.gif",
-      "PROCESSOR_MODEL_NAME": "Core 2 Duo E4500"
+      "PROCESSOR_MODEL_NAME": "2 Duo E4500"
     },
     {
       "PROCESSOR_RELEASED": "Jul 2007",
@@ -6226,7 +6226,7 @@
       "PROCESSOR_PROCESS_SIZE": "65 nm",
       "PROCESSOR_SOCKET": "Intel Socket 775",
       "PROCESSOR_SOCKET_IMAGE": "123.gif",
-      "PROCESSOR_MODEL_NAME": "Core 2 Extreme QX6850"
+      "PROCESSOR_MODEL_NAME": "2 Extreme QX6850"
     },
     {
       "PROCESSOR_RELEASED": "Jul 2007",
@@ -6253,7 +6253,7 @@
       "PROCESSOR_PROCESS_SIZE": "65 nm",
       "PROCESSOR_SOCKET": "Intel Socket 775",
       "PROCESSOR_SOCKET_IMAGE": "11.gif",
-      "PROCESSOR_MODEL_NAME": "Core 2 Duo E6850"
+      "PROCESSOR_MODEL_NAME": "2 Duo E6850"
     },
     {
       "PROCESSOR_RELEASED": "Jul 2007",
@@ -6280,7 +6280,7 @@
       "PROCESSOR_PROCESS_SIZE": "65 nm",
       "PROCESSOR_SOCKET": "Intel Socket 775",
       "PROCESSOR_SOCKET_IMAGE": "11.gif",
-      "PROCESSOR_MODEL_NAME": "Core 2 Duo E6750"
+      "PROCESSOR_MODEL_NAME": "2 Duo E6750"
     },
     {
       "PROCESSOR_RELEASED": "Jul 2007",
@@ -6307,7 +6307,7 @@
       "PROCESSOR_PROCESS_SIZE": "65 nm",
       "PROCESSOR_SOCKET": "Intel Socket 775",
       "PROCESSOR_SOCKET_IMAGE": "11.gif",
-      "PROCESSOR_MODEL_NAME": "Core 2 Duo E6550"
+      "PROCESSOR_MODEL_NAME": "2 Duo E6550"
     },
     {
       "PROCESSOR_RELEASED": "Jun 2007",
@@ -6334,7 +6334,7 @@
       "PROCESSOR_PROCESS_SIZE": "65 nm",
       "PROCESSOR_SOCKET": "Intel Socket 775",
       "PROCESSOR_SOCKET_IMAGE": "104.gif",
-      "PROCESSOR_MODEL_NAME": "Pentium Dual-Core E2140"
+      "PROCESSOR_MODEL_NAME": "Pentium Dual-E2140"
     },
     {
       "PROCESSOR_RELEASED": "Jun 2007",
@@ -6361,7 +6361,7 @@
       "PROCESSOR_PROCESS_SIZE": "65 nm",
       "PROCESSOR_SOCKET": "Intel Socket 775",
       "PROCESSOR_SOCKET_IMAGE": "104.gif",
-      "PROCESSOR_MODEL_NAME": "Pentium Dual-Core E2160"
+      "PROCESSOR_MODEL_NAME": "Pentium Dual-E2160"
     },
     {
       "PROCESSOR_RELEASED": "Jun 2007",
@@ -6469,7 +6469,7 @@
       "PROCESSOR_PROCESS_SIZE": "65 nm",
       "PROCESSOR_SOCKET": "Intel Socket 775",
       "PROCESSOR_SOCKET_IMAGE": "119.gif",
-      "PROCESSOR_MODEL_NAME": "Core 2 Quad Q6700"
+      "PROCESSOR_MODEL_NAME": "2 Quad Q6700"
     },
     {
       "PROCESSOR_RELEASED": "Apr 2007",
@@ -6496,7 +6496,7 @@
       "PROCESSOR_PROCESS_SIZE": "65 nm",
       "PROCESSOR_SOCKET": "Intel Socket 775",
       "PROCESSOR_SOCKET_IMAGE": "123.gif",
-      "PROCESSOR_MODEL_NAME": "Core 2 Extreme QX6800"
+      "PROCESSOR_MODEL_NAME": "2 Extreme QX6800"
     },
     {
       "PROCESSOR_RELEASED": "Apr 2007",
@@ -6523,7 +6523,7 @@
       "PROCESSOR_PROCESS_SIZE": "65 nm",
       "PROCESSOR_SOCKET": "Intel Socket 775",
       "PROCESSOR_SOCKET_IMAGE": "11.gif",
-      "PROCESSOR_MODEL_NAME": "Core 2 Duo E6320"
+      "PROCESSOR_MODEL_NAME": "2 Duo E6320"
     },
     {
       "PROCESSOR_RELEASED": "Apr 2007",
@@ -6550,7 +6550,7 @@
       "PROCESSOR_PROCESS_SIZE": "65 nm",
       "PROCESSOR_SOCKET": "Intel Socket 775",
       "PROCESSOR_SOCKET_IMAGE": "11.gif",
-      "PROCESSOR_MODEL_NAME": "Core 2 Duo E6420"
+      "PROCESSOR_MODEL_NAME": "2 Duo E6420"
     },
     {
       "PROCESSOR_RELEASED": "Jan 2007",
@@ -6577,7 +6577,7 @@
       "PROCESSOR_PROCESS_SIZE": "45 nm",
       "PROCESSOR_SOCKET": "Intel Socket 775",
       "PROCESSOR_SOCKET_IMAGE": "13.gif",
-      "PROCESSOR_MODEL_NAME": "Core 2 Quad Q9550s"
+      "PROCESSOR_MODEL_NAME": "2 Quad Q9550s"
     },
     {
       "PROCESSOR_RELEASED": "Jan 2007",
@@ -6604,7 +6604,7 @@
       "PROCESSOR_PROCESS_SIZE": "65 nm",
       "PROCESSOR_SOCKET": "Intel Socket 775",
       "PROCESSOR_SOCKET_IMAGE": "119.gif",
-      "PROCESSOR_MODEL_NAME": "Core 2 Quad Q6600 (105W)"
+      "PROCESSOR_MODEL_NAME": "2 Quad Q6600 (105W)"
     },
     {
       "PROCESSOR_RELEASED": "Jan 2007",
@@ -6658,7 +6658,7 @@
       "PROCESSOR_PROCESS_SIZE": "65 nm",
       "PROCESSOR_SOCKET": "Intel Socket 775",
       "PROCESSOR_SOCKET_IMAGE": "123.gif",
-      "PROCESSOR_MODEL_NAME": "Core 2 Extreme QX6700"
+      "PROCESSOR_MODEL_NAME": "2 Extreme QX6700"
     },
     {
       "PROCESSOR_RELEASED": "Oct 2006",
@@ -6712,7 +6712,7 @@
       "PROCESSOR_PROCESS_SIZE": "65 nm",
       "PROCESSOR_SOCKET": "Intel Socket 775",
       "PROCESSOR_SOCKET_IMAGE": "12.gif",
-      "PROCESSOR_MODEL_NAME": "Core 2 Extreme X6800"
+      "PROCESSOR_MODEL_NAME": "2 Extreme X6800"
     },
     {
       "PROCESSOR_RELEASED": "Jul 2006",
@@ -6739,7 +6739,7 @@
       "PROCESSOR_PROCESS_SIZE": "65 nm",
       "PROCESSOR_SOCKET": "Intel Socket 775",
       "PROCESSOR_SOCKET_IMAGE": "11.gif",
-      "PROCESSOR_MODEL_NAME": "Core 2 Duo E6700"
+      "PROCESSOR_MODEL_NAME": "2 Duo E6700"
     },
     {
       "PROCESSOR_RELEASED": "Jul 2006",
@@ -6766,7 +6766,7 @@
       "PROCESSOR_PROCESS_SIZE": "65 nm",
       "PROCESSOR_SOCKET": "Intel Socket 775",
       "PROCESSOR_SOCKET_IMAGE": "11.gif",
-      "PROCESSOR_MODEL_NAME": "Core 2 Duo E6600"
+      "PROCESSOR_MODEL_NAME": "2 Duo E6600"
     },
     {
       "PROCESSOR_RELEASED": "Jul 2006",
@@ -6793,7 +6793,7 @@
       "PROCESSOR_PROCESS_SIZE": "65 nm",
       "PROCESSOR_SOCKET": "Intel Socket 775",
       "PROCESSOR_SOCKET_IMAGE": "11.gif",
-      "PROCESSOR_MODEL_NAME": "Core 2 Duo E6400"
+      "PROCESSOR_MODEL_NAME": "2 Duo E6400"
     },
     {
       "PROCESSOR_RELEASED": "Jul 2006",
@@ -6820,7 +6820,7 @@
       "PROCESSOR_PROCESS_SIZE": "65 nm",
       "PROCESSOR_SOCKET": "Intel Socket 775",
       "PROCESSOR_SOCKET_IMAGE": "11.gif",
-      "PROCESSOR_MODEL_NAME": "Core 2 Duo E6300"
+      "PROCESSOR_MODEL_NAME": "2 Duo E6300"
     },
     {
       "PROCESSOR_RELEASED": "Jul 2006",
@@ -6847,7 +6847,7 @@
       "PROCESSOR_PROCESS_SIZE": "65 nm",
       "PROCESSOR_SOCKET": "Intel Socket 775",
       "PROCESSOR_SOCKET_IMAGE": "117.gif",
-      "PROCESSOR_MODEL_NAME": "Core 2 Duo E4300"
+      "PROCESSOR_MODEL_NAME": "2 Duo E4300"
     },
     {
       "PROCESSOR_RELEASED": "Jul 2006",
@@ -10492,7 +10492,7 @@
       "PROCESSOR_PROCESS_SIZE": "45 nm",
       "PROCESSOR_SOCKET": "Intel Socket 775",
       "PROCESSOR_SOCKET_IMAGE": "116.gif",
-      "PROCESSOR_MODEL_NAME": "Core 2 Duo E8600"
+      "PROCESSOR_MODEL_NAME": "2 Duo E8600"
     },
     {
       "PROCESSOR_RELEASED": "Jan 2001",
@@ -10519,7 +10519,7 @@
       "PROCESSOR_PROCESS_SIZE": "45 nm",
       "PROCESSOR_SOCKET": "Intel Socket 775",
       "PROCESSOR_SOCKET_IMAGE": "13.gif",
-      "PROCESSOR_MODEL_NAME": "Core 2 Quad Q7600"
+      "PROCESSOR_MODEL_NAME": "2 Quad Q7600"
     },
     {
       "PROCESSOR_RELEASED": "Aug 2001",
@@ -10627,7 +10627,7 @@
       "PROCESSOR_PROCESS_SIZE": "22 nm",
       "PROCESSOR_SOCKET": "Intel Socket G3",
       "PROCESSOR_SOCKET_IMAGE": "310.gif",
-      "PROCESSOR_MODEL_NAME": "Core i7-4940MX"
+      "PROCESSOR_MODEL_NAME": "i7-4940MX"
     },
     {
       "PROCESSOR_RELEASED": "Jan 2014",
@@ -10654,7 +10654,7 @@
       "PROCESSOR_PROCESS_SIZE": "22 nm",
       "PROCESSOR_SOCKET": "Intel Socket G3",
       "PROCESSOR_SOCKET_IMAGE": "310.gif",
-      "PROCESSOR_MODEL_NAME": "Core i7-4910MQ"
+      "PROCESSOR_MODEL_NAME": "i7-4910MQ"
     },
     {
       "PROCESSOR_RELEASED": "Jan 2014",
@@ -10681,7 +10681,7 @@
       "PROCESSOR_PROCESS_SIZE": "22 nm",
       "PROCESSOR_SOCKET": "Intel Socket G3",
       "PROCESSOR_SOCKET_IMAGE": "310.gif",
-      "PROCESSOR_MODEL_NAME": "Core i7-4810MQ"
+      "PROCESSOR_MODEL_NAME": "i7-4810MQ"
     },
     {
       "PROCESSOR_RELEASED": "Sep 2013",
@@ -10708,7 +10708,7 @@
       "PROCESSOR_PROCESS_SIZE": "22 nm",
       "PROCESSOR_SOCKET": "Intel Socket G3",
       "PROCESSOR_SOCKET_IMAGE": "309.gif",
-      "PROCESSOR_MODEL_NAME": "Core i3-4000M"
+      "PROCESSOR_MODEL_NAME": "i3-4000M"
     },
     {
       "PROCESSOR_RELEASED": "Sep 2013",
@@ -10735,7 +10735,7 @@
       "PROCESSOR_PROCESS_SIZE": "22 nm",
       "PROCESSOR_SOCKET": "Intel BGA1364",
       "PROCESSOR_SOCKET_IMAGE": "309.gif",
-      "PROCESSOR_MODEL_NAME": "Core i3-4100E"
+      "PROCESSOR_MODEL_NAME": "i3-4100E"
     },
     {
       "PROCESSOR_RELEASED": "Sep 2013",
@@ -10762,7 +10762,7 @@
       "PROCESSOR_PROCESS_SIZE": "22 nm",
       "PROCESSOR_SOCKET": "Intel BGA1364",
       "PROCESSOR_SOCKET_IMAGE": "309.gif",
-      "PROCESSOR_MODEL_NAME": "Core i3-4102E"
+      "PROCESSOR_MODEL_NAME": "i3-4102E"
     },
     {
       "PROCESSOR_RELEASED": "Sep 2013",
@@ -10789,7 +10789,7 @@
       "PROCESSOR_PROCESS_SIZE": "22 nm",
       "PROCESSOR_SOCKET": "Intel BGA1168",
       "PROCESSOR_SOCKET_IMAGE": "309.gif",
-      "PROCESSOR_MODEL_NAME": "Core i3-4005U"
+      "PROCESSOR_MODEL_NAME": "i3-4005U"
     },
     {
       "PROCESSOR_RELEASED": "Sep 2013",
@@ -10816,7 +10816,7 @@
       "PROCESSOR_PROCESS_SIZE": "22 nm",
       "PROCESSOR_SOCKET": "Intel Socket G3",
       "PROCESSOR_SOCKET_IMAGE": "310.gif",
-      "PROCESSOR_MODEL_NAME": "Core i7-4600M"
+      "PROCESSOR_MODEL_NAME": "i7-4600M"
     },
     {
       "PROCESSOR_RELEASED": "Sep 2013",
@@ -10843,7 +10843,7 @@
       "PROCESSOR_PROCESS_SIZE": "22 nm",
       "PROCESSOR_SOCKET": "Intel BGA1364",
       "PROCESSOR_SOCKET_IMAGE": "291.gif",
-      "PROCESSOR_MODEL_NAME": "Core i7-4960HQ"
+      "PROCESSOR_MODEL_NAME": "i7-4960HQ"
     },
     {
       "PROCESSOR_RELEASED": "Sep 2013",
@@ -10870,7 +10870,7 @@
       "PROCESSOR_PROCESS_SIZE": "22 nm",
       "PROCESSOR_SOCKET": "Intel BGA1168",
       "PROCESSOR_SOCKET_IMAGE": "310.gif",
-      "PROCESSOR_MODEL_NAME": "Core i7-4600U"
+      "PROCESSOR_MODEL_NAME": "i7-4600U"
     },
     {
       "PROCESSOR_RELEASED": "Sep 2013",
@@ -10897,7 +10897,7 @@
       "PROCESSOR_PROCESS_SIZE": "22 nm",
       "PROCESSOR_SOCKET": "Intel Socket G3",
       "PROCESSOR_SOCKET_IMAGE": "308.gif",
-      "PROCESSOR_MODEL_NAME": "Core i5-4330M"
+      "PROCESSOR_MODEL_NAME": "i5-4330M"
     },
     {
       "PROCESSOR_RELEASED": "Sep 2013",
@@ -10978,7 +10978,7 @@
       "PROCESSOR_PROCESS_SIZE": "22 nm",
       "PROCESSOR_SOCKET": "Intel Socket G3",
       "PROCESSOR_SOCKET_IMAGE": "308.gif",
-      "PROCESSOR_MODEL_NAME": "Core i5-4300M"
+      "PROCESSOR_MODEL_NAME": "i5-4300M"
     },
     {
       "PROCESSOR_RELEASED": "Sep 2013",
@@ -11167,7 +11167,7 @@
       "PROCESSOR_PROCESS_SIZE": "22 nm",
       "PROCESSOR_SOCKET": "Intel BGA1364",
       "PROCESSOR_SOCKET_IMAGE": "291.gif",
-      "PROCESSOR_MODEL_NAME": "Core i7-4850EQ"
+      "PROCESSOR_MODEL_NAME": "i7-4850EQ"
     },
     {
       "PROCESSOR_RELEASED": "Aug 2013",
@@ -11194,7 +11194,7 @@
       "PROCESSOR_PROCESS_SIZE": "22 nm",
       "PROCESSOR_SOCKET": "Intel BGA1364",
       "PROCESSOR_SOCKET_IMAGE": "291.gif",
-      "PROCESSOR_MODEL_NAME": "Core i7-4860EQ"
+      "PROCESSOR_MODEL_NAME": "i7-4860EQ"
     },
     {
       "PROCESSOR_RELEASED": "Jun 2013",
@@ -11221,7 +11221,7 @@
       "PROCESSOR_PROCESS_SIZE": "22 nm",
       "PROCESSOR_SOCKET": "Intel BGA1364",
       "PROCESSOR_SOCKET_IMAGE": "291.gif",
-      "PROCESSOR_MODEL_NAME": "Core i7-4950HQ"
+      "PROCESSOR_MODEL_NAME": "i7-4950HQ"
     },
     {
       "PROCESSOR_RELEASED": "Jun 2013",
@@ -11248,7 +11248,7 @@
       "PROCESSOR_PROCESS_SIZE": "22 nm",
       "PROCESSOR_SOCKET": "Intel BGA1168",
       "PROCESSOR_SOCKET_IMAGE": "310.gif",
-      "PROCESSOR_MODEL_NAME": "Core i7-4550U"
+      "PROCESSOR_MODEL_NAME": "i7-4550U"
     },
     {
       "PROCESSOR_RELEASED": "Jun 2013",
@@ -11275,7 +11275,7 @@
       "PROCESSOR_PROCESS_SIZE": "22 nm",
       "PROCESSOR_SOCKET": "Intel BGA1168",
       "PROCESSOR_SOCKET_IMAGE": "310.gif",
-      "PROCESSOR_MODEL_NAME": "Core i7-4650U"
+      "PROCESSOR_MODEL_NAME": "i7-4650U"
     },
     {
       "PROCESSOR_RELEASED": "Jun 2013",
@@ -11302,7 +11302,7 @@
       "PROCESSOR_PROCESS_SIZE": "22 nm",
       "PROCESSOR_SOCKET": "Intel BGA1168",
       "PROCESSOR_SOCKET_IMAGE": "310.gif",
-      "PROCESSOR_MODEL_NAME": "Core i7-4500U"
+      "PROCESSOR_MODEL_NAME": "i7-4500U"
     },
     {
       "PROCESSOR_RELEASED": "Jun 2013",
@@ -11329,7 +11329,7 @@
       "PROCESSOR_PROCESS_SIZE": "22 nm",
       "PROCESSOR_SOCKET": "Intel BGA1168",
       "PROCESSOR_SOCKET_IMAGE": "308.gif",
-      "PROCESSOR_MODEL_NAME": "Core i5-4350U"
+      "PROCESSOR_MODEL_NAME": "i5-4350U"
     },
     {
       "PROCESSOR_RELEASED": "Jun 2013",
@@ -11356,7 +11356,7 @@
       "PROCESSOR_PROCESS_SIZE": "22 nm",
       "PROCESSOR_SOCKET": "Intel BGA1168",
       "PROCESSOR_SOCKET_IMAGE": "310.gif",
-      "PROCESSOR_MODEL_NAME": "Core i7-4558U"
+      "PROCESSOR_MODEL_NAME": "i7-4558U"
     },
     {
       "PROCESSOR_RELEASED": "Jun 2013",
@@ -11383,7 +11383,7 @@
       "PROCESSOR_PROCESS_SIZE": "22 nm",
       "PROCESSOR_SOCKET": "Intel BGA1168",
       "PROCESSOR_SOCKET_IMAGE": "308.gif",
-      "PROCESSOR_MODEL_NAME": "Core i5-4200Y"
+      "PROCESSOR_MODEL_NAME": "i5-4200Y"
     },
     {
       "PROCESSOR_RELEASED": "Jun 2013",
@@ -11410,7 +11410,7 @@
       "PROCESSOR_PROCESS_SIZE": "22 nm",
       "PROCESSOR_SOCKET": "Intel BGA1168",
       "PROCESSOR_SOCKET_IMAGE": "308.gif",
-      "PROCESSOR_MODEL_NAME": "Core i5-4200U"
+      "PROCESSOR_MODEL_NAME": "i5-4200U"
     },
     {
       "PROCESSOR_RELEASED": "Jun 2013",
@@ -11437,7 +11437,7 @@
       "PROCESSOR_PROCESS_SIZE": "22 nm",
       "PROCESSOR_SOCKET": "Intel BGA1168",
       "PROCESSOR_SOCKET_IMAGE": "308.gif",
-      "PROCESSOR_MODEL_NAME": "Core i5-4250U"
+      "PROCESSOR_MODEL_NAME": "i5-4250U"
     },
     {
       "PROCESSOR_RELEASED": "Jun 2013",
@@ -11464,7 +11464,7 @@
       "PROCESSOR_PROCESS_SIZE": "22 nm",
       "PROCESSOR_SOCKET": "Intel BGA1168",
       "PROCESSOR_SOCKET_IMAGE": "308.gif",
-      "PROCESSOR_MODEL_NAME": "Core i5-4258U"
+      "PROCESSOR_MODEL_NAME": "i5-4258U"
     },
     {
       "PROCESSOR_RELEASED": "Jun 2013",
@@ -11491,7 +11491,7 @@
       "PROCESSOR_PROCESS_SIZE": "22 nm",
       "PROCESSOR_SOCKET": "Intel BGA1168",
       "PROCESSOR_SOCKET_IMAGE": "308.gif",
-      "PROCESSOR_MODEL_NAME": "Core i5-4288U"
+      "PROCESSOR_MODEL_NAME": "i5-4288U"
     },
     {
       "PROCESSOR_RELEASED": "Jun 2013",
@@ -11518,7 +11518,7 @@
       "PROCESSOR_PROCESS_SIZE": "22 nm",
       "PROCESSOR_SOCKET": "Intel BGA1168",
       "PROCESSOR_SOCKET_IMAGE": "309.gif",
-      "PROCESSOR_MODEL_NAME": "Core i3-4010Y"
+      "PROCESSOR_MODEL_NAME": "i3-4010Y"
     },
     {
       "PROCESSOR_RELEASED": "Jun 2013",
@@ -11545,7 +11545,7 @@
       "PROCESSOR_PROCESS_SIZE": "22 nm",
       "PROCESSOR_SOCKET": "Intel BGA1168",
       "PROCESSOR_SOCKET_IMAGE": "309.gif",
-      "PROCESSOR_MODEL_NAME": "Core i3-4010U"
+      "PROCESSOR_MODEL_NAME": "i3-4010U"
     },
     {
       "PROCESSOR_RELEASED": "Jun 2013",
@@ -11572,7 +11572,7 @@
       "PROCESSOR_PROCESS_SIZE": "22 nm",
       "PROCESSOR_SOCKET": "Intel BGA1168",
       "PROCESSOR_SOCKET_IMAGE": "309.gif",
-      "PROCESSOR_MODEL_NAME": "Core i3-4100U"
+      "PROCESSOR_MODEL_NAME": "i3-4100U"
     },
     {
       "PROCESSOR_RELEASED": "Jun 2013",
@@ -11599,7 +11599,7 @@
       "PROCESSOR_PROCESS_SIZE": "22 nm",
       "PROCESSOR_SOCKET": "Intel BGA1168",
       "PROCESSOR_SOCKET_IMAGE": "309.gif",
-      "PROCESSOR_MODEL_NAME": "Core i3-4158U"
+      "PROCESSOR_MODEL_NAME": "i3-4158U"
     },
     {
       "PROCESSOR_RELEASED": "May 2013",
@@ -11626,7 +11626,7 @@
       "PROCESSOR_PROCESS_SIZE": "22 nm",
       "PROCESSOR_SOCKET": "Intel BGA1364",
       "PROCESSOR_SOCKET_IMAGE": "291.gif",
-      "PROCESSOR_MODEL_NAME": "Core i7-4702HQ"
+      "PROCESSOR_MODEL_NAME": "i7-4702HQ"
     },
     {
       "PROCESSOR_RELEASED": "May 2013",
@@ -11653,7 +11653,7 @@
       "PROCESSOR_PROCESS_SIZE": "22 nm",
       "PROCESSOR_SOCKET": "Intel BGA1364",
       "PROCESSOR_SOCKET_IMAGE": "291.gif",
-      "PROCESSOR_MODEL_NAME": "Core i7-4700HQ"
+      "PROCESSOR_MODEL_NAME": "i7-4700HQ"
     },
     {
       "PROCESSOR_RELEASED": "May 2013",
@@ -11680,7 +11680,7 @@
       "PROCESSOR_PROCESS_SIZE": "22 nm",
       "PROCESSOR_SOCKET": "Intel BGA1364",
       "PROCESSOR_SOCKET_IMAGE": "291.gif",
-      "PROCESSOR_MODEL_NAME": "Core i7-4750HQ"
+      "PROCESSOR_MODEL_NAME": "i7-4750HQ"
     },
     {
       "PROCESSOR_RELEASED": "May 2013",
@@ -11707,7 +11707,7 @@
       "PROCESSOR_PROCESS_SIZE": "22 nm",
       "PROCESSOR_SOCKET": "Intel Socket G3",
       "PROCESSOR_SOCKET_IMAGE": "310.gif",
-      "PROCESSOR_MODEL_NAME": "Core i7-4700MQ"
+      "PROCESSOR_MODEL_NAME": "i7-4700MQ"
     },
     {
       "PROCESSOR_RELEASED": "May 2013",
@@ -11734,7 +11734,7 @@
       "PROCESSOR_PROCESS_SIZE": "22 nm",
       "PROCESSOR_SOCKET": "Intel Socket G3",
       "PROCESSOR_SOCKET_IMAGE": "310.gif",
-      "PROCESSOR_MODEL_NAME": "Core i7-4702MQ"
+      "PROCESSOR_MODEL_NAME": "i7-4702MQ"
     },
     {
       "PROCESSOR_RELEASED": "May 2013",
@@ -11761,7 +11761,7 @@
       "PROCESSOR_PROCESS_SIZE": "22 nm",
       "PROCESSOR_SOCKET": "Intel BGA1364",
       "PROCESSOR_SOCKET_IMAGE": "310.gif",
-      "PROCESSOR_MODEL_NAME": "Core i7-4700EQ"
+      "PROCESSOR_MODEL_NAME": "i7-4700EQ"
     },
     {
       "PROCESSOR_RELEASED": "May 2013",
@@ -11788,7 +11788,7 @@
       "PROCESSOR_PROCESS_SIZE": "22 nm",
       "PROCESSOR_SOCKET": "Intel BGA1364",
       "PROCESSOR_SOCKET_IMAGE": "310.gif",
-      "PROCESSOR_MODEL_NAME": "Core i7-4700EQ"
+      "PROCESSOR_MODEL_NAME": "i7-4700EQ"
     },
     {
       "PROCESSOR_RELEASED": "Apr 2013",
@@ -11815,7 +11815,7 @@
       "PROCESSOR_PROCESS_SIZE": "22 nm",
       "PROCESSOR_SOCKET": "Intel Socket G3",
       "PROCESSOR_SOCKET_IMAGE": "310.gif",
-      "PROCESSOR_MODEL_NAME": "Core i7-4930MX"
+      "PROCESSOR_MODEL_NAME": "i7-4930MX"
     },
     {
       "PROCESSOR_RELEASED": "Apr 2013",
@@ -11842,7 +11842,7 @@
       "PROCESSOR_PROCESS_SIZE": "22 nm",
       "PROCESSOR_SOCKET": "Intel Socket G3",
       "PROCESSOR_SOCKET_IMAGE": "310.gif",
-      "PROCESSOR_MODEL_NAME": "Core i7-4900MQ"
+      "PROCESSOR_MODEL_NAME": "i7-4900MQ"
     },
     {
       "PROCESSOR_RELEASED": "Apr 2013",
@@ -11869,7 +11869,7 @@
       "PROCESSOR_PROCESS_SIZE": "22 nm",
       "PROCESSOR_SOCKET": "Intel Socket G3",
       "PROCESSOR_SOCKET_IMAGE": "310.gif",
-      "PROCESSOR_MODEL_NAME": "Core i7-4800MQ"
+      "PROCESSOR_MODEL_NAME": "i7-4800MQ"
     },
     {
       "PROCESSOR_RELEASED": "Apr 2013",
@@ -11896,7 +11896,7 @@
       "PROCESSOR_PROCESS_SIZE": "22 nm",
       "PROCESSOR_SOCKET": "Intel BGA1364",
       "PROCESSOR_SOCKET_IMAGE": "291.gif",
-      "PROCESSOR_MODEL_NAME": "Core i7-4850HQ"
+      "PROCESSOR_MODEL_NAME": "i7-4850HQ"
     },
     {
       "PROCESSOR_RELEASED": "Feb 2013",
@@ -12166,7 +12166,7 @@
       "PROCESSOR_PROCESS_SIZE": "22 nm",
       "PROCESSOR_SOCKET": "Intel BGA1023",
       "PROCESSOR_SOCKET_IMAGE": "63.gif",
-      "PROCESSOR_MODEL_NAME": "Core i5-3439Y"
+      "PROCESSOR_MODEL_NAME": "i5-3439Y"
     },
     {
       "PROCESSOR_RELEASED": "Jan 2013",
@@ -12193,7 +12193,7 @@
       "PROCESSOR_PROCESS_SIZE": "22 nm",
       "PROCESSOR_SOCKET": "Intel BGA1023",
       "PROCESSOR_SOCKET_IMAGE": "64.gif",
-      "PROCESSOR_MODEL_NAME": "Core i7-3689Y"
+      "PROCESSOR_MODEL_NAME": "i7-3689Y"
     },
     {
       "PROCESSOR_RELEASED": "Jan 2013",
@@ -12220,7 +12220,7 @@
       "PROCESSOR_PROCESS_SIZE": "22 nm",
       "PROCESSOR_SOCKET": "Intel BGA1023",
       "PROCESSOR_SOCKET_IMAGE": "63.gif",
-      "PROCESSOR_MODEL_NAME": "Core i5-3339Y"
+      "PROCESSOR_MODEL_NAME": "i5-3339Y"
     },
     {
       "PROCESSOR_RELEASED": "Jan 2013",
@@ -12247,7 +12247,7 @@
       "PROCESSOR_PROCESS_SIZE": "22 nm",
       "PROCESSOR_SOCKET": "Intel BGA1023",
       "PROCESSOR_SOCKET_IMAGE": "64.gif",
-      "PROCESSOR_MODEL_NAME": "Core i7-3687U"
+      "PROCESSOR_MODEL_NAME": "i7-3687U"
     },
     {
       "PROCESSOR_RELEASED": "Jan 2013",
@@ -12274,7 +12274,7 @@
       "PROCESSOR_PROCESS_SIZE": "22 nm",
       "PROCESSOR_SOCKET": "Intel BGA1023",
       "PROCESSOR_SOCKET_IMAGE": "64.gif",
-      "PROCESSOR_MODEL_NAME": "Core i7-3537U"
+      "PROCESSOR_MODEL_NAME": "i7-3537U"
     },
     {
       "PROCESSOR_RELEASED": "Jan 2013",
@@ -12301,7 +12301,7 @@
       "PROCESSOR_PROCESS_SIZE": "22 nm",
       "PROCESSOR_SOCKET": "Intel Socket G2 (988B)",
       "PROCESSOR_SOCKET_IMAGE": "64.gif",
-      "PROCESSOR_MODEL_NAME": "Core i7-3540M"
+      "PROCESSOR_MODEL_NAME": "i7-3540M"
     },
     {
       "PROCESSOR_RELEASED": "Jan 2013",
@@ -12328,7 +12328,7 @@
       "PROCESSOR_PROCESS_SIZE": "22 nm",
       "PROCESSOR_SOCKET": "Intel Socket G2 (988B)",
       "PROCESSOR_SOCKET_IMAGE": "64.gif",
-      "PROCESSOR_MODEL_NAME": "Core i7-3540M"
+      "PROCESSOR_MODEL_NAME": "i7-3540M"
     },
     {
       "PROCESSOR_RELEASED": "Jan 2013",
@@ -12355,7 +12355,7 @@
       "PROCESSOR_PROCESS_SIZE": "22 nm",
       "PROCESSOR_SOCKET": "Intel BGA1023",
       "PROCESSOR_SOCKET_IMAGE": "62.gif",
-      "PROCESSOR_MODEL_NAME": "Core i3-3227U"
+      "PROCESSOR_MODEL_NAME": "i3-3227U"
     },
     {
       "PROCESSOR_RELEASED": "Jan 2013",
@@ -12382,7 +12382,7 @@
       "PROCESSOR_PROCESS_SIZE": "22 nm",
       "PROCESSOR_SOCKET": "Intel BGA1023",
       "PROCESSOR_SOCKET_IMAGE": "62.gif",
-      "PROCESSOR_MODEL_NAME": "Core i3-3229Y"
+      "PROCESSOR_MODEL_NAME": "i3-3229Y"
     },
     {
       "PROCESSOR_RELEASED": "Jan 2013",
@@ -12409,7 +12409,7 @@
       "PROCESSOR_PROCESS_SIZE": "22 nm",
       "PROCESSOR_SOCKET": "Intel BGA1023",
       "PROCESSOR_SOCKET_IMAGE": "62.gif",
-      "PROCESSOR_MODEL_NAME": "Core i3-3130M"
+      "PROCESSOR_MODEL_NAME": "i3-3130M"
     },
     {
       "PROCESSOR_RELEASED": "Jan 2013",
@@ -12436,7 +12436,7 @@
       "PROCESSOR_PROCESS_SIZE": "22 nm",
       "PROCESSOR_SOCKET": "Intel BGA1023",
       "PROCESSOR_SOCKET_IMAGE": "63.gif",
-      "PROCESSOR_MODEL_NAME": "Core i5-3230M"
+      "PROCESSOR_MODEL_NAME": "i5-3230M"
     },
     {
       "PROCESSOR_RELEASED": "Jan 2013",
@@ -12463,7 +12463,7 @@
       "PROCESSOR_PROCESS_SIZE": "22 nm",
       "PROCESSOR_SOCKET": "Intel BGA1023",
       "PROCESSOR_SOCKET_IMAGE": "63.gif",
-      "PROCESSOR_MODEL_NAME": "Core i5-3230M"
+      "PROCESSOR_MODEL_NAME": "i5-3230M"
     },
     {
       "PROCESSOR_RELEASED": "Jan 2013",
@@ -12490,7 +12490,7 @@
       "PROCESSOR_PROCESS_SIZE": "22 nm",
       "PROCESSOR_SOCKET": "Intel Socket G2 (988B)",
       "PROCESSOR_SOCKET_IMAGE": "63.gif",
-      "PROCESSOR_MODEL_NAME": "Core i5-3340M"
+      "PROCESSOR_MODEL_NAME": "i5-3340M"
     },
     {
       "PROCESSOR_RELEASED": "Jan 2013",
@@ -12517,7 +12517,7 @@
       "PROCESSOR_PROCESS_SIZE": "22 nm",
       "PROCESSOR_SOCKET": "Intel Socket G2 (988B)",
       "PROCESSOR_SOCKET_IMAGE": "63.gif",
-      "PROCESSOR_MODEL_NAME": "Core i5-3380M"
+      "PROCESSOR_MODEL_NAME": "i5-3380M"
     },
     {
       "PROCESSOR_RELEASED": "Jan 2013",
@@ -12544,7 +12544,7 @@
       "PROCESSOR_PROCESS_SIZE": "22 nm",
       "PROCESSOR_SOCKET": "Intel Socket G2 (988B)",
       "PROCESSOR_SOCKET_IMAGE": "63.gif",
-      "PROCESSOR_MODEL_NAME": "Core i5-3380M"
+      "PROCESSOR_MODEL_NAME": "i5-3380M"
     },
     {
       "PROCESSOR_RELEASED": "Jan 2013",
@@ -12571,7 +12571,7 @@
       "PROCESSOR_PROCESS_SIZE": "22 nm",
       "PROCESSOR_SOCKET": "Intel BGA1023",
       "PROCESSOR_SOCKET_IMAGE": "63.gif",
-      "PROCESSOR_MODEL_NAME": "Core i5-3337U"
+      "PROCESSOR_MODEL_NAME": "i5-3337U"
     },
     {
       "PROCESSOR_RELEASED": "Jan 2013",
@@ -12598,7 +12598,7 @@
       "PROCESSOR_PROCESS_SIZE": "22 nm",
       "PROCESSOR_SOCKET": "Intel BGA1023",
       "PROCESSOR_SOCKET_IMAGE": "63.gif",
-      "PROCESSOR_MODEL_NAME": "Core i5-3437U"
+      "PROCESSOR_MODEL_NAME": "i5-3437U"
     },
     {
       "PROCESSOR_RELEASED": "Jan 2013",
@@ -12652,7 +12652,7 @@
       "PROCESSOR_PROCESS_SIZE": "22 nm",
       "PROCESSOR_SOCKET": "Intel BGA1023",
       "PROCESSOR_SOCKET_IMAGE": "64.gif",
-      "PROCESSOR_MODEL_NAME": "Core i7-3525M"
+      "PROCESSOR_MODEL_NAME": "i7-3525M"
     },
     {
       "PROCESSOR_RELEASED": "Nov 2012",
@@ -12679,7 +12679,7 @@
       "PROCESSOR_PROCESS_SIZE": "22 nm",
       "PROCESSOR_SOCKET": "Intel BGA1023",
       "PROCESSOR_SOCKET_IMAGE": "63.gif",
-      "PROCESSOR_MODEL_NAME": "Core i5-3365M"
+      "PROCESSOR_MODEL_NAME": "i5-3365M"
     },
     {
       "PROCESSOR_RELEASED": "Oct 2012",
@@ -12706,7 +12706,7 @@
       "PROCESSOR_PROCESS_SIZE": "22 nm",
       "PROCESSOR_SOCKET": "Intel BGA1224",
       "PROCESSOR_SOCKET_IMAGE": "64.gif",
-      "PROCESSOR_MODEL_NAME": "Core i7-3632QM"
+      "PROCESSOR_MODEL_NAME": "i7-3632QM"
     },
     {
       "PROCESSOR_RELEASED": "Oct 2012",
@@ -12733,7 +12733,7 @@
       "PROCESSOR_PROCESS_SIZE": "22 nm",
       "PROCESSOR_SOCKET": "Intel BGA1224",
       "PROCESSOR_SOCKET_IMAGE": "64.gif",
-      "PROCESSOR_MODEL_NAME": "Core i7-3632QM"
+      "PROCESSOR_MODEL_NAME": "i7-3632QM"
     },
     {
       "PROCESSOR_RELEASED": "Sep 2012",
@@ -12760,7 +12760,7 @@
       "PROCESSOR_PROCESS_SIZE": "22 nm",
       "PROCESSOR_SOCKET": "Intel BGA1023",
       "PROCESSOR_SOCKET_IMAGE": "62.gif",
-      "PROCESSOR_MODEL_NAME": "Core i3-3120M"
+      "PROCESSOR_MODEL_NAME": "i3-3120M"
     },
     {
       "PROCESSOR_RELEASED": "Sep 2012",
@@ -12787,7 +12787,7 @@
       "PROCESSOR_PROCESS_SIZE": "22 nm",
       "PROCESSOR_SOCKET": "Intel BGA1023",
       "PROCESSOR_SOCKET_IMAGE": "62.gif",
-      "PROCESSOR_MODEL_NAME": "Core i3-3120M"
+      "PROCESSOR_MODEL_NAME": "i3-3120M"
     },
     {
       "PROCESSOR_RELEASED": "Sep 2012",
@@ -12841,7 +12841,7 @@
       "PROCESSOR_PROCESS_SIZE": "22 nm",
       "PROCESSOR_SOCKET": "Intel BGA1224",
       "PROCESSOR_SOCKET_IMAGE": "64.gif",
-      "PROCESSOR_MODEL_NAME": "Core i7-3740QM"
+      "PROCESSOR_MODEL_NAME": "i7-3740QM"
     },
     {
       "PROCESSOR_RELEASED": "Sep 2012",
@@ -12868,7 +12868,7 @@
       "PROCESSOR_PROCESS_SIZE": "22 nm",
       "PROCESSOR_SOCKET": "Intel BGA1224",
       "PROCESSOR_SOCKET_IMAGE": "64.gif",
-      "PROCESSOR_MODEL_NAME": "Core i7-3740QM"
+      "PROCESSOR_MODEL_NAME": "i7-3740QM"
     },
     {
       "PROCESSOR_RELEASED": "Sep 2012",
@@ -12895,7 +12895,7 @@
       "PROCESSOR_PROCESS_SIZE": "22 nm",
       "PROCESSOR_SOCKET": "Intel Socket G2 (988B)",
       "PROCESSOR_SOCKET_IMAGE": "64.gif",
-      "PROCESSOR_MODEL_NAME": "Core i7-3840QM"
+      "PROCESSOR_MODEL_NAME": "i7-3840QM"
     },
     {
       "PROCESSOR_RELEASED": "Sep 2012",
@@ -12922,7 +12922,7 @@
       "PROCESSOR_PROCESS_SIZE": "22 nm",
       "PROCESSOR_SOCKET": "Intel Socket G2 (988B)",
       "PROCESSOR_SOCKET_IMAGE": "64.gif",
-      "PROCESSOR_MODEL_NAME": "Core i7-3840QM"
+      "PROCESSOR_MODEL_NAME": "i7-3840QM"
     },
     {
       "PROCESSOR_RELEASED": "Sep 2012",
@@ -12949,7 +12949,7 @@
       "PROCESSOR_PROCESS_SIZE": "22 nm",
       "PROCESSOR_SOCKET": "Intel Socket G2 (988B)",
       "PROCESSOR_SOCKET_IMAGE": "137.gif",
-      "PROCESSOR_MODEL_NAME": "Core i7-3940XM"
+      "PROCESSOR_MODEL_NAME": "i7-3940XM"
     },
     {
       "PROCESSOR_RELEASED": "Sep 2012",
@@ -12976,7 +12976,7 @@
       "PROCESSOR_PROCESS_SIZE": "22 nm",
       "PROCESSOR_SOCKET": "Intel Socket G2 (988B)",
       "PROCESSOR_SOCKET_IMAGE": "64.gif",
-      "PROCESSOR_MODEL_NAME": "Core i7-3630QM"
+      "PROCESSOR_MODEL_NAME": "i7-3630QM"
     },
     {
       "PROCESSOR_RELEASED": "Sep 2012",
@@ -13003,7 +13003,7 @@
       "PROCESSOR_PROCESS_SIZE": "22 nm",
       "PROCESSOR_SOCKET": "Intel BGA1224",
       "PROCESSOR_SOCKET_IMAGE": "64.gif",
-      "PROCESSOR_MODEL_NAME": "Core i7-3635QM"
+      "PROCESSOR_MODEL_NAME": "i7-3635QM"
     },
     {
       "PROCESSOR_RELEASED": "Sep 2012",
@@ -13192,7 +13192,7 @@
       "PROCESSOR_PROCESS_SIZE": "32 nm",
       "PROCESSOR_SOCKET": "Intel Socket G2 (988B)",
       "PROCESSOR_SOCKET_IMAGE": "14.gif",
-      "PROCESSOR_MODEL_NAME": "Core i3-2328M"
+      "PROCESSOR_MODEL_NAME": "i3-2328M"
     },
     {
       "PROCESSOR_RELEASED": "Sep 2012",
@@ -13219,7 +13219,7 @@
       "PROCESSOR_PROCESS_SIZE": "32 nm",
       "PROCESSOR_SOCKET": "Intel BGA1023",
       "PROCESSOR_SOCKET_IMAGE": "14.gif",
-      "PROCESSOR_MODEL_NAME": "Core i3-2377M"
+      "PROCESSOR_MODEL_NAME": "i3-2377M"
     },
     {
       "PROCESSOR_RELEASED": "Sep 2012",
@@ -13300,7 +13300,7 @@
       "PROCESSOR_PROCESS_SIZE": "22 nm",
       "PROCESSOR_SOCKET": "Intel BGA1023",
       "PROCESSOR_SOCKET_IMAGE": "62.gif",
-      "PROCESSOR_MODEL_NAME": "Core i3-3217UE"
+      "PROCESSOR_MODEL_NAME": "i3-3217UE"
     },
     {
       "PROCESSOR_RELEASED": "Aug 2012",
@@ -13327,7 +13327,7 @@
       "PROCESSOR_PROCESS_SIZE": "22 nm",
       "PROCESSOR_SOCKET": "Intel BGA1023",
       "PROCESSOR_SOCKET_IMAGE": "62.gif",
-      "PROCESSOR_MODEL_NAME": "Core i3-3120ME"
+      "PROCESSOR_MODEL_NAME": "i3-3120ME"
     },
     {
       "PROCESSOR_RELEASED": "Jul 2012",
@@ -13462,7 +13462,7 @@
       "PROCESSOR_PROCESS_SIZE": "22 nm",
       "PROCESSOR_SOCKET": "Intel Socket G2 (988B)",
       "PROCESSOR_SOCKET_IMAGE": "64.gif",
-      "PROCESSOR_MODEL_NAME": "Core i7-3520M"
+      "PROCESSOR_MODEL_NAME": "i7-3520M"
     },
     {
       "PROCESSOR_RELEASED": "Jun 2012",
@@ -13489,7 +13489,7 @@
       "PROCESSOR_PROCESS_SIZE": "22 nm",
       "PROCESSOR_SOCKET": "Intel Socket G2 (988B)",
       "PROCESSOR_SOCKET_IMAGE": "64.gif",
-      "PROCESSOR_MODEL_NAME": "Core i7-3520M"
+      "PROCESSOR_MODEL_NAME": "i7-3520M"
     },
     {
       "PROCESSOR_RELEASED": "Jun 2012",
@@ -13516,7 +13516,7 @@
       "PROCESSOR_PROCESS_SIZE": "22 nm",
       "PROCESSOR_SOCKET": "Intel BGA1023",
       "PROCESSOR_SOCKET_IMAGE": "64.gif",
-      "PROCESSOR_MODEL_NAME": "Core i7-3555LE"
+      "PROCESSOR_MODEL_NAME": "i7-3555LE"
     },
     {
       "PROCESSOR_RELEASED": "Jun 2012",
@@ -13543,7 +13543,7 @@
       "PROCESSOR_PROCESS_SIZE": "22 nm",
       "PROCESSOR_SOCKET": "Intel BGA1023",
       "PROCESSOR_SOCKET_IMAGE": "64.gif",
-      "PROCESSOR_MODEL_NAME": "Core i7-3517U"
+      "PROCESSOR_MODEL_NAME": "i7-3517U"
     },
     {
       "PROCESSOR_RELEASED": "Jun 2012",
@@ -13570,7 +13570,7 @@
       "PROCESSOR_PROCESS_SIZE": "22 nm",
       "PROCESSOR_SOCKET": "Intel BGA1023",
       "PROCESSOR_SOCKET_IMAGE": "64.gif",
-      "PROCESSOR_MODEL_NAME": "Core i7-3667U"
+      "PROCESSOR_MODEL_NAME": "i7-3667U"
     },
     {
       "PROCESSOR_RELEASED": "Jun 2012",
@@ -13597,7 +13597,7 @@
       "PROCESSOR_PROCESS_SIZE": "22 nm",
       "PROCESSOR_SOCKET": "Intel BGA1023",
       "PROCESSOR_SOCKET_IMAGE": "64.gif",
-      "PROCESSOR_MODEL_NAME": "Core i7-3517UE"
+      "PROCESSOR_MODEL_NAME": "i7-3517UE"
     },
     {
       "PROCESSOR_RELEASED": "Jun 2012",
@@ -13624,7 +13624,7 @@
       "PROCESSOR_PROCESS_SIZE": "22 nm",
       "PROCESSOR_SOCKET": "Intel Socket G2 (988B)",
       "PROCESSOR_SOCKET_IMAGE": "62.gif",
-      "PROCESSOR_MODEL_NAME": "Core i3-3110M"
+      "PROCESSOR_MODEL_NAME": "i3-3110M"
     },
     {
       "PROCESSOR_RELEASED": "Jun 2012",
@@ -13651,7 +13651,7 @@
       "PROCESSOR_PROCESS_SIZE": "22 nm",
       "PROCESSOR_SOCKET": "Intel Socket G2 (988B)",
       "PROCESSOR_SOCKET_IMAGE": "62.gif",
-      "PROCESSOR_MODEL_NAME": "Core i3-3110M"
+      "PROCESSOR_MODEL_NAME": "i3-3110M"
     },
     {
       "PROCESSOR_RELEASED": "Jun 2012",
@@ -13678,7 +13678,7 @@
       "PROCESSOR_PROCESS_SIZE": "22 nm",
       "PROCESSOR_SOCKET": "Intel BGA1023",
       "PROCESSOR_SOCKET_IMAGE": "62.gif",
-      "PROCESSOR_MODEL_NAME": "Core i3-3217U"
+      "PROCESSOR_MODEL_NAME": "i3-3217U"
     },
     {
       "PROCESSOR_RELEASED": "Jun 2012",
@@ -13705,7 +13705,7 @@
       "PROCESSOR_PROCESS_SIZE": "22 nm",
       "PROCESSOR_SOCKET": "Intel Socket G2 (988B)",
       "PROCESSOR_SOCKET_IMAGE": "63.gif",
-      "PROCESSOR_MODEL_NAME": "Core i5-3210M"
+      "PROCESSOR_MODEL_NAME": "i5-3210M"
     },
     {
       "PROCESSOR_RELEASED": "Jun 2012",
@@ -13732,7 +13732,7 @@
       "PROCESSOR_PROCESS_SIZE": "22 nm",
       "PROCESSOR_SOCKET": "Intel Socket G2 (988B)",
       "PROCESSOR_SOCKET_IMAGE": "63.gif",
-      "PROCESSOR_MODEL_NAME": "Core i5-3210M"
+      "PROCESSOR_MODEL_NAME": "i5-3210M"
     },
     {
       "PROCESSOR_RELEASED": "Jun 2012",
@@ -13759,7 +13759,7 @@
       "PROCESSOR_PROCESS_SIZE": "22 nm",
       "PROCESSOR_SOCKET": "Intel BGA1023",
       "PROCESSOR_SOCKET_IMAGE": "63.gif",
-      "PROCESSOR_MODEL_NAME": "Core i5-3320M"
+      "PROCESSOR_MODEL_NAME": "i5-3320M"
     },
     {
       "PROCESSOR_RELEASED": "Jun 2012",
@@ -13786,7 +13786,7 @@
       "PROCESSOR_PROCESS_SIZE": "22 nm",
       "PROCESSOR_SOCKET": "Intel BGA1023",
       "PROCESSOR_SOCKET_IMAGE": "63.gif",
-      "PROCESSOR_MODEL_NAME": "Core i5-3320M"
+      "PROCESSOR_MODEL_NAME": "i5-3320M"
     },
     {
       "PROCESSOR_RELEASED": "Jun 2012",
@@ -13813,7 +13813,7 @@
       "PROCESSOR_PROCESS_SIZE": "22 nm",
       "PROCESSOR_SOCKET": "Intel BGA1023",
       "PROCESSOR_SOCKET_IMAGE": "63.gif",
-      "PROCESSOR_MODEL_NAME": "Core i5-3317U"
+      "PROCESSOR_MODEL_NAME": "i5-3317U"
     },
     {
       "PROCESSOR_RELEASED": "Jun 2012",
@@ -13840,7 +13840,7 @@
       "PROCESSOR_PROCESS_SIZE": "22 nm",
       "PROCESSOR_SOCKET": "Intel BGA1023",
       "PROCESSOR_SOCKET_IMAGE": "63.gif",
-      "PROCESSOR_MODEL_NAME": "Core i5-3360M"
+      "PROCESSOR_MODEL_NAME": "i5-3360M"
     },
     {
       "PROCESSOR_RELEASED": "Jun 2012",
@@ -13867,7 +13867,7 @@
       "PROCESSOR_PROCESS_SIZE": "22 nm",
       "PROCESSOR_SOCKET": "Intel BGA1023",
       "PROCESSOR_SOCKET_IMAGE": "63.gif",
-      "PROCESSOR_MODEL_NAME": "Core i5-3360M"
+      "PROCESSOR_MODEL_NAME": "i5-3360M"
     },
     {
       "PROCESSOR_RELEASED": "Jun 2012",
@@ -13894,7 +13894,7 @@
       "PROCESSOR_PROCESS_SIZE": "22 nm",
       "PROCESSOR_SOCKET": "Intel Socket G2 (988B)",
       "PROCESSOR_SOCKET_IMAGE": "63.gif",
-      "PROCESSOR_MODEL_NAME": "Core i5-3610ME"
+      "PROCESSOR_MODEL_NAME": "i5-3610ME"
     },
     {
       "PROCESSOR_RELEASED": "Jun 2012",
@@ -13921,7 +13921,7 @@
       "PROCESSOR_PROCESS_SIZE": "22 nm",
       "PROCESSOR_SOCKET": "Intel Socket G2 (988B)",
       "PROCESSOR_SOCKET_IMAGE": "63.gif",
-      "PROCESSOR_MODEL_NAME": "Core i5-3610ME"
+      "PROCESSOR_MODEL_NAME": "i5-3610ME"
     },
     {
       "PROCESSOR_RELEASED": "Jun 2012",
@@ -13948,7 +13948,7 @@
       "PROCESSOR_PROCESS_SIZE": "22 nm",
       "PROCESSOR_SOCKET": "Intel BGA1023",
       "PROCESSOR_SOCKET_IMAGE": "63.gif",
-      "PROCESSOR_MODEL_NAME": "Core i5-3427U"
+      "PROCESSOR_MODEL_NAME": "i5-3427U"
     },
     {
       "PROCESSOR_RELEASED": "May 2012",
@@ -14002,7 +14002,7 @@
       "PROCESSOR_PROCESS_SIZE": "22 nm",
       "PROCESSOR_SOCKET": "Intel Socket G2 (988B)",
       "PROCESSOR_SOCKET_IMAGE": "137.gif",
-      "PROCESSOR_MODEL_NAME": "Core i7-3920XM"
+      "PROCESSOR_MODEL_NAME": "i7-3920XM"
     },
     {
       "PROCESSOR_RELEASED": "Apr 2012",
@@ -14029,7 +14029,7 @@
       "PROCESSOR_PROCESS_SIZE": "22 nm",
       "PROCESSOR_SOCKET": "Intel Socket G2 (988B)",
       "PROCESSOR_SOCKET_IMAGE": "64.gif",
-      "PROCESSOR_MODEL_NAME": "Core i7-3820QM"
+      "PROCESSOR_MODEL_NAME": "i7-3820QM"
     },
     {
       "PROCESSOR_RELEASED": "Apr 2012",
@@ -14056,7 +14056,7 @@
       "PROCESSOR_PROCESS_SIZE": "22 nm",
       "PROCESSOR_SOCKET": "Intel Socket G2 (988B)",
       "PROCESSOR_SOCKET_IMAGE": "64.gif",
-      "PROCESSOR_MODEL_NAME": "Core i7-3820QM"
+      "PROCESSOR_MODEL_NAME": "i7-3820QM"
     },
     {
       "PROCESSOR_RELEASED": "Apr 2012",
@@ -14083,7 +14083,7 @@
       "PROCESSOR_PROCESS_SIZE": "22 nm",
       "PROCESSOR_SOCKET": "Intel BGA1224",
       "PROCESSOR_SOCKET_IMAGE": "64.gif",
-      "PROCESSOR_MODEL_NAME": "Core i7-3720QM"
+      "PROCESSOR_MODEL_NAME": "i7-3720QM"
     },
     {
       "PROCESSOR_RELEASED": "Apr 2012",
@@ -14110,7 +14110,7 @@
       "PROCESSOR_PROCESS_SIZE": "22 nm",
       "PROCESSOR_SOCKET": "Intel BGA1224",
       "PROCESSOR_SOCKET_IMAGE": "64.gif",
-      "PROCESSOR_MODEL_NAME": "Core i7-3720QM"
+      "PROCESSOR_MODEL_NAME": "i7-3720QM"
     },
     {
       "PROCESSOR_RELEASED": "Apr 2012",
@@ -14137,7 +14137,7 @@
       "PROCESSOR_PROCESS_SIZE": "22 nm",
       "PROCESSOR_SOCKET": "Intel BGA1224",
       "PROCESSOR_SOCKET_IMAGE": "64.gif",
-      "PROCESSOR_MODEL_NAME": "Core i7-3615QM"
+      "PROCESSOR_MODEL_NAME": "i7-3615QM"
     },
     {
       "PROCESSOR_RELEASED": "Apr 2012",
@@ -14164,7 +14164,7 @@
       "PROCESSOR_PROCESS_SIZE": "22 nm",
       "PROCESSOR_SOCKET": "Intel BGA1023",
       "PROCESSOR_SOCKET_IMAGE": "64.gif",
-      "PROCESSOR_MODEL_NAME": "Core i7-3615QE"
+      "PROCESSOR_MODEL_NAME": "i7-3615QE"
     },
     {
       "PROCESSOR_RELEASED": "Apr 2012",
@@ -14191,7 +14191,7 @@
       "PROCESSOR_PROCESS_SIZE": "22 nm",
       "PROCESSOR_SOCKET": "Intel BGA1023",
       "PROCESSOR_SOCKET_IMAGE": "64.gif",
-      "PROCESSOR_MODEL_NAME": "Core i7-3612QE"
+      "PROCESSOR_MODEL_NAME": "i7-3612QE"
     },
     {
       "PROCESSOR_RELEASED": "Apr 2012",
@@ -14218,7 +14218,7 @@
       "PROCESSOR_PROCESS_SIZE": "22 nm",
       "PROCESSOR_SOCKET": "Intel Socket G2 (988B)",
       "PROCESSOR_SOCKET_IMAGE": "64.gif",
-      "PROCESSOR_MODEL_NAME": "Core i7-3610QE"
+      "PROCESSOR_MODEL_NAME": "i7-3610QE"
     },
     {
       "PROCESSOR_RELEASED": "Apr 2012",
@@ -14245,7 +14245,7 @@
       "PROCESSOR_PROCESS_SIZE": "22 nm",
       "PROCESSOR_SOCKET": "Intel Socket G2 (988B)",
       "PROCESSOR_SOCKET_IMAGE": "64.gif",
-      "PROCESSOR_MODEL_NAME": "Core i7-3612QM"
+      "PROCESSOR_MODEL_NAME": "i7-3612QM"
     },
     {
       "PROCESSOR_RELEASED": "Apr 2012",
@@ -14272,7 +14272,7 @@
       "PROCESSOR_PROCESS_SIZE": "22 nm",
       "PROCESSOR_SOCKET": "Intel Socket G2 (988B)",
       "PROCESSOR_SOCKET_IMAGE": "64.gif",
-      "PROCESSOR_MODEL_NAME": "Core i7-3612QM"
+      "PROCESSOR_MODEL_NAME": "i7-3612QM"
     },
     {
       "PROCESSOR_RELEASED": "Apr 2012",
@@ -14299,7 +14299,7 @@
       "PROCESSOR_PROCESS_SIZE": "22 nm",
       "PROCESSOR_SOCKET": "Intel Socket G2 (988B)",
       "PROCESSOR_SOCKET_IMAGE": "64.gif",
-      "PROCESSOR_MODEL_NAME": "Core i7-3610QM"
+      "PROCESSOR_MODEL_NAME": "i7-3610QM"
     },
     {
       "PROCESSOR_RELEASED": "Jan 2012",
@@ -14326,7 +14326,7 @@
       "PROCESSOR_PROCESS_SIZE": "32 nm",
       "PROCESSOR_SOCKET": "Intel Socket G2 (988B)",
       "PROCESSOR_SOCKET_IMAGE": "28.gif",
-      "PROCESSOR_MODEL_NAME": "Core i5-2450M"
+      "PROCESSOR_MODEL_NAME": "i5-2450M"
     },
     {
       "PROCESSOR_RELEASED": "Jan 2012",
@@ -14353,7 +14353,7 @@
       "PROCESSOR_PROCESS_SIZE": "32 nm",
       "PROCESSOR_SOCKET": "Intel Socket G2 (988B)",
       "PROCESSOR_SOCKET_IMAGE": "28.gif",
-      "PROCESSOR_MODEL_NAME": "Core i5-2450M"
+      "PROCESSOR_MODEL_NAME": "i5-2450M"
     },
     {
       "PROCESSOR_RELEASED": "Jan 2012",
@@ -14380,7 +14380,7 @@
       "PROCESSOR_PROCESS_SIZE": "32 nm",
       "PROCESSOR_SOCKET": "Intel Socket G2 (988B)",
       "PROCESSOR_SOCKET_IMAGE": "14.gif",
-      "PROCESSOR_MODEL_NAME": "Core i3-2370M"
+      "PROCESSOR_MODEL_NAME": "i3-2370M"
     },
     {
       "PROCESSOR_RELEASED": "Jan 2012",
@@ -14569,7 +14569,7 @@
       "PROCESSOR_PROCESS_SIZE": "32 nm",
       "PROCESSOR_SOCKET": "Intel Socket G2 (988B)",
       "PROCESSOR_SOCKET_IMAGE": "27.gif",
-      "PROCESSOR_MODEL_NAME": "Core i7-2670QM"
+      "PROCESSOR_MODEL_NAME": "i7-2670QM"
     },
     {
       "PROCESSOR_RELEASED": "Oct 2011",
@@ -14596,7 +14596,7 @@
       "PROCESSOR_PROCESS_SIZE": "32 nm",
       "PROCESSOR_SOCKET": "Intel BGA1224",
       "PROCESSOR_SOCKET_IMAGE": "27.gif",
-      "PROCESSOR_MODEL_NAME": "Core i7-2675QM"
+      "PROCESSOR_MODEL_NAME": "i7-2675QM"
     },
     {
       "PROCESSOR_RELEASED": "Oct 2011",
@@ -14677,7 +14677,7 @@
       "PROCESSOR_PROCESS_SIZE": "32 nm",
       "PROCESSOR_SOCKET": "Intel Socket G2 (988B)",
       "PROCESSOR_SOCKET_IMAGE": "14.gif",
-      "PROCESSOR_MODEL_NAME": "Core i3-2350M"
+      "PROCESSOR_MODEL_NAME": "i3-2350M"
     },
     {
       "PROCESSOR_RELEASED": "Oct 2011",
@@ -14704,7 +14704,7 @@
       "PROCESSOR_PROCESS_SIZE": "32 nm",
       "PROCESSOR_SOCKET": "Intel BGA1023",
       "PROCESSOR_SOCKET_IMAGE": "28.gif",
-      "PROCESSOR_MODEL_NAME": "Core i5-2430M"
+      "PROCESSOR_MODEL_NAME": "i5-2430M"
     },
     {
       "PROCESSOR_RELEASED": "Oct 2011",
@@ -14731,7 +14731,7 @@
       "PROCESSOR_PROCESS_SIZE": "32 nm",
       "PROCESSOR_SOCKET": "Intel BGA1023",
       "PROCESSOR_SOCKET_IMAGE": "28.gif",
-      "PROCESSOR_MODEL_NAME": "Core i5-2430M"
+      "PROCESSOR_MODEL_NAME": "i5-2430M"
     },
     {
       "PROCESSOR_RELEASED": "Oct 2011",
@@ -14758,7 +14758,7 @@
       "PROCESSOR_PROCESS_SIZE": "32 nm",
       "PROCESSOR_SOCKET": "Intel BGA1023",
       "PROCESSOR_SOCKET_IMAGE": "14.gif",
-      "PROCESSOR_MODEL_NAME": "Core i3-2367M"
+      "PROCESSOR_MODEL_NAME": "i3-2367M"
     },
     {
       "PROCESSOR_RELEASED": "Sep 2011",
@@ -14785,7 +14785,7 @@
       "PROCESSOR_PROCESS_SIZE": "32 nm",
       "PROCESSOR_SOCKET": "Intel Socket G2 (988B)",
       "PROCESSOR_SOCKET_IMAGE": "27.gif",
-      "PROCESSOR_MODEL_NAME": "Core i7-2760QM"
+      "PROCESSOR_MODEL_NAME": "i7-2760QM"
     },
     {
       "PROCESSOR_RELEASED": "Sep 2011",
@@ -14812,7 +14812,7 @@
       "PROCESSOR_PROCESS_SIZE": "32 nm",
       "PROCESSOR_SOCKET": "Intel Socket G2 (988B)",
       "PROCESSOR_SOCKET_IMAGE": "27.gif",
-      "PROCESSOR_MODEL_NAME": "Core i7-2760QM"
+      "PROCESSOR_MODEL_NAME": "i7-2760QM"
     },
     {
       "PROCESSOR_RELEASED": "Sep 2011",
@@ -14839,7 +14839,7 @@
       "PROCESSOR_PROCESS_SIZE": "32 nm",
       "PROCESSOR_SOCKET": "Intel Socket G2 (988B)",
       "PROCESSOR_SOCKET_IMAGE": "27.gif",
-      "PROCESSOR_MODEL_NAME": "Core i7-2860QM"
+      "PROCESSOR_MODEL_NAME": "i7-2860QM"
     },
     {
       "PROCESSOR_RELEASED": "Sep 2011",
@@ -14866,7 +14866,7 @@
       "PROCESSOR_PROCESS_SIZE": "32 nm",
       "PROCESSOR_SOCKET": "Intel Socket G2 (988B)",
       "PROCESSOR_SOCKET_IMAGE": "27.gif",
-      "PROCESSOR_MODEL_NAME": "Core i7-2860QM"
+      "PROCESSOR_MODEL_NAME": "i7-2860QM"
     },
     {
       "PROCESSOR_RELEASED": "Sep 2011",
@@ -14893,7 +14893,7 @@
       "PROCESSOR_PROCESS_SIZE": "32 nm",
       "PROCESSOR_SOCKET": "Intel Socket G2 (988B)",
       "PROCESSOR_SOCKET_IMAGE": "136.gif",
-      "PROCESSOR_MODEL_NAME": "Core i7-2960XM"
+      "PROCESSOR_MODEL_NAME": "i7-2960XM"
     },
     {
       "PROCESSOR_RELEASED": "Sep 2011",
@@ -14920,7 +14920,7 @@
       "PROCESSOR_PROCESS_SIZE": "32 nm",
       "PROCESSOR_SOCKET": "Intel BGA1023",
       "PROCESSOR_SOCKET_IMAGE": "14.gif",
-      "PROCESSOR_MODEL_NAME": "Core i3-2312M"
+      "PROCESSOR_MODEL_NAME": "i3-2312M"
     },
     {
       "PROCESSOR_RELEASED": "Sep 2011",
@@ -14947,7 +14947,7 @@
       "PROCESSOR_PROCESS_SIZE": "32 nm",
       "PROCESSOR_SOCKET": "Intel Socket G2 (988B)",
       "PROCESSOR_SOCKET_IMAGE": "28.gif",
-      "PROCESSOR_MODEL_NAME": "Core i5-2435M"
+      "PROCESSOR_MODEL_NAME": "i5-2435M"
     },
     {
       "PROCESSOR_RELEASED": "Sep 2011",
@@ -14974,7 +14974,7 @@
       "PROCESSOR_PROCESS_SIZE": "32 nm",
       "PROCESSOR_SOCKET": "Intel Socket G2 (988B)",
       "PROCESSOR_SOCKET_IMAGE": "28.gif",
-      "PROCESSOR_MODEL_NAME": "Core i5-2435M"
+      "PROCESSOR_MODEL_NAME": "i5-2435M"
     },
     {
       "PROCESSOR_RELEASED": "Sep 2011",
@@ -15001,7 +15001,7 @@
       "PROCESSOR_PROCESS_SIZE": "32 nm",
       "PROCESSOR_SOCKET": "Intel BGA1023",
       "PROCESSOR_SOCKET_IMAGE": "28.gif",
-      "PROCESSOR_MODEL_NAME": "Core i5-2415M"
+      "PROCESSOR_MODEL_NAME": "i5-2415M"
     },
     {
       "PROCESSOR_RELEASED": "Sep 2011",
@@ -15028,7 +15028,7 @@
       "PROCESSOR_PROCESS_SIZE": "32 nm",
       "PROCESSOR_SOCKET": "Intel Socket G2 (988B)",
       "PROCESSOR_SOCKET_IMAGE": "14.gif",
-      "PROCESSOR_MODEL_NAME": "Core i3-2332M"
+      "PROCESSOR_MODEL_NAME": "i3-2332M"
     },
     {
       "PROCESSOR_RELEASED": "Jul 2011",
@@ -15325,7 +15325,7 @@
       "PROCESSOR_PROCESS_SIZE": "32 nm",
       "PROCESSOR_SOCKET": "Intel Socket G2 (988B)",
       "PROCESSOR_SOCKET_IMAGE": "14.gif",
-      "PROCESSOR_MODEL_NAME": "Core i3-2330M"
+      "PROCESSOR_MODEL_NAME": "i3-2330M"
     },
     {
       "PROCESSOR_RELEASED": "Jun 2011",
@@ -15352,7 +15352,7 @@
       "PROCESSOR_PROCESS_SIZE": "32 nm",
       "PROCESSOR_SOCKET": "Intel Socket G2 (988B)",
       "PROCESSOR_SOCKET_IMAGE": "14.gif",
-      "PROCESSOR_MODEL_NAME": "Core i3-2330M"
+      "PROCESSOR_MODEL_NAME": "i3-2330M"
     },
     {
       "PROCESSOR_RELEASED": "Jun 2011",
@@ -15379,7 +15379,7 @@
       "PROCESSOR_PROCESS_SIZE": "32 nm",
       "PROCESSOR_SOCKET": "Intel BGA1023",
       "PROCESSOR_SOCKET_IMAGE": "28.gif",
-      "PROCESSOR_MODEL_NAME": "Core i5-2557M"
+      "PROCESSOR_MODEL_NAME": "i5-2557M"
     },
     {
       "PROCESSOR_RELEASED": "Jun 2011",
@@ -15406,7 +15406,7 @@
       "PROCESSOR_PROCESS_SIZE": "32 nm",
       "PROCESSOR_SOCKET": "Intel BGA1023",
       "PROCESSOR_SOCKET_IMAGE": "28.gif",
-      "PROCESSOR_MODEL_NAME": "Core i5-2467M"
+      "PROCESSOR_MODEL_NAME": "i5-2467M"
     },
     {
       "PROCESSOR_RELEASED": "Jun 2011",
@@ -15433,7 +15433,7 @@
       "PROCESSOR_PROCESS_SIZE": "32 nm",
       "PROCESSOR_SOCKET": "Intel Socket G2 (988B)",
       "PROCESSOR_SOCKET_IMAGE": "14.gif",
-      "PROCESSOR_MODEL_NAME": "Core i3-2330E"
+      "PROCESSOR_MODEL_NAME": "i3-2330E"
     },
     {
       "PROCESSOR_RELEASED": "Jun 2011",
@@ -15460,7 +15460,7 @@
       "PROCESSOR_PROCESS_SIZE": "32 nm",
       "PROCESSOR_SOCKET": "Intel BGA1023",
       "PROCESSOR_SOCKET_IMAGE": "14.gif",
-      "PROCESSOR_MODEL_NAME": "Core i3-2357M"
+      "PROCESSOR_MODEL_NAME": "i3-2357M"
     },
     {
       "PROCESSOR_RELEASED": "Jun 2011",
@@ -15487,7 +15487,7 @@
       "PROCESSOR_PROCESS_SIZE": "32 nm",
       "PROCESSOR_SOCKET": "Intel BGA1023",
       "PROCESSOR_SOCKET_IMAGE": "14.gif",
-      "PROCESSOR_MODEL_NAME": "Core i3-2340UE"
+      "PROCESSOR_MODEL_NAME": "i3-2340UE"
     },
     {
       "PROCESSOR_RELEASED": "Mar 2011",
@@ -15541,7 +15541,7 @@
       "PROCESSOR_PROCESS_SIZE": "32 nm",
       "PROCESSOR_SOCKET": "Intel BGA1023",
       "PROCESSOR_SOCKET_IMAGE": "14.gif",
-      "PROCESSOR_MODEL_NAME": "Core i3-2312M"
+      "PROCESSOR_MODEL_NAME": "i3-2312M"
     },
     {
       "PROCESSOR_RELEASED": "Feb 2011",
@@ -15568,7 +15568,7 @@
       "PROCESSOR_PROCESS_SIZE": "32 nm",
       "PROCESSOR_SOCKET": "Intel Socket G2 (988B)",
       "PROCESSOR_SOCKET_IMAGE": "28.gif",
-      "PROCESSOR_MODEL_NAME": "Core i5-2540M"
+      "PROCESSOR_MODEL_NAME": "i5-2540M"
     },
     {
       "PROCESSOR_RELEASED": "Feb 2011",
@@ -15595,7 +15595,7 @@
       "PROCESSOR_PROCESS_SIZE": "32 nm",
       "PROCESSOR_SOCKET": "Intel Socket G2 (988B)",
       "PROCESSOR_SOCKET_IMAGE": "28.gif",
-      "PROCESSOR_MODEL_NAME": "Core i5-2540M"
+      "PROCESSOR_MODEL_NAME": "i5-2540M"
     },
     {
       "PROCESSOR_RELEASED": "Feb 2011",
@@ -15622,7 +15622,7 @@
       "PROCESSOR_PROCESS_SIZE": "32 nm",
       "PROCESSOR_SOCKET": "Intel BGA1023",
       "PROCESSOR_SOCKET_IMAGE": "28.gif",
-      "PROCESSOR_MODEL_NAME": "Core i5-2520M"
+      "PROCESSOR_MODEL_NAME": "i5-2520M"
     },
     {
       "PROCESSOR_RELEASED": "Feb 2011",
@@ -15649,7 +15649,7 @@
       "PROCESSOR_PROCESS_SIZE": "32 nm",
       "PROCESSOR_SOCKET": "Intel BGA1023",
       "PROCESSOR_SOCKET_IMAGE": "28.gif",
-      "PROCESSOR_MODEL_NAME": "Core i5-2520M"
+      "PROCESSOR_MODEL_NAME": "i5-2520M"
     },
     {
       "PROCESSOR_RELEASED": "Feb 2011",
@@ -15676,7 +15676,7 @@
       "PROCESSOR_PROCESS_SIZE": "32 nm",
       "PROCESSOR_SOCKET": "Intel Socket G2 (988B)",
       "PROCESSOR_SOCKET_IMAGE": "14.gif",
-      "PROCESSOR_MODEL_NAME": "Core i3-2310M"
+      "PROCESSOR_MODEL_NAME": "i3-2310M"
     },
     {
       "PROCESSOR_RELEASED": "Feb 2011",
@@ -15703,7 +15703,7 @@
       "PROCESSOR_PROCESS_SIZE": "32 nm",
       "PROCESSOR_SOCKET": "Intel Socket G2 (988B)",
       "PROCESSOR_SOCKET_IMAGE": "14.gif",
-      "PROCESSOR_MODEL_NAME": "Core i3-2310M"
+      "PROCESSOR_MODEL_NAME": "i3-2310M"
     },
     {
       "PROCESSOR_RELEASED": "Feb 2011",
@@ -15730,7 +15730,7 @@
       "PROCESSOR_PROCESS_SIZE": "32 nm",
       "PROCESSOR_SOCKET": "Intel Socket G2 (988B)",
       "PROCESSOR_SOCKET_IMAGE": "28.gif",
-      "PROCESSOR_MODEL_NAME": "Core i5-2410M"
+      "PROCESSOR_MODEL_NAME": "i5-2410M"
     },
     {
       "PROCESSOR_RELEASED": "Feb 2011",
@@ -15757,7 +15757,7 @@
       "PROCESSOR_PROCESS_SIZE": "32 nm",
       "PROCESSOR_SOCKET": "Intel Socket G2 (988B)",
       "PROCESSOR_SOCKET_IMAGE": "28.gif",
-      "PROCESSOR_MODEL_NAME": "Core i5-2410M"
+      "PROCESSOR_MODEL_NAME": "i5-2410M"
     },
     {
       "PROCESSOR_RELEASED": "Feb 2011",
@@ -15784,7 +15784,7 @@
       "PROCESSOR_PROCESS_SIZE": "32 nm",
       "PROCESSOR_SOCKET": "Intel Socket G2 (988B)",
       "PROCESSOR_SOCKET_IMAGE": "28.gif",
-      "PROCESSOR_MODEL_NAME": "Core i5-2510E"
+      "PROCESSOR_MODEL_NAME": "i5-2510E"
     },
     {
       "PROCESSOR_RELEASED": "Feb 2011",
@@ -15811,7 +15811,7 @@
       "PROCESSOR_PROCESS_SIZE": "32 nm",
       "PROCESSOR_SOCKET": "Intel BGA1023",
       "PROCESSOR_SOCKET_IMAGE": "28.gif",
-      "PROCESSOR_MODEL_NAME": "Core i5-2515E"
+      "PROCESSOR_MODEL_NAME": "i5-2515E"
     },
     {
       "PROCESSOR_RELEASED": "Feb 2011",
@@ -15838,7 +15838,7 @@
       "PROCESSOR_PROCESS_SIZE": "32 nm",
       "PROCESSOR_SOCKET": "Intel BGA1023",
       "PROCESSOR_SOCKET_IMAGE": "28.gif",
-      "PROCESSOR_MODEL_NAME": "Core i5-2537M"
+      "PROCESSOR_MODEL_NAME": "i5-2537M"
     },
     {
       "PROCESSOR_RELEASED": "Feb 2011",
@@ -15865,7 +15865,7 @@
       "PROCESSOR_PROCESS_SIZE": "32 nm",
       "PROCESSOR_SOCKET": "Intel BGA1023",
       "PROCESSOR_SOCKET_IMAGE": "14.gif",
-      "PROCESSOR_MODEL_NAME": "Core i3-2310E"
+      "PROCESSOR_MODEL_NAME": "i3-2310E"
     },
     {
       "PROCESSOR_RELEASED": "Jan 2011",
@@ -15946,7 +15946,7 @@
       "PROCESSOR_PROCESS_SIZE": "32 nm",
       "PROCESSOR_SOCKET": "Intel Socket G2 (988B)",
       "PROCESSOR_SOCKET_IMAGE": "27.gif",
-      "PROCESSOR_MODEL_NAME": "Core i7-2630QM"
+      "PROCESSOR_MODEL_NAME": "i7-2630QM"
     },
     {
       "PROCESSOR_RELEASED": "Jan 2011",
@@ -15973,7 +15973,7 @@
       "PROCESSOR_PROCESS_SIZE": "32 nm",
       "PROCESSOR_SOCKET": "Intel BGA1224",
       "PROCESSOR_SOCKET_IMAGE": "27.gif",
-      "PROCESSOR_MODEL_NAME": "Core i7-2635QM"
+      "PROCESSOR_MODEL_NAME": "i7-2635QM"
     },
     {
       "PROCESSOR_RELEASED": "Jan 2011",
@@ -16000,7 +16000,7 @@
       "PROCESSOR_PROCESS_SIZE": "32 nm",
       "PROCESSOR_SOCKET": "Intel BGA1224",
       "PROCESSOR_SOCKET_IMAGE": "27.gif",
-      "PROCESSOR_MODEL_NAME": "Core i7-2720QM"
+      "PROCESSOR_MODEL_NAME": "i7-2720QM"
     },
     {
       "PROCESSOR_RELEASED": "Jan 2011",
@@ -16027,7 +16027,7 @@
       "PROCESSOR_PROCESS_SIZE": "32 nm",
       "PROCESSOR_SOCKET": "Intel BGA1224",
       "PROCESSOR_SOCKET_IMAGE": "27.gif",
-      "PROCESSOR_MODEL_NAME": "Core i7-2720QM"
+      "PROCESSOR_MODEL_NAME": "i7-2720QM"
     },
     {
       "PROCESSOR_RELEASED": "Jan 2011",
@@ -16054,7 +16054,7 @@
       "PROCESSOR_PROCESS_SIZE": "32 nm",
       "PROCESSOR_SOCKET": "Intel BGA1224",
       "PROCESSOR_SOCKET_IMAGE": "27.gif",
-      "PROCESSOR_MODEL_NAME": "Core i7-2820QM"
+      "PROCESSOR_MODEL_NAME": "i7-2820QM"
     },
     {
       "PROCESSOR_RELEASED": "Jan 2011",
@@ -16081,7 +16081,7 @@
       "PROCESSOR_PROCESS_SIZE": "32 nm",
       "PROCESSOR_SOCKET": "Intel BGA1224",
       "PROCESSOR_SOCKET_IMAGE": "27.gif",
-      "PROCESSOR_MODEL_NAME": "Core i7-2820QM"
+      "PROCESSOR_MODEL_NAME": "i7-2820QM"
     },
     {
       "PROCESSOR_RELEASED": "Jan 2011",
@@ -16108,7 +16108,7 @@
       "PROCESSOR_PROCESS_SIZE": "32 nm",
       "PROCESSOR_SOCKET": "Intel Socket G2 (988B)",
       "PROCESSOR_SOCKET_IMAGE": "136.gif",
-      "PROCESSOR_MODEL_NAME": "Core i7-2920XM"
+      "PROCESSOR_MODEL_NAME": "i7-2920XM"
     },
     {
       "PROCESSOR_RELEASED": "Jan 2011",
@@ -16135,7 +16135,7 @@
       "PROCESSOR_PROCESS_SIZE": "32 nm",
       "PROCESSOR_SOCKET": "Intel Socket G2 (988B)",
       "PROCESSOR_SOCKET_IMAGE": "27.gif",
-      "PROCESSOR_MODEL_NAME": "Core i7-2710QE"
+      "PROCESSOR_MODEL_NAME": "i7-2710QE"
     },
     {
       "PROCESSOR_RELEASED": "Jan 2011",
@@ -16162,7 +16162,7 @@
       "PROCESSOR_PROCESS_SIZE": "32 nm",
       "PROCESSOR_SOCKET": "Intel BGA1023",
       "PROCESSOR_SOCKET_IMAGE": "27.gif",
-      "PROCESSOR_MODEL_NAME": "Core i7-2715QE"
+      "PROCESSOR_MODEL_NAME": "i7-2715QE"
     },
     {
       "PROCESSOR_RELEASED": "Sep 2010",
@@ -16243,7 +16243,7 @@
       "PROCESSOR_PROCESS_SIZE": "32 nm",
       "PROCESSOR_SOCKET": "Intel Socket G1",
       "PROCESSOR_SOCKET_IMAGE": "257.gif",
-      "PROCESSOR_MODEL_NAME": "Core i7-640M"
+      "PROCESSOR_MODEL_NAME": "i7-640M"
     },
     {
       "PROCESSOR_RELEASED": "Sep 2010",
@@ -16270,7 +16270,7 @@
       "PROCESSOR_PROCESS_SIZE": "32 nm",
       "PROCESSOR_SOCKET": "Intel Socket G1",
       "PROCESSOR_SOCKET_IMAGE": "257.gif",
-      "PROCESSOR_MODEL_NAME": "Core i7-640M"
+      "PROCESSOR_MODEL_NAME": "i7-640M"
     },
     {
       "PROCESSOR_RELEASED": "Jun 2010",
@@ -16350,7 +16350,7 @@
       "PROCESSOR_PROCESS_SIZE": "45 nm",
       "PROCESSOR_SOCKET": "Intel Socket P",
       "PROCESSOR_SOCKET_IMAGE": "261.gif",
-      "PROCESSOR_MODEL_NAME": "Pentium Dual-Core T4500"
+      "PROCESSOR_MODEL_NAME": "Pentium Dual-T4500"
     },
     {
       "PROCESSOR_RELEASED": "Jan 2010",
@@ -16377,7 +16377,7 @@
       "PROCESSOR_PROCESS_SIZE": "32 nm",
       "PROCESSOR_SOCKET": "Intel BGA1288",
       "PROCESSOR_SOCKET_IMAGE": "257.gif",
-      "PROCESSOR_MODEL_NAME": "Core i7-620M"
+      "PROCESSOR_MODEL_NAME": "i7-620M"
     },
     {
       "PROCESSOR_RELEASED": "Jan 2010",
@@ -16404,7 +16404,7 @@
       "PROCESSOR_PROCESS_SIZE": "32 nm",
       "PROCESSOR_SOCKET": "Intel BGA1288",
       "PROCESSOR_SOCKET_IMAGE": "257.gif",
-      "PROCESSOR_MODEL_NAME": "Core i7-620M"
+      "PROCESSOR_MODEL_NAME": "i7-620M"
     },
     {
       "PROCESSOR_RELEASED": "Dec 2009",
@@ -16430,7 +16430,7 @@
       "PROCESSOR_PROCESS_SIZE": "45 nm",
       "PROCESSOR_SOCKET": "Intel Socket P",
       "PROCESSOR_SOCKET_IMAGE": "261.gif",
-      "PROCESSOR_MODEL_NAME": "Pentium Dual-Core T4400"
+      "PROCESSOR_MODEL_NAME": "Pentium Dual-T4400"
     },
     {
       "PROCESSOR_RELEASED": "Sep 2009",
@@ -16508,7 +16508,7 @@
       "PROCESSOR_PROCESS_SIZE": "45 nm",
       "PROCESSOR_SOCKET": "Intel Socket P",
       "PROCESSOR_SOCKET_IMAGE": "261.gif",
-      "PROCESSOR_MODEL_NAME": "Pentium Dual-Core T4300"
+      "PROCESSOR_MODEL_NAME": "Pentium Dual-T4300"
     },
     {
       "PROCESSOR_RELEASED": "Mar 2009",
@@ -16534,7 +16534,7 @@
       "PROCESSOR_PROCESS_SIZE": "45 nm",
       "PROCESSOR_SOCKET": "Intel BGA 956",
       "PROCESSOR_SOCKET_IMAGE": "138.gif",
-      "PROCESSOR_MODEL_NAME": "Core 2 Solo ULV SU3500"
+      "PROCESSOR_MODEL_NAME": "2 Solo ULV SU3500"
     },
     {
       "PROCESSOR_RELEASED": "Jan 2009",
@@ -16560,7 +16560,7 @@
       "PROCESSOR_PROCESS_SIZE": "45 nm",
       "PROCESSOR_SOCKET": "Intel Socket P",
       "PROCESSOR_SOCKET_IMAGE": "261.gif",
-      "PROCESSOR_MODEL_NAME": "Pentium Dual-Core T4200"
+      "PROCESSOR_MODEL_NAME": "Pentium Dual-T4200"
     },
     {
       "PROCESSOR_RELEASED": "Aug 2008",
@@ -16587,7 +16587,7 @@
       "PROCESSOR_PROCESS_SIZE": "45 nm",
       "PROCESSOR_SOCKET": "Intel Socket P",
       "PROCESSOR_SOCKET_IMAGE": "158.gif",
-      "PROCESSOR_MODEL_NAME": "Core 2 Quad Q9100"
+      "PROCESSOR_MODEL_NAME": "2 Quad Q9100"
     },
     {
       "PROCESSOR_RELEASED": "Aug 2008",
@@ -16614,7 +16614,7 @@
       "PROCESSOR_PROCESS_SIZE": "45 nm",
       "PROCESSOR_SOCKET": "Intel Socket P",
       "PROCESSOR_SOCKET_IMAGE": "160.gif",
-      "PROCESSOR_MODEL_NAME": "Core 2 Extreme QX9300"
+      "PROCESSOR_MODEL_NAME": "2 Extreme QX9300"
     },
     {
       "PROCESSOR_RELEASED": "Jul 2008",
@@ -16641,7 +16641,7 @@
       "PROCESSOR_PROCESS_SIZE": "45 nm",
       "PROCESSOR_SOCKET": "Intel Socket P",
       "PROCESSOR_SOCKET_IMAGE": "159.gif",
-      "PROCESSOR_MODEL_NAME": "Core 2 Extreme X9100"
+      "PROCESSOR_MODEL_NAME": "2 Extreme X9100"
     },
     {
       "PROCESSOR_RELEASED": "May 2008",
@@ -16667,7 +16667,7 @@
       "PROCESSOR_PROCESS_SIZE": "45 nm",
       "PROCESSOR_SOCKET": "Intel BGA 956",
       "PROCESSOR_SOCKET_IMAGE": "138.gif",
-      "PROCESSOR_MODEL_NAME": "Core 2 Solo ULV SU3300"
+      "PROCESSOR_MODEL_NAME": "2 Solo ULV SU3300"
     },
     {
       "PROCESSOR_RELEASED": "Feb 2008",
@@ -16694,7 +16694,7 @@
       "PROCESSOR_PROCESS_SIZE": "65 nm",
       "PROCESSOR_SOCKET": "Intel Socket P",
       "PROCESSOR_SOCKET_IMAGE": "118.gif",
-      "PROCESSOR_MODEL_NAME": "Core 2 Duo U7700"
+      "PROCESSOR_MODEL_NAME": "2 Duo U7700"
     },
     {
       "PROCESSOR_RELEASED": "Feb 2008",
@@ -16721,7 +16721,7 @@
       "PROCESSOR_PROCESS_SIZE": "65 nm",
       "PROCESSOR_SOCKET": "Intel Socket P",
       "PROCESSOR_SOCKET_IMAGE": "118.gif",
-      "PROCESSOR_MODEL_NAME": "Core 2 Duo U7500"
+      "PROCESSOR_MODEL_NAME": "2 Duo U7500"
     },
     {
       "PROCESSOR_RELEASED": "Feb 2008",
@@ -16748,7 +16748,7 @@
       "PROCESSOR_PROCESS_SIZE": "65 nm",
       "PROCESSOR_SOCKET": "Intel Socket P",
       "PROCESSOR_SOCKET_IMAGE": "118.gif",
-      "PROCESSOR_MODEL_NAME": "Core 2 Duo U7700"
+      "PROCESSOR_MODEL_NAME": "2 Duo U7700"
     },
     {
       "PROCESSOR_RELEASED": "Sep 2007",
@@ -16775,7 +16775,7 @@
       "PROCESSOR_PROCESS_SIZE": "65 nm",
       "PROCESSOR_SOCKET": "Intel Socket P",
       "PROCESSOR_SOCKET_IMAGE": "118.gif",
-      "PROCESSOR_MODEL_NAME": "Core 2 Duo T7800"
+      "PROCESSOR_MODEL_NAME": "2 Duo T7800"
     },
     {
       "PROCESSOR_RELEASED": "Sep 2007",
@@ -16802,7 +16802,7 @@
       "PROCESSOR_PROCESS_SIZE": "65 nm",
       "PROCESSOR_SOCKET": "Intel Socket P",
       "PROCESSOR_SOCKET_IMAGE": "118.gif",
-      "PROCESSOR_MODEL_NAME": "Core 2 Duo T7250"
+      "PROCESSOR_MODEL_NAME": "2 Duo T7250"
     },
     {
       "PROCESSOR_RELEASED": "Sep 2007",
@@ -16829,7 +16829,7 @@
       "PROCESSOR_PROCESS_SIZE": "65 nm",
       "PROCESSOR_SOCKET": "Intel BGA 956",
       "PROCESSOR_SOCKET_IMAGE": "139.gif",
-      "PROCESSOR_MODEL_NAME": "Core 2 Solo ULV U2100"
+      "PROCESSOR_MODEL_NAME": "2 Solo ULV U2100"
     },
     {
       "PROCESSOR_RELEASED": "Sep 2007",
@@ -16856,7 +16856,7 @@
       "PROCESSOR_PROCESS_SIZE": "65 nm",
       "PROCESSOR_SOCKET": "Intel BGA 956",
       "PROCESSOR_SOCKET_IMAGE": "139.gif",
-      "PROCESSOR_MODEL_NAME": "Core 2 Solo ULV U2200"
+      "PROCESSOR_MODEL_NAME": "2 Solo ULV U2200"
     },
     {
       "PROCESSOR_RELEASED": "Aug 2007",
@@ -16883,7 +16883,7 @@
       "PROCESSOR_PROCESS_SIZE": "65 nm",
       "PROCESSOR_SOCKET": "Intel Socket P",
       "PROCESSOR_SOCKET_IMAGE": "154.gif",
-      "PROCESSOR_MODEL_NAME": "Core 2 Extreme X7900"
+      "PROCESSOR_MODEL_NAME": "2 Extreme X7900"
     },
     {
       "PROCESSOR_RELEASED": "Jun 2007",
@@ -16964,7 +16964,7 @@
       "PROCESSOR_PROCESS_SIZE": "65 nm",
       "PROCESSOR_SOCKET": "Intel Socket P",
       "PROCESSOR_SOCKET_IMAGE": "118.gif",
-      "PROCESSOR_MODEL_NAME": "Core 2 Duo T7500"
+      "PROCESSOR_MODEL_NAME": "2 Duo T7500"
     },
     {
       "PROCESSOR_RELEASED": "May 2007",
@@ -16991,7 +16991,7 @@
       "PROCESSOR_PROCESS_SIZE": "65 nm",
       "PROCESSOR_SOCKET": "Intel Socket P",
       "PROCESSOR_SOCKET_IMAGE": "118.gif",
-      "PROCESSOR_MODEL_NAME": "Core 2 Duo T7700"
+      "PROCESSOR_MODEL_NAME": "2 Duo T7700"
     },
     {
       "PROCESSOR_RELEASED": "May 2007",
@@ -17018,7 +17018,7 @@
       "PROCESSOR_PROCESS_SIZE": "65 nm",
       "PROCESSOR_SOCKET": "Intel Socket P",
       "PROCESSOR_SOCKET_IMAGE": "118.gif",
-      "PROCESSOR_MODEL_NAME": "Core 2 Duo T7100"
+      "PROCESSOR_MODEL_NAME": "2 Duo T7100"
     },
     {
       "PROCESSOR_RELEASED": "Apr 2007",
@@ -17045,7 +17045,7 @@
       "PROCESSOR_PROCESS_SIZE": "65 nm",
       "PROCESSOR_SOCKET": "Intel Socket P",
       "PROCESSOR_SOCKET_IMAGE": "118.gif",
-      "PROCESSOR_MODEL_NAME": "Core 2 Duo U7600"
+      "PROCESSOR_MODEL_NAME": "2 Duo U7600"
     },
     {
       "PROCESSOR_RELEASED": "Apr 2007",
@@ -17072,7 +17072,7 @@
       "PROCESSOR_PROCESS_SIZE": "65 nm",
       "PROCESSOR_SOCKET": "Intel Socket P",
       "PROCESSOR_SOCKET_IMAGE": "118.gif",
-      "PROCESSOR_MODEL_NAME": "Core 2 Duo U7600"
+      "PROCESSOR_MODEL_NAME": "2 Duo U7600"
     },
     {
       "PROCESSOR_RELEASED": "Feb 2008",
@@ -17099,7 +17099,7 @@
       "PROCESSOR_PROCESS_SIZE": "65 nm",
       "PROCESSOR_SOCKET": "Intel Socket P",
       "PROCESSOR_SOCKET_IMAGE": "118.gif",
-      "PROCESSOR_MODEL_NAME": "Core 2 Duo U7500"
+      "PROCESSOR_MODEL_NAME": "2 Duo U7500"
     },
     {
       "PROCESSOR_RELEASED": "Dec 2006",
@@ -17126,7 +17126,7 @@
       "PROCESSOR_PROCESS_SIZE": "65 nm",
       "PROCESSOR_SOCKET": "Intel Socket M",
       "PROCESSOR_SOCKET_IMAGE": "118.gif",
-      "PROCESSOR_MODEL_NAME": "Core 2 Duo T7600G"
+      "PROCESSOR_MODEL_NAME": "2 Duo T7600G"
     },
     {
       "PROCESSOR_RELEASED": "Sep 2006",
@@ -17153,7 +17153,7 @@
       "PROCESSOR_PROCESS_SIZE": "65 nm",
       "PROCESSOR_SOCKET": "Intel Socket 479",
       "PROCESSOR_SOCKET_IMAGE": "65.gif",
-      "PROCESSOR_MODEL_NAME": "Core Duo LV L2500"
+      "PROCESSOR_MODEL_NAME": "Duo LV L2500"
     },
     {
       "PROCESSOR_RELEASED": "Sep 2006",
@@ -17180,7 +17180,7 @@
       "PROCESSOR_PROCESS_SIZE": "65 nm",
       "PROCESSOR_SOCKET": "Intel Socket 479",
       "PROCESSOR_SOCKET_IMAGE": "65.gif",
-      "PROCESSOR_MODEL_NAME": "Core Duo ULV L2400"
+      "PROCESSOR_MODEL_NAME": "Duo ULV L2400"
     },
     {
       "PROCESSOR_RELEASED": "Jul 2006",
@@ -17207,7 +17207,7 @@
       "PROCESSOR_PROCESS_SIZE": "65 nm",
       "PROCESSOR_SOCKET": "Intel Socket 479",
       "PROCESSOR_SOCKET_IMAGE": "118.gif",
-      "PROCESSOR_MODEL_NAME": "Core 2 Duo T7600"
+      "PROCESSOR_MODEL_NAME": "2 Duo T7600"
     },
     {
       "PROCESSOR_RELEASED": "Jul 2006",
@@ -17234,7 +17234,7 @@
       "PROCESSOR_PROCESS_SIZE": "65 nm",
       "PROCESSOR_SOCKET": "Intel Socket 479",
       "PROCESSOR_SOCKET_IMAGE": "118.gif",
-      "PROCESSOR_MODEL_NAME": "Core 2 Duo T7200"
+      "PROCESSOR_MODEL_NAME": "2 Duo T7200"
     },
     {
       "PROCESSOR_RELEASED": "Jul 2006",
@@ -17261,7 +17261,7 @@
       "PROCESSOR_PROCESS_SIZE": "65 nm",
       "PROCESSOR_SOCKET": "Intel Socket 479",
       "PROCESSOR_SOCKET_IMAGE": "118.gif",
-      "PROCESSOR_MODEL_NAME": "Core 2 Duo T7400"
+      "PROCESSOR_MODEL_NAME": "2 Duo T7400"
     },
     {
       "PROCESSOR_RELEASED": "Jul 2006",
@@ -17288,7 +17288,7 @@
       "PROCESSOR_PROCESS_SIZE": "65 nm",
       "PROCESSOR_SOCKET": "Intel Socket 479",
       "PROCESSOR_SOCKET_IMAGE": "118.gif",
-      "PROCESSOR_MODEL_NAME": "Core 2 Duo T5600"
+      "PROCESSOR_MODEL_NAME": "2 Duo T5600"
     },
     {
       "PROCESSOR_RELEASED": "Jul 2006",
@@ -17315,7 +17315,7 @@
       "PROCESSOR_PROCESS_SIZE": "65 nm",
       "PROCESSOR_SOCKET": "Intel Socket M",
       "PROCESSOR_SOCKET_IMAGE": "118.gif",
-      "PROCESSOR_MODEL_NAME": "Core 2 Duo T5500"
+      "PROCESSOR_MODEL_NAME": "2 Duo T5500"
     },
     {
       "PROCESSOR_RELEASED": "Jul 2006",
@@ -17342,7 +17342,7 @@
       "PROCESSOR_PROCESS_SIZE": "65 nm",
       "PROCESSOR_SOCKET": "Intel Socket 479",
       "PROCESSOR_SOCKET_IMAGE": "118.gif",
-      "PROCESSOR_MODEL_NAME": "Core 2 Duo T5200"
+      "PROCESSOR_MODEL_NAME": "2 Duo T5200"
     },
     {
       "PROCESSOR_RELEASED": "Jul 2006",
@@ -17369,7 +17369,7 @@
       "PROCESSOR_PROCESS_SIZE": "65 nm",
       "PROCESSOR_SOCKET": "Intel Socket 479",
       "PROCESSOR_SOCKET_IMAGE": "118.gif",
-      "PROCESSOR_MODEL_NAME": "Core 2 Duo T7300"
+      "PROCESSOR_MODEL_NAME": "2 Duo T7300"
     },
     {
       "PROCESSOR_RELEASED": "Jun 2006",
@@ -17396,7 +17396,7 @@
       "PROCESSOR_PROCESS_SIZE": "65 nm",
       "PROCESSOR_SOCKET": "Intel Socket 479",
       "PROCESSOR_SOCKET_IMAGE": "65.gif",
-      "PROCESSOR_MODEL_NAME": "Core Duo T2700"
+      "PROCESSOR_MODEL_NAME": "Duo T2700"
     },
     {
       "PROCESSOR_RELEASED": "Jun 2006",
@@ -17423,7 +17423,7 @@
       "PROCESSOR_PROCESS_SIZE": "65 nm",
       "PROCESSOR_SOCKET": "Intel Socket 479",
       "PROCESSOR_SOCKET_IMAGE": "65.gif",
-      "PROCESSOR_MODEL_NAME": "Core Duo ULV L2500"
+      "PROCESSOR_MODEL_NAME": "Duo ULV L2500"
     },
     {
       "PROCESSOR_RELEASED": "May 2006",
@@ -17450,7 +17450,7 @@
       "PROCESSOR_PROCESS_SIZE": "65 nm",
       "PROCESSOR_SOCKET": "Intel Socket 479",
       "PROCESSOR_SOCKET_IMAGE": "65.gif",
-      "PROCESSOR_MODEL_NAME": "Core Duo T2250"
+      "PROCESSOR_MODEL_NAME": "Duo T2250"
     },
     {
       "PROCESSOR_RELEASED": "Apr 2006",
@@ -17477,7 +17477,7 @@
       "PROCESSOR_PROCESS_SIZE": "65 nm",
       "PROCESSOR_SOCKET": "Intel Socket 479",
       "PROCESSOR_SOCKET_IMAGE": "67.gif",
-      "PROCESSOR_MODEL_NAME": "Core Solo ULV U1300"
+      "PROCESSOR_MODEL_NAME": "Solo ULV U1300"
     },
     {
       "PROCESSOR_RELEASED": "Apr 2006",
@@ -17504,7 +17504,7 @@
       "PROCESSOR_PROCESS_SIZE": "65 nm",
       "PROCESSOR_SOCKET": "Intel Socket 479",
       "PROCESSOR_SOCKET_IMAGE": "67.gif",
-      "PROCESSOR_MODEL_NAME": "Core Solo ULV U1400"
+      "PROCESSOR_MODEL_NAME": "Solo ULV U1400"
     },
     {
       "PROCESSOR_RELEASED": "Jan 2006",
@@ -17531,7 +17531,7 @@
       "PROCESSOR_PROCESS_SIZE": "65 nm",
       "PROCESSOR_SOCKET": "Intel Socket 479",
       "PROCESSOR_SOCKET_IMAGE": "67.gif",
-      "PROCESSOR_MODEL_NAME": "Core Solo T1300"
+      "PROCESSOR_MODEL_NAME": "Solo T1300"
     },
     {
       "PROCESSOR_RELEASED": "Jan 2006",
@@ -17558,7 +17558,7 @@
       "PROCESSOR_PROCESS_SIZE": "65 nm",
       "PROCESSOR_SOCKET": "Intel Socket 479",
       "PROCESSOR_SOCKET_IMAGE": "65.gif",
-      "PROCESSOR_MODEL_NAME": "Core Duo T2300"
+      "PROCESSOR_MODEL_NAME": "Duo T2300"
     },
     {
       "PROCESSOR_RELEASED": "Jan 2006",
@@ -17585,7 +17585,7 @@
       "PROCESSOR_PROCESS_SIZE": "65 nm",
       "PROCESSOR_SOCKET": "Intel Socket 479",
       "PROCESSOR_SOCKET_IMAGE": "65.gif",
-      "PROCESSOR_MODEL_NAME": "Core Duo T2400"
+      "PROCESSOR_MODEL_NAME": "Duo T2400"
     },
     {
       "PROCESSOR_RELEASED": "Jan 2006",
@@ -17612,7 +17612,7 @@
       "PROCESSOR_PROCESS_SIZE": "65 nm",
       "PROCESSOR_SOCKET": "Intel Socket 479",
       "PROCESSOR_SOCKET_IMAGE": "65.gif",
-      "PROCESSOR_MODEL_NAME": "Core Duo T2600"
+      "PROCESSOR_MODEL_NAME": "Duo T2600"
     },
     {
       "PROCESSOR_RELEASED": "Jan 2006",
@@ -17639,7 +17639,7 @@
       "PROCESSOR_PROCESS_SIZE": "65 nm",
       "PROCESSOR_SOCKET": "Intel Socket 479",
       "PROCESSOR_SOCKET_IMAGE": "65.gif",
-      "PROCESSOR_MODEL_NAME": "Core Duo T2500"
+      "PROCESSOR_MODEL_NAME": "Duo T2500"
     },
     {
       "PROCESSOR_RELEASED": "Jan 2006",
@@ -17666,7 +17666,7 @@
       "PROCESSOR_PROCESS_SIZE": "65 nm",
       "PROCESSOR_SOCKET": "Intel Socket 479",
       "PROCESSOR_SOCKET_IMAGE": "67.gif",
-      "PROCESSOR_MODEL_NAME": "Core Solo T1200"
+      "PROCESSOR_MODEL_NAME": "Solo T1200"
     },
     {
       "PROCESSOR_RELEASED": "Jan 2006",
@@ -17693,7 +17693,7 @@
       "PROCESSOR_PROCESS_SIZE": "65 nm",
       "PROCESSOR_SOCKET": "Intel Socket 479",
       "PROCESSOR_SOCKET_IMAGE": "67.gif",
-      "PROCESSOR_MODEL_NAME": "Core Solo T1350"
+      "PROCESSOR_MODEL_NAME": "Solo T1350"
     },
     {
       "PROCESSOR_RELEASED": "Jan 2006",
@@ -17720,7 +17720,7 @@
       "PROCESSOR_PROCESS_SIZE": "65 nm",
       "PROCESSOR_SOCKET": "Intel Socket 479",
       "PROCESSOR_SOCKET_IMAGE": "67.gif",
-      "PROCESSOR_MODEL_NAME": "Core Solo T1400"
+      "PROCESSOR_MODEL_NAME": "Solo T1400"
     },
     {
       "PROCESSOR_RELEASED": "Jan 2006",
@@ -17747,7 +17747,7 @@
       "PROCESSOR_PROCESS_SIZE": "65 nm",
       "PROCESSOR_SOCKET": "Intel Socket 479",
       "PROCESSOR_SOCKET_IMAGE": "65.gif",
-      "PROCESSOR_MODEL_NAME": "Core Duo LV L2300"
+      "PROCESSOR_MODEL_NAME": "Duo LV L2300"
     },
     {
       "PROCESSOR_RELEASED": "Jan 2006",
@@ -17774,7 +17774,7 @@
       "PROCESSOR_PROCESS_SIZE": "65 nm",
       "PROCESSOR_SOCKET": "Intel Socket 479",
       "PROCESSOR_SOCKET_IMAGE": "65.gif",
-      "PROCESSOR_MODEL_NAME": "Core Duo LV L2400"
+      "PROCESSOR_MODEL_NAME": "Duo LV L2400"
     },
     {
       "PROCESSOR_RELEASED": "Jul 2005",
@@ -17828,7 +17828,7 @@
       "PROCESSOR_PROCESS_SIZE": "65 nm",
       "PROCESSOR_SOCKET": "Intel Socket 479",
       "PROCESSOR_SOCKET_IMAGE": "65.gif",
-      "PROCESSOR_MODEL_NAME": "Core Duo T2050"
+      "PROCESSOR_MODEL_NAME": "Duo T2050"
     },
     {
       "PROCESSOR_RELEASED": "Jan 2005",
@@ -18928,7 +18928,7 @@
       "PROCESSOR_CODENAME": "Nehalem",
       "PROCESSOR_PART": "SLBZX",
       "PROCESSOR_PRODUCTION_STATUS": "End of Interactive Support",
-      "PROCESSOR_MODEL_NAME": "Core i3-380M",
+      "PROCESSOR_MODEL_NAME": "i3-380M",
       "PROCESSOR_MEMORYSUPPORT": "DDR3-800/1066",
       "PROCESSOR_OFCORES": "2",
       "PROCESSOR_SMPCPUS": "4",
@@ -18955,7 +18955,7 @@
       "PROCESSOR_CODENAME": "Penryn",
       "PROCESSOR_PART": "SLB4M/QHVZ",
       "PROCESSOR_PRODUCTION_STATUS": "Launched",
-      "PROCESSOR_MODEL_NAME": "Core 2 Duo P8400",
+      "PROCESSOR_MODEL_NAME": "2 Duo P8400",
       "PROCESSOR_MEMORYSUPPORT": "unknown",
       "PROCESSOR_OFCORES": "Dual-core",
       "PROCESSOR_SMPCPUS": "4",
@@ -18982,7 +18982,7 @@
       "PROCESSOR_CODENAME": "Merom",
       "PROCESSOR_PART": "SLA4D",
       "PROCESSOR_PRODUCTION_STATUS": "End of Interactive Support",
-      "PROCESSOR_MODEL_NAME": "Core 2 Duo T5750",
+      "PROCESSOR_MODEL_NAME": "2 Duo T5750",
       "PROCESSOR_MEMORYSUPPORT": "unknown",
       "PROCESSOR_OFCORES": "Dual-core",
       "PROCESSOR_SMPCPUS": "2",
@@ -19009,7 +19009,7 @@
       "PROCESSOR_MULTIPLIER": "unknown",
       "PROCESSOR_CODENAME": "Haswell",
       "PROCESSOR_MEMORYSUPPORT": "DDR3L-1333,1600",
-      "PROCESSOR_MODEL_NAME": "Core i5-4200M",
+      "PROCESSOR_MODEL_NAME": "i5-4200M",
       "PROCESSOR_DIE_SIZE": "130 mm2",
       "PROCESSOR_TCASEMAX": "100°C",
       "PROCESSOR_PRODUCTION_STATUS": "Launched",
@@ -19032,7 +19032,7 @@
       "PROCESSOR_PACKAGE": "988-pin micro-FCPGA10 (rPGA988A)",
       "PROCESSOR_TURBOCLOCK": "NA",
       "PROCESSOR_SOCKET_IMAGE": "110.gif",
-      "PROCESSOR_MODEL_NAME": "Core i3-M 350",
+      "PROCESSOR_MODEL_NAME": "i3-M 350",
       "PROCESSOR_CODENAME": "Nehalem",
       "PROCESSOR_RELEASED": "Q1'10",
       "PROCESSOR_MEMORYSUPPORT": "DDR3-800/1066",
@@ -19049,7 +19049,7 @@
       "PROCESSOR_SOCKET_IMAGE": "257.gif",
       "PROCESSOR_MARKET": "Mobile",
       "PROCESSOR_PACKAGE": "988-pin micro-FCPGA8 (rPGA988A)",
-      "PROCESSOR_MODEL_NAME": "Core i7-720QM",
+      "PROCESSOR_MODEL_NAME": "i7-720QM",
       "PROCESSOR_CODENAME": "Clarksfield",
       "PROCESSOR_RELEASED": "Q3'09",
       "PROCESSOR_MEMORYSUPPORT": "DDR3-1066/1333",
@@ -19060,7 +19060,7 @@
     {
       "PROCESSOR_TURBOCLOCK": "NA",
       "PROCESSOR_FREQUENCY": "2100 MHz",
-      "PROCESSOR_MODEL_NAME": "Core 2 Duo T8100",
+      "PROCESSOR_MODEL_NAME": "2 Duo T8100",
       "PROCESSOR_SOCKET_IMAGE": "118.gif",
       "PROCESSOR_SOCKET": "Socket P",
       "PROCESSOR_PROCESS_SIZE": "45 nm",
@@ -19082,7 +19082,7 @@
       "PROCESSOR_TRANSISTORS": "410 mln"
     },
     {
-      "PROCESSOR_MODEL_NAME": "Core i7-680UM",
+      "PROCESSOR_MODEL_NAME": "i7-680UM",
       "PROCESSOR_SOCKET_IMAGE": "64.gif",
       "PROCESSOR_SOCKET": "BGA1288",
       "PROCESSOR_PROCESS_SIZE": "32 nm",
@@ -19109,7 +19109,7 @@
     },
     {
       "PROCESSOR_FREQUENCY": "1400 MHz",
-      "PROCESSOR_MODEL_NAME": "Core 2 Duo T5270",
+      "PROCESSOR_MODEL_NAME": "2 Duo T5270",
       "PROCESSOR_SOCKET_IMAGE": "11.gif",
       "PROCESSOR_SOCKET": "Socket P/PPGA478",
       "PROCESSOR_PROCESS_SIZE": "65 nm",
@@ -19149,14 +19149,14 @@
       "PROCESSOR_PACKAGE": "478-pin micro-FCPGA",
       "PROCESSOR_SOCKET": "BGA956",
       "PROCESSOR_SOCKET_IMAGE": "11.gif",
-      "PROCESSOR_MODEL_NAME": "Core 2 Duo L9600",
+      "PROCESSOR_MODEL_NAME": "2 Duo L9600",
       "PROCESSOR_TURBOCLOCK": "NA",
       "PROCESSOR_VOLTAGE": "1.050V-1.150V"
     },
     {
       "PROCESSOR_VOLTAGE": "1.00V-1.250V",
       "PROCESSOR_TURBOCLOCK": "NA",
-      "PROCESSOR_MODEL_NAME": "Core 2 Duo T6600",
+      "PROCESSOR_MODEL_NAME": "2 Duo T6600",
       "PROCESSOR_SOCKET_IMAGE": "11.gif",
       "PROCESSOR_SOCKET": "PGA478",
       "PROCESSOR_PROCESS_SIZE": "45 nm",
@@ -19179,51 +19179,51 @@
     },
     {
       "PROCESSOR_SOCKET_IMAGE": "0.gif",
-      "PROCESSOR_MODEL_NAME": "Core 2 Duo T6500"
+      "PROCESSOR_MODEL_NAME": "2 Duo T6500"
     },
     {
       "PROCESSOR_SOCKET_IMAGE": "0.gif",
-      "PROCESSOR_MODEL_NAME": "Core 2 Duo P8400"
+      "PROCESSOR_MODEL_NAME": "2 Duo P8400"
     },
     {
       "PROCESSOR_SOCKET_IMAGE": "0.gif",
-      "PROCESSOR_MODEL_NAME": "Core i5-M 560"
+      "PROCESSOR_MODEL_NAME": "i5-M 560"
     },
     {
       "PROCESSOR_SOCKET_IMAGE": "0.gif",
-      "PROCESSOR_MODEL_NAME": "Core 2 Duo T5550"
+      "PROCESSOR_MODEL_NAME": "2 Duo T5550"
     },
     {
       "PROCESSOR_SOCKET_IMAGE": "0.gif",
-      "PROCESSOR_MODEL_NAME": "Core 2 Duo T6670"
+      "PROCESSOR_MODEL_NAME": "2 Duo T6670"
     },
     {
-      "PROCESSOR_MODEL_NAME": "Core i5-4690K",
+      "PROCESSOR_MODEL_NAME": "i5-4690K",
       "PROCESSOR_SOCKET_IMAGE": "308.gif"
     },
     {
-      "PROCESSOR_MODEL_NAME": "Core i7-4790K",
+      "PROCESSOR_MODEL_NAME": "i7-4790K",
       "PROCESSOR_SOCKET_IMAGE": "310.gif"
     },
     {
-      "PROCESSOR_MODEL_NAME": "Core 2 Duo T5870",
+      "PROCESSOR_MODEL_NAME": "2 Duo T5870",
       "PROCESSOR_SOCKET_IMAGE": "0.gif"
     },
     {
-      "PROCESSOR_MODEL_NAME": "Core 2 Duo P9400",
+      "PROCESSOR_MODEL_NAME": "2 Duo P9400",
       "PROCESSOR_SOCKET_IMAGE": "0.gif"
     },
     {
-      "PROCESSOR_MODEL_NAME": "Core 2 Duo T5870",
+      "PROCESSOR_MODEL_NAME": "2 Duo T5870",
       "PROCESSOR_SOCKET_IMAGE": "0.gif"
     },
     {
-      "PROCESSOR_MODEL_NAME": "Core 2 Duo T8300",
+      "PROCESSOR_MODEL_NAME": "2 Duo T8300",
       "PROCESSOR_SOCKET_IMAGE": "0.gif"
     },
     {
       "PROCESSOR_SOCKET_IMAGE": "0.gif",
-      "PROCESSOR_MODEL_NAME": "Core i5-3340"
+      "PROCESSOR_MODEL_NAME": "i5-3340"
     },
     {
       "PROCESSOR_MARKET": "Mobile",
@@ -19242,7 +19242,7 @@
       "PROCESSOR_PROCESS_SIZE": "32 nm",
       "PROCESSOR_SOCKET": "rPGA988A",
       "PROCESSOR_SOCKET_IMAGE": "111.gif",
-      "PROCESSOR_MODEL_NAME": "Core i5 M 450",
+      "PROCESSOR_MODEL_NAME": "i5 M 450",
       "PROCESSOR_FREQUENCY": "2.4 GHz",
       "PROCESSOR_TURBOCLOCK": "2.66 GHz",
       "PROCESSOR_MULTIPLIER": "18x",
@@ -19254,7 +19254,7 @@
     },
     {
       "PROCESSOR_SOCKET_IMAGE": "308.gif",
-      "PROCESSOR_MODEL_NAME": "Core i5-4300U"
+      "PROCESSOR_MODEL_NAME": "i5-4300U"
     },
     {
       "PROCESSOR_MARKET": "Mobile",
@@ -19273,7 +19273,7 @@
       "PROCESSOR_PROCESS_SIZE": "32 nm",
       "PROCESSOR_SOCKET": "rPGA988A",
       "PROCESSOR_SOCKET_IMAGE": "111.gif",
-      "PROCESSOR_MODEL_NAME": "Core i5 M 430",
+      "PROCESSOR_MODEL_NAME": "i5 M 430",
       "PROCESSOR_FREQUENCY": "2267 MHz",
       "PROCESSOR_TURBOCLOCK": "2533 MHz",
       "PROCESSOR_MULTIPLIER": "17.0x",
@@ -19300,7 +19300,7 @@
       "PROCESSOR_PROCESS_SIZE": "45 nm",
       "PROCESSOR_SOCKET": "BGA956",
       "PROCESSOR_SOCKET_IMAGE": "11.gif",
-      "PROCESSOR_MODEL_NAME": "Core 2 Duo L9400",
+      "PROCESSOR_MODEL_NAME": "2 Duo L9400",
       "PROCESSOR_FREQUENCY": "1867 MHz",
       "PROCESSOR_TURBOCLOCK": "NA",
       "PROCESSOR_MULTIPLIER": "7x",
@@ -19327,7 +19327,7 @@
       "PROCESSOR_PROCESS_SIZE": "22 nm",
       "PROCESSOR_SOCKET": "FCPGA946",
       "PROCESSOR_SOCKET_IMAGE": "310.gif",
-      "PROCESSOR_MODEL_NAME": "Core i7-4710MQ",
+      "PROCESSOR_MODEL_NAME": "i7-4710MQ",
       "PROCESSOR_FREQUENCY": "2.5 GHz",
       "PROCESSOR_TURBOCLOCK": "3.5 GHz",
       "PROCESSOR_MULTIPLIER": "25x",
@@ -19339,4 +19339,3 @@
     }
   ]
 }
-
