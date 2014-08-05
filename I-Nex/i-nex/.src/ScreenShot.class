@@ -14,7 +14,7 @@
 '
 ' You should have received a copy of the GNU General Public License
 ' along with this program. If not, see <http://www.gnu.org/licenses/>.
-
+Public pic As Picture
 Public Sub Form_Open()
  If Not Exist(User.Home & "/.i-nex") Then
  Mkdir User.Home & "/.i-nex"
@@ -30,7 +30,7 @@ Public Sub Form_Open()
      Try Me.X = Settings["Window/X", Me.X]
      Try Me.Y = Settings["Window/Y", Me.Y]
   Endif
- PictureBox1.Picture = ScreenShotM.pic
+ PictureBox1.Picture = pic
  TextBox1.Text = Date & Time
  TextBox1.Text = Replace(TextBox1.Text, "/", "")
  TextBox1.Text = Replace(TextBox1.Text, ":", "")
@@ -50,7 +50,7 @@ End
 
 Public Sub Button1_Click()
 
-ScreenShotM.save(ButtonBox1.Text, TextBox1.Text, ComboBox1.Text, SliderBox1.Value)
+ScreenShot.save(ButtonBox1.Text, TextBox1.Text, ComboBox1.Text, SliderBox1.Value)
 File.Save("" & User.Home & "/.i-nex/lastsaveg", ButtonBox1.Text)
 
 Form_Close()
@@ -80,5 +80,11 @@ Public Sub ComboBox1_Click()
   SliderBox1.MaxValue = 100
   SliderBox1.Value = 70
  Endif
+
+End
+
+Public Sub save(directory As String, filename As String, fileformat As String, filequality As Integer)
+ 
+ Try pic.Save("" & directory & "/" & filename & "" & fileformat & "", filequality)
 
 End

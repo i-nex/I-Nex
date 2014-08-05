@@ -670,7 +670,7 @@ Public Sub Wykrywanie_procesorow()
 End
 
 Public Sub Button2_Click()
-   ScreenShotM.pic = Desktop.Screenshot(Me.X, Me.Y, Me.W + 12, Me.H + 30)
+   ScreenShot.pic = Desktop.Screenshot(Me.X, Me.Y, Me.W + 12, Me.H + 30)
    ScreenShot.Show
 End
 
@@ -821,24 +821,60 @@ Public Sub refreshing()
  Label44.Text = "Modalias: " & Disk_Drives.modalias
  Label46.Text = "Ext range: " & Disk_Drives.ext_range
  Label47.Text = "Range: " & Disk_Drives.range
+ 
  Label49.Text = "Add random: " & Disk_Drives.add_random
+ Label49.Tooltip = "This file allows to trun off the disk entropy contribution. \n"
+                   "Default value Of this file Is '1'(on)."
+
  Label50.Text = "Discard granularity: " & Disk_Drives.discard_granularity
+ Label50.Tooltip = "This shows the size of internal allocation of the device in bytes,\n"
+                   "if reported by the device. \n"
+                   "A value Of '0' means device does not support the discard functionality."
+
  Label51.Text = "Discard max bytes: " & Disk_Drives.discard_max_bytes
+ Label51.Tooltip = "Devices that support discard functionality may have internal limits on\n"
+                   "the number Of bytes that can be trimmed Or unmapped In a single operation.\n"
+                   "The discard_max_bytes parameter Is Set by the device driver\n"
+                   "To the maximum number Of bytes that can be discarded In a single operation.\n"
+                   "Discard requests issued To the device must Not exceed this limit.A discard_max_bytes\n"
+                   "value Of 0 means that the device does Not support discard functionality."
+ 
  Label52.Text = "Discard zeroes data: " & Disk_Drives.discard_zeroes_data
+ Label52.Tooltip = "When read, this file will show if the discarded block are zeroed by the device Or not.\n"
+                   "If its value Is '1' the blocks are zeroed otherwise not.\n"
+                   
  Label53.Text = "HW sector size: " & Disk_Drives.hw_sector_size
+ Label53.Tooltip = "This is the hardware sector size of the device, in bytes."
+ 
  Label54.Text = "Max HW sectors kb: " & Disk_Drives.max_hw_sectors_kb
+ Label54.Tooltip = "This is the maximum number of kilobytes supported in a single data transfer."
+ 
  Label55.Text = "Max sectors kb: " & Disk_Drives.max_sectors_kb
+ Label55.Tooltip = "This is the maximum number of kilobytes that the block layer will allow\n"
+                   "For a filesystem request.\n"
+                   "Must be smaller than Or equal To the maximum size allowed by the hardware."
+ 
  Label56.Text = "Max segments: " & Disk_Drives.max_segments
+ Label56.Tooltip = "Maximum number of segments of the device."
+ 
  Label57.Text = "Max segment size: " & Disk_Drives.max_segment_size
+ Label57.Tooltip = "Maximum segment size of the device."
+ 
  Label58.Text = "Read ahead kb: " & Disk_Drives.read_ahead_kb
  Label59.Text = "..:Scheduler:.. \n " & Disk_Drives.scheduler
  
 Label126.Text = "Logical block size: " & Disk_Drives.logical_block_size
+Label126.Tooltip = "This is the logcal block size of the device, in bytes."
+
 Label127.Text = "IO stats: " & Disk_Drives.iostats
 Label128.Text = "Minimum IO size: " & Disk_Drives.minimum_io_size
+Label128.Tooltip = "This is the smallest preferred io size reported by the device."
+
 Label129.Text = "Nomerges: " & Disk_Drives.nomerges
 Label130.Text = "Nr requests: " & Disk_Drives.nr_requests
 Label131.Text = "Optimal IO size: " & Disk_Drives.optimal_io_size
+Label131.Tooltip = "This is the optimal io size reported by the device."
+
 Label132.Text = "Physical block size: " & Disk_Drives.physical_block_size
 Label133.Text = "Rotational: " & Disk_Drives.rotational
 Label134.Text = "Rq affinity: " & Disk_Drives.rq_affinity
@@ -870,8 +906,11 @@ Label134.Text = "Rq affinity: " & Disk_Drives.rq_affinity
  Label17.Text = Disk_Drives.Logical_Size
  
  Label251.Text = "HW SATA SPD Limit:" & Space$(2) & Disk_Drives.hw_sata_spd_limit
+ Label251.Tooltip = "Maximum speed supported by the connected SATA device."
  Label252.Text = "SATA SPD:" & Space$(2) & Disk_Drives.sata_spd
+ Label252.Tooltip = "Current speed of the link [1.5, 3Gps,...]."
  Label253.Text = "SATA SPD Limit:" & Space$(2) & Disk_Drives.sata_spd_limit
+ Label253.Tooltip = "Maximum speed imposed by libata."
 
 End
 
