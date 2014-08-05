@@ -34,11 +34,13 @@ Public Sub _inits()
                              ("5"): ("/sys/class/hwmon/hwmon0/device/temp1_input"), 
                              ("6"): ("/sys/class/hwmon/hwmon0/temp2_input"),
                              ("7"): ("/sys/bus/acpi/drivers/ATK0110/ATK0110:00/hwmon/hwmon0/temp1_input"),
-                             ("8"): ("/sys/devices/virtual/thermal/thermal_zone0/temp")]
+                             ("8"): ("/sys/devices/virtual/thermal/thermal_zone0/temp"),
+                             ("9"): ("/sys/class/hwmon/hwmon1/temp1_input")]
  
  TemperatureCriticalDirectories = [("0"): ("/sys/devices/platform/coretemp.0/temp2_crit"),
                                    ("1"): ("/sys/class/hwmon/hwmon0/temp2_crit"),
-                                   ("2"): ("/sys/class/hwmon/hwmon0/temp1_crit")]
+                                   ("2"): ("/sys/class/hwmon/hwmon0/temp1_crit"),
+                                   ("3"): ("/sys/class/hwmon/hwmon1/temp1_crit")]
  
  For i = 0 To TemperaturesDirectiories.Count
   If Exist(TemperaturesDirectiories[i]) = True Then
