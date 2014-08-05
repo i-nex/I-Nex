@@ -310,7 +310,7 @@ Public Sub disks()
    Endif
    
    If Access("/proc/mounts", gb.Read) = True Then
-   MOUNTS_PROC = Open "/proc/mounts" For Read
+   MOUNTS_PROC = Open "/proc/mounts"
    For Each MountsLine In MOUNTS_PROC.Lines
     For i = 0 To Split(MountsLine, " ", "%%").Count - 1
      If IsNull(Finfosys.ComboBox3.Text) = False Then
@@ -333,7 +333,7 @@ Public Sub disks()
    Endif
    
    If Access("/proc/swaps", gb.Read) = True Then
-   SWAPS_PROC = Open "/proc/swaps" For Read
+   SWAPS_PROC = Open "/proc/swaps"
     For Each SwapsLine In SWAPS_PROC.Lines
      For i = 0 To Split(SwapsLine, " ", "%%").Count - 1
       If IsNull(Finfosys.ComboBox3.Text) = False Then
