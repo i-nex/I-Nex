@@ -868,6 +868,11 @@ Label134.Text = "Rq affinity: " & Disk_Drives.rq_affinity
  
  Label16.Text = Disk_Drives.CONNECTED_PORT
  Label17.Text = Disk_Drives.Logical_Size
+ 
+ Label251.Text = "HW SATA SPD Limit:" & Space$(2) & Disk_Drives.hw_sata_spd_limit
+ Label252.Text = "SATA SPD:" & Space$(2) & Disk_Drives.sata_spd
+ Label253.Text = "SATA SPD Limit:" & Space$(2) & Disk_Drives.sata_spd_limit
+
 End
 
 Public Sub ComboBox5_Click()

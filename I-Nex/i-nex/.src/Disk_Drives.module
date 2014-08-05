@@ -57,7 +57,9 @@ Public rotational As String ' rotational
 Public rq_affinity As String ' rq_affinity
 Public CONNECTED_PORT As String
 Public Logical_Size As String
-
+Public hw_sata_spd_limit As String
+Public sata_spd As String
+Public sata_spd_limit As String
 Function _inits()
   Dim Avail_HDD As Integer 
   Logs("Add Drives to ComboBox", Logger.Info)
@@ -348,13 +350,21 @@ Public Sub disks()
     With Stat("/sys/block/" & Dir("/sys/block/", "sd*")[i])
      For i2 = 0 To Split(.Link, "/").Count - 1
       If Split(.Link, "/")[i2] Like "*" & Finfosys.ComboBox4.Text & "*" Then
+       
+       If Split(.Link, "/")[4] Like "*ata*" Then
+        Try hw_sata_spd_limit = Replace(File.Load("/sys/class/ata_link/" & Replace(Split(.Link, "/")[4], "ata", "link") & "/hw_sata_spd_limit"), "\n", "")
+        Try sata_spd = Replace(File.Load("/sys/class/ata_link/" & Replace(Split(.Link, "/")[4], "ata", "link") & "/sata_spd"), "\n", "")
+        Try sata_spd_limit = Replace(File.Load("/sys/class/ata_link/" & Replace(Split(.Link, "/")[4], "ata", "link") & "/sata_spd_limit"), "\n", "")
+       Endif
+       
        If Split(.Link, "/")[5] Like "*host*" Then
-        CONNECTED_PORT = "Port:" & Space$(2) & Replace(Split(.Link, "/")[5], "host", "[S?]ATA")
+        CONNECTED_PORT = "Port:" & Space$(2) & Replace(Split(.Link, "/")[5], "host", "SATA")
        Else If Split(.Link, "/")[4] Like "*usb*" Then
         CONNECTED_PORT = "Port:" & Space$(2) & UCase(Split(.Link, "/")[4])
        Else
         CONNECTED_PORT = Null
        Endif
+       
       Endif
      Next
     End With
@@ -362,6 +372,9 @@ Public Sub disks()
 End
 
 Function SETNULL()
+hw_sata_spd_limit = Null
+sata_spd = Null
+sata_spd_limit = Null
 CONNECTED_PORT = Null
 device_model = Null
 device_vendor = Null
