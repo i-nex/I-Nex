@@ -103,7 +103,9 @@ Function _inits()
   Endif
   
   cpucache = Replace(cpucache, "Core2", "Core 2")
-  
+  If cpucache Like "*Processo*" Then
+    cpucache = Replace(cpucache, "Processo", "*")
+  Endif
   If cpucache Like "*Graphic*" Then
     cpucache = Replace(cpucache, "Graphic", "*")
   Endif
