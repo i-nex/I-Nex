@@ -129,8 +129,8 @@ VALIDATE_VARIABLES.Add(Finfosys.DATAT, "CPUID")
 VALIDATE_VARIABLES.Add(Finfosys.UNAME, "UNAME")
 VALIDATE_VARIABLES.Add(Finfosys.USAGE, "USAGE")
 
-ScreenShotM.pic = Desktop.Screenshot(Finfosys.X, Finfosys.Y, Finfosys.W + 12, Finfosys.H + 30)
-ScreenShotM.pic.Save("~/.i-nex/datata.png", 9)
+ScreenShot.pic = Desktop.Screenshot(Finfosys.X, Finfosys.Y, Finfosys.W + 12, Finfosys.H + 30)
+ScreenShot.pic.Save("~/.i-nex/datata.png", 9)
 Wait 1.0
 temporr = Base64(File.Load(User.Home &/ ".i-nex/datata.png"))
 
