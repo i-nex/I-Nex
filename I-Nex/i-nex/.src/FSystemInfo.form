@@ -15,7 +15,7 @@
     Spacing = True
     { PictureBox1 PictureBox
       MoveScaled(0,0,7,7)
-      Picture = Picture["icon:/large/system"]
+      Picture = Picture["AppIcons/computer.png"]
       AutoResize = True
       Alignment = Align.Center
     }
@@ -52,12 +52,12 @@
     { btnCopy Button
       MoveScaled(23,0,18,4)
       Text = ("&Copy")
-      Picture = Picture["icon:/small/copy"]
+      Picture = Picture["AppIcons/edit-copy.png"]
     }
     { btnClose Button
       MoveScaled(48,0,18,4)
       Text = ("Close")
-      Picture = Picture["icon:/16/close"]
+      Picture = Picture["AppIcons/application-exit2.png"]
       Default = True
       Cancel = True
     }

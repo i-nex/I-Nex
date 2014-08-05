@@ -16,22 +16,22 @@
     Visible = False
     { Orientation_Top Menu
       Text = ("Orientation Top")
-      Picture = Picture["icon:/16/top"]
+      Picture = Picture["AppIcons/go-top.png"]
       Shortcut = "Ctrl+Alt+Up"
     }
     { Orientation_Bottom Menu
       Text = ("Orientation Bottom")
-      Picture = Picture["icon:/16/bottom"]
+      Picture = Picture["AppIcons/go-bottom.png"]
       Shortcut = "Ctrl+Alt+Down"
     }
     { Orientation_Left Menu
       Text = ("Orientation Left")
-      Picture = Picture["icon:/16/left"]
+      Picture = Picture["AppIcons/go-first.png"]
       Shortcut = "Ctrl+Alt+Left"
     }
     { Orientation_Right Menu
       Text = ("Orientation Right")
-      Picture = Picture["icon:/16/right"]
+      Picture = Picture["AppIcons/go-last.png"]
       Shortcut = "Ctrl+Alt+Right"
     }
   }
@@ -40,7 +40,7 @@
     Visible = False
     { Reportthisw Menu
       Text = ("Save as report")
-      Picture = Picture["icon:/16/make"]
+      Picture = Picture["AppIcons/application-default-icon.png"]
     }
   }
   { Menu2 Menu
@@ -85,7 +85,7 @@
     #Translate = False
     Font = Font["8"]
     ToolTip = "Options"
-    Picture = Picture["icon:/16/options"]
+    Picture = Picture["AppIcons/options.png"]
   }
   { TabStrip1 TabStrip
     Move(0,0,476,511)
@@ -1427,7 +1427,7 @@
       Move(406,448,28,28)
       #Translate = False
       ToolTip = "Refresh"
-      Picture = Picture["icon:/16/refresh"]
+      Picture = Picture["AppIcons/view-refresh.png"]
     }
     { TextBox58 TextBox
       Move(7,448,399,28)
@@ -1449,7 +1449,7 @@
       Font = Font["Bold,8"]
       ToolTip = "Show number packages installed on your system.\nShow deb, rpm or pkg"
       Text = "Check"
-      Picture = Picture["icon:/16/play"]
+      Picture = Picture["AppIcons/media-playback-start.png"]
     }
     { Label4 Label
       Move(0,0,154,28)
@@ -1601,7 +1601,7 @@
     { Button15 Button
       Move(434,448,28,28)
       ToolTip = ("Copy")
-      Picture = Picture["icon:/16/copy"]
+      Picture = Picture["AppIcons/edit-copy.png"]
     }
     { Label149 Label
       Move(238,357,231,21)
@@ -2272,7 +2272,7 @@
     }
     { Button10 Button
       Move(438,420,24,24)
-      Picture = Picture["icon:/16/refresh"]
+      Picture = Picture["AppIcons/view-refresh.png"]
     }
     { ProgressBar3 ProgressBar
       Move(6,426,396,18)
@@ -2576,7 +2576,7 @@
     Font = Font["Bold,8"]
     ToolTip = ("Force detect EDID information from xrandr --verbose")
     Text = ("Force")
-    Picture = Picture["icon:/16/make"]
+    Picture = Picture["AppIcons/application-default-icon.png"]
   }
   { !HBox19 HBox
     Move(210,511,203,28)
@@ -2634,7 +2634,7 @@
     Font = Font["Bold,8"]
     Foreground = &H0000FF&
     Text = ("Validate")
-    Picture = Picture["icon:/16/server"]
+    Picture = Picture["AppIcons/gnome-network-properties.png"]
     Menu = "Menu2"
   }
 }
