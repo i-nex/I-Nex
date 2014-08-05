@@ -60,6 +60,7 @@ Public Logical_Size As String
 Public hw_sata_spd_limit As String
 Public sata_spd As String
 Public sata_spd_limit As String
+Public SATA_PIC As Picture 
 Function _inits()
   Dim Avail_HDD As Integer 
   Logs("Add Drives to ComboBox", Logger.Info)
@@ -369,6 +370,17 @@ Public Sub disks()
      Next
     End With
   Next
+  
+  Select Case sata_spd
+    Case Like "*1.5*Gbps*"
+     SATA_PIC = Picture.Load("Data/SATA/SATA1.jpg")
+    Case Like "*3.0*Gbps*"
+     SATA_PIC = Picture.Load("Data/SATA/SATA2.jpg")
+    Case Like "*6.0*Gbps*"
+     SATA_PIC = Picture.Load("Data/SATA/SATA3.jpg")
+    Case Like "*<unknown>*"
+     SATA_PIC = Picture.Load("Data/SATA/SATA.jpg")
+  End Select
 End
 
 Function SETNULL()

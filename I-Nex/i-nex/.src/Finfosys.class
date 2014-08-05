@@ -912,6 +912,7 @@ Label134.Text = "Rq affinity: " & Disk_Drives.rq_affinity
  Label253.Text = "SATA SPD Limit:" & Space$(2) & Disk_Drives.sata_spd_limit
  Label253.Tooltip = "Maximum speed imposed by libata."
 
+ PictureBox4.Picture = Disk_Drives.SATA_PIC
 End
 
 Public Sub ComboBox5_Click()

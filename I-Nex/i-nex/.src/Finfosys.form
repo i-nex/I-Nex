@@ -1441,6 +1441,10 @@
       Text = ("Label253")
       Border = Border.Raised
     }
+    { PictureBox4 PictureBox
+      Move(392,224,77,63)
+      Stretch = True
+    }
     Index = 5
     Text = "System"
     Picture = Picture["AppIcons/Finfosys/applications-system.png"]
