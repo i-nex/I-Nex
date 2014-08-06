@@ -1171,7 +1171,7 @@
       Move(294,434,133,42)
       #Public = True
       #Translate = False
-      Font = Font["Bold,10"]
+      Font = Font["10"]
       Foreground = &HFF0000&
       Padding = 3
       Alignment = Align.Center
