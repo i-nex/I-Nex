@@ -61,6 +61,7 @@ Public hw_sata_spd_limit As String
 Public sata_spd As String
 Public sata_spd_limit As String
 Public SATA_PIC As Picture 
+'Public IS_SATA As Boolean
 Function _inits()
   Dim Avail_HDD As Integer 
   Logs("Add Drives to ComboBox", Logger.Info)
@@ -159,21 +160,17 @@ Public Sub get_informations()
 End
 
 Function Schedule(sched As String) As String
- '[noop] deadline cfq bfq = 1 | 4
- 'noop [deadline] cfq bfq = 6 | 8
- 'noop deadline [cfq] bfq = 15 | 3
- 'noop deadline cfq [bfq] = 19 | 3
- If Mid$(sched, 2, 4) = "noop" Then
-  Return "noop"
- Else If Mid$(sched, 7, 8) = "deadline" Then
-  Return "deadline"
- Else If Mid$(sched, 16, 3) = "cfq" Then
-  Return "cfq"
- Else If Mid$(sched, 20, 3) = "bfq" Then
-  Return "bfq"
- Else
-  Return ""
- Endif
+ Print sched
+ Select Case sched
+  Case Like "*\\[noop\\]*"
+   Return "noop"
+  Case Like "*\\[deadline\\]*"
+   Return "deadline"
+  Case Like "*\\[cfq\\]*"
+   Return "cfq"
+  Case Like "*\\[bfq\\]*"
+   Return "bfq"
+ End Select
 End
 
 
@@ -289,7 +286,7 @@ Function CalculateSIZE(BlockSize As Float, Optional ReturnIn As Boolean) As Stri
 End
 
 Public Sub disks()
-  Dim i, i2 As Integer
+  Dim i, i2, i3 As Integer
   Dim MOUNTS_PROC As File
   Dim SWAPS_PROC As File
   Dim MountsLine As String
@@ -353,9 +350,9 @@ Public Sub disks()
       If Split(.Link, "/")[i2] Like "*" & Finfosys.ComboBox4.Text & "*" Then
        
        If Split(.Link, "/")[4] Like "*ata*" Then
-        Try hw_sata_spd_limit = Replace(File.Load("/sys/class/ata_link/" & Replace(Split(.Link, "/")[4], "ata", "link") & "/hw_sata_spd_limit"), "\n", "")
-        Try sata_spd = Replace(File.Load("/sys/class/ata_link/" & Replace(Split(.Link, "/")[4], "ata", "link") & "/sata_spd"), "\n", "")
-        Try sata_spd_limit = Replace(File.Load("/sys/class/ata_link/" & Replace(Split(.Link, "/")[4], "ata", "link") & "/sata_spd_limit"), "\n", "")
+         Try hw_sata_spd_limit = Replace(File.Load("/sys/class/ata_link/" & Replace(Split(.Link, "/")[4], "ata", "link") & "/hw_sata_spd_limit"), "\n", "")
+         Try sata_spd = Replace(File.Load("/sys/class/ata_link/" & Replace(Split(.Link, "/")[4], "ata", "link") & "/sata_spd"), "\n", "")
+         Try sata_spd_limit = Replace(File.Load("/sys/class/ata_link/" & Replace(Split(.Link, "/")[4], "ata", "link") & "/sata_spd_limit"), "\n", "")
        Endif
        
        If Split(.Link, "/")[5] Like "*host*" Then
@@ -366,10 +363,33 @@ Public Sub disks()
         CONNECTED_PORT = Null
        Endif
        
+       ' If Split(.Link, "/")[4] Like "*usb*" Then
+       '  Print .Link
+       '  Print File.Load("/sys/bus/usb/devices/" & Split(.Link, "/")[4] & "/" & Split(.Link, "/")[5] & "/version")
+       ' Endif
+       
+       ' For i3 = 0 To Dir("/sys/class/scsi_disk/").Count - 1
+       '  If Split(Stat("/sys/class/scsi_disk/" & Dir("/sys/class/scsi_disk/")[i3]).Link, "/")[5] = Split(.Link, "/")[4] Then
+       '   Print File.Load(Replace(Stat("/sys/class/scsi_disk/" & Dir("/sys/class/scsi_disk/")[i3]).Link, "../../", "/sys/") &/ "allow_restart")
+       '   Print File.Load(Replace(Stat("/sys/class/scsi_disk/" & Dir("/sys/class/scsi_disk/")[i3]).Link, "../../", "/sys/") &/ "app_tag_own")
+       '   Print File.Load(Replace(Stat("/sys/class/scsi_disk/" & Dir("/sys/class/scsi_disk/")[i3]).Link, "../../", "/sys/") &/ "cache_type")
+       '   Print File.Load(Replace(Stat("/sys/class/scsi_disk/" & Dir("/sys/class/scsi_disk/")[i3]).Link, "../../", "/sys/") &/ "FUA")
+       '   Print File.Load(Replace(Stat("/sys/class/scsi_disk/" & Dir("/sys/class/scsi_disk/")[i3]).Link, "../../", "/sys/") &/ "manage_start_stop")
+       '   Print File.Load(Replace(Stat("/sys/class/scsi_disk/" & Dir("/sys/class/scsi_disk/")[i3]).Link, "../../", "/sys/") &/ "max_medium_access_timeouts")
+       '   Print File.Load(Replace(Stat("/sys/class/scsi_disk/" & Dir("/sys/class/scsi_disk/")[i3]).Link, "../../", "/sys/") &/ "max_write_same_blocks")
+       '   Print File.Load(Replace(Stat("/sys/class/scsi_disk/" & Dir("/sys/class/scsi_disk/")[i3]).Link, "../../", "/sys/") &/ "protection_mode")
+       '   Print File.Load(Replace(Stat("/sys/class/scsi_disk/" & Dir("/sys/class/scsi_disk/")[i3]).Link, "../../", "/sys/") &/ "protection_type")
+       '   Print File.Load(Replace(Stat("/sys/class/scsi_disk/" & Dir("/sys/class/scsi_disk/")[i3]).Link, "../../", "/sys/") &/ "provisioning_mode")
+       '   Print File.Load(Replace(Stat("/sys/class/scsi_disk/" & Dir("/sys/class/scsi_disk/")[i3]).Link, "../../", "/sys/") &/ "thin_provisioning")
+       '  Endif
+       ' Next
+       
       Endif
      Next
     End With
   Next
+  
+
   
   Select Case sata_spd
     Case Like "*1.5*Gbps*"
@@ -380,6 +400,8 @@ Public Sub disks()
      SATA_PIC = Picture.Load("Data/SATA/SATA3.jpg")
     Case Like "*<unknown>*"
      SATA_PIC = Picture.Load("Data/SATA/SATA.jpg")
+    Case Like ""
+     SATA_PIC = Null
   End Select
 End
 
