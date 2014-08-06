@@ -60,8 +60,7 @@ Public Logical_Size As String
 Public hw_sata_spd_limit As String
 Public sata_spd As String
 Public sata_spd_limit As String
-Public SATA_PIC As Picture 
-'Public IS_SATA As Boolean
+Public SATA_PIC As Picture
 Function _inits()
   Dim Avail_HDD As Integer 
   Logs("Add Drives to ComboBox", Logger.Info)
@@ -123,7 +122,6 @@ Public Sub get_informations()
   Try physical_block_size = Replace(File.Load("/sys/block/" & Finfosys.ComboBox4.Text & "/queue/physical_block_size"), "\n", "")
   Try read_ahead_kb = Replace(File.Load("/sys/block/" & Finfosys.ComboBox4.Text & "/queue/read_ahead_kb"), "\n", "")
   
-  'Try scheduler = Replace(File.Load("/sys/block/" & Finfosys.ComboBox4.Text & "/queue/scheduler"), "\n", "")
   Try scheduler = Schedule(CString(Replace(File.Load("/sys/block/" & Finfosys.ComboBox4.Text & "/queue/scheduler"), "\n", "")))
   
   Try rotational = Replace(File.Load("/sys/block/" & Finfosys.ComboBox4.Text & "/queue/rotational"), "\n", "")
@@ -160,7 +158,6 @@ Public Sub get_informations()
 End
 
 Function Schedule(sched As String) As String
- Print sched
  Select Case sched
   Case Like "*\\[noop\\]*"
    Return "noop"
@@ -224,16 +221,16 @@ Function CalculateLOGICAL(BlockSize As Float) As String
  LOGICAL_SIZE3 = (BlockSize * 512)
  If CLong(LOGICAL_SIZE0) > 0 Then
    iPos = InStr(CString(LOGICAL_SIZE0), ".")
-   Return Left$(CString(LOGICAL_SIZE0), iPos + 1) & " GB"
+   Return Left$(CString(LOGICAL_SIZE0), iPos + 1) & Space$(1) & "GB"
   Else If LOGICAL_SIZE1 > 0 Then
    iPos = InStr(CString(LOGICAL_SIZE1), ".")
-   Return Left$(CString(LOGICAL_SIZE1), iPos + 1) & " MB"
+   Return Left$(CString(LOGICAL_SIZE1), iPos + 1) & Space$(1) & "MB"
   Else If CLong(LOGICAL_SIZE2) > 0 Then
    iPos = InStr(CString(LOGICAL_SIZE2), ".")
-   Return Left$(CString(LOGICAL_SIZE2), iPos + 1) & " KiB"
+   Return Left$(CString(LOGICAL_SIZE2), iPos + 1) & Space$(1) & "KiB"
   Else If CLong(LOGICAL_SIZE3) > 0 Then
    iPos = InStr(CString(LOGICAL_SIZE3), ".")
-   Return Left$(CString(LOGICAL_SIZE3), iPos + 1) & " Bytes"
+   Return Left$(CString(LOGICAL_SIZE3), iPos + 1) & Space$(1) & "Bytes"
   Else
    Return 0
  Endif
@@ -256,28 +253,28 @@ Function CalculateSIZE(BlockSize As Float, Optional ReturnIn As Boolean) As Stri
    
    iPos = InStr(CString(REAL_SIZE_GB), ".")
    If ReturnIn = True Then
-   Return Left$(CString(REAL_SIZE_GB), iPos + 1) & " GB"
+   Return Left$(CString(REAL_SIZE_GB), iPos + 1) & Space$(1) & "GB"
    Else
     Return REAL_SIZE_BYTES
    Endif
   Else If CLong(REAL_SIZE_MB) > 0 Then
    iPos = InStr(CString(REAL_SIZE_MB), ".")
    If ReturnIn = True Then
-   Return Left$(CString(REAL_SIZE_MB), iPos + 1) & " MB"
+   Return Left$(CString(REAL_SIZE_MB), iPos + 1) & Space$(1) & "MB"
    Else
     Return REAL_SIZE_BYTES
    Endif
   Else If CLong(REAL_SIZE_KIB) > 0 Then
    iPos = InStr(CString(REAL_SIZE_KIB), ".")
    If ReturnIn = True Then
-   Return Left$(CString(REAL_SIZE_KIB), iPos + 1) & " KiB"
+   Return Left$(CString(REAL_SIZE_KIB), iPos + 1) & Space$(1) & "KiB"
    Else
     Return REAL_SIZE_BYTES
    Endif
   Else If CLong(REAL_SIZE_BYTES) > 0 Then
    iPos = InStr(CString(REAL_SIZE_BYTES), ".")
    If ReturnIn = True Then
-   Return Left$(CString(REAL_SIZE_BYTES), iPos + 1) & " Bytes"
+   Return Left$(CString(REAL_SIZE_BYTES), iPos + 1) & Space$(1) & "Bytes"
    Else
     Return REAL_SIZE_BYTES
    Endif

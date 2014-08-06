@@ -1420,30 +1420,33 @@
     { Separator2 Separator
       Move(0,217,469,7)
     }
-    { Label251 Label
-      Move(161,224,231,21)
-      Font = Font["8"]
-      Padding = 3
-      Text = ("Label251")
-      Border = Border.Raised
-    }
-    { Label252 Label
-      Move(161,245,231,21)
-      Font = Font["8"]
-      Padding = 3
-      Text = ("Label252")
-      Border = Border.Raised
-    }
-    { Label253 Label
-      Move(161,266,231,21)
-      Font = Font["8"]
-      Padding = 3
-      Text = ("Label253")
-      Border = Border.Raised
-    }
-    { PictureBox4 PictureBox
-      Move(392,224,77,63)
-      Stretch = True
+    { Panel1 Panel
+      Move(161,224,308,63)
+      { Label251 Label
+        Move(0,0,231,21)
+        Font = Font["8"]
+        Padding = 3
+        Text = ("Label251")
+        Border = Border.Raised
+      }
+      { Label252 Label
+        Move(0,21,231,21)
+        Font = Font["8"]
+        Padding = 3
+        Text = ("Label252")
+        Border = Border.Raised
+      }
+      { Label253 Label
+        Move(0,42,231,21)
+        Font = Font["8"]
+        Padding = 3
+        Text = ("Label253")
+        Border = Border.Raised
+      }
+      { PictureBox4 PictureBox
+        Move(231,0,77,63)
+        Stretch = True
+      }
     }
     Index = 5
     Text = "System"
