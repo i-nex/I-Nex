@@ -1448,6 +1448,33 @@
         Stretch = True
       }
     }
+    { Panel2 Panel
+      Move(161,224,308,63)
+      { PictureBox5 PictureBox
+        Move(182,0,126,63)
+      }
+      { Label122 Label
+        Move(0,0,182,21)
+        Font = Font["8"]
+        Padding = 3
+        Text = ("Label122")
+        Border = Border.Raised
+      }
+      { Label254 Label
+        Move(0,21,182,21)
+        Font = Font["8"]
+        Padding = 3
+        Text = ("Label254")
+        Border = Border.Raised
+      }
+      { Label255 Label
+        Move(0,42,182,21)
+        Font = Font["8"]
+        Padding = 3
+        Text = ("Label255")
+        Border = Border.Raised
+      }
+    }
     Index = 5
     Text = "System"
     Picture = Picture["AppIcons/Finfosys/applications-system.png"]

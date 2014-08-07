@@ -912,10 +912,17 @@ Label134.Text = "Rq affinity: " & Disk_Drives.rq_affinity
  Label253.Text = "SATA SPD Limit:" & Space$(2) & Disk_Drives.sata_spd_limit
  Label253.Tooltip = "Maximum speed imposed by libata."
 
+ Label122.Text = "USB Speed:" & Space$(2) & Disk_Drives.USB_SPEED
+ Label254.Text = "USB Version:" & Space$(2) & Disk_Drives.USB_VERSION
+ Label255.Text = "USB Max Power:" & Space$(2) & Disk_Drives.USB_BMAXPOWER
+ PictureBox5.Picture = Disk_Drives.USB_PIC
+ 
  PictureBox4.Picture = Disk_Drives.SATA_PIC
  If Disk_Drives.sata_spd = Null Then
   Panel1.Visible = False
+  Panel2.Visible = True
  Else
+  Panel2.Visible = False
   Panel1.Visible = True
  Endif
 End

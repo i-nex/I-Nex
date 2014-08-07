@@ -61,6 +61,11 @@ Public hw_sata_spd_limit As String
 Public sata_spd As String
 Public sata_spd_limit As String
 Public SATA_PIC As Picture
+Public USB_PIC As Picture
+Public USB_SPEED As String
+Public USB_VERSION As String
+Public USB_BMAXPOWER As String
+
 Function _inits()
   Dim Avail_HDD As Integer 
   Logs("Add Drives to ComboBox", Logger.Info)
@@ -358,32 +363,43 @@ Public Sub disks()
         CONNECTED_PORT = Null
        Endif
        
-       ' If Split(.Link, "/")[4] Like "*usb*" Then
-       '  Print .Link
-       '  Print File.Load("/sys/bus/usb/devices/" & Split(.Link, "/")[4] & "/" & Split(.Link, "/")[5] & "/version")
-       ' Endif
+       If Split(.Link, "/")[4] Like "*usb*" Then
+        Try USB_SPEED = Replace(File.Load("/sys/bus/usb/devices/" & Split(.Link, "/")[4] & "/" & Split(.Link, "/")[5] & "/speed"), "\n", "")
+        Try USB_VERSION = Replace(File.Load("/sys/bus/usb/devices/" & Split(.Link, "/")[4] & "/" & Split(.Link, "/")[5] & "/version"), "\n", "")
+        Try USB_BMAXPOWER = Replace(File.Load("/sys/bus/usb/devices/" & Split(.Link, "/")[4] & "/" & Split(.Link, "/")[5] & "/bMaxPower"), "\n", "")
+       Endif
        
-       ' For i3 = 0 To Dir("/sys/class/scsi_disk/").Count - 1
-       '  If Split(Stat("/sys/class/scsi_disk/" & Dir("/sys/class/scsi_disk/")[i3]).Link, "/")[5] = Split(.Link, "/")[4] Then
-       '   Print File.Load(Replace(Stat("/sys/class/scsi_disk/" & Dir("/sys/class/scsi_disk/")[i3]).Link, "../../", "/sys/") &/ "allow_restart")
-       '   Print File.Load(Replace(Stat("/sys/class/scsi_disk/" & Dir("/sys/class/scsi_disk/")[i3]).Link, "../../", "/sys/") &/ "app_tag_own")
-       '   Print File.Load(Replace(Stat("/sys/class/scsi_disk/" & Dir("/sys/class/scsi_disk/")[i3]).Link, "../../", "/sys/") &/ "cache_type")
-       '   Print File.Load(Replace(Stat("/sys/class/scsi_disk/" & Dir("/sys/class/scsi_disk/")[i3]).Link, "../../", "/sys/") &/ "FUA")
-       '   Print File.Load(Replace(Stat("/sys/class/scsi_disk/" & Dir("/sys/class/scsi_disk/")[i3]).Link, "../../", "/sys/") &/ "manage_start_stop")
-       '   Print File.Load(Replace(Stat("/sys/class/scsi_disk/" & Dir("/sys/class/scsi_disk/")[i3]).Link, "../../", "/sys/") &/ "max_medium_access_timeouts")
-       '   Print File.Load(Replace(Stat("/sys/class/scsi_disk/" & Dir("/sys/class/scsi_disk/")[i3]).Link, "../../", "/sys/") &/ "max_write_same_blocks")
-       '   Print File.Load(Replace(Stat("/sys/class/scsi_disk/" & Dir("/sys/class/scsi_disk/")[i3]).Link, "../../", "/sys/") &/ "protection_mode")
-       '   Print File.Load(Replace(Stat("/sys/class/scsi_disk/" & Dir("/sys/class/scsi_disk/")[i3]).Link, "../../", "/sys/") &/ "protection_type")
-       '   Print File.Load(Replace(Stat("/sys/class/scsi_disk/" & Dir("/sys/class/scsi_disk/")[i3]).Link, "../../", "/sys/") &/ "provisioning_mode")
-       '   Print File.Load(Replace(Stat("/sys/class/scsi_disk/" & Dir("/sys/class/scsi_disk/")[i3]).Link, "../../", "/sys/") &/ "thin_provisioning")
-       '  Endif
-       ' Next
+        ' For i3 = 0 To Dir("/sys/class/scsi_disk/").Count - 1
+        '  If Split(Stat("/sys/class/scsi_disk/" & Dir("/sys/class/scsi_disk/")[i3]).Link, "/")[5] = Split(.Link, "/")[4] Then
+        '   Print File.Load(Replace(Stat("/sys/class/scsi_disk/" & Dir("/sys/class/scsi_disk/")[i3]).Link, "../../", "/sys/") &/ "allow_restart")
+        '   Print File.Load(Replace(Stat("/sys/class/scsi_disk/" & Dir("/sys/class/scsi_disk/")[i3]).Link, "../../", "/sys/") &/ "app_tag_own")
+        '   Print File.Load(Replace(Stat("/sys/class/scsi_disk/" & Dir("/sys/class/scsi_disk/")[i3]).Link, "../../", "/sys/") &/ "cache_type")
+        '   Print File.Load(Replace(Stat("/sys/class/scsi_disk/" & Dir("/sys/class/scsi_disk/")[i3]).Link, "../../", "/sys/") &/ "FUA")
+        '   Print File.Load(Replace(Stat("/sys/class/scsi_disk/" & Dir("/sys/class/scsi_disk/")[i3]).Link, "../../", "/sys/") &/ "manage_start_stop")
+        '   Print File.Load(Replace(Stat("/sys/class/scsi_disk/" & Dir("/sys/class/scsi_disk/")[i3]).Link, "../../", "/sys/") &/ "max_medium_access_timeouts")
+        '   Print File.Load(Replace(Stat("/sys/class/scsi_disk/" & Dir("/sys/class/scsi_disk/")[i3]).Link, "../../", "/sys/") &/ "max_write_same_blocks")
+        '   Print File.Load(Replace(Stat("/sys/class/scsi_disk/" & Dir("/sys/class/scsi_disk/")[i3]).Link, "../../", "/sys/") &/ "protection_mode")
+        '   Print File.Load(Replace(Stat("/sys/class/scsi_disk/" & Dir("/sys/class/scsi_disk/")[i3]).Link, "../../", "/sys/") &/ "protection_type")
+        '   Print File.Load(Replace(Stat("/sys/class/scsi_disk/" & Dir("/sys/class/scsi_disk/")[i3]).Link, "../../", "/sys/") &/ "provisioning_mode")
+        '   Print File.Load(Replace(Stat("/sys/class/scsi_disk/" & Dir("/sys/class/scsi_disk/")[i3]).Link, "../../", "/sys/") &/ "thin_provisioning")
+        '  Endif
+        ' Next
        
       Endif
      Next
     End With
   Next
   
+  Select Case USB_VERSION
+    Case Like "*1.1*"
+     USB_PIC = Picture.Load("Data/USB/usb1")
+    Case Like "*2.00*"
+     USB_PIC = Picture.Load("Data/USB/usb2")
+    Case Like "*3*"
+     USB_PIC = Picture.Load("Data/USB/usb3")
+    Case Like ""
+     USB_PIC = Null
+  End Select
 
   
   Select Case sata_spd
@@ -401,9 +417,14 @@ Public Sub disks()
 End
 
 Function SETNULL()
+USB_SPEED = Null
+USB_VERSION = Null
+USB_BMAXPOWER = Null
+
 hw_sata_spd_limit = Null
 sata_spd = Null
 sata_spd_limit = Null
+
 CONNECTED_PORT = Null
 device_model = Null
 device_vendor = Null
