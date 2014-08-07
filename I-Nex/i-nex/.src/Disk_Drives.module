@@ -306,16 +306,28 @@ Public Sub disks()
    Next
    Endif
    
+   If IsNull(Finfosys.ComboBox3.Text) = True Then
+   For i = 0 To Dir("/dev/disk/by-uuid/", "*", gb.File).Count - 1
+    With Stat("/dev/disk/by-uuid/" & Dir("/dev/disk/by-uuid/", "*")[i])
+     If .Link Like "*" & Replace(Finfosys.ComboBox4.Text, " ", " ") & "*" Then
+      device_uuid = Dir("/dev/disk/by-uuid/", "*")[i]
+     Endif
+    End With
+   Next
+   Endif
+   
    If Access("/proc/mounts", gb.Read) = True Then
    MOUNTS_PROC = Open "/proc/mounts"
    For Each MountsLine In MOUNTS_PROC.Lines
     For i = 0 To Split(MountsLine, " ", "%%").Count - 1
      If IsNull(Finfosys.ComboBox3.Text) = False Then
+      
       If Split(MountsLine, " ", "%%")[i] Like "*" & Finfosys.ComboBox3.Text & "*" Then
        mount_point = Split(MountsLine, " ", "%%")[1]
        filesystem_type = Split(MountsLine, " ", "%%")[2]
        mount_widtch = Split(MountsLine, " ", "%%")[3]
       Endif
+
       If IsNull(device_uuid) = False Then
        If Split(MountsLine, " ", "%%")[i] Like "*" & device_uuid & "*" Then
         mount_point = Split(MountsLine, " ", "%%")[1]
@@ -323,7 +335,17 @@ Public Sub disks()
         mount_widtch = Split(MountsLine, " ", "%%")[3]
        Endif
       Endif
+
      Endif
+
+     If IsNull(Finfosys.ComboBox3.Text) = True And Finfosys.ComboBox4.Text Like "*sr*" Then
+      If Split(MountsLine, " ", "%%")[i] Like "*" & Finfosys.ComboBox4.Text & "*" Then
+       mount_point = Split(MountsLine, " ", "%%")[1]
+       filesystem_type = Split(MountsLine, " ", "%%")[2]
+       mount_widtch = Split(MountsLine, " ", "%%")[3]
+      Endif
+     Endif
+     
     Next
    Next
    Close #MOUNTS_PROC
