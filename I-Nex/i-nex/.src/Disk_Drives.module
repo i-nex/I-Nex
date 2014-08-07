@@ -391,9 +391,9 @@ Public Sub disks()
   Next
   
   Select Case USB_VERSION
-    Case Like "*1.1*"
+    Case Like "*1*"
      USB_PIC = Picture.Load("Data/USB/usb1")
-    Case Like "*2.00*"
+    Case Like "*2*"
      USB_PIC = Picture.Load("Data/USB/usb2")
     Case Like "*3*"
      USB_PIC = Picture.Load("Data/USB/usb3")
