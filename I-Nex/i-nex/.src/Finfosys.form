@@ -1051,7 +1051,7 @@
     Text = "Drives"
     Picture = Picture["AppIcons/Finfosys/drive-harddisk-system.png"]
     { !Label41 Label
-      Move(294,0,175,35)
+      Move(294,0,175,28)
       #Public = True
       #Translate = False
       Font = Font["8"]
@@ -1059,7 +1059,7 @@
       Border = Border.Raised
     }
     { !Label38 Label
-      Move(161,196,147,21)
+      Move(161,189,147,21)
       #Public = True
       #Translate = False
       Font = Font["8"]
@@ -1099,7 +1099,7 @@
       Border = Border.Raised
     }
     { ProgressBar2 ProgressBar
-      Move(0,175,469,21)
+      Move(0,168,469,21)
       #Translate = False
       Font = Font["Bold"]
     }
@@ -1120,7 +1120,7 @@
       Border = Border.Raised
     }
     { !Label43 Label
-      Move(0,63,112,28)
+      Move(0,56,112,28)
       #Public = True
       #Translate = False
       Font = Font["8"]
@@ -1128,7 +1128,7 @@
       Border = Border.Raised
     }
     { !Label45 Label
-      Move(231,63,126,28)
+      Move(231,56,126,28)
       #Public = True
       #Translate = False
       Font = Font["8"]
@@ -1202,7 +1202,7 @@
       Border = Border.Raised
     }
     { !Label133 Label
-      Move(112,63,119,28)
+      Move(112,56,119,28)
       #Public = True
       Font = Font["8"]
       Padding = 3
@@ -1210,7 +1210,7 @@
       Border = Border.Raised
     }
     { Label48 Label
-      Move(399,35,70,28)
+      Move(399,28,70,28)
       #Translate = False
       Visible = False
       Font = Font["8,Bold"]
@@ -1314,7 +1314,7 @@
       Border = Border.Raised
     }
     { !Label39 Label
-      Move(294,35,175,28)
+      Move(294,28,175,28)
       #Public = True
       #Translate = False
       Font = Font["8,Bold"]
@@ -1322,78 +1322,78 @@
       Border = Border.Raised
     }
     { Label248 Label
-      Move(308,196,161,21)
+      Move(308,189,161,21)
       Font = Font["8"]
       Padding = 3
       Text = ("Label248")
       Border = Border.Raised
     }
     { !Label250 Label
-      Move(0,196,161,21)
+      Move(0,189,161,21)
       #Public = True
       Font = Font["8"]
       Padding = 3
       Border = Border.Raised
     }
     { TextBox29 TextBox
-      Move(0,35,294,28)
+      Move(0,28,294,28)
       Font = Font["Bold,8"]
       Text = ("TextBox29")
       ReadOnly = True
     }
     { TextBox30 TextBox
-      Move(98,0,196,35)
+      Move(98,0,196,28)
       Font = Font["Bold,8"]
       Text = ("TextBox30")
       ReadOnly = True
     }
     { !TextBox53 TextBox
-      Move(98,147,371,28)
+      Move(56,140,413,28)
       #Public = True
       #Translate = False
       ToolTip = "Mount width"
       ReadOnly = True
     }
     { !TextBox52 TextBox
-      Move(98,119,371,28)
+      Move(56,112,413,28)
       #Public = True
       #Translate = False
       ToolTip = "Device UUID"
       ReadOnly = True
     }
     { !TextBox48 TextBox
-      Move(98,91,371,28)
+      Move(56,84,413,28)
       #Public = True
       #Translate = False
       ToolTip = "Mount point"
       ReadOnly = True
     }
     { !Label26 Label
-      Move(0,91,98,28)
+      Move(0,84,56,28)
       #Public = True
       #Translate = False
       Font = Font["8,Bold"]
       Padding = 3
-      Text = "Mount point:   "
+      Text = "Point:   "
       Border = Border.Raised
     }
     { !Label40 Label
-      Move(0,147,98,28)
+      Move(0,140,56,28)
       #Public = True
       #Translate = False
       Font = Font["8,Bold"]
       Padding = 3
-      Text = "Mount width:   "
+      Text = "Width:   "
       Alignment = Align.Left
       Border = Border.Raised
     }
     { !Label27 Label
-      Move(0,119,98,28)
+      Move(0,112,56,28)
       #Public = True
       #Translate = False
       Font = Font["8,Bold"]
       Padding = 3
-      Text = "Device UUID:   "
+      Text = "UUID:   "
       Border = Border.Raised
       Transparent = True
     }
@@ -1402,14 +1402,14 @@
       Picture = Picture["AppIcons/view-refresh.png"]
     }
     { Label16 Label
-      Move(357,63,112,28)
+      Move(357,56,112,28)
       Font = Font["8"]
       Padding = 3
       Text = ("Label16")
       Border = Border.Raised
     }
     { Label17 Label
-      Move(0,0,98,35)
+      Move(0,0,98,28)
       Font = Font["Bold,10"]
       Foreground = &HFF7F00&
       Padding = 3
@@ -1418,7 +1418,7 @@
       Border = Border.Raised
     }
     { Separator2 Separator
-      Move(0,217,469,7)
+      Move(0,210,469,14)
     }
     { Panel1 Panel
       Move(161,224,308,63)
