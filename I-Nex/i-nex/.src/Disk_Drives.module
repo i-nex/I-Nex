@@ -444,10 +444,6 @@ Public Sub disks()
     Case Like ""
      SATA_PIC = Null
   End Select
-  
-  Print SWAP_TOTAL()
-  Print SWAP_USED()
-  Print SWAP_FREE()
 End
 
 Function SETNULL()
