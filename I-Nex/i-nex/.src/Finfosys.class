@@ -892,6 +892,7 @@ Label134.Text = "Rq affinity: " & Disk_Drives.rq_affinity
  If IsNull(ComboBox3.Text) = False Then
  If Disk_Drives.check_swap Like "*" & ComboBox3.Text & "*" Then
  Label48.Visible = True
+ Try ProgressBar2.Value = Disk_Drives.SWAP_USED / Disk_Drives.SWAP_TOTAL
  Else
  Label48.Visible = False
  Endif

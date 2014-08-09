@@ -160,6 +160,10 @@ Public Sub get_informations()
    If Used = SIZE_W Then
     Try Finfosys.ProgressBar2.Value = 0 / 10
    Endif
+   
+   If check_swap Like "*" & Finfosys.ComboBox3.Text & "*" Then
+    Finfosys.Label248.Text = "Free:  " & CString(SWAP_FREE())
+   Endif
 End
 
 Function Schedule(sched As String) As String
@@ -286,7 +290,7 @@ Function CalculateSIZE(BlockSize As Float, Optional ReturnIn As Boolean) As Stri
 End
 
 Public Sub disks()
-  Dim i, i2, i3 As Integer
+  Dim i, i2 As Integer
   Dim MOUNTS_PROC As File
   Dim SWAPS_PROC As File
   Dim MountsLine As String
@@ -440,6 +444,10 @@ Public Sub disks()
     Case Like ""
      SATA_PIC = Null
   End Select
+  
+  Print SWAP_TOTAL()
+  Print SWAP_USED()
+  Print SWAP_FREE()
 End
 
 Function SETNULL()
@@ -491,4 +499,56 @@ optimal_io_size = Null
 physical_block_size = Null
 rotational = Null
 rq_affinity = Null
+End
+
+Function SWAP_TOTAL() As Float
+  Dim sTemp As String
+  
+  Exec ["cat", "/proc/meminfo"] To sTemp
+   Try sTemp = Scan(sTemp, "*SwapTotal:*\n*")[1]
+   If Error Then 
+   sTemp = ""
+  Else
+   While Not IsDigit(Right(sTemp))
+   sTemp = Left(sTemp, -1)
+   Wend
+   sTemp = Trim(sTemp)
+  Endif
+  
+  If sTemp Then
+    Try sTemp = Format(CInt(sTemp) / 1024, "0")
+    If Not Error Then Return CFloat(sTemp)
+  Endif
+ 
+End
+
+Function SWAP_FREE() As Float
+  Dim sTemp As String
+  
+  Exec ["cat", "/proc/meminfo"] To sTemp
+   Try sTemp = Scan(sTemp, "*SwapFree:*\n*")[1]
+   If Error Then 
+   sTemp = ""
+  Else
+   While Not IsDigit(Right(sTemp))
+   sTemp = Left(sTemp, -1)
+   Wend
+   sTemp = Trim(sTemp)
+  Endif
+  
+  If sTemp Then
+    Try sTemp = Format(CInt(sTemp) / 1024, "0")
+    If Not Error Then Return CFloat(sTemp)
+  Endif
+ 
+End
+
+Function SWAP_USED() As Float
+ Dim USED As Float
+ Dim Frees As Float
+ Dim Total As Float
+ Total = CFloat(SWAP_TOTAL())
+ Frees = CFloat(SWAP_FREE())
+ USED = (Total - Frees)
+ Return USED
 End
