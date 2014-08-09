@@ -1,4 +1,4 @@
 #!/bin/bash
 if which curl >/dev/null; then
-    curl --silent http://i-nex.pl/?downloadcount=1 > /dev/null 1>&1
+    curl --silent https://i-nex.pl/?downloadcount=1 > /dev/null 1>&1
 fi
