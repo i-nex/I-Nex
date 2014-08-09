@@ -2051,102 +2051,102 @@
       Move(7,259,455,196)
       Text = ("ipinfo.io")
       { Label238 Label
-        Move(98,147,336,21)
+        Move(84,147,364,21)
         Font = Font["Bold,8"]
         Padding = 3
         Border = Border.Raised
       }
       { Label236 Label
-        Move(98,105,336,21)
+        Move(84,105,364,21)
         Font = Font["Bold,8"]
         Padding = 3
         Border = Border.Raised
       }
       { Label235 Label
-        Move(98,84,336,21)
+        Move(84,84,364,21)
         Font = Font["Bold,8"]
         Padding = 3
         Border = Border.Raised
       }
       { Label234 Label
-        Move(98,63,336,21)
+        Move(84,63,364,21)
         Font = Font["Bold,8"]
         Padding = 3
         Border = Border.Raised
       }
       { Label233 Label
-        Move(98,42,336,21)
+        Move(84,42,364,21)
         Font = Font["Bold,8"]
         Padding = 3
         Border = Border.Raised
       }
       { Label93 Label
-        Move(98,21,336,21)
+        Move(84,21,364,21)
         Font = Font["Bold,8"]
         Padding = 3
         Border = Border.Raised
       }
       { Label237 Label
-        Move(98,126,315,21)
+        Move(84,126,343,21)
         Font = Font["Bold,8"]
         Padding = 3
         Border = Border.Raised
       }
       { Label239 Label
-        Move(21,21,77,21)
+        Move(7,21,77,21)
         Font = Font["Bold,8"]
         Padding = 3
         Text = ("IP:")
         Border = Border.Raised
       }
       { Label240 Label
-        Move(21,42,77,21)
+        Move(7,42,77,21)
         Font = Font["Bold,8"]
         Padding = 3
         Text = ("Hostname:")
         Border = Border.Raised
       }
       { Label241 Label
-        Move(21,63,77,21)
+        Move(7,63,77,21)
         Font = Font["Bold,8"]
         Padding = 3
         Text = ("City:")
         Border = Border.Raised
       }
       { Label242 Label
-        Move(21,84,77,21)
+        Move(7,84,77,21)
         Font = Font["Bold,8"]
         Padding = 3
         Text = ("Region:")
         Border = Border.Raised
       }
       { Label243 Label
-        Move(21,105,77,21)
+        Move(7,105,77,21)
         Font = Font["Bold,8"]
         Padding = 3
         Text = ("Country:")
         Border = Border.Raised
       }
       { Label244 Label
-        Move(21,126,77,21)
+        Move(7,126,77,21)
         Font = Font["Bold,8"]
         Padding = 3
         Text = ("Location:")
         Border = Border.Raised
       }
       { Label245 Label
-        Move(21,147,77,21)
+        Move(7,147,77,21)
         Font = Font["Bold,8"]
         Padding = 3
         Text = ("Org:")
         Border = Border.Raised
       }
       { Button17 Button
-        Move(413,126,21,21)
+        Move(427,126,21,21)
         Picture = Picture["AppIcons/applications-internet.png"]
       }
       { Button19 Button
-        Move(21,168,112,21)
+        Move(7,168,112,21)
         Font = Font["8"]
         Text = ("Call to ipinfo.io")
       }
