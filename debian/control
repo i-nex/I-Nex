@@ -20,7 +20,6 @@ Build-Depends: debhelper (>= 7),
   gambas3-gb-qt4 (>= 3.5.0),
   gambas3-gb-form (>= 3.5.0),
   gambas3-gb-desktop (>= 3.5.0),
-  gambas3-gb-form-stock (>= 3.5.0),
   imagemagick
 Standards-Version: 3.9.4
 Vcs-Browser: https://github.com/eloaders/I-Nex
@@ -33,8 +32,7 @@ Depends: ${shlibs:Depends}, ${misc:Depends}, ${python:Depends},
   gambas3-gb-image (>= 3.5.0), 
   gambas3-gb-qt4 (>= 3.5.0), 
   gambas3-gb-form (>= 3.5.0), 
-  gambas3-gb-desktop (>= 3.5.0),  
-  gambas3-gb-form-stock (>= 3.5.0),
+  gambas3-gb-desktop (>= 3.5.0),
   grep (>= 2.5),
   bash (>= 4.1),
   coreutils (>= 7.4),
