@@ -32,7 +32,7 @@ Public Sub inits()
 End
 
 Public Sub get_informations_about_net_interface()
- 
+ SETNULL()
  Try subsystem_device = Replace(File.Load("/sys/class/net/" & Finfosys.ComboBox2.Text & "/device/device"), "\n", "")
  Try subsystem_vendor = Replace(File.Load("/sys/class/net/" & Finfosys.ComboBox2.Text & "/device/vendor"), "\n", "")
  Try Finfosys.Label157.Text = "Device address: " & Replace(File.Load("/sys/class/net/" & Finfosys.ComboBox2.Text & "/address"), "\n", "")
@@ -81,3 +81,28 @@ Public Function IP_INFO()
  Try Finfosys.Label238.Text = IPINFOIO_JSON["org"]
 End
 
+Function SETNULL()
+ 
+ Try Finfosys.Label157.Text = Null
+ Try Finfosys.Label158.Text = Null
+ Try Finfosys.Label159.Text = Null
+ Try Finfosys.Label160.Text = Null
+ Try Finfosys.Label161.Text = Null
+ Try Finfosys.Label162.Text = Null
+ Try Finfosys.Label163.Text = Null
+ Try Finfosys.Label164.Text = Null
+ Try Finfosys.Label165.Text = Null
+ Try Finfosys.Label166.Text = Null
+ Try Finfosys.Label167.Text = Null
+ Try Finfosys.Label168.Text = Null
+ Try Finfosys.Label169.Text = Null
+ Try Finfosys.Label170.Text = Null
+ Try Finfosys.Label171.Text = Null
+ Try Finfosys.Label172.Text = Null
+ Try Finfosys.Label173.Text = Null
+ Try Finfosys.Label174.Text = Null
+ Try Finfosys.Label175.Text = Null
+ Try subsystem_device = Null
+ Try subsystem_vendor = Null
+ 
+End
