@@ -1,7 +1,7 @@
 # Maintainer: eloaders <eloaders at linux dot pl>
 
 pkgname=i-nex-git
-pkgver=7.2.1.59.g93f63e0
+pkgver=7.2.1.100.gb0b6923
 pkgrel=1
 pkgdesc="System information tool like hardinfo, sysinfo"
 arch=('i686' 'x86_64')
@@ -12,7 +12,6 @@ depends=('gambas3-runtime'
 	 'gambas3-gb-form'
          'gambas3-gb-desktop'
          'gambas3-gb-qt4'
-         'gambas3-gb-form-stock' 
          'python2' 
          'libcpuid-git'
          'xorg-server-utils' 
