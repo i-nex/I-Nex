@@ -91,7 +91,7 @@ Function _inits()
   'Fix for APU with Radeon(TM) R7 Graphics
    cpucache = Replace(cpucache, "R7", "*")
   '
-  cpucache = Replace(Replace(Replace(Replace(Replace(Replace(Replace(cpucache, "Intel", "*"), " ", "*"), "R", "*"), "CPU", "*"), "TM", "*"), ")", "*"), "(", "*")
+  cpucache = Replace(Replace(Replace(Replace(Replace(Replace(Replace(cpucache, "Intel", "*"), " ", "*"), "(R)", "*"), "CPU", "*"), "TM", "*"), ")", "*"), "(", "*")
   cpucache = Replace(Replace(Replace(Replace(cpucache, "AMD", "*"), "Dual-Core", "*"), "Processor", "*"), "tm", "*")
   cpucache = Replace(cpucache, "HD", "*")
   
@@ -103,7 +103,7 @@ Function _inits()
   Endif
   
   cpucache = Replace(cpucache, "Core2", "Core 2")
-  If cpucache Like "*Processo*" Then
+  If cpucache Like "*Processor*" Or "*Processo*" Then
     cpucache = Replace(cpucache, "Processo", "*")
   Endif
   If cpucache Like "*Graphic*" Then
