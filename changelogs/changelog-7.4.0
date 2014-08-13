@@ -1,0 +1,1401 @@
+commit 94bfc205305944f39d7fd467acc1766bc221f09d
+Author: eloaders <eloaders@linux.pl>
+Date:   Tue Aug 12 16:07:00 2014 +0200
+
+    Fix replace (R)
+
+commit 5d9d67bef01f112386d196a01d1b2ac1e471a63c
+Author: eloaders <eloaders@linux.pl>
+Date:   Sat Aug 9 17:55:39 2014 +0200
+
+    Design changes
+
+commit 1f26d4d5d5f125775b8d1da35b2dd8e50910476c
+Author: eloaders <eloaders@linux.pl>
+Date:   Sat Aug 9 17:55:28 2014 +0200
+
+    SETNULL before get information
+
+commit 6203367b6519b0e0d6baca18dd8998eae93e0312
+Author: eloaders <eloaders@linux.pl>
+Date:   Sat Aug 9 15:46:34 2014 +0200
+
+    Fix server proto to HTTPS
+
+commit c7dc95263d8c091696d02608b82247206b3e335a
+Author: eloaders <eloaders@linux.pl>
+Date:   Sat Aug 9 15:20:31 2014 +0200
+
+    Remove gambas3-gb-form-stock
+
+commit a5733a81132eefd56192b4e7d0dd2b427ef9071d
+Author: eloaders <eloaders@linux.pl>
+Date:   Sat Aug 9 11:42:40 2014 +0200
+
+    Remove print
+    
+    -  Print SWAP_TOTAL()
+    -  Print SWAP_USED()
+    -  Print SWAP_FREE()
+
+commit cc71a320f0cd9dc98a593abcb379ca4fc1516c5c
+Author: eloaders <eloaders@linux.pl>
+Date:   Sat Aug 9 11:42:05 2014 +0200
+
+    Calculate SWAP Usage in Drives
+
+commit 613aeffb8175df79cf0df813463d8aee090725aa
+Author: eloaders <eloaders@linux.pl>
+Date:   Sat Aug 9 10:57:24 2014 +0200
+
+    Remove gambas3-gb-form-stock depends
+
+commit d7a92fddef92a46491b6045678305a99dab7fe39
+Author: eloaders <eloaders@linux.pl>
+Date:   Thu Aug 7 18:03:48 2014 +0200
+
+    Fixes for DVD/CD sr[0-9]
+
+commit 43bbabc0653b40a0ac4e272c10192b30bda1c372
+Author: eloaders <eloaders@linux.pl>
+Date:   Thu Aug 7 15:52:29 2014 +0200
+
+    Design changes
+
+commit b0b6923597fbd9823dee431bb124faa4963286ac
+Author: eloaders <eloaders@linux.pl>
+Date:   Thu Aug 7 11:10:36 2014 +0200
+
+    Fixes for USB Version Graphic
+
+commit 5f2ea30aa6225223499651cd4eeaf8f837d54586
+Author: eloaders <eloaders@linux.pl>
+Date:   Thu Aug 7 10:58:54 2014 +0200
+
+    Fixes for USB Version
+
+commit 9fdf09ab76ac8442b7a16ef1af2dd667efebf385
+Author: eloaders <eloaders@linux.pl>
+Date:   Thu Aug 7 10:55:16 2014 +0200
+
+    Add to Drives Show USB Version, power, speed and graphic logo
+
+commit d0d345f90104cd454c3290743fea8230ed6955ea
+Author: eloaders <eloaders@linux.pl>
+Date:   Wed Aug 6 19:33:20 2014 +0200
+
+    Remove BOLD
+
+commit 55a180eab4dd3aeaa799e811db244122218ec449
+Author: eloaders <eloaders@linux.pl>
+Date:   Wed Aug 6 19:33:03 2014 +0200
+
+    CalculateSIZE in MB fixes (Testing)
+
+commit 50c949ed309471650e8054f7aab64610c5afa85a
+Author: eloaders <eloaders@linux.pl>
+Date:   Wed Aug 6 12:24:40 2014 +0200
+
+    Add Panel to Drives. Show if HDD is SATA
+
+commit 1f85436ac2a826c5ef6e452ccfffb9a7291f4ab8
+Author: eloaders <eloaders@linux.pl>
+Date:   Wed Aug 6 12:10:02 2014 +0200
+
+    If scheduler detection
+
+commit 4ff37d6258935f964d9d930c46e5390950f82503
+Author: eloaders <eloaders@linux.pl>
+Date:   Tue Aug 5 18:45:38 2014 +0200
+
+    Remove For Read
+
+commit 679e164c454106e089f9582ab9d75a590507756c
+Author: eloaders <eloaders@linux.pl>
+Date:   Tue Aug 5 18:33:43 2014 +0200
+
+    Fix Screenshot
+
+commit 5bb0230c5617c9705ff52f3915dd7723c46c5bc6
+Author: eloaders <eloaders@linux.pl>
+Date:   Tue Aug 5 18:33:32 2014 +0200
+
+    Fix
+    
+    Finfosys.Form_Open.54: #2: Cannot load class 'Settings': Unable to load
+    class file
+    1: MStart.Main.57
+
+commit bbdd18adecdb1cdd1c1ad923bf5b897ed1e7fa1c
+Author: eloaders <eloaders@linux.pl>
+Date:   Tue Aug 5 18:15:10 2014 +0200
+
+    Show SATA Picture in Drives
+
+commit b0d3ff728cf2c8334e5b5633cd464b1a9bec3652
+Author: eloaders <eloaders@linux.pl>
+Date:   Tue Aug 5 16:10:16 2014 +0200
+
+    Open For Read
+
+commit 6173bc193fcc27fafc3fd47a18d8ccf8f88277b0
+Author: eloaders <eloaders@linux.pl>
+Date:   Tue Aug 5 16:09:31 2014 +0200
+
+    Remove ScreenshotM module and add anotations to Drives
+
+commit 33779f3178cba5fc3f2ae7f8375e78f6d6dee974
+Author: eloaders <eloaders@linux.pl>
+Date:   Tue Aug 5 14:31:56 2014 +0200
+
+    Add SATA SPD detection
+    
+    HW SATA SPD Limit:
+    SATA SPD:
+    SATA SPD Limit:
+
+commit c09ee957bbb13bc46b64116e1a361b7ed9be36c4
+Author: eloaders <eloaders@linux.pl>
+Date:   Tue Aug 5 12:56:49 2014 +0200
+
+    Convert utf8 to ascii
+    
+    LC_ALL=C iconv -f utf8 -t ascii//TRANSLIT i7 > newfile
+    LC_ALL=C iconv -f utf8 -t ascii//TRANSLIT i5 > newfile
+    LC_ALL=C iconv -f utf8 -t ascii//TRANSLIT i3 > newfile
+    LC_ALL=C iconv -f utf8 -t ascii//TRANSLIT atom > newfile
+    LC_ALL=C iconv -f utf8 -t ascii//TRANSLIT amd > newfile
+    LC_ALL=C iconv -f utf8 -t ascii//TRANSLIT A6 > newfile
+    LC_ALL=C iconv -f utf8 -t ascii//TRANSLIT intel_Core_2_Duo > newfile
+
+commit 96c42a1207d5880d71175b612882afa01e787b89
+Author: eloaders <eloaders@linux.pl>
+Date:   Tue Aug 5 11:50:53 2014 +0200
+
+    Add /sys/class/hwmon/hwmon1/temp1_crit
+
+commit dc41708c21e9cdb5a1c4b46433b79e0c947f1084
+Author: eloaders <eloaders@linux.pl>
+Date:   Tue Aug 5 11:34:24 2014 +0200
+
+    Fix
+    
+    This application has raised an unexpected error and must abort. [3]
+    Stack overflow. Stock.GetInheritance.606
+
+commit 9865fe3a2badb4abf18daa564674cb8f5c6cadca
+Author: eloaders <eloaders@linux.pl>
+Date:   Tue Aug 5 10:54:40 2014 +0200
+
+    Update database
+
+commit f00c2b45280e9df6e94a6523a631d3bd004b78c7
+Author: eloaders <eloaders@linux.pl>
+Date:   Mon Aug 4 16:40:09 2014 +0200
+
+    Better Visible Sched
+
+commit 1b337059d4496d10ed00d8126408a86ddeaa2925
+Author: eloaders <eloaders@linux.pl>
+Date:   Mon Aug 4 10:34:44 2014 +0200
+
+    Again replace Write to Print
+
+commit 8db634ead0672210ef2b156a3497bd051dc33deb
+Author: eloaders <eloaders@linux.pl>
+Date:   Mon Aug 4 10:10:53 2014 +0200
+
+    Fixed Clear DATAT and USAGE
+
+commit d1abaebbd531ed0e90470cd94c949b1f9915462b
+Author: eloaders <eloaders@linux.pl>
+Date:   Sun Aug 3 17:36:20 2014 +0200
+
+    Fix calculate
+
+commit 00373aa2e0fb8f2562abecdb27f0ada6bb61b45e
+Author: eloaders <eloaders@linux.pl>
+Date:   Sun Aug 3 17:10:30 2014 +0200
+
+    Calculate size by *512 block and /1000
+
+commit 788db709959c98159813cc964854a7fcbebbb1ff
+Author: eloaders <eloaders@linux.pl>
+Date:   Sun Aug 3 16:31:10 2014 +0200
+
+    Add GET Connected Port. Only SATA[0-9] and USB[0-9] is supported
+
+commit 5de041db57ada8121e02ccb8b60924127b80123f
+Author: eloaders <eloaders@linux.pl>
+Date:   Sun Aug 3 14:49:23 2014 +0200
+
+    New Mobo report style
+
+commit 44d718648027129a5404c44e804632eb87204e9e
+Author: eloaders <eloaders@linux.pl>
+Date:   Sun Aug 3 14:49:09 2014 +0200
+
+    Add refresh button to Drives
+
+commit 823950ddcb1cc7fba0044edea7e10b5fb0ea47d1
+Author: eloaders <eloaders@linux.pl>
+Date:   Sun Aug 3 13:35:25 2014 +0200
+
+    Set Variables to Null before get.
+
+commit d5fe1d740d5e54da9ac9a1c3e49f5c1c68a979c0
+Author: eloaders <eloaders@linux.pl>
+Date:   Sun Aug 3 13:35:00 2014 +0200
+
+    UI Design changes
+
+commit f52f82a3db5c45f92c2c0af8ea82afe28a2e2336
+Author: eloaders <eloaders@linux.pl>
+Date:   Sun Aug 3 11:56:59 2014 +0200
+
+    Replace execution echo in shell to Write #hFile
+
+commit 0c35a9805f1bbe60793434bc41ed30974ca831f4
+Author: eloaders <eloaders@linux.pl>
+Date:   Sun Aug 3 11:56:35 2014 +0200
+
+    Add New Labels to report
+
+commit d5ec08f042b6d9556508dd5921e21dc81136f5cf
+Author: eloaders <eloaders@linux.pl>
+Date:   Sun Aug 3 11:56:15 2014 +0200
+
+    Replace Print #hFile to Write #hFile
+
+commit 1458603e39d50798d76a0abdfa66d42804d7408f
+Author: eloaders <eloaders@linux.pl>
+Date:   Sun Aug 3 11:55:30 2014 +0200
+
+    Replace Print #hFile to Write #hFile
+
+commit 17a65f6ffa5d4583ce53adc6593e713d2077b691
+Author: eloaders <eloaders@linux.pl>
+Date:   Sun Aug 3 11:55:03 2014 +0200
+
+    Remove print Used and SIZE_W
+
+commit cad7dc9fd498c7615360a6dc6b7c5e420539e086
+Author: eloaders <eloaders@linux.pl>
+Date:   Fri Aug 1 18:08:46 2014 +0200
+
+    Don't call ipinfo.io at start
+
+commit aff4324f0c77dca099046a8296344860429bcc5b
+Author: eloaders <eloaders@linux.pl>
+Date:   Fri Aug 1 18:08:08 2014 +0200
+
+    Fix not show progressbar 100%
+
+commit 94842fe37f32a93d9fca0ce3c92d06e500dd5f39
+Author: eloaders <eloaders@linux.pl>
+Date:   Fri Aug 1 14:16:50 2014 +0200
+
+    Use Open instead of shell
+
+commit d95ff3a30ebd10e5d3b7f10cfc343b13bdf8c29c
+Author: eloaders <eloaders@linux.pl>
+Date:   Fri Aug 1 14:16:33 2014 +0200
+
+    Add cpuinfo to report
+
+commit af59a12600efc71a990cb9b00317c4781c3d031e
+Author: eloaders <eloaders@linux.pl>
+Date:   Fri Aug 1 13:59:17 2014 +0200
+
+    Fixes
+
+commit f6b980224370a7cbb06cf8d46feba5c6c227095b
+Author: eloaders <eloaders@linux.pl>
+Date:   Fri Aug 1 13:59:02 2014 +0200
+
+    Remove PKGBUILD_AUR
+
+commit bfa53bbe86797652c56e7f769e561ca709b2a0d4
+Author: eloaders <eloaders@linux.pl>
+Date:   Fri Aug 1 13:58:31 2014 +0200
+
+    Set Progressbar to 0 if Used = SIZE_W
+
+commit 12f4e53225721d101fac8dcc7af6b3e940c60042
+Author: eloaders <eloaders@linux.pl>
+Date:   Fri Aug 1 12:56:22 2014 +0200
+
+    Fix calculate USED space % if drives in GB.MB.KiB, Bytes. Olways return in bytes
+
+commit 93f63e017dfe8371be5b77b154f912ffe8d48548
+Author: eloaders <eloaders@linux.pl>
+Date:   Fri Aug 1 12:07:25 2014 +0200
+
+    Change version
+
+commit 178ad0901fa405e07ecec50e082b8b13e00cb6e5
+Author: eloaders <eloaders@linux.pl>
+Date:   Fri Aug 1 11:52:00 2014 +0200
+
+    Remove Label122
+
+commit d2d7eb81faa7f2d49cc19716fa9568d2bd00b81b
+Author: eloaders <eloaders@linux.pl>
+Date:   Fri Aug 1 11:51:44 2014 +0200
+
+    Fix Calculate USED/FREE Progressbar
+
+commit 6ef156f3a1aa4deb19db344e52b5ae64d26ef47e
+Author: eloaders <eloaders@linux.pl>
+Date:   Thu Jul 31 19:20:57 2014 +0200
+
+    Speed up AMD A6 CPUDB
+
+commit d49415c00deb51ea85bc39fb6328e73cd92b99e8
+Author: eloaders <eloaders@linux.pl>
+Date:   Thu Jul 31 19:07:57 2014 +0200
+
+    Clean code
+
+commit d1a1bc4ccd07b4439d6a9c70605ab6ad31ffb2fd
+Author: eloaders <eloaders@linux.pl>
+Date:   Thu Jul 31 19:07:21 2014 +0200
+
+    Fragmentation CPUDB add MConvert.module
+    
+    example:
+    i-nex.gambas --conv /run/media/michal/fbd26004-de6c-43ba-
+    92d3-5c15e88a9eee/michal/Baazar/git-i-nex/I-Nex/i-nex/Database/intel
+    /run/media/michal/fbd26004-de6c-43ba-
+    92d3-5c15e88a9eee/michal/Baazar/git-i-nex/I-Nex/i-nex/Database/i5 "*i5*"
+
+commit 86767d71291e8a01a22266c74da53ccb3e42a676
+Author: eloaders <eloaders@linux.pl>
+Date:   Thu Jul 31 12:11:09 2014 +0200
+
+    Remove df command to get Used space on partition
+
+commit 1f007a98ab17eb61df0a37577492b36303f5199d
+Author: eloaders <eloaders@linux.pl>
+Date:   Thu Jul 31 09:25:49 2014 +0200
+
+    Fix add Graphic card to combo.
+
+commit 6113096d22c7d84429267d8f02dc482fe4b2ab40
+Author: eloaders <eloaders@linux.pl>
+Date:   Wed Jul 30 16:45:28 2014 +0200
+
+    Add CalculateFreeSpace
+
+commit 61472f6877477c71453957527db5dcdab81223fb
+Author: eloaders <eloaders@linux.pl>
+Date:   Wed Jul 30 13:56:51 2014 +0200
+
+    Change "Partition size" to "Part size" and "Device size" to "Disk size"
+
+commit be2363083ce20d948f9e97a0c612fa1a4f1c4e15
+Author: eloaders <eloaders@linux.pl>
+Date:   Wed Jul 30 13:55:53 2014 +0200
+
+    Add Padding = 3 & #Public = True
+
+commit 586244845c348bfac7045d957809febe41e2f8fd
+Author: eloaders <eloaders@linux.pl>
+Date:   Wed Jul 30 13:51:17 2014 +0200
+
+    Add new bug reporter to About
+
+commit d47dec77b8037ab950e67cc39722f98b4e876f10
+Author: eloaders <eloaders@linux.pl>
+Date:   Wed Jul 30 13:50:54 2014 +0200
+
+    Add size of prim device
+    
+    Partition size: sd[a-z][0-9]
+    Device size: sd[a-z]
+
+commit 0e5139107e5771578c4ec637ee669b3d5e8e083e
+Author: eloaders <eloaders@linux.pl>
+Date:   Wed Jul 30 12:10:40 2014 +0200
+
+    Fix Calculation of partition/disc size in MB, KiB, GB, Bytes
+
+commit 2e9b7de0d5bdd81b3913fad71b6302e73ea914e2
+Author: eloaders <eloaders@linux.pl>
+Date:   Wed Jul 30 10:55:55 2014 +0200
+
+    Change Float to Integer
+
+commit a9c95facda76f6423372e117bcf224fcd3c1f6a4
+Author: eloaders <eloaders@linux.pl>
+Date:   Wed Jul 30 10:12:40 2014 +0200
+
+    Use Ceil(value) instead of Int
+
+commit a5378d90850cfa67b8e2b56325f6d90d2c725a95
+Author: eloaders <eloaders@linux.pl>
+Date:   Wed Jul 30 09:49:59 2014 +0200
+
+    Calculate Device Size in MB, KB, GB, Bytes
+
+commit 7e081472d04878b0abe9f63fdfff0571cad75262
+Author: eloaders <eloaders@linux.pl>
+Date:   Tue Jul 29 12:48:37 2014 +0200
+
+    Fixes for bash location
+
+commit 5fdf754921e220dae7d7a5ac36b13ab7ddbc7df0
+Author: eloaders <eloaders@linux.pl>
+Date:   Tue Jul 29 12:47:12 2014 +0200
+
+    Remove Spacing
+
+commit b7ab0e71385420c13611291e4048c0dfc4833a91
+Author: eloaders <eloaders@linux.pl>
+Date:   Mon Jul 28 18:57:10 2014 +0200
+
+    File system size fixes
+
+commit 21d8eb0aa8f9c6f3d157d969758ea33d59765229
+Author: eloaders <eloaders@linux.pl>
+Date:   Mon Jul 28 18:15:35 2014 +0200
+
+    Add copy
+
+commit d468b8664bb952227863cf8d7243e681021ce6d2
+Author: eloaders <eloaders@linux.pl>
+Date:   Mon Jul 28 18:15:26 2014 +0200
+
+    Add Calculate Free space in device
+
+commit 71d5cc902cd8a9465c3e5ca52fcf1af6a8e7588d
+Author: eloaders <eloaders@linux.pl>
+Date:   Mon Jul 28 16:29:52 2014 +0200
+
+    Add i-nex-library.desktop and option args --library
+
+commit c7921380ba998379acda427bf9ed9063d1a98ddb
+Author: eloaders <eloaders@linux.pl>
+Date:   Mon Jul 28 15:11:35 2014 +0200
+
+    Add Library Version Detection
+
+commit e1a0fa7226c85d8753be2ba685fdc3b4fea2e636
+Author: eloaders <eloaders@linux.pl>
+Date:   Mon Jul 28 13:21:46 2014 +0200
+
+    Remove Shell echo. Replace to open file for write append or create
+
+commit 00b2a9f28b4bb843021159dc0382ef1b244e5cf8
+Author: eloaders <eloaders@linux.pl>
+Date:   Mon Jul 28 13:21:12 2014 +0200
+
+    Public Sub as Function
+
+commit ee3379d4f205eff03d279ae08c427f0b0ca06ac9
+Author: eloaders <eloaders@linux.pl>
+Date:   Mon Jul 28 13:20:59 2014 +0200
+
+    Public Sub as Function
+
+commit 439522541ca062a768ae993104e189b3d73b1658
+Author: eloaders <eloaders@linux.pl>
+Date:   Mon Jul 28 13:20:44 2014 +0200
+
+    Remove Public
+
+commit 9e00959c1b2afa02aad3c46dff4e637cff0759c2
+Author: eloaders <eloaders@linux.pl>
+Date:   Mon Jul 28 13:19:54 2014 +0200
+
+    Add Copyright(C)
+
+commit e751b1caa87d22cbc9c5d194a8c0f0b7ac08b79a
+Author: eloaders <eloaders@linux.pl>
+Date:   Sat Jul 26 19:28:02 2014 +0200
+
+    Change startup class
+
+commit 35f6cfebf6e297b94611a8c0830caad22288199a
+Author: eloaders <eloaders@linux.pl>
+Date:   Sat Jul 26 19:26:14 2014 +0200
+
+    New Args[]
+
+commit 182fc3239bbb507ae0f6d8873cc3dc89d50753d6
+Author: eloaders <eloaders@linux.pl>
+Date:   Sat Jul 26 11:49:43 2014 +0200
+
+    Remove module
+
+commit 4fea43e09fab94e939997a4cff9f05e4317a1a43
+Author: eloaders <eloaders@linux.pl>
+Date:   Sat Jul 26 11:22:42 2014 +0200
+
+    Move screenfetch execution
+
+commit e63cb601dca50895dd617db49b8471f7fc557c76
+Author: eloaders <eloaders@linux.pl>
+Date:   Sat Jul 26 11:22:09 2014 +0200
+
+    Clear CPU Database
+
+commit 3c34734dfa61492252825457447d06df77f9e871
+Author: eloaders <eloaders@linux.pl>
+Date:   Fri Jul 25 19:41:26 2014 +0200
+
+    Fix passible bug
+
+commit 70638c5e5abd2006fc2e72b9e037581e9f0a3af4
+Author: eloaders <eloaders@linux.pl>
+Date:   Fri Jul 25 01:17:58 2014 +0200
+
+    Faster execute screenfetch [Need testing] Unstable and can break I-Nex
+
+commit 09aacf6c78486814d71194507197f35ffa11a8e7
+Author: eloaders <eloaders@linux.pl>
+Date:   Fri Jul 25 01:17:14 2014 +0200
+
+    Not print ASCII
+
+commit abe781dceba488f609a705cdb97995fda04cf0c7
+Author: eloaders <eloaders@linux.pl>
+Date:   Thu Jul 24 19:45:24 2014 +0200
+
+    Remove no need variable
+
+commit e912bf945fcd0eaae5d37a9e3eb4d24b8165a173
+Author: eloaders <eloaders@linux.pl>
+Date:   Thu Jul 24 19:45:04 2014 +0200
+
+    Close open data
+
+commit a58d23377d8a55683b368b85e55513d933009a34
+Author: eloaders <eloaders@linux.pl>
+Date:   Thu Jul 24 19:44:51 2014 +0200
+
+    Try to kill before create it
+
+commit 6944d347ccd5a5ae67e67dcd446129c0907940f6
+Author: eloaders <eloaders@linux.pl>
+Date:   Thu Jul 24 16:51:20 2014 +0200
+
+    Better Count and lists Installed kernels
+
+commit f89cd7fd376a99e735edbcc03386750281d30d3b
+Author: eloaders <eloaders@linux.pl>
+Date:   Thu Jul 24 16:44:49 2014 +0200
+
+    Fix count number of Packages.
+
+commit b48bbf091258401b3459ac2a0ee5d73605da8de0
+Author: eloaders <eloaders@linux.pl>
+Date:   Thu Jul 24 16:18:51 2014 +0200
+
+    Fast modules
+
+commit 7df1b1951335a5077e24aa83a0ed7b218e7cabc1
+Author: eloaders <eloaders@linux.pl>
+Date:   Thu Jul 24 16:18:02 2014 +0200
+
+    Fast USB
+
+commit 832cc99cb50c1d288a0b0ede4a589ceb7bb64d22
+Author: eloaders <eloaders@linux.pl>
+Date:   Thu Jul 24 16:17:49 2014 +0200
+
+    Fixes for removable devices like Usb Key
+
+commit 0b782d60e940001bcceb076de66f5c332b2debb0
+Author: eloaders <eloaders@linux.pl>
+Date:   Thu Jul 24 15:03:17 2014 +0200
+
+    Adding a list of processors in a better and faster way.
+
+commit 4cac3a138d6944ca0c1a506f1d6c827df0cbbb87
+Author: eloaders <eloaders@linux.pl>
+Date:   Thu Jul 24 15:02:41 2014 +0200
+
+    The acceleration detecting graphics card.
+
+commit 9c8a089c908b7ad7a39206b80f779d343c0a16dd
+Author: eloaders <eloaders@linux.pl>
+Date:   Thu Jul 24 12:29:46 2014 +0200
+
+    Fixed SWAP Detection and Mount Point, UUID, Filesystem Type
+
+commit 5cb90312c450d9d92b2dd79a768faa7a90ee4bd9
+Author: eloaders <eloaders@linux.pl>
+Date:   Wed Jul 23 21:09:28 2014 +0200
+
+    Replace SHELL instruction for detect UUID with Dir
+
+commit 64f3927202534a02b31fc382b6b2db12f5f5efc7
+Author: eloaders <eloaders@linux.pl>
+Date:   Wed Jul 23 20:21:09 2014 +0200
+
+    Fix UUID detection
+
+commit e5dc017bd68cae8622ed849ca987b627d5bea7cb
+Author: eloaders <eloaders@linux.pl>
+Date:   Wed Jul 23 19:48:03 2014 +0200
+
+    Fix Detection CPU if Have Graphic string. Replece it to *
+
+commit 926a4574d47efae16edba45a5ef3546db59fac4b
+Author: eloaders <eloaders@linux.pl>
+Date:   Wed Jul 23 19:18:11 2014 +0200
+
+    Fix CPUDB detection. Need tests
+
+commit df0f0e3966bc88c876ffcee655edf634d68c9daf
+Author: eloaders <eloaders@linux.pl>
+Date:   Wed Jul 23 15:26:09 2014 +0200
+
+    Removal instructions "SHELL"
+    
+    Acceleration of report generation
+
+commit 5abf51728e6c6029dd214ad3ff79b402af5c289b
+Author: eloaders <eloaders@linux.pl>
+Date:   Wed Jul 23 15:23:11 2014 +0200
+
+    Replacement instructions "If Else" on the "Select Case"
+
+commit b839649f2f295f26d3ec0b338da4ae7b736acbb8
+Author: eloaders <eloaders@linux.pl>
+Date:   Wed Jul 23 15:22:11 2014 +0200
+
+    Change the SHELL statement to KILL
+
+commit ca5e8bdf02763d76937416e149f82cfa6cade8bf
+Author: eloaders <eloaders@linux.pl>
+Date:   Tue Jul 22 18:53:22 2014 +0200
+
+    Removal of unnecessary variables
+
+commit 38e015d94e170f1311a150055c2dae0ea2e588dc
+Author: eloaders <eloaders@linux.pl>
+Date:   Tue Jul 22 18:51:06 2014 +0200
+
+    Acceleration detection Network.
+    
+    Complete abandonment of instructions executed in bash for count
+    interfaces.
+
+commit 27fee050c62d1deae86482233f4359c77c862e32
+Author: eloaders <eloaders@linux.pl>
+Date:   Tue Jul 22 18:50:25 2014 +0200
+
+    Acceleration detection Drives.
+    
+    Complete abandonment of instructions executed in bash for count sd*.
+
+commit 1ec5e4704b218e7750ce22feeacf5934b2dcf33c
+Author: eloaders <eloaders@linux.pl>
+Date:   Tue Jul 22 17:41:30 2014 +0200
+
+    Acceleration detection processors.
+    
+    Complete abandonment of instructions executed in bash.
+
+commit ed73ed48e2adea21b768b228af1796dc831070f0
+Author: eloaders <eloaders@linux.pl>
+Date:   Mon Jul 21 18:41:11 2014 +0200
+
+    Change version. Fix graphic
+
+commit 323e54116e349f09f87e77fc94839814db2aa57a
+Author: eloaders <eloaders@linux.pl>
+Date:   Mon Jul 21 18:24:52 2014 +0200
+
+    Fix cache and mobo
+
+commit 7946c554d45c57f626428d3824d3a8733e0a6d96
+Author: eloaders <eloaders@linux.pl>
+Date:   Sun Jul 20 13:39:59 2014 +0200
+
+    Add mkrelease
+
+commit c852831d5bf7f86d91117b3c10c31277c9406e79
+Author: eloaders <eloaders@linux.pl>
+Date:   Sun Jul 20 13:39:48 2014 +0200
+
+    Update PKGBUILDS
+
+commit 7b583e6df0499b4f5c777324bb2b914c621a4336
+Author: eloaders <eloaders@linux.pl>
+Date:   Sun Jul 20 11:23:40 2014 +0200
+
+    7.2.0
+    
+    Zastąpienie staczycznej opcji gzip kompresującej pliki przechowujące
+    informacje o zmianach, na zmienną którą idzie zmienić za pomocą
+    globalnego pliku konfigurującego proces kompilowania programu. Jest
+    możliwe obecnie wykorzystanie każdej z metod kompresji bezpośrednio w
+    pliku inex.mk
+    
+    Dodano cztery nowe instrukcje, każda z instrukcji otrzymała pełne
+    wsparcie dla ich detekcji na procesorach firmy AMD. Dla procesorów Intel
+    detekcja instrukcji jest nieaktywa, mimo iż w przypadkach jej
+    wyświetlania po przez plik /proc/cpuinfo, aplikacja tak czy owak nie
+    pokazuje jej.
+    
+    Zmieniono nazwę katalogu src na I-Nex, po proprawia filozofię
+    nazewnictwa katalogów w źródłach oprogramowania.
+    
+    Naprawiono proces budowania I-Nex. Domyślnie w ubuntu, proces
+    kompilowania przebiegał tylko z wykorzystaniem jednego procesu bez
+    procesów potomnych, bez jakiejkolwiek wielowątkowości. Od teraz
+    przełącznik -j[0-9] działa prawidłowo.
+    
+        *Adn: Błąd ten został zauważony na dystybucji Manjaro podczas
+    wykonywania makepkg --sign.
+        *Adn 2: Naprawa błędu umożliwiła bezproblemowe stworzenie pakietu w
+    AUR.
+    
+    Zmieniono wygląd wyświetlania Cache procesora oraz filozofię detekcji.
+    Dotychczas dane były wydobywane z plików a typ danej pamięci był
+    przypisywany każdemu poziomowi pamięci statycznie. Od teraz I-Nex
+    wykrywa dynamicznie rozmiar oraz typ pamięci.
+    
+        *Adn: Poprzednio do index0 przypisywany był L1 Data a do index1 L1
+    Instruction, obecnie typ wykrywany jest po przez plik o nazwie type.
+        *Adn: Oprócz łównej zmiany sposobu wyświetlania doszy także
+    dodatkowe parametry dla pamięci cache.
+    	* Informacje te po części dublują kartę CPUID.
+    
+        Dodano wykrywanie napięcia procesora dla modułu ........ W przypadku
+    wykrycia modułu, I-Nex wyświetla aktualne napięcie procesora. Funkcja ta
+    nie korzysta z lm_sensors.
+    
+    * Naprawiono nieprawidłowe skalowanie zawartości karty CPUID.
+    
+    * Dodano funkcję która zamyka otwarte zasoby podczas startu I-Nex,
+    zamyka je po wydobyciu potrzebnych dla programu informacji, po tym nie
+    są one już potrzebne i zostają zamknięte.
+    
+    * Zmieniono katalog wykrywania załadowanych modułów do kernela.
+    Poprzednio używany /proc/modules został zastąpiony na /sys/module
+        Not use /proc/modules. Use /sys/module/
+    
+    *Zmieniono adres raportowania błędów. Uprzednio raporty winne być
+    raportowane na serwisie launchpad. Adres został zmieniony na nowo
+    otwarte forum programu I-Nex.
+    
+    * Zamieniono procedury wykonywane w Shell na żecz instrukcji Exec, która
+    wykonuje bezpośrednio program nie wykonując uprzednio bash.
+    
+    * Dodano dodatkowe funkcje naprawiające kartę Drives. W użycie programu
+    wszedł program blkid.
+    
+    * Zmieniono i przebudowano zakładkę USB.
+    
+    * Zaktualizowano moduł settings który domyślnie jest komponentem
+    gambas3, w i-nex nie wymaga to dodatkowej instalacji biblioteki gambas3
+    -gb-settings
+    
+    * Zaktualizowano moduł json, który domyslnie jest komponentem gambas3, w
+    i-nex nie wymaga to dodatkowej instalacji biblioteki gambas3-gb-net
+    
+    * Przyśpieszono wykrywanie kart grafcznych.
+    
+    * Dodano wyświetlanie krytycznej temperatury procesora
+    
+    * Dodano zależność dh-autoreconf do debian, w celu usunięcia błędów
+    budowania pakietu deb I-Nex
+    
+    * Naprawiono wyrzucanie w logach niepotrzebnych informacji o EDID.
+    
+    * Naprawiono brak wyśiwtlania logo programu w niektórych oknach.
+    
+    * Zmieniono sposób wykrywania zainstalowanych kerneli.
+    
+    * Kilka zmian w plikach autoreconf
+    
+    * Dodano wykrywanie wersji OpenGL ES
+    
+    * Dodano wykrywanie napięcia procesora [Funkcja ta nie bazuje na
+    lm_sensors]
+    
+    * Dodano linkowanie pliku i-nex.gambas do i-nex
+    
+    * Zaktualizowano i-nex-glinfo [Fork glxinfo, niepotrzebna zależność
+    mesa-demos]
+    
+    * Zmieniono sposób kształtowania listy obsługiwanych instrukcji w
+    zakładce CPU.
+    
+    * Usunięto niepotrzebne pliki [W tym makeself, oraz inne specyficzne
+    pliki dla dystrybucji Ubuntu]
+    
+        Fix Processor accumulator
+    
+        Add 4 new instructions
+    
+        CPU_FEATURE_CPB,	Core performance boost
+        CPU_FEATURE_APERFMPERF,	MPERF/APERF MSRs support
+        CPU_FEATURE_PFI,	Processor Feedback Interface support
+        CPU_FEATURE_PA,		Processor accumulator
+    
+    * Przyśpieszono wykrywanie dystrybucji, usunięto dublujące się funkcje.
+    
+    * Usunięto kilka błędów powodujących brak błędne wykrywanie
+    partycji/pliku SWAP
+    
+    * Naprawa rozmiaru logo dla procesorów Intel Core i3, i5, i7
+    
+    * Usunięto przestażały kod odpowiedzialny za wykrywanie instrukcji
+    procesora. [Owa funkcja dublowała się także]
+    
+    * Dodano wykrywanie pewnych elementów za pomocą xdriinfo
+    
+    * Dodano nowe logo dla dystrybucji Manjaro
+    
+    * Usunięto modół nets
+    
+    * Przyśpieszenie wykrywania interfejsów sieciowych.
+    
+    * Przyśpieszenie wykrywania portów USB
+    
+    * Naprawiono rozmiar niektórych buttonów.
+    
+    * Dodano testowy skrypt SHELL do wykrywania temperatury kart graficznych
+    
+    * Dodano do Dists pliki PKGBUILD dla Aur oraz stable Community dla
+    Manjaro.
+    
+    * Przyśpieszono wykrywanie temperatury procesora oraz zmieniono sposób.
+    
+    * Zmieniono rozmiar oraz pozycję niektórych kontrolek.
+    
+    * Usunięto wiele niepotrzebnych spacji w kodzie programu.
+    
+    * Dodano procesor Core i7-4710MQ oraz Core 2 Duo L9400 do bazy Online
+    
+    * Dodano procesor Athlon 64 X2 TK-57ary
+    
+    * Dodano skrypt aktualizujący bazę danych procesorów.
+    
+    * Zaktualizowano bazę procesorów Intel, Atom, AMD
+    
+    * Naprawiono błędne wykrywanie APU with Radeon(TM) R7 Graphics
+
+commit 5260e8809eef16c5c37affc52c6e0b375e81ca93
+Author: eloaders <eloaders@linux.pl>
+Date:   Sat Jul 19 14:23:32 2014 +0200
+
+    Changing Permission for files
+
+commit 5fd6582ce16358a66f4122eee104adcdcf474b59
+Author: eloaders <eloaders@linux.pl>
+Date:   Sat Jul 19 14:22:48 2014 +0200
+
+    Repairs version detection
+
+commit 50ee3b7b6759e45c52a44f0adf6eac6d959709a7
+Author: eloaders <eloaders@linux.pl>
+Date:   Sat Jul 19 14:22:18 2014 +0200
+
+    Remove unnecessary lines of code
+
+commit f9a8e0cf075b5f1ca1924c283bdcd23fd87e4268
+Author: eloaders <eloaders@linux.pl>
+Date:   Wed Jul 16 02:32:26 2014 +0200
+
+    Replace gzip -9 to COMPRESS
+
+commit 0d781f91a8734d4a872dee3ffb80c14182ab8eb9
+Author: eloaders <eloaders@linux.pl>
+Date:   Wed Jul 16 01:18:26 2014 +0200
+
+    Libcpuid instruction fixes
+
+commit 8d7c31822d27da266872df41d7e1fa156068cb4f
+Author: eloaders <eloaders@linux.pl>
+Date:   Tue Jul 15 20:41:42 2014 +0200
+
+    Fixes copyright install
+
+commit 292ebbcec2ec17b5355880b2578828565671c3a1
+Author: eloaders <eloaders@linux.pl>
+Date:   Tue Jul 15 20:28:44 2014 +0200
+
+    Fix
+
+commit 2f2b07173a554eced325e0d503ba11485bddebab
+Author: eloaders <eloaders@linux.pl>
+Date:   Tue Jul 15 20:23:12 2014 +0200
+
+    Better docs install.
+    
+    Choose compression:
+    METHOD="gzip -9"
+    sed -i -e 's|^COMPRESS.*|COMPRESS = $METHOD|' i-nex.mk
+
+commit 261d9b7b640604934348636b8c606ebef996997a
+Author: eloaders <eloaders@linux.pl>
+Date:   Tue Jul 15 18:32:59 2014 +0200
+
+    Fixes ubuntu peckaging. use I-Nex dir. remove src
+
+commit 64e92b39f32ea7a292985dee67d4c6de1333f9fa
+Author: eloaders <eloaders@linux.pl>
+Date:   Tue Jul 15 18:31:30 2014 +0200
+
+    Move src to I-Nex
+
+commit a92839561d7168ff3af63e5c53575d97b0ac17c3
+Author: eloaders <eloaders@linux.pl>
+Date:   Sun Jul 13 15:42:26 2014 +0200
+
+    Fixes for make -j option
+
+commit 4d02e35c477e39f77b9ce7cfe07813e8a4d58547
+Author: eloaders <eloaders@linux.pl>
+Date:   Sun Jul 13 12:26:01 2014 +0200
+
+    Fix docs
+
+commit 09703b8b24db38c351dd415b626555b484be946b
+Author: eloaders <eloaders@linux.pl>
+Date:   Sun Jul 13 12:20:11 2014 +0200
+
+    Improving the detection of processor cache
+
+commit 649207bdf11ea536b86025a47d00c023689b5064
+Author: eloaders <eloaders@linux.pl>
+Date:   Sat Jul 12 19:30:56 2014 +0200
+
+    Fix Voltage
+
+commit 595e7951246096b3a2ccba5c1dd559cef0198b01
+Author: eloaders <eloaders@linux.pl>
+Date:   Sat Jul 12 16:07:18 2014 +0200
+
+    UI Fixes
+
+commit 498f19fa38c8a5065c49993f9638ec399387c169
+Author: eloaders <eloaders@linux.pl>
+Date:   Sat Jul 12 16:07:08 2014 +0200
+
+    Add Close data
+
+commit 6591b43d11e10d7c2658c89fa556087ba481c8ad
+Author: eloaders <eloaders@linux.pl>
+Date:   Sat Jul 12 16:06:41 2014 +0200
+
+    Not use /proc/modules. Use /sys/module/
+
+commit 8e5fab46243298271b88081c76dc82883dcc8f04
+Author: eloaders <eloaders@linux.pl>
+Date:   Sat Jul 12 16:06:14 2014 +0200
+
+    Change URL bug report to http://forum.i-nex.pl
+
+commit e4e4bf426c87d2e68b3682170e866c148df4ecfa
+Author: eloaders <eloaders@linux.pl>
+Date:   Sat Jul 12 16:05:46 2014 +0200
+
+    Remove print check_swap
+
+commit 37f28a863817ede227d470897413a6d5b362b3c9
+Author: eloaders <eloaders@linux.pl>
+Date:   Sat Jul 12 16:05:29 2014 +0200
+
+    Replace Shell to Exec.
+
+commit a81cc51310c7bb9e3cca69536692a3d2d26868ed
+Author: eloaders <eloaders@linux.pl>
+Date:   Fri Jul 11 20:28:06 2014 +0200
+
+    Blkid fixes
+
+commit ece5ac45593043b30a52207bdb28dd477c82bf7b
+Author: eloaders <eloaders@linux.pl>
+Date:   Thu Jul 10 20:30:49 2014 +0200
+
+    Some fixes for Detect Drives UUID using blkid.
+    
+    This change need more fixes.
+
+commit e8792e504987dbb52df92da2392646e3ce8e8a11
+Author: eloaders <eloaders@linux.pl>
+Date:   Wed Jul 9 12:54:49 2014 +0200
+
+    Update forum URL
+
+commit 3009e235d3bfad4ccff97b962c45ce4b1e4f0503
+Author: eloaders <eloaders@linux.pl>
+Date:   Wed Jul 9 12:00:43 2014 +0200
+
+    Redesign USB tab
+
+commit aba78ddc1b53f3a134fd6a2d9a22c5afae91bb26
+Author: eloaders <eloaders@linux.pl>
+Date:   Mon Jul 7 02:34:42 2014 +0200
+
+    Redesign CPUID
+
+commit e59b9158931a5157e6f7cbfabf11ed4659bc8119
+Author: eloaders <eloaders@linux.pl>
+Date:   Sun Jul 6 21:32:08 2014 +0200
+
+    Update Settings Module
+
+commit f66ae4a72f56d774dc7256950b230b27ce938644
+Author: eloaders <eloaders@linux.pl>
+Date:   Sun Jul 6 21:31:34 2014 +0200
+
+    Update JSON module
+
+commit 4e4e0ce4f7deda2bbde069fdc4400a0c29fa7e7c
+Author: eloaders <eloaders@linux.pl>
+Date:   Sun Jul 6 16:04:10 2014 +0200
+
+    Speed up GPU Detection
+
+commit 849dad47e5b807861bde8fd9b19027cb74fd7d0b
+Author: eloaders <eloaders@linux.pl>
+Date:   Sun Jul 6 14:14:45 2014 +0200
+
+    Speed up LCache detection
+
+commit 2fbc484277e381e3dda3053613a4e2e6614318bd
+Author: eloaders <eloaders@linux.pl>
+Date:   Thu Jul 3 14:22:23 2014 +0200
+
+    Add cpu crit temps
+
+commit 233e07574fe81d6d2759136f0a757e64e81e9bf6
+Author: eloaders <eloaders@linux.pl>
+Date:   Wed Jul 2 21:00:06 2014 +0200
+
+    Update pkgbuilds
+
+commit 4b126cbce9a05c29824308e1ba7f55883d4344f3
+Author: eloaders <eloaders@linux.pl>
+Date:   Wed Jul 2 20:05:24 2014 +0200
+
+    Add dh-autoreconf Build-Depends
+
+commit 2e88dca94faba16bf56eb993446852fa2f80e2e7
+Author: eloaders <eloaders@linux.pl>
+Date:   Wed Jul 2 19:27:51 2014 +0200
+
+    Fix logs. Not edid.
+
+commit 88ad7eb713f795d1a5daddcbccddea5ba9e8b789
+Author: eloaders <eloaders@linux.pl>
+Date:   Wed Jul 2 19:27:30 2014 +0200
+
+    Fix Window Icon
+
+commit c918b6e2011c51300cea35995d2b7aa2a6317247
+Author: eloaders <eloaders@linux.pl>
+Date:   Wed Jul 2 18:32:49 2014 +0200
+
+    Add locate kernels.
+
+commit f89634727be08058c084558bc2a4b30eb645ceae
+Author: eloaders <eloaders@linux.pl>
+Date:   Wed Jul 2 13:41:23 2014 +0200
+
+    Autoreconf fixes
+
+commit a1a80dcb9f300c89b16d440e2df408da439a3b75
+Author: eloaders <eloaders@linux.pl>
+Date:   Wed Jul 2 12:24:51 2014 +0200
+
+    Fix prew commit
+
+commit c1021a832793a93d124402af39fe7c1b99406caf
+Author: eloaders <eloaders@linux.pl>
+Date:   Wed Jul 2 12:16:47 2014 +0200
+
+    Add OpenGL ES and VCore
+
+commit 36eae33cfa5195b2013c5b256da338460ef1efa4
+Author: eloaders <eloaders@linux.pl>
+Date:   Wed Jul 2 02:38:37 2014 +0200
+
+    link-inex
+
+commit 53e307f7f0e79786c63a46523ff6cd7b5b5fd066
+Author: eloaders <eloaders@linux.pl>
+Date:   Wed Jul 2 02:35:28 2014 +0200
+
+    Try to fix build ubuntu errors
+
+commit 4d4d850aad0067d53f242e3deab3ad5c9c9298e2
+Author: eloaders <eloaders@linux.pl>
+Date:   Wed Jul 2 01:28:34 2014 +0200
+
+    Move reusable, non-GLX code into glinfo_common.[ch]
+
+commit 8289cec486b635ee610083477616151665cb70e3
+Author: eloaders <eloaders@linux.pl>
+Date:   Wed Jul 2 00:54:58 2014 +0200
+
+    Update Code.
+
+commit 9526fb00c19e6c8045a6231700eb5634eba7387e
+Author: eloaders <eloaders@linux.pl>
+Date:   Tue Jul 1 17:05:14 2014 +0200
+
+    Some Fixes in flags
+
+commit eb6c01252ecaf98a3ffb12506269358279613ac3
+Author: eloaders <eloaders@linux.pl>
+Date:   Tue Jul 1 11:38:34 2014 +0200
+
+    Fix link-inex
+
+commit 3724f9ebed50efeb45ec8ae7b112b6f9b5e38b9d
+Author: eloaders <eloaders@linux.pl>
+Date:   Tue Jul 1 11:33:51 2014 +0200
+
+    Try fix Makefile:76: polecenia dla obiektu 'install-scripts' nie powiodły się
+
+commit 17394de22bf092cea4beb7c45d8206516585bb60
+Author: eloaders <eloaders@linux.pl>
+Date:   Tue Jul 1 11:30:57 2014 +0200
+
+    Fixes
+
+commit 515043c4beb08a3c9dd6c0d51b344946b9a680d6
+Author: eloaders <eloaders@linux.pl>
+Date:   Tue Jul 1 11:25:25 2014 +0200
+
+    Pixmaps fixes
+
+commit fdfe2ab79d713a3d021dba5a517443aa274c7fda
+Author: eloaders <eloaders@linux.pl>
+Date:   Tue Jul 1 00:07:02 2014 +0200
+
+    Fix pixmaps dir
+
+commit af3d36abf90949a38e53283debc5ccf828bed8c2
+Author: eloaders <eloaders@linux.pl>
+Date:   Mon Jun 30 18:35:08 2014 +0200
+
+    Fix aperfmperf
+
+commit 7849ee10ca51faa81bada7b0070807e03886a78a
+Author: eloaders <eloaders@linux.pl>
+Date:   Mon Jun 30 17:52:32 2014 +0200
+
+    Fix changelogs makefile
+
+commit 24643e3afc2313594e9b9c1ab3c0ec81e1c92cac
+Author: eloaders <eloaders@linux.pl>
+Date:   Mon Jun 30 17:44:20 2014 +0200
+
+    Fixes makefile
+
+commit c8c7934a7894961cf1ac7c807fdcf0dd8ae43057
+Author: eloaders <eloaders@linux.pl>
+Date:   Mon Jun 30 17:17:25 2014 +0200
+
+    Deleting unnecessary files.
+    
+    autoreconf creates it anew
+
+commit de424ad4ecb00247771e2882ebed30b310540abc
+Author: eloaders <eloaders@linux.pl>
+Date:   Mon Jun 30 15:05:19 2014 +0200
+
+    Makefile fixes
+
+commit fd67736bf6dd800df2af8b74aacb91be87a26730
+Author: eloaders <eloaders@linux.pl>
+Date:   Mon Jun 30 14:43:49 2014 +0200
+
+    Some Makefile fixes
+
+commit 24666919f66a32cfc9a6620e05d33d55d12d4411
+Author: eloaders <eloaders@linux.pl>
+Date:   Mon Jun 30 12:19:26 2014 +0200
+
+    Fix Processor accumulator
+
+commit 5b2259d345a60752d054c347b7170c2f4d9de511
+Author: eloaders <eloaders@linux.pl>
+Date:   Mon Jun 30 11:30:05 2014 +0200
+
+    Add 4 new instructions
+    
+    CPU_FEATURE_CPB,	Core performance boost
+    CPU_FEATURE_APERFMPERF,	MPERF/APERF MSRs support
+    CPU_FEATURE_PFI,	Processor Feedback Interface support
+    CPU_FEATURE_PA,		Processor accumulator
+
+commit fd4c36dceb73795b34fc83256bde947774789fe8
+Author: eloaders <eloaders@linux.pl>
+Date:   Mon Jun 30 00:46:57 2014 +0200
+
+    Repair the previous revision.
+    
+    Mobo decoding acceleration
+
+commit 5475a052a91ea2907244581875b410876b05ccb9
+Author: eloaders <eloaders@linux.pl>
+Date:   Mon Jun 30 00:45:41 2014 +0200
+
+    Removing unnecessary feature detection slowing logo for distribution
+
+commit 4ad50decf6ec9a606a24cb5b8d877acfda5c1489
+Author: eloaders <eloaders@linux.pl>
+Date:   Sun Jun 29 22:51:13 2014 +0200
+
+    Fix SWAP detection
+
+commit 48e1d790a53caeb9afff413f3b10ea99448a4821
+Author: eloaders <eloaders@linux.pl>
+Date:   Sun Jun 29 22:14:43 2014 +0200
+
+    Fix Intel i5/7/3 logo size
+
+commit b633ccac9f69540de80ec652322bfe055ef935ab
+Author: eloaders <eloaders@linux.pl>
+Date:   Sun Jun 29 16:50:25 2014 +0200
+
+    Removing unnecessary code for the detection of processor instructions.
+
+commit d407930c95993040a0185f5017d936b01123f890
+Author: eloaders <eloaders@linux.pl>
+Date:   Sun Jun 29 15:24:54 2014 +0200
+
+    Add xdriinfo
+
+commit 64c2c740a143de74ad184f9ded48a7b4d036182e
+Author: eloaders <eloaders@linux.pl>
+Date:   Sun Jun 29 14:52:01 2014 +0200
+
+    Remove two || from shell
+
+commit a5e1585fd8ec29f98ef2adad276076068545a089
+Author: eloaders <eloaders@linux.pl>
+Date:   Sun Jun 29 14:51:41 2014 +0200
+
+    New Manjaro logo
+
+commit 4834a64ada56ca41501fea54737803b2f275fc79
+Author: eloaders <eloaders@linux.pl>
+Date:   Sun Jun 29 13:04:27 2014 +0200
+
+    Remove nets
+
+commit c3761fe1ecb6ec1c14d4599faf89ef7a89d61afd
+Author: eloaders <eloaders@linux.pl>
+Date:   Sun Jun 29 00:30:40 2014 +0200
+
+    Speeding up detection of network interfaces.
+
+commit a4d89dd0a39618847455e1a3886c1332479bb33c
+Author: eloaders <eloaders@linux.pl>
+Date:   Sat Jun 28 23:31:45 2014 +0200
+
+    Speed Up decoding USB Drives
+
+commit 07357c1cd7c800eba3f63d4849381b9a515c99b4
+Author: eloaders <eloaders@linux.pl>
+Date:   Sat Jun 28 23:20:00 2014 +0200
+
+    Input Fixes.
+
+commit 135ab7557bcb9c5bee0e732fe9c2306398e1f074
+Author: eloaders <eloaders@linux.pl>
+Date:   Sat Jun 28 20:16:32 2014 +0200
+
+    Some fixes in position of buttons. Add Border
+
+commit 7cddd90d301745046c776bae914aa6aca749856f
+Author: eloaders <eloaders@linux.pl>
+Date:   Sat Jun 28 20:16:02 2014 +0200
+
+    Add testing GPUTEMP
+
+commit 836c229c38bc04377df568ab8ed5b1e922b077d4
+Author: eloaders <eloaders@linux.pl>
+Date:   Sat Jun 28 20:15:44 2014 +0200
+
+    Add Stable pkgbuild
+
+commit 04c924bcc74e2220a74eb3d64633e6fba15d6b5a
+Author: eloaders <eloaders@linux.pl>
+Date:   Sat Jun 28 20:15:34 2014 +0200
+
+    Add daily pkgbuild
+
+commit 77e7fcb2e69f86fc9fdbf524f05571f2eb736994
+Author: eloaders <eloaders@linux.pl>
+Date:   Sat Jun 28 16:08:10 2014 +0200
+
+    Faster and correct way to detect CPU temperature and the critical temperature
+
+commit c4676ae06187fdb763031ba620dd71c9b85183a5
+Author: eloaders <eloaders@linux.pl>
+Date:   Sat Jun 28 16:06:59 2014 +0200
+
+    Changing the size and position of controls
+
+commit 4e8bf62bc89f57951b3084ec4a77cb6fe79ca4ff
+Author: eloaders <eloaders@linux.pl>
+Date:   Sat Jun 28 16:06:24 2014 +0200
+
+    Removing unnecessary spaces
+
+commit 705ead341ad9b1d791f0be5e651d959741e193fb
+Author: eloaders <eloaders@linux.pl>
+Date:   Fri Jun 27 22:26:38 2014 +0200
+
+    Cache fixes
+
+commit 2b26707b3fe9f30eded6f45416dc55fc86cb6e89
+Author: eloaders <eloaders@linux.pl>
+Date:   Thu Jun 26 21:07:21 2014 +0200
+
+    Fix I-Nex for manjaro
+
+commit 82ceba6dd2d8ea8aae27cc145052c367e29f152d
+Author: eloaders <eloaders@linux.pl>
+Date:   Wed Jun 25 22:38:30 2014 +0200
+
+    Fix curl manjaro depends
+
+commit 0442169523cccbef7b9f96dd453d834c94409309
+Author: eloaders <eloaders@linux.pl>
+Date:   Wed Jun 25 22:29:17 2014 +0200
+
+    Add Core i7-4710MQ & Core 2 Duo L9400
+
+commit 1fa2401ec713382590f7a6f49d831cf9d311f7d2
+Author: eloaders <eloaders@linux.pl>
+Date:   Wed Jun 25 22:28:57 2014 +0200
+
+    Add Athlon 64 X2 TK-57ary
+
+commit b7c6fff64f5966216c4eaef4c56cb9591678eac0
+Author: eloaders <eloaders@linux.pl>
+Date:   Wed Jun 25 21:52:03 2014 +0200
+
+    Add script to update cpudb
+
+commit 20b655224e94ec6c689e50b53c51376b188c46a2
+Author: eloaders <eloaders@linux.pl>
+Date:   Wed Jun 25 21:51:48 2014 +0200
+
+    Udpate Cpud database Atom, Intel, AMD
+
+commit f13ae1016518e4c77d432bbb3c35ccec60319839
+Author: eloaders <eloaders@linux.pl>
+Date:   Wed Jun 25 00:14:12 2014 +0200
+
+    Fix for APU with Radeon(TM) R7 Graphics
+
+commit f075f5bffdb892d036e32aeba161e9f3e1477b48
+Author: eloaders <eloaders@linux.pl>
+Date:   Wed Jun 25 00:13:52 2014 +0200
+
+    Update Intel Database

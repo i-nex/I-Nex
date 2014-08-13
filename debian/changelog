@@ -1,8 +1,8 @@
-i-nex (7.4.0) unstable; urgency=medium
+i-nex (7.4.0) stable; urgency=medium
 
-  * unstable
+  * Chengelog for version 7.4.0 see file /usr/share/doc/i-nex/changelog-7.4.0
 
- -- eloaders <eloaders@linux.pl>  Fri, 01 Aug 2014 12:05:42 +0200
+ -- eloaders <eloaders@linux.pl>  Wed, 13 Aug 2014 11:59:26 +0200
 
 i-nex (7.2.1) stable; urgency=medium
 

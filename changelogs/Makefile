@@ -31,3 +31,4 @@ compress-changelogs:
 	${COMPRESS} $(DESTDIR)$(PREFIX)$(DOCSDIR)/changelog-7.0.0
 	${COMPRESS} $(DESTDIR)$(PREFIX)$(DOCSDIR)/changelog-7.2.0
 	${COMPRESS} $(DESTDIR)$(PREFIX)$(DOCSDIR)/changelog-7.2.1
+	${COMPRESS} $(DESTDIR)$(PREFIX)$(DOCSDIR)/changelog-7.4.0
