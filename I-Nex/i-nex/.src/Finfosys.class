@@ -123,7 +123,7 @@ Public Sub Form_Open()
                   Endif
                   With Label[i]
                       .X = 2
-                      .Y = 265 + Int(i * 20)
+                      .Y = 285 + Int(i * 20)
                       .Width = 440
                       .Height = 21
                       .Border = Border.Raised
@@ -137,7 +137,7 @@ Public Sub Form_Open()
                   End With
                   With ToolButton[i]
                            .X = 420
-                           .Y = 265 + Int(i * 20)
+                           .Y = 285 + Int(i * 20)
                            .Width = 21
                            .Height = 21
                            .Picture = YESNO
@@ -148,7 +148,7 @@ Public Sub Form_Open()
                   End With
                   With Button[i]
                        .X = 400
-                       .Y = 265 + Int(i * 20)
+                       .Y = 285 + Int(i * 20)
                        .Width = 21
                        .Height = 21
                        .Font.Bold = True
@@ -161,7 +161,7 @@ Public Sub Form_Open()
                   End With
                   With TextLabel[i]
                           .X = 320
-                          .Y = 265 + Int(i * 20)
+                          .Y = 285 + Int(i * 20)
                           .Width = 80
                           .Height = 21
                           .Font.Bold = True
