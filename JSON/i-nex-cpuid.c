@@ -24,7 +24,7 @@ int main(void)
 		printf("Sorry, your CPU doesn't support CPUID!\n");
 		return -1;
 	}
-	struct cpu_raw_data_t raw;                                             // contains only raw data
+	struct cpu_raw_data_t raw;
 	struct cpu_id_t data;                                                  // contains recognized CPU features data
 	if (cpuid_get_raw_data(&raw) < 0) {                                    // obtain the raw CPUID data
 		printf("Sorry, cannot get the CPUID raw data.\n");
@@ -51,10 +51,10 @@ int main(void)
 	printf("	\"STEPPING\": \"%d\",\n", data.stepping);                     //
 	printf("	\"EXT_FAMILY\": \"%d\",\n", data.ext_family);                 //
 	printf("	\"EXT_MODEL\": \"%d\",\n", data.ext_model);                   //
-	printf("	\"CPU_CLOCK\": \"%d\",\n", cpu_clock());                      //
-	printf("	\"CPU_CLOCK_BY_OS\": \"%d\",\n", cpu_clock_by_os());          //
-	printf("	\"CPU_CLOCK_BY_IC\": \"%d\",\n", cpu_clock_by_ic(200, 0));    //
-	printf("	\"CPU_CLOCK_MEASURE\": \"%d\",\n", cpu_clock_measure(200, 0));//
+	printf("	\"CPU_CLOCK\": \"%d MHz\",\n", cpu_clock());                      //
+	printf("	\"CPU_CLOCK_BY_OS\": \"%d MHz\",\n", cpu_clock_by_os());          //
+	printf("	\"CPU_CLOCK_BY_IC\": \"%d MHz\",\n", cpu_clock_by_ic(25, 16));    //
+	printf("	\"CPU_CLOCK_MEASURE\": \"%d MHz\",\n", cpu_clock_measure(400, 1));//
 	printf("	\"MARK_TSC\": \"%llu\",\n", mark.tsc);			      //
 	printf("	\"MARK_SYS_CLOCK\": \"%llu\",\n", mark.sys_clock);            //
 	printf("			\"Flags\": {\n");
@@ -898,17 +898,35 @@ int main(void)
 	}
 	printf("			}\n");
 	printf("	},\n");
-	printf("	\"L1_DATA_CACHE\": \"%d\",\n", data.l1_data_cache);
-	printf("	\"L1_INSTRUCTION_CACHE\": \"%d\",\n", data.l1_instruction_cache);
-	printf("	\"L2_CACHE\": \"%d\",\n", data.l2_cache);
-	printf("	\"L3_CACHE\": \"%d\",\n", data.l3_cache);
-	printf("	\"L1_ASSOC\": \"%d\",\n", data.l1_assoc);
-	printf("	\"L2_ASSOC\": \"%d\",\n", data.l2_assoc);
-	printf("	\"L3_ASSOC\": \"%d\",\n", data.l3_assoc);
-	printf("	\"L1_CACHELINE\": \"%d\",\n", data.l1_cacheline);
-	printf("	\"L2_CACHELINE\": \"%d\",\n", data.l2_cacheline);
-	printf("	\"L3_CACHELINE\": \"%d\",\n", data.l3_cacheline);
-	printf("	\"SSE_SIZE\": \"%d\"\n", data.sse_size);
+	printf("	\"L1_DATA_CACHE\": \"%d KB\",\n", data.l1_data_cache);
+	printf("	\"L1_INSTRUCTION_CACHE\": \"%d KB\",\n", data.l1_instruction_cache);
+	printf("	\"L2_CACHE\": \"%d KB\",\n", data.l2_cache);
+	
+	if (data.l3_cache > 0) {
+	  printf("	\"L3_CACHE\": \"%d KB\",\n", data.l3_cache);
+	} else {
+	  printf("	\"L3_CACHE\": \"Not found\",\n");
+	}
+	
+	printf("	\"L1_ASSOC\": \"%d-way\",\n", data.l1_assoc);
+	printf("	\"L2_ASSOC\": \"%d-way\",\n", data.l2_assoc);
+	
+	if (data.l3_assoc > 0) {
+	  printf("	\"L3_ASSOC\": \"%d-way\",\n", data.l3_assoc);
+	} else {
+	  printf("	\"L3_ASSOC\": \"Not found\",\n");
+	}
+	
+	printf("	\"L1_CACHELINE\": \"%d bytes\",\n", data.l1_cacheline);
+	printf("	\"L2_CACHELINE\": \"%d bytes\",\n", data.l2_cacheline);
+	
+	if (data.l3_cacheline > 0) {
+	  printf("	\"L3_CACHELINE\": \"%d bytes\",\n", data.l3_cacheline);
+	} else {
+	  printf("	\"L3_CACHELINE\": \"Not found\",\n");
+	}
+	
+	printf("	\"SSE_SIZE\": \"%d bits (%s)\"\n", data.sse_size, data.detection_hints[CPU_HINT_SSE_SIZE_AUTH] ? "authoritative" : "non-authoritative");
 	printf("}\n");
 	return 0;
 }

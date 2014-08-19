@@ -584,7 +584,7 @@
           Border = Border.Raised
         }
         { Separator12 Separator
-          Move(0,294,441,14)
+          Move(0,315,441,14)
         }
         { Label209 Label
           Move(0,210,147,21)
@@ -657,10 +657,11 @@
           Border = Border.Raised
         }
         { Label219 Label
-          Move(147,273,294,21)
+          Move(0,294,441,21)
           Font = Font["Bold,8"]
           Padding = 3
           Text = ("Label219")
+          Alignment = Align.Center
           Border = Border.Raised
         }
       }
