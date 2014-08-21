@@ -13,6 +13,9 @@ Public Sub _inits()
    If I2C_BUSES["I2C"][i]["vendid"] = vendor And I2C_BUSES["I2C"][i]["devid"] = device Then
     Print "Found: " & I2C_BUSES["I2C"][i]["procid"]
     Print "Need modprobe: eeprom " & I2C_BUSES["I2C"][i]["driver"]
+    Print "#Udev rule for " & I2C_BUSES["I2C"][i]["procid"] & ":"
+    Print "SUBSYSTEMS==\"pci\", ATTRS{vendor}==\"" & I2C_BUSES["I2C"][i]["vendid"] & "\", ATTRS{device}==\"" & I2C_BUSES["I2C"][i]["devid"] & "\", RUN+=\"/sbin/modprobe " & I2C_BUSES["I2C"][i]["driver"] & "\""
+    Print "#Put to /lib/udev/rules.d/"
    Endif
   Next
  Next
