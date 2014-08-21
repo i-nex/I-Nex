@@ -1,0 +1,20 @@
+' Gambas module file
+
+Public Sub _inits()
+ Dim element As String
+ Dim vendor, device As String
+ Dim I2C_BUSES As Collection
+ Dim i As Integer
+ I2C_BUSES = JSON.Decode(File.Load("Database/i2c/devices.json"))
+ For Each element In RDir("/sys/bus/pci/devices/", "*:*")
+  vendor = Replace(File.Load("/sys/bus/pci/devices/" & element & "/vendor"), "\n", "")
+  device = Replace(File.Load("/sys/bus/pci/devices/" & element & "/device"), "\n", "")
+  For i = 0 To I2C_BUSES["I2C"].Count - 1
+   If I2C_BUSES["I2C"][i]["vendid"] = vendor And I2C_BUSES["I2C"][i]["devid"] = device Then
+    Print "Found: " & I2C_BUSES["I2C"][i]["procid"]
+    Print "Need modprobe: eeprom " & I2C_BUSES["I2C"][i]["driver"]
+   Endif
+  Next
+ Next
+ 
+End

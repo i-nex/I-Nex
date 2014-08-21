@@ -1,0 +1,40 @@
+{
+  "I2C": {
+    "0": {
+      "vendid": "0x8086",
+      "devid": "0x7113",
+      "procid": "Intel 82371AB PIIX4 ACPI",
+      "driver": "i2c-piix4"
+    },
+    "1": {
+      "vendid": "0x8086",
+      "devid": "0x7603",
+      "procid": "Intel 82372FB PIIX5 ACPI",
+      "driver": "to-be-written"
+    },
+    "2": {
+      "vendid": "0x8086",
+      "devid": "0x719b",
+      "procid": "Intel 82443MX Mobile",
+      "driver": "i2c-piix4"
+    },
+    "3": {
+      "vendid": "0x8086",
+      "devid": "0x2413",
+      "procid": "Intel 82801AA ICH",
+      "driver": "i2c-i801"
+    },
+    "4": {
+      "vendid": "0x8086",
+      "devid": "0x2423",
+      "procid": "Intel 82801AB ICH0",
+      "driver": "i2c-i801"
+    },
+    "5": {
+      "vendid": "0x8086",
+      "devid": "0x27da",
+      "procid": "Intel 82801G ICH7",
+      "driver": "i2c-i801"
+    }
+  }
+}

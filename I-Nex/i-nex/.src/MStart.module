@@ -32,6 +32,7 @@ Public Sub Main()
            "\n          --help                          (Chow Help)"
            "\n          --library                    (Chow library)"
            "\n          --cpuinfo    (Use cpuinfo instead of /proc)"
+           "\n          --smbus                             (smbus)"
            "\n"
            "\n  Env Variables:"
            "\n"
@@ -52,6 +53,9 @@ Public Sub Main()
     PrintErr = False
    Case "--conv"
     MConvert.Convert(Application.Args[2], Application.Args[3], Application.Args[4])
+    PrintErr = False
+   Case "--smbus"
+    i2c._inits
     PrintErr = False
    Case ""
     Finfosys.Show
