@@ -32,9 +32,447 @@
     },
     "5": {
       "vendid": "0x8086",
-      "devid": "0x27da",
+      "devid": "0x2443",
+      "procid": "Intel 82801BA ICH2",
+      "driver": "i2c-i801"
+    },
+    "6": {
+      "vendid": "0x8086",
+      "devid": "0x2483",
+      "procid": "Intel 82801CA/CAM ICH3",
+      "driver": "i2c-i801"
+    },
+    "7": {
+      "vendid": "0x8086",
+      "devid": "0x24C3",
+      "procid": "Intel 82801DB ICH4",
+      "driver": "i2c-i801"
+    },
+    "8": {
+      "vendid": "0x8086",
+      "devid": "0x24D3",
+      "procid": "Intel 82801EB ICH5",
+      "driver": "i2c-i801"
+    },
+    "9": {
+      "vendid": "0x8086",
+      "devid": "0x25A4",
+      "procid": "Intel 6300ESB",
+      "driver": "i2c-i801"
+    },
+    "10": {
+      "vendid": "0x8086",
+      "devid": "0x269B",
+      "procid": "Intel Enterprise Southbridge - ESB2",
+      "driver": "i2c-i801"
+    },
+    "11": {
+      "vendid": "0x8086",
+      "devid": "0x266A",
+      "procid": "Intel 82801FB ICH6",
+      "driver": "i2c-i801"
+    },
+    "12": {
+      "vendid": "0x8086",
+      "devid": "0x27DA",
       "procid": "Intel 82801G ICH7",
       "driver": "i2c-i801"
+    },
+    "13": {
+      "vendid": "0x8086",
+      "devid": "0x283E",
+      "procid": "Intel 82801H ICH8",
+      "driver": "i2c-i801"
+    },
+    "14": {
+      "vendid": "0x8086",
+      "devid": "0x2930",
+      "procid": "Intel ICH9",
+      "driver": "i2c-i801"
+    },
+    "15": {
+      "vendid": "0x8086",
+      "devid": "0x5032",
+      "procid": "Intel Tolapai",
+      "driver": "i2c-i801"
+    },
+    "16": {
+      "vendid": "0x8086",
+      "devid": "0x3A30",
+      "procid": "Intel ICH10",
+      "driver": "i2c-i801"
+    },
+    "17": {
+      "vendid": "0x8086",
+      "devid": "0x3A60",
+      "procid": "Intel ICH10",
+      "driver": "i2c-i801"
+    },
+    "18": {
+      "vendid": "0x8086",
+      "devid": "0x3B30",
+      "procid": "Intel 3400/5 Series (PCH)",
+      "driver": "i2c-i801"
+    },
+    "19": {
+      "vendid": "0x8086",
+      "devid": "0x1C22",
+      "procid": "Intel Cougar Point (PCH)",
+      "driver": "i2c-i801"
+    },
+    "20": {
+      "vendid": "0x8086",
+      "devid": "0x1D22",
+      "procid": "Intel Patsburg (PCH)",
+      "driver": "i2c-i801"
+    },
+    "21": {
+      "vendid": "0x8086",
+      "devid": "0x2330",
+      "procid": "Intel DH89xxCC (PCH)",
+      "driver": "i2c-i801"
+    },
+    "22": {
+      "vendid": "0x8086",
+      "devid": "0x1E22",
+      "procid": "Intel Panther Point (PCH)",
+      "driver": "i2c-i801"
+    },
+    "23": {
+      "vendid": "0x8086",
+      "devid": "0x8C22",
+      "procid": "Intel Lynx Point (PCH)",
+      "driver": "i2c-i801"
+    },
+    "24": {
+      "vendid": "0x8086",
+      "devid": "0x8119",
+      "procid": "Intel SCH",
+      "driver": "i2c-isch"
+    },
+    "25": {
+      "vendid": "0x1106",
+      "devid": "0x3040",
+      "procid": "VIA Technologies VT82C586B Apollo ACPI",
+      "driver": "i2c-via"
+    },
+    "26": {
+      "vendid": "0x1106",
+      "devid": "0x3050",
+      "procid": "VIA Technologies VT82C596 Apollo ACPI",
+      "driver": "i2c-viapro"
+    },
+    "27": {
+      "vendid": "0x1106",
+      "devid": "0x3051",
+      "procid": "VIA Technologies VT82C596B ACPI",
+      "driver": "i2c-viapro"
+    },
+    "28": {
+      "vendid": "0x1106",
+      "devid": "0x3057",
+      "procid": "VIA Technologies VT82C686 Apollo ACPI",
+      "driver": "i2c-viapro"
+    },
+    "29": {
+      "vendid": "0x1106",
+      "devid": "0x3074",
+      "procid": "VIA Technologies VT8233 VLink South Bridge",
+      "driver": "i2c-viapro"
+    },
+    "30": {
+      "vendid": "0x1106",
+      "devid": "0x3147",
+      "procid": "VIA Technologies VT8233A South Bridge",
+      "driver": "i2c-viapro"
+    },
+    "31": {
+      "vendid": "0x1106",
+      "devid": "0x3177",
+      "procid": "VIA Technologies VT8233A/8235 South Bridge",
+      "driver": "i2c-viapro"
+    },
+    "32": {
+      "vendid": "0x1106",
+      "devid": "0x3227",
+      "procid": "VIA Technologies VT8237 South Bridge",
+      "driver": "i2c-viapro"
+    },
+    "33": {
+      "vendid": "0x1106",
+      "devid": "0x3337",
+      "procid": "VIA Technologies VT8237A South Bridge",
+      "driver": "i2c-viapro"
+    },
+    "34": {
+      "vendid": "0x1106",
+      "devid": "0x8235",
+      "procid": "VIA Technologies VT8231 South Bridge",
+      "driver": "i2c-viapro"
+    },
+    "35": {
+      "vendid": "0x1106",
+      "devid": "0x3287",
+      "procid": "VIA Technologies VT8251 South Bridge",
+      "driver": "i2c-viapro"
+    },
+    "36": {
+      "vendid": "0x1106",
+      "devid": "0x8324",
+      "procid": "VIA Technologies CX700 South Bridge",
+      "driver": "i2c-viapro"
+    },
+    "37": {
+      "vendid": "0x1106",
+      "devid": "0x8353",
+      "procid": "VIA Technologies VX800/VX820 South Bridge",
+      "driver": "i2c-viapro"
+    },
+    "38": {
+      "vendid": "0x1039",
+      "devid": "0x0008",
+      "procid": "Silicon Integrated Systems SIS5595",
+      "driver": "i2c-sis5595"
+    },
+    "39": {
+      "vendid": "0x1039",
+      "devid": "0x0630",
+      "procid": "Silicon Integrated Systems SIS630",
+      "driver": "i2c-sis630"
+    },
+    "40": {
+      "vendid": "0x1039",
+      "devid": "0x0730",
+      "procid": "Silicon Integrated Systems SIS730",
+      "driver": "i2c-sis630"
+    },
+    "41": {
+      "vendid": "0x1039",
+      "devid": "0x0016",
+      "procid": "Silicon Integrated Systems SMBus Controller",
+      "driver": "i2c-sis96x"
+    },
+    "42": {
+      "vendid": "0x10b9",
+      "devid": "0x7101",
+      "procid": "Acer Labs 1533/1543",
+      "driver": "i2c-ali15x3"
+    },
+    "43": {
+      "vendid": "0x10b9",
+      "devid": "0x7101",
+      "procid": "Acer Labs 1535",
+      "driver": "i2c-ali1535"
+    },
+    "44": {
+      "vendid": "0x10b9",
+      "devid": "0x1563",
+      "procid": "Acer Labs 1563",
+      "driver": "i2c-ali1563"
+    },
+    "45": {
+      "vendid": "0x1022",
+      "devid": "0x740b",
+      "procid": "AMD-756 Athlon ACPI",
+      "driver": "i2c-amd756"
+    },
+    "46": {
+      "vendid": "0x1022",
+      "devid": "0x7413",
+      "procid": "AMD-766 Athlon ACPI",
+      "driver": "i2c-amd756"
+    },
+    "47": {
+      "vendid": "0x1022",
+      "devid": "0x7443",
+      "procid": "AMD-768 System Management",
+      "driver": "i2c-amd756"
+    },
+    "48": {
+      "vendid": "0x1022",
+      "devid": "0x746b",
+      "procid": "AMD-8111 ACPI",
+      "driver": "i2c-amd756"
+    },
+    "49": {
+      "vendid": "0x1022",
+      "devid": "0x746a",
+      "procid": "AMD-8111 SMBus 2.0",
+      "driver": "i2c-amd8111"
+    },
+    "50": {
+      "vendid": "0x10de",
+      "devid": "0x01b4",
+      "procid": "nVidia nForce SMBus",
+      "driver": "i2c-amd756"
+    },
+    "51": {
+      "vendid": "0x10de",
+      "devid": "0x0064",
+      "procid": "nVidia Corporation nForce2 SMBus (MCP)",
+      "driver": "i2c-nforce2"
+    },
+    "52": {
+      "vendid": "0x10de",
+      "devid": "0x0084",
+      "procid": "nVidia Corporation nForce2 Ultra 400 SMBus (MCP)",
+      "driver": "i2c-nforce2"
+    },
+    "53": {
+      "vendid": "0x10de",
+      "devid": "0x00D4",
+      "procid": "nVidia Corporation nForce3 Pro150 SMBus (MCP)",
+      "driver": "i2c-nforce2"
+    },
+    "54": {
+      "vendid": "0x10de",
+      "devid": "0x00E4",
+      "procid": "nVidia Corporation nForce3 250Gb SMBus (MCP)",
+      "driver": "i2c-nforce2"
+    },
+    "55": {
+      "vendid": "0x10de",
+      "devid": "0x0052",
+      "procid": "nVidia Corporation nForce4 SMBus (MCP)",
+      "driver": "i2c-nforce2"
+    },
+    "56": {
+      "vendid": "0x10de",
+      "devid": "0x0034",
+      "procid": "nVidia Corporation nForce4 SMBus (MCP-04)",
+      "driver": "i2c-nforce2"
+    },
+    "57": {
+      "vendid": "0x10de",
+      "devid": "0x0264",
+      "procid": "nVidia Corporation nForce SMBus (MCP51)",
+      "driver": "i2c-nforce2"
+    },
+    "58": {
+      "vendid": "0x10de",
+      "devid": "0x0368",
+      "procid": "nVidia Corporation nForce SMBus (MCP55)",
+      "driver": "i2c-nforce2"
+    },
+    "59": {
+      "vendid": "0x10de",
+      "devid": "0x03eb",
+      "procid": "nVidia Corporation nForce SMBus (MCP61)",
+      "driver": "i2c-nforce2"
+    },
+    "60": {
+      "vendid": "0x10de",
+      "devid": "0x0446",
+      "procid": "nVidia Corporation nForce SMBus (MCP65)",
+      "driver": "i2c-nforce2"
+    },
+    "61": {
+      "vendid": "0x10de",
+      "devid": "0x0542",
+      "procid": "nVidia Corporation nForce SMBus (MCP67)",
+      "driver": "i2c-nforce2"
+    },
+    "62": {
+      "vendid": "0x10de",
+      "devid": "0x07d8",
+      "procid": "nVidia Corporation nForce SMBus (MCP73)",
+      "driver": "i2c-nforce2"
+    },
+    "63": {
+      "vendid": "0x10de",
+      "devid": "0x0752",
+      "procid": "nVidia Corporation nForce SMBus (MCP78S)",
+      "driver": "i2c-nforce2"
+    },
+    "64": {
+      "vendid": "0x10de",
+      "devid": "0x0aa2",
+      "procid": "nVidia Corporation nForce SMBus (MCP79)",
+      "driver": "i2c-nforce2"
+    },
+    "65": {
+      "vendid": "0x1166",
+      "devid": "0x0200",
+      "procid": "ServerWorks OSB4 South Bridge",
+      "driver": "i2c-piix4"
+    },
+    "66": {
+      "vendid": "0x1055",
+      "devid": "0x9463",
+      "procid": "SMSC Victory66 South Bridge",
+      "driver": "i2c-piix4"
+    },
+    "67": {
+      "vendid": "0x1166",
+      "devid": "0x0201",
+      "procid": "ServerWorks CSB5 South Bridge",
+      "driver": "i2c-piix4"
+    },
+    "68": {
+      "vendid": "0x1166",
+      "devid": "0x0203",
+      "procid": "ServerWorks CSB6 South Bridge",
+      "driver": "i2c-piix4"
+    },
+    "69": {
+      "vendid": "0x1166",
+      "devid": "0x0205",
+      "procid": "ServerWorks HT-1000 South Bridge",
+      "driver": "i2c-piix4"
+    },
+    "70": {
+      "vendid": "0x1002",
+      "devid": "0x4353",
+      "procid": "ATI Technologies Inc ATI SMBus",
+      "driver": "i2c-piix4"
+    },
+    "71": {
+      "vendid": "0x1002",
+      "devid": "0x4363",
+      "procid": "ATI Technologies Inc ATI SMBus",
+      "driver": "i2c-piix4"
+    },
+    "72": {
+      "vendid": "0x1002",
+      "devid": "0x4372",
+      "procid": "ATI Technologies Inc IXP SB400 SMBus Controller",
+      "driver": "i2c-piix4"
+    },
+    "73": {
+      "vendid": "0x1002",
+      "devid": "0x4385",
+      "procid": "ATI Technologies Inc SB600/SB700/SB800 SMBus",
+      "driver": "i2c-piix4"
+    },
+    "74": {
+      "vendid": "0x1022",
+      "devid": "0x780b",
+      "procid": "AMD Hudson-2 SMBus",
+      "driver": "i2c-piix4"
+    },
+    "75": {
+      "vendid": "0x100B",
+      "devid": "0x0500",
+      "procid": "SCx200 Bridge",
+      "driver": "scx200_acb"
+    },
+    "76": {
+      "vendid": "0x100B",
+      "devid": "0x0510",
+      "procid": "SC1100 Bridge",
+      "driver": "scx200_acb"
+    },
+    "77": {
+      "vendid": "0x100B",
+      "devid": "0x002B",
+      "procid": "CS5535 ISA bridge",
+      "driver": "scx200_acb"
+    },
+    "78": {
+      "vendid": "0x1022",
+      "devid": "0x2090",
+      "procid": "CS5536 [Geode companion] ISA",
+      "driver": "scx200_acb"
     }
   }
 }

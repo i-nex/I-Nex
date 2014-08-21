@@ -10,7 +10,7 @@ Public Sub _inits()
   vendor = Replace(File.Load("/sys/bus/pci/devices/" & element & "/vendor"), "\n", "")
   device = Replace(File.Load("/sys/bus/pci/devices/" & element & "/device"), "\n", "")
   For i = 0 To I2C_BUSES["I2C"].Count - 1
-   If I2C_BUSES["I2C"][i]["vendid"] = vendor And I2C_BUSES["I2C"][i]["devid"] = device Then
+   If LCase(I2C_BUSES["I2C"][i]["vendid"]) = vendor And LCase(I2C_BUSES["I2C"][i]["devid"]) = device Then
     Print "Found: " & I2C_BUSES["I2C"][i]["procid"]
     Print "Need modprobe: eeprom " & I2C_BUSES["I2C"][i]["driver"]
     Print "#Udev rule for " & I2C_BUSES["I2C"][i]["procid"] & ":"
