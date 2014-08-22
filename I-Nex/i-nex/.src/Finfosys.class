@@ -229,7 +229,6 @@ Public Sub Form_Open()
   Logs("Call to MInit for copy nedded files to I-Nex config dir in User.Home", Logger.Info)
       Object.Call(MInit, "_inits")
   Logs("Settings default dir = " & Settings.DefaultDir & "", Logger.Info)
-      Button14.Visible = ChkPrm.ChkExec("udisks")
   Logs("Check for Battery", Logger.Info)
       Object.Call(battery, "_inits")
   Logs("Check for Usb device plugged", Logger.Info)
@@ -989,12 +988,6 @@ Public Sub ComboBox2_Click()
  Dec Application.Busy
 End
 
-Public Sub Button8_Click()
-
- FDF.Show
-
-End
-
 Public Sub Button9_Click()
 
  FNET_R_T.Show
@@ -1004,12 +997,6 @@ End
 Public Sub ComboBox8_Click()
 
  Object.Call(FGraphic, "_check")
-
-End
-
-Public Sub Button14_Click()
-
- FUdisks.Show
 
 End
 
@@ -1091,17 +1078,11 @@ TabPanel1_Click()
  Endif
  If TabStrip1.Current.Text Like "*Drives*" Then
   HBox19.Visible = True
-  Button8.Visible = True
-  Button14.Visible = True
  Else
   HBox19.Visible = False
-  Button8.Visible = False
-  Button14.Visible = False
  Endif
- If TabStrip1.Current.Text Like "*Memory*" And ChkPrm.ChkExec("decode-dimms") = True Then
+ If TabStrip1.Current.Text Like "*Memory*" Then
   HBox19.Visible = False
-  Button8.Visible = False
-  Button14.Visible = False
   ComboBox10.Visible = True
  Else
   ComboBox10.Visible = False

@@ -2656,18 +2656,6 @@
     Move(210,511,203,28)
     #Public = True
     Visible = False
-    { !Button8 Button
-      Move(0,0,28,28)
-      #Public = True
-      Visible = False
-      Text = ("DF")
-    }
-    { !Button14 Button
-      Move(28,0,49,28)
-      #Public = True
-      Visible = False
-      Text = ("udisks")
-    }
     { ComboBox4 ComboBox
       Move(77,0,63,28)
       #Translate = False
