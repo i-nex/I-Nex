@@ -5,6 +5,7 @@ Public Sub _inits()
  Dim vendor, device As String
  Dim I2C_BUSES As Collection
  Dim i As Integer
+ Dim KERNEL_MODULE As String
  I2C_BUSES = JSON.Decode(File.Load("Database/i2c/devices.json"))
  For Each element In RDir("/sys/bus/pci/devices/", "*:*")
   vendor = Replace(File.Load("/sys/bus/pci/devices/" & element & "/vendor"), "\n", "")
@@ -12,12 +13,28 @@ Public Sub _inits()
   For i = 0 To I2C_BUSES["I2C"].Count - 1
    If LCase(I2C_BUSES["I2C"][i]["vendid"]) = vendor And LCase(I2C_BUSES["I2C"][i]["devid"]) = device Then
     Print "Found: " & I2C_BUSES["I2C"][i]["procid"]
+    KERNEL_MODULE = Replace(I2C_BUSES["I2C"][i]["driver"], "-", "_")
     Print "Need modprobe: eeprom " & I2C_BUSES["I2C"][i]["driver"]
     Print "#Udev rule for " & I2C_BUSES["I2C"][i]["procid"] & ":"
-    Print "SUBSYSTEMS==\"pci\", ATTRS{vendor}==\"" & I2C_BUSES["I2C"][i]["vendid"] & "\", ATTRS{device}==\"" & I2C_BUSES["I2C"][i]["devid"] & "\", RUN+=\"/sbin/modprobe " & I2C_BUSES["I2C"][i]["driver"] & "\""
+    Print "SUBSYSTEMS==\"pci\", ATTRS{vendor}==\"" & LCase$(I2C_BUSES["I2C"][i]["vendid"]) & "\", ATTRS{device}==\"" & LCase$(I2C_BUSES["I2C"][i]["devid"]) & "\", RUN+=\"/sbin/modprobe " & I2C_BUSES["I2C"][i]["driver"] & "\""
     Print "#Put to /lib/udev/rules.d/"
+    Break
    Endif
   Next
  Next
- 
+ ' For i = 0 To I2C_BUSES["I2C"].Count - 1
+ '  Print "SUBSYSTEMS==\"pci\", ATTRS{vendor}==\"" & LCase$(I2C_BUSES["I2C"][i]["vendid"]) & "\", ATTRS{device}==\"" & LCase$(I2C_BUSES["I2C"][i]["devid"]) & "\", RUN+=\"/sbin/modprobe " & I2C_BUSES["I2C"][i]["driver"] & "\""
+ ' Next
+ For Each element In Dir("/sys/module/")
+  If element = KERNEL_MODULE Then
+   Print "Kernel module loaded:" & element
+   Break
+  Endif
+ Next
+ For Each element In Dir("/sys/module/")
+  If element = "eeprom" Then
+   Print "eeprom module loaded"
+   Break
+  Endif
+ Next
 End
