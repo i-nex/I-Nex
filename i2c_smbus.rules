@@ -1,5 +1,4 @@
 SUBSYSTEMS=="pci", ATTRS{vendor}=="0x8086", ATTRS{device}=="0x7113", RUN+="/sbin/modprobe i2c-piix4"
-SUBSYSTEMS=="pci", ATTRS{vendor}=="0x8086", ATTRS{device}=="0x7603", RUN+="/sbin/modprobe to-be-written"
 SUBSYSTEMS=="pci", ATTRS{vendor}=="0x8086", ATTRS{device}=="0x719b", RUN+="/sbin/modprobe i2c-piix4"
 SUBSYSTEMS=="pci", ATTRS{vendor}=="0x8086", ATTRS{device}=="0x2413", RUN+="/sbin/modprobe i2c-i801"
 SUBSYSTEMS=="pci", ATTRS{vendor}=="0x8086", ATTRS{device}=="0x2423", RUN+="/sbin/modprobe i2c-i801"

@@ -1,0 +1,78 @@
+' Gambas module file
+
+Public NOSDRAMDIMMSDAD As New String[]
+Public MODULE_TYPE As New String[]
+Public MODULE_MANUFACTURER As New String[]
+Public DRAM_MANUFACTURER As New String[]
+Public ASM_SERIALNUMBER As New String[]
+Public PART_NUMBER As New String[]
+Public RAM_SIZE As New String[]
+Public MAX_MODULE_SPEED As New String[]
+Public FUN_MEM_TYPE As New String[]
+Public tCL_tRCD_tRDP_tRAS As New String[]
+Public SDRAM_DEVICE_TYPE As New String[]
+'DRAM Manufacturer
+Public Sub _inits()
+ Dim DECODE_DIMMS As Stream
+ Dim sLine As String
+ Dim sIcon As String
+ Dim iPos As Integer
+ Dim Character As Integer
+ Dim sKey As String
+ Dim sVal As String
+ DECODE_DIMMS = Exec ["i-nex-dimms"] For Read
+ For Each sLine In DECODE_DIMMS.Lines
+  sLine = Trim(sLine)
+    If Not sLine Then Continue 
+
+    iPos = InStr(sLine, ":")
+    If iPos = 0 Then Continue
+
+    sKey = Trim(Left$(sLine, iPos - 1))
+    sVal = Trim(Mid$(sLine, iPos + 1))
+
+    Select Case sKey
+     Case Like "*Module Manufacturer*"
+      MODULE_MANUFACTURER.Add(sVal)
+     Case Like "*DRAM Manufacturer*"
+      DRAM_MANUFACTURER.Add(sVal)
+     Case Like "*Assembly Serial Number*"
+      ASM_SERIALNUMBER.Add(sVal)
+     Case Like "*Part Number*"
+      PART_NUMBER.Add(sVal)
+     Case Like "*Module Type*"
+      MODULE_TYPE.Add(sVal)
+     Case Like "*Decoding EEPROM*"
+      NOSDRAMDIMMSDAD.Add(Right(sVal, 6))
+     Case Like "*Size*"
+      RAM_SIZE.Add(sVal)
+     Case Like "*Maximum module speed*"
+      MAX_MODULE_SPEED.Add(sVal)
+     Case Like "*Fundamental Memory type*"
+      FUN_MEM_TYPE.Add(sVal)
+     Case Like "*Module Type*"
+      MODULE_TYPE.Add(sVal)
+     Case Like "*tCL-tRCD-tRP-tRAS*"
+      tCL_tRCD_tRDP_tRAS.Add(sVal)
+     Case Like "*SDRAM Device Type*"
+      SDRAM_DEVICE_TYPE.Add(sVal)
+     Case Like "**"
+      
+     Case Like "**"
+      
+     Case Like "**"
+      
+     Case Like "**"
+      
+     Case Like "**"
+      
+     Case Like "**"
+      
+    End Select
+    'Print sVal
+ Next
+ Finfosys.ComboBox10.List = NOSDRAMDIMMSDAD
+ Finfosys.ComboBox10.Index = 0
+ 
+ 
+End

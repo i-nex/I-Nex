@@ -17,6 +17,7 @@
 Public CPUINFO_FILE As String
 Public Sub Main()
   Dim PrintErr As Boolean = True
+  MDecode_dimms._inits()
   Select Case Application.Args[1]
    Case "--help"
     Print ("\n  " & Application.name & "  " & Application.version & " running on:\n"

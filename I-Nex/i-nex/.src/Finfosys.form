@@ -1762,67 +1762,63 @@
     Text = "Memory"
     Picture = Picture["AppIcons/Finfosys/utilities-system-monitor.png"]
     { ProgressBar1 ProgressBar
-      Move(0,21,469,21)
+      Move(119,21,350,21)
     }
     { ProgressBar4 ProgressBar
-      Move(0,63,469,21)
+      Move(119,63,350,21)
     }
     { TextLabel24 TextLabel
-      Move(0,42,469,21)
+      Move(119,42,350,21)
       Font = Font["Bold,8"]
       Padding = 1
       Text = ("N/A")
       Alignment = Align.Center
       Border = Border.Raised
     }
-    { Separator5 Separator
-      Move(0,196,469,21)
-      #Translate = False
-    }
     { Label176 Label
-      Move(0,175,343,21)
+      Move(154,133,315,21)
       Font = Font["Bold,8"]
       Padding = 3
       Text = ("Label176")
       Border = Border.Raised
     }
     { Label85 Label
-      Move(0,91,189,21)
+      Move(0,91,154,21)
       Font = Font["Bold,8"]
       Expand = True
       Padding = 3
       Border = Border.Raised
     }
     { Label86 Label
-      Move(0,112,189,21)
+      Move(308,91,161,21)
       Font = Font["Bold,8"]
       Expand = True
       Padding = 3
       Border = Border.Raised
     }
     { Label87 Label
-      Move(0,133,189,21)
+      Move(154,112,154,21)
       Font = Font["Bold,8"]
       Expand = True
       Padding = 3
       Border = Border.Raised
     }
     { Label88 Label
-      Move(0,154,189,21)
+      Move(308,112,161,21)
       Font = Font["Bold,8"]
       Expand = True
       Padding = 3
       Border = Border.Raised
     }
     { Label89 Label
-      Move(189,91,154,21)
+      Move(154,91,154,21)
       Font = Font["Bold,8"]
       Expand = True
       Padding = 3
       Border = Border.Raised
     }
     { Label90 Label
-      Move(189,112,154,21)
+      Move(0,112,154,21)
       Font = Font["Bold,8"]
       Expand = True
       Padding = 3
@@ -1830,44 +1826,64 @@
       Border = Border.Raised
     }
     { Label91 Label
-      Move(189,154,154,21)
+      Move(0,133,154,21)
       Font = Font["Bold,8"]
       Expand = True
       Padding = 3
       Border = Border.Raised
     }
     { Label223 Label
-      Move(0,0,469,21)
+      Move(119,0,350,21)
       Font = Font["Bold,8"]
       Padding = 3
       Text = ("Label223")
       Alignment = Align.Center
       Border = Border.Raised
     }
-    { ScrollView2 ScrollView
-      Move(0,217,469,259)
-      Font = Font["8"]
-    }
-    { Label227 Label
-      Move(154,196,168,21)
-      #Translate = False
-      Font = Font["Bold,8"]
-      Text = "MTRR"
-      Alignment = Align.Center
-      Transparent = True
-    }
     { Label74 Label
-      Move(350,119,112,77)
+      Move(7,21,105,70)
       Font = Font["Bold,20"]
       Foreground = &HFF7F00&
       Alignment = Align.Center
     }
     { Label77 Label
-      Move(343,91,119,21)
+      Move(0,0,119,21)
       Font = Font["Bold,8"]
       Text = ("Processes ↓")
       Alignment = Align.Center
       Border = Border.Raised
+    }
+    { TextBox31 TextBox
+      Move(0,154,231,28)
+      Text = ("TextBox31")
+    }
+    { TextBox32 TextBox
+      Move(231,154,238,28)
+      Text = ("TextBox32")
+    }
+    { TextBox33 TextBox
+      Move(0,182,231,28)
+      Text = ("TextBox33")
+    }
+    { TextBox34 TextBox
+      Move(231,182,238,28)
+      Text = ("TextBox34")
+    }
+    { TextBox35 TextBox
+      Move(0,210,231,28)
+      Text = ("TextBox35")
+    }
+    { TextBox36 TextBox
+      Move(231,210,238,28)
+      Text = ("TextBox36")
+    }
+    { TextBox37 TextBox
+      Move(0,238,231,28)
+      Text = ("TextBox37")
+    }
+    { TextBox38 TextBox
+      Move(231,238,238,28)
+      Text = ("TextBox38")
     }
     Index = 8
     Text = "Network"
@@ -2674,25 +2690,22 @@
     Alignment = Align.Center
     Border = Border.Plain
   }
-  { Button4 Button
-    Move(287,511,126,28)
-    #Translate = False
-    Visible = False
-    Font = Font["Bold,8"]
-    Text = "Decode DIMMS"
-    Picture = Picture["AppIcons/gtk-yes.png"]
-  }
   { Button6 Button
     Move(315,511,98,28)
     Font = Font["8,Bold"]
     Text = ("Show modules")
   }
   { MenuButton1 MenuButton
-    Move(210,511,112,28)
+    Move(238,511,112,28)
     Font = Font["Bold,8"]
     Foreground = &H0000FF&
     Text = ("Validate")
     Picture = Picture["AppIcons/gnome-network-properties.png"]
     Menu = "Menu2"
+  }
+  { ComboBox10 ComboBox
+    Move(315,511,98,28)
+    ReadOnly = True
+    Text = ("ComboBox10")
   }
 }

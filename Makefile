@@ -6,7 +6,7 @@ make: build-inex build-json build-pixmaps
 install: install-pastebinit-and-other \
 	 install-pixmaps install-changelogs install-manpages \
 	 install-docs install-json install-inex install-scripts \
-	 link-inex
+	 install-udev-rule link-inex
 	 
 clean: clean-pixmaps clean-json clean-inex clean-all
 
@@ -88,7 +88,11 @@ clean-json:
 clean-inex:
 
 	if test -f "I-Nex/Makefile" ; then $(MAKE) -C I-Nex distclean ; fi
-	
+
+install-udev-rule:
+
+	$(INSTALL_DM) 600 i2c_smbus.rules $(DESTDIR)$(PREFIX)$(UDEV_RULES_DIR)/i2c_smbus.rules
+
 clean-all:
 
 	$(RM_COM) $(RMDIR_OPT) `find . -name ".gambas"`

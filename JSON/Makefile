@@ -65,7 +65,8 @@ install-bin: install-bin-i-nex-edid \
 	     install-bin-i-nex-usage \
 	     install-bin-i-nex-cpusage \
 	     install-bin-i-nex-glinfo \
-	     install-bin-i-nex-uname
+	     install-bin-i-nex-uname \
+	     install-bin-i-nex-dimms
 	     
 	     
 
@@ -87,7 +88,9 @@ install-bin-i-nex-glinfo:
 install-bin-i-nex-uname:
 	test -d $(DESTDIR)$(bindir) || mkdir $(DESTDIR)$(bindir)
 	$(INSTALL) 0755 i-nex-uname $(DESTDIR)$(bindir)
-	
+install-bin-i-nex-dimms:
+	test -d $(DESTDIR)$(bindir) || mkdir $(DESTDIR)$(bindir)
+	$(INSTALL) 0755 i-nex-dimms $(DESTDIR)$(bindir)
 clean:
 	@echo -e '$(ACTION_COLOR)Clean JSON$(NO_COLOR)'
 	$(RM_COM) $(RMFILE_OPT) i-nex-edid
