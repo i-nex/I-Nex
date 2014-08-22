@@ -2696,7 +2696,7 @@
     Text = ("Show modules")
   }
   { MenuButton1 MenuButton
-    Move(238,511,112,28)
+    Move(210,511,112,28)
     Font = Font["Bold,8"]
     Foreground = &H0000FF&
     Text = ("Validate")
