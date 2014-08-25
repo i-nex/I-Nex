@@ -29,10 +29,11 @@ Public Sub _inits()
   spd_data_asc.Clear
   spd_data_str.Clear
   hFile = Open "/sys/bus/i2c/drivers/eeprom/" & Finfosys.ComboBox10.Text & "/eeprom" For Input
-  
+  'file:///home/michal/Desktop/eeprom1
+  'hFile = Open "/home/michal/Desktop/eeprom1" For Input
   While Not Eof(hFile)
    Line Input #hFile, sLine
-   If Len(sLine) = 256 Then
+   If Len(sLine) <= 257 Then
    For i = 0 To Len(sLine)
     'Print Hex(Asc(Mid$(sLine, i + 1, 1)))
     spd_data.Add(Hex(Asc(Mid$(sLine, i + 1, 1))))
