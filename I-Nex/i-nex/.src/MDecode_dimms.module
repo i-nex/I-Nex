@@ -1,78 +1,81 @@
 ' Gambas module file
 
-Public NOSDRAMDIMMSDAD As New String[]
-Public MODULE_TYPE As New String[]
-Public MODULE_MANUFACTURER As New String[]
-Public DRAM_MANUFACTURER As New String[]
-Public ASM_SERIALNUMBER As New String[]
-Public PART_NUMBER As New String[]
-Public RAM_SIZE As New String[]
-Public MAX_MODULE_SPEED As New String[]
-Public FUN_MEM_TYPE As New String[]
-Public tCL_tRCD_tRDP_tRAS As New String[]
-Public SDRAM_DEVICE_TYPE As New String[]
-'DRAM Manufacturer
+Public PART_NUMBER As String
+Public MEMORY_TYPE As String
+Public SPD_REVISION As String
+Public MODULE_TYPE As String
+Public Sub List_EEPROM()
+ 
+ Try Finfosys.ComboBox10.List = Dir("/sys/bus/i2c/drivers/eeprom/", "*-****")
+ 
+End
+
 Public Sub _inits()
- Dim DECODE_DIMMS As Stream
- Dim sLine As String
- Dim sIcon As String
- Dim iPos As Integer
- Dim Character As Integer
- Dim sKey As String
- Dim sVal As String
- DECODE_DIMMS = Exec ["i-nex-dimms"] For Read
- For Each sLine In DECODE_DIMMS.Lines
-  sLine = Trim(sLine)
-    If Not sLine Then Continue 
 
-    iPos = InStr(sLine, ":")
-    If iPos = 0 Then Continue
+  Dim hFile As File
+  Dim sLine As String
+  Dim i As Integer
+  Dim spd_data As New String[]
+  Dim spd_data_asc As New String[]
+  Dim spd_data_str As New String[]
+  Dim module_types As String[] = ["Undefined", "RDIMM", "UDIMM", "SO-DIMM",
+                                  "Micro-DIMM", "Mini-RDIMM", "Mini-UDIMM",
+                                  "Mini-CDIMM", "72b-SO-UDIMM", "72b-SO-RDIMM",
+                                  "72b-SO-CDIMM", "LRDIMM", "16b-SO-DIMM",
+                                  "32b-SO-DIMM"]
+  Dim SIZERAM As Integer
+  SETNULL()
+  spd_data.Clear
+  spd_data_asc.Clear
+  spd_data_str.Clear
+  hFile = Open "/sys/bus/i2c/drivers/eeprom/" & Finfosys.ComboBox10.Text & "/eeprom" For Input
+  
+  While Not Eof(hFile)
+   Line Input #hFile, sLine
+   If Len(sLine) = 256 Then
+   For i = 0 To Len(sLine)
+    'Print Hex(Asc(Mid$(sLine, i + 1, 1)))
+    spd_data.Add(Hex(Asc(Mid$(sLine, i + 1, 1))))
+    spd_data_asc.Add(Asc(Mid$(sLine, i + 1, 1)))
+    spd_data_str.Add(Mid$(sLine, i + 1, 1))
+   Next
+   Endif
+  Wend
 
-    sKey = Trim(Left$(sLine, iPos - 1))
-    sVal = Trim(Mid$(sLine, iPos + 1))
+  If spd_data.Count <= 257 And spd_data.Count > 0 Then
+   
+   Select Case spd_data[0]
+    Case 08
+     MEMORY_TYPE = "DDR2"
+    Case 92
+     MEMORY_TYPE = "DDR3"
+    Case "0C"
+     MEMORY_TYPE = "DDR4"
+   End Select
+   
+   SPD_REVISION = Mid(spd_data[1], 1, 1) & "." & Mid(spd_data[1], 2, 1)
+   
+   For i = 128 To 145
+    PART_NUMBER &= spd_data_str[i]
+   Next
+   Try MODULE_TYPE = module_types[spd_data[3]]
+  Endif
+  
+  FINALIZE()
+  
+  Close #hFile
+End
 
-    Select Case sKey
-     Case Like "*Module Manufacturer*"
-      MODULE_MANUFACTURER.Add(sVal)
-     Case Like "*DRAM Manufacturer*"
-      DRAM_MANUFACTURER.Add(sVal)
-     Case Like "*Assembly Serial Number*"
-      ASM_SERIALNUMBER.Add(sVal)
-     Case Like "*Part Number*"
-      PART_NUMBER.Add(sVal)
-     Case Like "*Module Type*"
-      MODULE_TYPE.Add(sVal)
-     Case Like "*Decoding EEPROM*"
-      NOSDRAMDIMMSDAD.Add(Right(sVal, 6))
-     Case Like "*Size*"
-      RAM_SIZE.Add(sVal)
-     Case Like "*Maximum module speed*"
-      MAX_MODULE_SPEED.Add(sVal)
-     Case Like "*Fundamental Memory type*"
-      FUN_MEM_TYPE.Add(sVal)
-     Case Like "*Module Type*"
-      MODULE_TYPE.Add(sVal)
-     Case Like "*tCL-tRCD-tRP-tRAS*"
-      tCL_tRCD_tRDP_tRAS.Add(sVal)
-     Case Like "*SDRAM Device Type*"
-      SDRAM_DEVICE_TYPE.Add(sVal)
-     Case Like "**"
-      
-     Case Like "**"
-      
-     Case Like "**"
-      
-     Case Like "**"
-      
-     Case Like "**"
-      
-     Case Like "**"
-      
-    End Select
-    'Print sVal
- Next
- Finfosys.ComboBox10.List = NOSDRAMDIMMSDAD
- Finfosys.ComboBox10.Index = 0
- 
- 
+Public Sub FINALIZE()
+ Finfosys.Label227.Text = "Part number: " & PART_NUMBER
+ Finfosys.Label256.Text = "Memory type: " & MEMORY_TYPE
+ Finfosys.Label258.Text = "Module Type: " & MODULE_TYPE
+ Finfosys.Label257.Text = "SPD RV: " & SPD_REVISION
+End
+
+Public Sub SETNULL()
+ MODULE_TYPE = Null
+ SPD_REVISION = Null
+ PART_NUMBER = Null
+ MEMORY_TYPE = Null
 End

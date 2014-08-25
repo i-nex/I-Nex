@@ -1853,37 +1853,34 @@
       Alignment = Align.Center
       Border = Border.Raised
     }
-    { TextBox31 TextBox
-      Move(0,154,231,28)
-      Text = ("TextBox31")
-    }
-    { TextBox32 TextBox
-      Move(231,154,238,28)
-      Text = ("TextBox32")
-    }
-    { TextBox33 TextBox
-      Move(0,182,231,28)
-      Text = ("TextBox33")
-    }
-    { TextBox34 TextBox
-      Move(231,182,238,28)
-      Text = ("TextBox34")
-    }
-    { TextBox35 TextBox
-      Move(0,210,231,28)
-      Text = ("TextBox35")
-    }
-    { TextBox36 TextBox
-      Move(231,210,238,28)
-      Text = ("TextBox36")
-    }
-    { TextBox37 TextBox
-      Move(0,238,231,28)
-      Text = ("TextBox37")
-    }
-    { TextBox38 TextBox
-      Move(231,238,238,28)
-      Text = ("TextBox38")
+    { Frame2 Frame
+      Move(0,154,469,322)
+      Font = Font["8"]
+      Text = ("---===Serial Presence Detect===---")
+      { Label227 Label
+        Move(259,21,203,28)
+        Font = Font["8"]
+        Padding = 3
+        Border = Border.Raised
+      }
+      { Label256 Label
+        Move(91,21,168,28)
+        Font = Font["8"]
+        Padding = 3
+        Border = Border.Raised
+      }
+      { Label257 Label
+        Move(7,21,84,28)
+        Font = Font["8"]
+        Padding = 3
+        Border = Border.Raised
+      }
+      { Label258 Label
+        Move(7,49,168,28)
+        Font = Font["8"]
+        Padding = 3
+        Border = Border.Raised
+      }
     }
     Index = 8
     Text = "Network"

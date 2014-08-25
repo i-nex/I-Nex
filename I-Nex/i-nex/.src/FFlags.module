@@ -88,8 +88,8 @@ End
 Public Sub ht()
   Dim NUMLOG, NUMPHY As Float
   'CString(Finfosys.CPU_PROCESSOR.Count)
-  NUMPHY = Finfosys.CPU_PROCESSOR.Count
-  NUMLOG = CFloat(Finfosys.CPU_CPU_CORES[CFloat(Finfosys.ComboBox1.Index)])
+  Try NUMPHY = Finfosys.CPU_PROCESSOR.Count
+  Try NUMLOG = CFloat(Finfosys.CPU_CPU_CORES[CFloat(Finfosys.ComboBox1.Index)])
   
   If NUMLOG = Null Then
    Logs("CPU Cores is Null", Logger.Info)

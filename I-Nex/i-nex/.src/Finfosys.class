@@ -562,19 +562,19 @@ Public Sub Wykrywanie_procesorow()
   
   Close #CPUINFO_PROC
 
-  Label14.Text = Replace(CPU_MODEL_NAME[CFloat(ComboBox1.Index)], "\n", "")
-  Label14.Tooltip = Replace(CPU_MODEL_NAME[CFloat(ComboBox1.Index)], "\n", "")
-  Label71.Text = "Flags: " & FFlags.instructions
-  Label13.Text = UCase$(Replace(Replace(Replace(CPU_VENDOR_ID[CFloat(ComboBox1.Index)], "Authentic", ""), "Genuine", ""), "\n", ""))
-  Label12.Text = Replace(CPU_CPU_MHZ[CFloat(ComboBox1.Index)], "\n", "") & " MHz"
-  Label97.Text = "Family: " & Replace(CPU_FAMILYz[CFloat(ComboBox1.Index)], "\n", "")
-  Label6.Text = "Model: " & Replace(CPU_MODEL[CFloat(ComboBox1.Index)], "\n", "")
-  Label7.Text = "Stepping: " & Replace(CPU_STEPPING[CFloat(ComboBox1.Index)], "\n", "")
-  Label8.Text = "Cores: " & Replace(CPU_SIBLINGS[CFloat(ComboBox1.Index)], "\n", "")
-  Label19.Text = "Phy id: " & Replace(CPU_PHYSICAL_ID[CFloat(ComboBox1.Index)], "\n", "")
-  Label10.Text = "Bogomips: " & Replace(CPU_BOGOMIPS[CFloat(ComboBox1.Index)], "\n", "")
-  Label11.Text = "Address sizes: " & Replace(CPU_ADRESS_SIZES[CFloat(ComboBox1.Index)], "\n", "")
-  Label15.Text = "Power mangament: " & Replace(CPU_POWER_MANAGEMENT[CFloat(ComboBox1.Index)], "\n", "")
+  Try Label14.Text = Replace(CPU_MODEL_NAME[CFloat(ComboBox1.Index)], "\n", "")
+  Try Label14.Tooltip = Replace(CPU_MODEL_NAME[CFloat(ComboBox1.Index)], "\n", "")
+  Try Label71.Text = "Flags: " & FFlags.instructions
+  Try Label13.Text = UCase$(Replace(Replace(Replace(CPU_VENDOR_ID[CFloat(ComboBox1.Index)], "Authentic", ""), "Genuine", ""), "\n", ""))
+  Try Label12.Text = Replace(CPU_CPU_MHZ[CFloat(ComboBox1.Index)], "\n", "") & " MHz"
+  Try Label97.Text = "Family: " & Replace(CPU_FAMILYz[CFloat(ComboBox1.Index)], "\n", "")
+  Try Label6.Text = "Model: " & Replace(CPU_MODEL[CFloat(ComboBox1.Index)], "\n", "")
+  Try Label7.Text = "Stepping: " & Replace(CPU_STEPPING[CFloat(ComboBox1.Index)], "\n", "")
+  Try Label8.Text = "Cores: " & Replace(CPU_SIBLINGS[CFloat(ComboBox1.Index)], "\n", "")
+  Try Label19.Text = "Phy id: " & Replace(CPU_PHYSICAL_ID[CFloat(ComboBox1.Index)], "\n", "")
+  Try Label10.Text = "Bogomips: " & Replace(CPU_BOGOMIPS[CFloat(ComboBox1.Index)], "\n", "")
+  Try Label11.Text = "Address sizes: " & Replace(CPU_ADRESS_SIZES[CFloat(ComboBox1.Index)], "\n", "")
+  Try Label15.Text = "Power mangament: " & Replace(CPU_POWER_MANAGEMENT[CFloat(ComboBox1.Index)], "\n", "")
   
   Try INDEX0 = Replace(File.Load("/sys/devices/system/cpu/" & Subst(ComboBox1.Current.Text) & "/cache/index0/size"), "\n", "")
   Try INDEX1 = Replace(File.Load("/sys/devices/system/cpu/" & Subst(ComboBox1.Current.Text) & "/cache/index1/size"), "\n", "")
@@ -601,42 +601,42 @@ Public Sub Wykrywanie_procesorow()
   Try NUMOFSETS2 = Replace(File.Load("/sys/devices/system/cpu/" & Subst(ComboBox1.Current.Text) & "/cache/index2/number_of_sets"), "\n", "")
   Try NUMOFSETS3 = Replace(File.Load("/sys/devices/system/cpu/" & Subst(ComboBox1.Current.Text) & "/cache/index3/number_of_sets"), "\n", "")
   
-  Label1.Text = Subst("Cache L&1  &2  &3  WOA: &4  CLS: &5  NOS: &6",
+  Try Label1.Text = Subst("Cache L&1  &2  &3  WOA: &4  CLS: &5  NOS: &6",
                          L0LEVEL,
                          INDEX0,
                          L0TYPE,
                          L0WAYS,
                          COHERENCY0,
                          NUMOFSETS0)
-  Label1.Tooltip = Subst("Cache L&1  &2  &3  WOA: &4  CLS: &5  NOS: &6",
+  Try Label1.Tooltip = Subst("Cache L&1  &2  &3  WOA: &4  CLS: &5  NOS: &6",
                          L0LEVEL,
                          INDEX0,
                          L0TYPE,
                          L0WAYS,
                          COHERENCY0,
                          NUMOFSETS0)
-  Label2.Text = Subst("Cache L&1  &2  &3  WOA: &4  CLS: &5  NOS: &6",
+  Try Label2.Text = Subst("Cache L&1  &2  &3  WOA: &4  CLS: &5  NOS: &6",
                          L1LEVEL,
                          INDEX1,
                          L1TYPE,
                          L1WAYS,
                          COHERENCY1,
                          NUMOFSETS1)
-  Label2.Tooltip = Subst("Cache L&1  &2  &3  WOA: &4  CLS: &5  NOS: &6",
+  Try Label2.Tooltip = Subst("Cache L&1  &2  &3  WOA: &4  CLS: &5  NOS: &6",
                          L1LEVEL,
                          INDEX1,
                          L1TYPE,
                          L1WAYS,
                          COHERENCY1,
                          NUMOFSETS1)
-  Label3.Text = Subst("Cache L&1  &2  &3  WOA: &4  CLS: &5  NOS: &6",
+  Try Label3.Text = Subst("Cache L&1  &2  &3  WOA: &4  CLS: &5  NOS: &6",
                          L2LEVEL,
                          INDEX2,
                          L2TYPE,
                          L2WAYS,
                          COHERENCY2,
                          NUMOFSETS2)
-  Label3.Tooltip = Subst("Cache L&1  &2  &3  WOA: &4  CLS: &5  NOS: &6",
+  Try Label3.Tooltip = Subst("Cache L&1  &2  &3  WOA: &4  CLS: &5  NOS: &6",
                          L2LEVEL,
                          INDEX2,
                          L2TYPE,
@@ -646,14 +646,14 @@ Public Sub Wykrywanie_procesorow()
   
   If IsNull(L3LEVEL) = False Then
    
-    Label5.Text = Subst("Cache L&1  &2  &3  WOA: &4  CLS: &5  NOS: &6",
+    Try Label5.Text = Subst("Cache L&1  &2  &3  WOA: &4  CLS: &5  NOS: &6",
                          L3LEVEL,
                          INDEX3,
                          L3TYPE,
                          L3WAYS,
                          COHERENCY3,
                          NUMOFSETS3)
-    Label5.Tooltip = Subst("Cache L&1  &2  &3  WOA: &4  CLS: &5  NOS: &6",
+    Try Label5.Tooltip = Subst("Cache L&1  &2  &3  WOA: &4  CLS: &5  NOS: &6",
                          L3LEVEL,
                          INDEX3,
                          L3TYPE,
@@ -1126,12 +1126,6 @@ Public Sub Buttongroup_Click()
  Desktop.Open("" & Last.Name & "")
 End
 
-Public Sub Button4_Click()
-
- FDIMM.Show
-
-End
-
 Public Sub ComboBox9_Click()
 
  Asound_Drives._INPUT_NAME()
@@ -1216,13 +1210,5 @@ Public Sub Button20_Click()
 End
 
 Public Sub ComboBox10_Click()
-
-Try TextBox31.Text = Replace(MDecode_dimms.MODULE_MANUFACTURER[CFloat(ComboBox10.Index)], "\n", "") 
-Try TextBox32.Text = Replace(MDecode_dimms.DRAM_MANUFACTURER[CFloat(ComboBox10.Index)], "\n", "") 
-Try TextBox33.Text = Replace(MDecode_dimms.MODULE_TYPE[CFloat(ComboBox10.Index)], "\n", "") 
-Try TextBox34.Text = Replace(MDecode_dimms.PART_NUMBER[CFloat(ComboBox10.Index)], "\n", "") 
-Try TextBox35.Text = Replace(MDecode_dimms.RAM_SIZE[CFloat(ComboBox10.Index)], "\n", "") 
-Try TextBox36.Text = Replace(MDecode_dimms.tCL_tRCD_tRDP_tRAS[CFloat(ComboBox10.Index)], "\n", "") 
-Try TextBox37.Text = Replace(MDecode_dimms.SDRAM_DEVICE_TYPE[CFloat(ComboBox10.Index)], "\n", "") 
-Try TextBox38.Text = Replace(MDecode_dimms.MAX_MODULE_SPEED[CFloat(ComboBox10.Index)], "\n", "") 
+MDecode_dimms._inits()
 End
