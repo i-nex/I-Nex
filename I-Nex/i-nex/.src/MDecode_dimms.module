@@ -4,10 +4,12 @@ Public PART_NUMBER As String
 Public MEMORY_TYPE As String
 Public SPD_REVISION As String
 Public MODULE_TYPE As String
+Public MANUFACTURER As String
+Public DRAM_MANUFACTURER As String
 Public Sub List_EEPROM()
  
  Try Finfosys.ComboBox10.List = Dir("/sys/bus/i2c/drivers/eeprom/", "*-****")
- 
+ Try Finfosys.ComboBox10.Index = 0
 End
 
 Public Sub _inits()
@@ -18,40 +20,35 @@ Public Sub _inits()
   Dim spd_data As New String[]
   Dim spd_data_asc As New String[]
   Dim spd_data_str As New String[]
-  Dim module_types As String[] = ["Undefined", "RDIMM", "UDIMM", "SO-DIMM",
-                                  "Micro-DIMM", "Mini-RDIMM", "Mini-UDIMM",
-                                  "Mini-CDIMM", "72b-SO-UDIMM", "72b-SO-RDIMM",
-                                  "72b-SO-CDIMM", "LRDIMM", "16b-SO-DIMM",
-                                  "32b-SO-DIMM"]
+  Dim module_types As String[] = ["Undefined", "RDIMM", "UDIMM", "SO-DIMM", "Micro-DIMM", "Mini-RDIMM", "Mini-UDIMM", "Mini-CDIMM", "72b-SO-UDIMM", "72b-SO-RDIMM", "72b-SO-CDIMM", "LRDIMM", "16b-SO-DIMM", "32b-SO-DIMM"]
   Dim SIZERAM As Integer
+  'Clear data before get new
   SETNULL()
   spd_data.Clear
   spd_data_asc.Clear
   spd_data_str.Clear
+  'End of clear
   hFile = Open "/sys/bus/i2c/drivers/eeprom/" & Finfosys.ComboBox10.Text & "/eeprom" For Input
-  'file:///home/michal/Desktop/eeprom1
-  'hFile = Open "/home/michal/Desktop/eeprom1" For Input
+  'hFile = Open "/home/michal/Desktop/Hynix_eeprom" For Input
   While Not Eof(hFile)
    Line Input #hFile, sLine
-   If Len(sLine) <= 257 Then
-   For i = 0 To Len(sLine)
-    'Print Hex(Asc(Mid$(sLine, i + 1, 1)))
-    spd_data.Add(Hex(Asc(Mid$(sLine, i + 1, 1))))
-    spd_data_asc.Add(Asc(Mid$(sLine, i + 1, 1)))
-    spd_data_str.Add(Mid$(sLine, i + 1, 1))
-   Next
+    If Len(sLine) <= 257 Then
+     For i = 0 To Len(sLine)
+      spd_data.Add(Hex(Asc(Mid$(sLine, i + 1, 1))))
+      spd_data_asc.Add(Asc(Mid$(sLine, i + 1, 1)))
+      spd_data_str.Add(Mid$(sLine, i + 1, 1))
+     Next
    Endif
   Wend
-
   If spd_data.Count <= 257 And spd_data.Count > 0 Then
    
-   Select Case spd_data[0]
-    Case 08
-     MEMORY_TYPE = "DDR2"
-    Case 92
-     MEMORY_TYPE = "DDR3"
-    Case "0C"
-     MEMORY_TYPE = "DDR4"
+   Select Case spd_data[0] 'Try to tetect ram type.
+    Case 08                'byte[0] is 08 or 8 = DDR2
+     MEMORY_TYPE = "DDR2"  '
+    Case 92                'byte[0] is 92 = DDR3
+     MEMORY_TYPE = "DDR3"  '
+    Case "0C"              'byte[0] is 0C FIXME: lower case or upper case
+     MEMORY_TYPE = "DDR4"  'is ddr4
    End Select
    
    SPD_REVISION = Mid(spd_data[1], 1, 1) & "." & Mid(spd_data[1], 2, 1)
@@ -60,14 +57,65 @@ Public Sub _inits()
     PART_NUMBER &= spd_data_str[i]
    Next
    Try MODULE_TYPE = module_types[spd_data[3]]
+   ' Print spd_data[117]; ":"; spd_data[118]
+   ' Print spd_data[148]; ":"; spd_data[149]
+   ' 
+   ' Print spd_data_asc[117]; ":"; spd_data_asc[118]
+   ' Print spd_data_asc[148]; ":"; spd_data_asc[149]
+   ' 
+   ' Print spd_data_str[117]; ":"; spd_data_str[118]
+   ' Print spd_data_str[148]; ":"; spd_data_str[149]
+   
+   Select Case spd_data[117]
+    Case 80
+     JEDEC.Init_jedec_id1_vals()
+     Try MANUFACTURER = JEDEC.$jedec_id1_vals[spd_data[149]]
+    Case 0
+     'printf("%s\n", val2str(spd_data[118], jedec_id1_vals));
+     JEDEC.Init_jedec_id1_vals()
+     Try MANUFACTURER = JEDEC.$jedec_id1_vals[spd_data[118]]
+    Case 1
+     JEDEC.Init_jedec_id2_vals()
+     Try MANUFACTURER = JEDEC.$jedec_id2_vals[spd_data[118]]
+    Case 2
+     JEDEC.Init_jedec_id3_vals()
+     Try MANUFACTURER = JEDEC.$jedec_id3_vals[spd_data[118]]
+    Case 3
+     JEDEC.Init_jedec_id4_vals()
+     Try MANUFACTURER = JEDEC.$jedec_id4_vals[spd_data[118]]
+    Case 4
+     JEDEC.Init_jedec_id5_vals()
+     Try MANUFACTURER = JEDEC.$jedec_id5_vals[spd_data[118]]
+   End Select
+   
+   Select Case spd_data[148]
+    Case 80
+     JEDEC.Init_jedec_id1_vals()
+     Try DRAM_MANUFACTURER = JEDEC.$jedec_id1_vals[spd_data[149]]
+    Case 0
+     JEDEC.Init_jedec_id1_vals()
+     Try DRAM_MANUFACTURER = JEDEC.$jedec_id1_vals[spd_data[149]]
+    Case 1
+     JEDEC.Init_jedec_id2_vals()
+     Try DRAM_MANUFACTURER = JEDEC.$jedec_id2_vals[spd_data[149]]
+    Case 2
+     JEDEC.Init_jedec_id3_vals()
+     Try DRAM_MANUFACTURER = JEDEC.$jedec_id3_vals[spd_data[149]]
+    Case 3
+     JEDEC.Init_jedec_id4_vals()
+     Try DRAM_MANUFACTURER = JEDEC.$jedec_id4_vals[spd_data[149]]
+    Case 4
+     JEDEC.Init_jedec_id5_vals()
+     Try DRAM_MANUFACTURER = JEDEC.$jedec_id5_vals[spd_data[149]]
+   End Select
   Endif
-  
   FINALIZE()
-  
   Close #hFile
 End
 
 Public Sub FINALIZE()
+ Finfosys.Label259.Text = "Manufacturer: " & MANUFACTURER
+ Finfosys.Label260.Text = "DRAM Manufacturer: " & DRAM_MANUFACTURER
  Finfosys.Label227.Text = "Part number: " & PART_NUMBER
  Finfosys.Label256.Text = "Memory type: " & MEMORY_TYPE
  Finfosys.Label258.Text = "Module Type: " & MODULE_TYPE
@@ -75,6 +123,8 @@ Public Sub FINALIZE()
 End
 
 Public Sub SETNULL()
+ DRAM_MANUFACTURER = Null
+ MANUFACTURER = Null
  MODULE_TYPE = Null
  SPD_REVISION = Null
  PART_NUMBER = Null

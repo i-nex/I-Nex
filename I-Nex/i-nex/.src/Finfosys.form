@@ -1858,25 +1858,37 @@
       Font = Font["8"]
       Text = ("---===Serial Presence Detect===---")
       { Label227 Label
-        Move(259,21,203,28)
+        Move(7,63,252,21)
         Font = Font["8"]
         Padding = 3
         Border = Border.Raised
       }
       { Label256 Label
-        Move(91,21,168,28)
+        Move(259,63,203,21)
         Font = Font["8"]
         Padding = 3
         Border = Border.Raised
       }
       { Label257 Label
-        Move(7,21,84,28)
+        Move(7,84,84,28)
         Font = Font["8"]
         Padding = 3
         Border = Border.Raised
       }
       { Label258 Label
-        Move(7,49,168,28)
+        Move(91,84,168,28)
+        Font = Font["8"]
+        Padding = 3
+        Border = Border.Raised
+      }
+      { Label259 Label
+        Move(7,21,455,21)
+        Font = Font["8"]
+        Padding = 3
+        Border = Border.Raised
+      }
+      { Label260 Label
+        Move(7,42,455,21)
         Font = Font["8"]
         Padding = 3
         Border = Border.Raised
