@@ -25,7 +25,7 @@ COMPRESS		=	gzip -9
 RM_COM 			= 	rm
 RMFILE_OPT 		= 	-f
 RMDIR_OPT 		= 	-Rf
-STATIC 			= 	false
+STATIC 			= 	true
 UDEV_RULES_DIR		=	/etc/udev/rules.d
 ifeq ($(STATIC),true)
 YESNO_LINK 		= 	-static
