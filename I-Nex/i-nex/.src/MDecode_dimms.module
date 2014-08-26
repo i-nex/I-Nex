@@ -6,6 +6,9 @@ Public SPD_REVISION As String
 Public MODULE_TYPE As String
 Public MANUFACTURER As String
 Public DRAM_MANUFACTURER As String
+Public FUNDAMENTAL_MEMORY_TYPE As String
+Public Assembly_Serial_Number As String
+Public Manufacturing_Date As String
 Public Sub List_EEPROM()
  
  Try Finfosys.ComboBox10.List = Dir("/sys/bus/i2c/drivers/eeprom/", "*-****")
@@ -21,6 +24,7 @@ Public Sub _inits()
   Dim spd_data_asc As New String[]
   Dim spd_data_str As New String[]
   Dim module_types As String[] = ["Undefined", "RDIMM", "UDIMM", "SO-DIMM", "Micro-DIMM", "Mini-RDIMM", "Mini-UDIMM", "Mini-CDIMM", "72b-SO-UDIMM", "72b-SO-RDIMM", "72b-SO-CDIMM", "LRDIMM", "16b-SO-DIMM", "32b-SO-DIMM"]
+  Dim dram_device_type As String[] = ["Reserved", "FPM DRAM", "EDO", "Pipelined Nibble", "SDR SDRAM", "Multiplexed ROM", "DDR SGRAM", "DDR SDRAM", "DDR2 SDRAM", "FB-DIMM", "FB-DIMM Probe", "DDR3 SDRAM"]
   Dim SIZERAM As Integer
   'Clear data before get new
   SETNULL()
@@ -31,6 +35,7 @@ Public Sub _inits()
   hFile = Open "/sys/bus/i2c/drivers/eeprom/" & Finfosys.ComboBox10.Text & "/eeprom" For Input
   'hFile = Open "/home/michal/Desktop/Hynix_eeprom" For Input
   'hFile = Open "/home/michal/Desktop/Kingston_eeprom" For Input
+  'hFile = Open "/home/michal/Pobrane/pavbaranov_eeprom" For Input
   While Not Eof(hFile)
    Line Input #hFile, sLine
     If Len(sLine) <= 257 Then
@@ -57,8 +62,18 @@ Public Sub _inits()
    For i = 128 To 145
     PART_NUMBER &= spd_data_str[i]
    Next
+   Try FUNDAMENTAL_MEMORY_TYPE = dram_device_type[spd_data_asc[2]]
    Try MODULE_TYPE = module_types[spd_data[3]]
-   
+
+   Try Assembly_Serial_Number = Subst("0x&1&2&3&4",
+                         spd_data[122],
+                         spd_data[123],
+                         spd_data[124],
+                         spd_data[125])
+   Try Manufacturing_Date = Subst("20&1-W&2",
+                         spd_data[120],
+                         spd_data[121])
+
    Select Case Hex$(CLong(spd_data_asc[117]) And &h7F&)
     Case 0
      JEDEC.init_jedec_id0_vals()
@@ -116,15 +131,23 @@ Public Sub FINALIZE()
  Finfosys.Label260.Text = "DRAM Manufacturer: " & DRAM_MANUFACTURER
  Finfosys.Label227.Text = "Part number: " & PART_NUMBER
  Finfosys.Label256.Text = "Memory type: " & MEMORY_TYPE
+ Finfosys.Label261.Text = "Fundamental Memory type: " & FUNDAMENTAL_MEMORY_TYPE
  Finfosys.Label258.Text = "Module Type: " & MODULE_TYPE
  Finfosys.Label257.Text = "SPD RV: " & SPD_REVISION
+ Finfosys.Label262.Text = "Assembly Serial Number: " & Assembly_Serial_Number
+ Finfosys.Label263.Text = "Manufacturing Date: " & Manufacturing_Date
+  
+ 'Label262
 End
 
 Public Sub SETNULL()
+ Manufacturing_Date = Null
+ Assembly_Serial_Number = Null
  DRAM_MANUFACTURER = Null
  MANUFACTURER = Null
  MODULE_TYPE = Null
  SPD_REVISION = Null
  PART_NUMBER = Null
  MEMORY_TYPE = Null
+ FUNDAMENTAL_MEMORY_TYPE = Null
 End

@@ -1864,19 +1864,19 @@
         Border = Border.Raised
       }
       { Label256 Label
-        Move(259,63,203,21)
+        Move(7,84,140,21)
         Font = Font["8"]
         Padding = 3
         Border = Border.Raised
       }
       { Label257 Label
-        Move(7,84,84,28)
+        Move(7,105,84,21)
         Font = Font["8"]
         Padding = 3
         Border = Border.Raised
       }
       { Label258 Label
-        Move(91,84,168,28)
+        Move(91,105,168,21)
         Font = Font["8"]
         Padding = 3
         Border = Border.Raised
@@ -1891,6 +1891,27 @@
         Move(7,42,455,21)
         Font = Font["8"]
         Padding = 3
+        Border = Border.Raised
+      }
+      { Label261 Label
+        Move(147,84,315,21)
+        Font = Font["8"]
+        Padding = 3
+        Text = ("Label261")
+        Border = Border.Raised
+      }
+      { Label262 Label
+        Move(7,126,252,21)
+        Font = Font["8"]
+        Padding = 3
+        Text = ("Label262")
+        Border = Border.Raised
+      }
+      { Label263 Label
+        Move(7,147,252,21)
+        Font = Font["8"]
+        Padding = 3
+        Text = ("Label263")
         Border = Border.Raised
       }
     }

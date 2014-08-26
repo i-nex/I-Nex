@@ -1,7 +1,7 @@
 # Maintainer: eloaders <eloaders at linux dot pl>
 
 pkgname=i-nex-git
-pkgver=7.2.1.100.gb0b6923
+pkgver=7.4.0.7.g83a7d8b
 pkgrel=1
 pkgdesc="System information tool like hardinfo, sysinfo"
 arch=('i686' 'x86_64')
@@ -31,6 +31,7 @@ prepare() {
   sed -i 's|python3$|python2|' pastebinit
   # make it dynamic
   sed -i -e 's|^STATIC.*|STATIC = false|' i-nex.mk
+  sed -i -e 's|^UDEV_RULES_DIR.*|UDEV_RULES_DIR = /lib/udev/rules.d|' i-nex.mk
   cd I-Nex
   autoreconf -i
 }
