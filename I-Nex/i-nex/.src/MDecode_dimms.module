@@ -30,6 +30,7 @@ Public Sub _inits()
   'End of clear
   hFile = Open "/sys/bus/i2c/drivers/eeprom/" & Finfosys.ComboBox10.Text & "/eeprom" For Input
   'hFile = Open "/home/michal/Desktop/Hynix_eeprom" For Input
+  'hFile = Open "/home/michal/Desktop/Kingston_eeprom" For Input
   While Not Eof(hFile)
    Line Input #hFile, sLine
     If Len(sLine) <= 257 Then
@@ -57,56 +58,53 @@ Public Sub _inits()
     PART_NUMBER &= spd_data_str[i]
    Next
    Try MODULE_TYPE = module_types[spd_data[3]]
-   ' Print spd_data[117]; ":"; spd_data[118]
-   ' Print spd_data[148]; ":"; spd_data[149]
-   ' 
-   ' Print spd_data_asc[117]; ":"; spd_data_asc[118]
-   ' Print spd_data_asc[148]; ":"; spd_data_asc[149]
-   ' 
-   ' Print spd_data_str[117]; ":"; spd_data_str[118]
-   ' Print spd_data_str[148]; ":"; spd_data_str[149]
    
-   Select Case spd_data[117]
-    Case 80
-     JEDEC.Init_jedec_id1_vals()
-     Try MANUFACTURER = JEDEC.$jedec_id1_vals[spd_data[149]]
+   Select Case Hex$(CLong(spd_data_asc[117]) And &h7F&)
     Case 0
-     'printf("%s\n", val2str(spd_data[118], jedec_id1_vals));
-     JEDEC.Init_jedec_id1_vals()
-     Try MANUFACTURER = JEDEC.$jedec_id1_vals[spd_data[118]]
+     JEDEC.init_jedec_id0_vals()
+     Try MANUFACTURER = JEDEC.$jedec_id0_vals[(CLong(spd_data_asc[118]) And &h7F&) - 1]
     Case 1
-     JEDEC.Init_jedec_id2_vals()
-     Try MANUFACTURER = JEDEC.$jedec_id2_vals[spd_data[118]]
+     JEDEC.init_jedec_id1_vals()
+     Try MANUFACTURER = JEDEC.$jedec_id1_vals[(CLong(spd_data_asc[118]) And &h7F&) - 1]
     Case 2
-     JEDEC.Init_jedec_id3_vals()
-     Try MANUFACTURER = JEDEC.$jedec_id3_vals[spd_data[118]]
+     JEDEC.init_jedec_id2_vals()
+     Try MANUFACTURER = JEDEC.$jedec_id2_vals[(CLong(spd_data_asc[118]) And &h7F&) - 1]
     Case 3
-     JEDEC.Init_jedec_id4_vals()
-     Try MANUFACTURER = JEDEC.$jedec_id4_vals[spd_data[118]]
+     JEDEC.init_jedec_id3_vals()
+     Try MANUFACTURER = JEDEC.$jedec_id3_vals[(CLong(spd_data_asc[118]) And &h7F&) - 1]
     Case 4
-     JEDEC.Init_jedec_id5_vals()
-     Try MANUFACTURER = JEDEC.$jedec_id5_vals[spd_data[118]]
+     JEDEC.init_jedec_id4_vals()
+     Try MANUFACTURER = JEDEC.$jedec_id4_vals[(CLong(spd_data_asc[118]) And &h7F&) - 1]
+    Case 5
+     JEDEC.init_jedec_id5_vals()
+     Try MANUFACTURER = JEDEC.$jedec_id5_vals[(CLong(spd_data_asc[118]) And &h7F&) - 1]
+    Case 6
+     JEDEC.init_jedec_id6_vals()
+     Try MANUFACTURER = JEDEC.$jedec_id6_vals[(CLong(spd_data_asc[118]) And &h7F&) - 1]
    End Select
    
-   Select Case spd_data[148]
-    Case 80
-     JEDEC.Init_jedec_id1_vals()
-     Try DRAM_MANUFACTURER = JEDEC.$jedec_id1_vals[spd_data[149]]
+   Select Case Hex$(CLong(spd_data_asc[148]) And &h7F&)
     Case 0
-     JEDEC.Init_jedec_id1_vals()
-     Try DRAM_MANUFACTURER = JEDEC.$jedec_id1_vals[spd_data[149]]
+     JEDEC.init_jedec_id0_vals()
+     Try DRAM_MANUFACTURER = JEDEC.$jedec_id0_vals[(CLong(spd_data_asc[149]) And &h7F&) - 1]
     Case 1
-     JEDEC.Init_jedec_id2_vals()
-     Try DRAM_MANUFACTURER = JEDEC.$jedec_id2_vals[spd_data[149]]
+     JEDEC.init_jedec_id1_vals()
+     Try DRAM_MANUFACTURER = JEDEC.$jedec_id1_vals[(CLong(spd_data_asc[149]) And &h7F&) - 1]
     Case 2
-     JEDEC.Init_jedec_id3_vals()
-     Try DRAM_MANUFACTURER = JEDEC.$jedec_id3_vals[spd_data[149]]
+     JEDEC.init_jedec_id2_vals()
+     Try DRAM_MANUFACTURER = JEDEC.$jedec_id2_vals[(CLong(spd_data_asc[149]) And &h7F&) - 1]
     Case 3
-     JEDEC.Init_jedec_id4_vals()
-     Try DRAM_MANUFACTURER = JEDEC.$jedec_id4_vals[spd_data[149]]
+     JEDEC.init_jedec_id3_vals()
+     Try DRAM_MANUFACTURER = JEDEC.$jedec_id3_vals[(CLong(spd_data_asc[149]) And &h7F&) - 1]
     Case 4
-     JEDEC.Init_jedec_id5_vals()
-     Try DRAM_MANUFACTURER = JEDEC.$jedec_id5_vals[spd_data[149]]
+     JEDEC.init_jedec_id4_vals()
+     Try DRAM_MANUFACTURER = JEDEC.$jedec_id4_vals[(CLong(spd_data_asc[149]) And &h7F&) - 1]
+    Case 5
+     JEDEC.init_jedec_id5_vals()
+     Try DRAM_MANUFACTURER = JEDEC.$jedec_id5_vals[(CLong(spd_data_asc[149]) And &h7F&) - 1]
+    Case 6
+     JEDEC.init_jedec_id6_vals()
+     Try DRAM_MANUFACTURER = JEDEC.$jedec_id6_vals[(CLong(spd_data_asc[149]) And &h7F&) - 1]
    End Select
   Endif
   FINALIZE()
