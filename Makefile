@@ -91,7 +91,7 @@ clean-inex:
 
 install-udev-rule:
 
-	$(INSTALL_DM) 600 i2c_smbus.rules $(DESTDIR)$(PREFIX)$(UDEV_RULES_DIR)/i2c_smbus.rules
+	$(INSTALL_DM) 600 i2c_smbus.rules $(DESTDIR)$(UDEV_RULES_DIR)/i2c_smbus.rules
 
 clean-all:
 
