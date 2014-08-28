@@ -1914,6 +1914,13 @@
         Text = ("Label263")
         Border = Border.Raised
       }
+      { Label264 Label
+        Move(7,168,252,21)
+        Font = Font["8"]
+        Padding = 3
+        Text = ("Label264")
+        Border = Border.Raised
+      }
     }
     Index = 8
     Text = "Network"

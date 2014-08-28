@@ -9,6 +9,8 @@ Public DRAM_MANUFACTURER As String
 Public FUNDAMENTAL_MEMORY_TYPE As String
 Public Assembly_Serial_Number As String
 Public Manufacturing_Date As String
+Public SDRAM_DEVICE_WIDTH As String
+Public $volts As String = "1.5V"
 Public Sub List_EEPROM()
  
  Try Finfosys.ComboBox10.List = Dir("/sys/bus/i2c/drivers/eeprom/", "*-****")
@@ -23,9 +25,12 @@ Public Sub _inits()
   Dim spd_data As New String[]
   Dim spd_data_asc As New String[]
   Dim spd_data_str As New String[]
-  Dim module_types As String[] = ["Undefined", "RDIMM", "UDIMM", "SO-DIMM", "Micro-DIMM", "Mini-RDIMM", "Mini-UDIMM", "Mini-CDIMM", "72b-SO-UDIMM", "72b-SO-RDIMM", "72b-SO-CDIMM", "LRDIMM", "16b-SO-DIMM", "32b-SO-DIMM"]
+  Dim spd_data_bin As New Variant[]
+  Dim module_types_ddr2 As String[] = ["Undefined", "RDIMM", "UDIMM", "SO-DIMM", "Micro-DIMM", "Mini-RDIMM", "Mini-UDIMM"]
+  Dim module_types_ddr3 As String[] = ["Undefined", "RDIMM", "UDIMM", "SO-DIMM", "Micro-DIMM", "Mini-RDIMM", "Mini-UDIMM", "Mini-CDIMM", "72b-SO-UDIMM", "72b-SO-RDIMM", "72b-SO-CDIMM", "LRDIMM", "16b-SO-DIMM", "32b-SO-DIMM"]
   Dim dram_device_type As String[] = ["Reserved", "FPM DRAM", "EDO", "Pipelined Nibble", "SDR SDRAM", "Multiplexed ROM", "DDR SGRAM", "DDR SDRAM", "DDR2 SDRAM", "FB-DIMM", "FB-DIMM Probe", "DDR3 SDRAM"]
   Dim SIZERAM As Integer
+  Dim BYTES As Long = 0
   'Clear data before get new
   SETNULL()
   spd_data.Clear
@@ -36,34 +41,49 @@ Public Sub _inits()
   'hFile = Open "/home/michal/Desktop/Hynix_eeprom" For Input
   'hFile = Open "/home/michal/Desktop/Kingston_eeprom" For Input
   'hFile = Open "/home/michal/Pobrane/pavbaranov_eeprom" For Input
+  'hFile = Open "/home/michal/Pobrane/n150_eeprom" For Input
+  BYTES = 0
   While Not Eof(hFile)
    Line Input #hFile, sLine
-    If Len(sLine) <= 257 Then
+    BYTES += Len(sLine)
+    'If BYTES > 254 And BYTES < 270 Then
      For i = 0 To Len(sLine)
       spd_data.Add(Hex(Asc(Mid$(sLine, i + 1, 1))))
       spd_data_asc.Add(Asc(Mid$(sLine, i + 1, 1)))
       spd_data_str.Add(Mid$(sLine, i + 1, 1))
+      spd_data_bin.Add(Bin(Asc(Mid$(sLine, i + 1, 1))))
      Next
-   Endif
+    'Endif
   Wend
-  If spd_data.Count <= 257 And spd_data.Count > 0 Then
-   
+
    Select Case spd_data[0] 'Try to tetect ram type.
-    Case 08                'byte[0] is 08 or 8 = DDR2
+    Case "80"                'byte[0] is 08 or 8 = DDR2
      MEMORY_TYPE = "DDR2"  '
-    Case 92                'byte[0] is 92 = DDR3
+    Case "92"                'byte[0] is 92 = DDR3
      MEMORY_TYPE = "DDR3"  '
     Case "0C"              'byte[0] is 0C FIXME: lower case or upper case
      MEMORY_TYPE = "DDR4"  'is ddr4
    End Select
    
+   Select Case MEMORY_TYPE
+    Case "DDR3"
    SPD_REVISION = Mid(spd_data[1], 1, 1) & "." & Mid(spd_data[1], 2, 1)
-   
+
    For i = 128 To 145
     PART_NUMBER &= spd_data_str[i]
    Next
+   If spd_data[6] = 1 Then
+    $volts &= " tolerant"
+   Endif
+   If spd_data[6] = 1 Then
+    $volts &= ", 1.35V "
+   Endif
+   If spd_data[6] = 1 Then
+    $volts &= ", 1.2X V"
+   Endif
+
    Try FUNDAMENTAL_MEMORY_TYPE = dram_device_type[spd_data_asc[2]]
-   Try MODULE_TYPE = module_types[spd_data[3]]
+   Try MODULE_TYPE = module_types_ddr3[spd_data[3]]
 
    Try Assembly_Serial_Number = Subst("0x&1&2&3&4",
                          spd_data[122],
@@ -74,6 +94,19 @@ Public Sub _inits()
                          spd_data[120],
                          spd_data[121])
 
+   Select Case Right(spd_data_bin[7], 3)
+    Case "000"
+     SDRAM_DEVICE_WIDTH = "4 Bits"
+    Case "001"
+     SDRAM_DEVICE_WIDTH = "8 Bits"
+    Case "1"
+     SDRAM_DEVICE_WIDTH = "8 Bits"
+    Case "010"
+     SDRAM_DEVICE_WIDTH = "16 Bits"
+    Case "011"
+     SDRAM_DEVICE_WIDTH = "32 Bits"
+   End Select
+   
    Select Case Hex$(CLong(spd_data_asc[117]) And &h7F&)
     Case 0
      JEDEC.init_jedec_id0_vals()
@@ -121,7 +154,41 @@ Public Sub _inits()
      JEDEC.init_jedec_id6_vals()
      Try DRAM_MANUFACTURER = JEDEC.$jedec_id6_vals[(CLong(spd_data_asc[149]) And &h7F&) - 1]
    End Select
-  Endif
+  
+  Case "DDR2"
+   SPD_REVISION = Mid(spd_data[62], 1, 1) & "." & Mid(spd_data[62], 2, 1)
+   Try FUNDAMENTAL_MEMORY_TYPE = dram_device_type[spd_data_asc[2]]
+   Try MODULE_TYPE = module_types_ddr2[spd_data[20]]
+   For i = 73 To 90
+    PART_NUMBER &= spd_data_str[i]
+   Next
+   Select Case (CLong(spd_data_asc[71]) And &h7F&)
+    Case 0
+     JEDEC.init_jedec_id0_vals()
+     Try MANUFACTURER = JEDEC.$jedec_id0_vals[(CLong(spd_data_asc[64]) And &h7F&) - 1]
+    Case 1
+     JEDEC.init_jedec_id1_vals()
+     Try MANUFACTURER = JEDEC.$jedec_id1_vals[(CLong(spd_data_asc[64]) And &h7F&) - 1]
+    Case 2
+     JEDEC.init_jedec_id2_vals()
+     Try MANUFACTURER = JEDEC.$jedec_id2_vals[(CLong(spd_data_asc[64]) And &h7F&) - 1]
+    Case 3
+     JEDEC.init_jedec_id3_vals()
+     Try MANUFACTURER = JEDEC.$jedec_id3_vals[(CLong(spd_data_asc[64]) And &h7F&) - 1]
+    Case 4
+     JEDEC.init_jedec_id4_vals()
+     Try MANUFACTURER = JEDEC.$jedec_id4_vals[(CLong(spd_data_asc[64]) And &h7F&) - 1]
+    Case 5
+     JEDEC.init_jedec_id5_vals()
+     Try MANUFACTURER = JEDEC.$jedec_id5_vals[(CLong(spd_data_asc[64]) And &h7F&) - 1]
+    Case 6
+     JEDEC.init_jedec_id6_vals()
+     Try MANUFACTURER = JEDEC.$jedec_id6_vals[(CLong(spd_data_asc[64]) And &h7F&) - 1]
+   End Select
+   
+   
+   
+  End Select
   FINALIZE()
   Close #hFile
 End
@@ -136,11 +203,11 @@ Public Sub FINALIZE()
  Finfosys.Label257.Text = "SPD RV: " & SPD_REVISION
  Finfosys.Label262.Text = "Assembly Serial Number: " & Assembly_Serial_Number
  Finfosys.Label263.Text = "Manufacturing Date: " & Manufacturing_Date
-  
- 'Label262
+ Finfosys.Label264.Text = "SDRAM Device Width: " & SDRAM_DEVICE_WIDTH
 End
 
 Public Sub SETNULL()
+ SDRAM_DEVICE_WIDTH = Null
  Manufacturing_Date = Null
  Assembly_Serial_Number = Null
  DRAM_MANUFACTURER = Null
