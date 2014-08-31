@@ -16,36 +16,19 @@
 ' along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 Public Sub Form_Open()
+  Dim PASTEBIN_SITES As String[] = Dir("/usr/share/i-nex/pastebinit/pastebin.d/")
+  Dim Conf As Integer
   If Exist("~/.i-nex/lastsave") Then
    ButtonBox1.Text = File.Load("" & User.Home & "/.i-nex/lastsave")
   Else
    ButtonBox1.Text = Desktop.Path & "/report.txt"
   Endif
 
-  ComboBox1.Add("cxg.de")
-  ComboBox1.Add("dpaste.com")
-  ComboBox1.Add("fpaste.org")
-  ComboBox1.Add("hpaste.org")
-  ComboBox1.Add("lpaste.net")
-  ComboBox1.Add("paste2.org")
-  ComboBox1.Add("pastebin.com")
-  ComboBox1.Add("pastebin.mate-desktop.org")
-  ComboBox1.Add("paste.debian.net")
-  ComboBox1.Add("paste.drizzle.org")
-  ComboBox1.Add("paste.kde.org")
-  ComboBox1.Add("paste.openstack.org")
-  ComboBox1.Add("paste.opensuse.org")
-  ComboBox1.Add("paste.pocoo.org")
-  ComboBox1.Add("paste.pound-python.org")
-  ComboBox1.Add("paste.ubuntu.com")
-  ComboBox1.Add("paste.ubuntu.org.cn")
-  ComboBox1.Add("pastie.org")
-  ComboBox1.Add("pb.daviey.com")
-  ComboBox1.Add("p.defau.lt")
-  ComboBox1.Add("slexy.org")
-  ComboBox1.Add("sprunge.us")
-  ComboBox1.Add("susepaste.org")
-  ComboBox1.Add("yourpaste.net")
+  For Conf = 0 To PASTEBIN_SITES.Count - 1
+   PASTEBIN_SITES[Conf] = Replace(PASTEBIN_SITES[Conf], ".conf", "")
+  Next
+  ComboBox1.List = PASTEBIN_SITES
+  ComboBox1.Index = 0
   
   If Settings["Window/X"] = Null Then
      Me.Center
