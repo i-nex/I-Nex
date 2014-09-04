@@ -54,3 +54,13 @@ ACTION_COLOR		=	\033[95m
 OK_STRING		=	$(OK_COLOR)✔
 ERROR_STRING		=	$(ERROR_COLOR)✖
 WARN_STRING		=	$(WARN_COLOR)⚑
+
+sysconfdir = /etc
+DATABASE_CPU_LOGOS_DIR 	= ../Database/Logos
+DATABASE_CPU_LOGOS 	= $(wildcard $(DATABASE_CPU_LOGOS_DIR)/*.gif)
+DATABASE_DIST_LOGOS_DIR = ../Database/Distlogos
+DATABASE_DIST_LOGOS 	= $(wildcard $(DATABASE_DIST_LOGOS_DIR)/*.png)
+DATABASE_CPU_JSON_DIR 	= ../Database
+DATABASE_CPU_JSON 	= $(wildcard $(DATABASE_CPU_JSON_DIR)/*.json)
+DATABASE_I2C_JSON_DIR 	= ../Database/i2c
+DATABASE_I2C_JSON 	= $(wildcard $(DATABASE_I2C_JSON_DIR)/*.json)
