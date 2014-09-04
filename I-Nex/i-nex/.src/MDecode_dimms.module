@@ -63,6 +63,8 @@ Public Sub _inits()
      MEMORY_TYPE = "DDR3"  '
     Case "0C"              'byte[0] is 0C FIXME: lower case or upper case
      MEMORY_TYPE = "DDR4"  'is ddr4
+    Case Else
+     MEMORY_TYPE = "Unknown"  
    End Select
    
    Select Case MEMORY_TYPE
@@ -105,6 +107,8 @@ Public Sub _inits()
      SDRAM_DEVICE_WIDTH = "16 Bits"
     Case "011"
      SDRAM_DEVICE_WIDTH = "32 Bits"
+    Case Else
+     SDRAM_DEVICE_WIDTH = "Unknown"
    End Select
    
    Select Case Hex$(CLong(spd_data_asc[117]) And &h7F&)
@@ -129,6 +133,8 @@ Public Sub _inits()
     Case 6
      JEDEC.init_jedec_id6_vals()
      Try MANUFACTURER = JEDEC.$jedec_id6_vals[(CLong(spd_data_asc[118]) And &h7F&) - 1]
+    Case Else
+     MANUFACTURER = "Unknown"
    End Select
    
    Select Case Hex$(CLong(spd_data_asc[148]) And &h7F&)
@@ -153,6 +159,8 @@ Public Sub _inits()
     Case 6
      JEDEC.init_jedec_id6_vals()
      Try DRAM_MANUFACTURER = JEDEC.$jedec_id6_vals[(CLong(spd_data_asc[149]) And &h7F&) - 1]
+    Case Else
+     DRAM_MANUFACTURER = "Unknown"
    End Select
   
   Case "DDR2"
@@ -184,10 +192,20 @@ Public Sub _inits()
     Case 6
      JEDEC.init_jedec_id6_vals()
      Try MANUFACTURER = JEDEC.$jedec_id6_vals[(CLong(spd_data_asc[64]) And &h7F&) - 1]
+    Case Else
+     MANUFACTURER = "Unknown"
    End Select
-   
-   
-   
+  Case Else
+   MANUFACTURER = "Unknown"
+   DRAM_MANUFACTURER = "Unknown"
+   PART_NUMBER = "Unknown"
+   MEMORY_TYPE = "Unknown"
+   FUNDAMENTAL_MEMORY_TYPE = "Unknown"
+   MODULE_TYPE = "Unknown"
+   SPD_REVISION = "Unknown"
+   Assembly_Serial_Number = "Unknown"
+   Manufacturing_Date = "Unknown"
+   SDRAM_DEVICE_WIDTH = "Unknown"
   End Select
   FINALIZE()
   Close #hFile
