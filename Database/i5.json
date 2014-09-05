@@ -2850,6 +2850,33 @@
       "PROCESSOR_CODENAME": "Nehalem",
       "PROCESSOR_PART": "SLBPN",
       "PROCESSOR_PRODUCTION_STATUS": "End of Interactive Support"
+    },
+    {
+      "PROCESSOR_MARKET": "Mobile",
+      "PROCESSOR_CACHEL3": "3 MB 12-way",
+      "PROCESSOR_CACHEL2": "2 x 256 KB 8-way",
+      "PROCESSOR_CACHEL1": "2 x (32 KB 8-way/32 KB 8-way)",
+      "PROCESSOR_INTEGRATEDGRAPHIC": "Intel(R) HD Graphics 4400",
+      "PROCESSOR_SMPCPUS": "2",
+      "PROCESSOR_OFCORES": "Dual-core",
+      "PROCESSOR_MEMORYSUPPORT": "DDR3L, LPDDR3",
+      "PROCESSOR_RELEASED": "April 14, 2014",
+      "PROCESSOR_TCASEMAX": "100C",
+      "PROCESSOR_PACKAGE": "FCBGA1168",
+      "PROCESSOR_DIE_SIZE": "unknown",
+      "PROCESSOR_TRANSISTORS": "unknown",
+      "PROCESSOR_PROCESS_SIZE": "22 nm",
+      "PROCESSOR_SOCKET": "BGA1168",
+      "PROCESSOR_SOCKET_IMAGE": "306.gif",
+      "PROCESSOR_MODEL_NAME": "i5-4210U",
+      "PROCESSOR_FREQUENCY": "1.7 GHz",
+      "PROCESSOR_TURBOCLOCK": "2.7 GHz",
+      "PROCESSOR_MULTIPLIER": "17x",
+      "PROCESSOR_VOLTAGE": "unknown",
+      "PROCESSOR_TDP": "15 W",
+      "PROCESSOR_CODENAME": "Haswell",
+      "PROCESSOR_PART": "SR1EF",
+      "PROCESSOR_PRODUCTION_STATUS": "Launched"
     }
   ]
 }
