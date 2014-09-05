@@ -6,7 +6,7 @@ make: build-inex build-json build-pixmaps
 install: install-pastebinit-and-other \
 	 install-pixmaps install-changelogs install-manpages \
 	 install-docs install-json install-inex install-scripts \
-	 install-udev-rule link-inex install-database
+	 install-udev-rule link-inex install-database install-siv
 	 
 clean: clean-pixmaps clean-json clean-inex clean-all
 
@@ -80,6 +80,10 @@ install-scripts:
 install-database:
 	@echo -e '\033[1;32mInstall database files...\033[0m'
 	$(MAKE) -C Database install
+
+install-siv:
+	@echo -e '\033[1;32mInstall SIV files...\033[0m'
+	$(MAKE) -C SIV install
 	
 clean-pixmaps:
 

@@ -15,8 +15,45 @@
 ' You should have received a copy of the GNU General Public License
 ' along with this program. If not, see <http://www.gnu.org/licenses/>.
 
-Public Sub _inits()
+Public Sub _d(vendor As String, device As String) As String
+  Dim PCIDEVS As File
+  Dim PCI_STRING_vendor As String
+  Dim PCI_STRING_device As String
+  Dim sIcon As String
+  Dim sLine As String
+  Dim iPos As Integer
+  Dim Character As Integer
+  Dim sKey As String
+  Dim sVal As String
+  
+  If vendor Begins "0x" Then
+   vendor = Replace(vendor, "0x", "")
+  Endif
+  If device Begins "0x" Then
+   device = Replace(device, "0x", "")
+  Endif
+  vendor = Upper(vendor)
+  device = Upper(device)
+  
+  PCIDEVS = Open "/etc/i-nex/SIV/pcidevs.txt"
+  For Each sLine In PCIDEVS.Lines
+    sLine = Trim(sLine)
+    If Not sLine Then Continue 
+
+    iPos = InStr(sLine, "=")
+    If iPos = 0 Then Continue
+
+    sKey = Trim(Left$(sLine, iPos - 1))
+    sVal = Trim(Mid$(sLine, iPos + 1))
+    Select Case sKey
+      Case vendor
+       Print sVal
+       PCI_STRING_vendor = sVal
+      Case vendor & ":" & device
+       PCI_STRING_device = sVal
+    End Select
+  Next
+  Close #PCIDEVS
  
- 
- 
+  Return PCI_STRING_vendor & " " & PCI_STRING_device
 End

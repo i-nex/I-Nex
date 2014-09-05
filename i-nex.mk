@@ -64,3 +64,5 @@ DATABASE_CPU_JSON_DIR 	= ../Database
 DATABASE_CPU_JSON 	= $(wildcard $(DATABASE_CPU_JSON_DIR)/*.json)
 DATABASE_I2C_JSON_DIR 	= ../Database/i2c
 DATABASE_I2C_JSON 	= $(wildcard $(DATABASE_I2C_JSON_DIR)/*.json)
+DATABASE_SIV_DIR 	= ../SIV
+DATABASE_SIV 		= $(wildcard $(DATABASE_SIV_DIR)/*.txt)

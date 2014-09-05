@@ -56,8 +56,7 @@ Public Sub get_informations_about_net_interface()
  Try Finfosys.Label175.Text = "Type: " & Replace(File.Load("/sys/class/net/" & Finfosys.ComboBox2.Text & "/type"), "\n", "")
  
   If subsystem_device Like "*0x*" Then
-  Shell "lspci -d " & subsystem_vendor & ":" & subsystem_device & " | cut -d ':' -f 3 | cut -d '(' -f 1" Wait To lspci
-     lspci = Replace(lspci, "\n", "")
+  lspci = Mdecode._d(subsystem_vendor, subsystem_device)
   Else
      lspci = Null
   Endif
