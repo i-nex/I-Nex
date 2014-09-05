@@ -26,7 +26,7 @@ Public Sub _inits()
   Dim spd_data_asc As New String[]
   Dim spd_data_str As New String[]
   Dim spd_data_bin As New Variant[]
-  Dim module_types_ddr2 As String[] = ["Undefined", "RDIMM", "UDIMM", "SO-DIMM", "Micro-DIMM", "Mini-RDIMM", "Mini-UDIMM"]
+  Dim module_types_ddr2 As String[] = ["Reserved", "Undefined", "RDIMM", "UDIMM", "SO-DIMM", "Micro-DIMM", "Mini-RDIMM", "Mini-UDIMM"]
   Dim module_types_ddr3 As String[] = ["Undefined", "RDIMM", "UDIMM", "SO-DIMM", "Micro-DIMM", "Mini-RDIMM", "Mini-UDIMM", "Mini-CDIMM", "72b-SO-UDIMM", "72b-SO-RDIMM", "72b-SO-CDIMM", "LRDIMM", "16b-SO-DIMM", "32b-SO-DIMM"]
   Dim dram_device_type As String[] = ["Reserved", "FPM DRAM", "EDO", "Pipelined Nibble", "SDR SDRAM", "Multiplexed ROM", "DDR SGRAM", "DDR SDRAM", "DDR2 SDRAM", "FB-DIMM", "FB-DIMM Probe", "DDR3 SDRAM"]
   Dim SIZERAM As Integer
@@ -92,8 +92,8 @@ Public Sub _inits()
                          spd_data[123],
                          spd_data[124],
                          spd_data[125])
-   Try Manufacturing_Date = Subst("20&1-W&2",
-                         spd_data[120],
+   Try Manufacturing_Date = Subst("&1-W&2",
+                         CInt(2000 + spd_data[120]),
                          spd_data[121])
 
    Select Case Right(spd_data_bin[7], 3)
@@ -164,9 +164,11 @@ Public Sub _inits()
    End Select
   
   Case "DDR2"
+   
    SPD_REVISION = Mid(spd_data[62], 1, 1) & "." & Mid(spd_data[62], 2, 1)
    Try FUNDAMENTAL_MEMORY_TYPE = dram_device_type[spd_data_asc[2]]
    Try MODULE_TYPE = module_types_ddr2[spd_data[20]]
+
    For i = 73 To 90
     PART_NUMBER &= spd_data_str[i]
    Next
@@ -195,6 +197,15 @@ Public Sub _inits()
     Case Else
      MANUFACTURER = "Unknown"
    End Select
+   Try Manufacturing_Date = Subst("&1-W&2",
+                         CInt(2000 + spd_data[93]),
+                         spd_data[94])
+   Try Assembly_Serial_Number = Subst("0x&1&2&3&4",
+                         spd_data[95],
+                         spd_data[96],
+                         spd_data[97],
+                         spd_data[98])
+   
   Case Else
    MANUFACTURER = "Unknown"
    DRAM_MANUFACTURER = "Unknown"
