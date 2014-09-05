@@ -1,7 +1,7 @@
 # Maintainer: eloaders <eloaders at linux dot pl>
 
 pkgname=i-nex-git
-pkgver=7.4.0.7.g83a7d8b
+pkgver=7.4.0.21.g5bdc044
 pkgrel=1
 pkgdesc="System information tool like hardinfo, sysinfo"
 arch=('i686' 'x86_64')
@@ -22,6 +22,17 @@ source=($pkgname::'git://github.com/eloaders/I-Nex.git')
 sha256sums=('SKIP')
 provides=('i-nex' 'i-nex-bzr' 'i-nex-dev')
 conflicts=('i-nex' 'i-nex-bzr' 'i-nex-dev')
+backup=('etc/i-nex/Database/i2c/devices.json'
+	'etc/i-nex/Database/A6.json'
+	'etc/i-nex/Database/amd.json'
+	'etc/i-nex/Database/atom.json'
+	'etc/i-nex/Database/i3.json'
+	'etc/i-nex/Database/i5.json'
+	'etc/i-nex/Database/i7.json'
+	'etc/i-nex/Database/intel_Core_2_Duo.json'
+	'etc/i-nex/Database/intel.json'
+	'etc/i-nex/Database/Opteron.json'
+	'etc/i-nex/Database/Xeon.json')
 pkgver() {
   cd $pkgname
   git describe --tags | tr - .
