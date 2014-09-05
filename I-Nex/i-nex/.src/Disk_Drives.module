@@ -427,7 +427,7 @@ Public Sub disks()
      USB_PIC = Picture.Load("Data/USB/usb2")
     Case Like "*3*"
      USB_PIC = Picture.Load("Data/USB/usb3")
-    Case Like ""
+    Case Else
      USB_PIC = Null
   End Select
 
@@ -441,7 +441,7 @@ Public Sub disks()
      SATA_PIC = Picture.Load("Data/SATA/SATA3.jpg")
     Case Like "*<unknown>*"
      SATA_PIC = Picture.Load("Data/SATA/SATA.jpg")
-    Case Like ""
+    Case Else
      SATA_PIC = Null
   End Select
 End
