@@ -450,7 +450,7 @@
         Text = ("Voltage")
         Sheared = True
         Padding = 3
-        HighlightColor = &HFF7F00&
+        HighlightColor = &H000000&
       }
       { Label249 Label
         Move(182,455,168,28)

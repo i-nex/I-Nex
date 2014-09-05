@@ -11,7 +11,8 @@ Public Sub _init()
  For i = 0 To VCoreDirectiories.Count
   If Access(VCoreDirectiories[i], gb.Read) = True Then
    Try CoreVoltage = Replace(File.Load(VCoreDirectiories[i]), "\n", "")
-   CoreVoltage = Left(CoreVoltage, +1) & "." & Right(CoreVoltage, +3) & " V"
+   CoreVoltage = (CInt(CoreVoltage) / 1000) & " V"
+   CoreVoltage = Replace(CoreVoltage, ".", " . ")
    Visible = True
   Endif
  Next
