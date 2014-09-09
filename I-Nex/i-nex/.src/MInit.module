@@ -43,25 +43,25 @@ Public Sub _inits()
  'Exec ["/bin/bash", "" & User.Home & "/.i-nex/screenfetch-dev"] Wait To Do_not_print
  Do_not_print = Null
  
- If Settings["FirstRun/Value"] = "True" Then
-    If Settings["FirstRun/AppVer"] < Application.Version Then
-
-       Desktop.Open("http://i-nex.linux.pl/" & Application.Version & "")
-       Settings["FirstRun/AppVer"] = Application.Version
-
-    Else
-
-       Logs("This is not first run of I-Nex", Logger.Info)
-
-    Endif
-
-
- Else
-
-    Desktop.Open("http://i-nex.linux.pl")
-    Settings["FirstRun/Value"] = "True"
-    Settings["FirstRun/AppVer"] = Application.Version
-
- Endif
+ ' If Settings["FirstRun/Value"] = "True" Then
+ '    If Settings["FirstRun/AppVer"] < Application.Version Then
+ ' 
+ '       Desktop.Open("http://i-nex.linux.pl/" & Application.Version & "")
+ '       Settings["FirstRun/AppVer"] = Application.Version
+ ' 
+ '    Else
+ ' 
+ '       Logs("This is not first run of I-Nex", Logger.Info)
+ ' 
+ '    Endif
+ ' 
+ ' 
+ ' Else
+ ' 
+ '    Desktop.Open("http://i-nex.linux.pl")
+ '    Settings["FirstRun/Value"] = "True"
+ '    Settings["FirstRun/AppVer"] = Application.Version
+ ' 
+ ' Endif
  
 End
