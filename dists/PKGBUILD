@@ -12,6 +12,7 @@ depends=('gambas3-runtime'
 	 'gambas3-gb-form'
          'gambas3-gb-desktop'
          'gambas3-gb-qt4'
+         'gambas3-gb-desktop-x11'
          'python2' 
          'libcpuid-git'
          'xorg-server-utils' 
@@ -42,7 +43,7 @@ prepare() {
   sed -i 's|python3$|python2|' pastebinit
   # make it dynamic
   sed -i -e 's|^STATIC.*|STATIC = false|' i-nex.mk
-  sed -i -e 's|^UDEV_RULES_DIR.*|UDEV_RULES_DIR = /lib/udev/rules.d|' i-nex.mk
+  sed -i -e 's|^UDEV_RULES_DIR.*|UDEV_RULES_DIR = /usr/lib/udev/rules.d|' i-nex.mk
   cd I-Nex
   autoreconf -i
 }
