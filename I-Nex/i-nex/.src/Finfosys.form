@@ -122,7 +122,6 @@
         #Translate = False
         Font = Font["Bold,8"]
         Foreground = &H9F300E&
-        Padding = 3
         Text = "x86 64-Bit Ext:"
         Border = Border.Raised
       }
@@ -135,7 +134,6 @@
         #Translate = False
         Font = Font["Bold,8"]
         Foreground = &H9F300E&
-        Padding = 3
         Text = "HW Virt:"
         Border = Border.Raised
       }
@@ -149,7 +147,6 @@
         #Translate = False
         Font = Font["Bold,8"]
         Foreground = &H9F300E&
-        Padding = 3
         Text = "Hyper-Threading:"
         Border = Border.Raised
       }
@@ -161,7 +158,6 @@
         Move(0,161,469,21)
         #Translate = False
         Font = Font["8"]
-        Padding = 3
         Text = "Label71"
         Border = Border.Raised
       }
@@ -169,7 +165,6 @@
         Move(308,224,161,21)
         #Translate = False
         Font = Font["Bold,8"]
-        Padding = 3
         Text = "Label10"
         Border = Border.Raised
       }
@@ -177,7 +172,6 @@
         Move(273,119,63,21)
         #Translate = False
         Font = Font["Bold,7"]
-        Padding = 3
         Text = "Label19"
         Border = Border.Raised
       }
@@ -185,7 +179,6 @@
         Move(0,140,336,21)
         #Translate = False
         Font = Font["Bold,8"]
-        Padding = 3
         Text = "Label11"
         Border = Border.Raised
       }
@@ -193,7 +186,6 @@
         Move(0,119,70,21)
         #Translate = False
         Font = Font["Bold,7"]
-        Padding = 3
         Text = "Label97"
         Border = Border.Raised
       }
@@ -201,7 +193,6 @@
         Move(70,119,70,21)
         #Translate = False
         Font = Font["Bold,7"]
-        Padding = 3
         Text = "Label6"
         Border = Border.Raised
       }
@@ -209,7 +200,6 @@
         Move(140,119,70,21)
         #Translate = False
         Font = Font["Bold,7"]
-        Padding = 3
         Text = "Label7"
         Border = Border.Raised
       }
@@ -217,7 +207,6 @@
         Move(210,119,63,21)
         #Translate = False
         Font = Font["Bold,7"]
-        Padding = 3
         Text = "Label8"
         Border = Border.Raised
       }
@@ -225,7 +214,6 @@
         Move(0,371,469,21)
         #Translate = False
         Font = Font["Bold,8"]
-        Padding = 3
         Text = "Label1"
         Border = Border.Raised
       }
@@ -233,7 +221,6 @@
         Move(0,392,469,21)
         #Translate = False
         Font = Font["Bold,8"]
-        Padding = 3
         Text = "Label2"
         Border = Border.Raised
       }
@@ -241,7 +228,6 @@
         Move(0,413,469,21)
         #Translate = False
         Font = Font["Bold,8"]
-        Padding = 3
         Text = "Label3"
         Border = Border.Raised
       }
@@ -249,7 +235,6 @@
         Move(0,434,469,21)
         #Translate = False
         Font = Font["Bold,8"]
-        Padding = 3
         Text = "Label5"
         Border = Border.Raised
       }
@@ -257,7 +242,6 @@
         Move(0,203,469,21)
         #Translate = False
         Font = Font["Bold,8"]
-        Padding = 3
         Text = "Label15"
         Border = Border.Raised
       }
@@ -265,91 +249,78 @@
         Move(0,245,91,21)
         #Translate = False
         Font = Font["Bold,8"]
-        Padding = 3
         Border = Border.Raised
       }
       { Label110 Label
         Move(91,245,98,21)
         #Translate = False
         Font = Font["Bold,8"]
-        Padding = 3
         Border = Border.Raised
       }
       { Label111 Label
         Move(189,245,280,21)
         #Translate = False
         Font = Font["Bold,8"]
-        Padding = 3
         Border = Border.Raised
       }
       { Label112 Label
         Move(189,266,280,21)
         #Translate = False
         Font = Font["Bold,8"]
-        Padding = 3
         Border = Border.Raised
       }
       { Label113 Label
         Move(0,266,189,21)
         #Translate = False
         Font = Font["Bold,8"]
-        Padding = 3
         Border = Border.Raised
       }
       { Label114 Label
         Move(0,287,189,21)
         #Translate = False
         Font = Font["Bold,8"]
-        Padding = 3
         Border = Border.Raised
       }
       { Label115 Label
         Move(189,287,280,21)
         #Translate = False
         Font = Font["Bold,8"]
-        Padding = 3
         Border = Border.Raised
       }
       { Label116 Label
         Move(0,308,189,21)
         #Translate = False
         Font = Font["Bold,8"]
-        Padding = 3
         Border = Border.Raised
       }
       { Label117 Label
         Move(189,308,280,21)
         #Translate = False
         Font = Font["Bold,8"]
-        Padding = 3
         Border = Border.Raised
       }
       { Label118 Label
         Move(0,329,189,21)
         #Translate = False
         Font = Font["Bold,8"]
-        Padding = 3
         Border = Border.Raised
       }
       { Label119 Label
         Move(189,329,280,21)
         #Translate = False
         Font = Font["Bold,8"]
-        Padding = 3
         Border = Border.Raised
       }
       { Label120 Label
         Move(0,350,189,21)
         #Translate = False
         Font = Font["Bold,8"]
-        Padding = 3
         Border = Border.Raised
       }
       { Label121 Label
         Move(189,350,280,21)
         #Translate = False
         Font = Font["Bold,8"]
-        Padding = 3
         Border = Border.Raised
       }
       { Separator3 Separator
@@ -369,7 +340,6 @@
         Move(0,56,336,28)
         #Translate = False
         Font = Font["Bold,8"]
-        Padding = 3
         Text = "Label103"
         Border = Border.Raised
       }
@@ -389,7 +359,6 @@
         Font = Font["Bold,8"]
         Foreground = &H23432C&
         PopupMenu = "Copying"
-        Padding = 3
         Text = "Label14"
         Border = Border.Raised
       }
@@ -397,7 +366,6 @@
         Move(91,28,245,28)
         #Translate = False
         Font = Font["Bold,8"]
-        Padding = 3
         Text = "Label12"
         Border = Border.Raised
       }
@@ -407,7 +375,7 @@
       { Button16 Button
         Move(406,161,63,21)
         Font = Font["Bold,8"]
-        Text = ("More...")
+        Text = ("More") & "..."
         Picture = Picture["AppIcons/dialog-ok.png"]
       }
       { LCDLabel1 LCDLabel
@@ -423,7 +391,6 @@
       { ToolButton4 ToolButton
         Move(273,182,21,21)
         ToolTip = ("Enabled in bios")
-        Text = ("ToolButton4")
         Picture = Picture["Data/check_false.png"]
       }
       { Label18 Label
@@ -464,7 +431,6 @@
         { Label92 Label
           Move(0,7,441,21)
           Font = Font["Bold,8"]
-          Padding = 3
           Text = ("Label92")
           Alignment = Align.Center
           Border = Border.Raised
@@ -472,7 +438,6 @@
         { Label193 Label
           Move(0,56,441,21)
           Font = Font["Bold,8"]
-          Padding = 3
           Text = ("Label193")
           Alignment = Align.Center
           Border = Border.Raised
@@ -480,7 +445,6 @@
         { Label194 Label
           Move(0,28,441,28)
           Font = Font["Bold,8"]
-          Padding = 3
           Text = ("Label194")
           Alignment = Align.Center
           Border = Border.Raised
@@ -488,98 +452,84 @@
         { Label195 Label
           Move(217,98,224,21)
           Font = Font["Bold,8"]
-          Padding = 3
           Text = ("Label195")
           Border = Border.Raised
         }
         { Label196 Label
           Move(0,119,217,21)
           Font = Font["Bold,8"]
-          Padding = 3
           Text = ("Label196")
           Border = Border.Raised
         }
         { Label197 Label
           Move(217,119,224,21)
           Font = Font["Bold,8"]
-          Padding = 3
           Text = ("Label197")
           Border = Border.Raised
         }
         { Label198 Label
           Move(217,77,119,21)
           Font = Font["Bold,8"]
-          Padding = 3
           Text = ("Label198")
           Border = Border.Raised
         }
         { Label199 Label
           Move(0,77,98,21)
           Font = Font["Bold,8"]
-          Padding = 3
           Text = ("Label199")
           Border = Border.Raised
         }
         { Label200 Label
           Move(0,98,217,21)
           Font = Font["Bold,8"]
-          Padding = 3
           Text = ("Label200")
           Border = Border.Raised
         }
         { Label201 Label
           Move(336,77,105,21)
           Font = Font["Bold,8"]
-          Padding = 3
           Text = ("Label201")
           Border = Border.Raised
         }
         { Label202 Label
           Move(98,77,119,21)
           Font = Font["Bold,8"]
-          Padding = 3
           Text = ("Label202")
           Border = Border.Raised
         }
         { Label203 Label
           Move(0,140,217,21)
           Font = Font["Bold,8"]
-          Padding = 3
           Text = ("Label203")
           Border = Border.Raised
         }
         { Label204 Label
           Move(217,140,224,21)
           Font = Font["Bold,8"]
-          Padding = 3
           Text = ("Label204")
           Border = Border.Raised
         }
         { Label205 Label
           Move(0,161,217,21)
           Font = Font["Bold,8"]
-          Padding = 3
           Text = ("Label205")
           Border = Border.Raised
         }
         { Label206 Label
           Move(217,161,224,21)
           Font = Font["Bold,8"]
-          Padding = 3
           Text = ("Label206")
           Border = Border.Raised
         }
         { Label207 Label
           Move(0,182,217,21)
           Font = Font["Bold,8"]
-          Padding = 3
           Text = ("Label207")
           Border = Border.Raised
         }
         { Label208 Label
           Move(217,182,224,21)
           Font = Font["Bold,8"]
-          Padding = 3
           Text = ("Label208")
           Border = Border.Raised
         }
@@ -589,77 +539,66 @@
         { Label209 Label
           Move(0,210,147,21)
           Font = Font["Bold,8"]
-          Padding = 3
           Text = ("Label209")
           Border = Border.Raised
         }
         { Label210 Label
           Move(0,231,147,21)
           Font = Font["Bold,8"]
-          Padding = 3
           Text = ("Label210")
           Border = Border.Raised
         }
         { Label211 Label
           Move(0,252,147,21)
           Font = Font["Bold,8"]
-          Padding = 3
           Text = ("Label211")
           Border = Border.Raised
         }
         { Label212 Label
           Move(0,273,147,21)
           Font = Font["8,Bold"]
-          Padding = 3
           Text = ("Label212")
           Border = Border.Raised
         }
         { Label213 Label
           Move(147,210,140,21)
           Font = Font["Bold,8"]
-          Padding = 3
           Text = ("Label213")
           Border = Border.Raised
         }
         { Label214 Label
           Move(147,231,140,21)
           Font = Font["Bold,8"]
-          Padding = 3
           Text = ("Label214")
           Border = Border.Raised
         }
         { Label215 Label
           Move(147,252,140,21)
           Font = Font["Bold,8"]
-          Padding = 3
           Text = ("Label215")
           Border = Border.Raised
         }
         { Label216 Label
           Move(287,210,154,21)
           Font = Font["Bold,8"]
-          Padding = 3
           Text = ("Label216")
           Border = Border.Raised
         }
         { Label217 Label
           Move(287,231,154,21)
           Font = Font["Bold,8"]
-          Padding = 3
           Text = ("Label217")
           Border = Border.Raised
         }
         { Label218 Label
           Move(287,252,154,21)
           Font = Font["Bold,8"]
-          Padding = 3
           Text = ("Label218")
           Border = Border.Raised
         }
         { Label219 Label
           Move(0,294,441,21)
           Font = Font["Bold,8"]
-          Padding = 3
           Text = ("Label219")
           Alignment = Align.Center
           Border = Border.Raised
@@ -686,7 +625,6 @@
       #Translate = False
       Font = Font["Bold,8"]
       Foreground = &H9F004F&
-      Padding = 3
       Border = Border.Raised
     }
     { Label107 Label
@@ -694,14 +632,12 @@
       #Translate = False
       Font = Font["Bold,8"]
       Foreground = &H9F004F&
-      Padding = 3
       Border = Border.Raised
     }
     { Label108 Label
       Move(0,301,469,21)
       #Translate = False
       Font = Font["8"]
-      Padding = 3
       Border = Border.Raised
     }
     { Label106 Label
@@ -709,7 +645,6 @@
       #Translate = False
       Font = Font["Bold,8"]
       Foreground = &H9F004F&
-      Padding = 3
       Border = Border.Raised
     }
     { Label109 Label
@@ -731,7 +666,6 @@
     { Label136 Label
       Move(0,238,469,21)
       Font = Font["8"]
-      Padding = 3
       Text = ("Label136")
       Border = Border.Raised
     }
@@ -739,7 +673,6 @@
       Move(0,259,469,21)
       #Translate = False
       Font = Font["8"]
-      Padding = 3
       Text = "Label64"
       Border = Border.Raised
     }
@@ -747,7 +680,6 @@
       Move(0,280,469,21)
       #Translate = False
       Font = Font["8"]
-      Padding = 3
       Text = "Label146"
       Border = Border.Raised
     }
@@ -755,35 +687,30 @@
       Move(0,133,343,21)
       Font = Font["8"]
       Foreground = &H9F0000&
-      Padding = 3
       Border = Border.Raised
     }
     { Label221 Label
       Move(0,154,343,21)
       Font = Font["8"]
       Foreground = &H9F0000&
-      Padding = 3
       Border = Border.Raised
     }
     { Label222 Label
       Move(0,91,343,21)
       Font = Font["8"]
       Foreground = &H9F0000&
-      Padding = 3
       Border = Border.Raised
     }
     { Label224 Label
       Move(0,112,343,21)
       Font = Font["8"]
       Foreground = &H9F0000&
-      Padding = 3
       Border = Border.Raised
     }
     { Label225 Label
       Move(0,175,343,21)
       Font = Font["8"]
       Foreground = &H9F0000&
-      Padding = 3
       Border = Border.Raised
     }
     { Separator13 Separator
@@ -793,61 +720,52 @@
     { Label156 Label
       Move(0,427,259,21)
       Font = Font["8"]
-      Padding = 3
       Border = Border.Raised
     }
     { Label154 Label
       Move(0,448,469,21)
       Font = Font["8"]
-      Padding = 3
       Border = Border.Raised
     }
     { Label102 Label
       Move(259,427,210,21)
       #Translate = False
       Font = Font["8"]
-      Padding = 3
       Border = Border.Raised
     }
     { Label101 Label
       Move(0,364,469,21)
       #Translate = False
       Font = Font["8"]
-      Padding = 3
       Border = Border.Raised
     }
     { Label100 Label
       Move(0,385,182,21)
       #Translate = False
       Font = Font["8"]
-      Padding = 3
       Border = Border.Raised
     }
     { Label155 Label
       Move(322,385,147,21)
       Font = Font["8"]
-      Padding = 3
       Border = Border.Raised
     }
     { Label67 Label
       Move(182,385,140,21)
       #Translate = False
       Font = Font["8"]
-      Padding = 3
       Border = Border.Raised
     }
     { Label66 Label
       Move(140,406,168,21)
       #Translate = False
       Font = Font["8"]
-      Padding = 3
       Border = Border.Raised
     }
     { Label65 Label
       Move(0,406,140,21)
       #Translate = False
       Font = Font["8"]
-      Padding = 3
       Border = Border.Raised
     }
     { Label226 Label
@@ -863,7 +781,6 @@
       Font = Font["Bold,8"]
       Foreground = &H9F004F&
       ToolTip = ("OpenGL ES profile version string")
-      Padding = 3
       Border = Border.Raised
     }
     { Label247 Label
@@ -871,7 +788,6 @@
       Font = Font["Bold,8"]
       Foreground = &H9F004F&
       ToolTip = ("OpenGL ES profile shading language version string")
-      Padding = 3
       Border = Border.Raised
     }
     Index = 2
@@ -1066,7 +982,6 @@
       #Public = True
       #Translate = False
       Font = Font["8"]
-      Padding = 3
       Border = Border.Raised
     }
     { !Label46 Label
@@ -1074,7 +989,6 @@
       #Public = True
       #Translate = False
       Font = Font["8"]
-      Padding = 3
       Border = Border.Raised
     }
     { !Label51 Label
@@ -1082,7 +996,6 @@
       #Public = True
       #Translate = False
       Font = Font["8"]
-      Padding = 3
       Border = Border.Raised
     }
     { !Label54 Label
@@ -1090,7 +1003,6 @@
       #Public = True
       #Translate = False
       Font = Font["8"]
-      Padding = 3
       Border = Border.Raised
     }
     { !Label56 Label
@@ -1098,7 +1010,6 @@
       #Public = True
       #Translate = False
       Font = Font["8"]
-      Padding = 3
       Border = Border.Raised
     }
     { ProgressBar2 ProgressBar
@@ -1111,7 +1022,6 @@
       #Public = True
       #Translate = False
       Font = Font["8"]
-      Padding = 3
       Border = Border.Raised
     }
     { !Label42 Label
@@ -1119,7 +1029,6 @@
       #Public = True
       #Translate = False
       Font = Font["8"]
-      Padding = 3
       Border = Border.Raised
     }
     { !Label43 Label
@@ -1143,7 +1052,6 @@
       #Public = True
       #Translate = False
       Font = Font["8"]
-      Padding = 3
       Border = Border.Raised
     }
     { !Label52 Label
@@ -1151,7 +1059,6 @@
       #Public = True
       #Translate = False
       Font = Font["8"]
-      Padding = 3
       Border = Border.Raised
     }
     { !Label55 Label
@@ -1159,7 +1066,6 @@
       #Public = True
       #Translate = False
       Font = Font["8"]
-      Padding = 3
       Border = Border.Raised
     }
     { !Label57 Label
@@ -1167,7 +1073,6 @@
       #Public = True
       #Translate = False
       Font = Font["8"]
-      Padding = 3
       Border = Border.Raised
     }
     { !Label59 Label
@@ -1176,7 +1081,6 @@
       #Translate = False
       Font = Font["10"]
       Foreground = &HFF0000&
-      Padding = 3
       Alignment = Align.Center
       Border = Border.Raised
     }
@@ -1184,7 +1088,6 @@
       Move(161,455,133,21)
       #Public = True
       Font = Font["8"]
-      Padding = 3
       Text = ("Label123")
       Border = Border.Raised
     }
@@ -1192,7 +1095,6 @@
       Move(161,434,133,21)
       #Public = True
       Font = Font["8"]
-      Padding = 3
       Text = ("Label124")
       Border = Border.Raised
     }
@@ -1200,7 +1102,6 @@
       Move(161,413,308,21)
       #Public = True
       Font = Font["8"]
-      Padding = 3
       Text = ("Label125")
       Border = Border.Raised
     }
@@ -1225,7 +1126,6 @@
       Move(0,455,161,21)
       #Public = True
       Font = Font["8"]
-      Padding = 3
       Text = ("Label129")
       Border = Border.Raised
     }
@@ -1233,7 +1133,6 @@
       Move(0,434,161,21)
       #Public = True
       Font = Font["8"]
-      Padding = 3
       Text = ("Label130")
       Border = Border.Raised
     }
@@ -1242,14 +1141,12 @@
       #Public = True
       #Translate = False
       Font = Font["8"]
-      Padding = 3
       Border = Border.Raised
     }
     { !Label127 Label
       Move(0,392,161,21)
       #Public = True
       Font = Font["8"]
-      Padding = 3
       Text = ("Label127")
       Border = Border.Raised
     }
@@ -1257,7 +1154,6 @@
       Move(0,371,161,21)
       #Public = True
       Font = Font["8"]
-      Padding = 3
       Text = ("Label134")
       Border = Border.Raised
     }
@@ -1266,14 +1162,12 @@
       #Public = True
       #Translate = False
       Font = Font["8"]
-      Padding = 3
       Border = Border.Raised
     }
     { !Label131 Label
       Move(0,329,161,21)
       #Public = True
       Font = Font["8"]
-      Padding = 3
       Text = ("Label131")
       Border = Border.Raised
     }
@@ -1281,7 +1175,6 @@
       Move(0,308,161,21)
       #Public = True
       Font = Font["8"]
-      Padding = 3
       Text = ("Label128")
       Border = Border.Raised
     }
@@ -1289,7 +1182,6 @@
       Move(0,287,161,21)
       #Public = True
       Font = Font["8"]
-      Padding = 3
       Text = ("Label126")
       Border = Border.Raised
     }
@@ -1297,7 +1189,6 @@
       Move(0,266,161,21)
       #Public = True
       Font = Font["8"]
-      Padding = 3
       Text = ("Label132")
       Border = Border.Raised
     }
@@ -1305,7 +1196,6 @@
       Move(0,245,161,21)
       #Public = True
       Font = Font["8"]
-      Padding = 3
       Border = Border.Raised
     }
     { !Label44 Label
@@ -1313,7 +1203,6 @@
       #Public = True
       #Translate = False
       Font = Font["8"]
-      Padding = 3
       Border = Border.Raised
     }
     { !Label39 Label
@@ -1327,7 +1216,6 @@
     { Label248 Label
       Move(308,189,161,21)
       Font = Font["8"]
-      Padding = 3
       Text = ("Label248")
       Border = Border.Raised
     }
@@ -1335,7 +1223,6 @@
       Move(0,189,161,21)
       #Public = True
       Font = Font["8"]
-      Padding = 3
       Border = Border.Raised
     }
     { TextBox29 TextBox
@@ -1415,7 +1302,6 @@
       Move(0,0,98,28)
       Font = Font["Bold,10"]
       Foreground = &HFF7F00&
-      Padding = 3
       Text = ("Label17")
       Alignment = Align.Center
       Border = Border.Raised
@@ -1428,21 +1314,18 @@
       { Label251 Label
         Move(0,0,231,21)
         Font = Font["8"]
-        Padding = 3
         Text = ("Label251")
         Border = Border.Raised
       }
       { Label252 Label
         Move(0,21,231,21)
         Font = Font["8"]
-        Padding = 3
         Text = ("Label252")
         Border = Border.Raised
       }
       { Label253 Label
         Move(0,42,231,21)
         Font = Font["8"]
-        Padding = 3
         Text = ("Label253")
         Border = Border.Raised
       }
@@ -1459,21 +1342,18 @@
       { Label122 Label
         Move(0,0,182,21)
         Font = Font["8"]
-        Padding = 3
         Text = ("Label122")
         Border = Border.Raised
       }
       { Label254 Label
         Move(0,21,182,21)
         Font = Font["8"]
-        Padding = 3
         Text = ("Label254")
         Border = Border.Raised
       }
       { Label255 Label
         Move(0,42,182,21)
         Font = Font["8"]
-        Padding = 3
         Text = ("Label255")
         Border = Border.Raised
       }
@@ -1502,7 +1382,7 @@
       Border = Border.Raised
     }
     { Button7 Button
-      Move(7,413,72,24)
+      Move(7,420,72,24)
       #Translate = False
       Font = Font["Bold,8"]
       ToolTip = "Show number packages installed on your system.\nShow deb, rpm or pkg"
@@ -1513,7 +1393,6 @@
       Move(0,0,154,28)
       #Translate = False
       Font = Font["8"]
-      Padding = 3
       Text = "Label4"
       Border = Border.Raised
     }
@@ -1521,7 +1400,6 @@
       Move(154,0,154,28)
       #Translate = False
       Font = Font["8"]
-      Padding = 3
       Text = "Label135"
       Border = Border.Raised
     }
@@ -1529,26 +1407,24 @@
       Move(238,315,231,21)
       #Translate = False
       Font = Font["8"]
-      Padding = 3
       Border = Border.Raised
     }
     { Label138 Label
-      Move(0,231,469,21)
+      Move(0,224,469,21)
       #Translate = False
       Font = Font["8"]
-      Padding = 3
       Alignment = Align.Center
       Border = Border.Raised
     }
     { Label139 Label
-      Move(238,273,231,21)
+      Move(238,266,231,28)
       #Translate = False
       Font = Font["8"]
       Padding = 3
       Border = Border.Raised
     }
     { Label140 Label
-      Move(0,273,238,21)
+      Move(0,266,238,28)
       #Translate = False
       Font = Font["8"]
       Padding = 3
@@ -1558,22 +1434,19 @@
       Move(0,315,238,21)
       #Translate = False
       Font = Font["8"]
-      Padding = 3
       Border = Border.Raised
     }
     { Label142 Label
       Move(0,294,238,21)
       #Translate = False
       Font = Font["8"]
-      Padding = 3
       Border = Border.Raised
     }
     { Label143 Label
-      Move(0,252,469,21)
+      Move(0,245,469,21)
       #Translate = False
       Visible = False
       Font = Font["8"]
-      Padding = 3
       Alignment = Align.Center
       Border = Border.Raised
     }
@@ -1581,7 +1454,6 @@
       Move(238,294,231,21)
       #Translate = False
       Font = Font["8"]
-      Padding = 3
       Border = Border.Raised
     }
     { PictureBox2 PictureBox
@@ -1592,69 +1464,49 @@
       Move(238,336,231,21)
       #Translate = False
       Font = Font["8"]
-      Padding = 3
       Border = Border.Raised
     }
     { Label37 Label
       Move(0,28,308,28)
       Font = Font["8"]
-      Padding = 3
       Text = ("Label37")
       Border = Border.Raised
     }
     { Label60 Label
       Move(0,56,308,28)
       Font = Font["8"]
-      Padding = 3
       Text = ("Label60")
       Border = Border.Raised
     }
     { Label61 Label
       Move(0,84,308,28)
       Font = Font["8"]
-      Padding = 3
       Text = ("Label61")
       Border = Border.Raised
     }
     { Label62 Label
       Move(0,112,308,28)
       Font = Font["8"]
-      Padding = 3
       Text = ("Label62")
       Border = Border.Raised
     }
     { Label63 Label
       Move(0,140,308,28)
       Font = Font["8"]
-      Padding = 3
       Text = ("Label63")
       Border = Border.Raised
     }
     { Label147 Label
       Move(0,196,308,28)
       Font = Font["8"]
-      Padding = 3
       Text = ("Label147")
       Border = Border.Raised
     }
     { Label148 Label
       Move(0,168,308,28)
       Font = Font["8"]
-      Padding = 3
       Text = ("Label148")
       Border = Border.Raised
-    }
-    { Separator1 Separator
-      Move(308,217,161,14)
-    }
-    { Separator6 Separator
-      Move(0,399,469,14)
-    }
-    { Separator7 Separator
-      Move(301,0,14,224)
-    }
-    { Separator8 Separator
-      Move(0,434,469,14)
     }
     { Button15 Button
       Move(434,448,28,28)
@@ -1662,25 +1514,25 @@
       Picture = Picture["AppIcons/edit-copy.png"]
     }
     { Label149 Label
-      Move(238,357,231,21)
+      Move(238,357,231,28)
       Font = Font["8"]
       Padding = 3
       Border = Border.Raised
     }
     { Label150 Label
-      Move(0,357,238,21)
+      Move(0,357,238,28)
       Font = Font["8"]
       Padding = 3
       Border = Border.Raised
     }
     { Label151 Label
-      Move(238,378,231,21)
+      Move(238,385,231,28)
       Font = Font["8"]
       Padding = 3
       Border = Border.Raised
     }
     { Label152 Label
-      Move(0,378,238,21)
+      Move(0,385,238,28)
       Font = Font["8"]
       Padding = 3
       Border = Border.Raised
@@ -1688,7 +1540,6 @@
     { Label153 Label
       Move(0,336,238,21)
       Font = Font["8"]
-      Padding = 3
       Border = Border.Raised
     }
     { Button18 Button
@@ -1701,35 +1552,30 @@
     { TextLabel18 TextLabel
       Move(14,126,441,28)
       Font = Font["8"]
-      Padding = 3
       Alignment = Align.Normal
       Border = Border.Raised
     }
     { TextLabel17 TextLabel
       Move(14,98,441,28)
       Font = Font["8"]
-      Padding = 3
       Alignment = Align.Normal
       Border = Border.Raised
     }
     { TextLabel16 TextLabel
       Move(14,70,441,28)
       Font = Font["8"]
-      Padding = 3
       Alignment = Align.Normal
       Border = Border.Raised
     }
     { TextLabel7 TextLabel
       Move(14,42,441,28)
       Font = Font["8"]
-      Padding = 3
       Alignment = Align.Normal
       Border = Border.Raised
     }
     { TextLabel26 TextLabel
       Move(14,14,441,28)
       Font = Font["8"]
-      Padding = 3
       Alignment = Align.Normal
       Border = Border.Raised
     }
@@ -1770,7 +1616,6 @@
     { TextLabel24 TextLabel
       Move(119,42,350,21)
       Font = Font["Bold,8"]
-      Padding = 1
       Text = ("N/A")
       Alignment = Align.Center
       Border = Border.Raised
@@ -1778,7 +1623,6 @@
     { Label176 Label
       Move(154,133,315,21)
       Font = Font["Bold,8"]
-      Padding = 3
       Text = ("Label176")
       Border = Border.Raised
     }
@@ -1786,42 +1630,36 @@
       Move(0,91,154,21)
       Font = Font["Bold,8"]
       Expand = True
-      Padding = 3
       Border = Border.Raised
     }
     { Label86 Label
       Move(308,91,161,21)
       Font = Font["Bold,8"]
       Expand = True
-      Padding = 3
       Border = Border.Raised
     }
     { Label87 Label
       Move(154,112,154,21)
       Font = Font["Bold,8"]
       Expand = True
-      Padding = 3
       Border = Border.Raised
     }
     { Label88 Label
       Move(308,112,161,21)
       Font = Font["Bold,8"]
       Expand = True
-      Padding = 3
       Border = Border.Raised
     }
     { Label89 Label
       Move(154,91,154,21)
       Font = Font["Bold,8"]
       Expand = True
-      Padding = 3
       Border = Border.Raised
     }
     { Label90 Label
       Move(0,112,154,21)
       Font = Font["Bold,8"]
       Expand = True
-      Padding = 3
       Alignment = Align.Left
       Border = Border.Raised
     }
@@ -1829,13 +1667,11 @@
       Move(0,133,154,21)
       Font = Font["Bold,8"]
       Expand = True
-      Padding = 3
       Border = Border.Raised
     }
     { Label223 Label
       Move(119,0,350,21)
       Font = Font["Bold,8"]
-      Padding = 3
       Text = ("Label223")
       Alignment = Align.Center
       Border = Border.Raised
@@ -1860,64 +1696,54 @@
       { Label227 Label
         Move(7,63,252,21)
         Font = Font["8"]
-        Padding = 3
         Border = Border.Raised
       }
       { Label256 Label
         Move(7,84,140,21)
         Font = Font["8"]
-        Padding = 3
         Border = Border.Raised
       }
       { Label257 Label
         Move(7,105,84,21)
         Font = Font["8"]
-        Padding = 3
         Border = Border.Raised
       }
       { Label258 Label
         Move(91,105,168,21)
         Font = Font["8"]
-        Padding = 3
         Border = Border.Raised
       }
       { Label259 Label
         Move(7,21,455,21)
         Font = Font["8"]
-        Padding = 3
         Border = Border.Raised
       }
       { Label260 Label
         Move(7,42,455,21)
         Font = Font["8"]
-        Padding = 3
         Border = Border.Raised
       }
       { Label261 Label
         Move(147,84,315,21)
         Font = Font["8"]
-        Padding = 3
         Text = ("Label261")
         Border = Border.Raised
       }
       { Label262 Label
         Move(7,126,252,21)
         Font = Font["8"]
-        Padding = 3
         Text = ("Label262")
         Border = Border.Raised
       }
       { Label263 Label
         Move(7,147,252,21)
         Font = Font["8"]
-        Padding = 3
         Text = ("Label263")
         Border = Border.Raised
       }
       { Label264 Label
         Move(7,168,252,21)
         Font = Font["8"]
-        Padding = 3
         Text = ("Label264")
         Border = Border.Raised
       }

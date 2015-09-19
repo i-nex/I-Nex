@@ -127,7 +127,7 @@ Public Sub Form_Open()
                       .Width = 440
                       .Height = 21
                       .Border = Border.Raised
-                      .Padding = 3
+                      .Padding = 0
                       .Font.Size = 8
                       .Tooltip = DATAT["Flags"][i]["NAME"]
                       .Text = DATAT["Flags"][i]["DESC"]
