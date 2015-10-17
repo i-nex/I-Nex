@@ -34,7 +34,7 @@
   { TextLabel1 TextLabel
     MoveScaled(1,22,66,6)
     Font = Font["Bold,9"]
-    Text = ("To obtain a user name and a private key. You need to register to I-Nex Cebrero")
+    Text = ("To obtain a user name and a private key. You need to register to I-Nex Cerbero")
     Alignment = Align.Center
   }
   { Button1 Button
