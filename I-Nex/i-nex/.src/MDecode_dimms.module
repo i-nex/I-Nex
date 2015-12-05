@@ -15,6 +15,11 @@ Public Sub List_EEPROM()
  
  Try Finfosys.ComboBox10.List = Dir("/sys/bus/i2c/drivers/eeprom/", "*-****")
  Try Finfosys.ComboBox10.Index = 0
+
+ If Finfosys.ComboBox10.Count = 0 Then
+  SETNULL()
+  FINALIZE()
+ Endif
 End
 
 Public Sub _inits()

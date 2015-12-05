@@ -1,5 +1,5 @@
 # Gambas Project File 3.0
-# Compiled with Gambas 3.5.4
+# Compiled with Gambas 3.8.3
 Title=I-Nex
 Startup=MStart
 Icon=logo/i-nex.0.4.x.png
@@ -14,7 +14,6 @@ Environment="LANG=C\nLC_ALL=C\nLIBOVERLAY_SCROLLBAR=0\nAPPMENU_DISPLAY_BOTH=1\nS
 TabSize=1
 ControlPublic=1
 ModulePublic=1
-ExecPath=/home/michal/Desktop/i-nex.gambas
 SourcePath=/home/michal/Pulpit
 Maintainer=eloaders
 Vendor=i-nex
@@ -33,3 +32,5 @@ Groups=suse:"Development"
 Menus=ubuntu:"Applications/System/Hardware"
 Categories=ubuntu:"System"
 Groups=ubuntu:"gnome"
+Dependencies=
+GambasVersion=3.8

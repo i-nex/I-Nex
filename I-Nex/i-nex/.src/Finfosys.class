@@ -774,7 +774,9 @@ End
 
 Public Sub Button7_Click()
   Dim packages As String
+  If Exist("/var/lib/dpkg/status")
   Shell "grep \"^Status: install ok installed\" /var/lib/dpkg/status | wc -l" Wait To packages
+  Endif
   If ChkPrm.ChkExec("rpm") = True And IsNull(packages) = True Then
   Shell "rpm -qa | wc -l" Wait To packages
   Endif 

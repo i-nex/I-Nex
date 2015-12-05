@@ -65,6 +65,10 @@ Public Sub _inits()
   Case Like "*netrunner*"
    Finfosys.PictureBox2.Picture = Picture["/etc/i-nex/Database/Distlogos/netrunner.png"]
    Finfosys.PictureBox2.Name = "netrunner.png"
+' CentOS
+  Case Like "*centos*"
+   Finfosys.PictureBox2.Picture = Picture["/etc/i-nex/Database/Distlogos/centos.png"]
+   Finfosys.PictureBox2.Name = "centos.png"
  End Select
  
  If Finfosys.SCREENFETCH["Distro"] Like "*Ubuntu*" And Finfosys.SCREENFETCH["DE"] Like "*KDE*" Then
@@ -110,7 +114,6 @@ Public Sub _inits()
 ' Viperr
 ' LinuxDeepin
 ' Chakra
-' CentOS
 ' Mac OS X
 ' Fuduntu
 End
