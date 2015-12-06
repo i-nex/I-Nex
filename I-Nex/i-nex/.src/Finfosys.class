@@ -425,12 +425,12 @@ Public Sub grafika()
   If IsNull(Kernel_driver_in_use) Or IsSpace(Kernel_driver_in_use) = True Then
    Try Exec [ChkPrm.ChkExecDir("xdriinfo")] Wait To Kernel_driver_in_use
   Endif
-  Exec ["/bin/bash", "/usr/bin/i-nex-lspci", "nonprefetchable"] Wait To memory_non_prefetchable
-  Exec ["/bin/bash", "/usr/bin/i-nex-lspci", "prefetchable"] Wait To memory_prefetchable
+  Try Exec ["/bin/bash", "/usr/bin/i-nex-lspci", "nonprefetchable"] Wait To memory_non_prefetchable
+  Try Exec ["/bin/bash", "/usr/bin/i-nex-lspci", "prefetchable"] Wait To memory_prefetchable
 
   Label136.Text = "Kernel driver in use: " & Replace(Kernel_driver_in_use, "\n", "")
-  Label64.Text = "Total Memory prefetchable: " & Replace(memory_prefetchable, "\n", " - ")
-  Label146.Text = "Total Memory non-prefetchable: " & Replace(memory_non_prefetchable, "\n", " - ")
+  Try Label64.Text = "Total Memory prefetchable: " & Replace(memory_prefetchable, "\n", " - ")
+  Try Label146.Text = "Total Memory non-prefetchable: " & Replace(memory_non_prefetchable, "\n", " - ")
   Label108.Text = "Present resolution: " & Replace(rozdzielczosc, "\n", "")
   TextBox1.Text = RTrim(Replace(gpu, "\n", ""))
   Label109.Text = Replace(available_resolutions, "\n", "")
