@@ -17,6 +17,9 @@ Geometry=[-9,212,180,180]
 [DebugWindow/User]
 Geometry=[236,249,180,180]
 
+[Executable]
+Path="/home/michal/Pulpit/i-nex.gambas"
+
 [FFind]
 SearchIn="Module"
 CaseSensitive=False

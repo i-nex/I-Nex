@@ -503,7 +503,7 @@ Public Sub Wykrywanie_procesorow()
 
     sKey = Trim(Left$(sLine, iPos - 1))
     sVal = Trim(Mid$(sLine, iPos + 1))
-
+    
     Select Case sKey
       Case "processor"
        CPU_PROCESSOR.Add(sVal)
@@ -513,7 +513,7 @@ Public Sub Wykrywanie_procesorow()
        CPU_FAMILYz.Add(sVal)
       Case "model"
        CPU_MODEL.Add(sVal)
-      Case "model name"
+      Case Like "[Mm]odel name"
        Character = InStr(sVal, "@")
        CPU_MODEL_NAME.Add(Trim(Left$(sVal, Character - 1)))
       Case "stepping"

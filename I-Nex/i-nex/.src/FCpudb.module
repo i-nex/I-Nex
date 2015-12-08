@@ -68,18 +68,22 @@ Function _inits()
   '
   '
   Else If Finfosys.Label14.Text Like "*atom*" Then
-   Logs("Use Intel Atom CPU Database", Logger.Info)
+   Logs("Use Intel CPU Database (Atom)", Logger.Info)
     buffer = File.Load("/etc/i-nex/Database/atom.json") 'Load the database to a temporary buffer
     Finfosys.Label14.Text = Replace(Finfosys.Label14.Text, "Intel", "")
   Else If Finfosys.Label14.Text Like "*intel*" Then
-   Logs("Use Intel CPU Database", Logger.Info)
+   Logs("Use Intel CPU Database (Intel All)", Logger.Info)
     buffer = File.Load("/etc/i-nex/Database/intel.json") 'Load the database to a temporary buffer
     Finfosys.Label14.Text = Replace(Finfosys.Label14.Text, "Intel", "")
   Else If Finfosys.Label14.Text Like "*Pentium*" Then
-   Logs("Use Intel CPU Database", Logger.Info)
+   Logs("Use Intel CPU Database (Pentium)", Logger.Info)
+    buffer = File.Load("/etc/i-nex/Database/intel.json") 'Load the database to a temporary buffer
+  Else If Finfosys.Label14.Text Like "*Celeron*" Then
+   Logs("Use Intel CPU Database (Celeron)", Logger.Info)
     buffer = File.Load("/etc/i-nex/Database/intel.json") 'Load the database to a temporary buffer
   Endif
   
+  'Celeron(R)Dual - Core CPU T3000@1.80 GHz
   Logs("Decode CPU Database", Logger.Info)
   database = JSON.Decode(buffer) 'Convert JSON data to Collection
   buffer = Null
@@ -115,7 +119,9 @@ Function _inits()
    cpucache = Replace(cpucache, "Core", "*")
    cpucache = Replace(cpucache, "Dual", "*")
   Endif
-
+  
+  Logs("CPU Cache (I-Nex)" & cpucache & "", Logger.Info)
+  
   For z = 0 To database["DATABASE"].Count - 1
     If database["DATABASE"][z]["PROCESSOR_MODEL_NAME"] Like "*" & cpucache & "*" Then 
       Print database["DATABASE"][z]["PROCESSOR_MODEL_NAME"]
