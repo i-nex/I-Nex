@@ -1,3 +1,10 @@
+i-nex (7.4.0.1) stable; urgency=medium
+  
+  * Update for version 7.4.0.1
+  * Chengelog for version 7.4.0 see file /usr/share/doc/i-nex/changelog-7.4.0
+
+ -- eloaders <eloaders@linux.pl>  Sun, 06 Dec 2015 19:36:43 +0100
+
 i-nex (7.4.0) stable; urgency=medium
 
   * Chengelog for version 7.4.0 see file /usr/share/doc/i-nex/changelog-7.4.0

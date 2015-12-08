@@ -15,35 +15,41 @@
 # Please submit bugfixes or comments via http://bugs.opensuse.org/
 #
 
+# The gittag version below ensures that the source tag points to the correct commit in GitHub and that it is reflected in the RPM versions (and names).
+
+%define gittag 5813d16
 
 Name:           i-nex
-Version:        7.0.0
-Release:        1
+Version:        7.4.0
+Release:        5.20151205git%{?gittag}%{?dist}
 Summary:        System information tool
 
 License:        GPL-3.0+
 Url:            http://i-nex.linux.pl
 Group:          System/X11/Utilities
-Source0:        https://github.com/eloaders/I-Nex/archive/%{version}.tar.gz
+Source0:        https://github.com/eloaders/I-Nex/archive/%{gittag}.zip#/I-Nex-master.zip
+
 
 BuildRequires:  ImageMagick
+BuildRequires:  autoconf
+BuildRequires:  automake
 %if 0%{?suse_version} <= 1210
 BuildRequires:  freeglut
 %else
 BuildRequires:  Mesa-demo-x
 %endif
 BuildRequires:  fdupes
-BuildRequires:  gambas3-devel >= 3.5.0
-BuildRequires:  gambas3-gb-desktop >= 3.5.0
-BuildRequires:  gambas3-gb-form >= 3.5.0
-BuildRequires:  gambas3-gb-form-dialog >= 3.5.0
-BuildRequires:  gambas3-gb-form-stock >= 3.5.0
-BuildRequires:  gambas3-gb-gtk >= 3.5.0
-BuildRequires:  gambas3-gb-gui >= 3.5.0
-BuildRequires:  gambas3-gb-image >= 3.5.0
-BuildRequires:  gambas3-gb-qt4 >= 3.5.0
-BuildRequires:  gambas3-gb-qt4-ext >= 3.5.0
-BuildRequires:  gambas3-gb-settings >= 3.5.0
+BuildRequires:  gambas3-devel >= 3.8.0
+BuildRequires:  gambas3-gb-desktop >= 3.8.0
+BuildRequires:  gambas3-gb-form >= 3.8.0
+BuildRequires:  gambas3-gb-form-dialog >= 3.8.0
+BuildRequires:  gambas3-gb-form-stock >= 3.8.0
+BuildRequires:  gambas3-gb-gtk >= 3.8.0
+BuildRequires:  gambas3-gb-gui >= 3.8.0
+BuildRequires:  gambas3-gb-image >= 3.8.0
+BuildRequires:  gambas3-gb-qt4 >= 3.8.0
+BuildRequires:  gambas3-gb-qt4-ext >= 3.8.0
+BuildRequires:  gambas3-gb-settings >= 3.8.0
 BuildRequires:  hicolor-icon-theme
 %if 0%{?suse_version}
 BuildRequires:  lsb-release
@@ -53,31 +59,37 @@ BuildRequires:  net-tools
 BuildRequires:  openSUSE-release
 %endif
 BuildRequires:  pkgconfig
-BuildRequires:  pkgconfig(libcpuid)
+BuildRequires:  pkgconfig(libcpuid) >= 0.2.1
 BuildRequires:  pkgconfig(libprocps)
 BuildRequires:  pkgconfig(x11)
 BuildRequires:  pkgconfig(gl)
 BuildRequires:  pkgconfig(xext)
 BuildRequires:  pciutils
 BuildRequires:  procps
-BuildRequires:  update-desktop-files
+BuildRequires:  procps-ng
+BuildRequires:  procps-ng-devel
+#BuildRequires:  update-desktop-files
 %if 0%{?suse_version}
 BuildRequires:  xorg-x11 >= 7.5
 %endif
 BuildRequires:  xz
 Requires:       %{name}-data = %{version}
-Requires:       gambas3-gb-desktop >= 3.5.0
-Requires:       gambas3-gb-form >= 3.5.0
-Requires:       gambas3-gb-form-dialog >= 3.5.0
-Requires:       gambas3-gb-form-stock >= 3.5.0
-Requires:       gambas3-gb-geom >= 3.4.0
-Requires:       gambas3-gb-gtk >= 3.5.0
-Requires:       gambas3-gb-gui >= 3.5.0
-Requires:       gambas3-gb-image >= 3.5.0
-Requires:       gambas3-gb-qt4 >= 3.5.0
-Requires:       gambas3-gb-qt4-ext >= 3.5.0
-Requires:       gambas3-gb-settings >= 3.5.0
-Requires:       gambas3-runtime >= 3.5.0
+Requires:       gambas3-gb-desktop >= 3.8.0
+Requires:       gambas3-gb-form >= 3.8.0
+Requires:       gambas3-gb-form-dialog >= 3.8.0
+Requires:       gambas3-gb-form-stock >= 3.8.0
+#Requires:       gambas3-gb-geom >= 3.8.0
+Requires:       gambas3-gb-gtk >= 3.8.0
+Requires:       gambas3-gb-gui >= 3.8.0
+Requires:       gambas3-gb-image >= 3.8.0
+Requires:       gambas3-gb-qt4 >= 3.8.0
+Requires:       gambas3-gb-qt4-ext >= 3.8.0
+Requires:       gambas3-gb-settings >= 3.8.0
+Requires:       gambas3-runtime >= 3.8.0
+%if 0%{?rhel}%{?fedora}
+#BuildRequires:  desktop-file-utils
+Requires:   i2c-tools
+%endif
 %if 0%{?suse_version}
 %if 0%{?suse_version} <= 1210
 Recommends:     freeglut
@@ -110,7 +122,7 @@ Requires:       %{name} = %{version}
 I-Nex arch independent data.
 
 %prep
-%setup -q -n I-Nex-%{version}
+%setup -q -n I-Nex-master
 # A hack to be able to run the program via the name execution.
 #+ some info tools are under *sbin
 cat > %{name}.sh <<HERE
@@ -123,13 +135,14 @@ HERE
 #using system's pastebinit
 %__sed -i \
        '\|/usr/share/i-nex/pastebinit/|s|/usr/share/i-nex/pastebinit/||' \
-       src/i-nex/.src/Reports/MPastebinit.module
-%__cp src/i-nex/logo/i-nex.0.4.x.png $RPM_SOURCE_DIR/%{name}.png
+       I-Nex/i-nex/.src/Reports/MPastebinit.module
+%__cp I-Nex/i-nex/logo/i-nex.0.4.x.png $RPM_SOURCE_DIR/%{name}.png
 %{__sed} -e 's|env LIBOVERLAY_SCROLLBAR=0 /usr/bin/i-nex.gambas|i-nex|' \
          -e '/^Icon=/s|=.*|=%{name}|' debian/%{name}.desktop > %{name}.desktop
 
 %build
-cd src
+cd I-Nex
+autoreconf -fiv
 %configure
 cd ..
 make \
@@ -152,21 +165,24 @@ rm -rf %{buildroot}%{_datadir}/%{name}/pastebinit
 
 %if 0%{?suse_version}
 %suse_update_desktop_file -r %{name} 'System;HardwareSettings;'
+%suse_update_desktop_file -r %{name}-library 'System;HardwareSettings;'
 %endif
 
 %fdupes -s %{buildroot}%{_datadir}
 
-
+%if 0%{?suse_version} >= 1140
 %post   data
 %desktop_database_post
+%endif
 
+%if 0%{?suse_version} >= 1140
 %postun data
 %desktop_database_postun
-
+%endif
 
 %files
 %defattr(-,root,root,-)
-%doc docs/copyright docs/I-Nex.LICENSE src/COPYING
+%doc docs/copyright docs/I-Nex.LICENSE I-Nex/COPYING
 %{_bindir}/%{name}-*
 %doc %{_mandir}/man*/%{name}*
 
@@ -175,9 +191,30 @@ rm -rf %{buildroot}%{_datadir}/%{name}/pastebinit
 %defattr(-,root,root,-)
 %{_bindir}/%{name}
 %{_bindir}/%{name}.gambas
-%{_datadir}/applications/%{name}.desktop
+%{_datadir}/applications/%{name}*.desktop
 %{_datadir}/pixmaps/%{name}*
 %doc debian/changelog* changelogs/changelog*
-%doc src/AUTHORS src/ChangeLog src/README
+%doc I-Nex/AUTHORS I-Nex/ChangeLog I-Nex/README
+/etc/i-nex
+/etc/udev/rules.d/i2c_smbus.rules
 
 %changelog
+* Sun Dec 6 2015 <GitHub/eloarders/I-Nex/alphastar868>
+- Updated version to I-Nex 7.4.0 commit 5813d16
+- Modified specfile to match RPM versions from Rawhide - 
+  https://fedoraproject.org/wiki/Packaging:NamingGuidelines
+
+* Sat Oct 3 2015 <GitHub/eloarders/I-Nex/alphastar868>
+- Modified specfile to reflect commit date and short GitTag in  
+  RPM versions.
+
+* Fri Oct 2 2015 <GitHub/eloarders/I-Nex/alphastar868>
+- Patched SPD labelnames and blank RPM Package count
+  (GitHub Issue # 12 and 14).
+
+* Thu Oct 1 2015 <GitHub/eloarders/I-Nex/alphastar868>
+- Patched specfile for x86_64 lib64 detection and JSON 
+  O/S distro double quotes fixes (GitHub Issue # 10, 11).
+- Added i2c_tools requirement to specfile.
+- Removed %post and %postun requirements for CentOS.
+- Updated version to I-Nex 7.4.0 commit 3455715bbc
