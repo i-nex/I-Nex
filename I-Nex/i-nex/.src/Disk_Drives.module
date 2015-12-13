@@ -176,6 +176,12 @@ Function Schedule(sched As String) As String
    Return "cfq"
   Case Like "*\\[bfq\\]*"
    Return "bfq"
+  Case Like "*none*"
+   If Exist("/sys/block/" & Finfosys.ComboBox4.Text & "/mq") Then
+    Return "blk-mq"
+   Else
+    Return "none"
+   Endif
  End Select
 End
 
