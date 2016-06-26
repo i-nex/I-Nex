@@ -1,24 +1,11 @@
 ' Gambas class file
 
-' Copyright(C) 2011-2014, Michał Głowienka aka eloaders <eloaders@linux.pl>
-'
-' This program is free software; you can redistribute it and/or modify
-' it under the terms of the GNU General Public License as published by
-' the Free Software Foundation; either version 3 of the License, or
-' (at your option) any later version.
-'
-' This program is distributed in the hope that it will be useful,
-' but WITHOUT ANY WARRANTY; without even the implied warranty of
-' MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-' GNU General Public License for more details.
-'
-' You should have received a copy of the GNU General Public License
-' along with this program. If not, see <http://www.gnu.org/licenses/>.
 Export
 Create Static
 
 Class Window
 Class Desktop
+Class DesktopWindow
 Class Screens
 
 Static Property Read DefaultDir As String
@@ -26,13 +13,15 @@ Static Property Read DefaultDir As String
 Static Private $sStr As String
 Static Private $iPos As Integer
 
+Property Read Keys As _Settings_Keys
+Property Read Path As String
+
 Private $sPath As String
 Private $sTitle As String
 Private $cSlot As Collection
 Private $bModify As Boolean
-
-Property Read Keys As _Settings_Keys
-Property Read Path As String
+Private $bModifyAll As Boolean
+Private $cModify As Collection
 
 Private Sub Load()
   
@@ -43,8 +32,16 @@ Private Sub Load()
   Dim iPos As Integer
   Dim hCol As Collection
 
+  'Debug $sPath
+
   $cSlot = New Collection
-  If Not Exist($sPath) Then Return
+  $cModify = New Collection
+  If Not Exist($sPath) Then 
+    '$dDateLoad = Now
+    Return
+  Endif
+
+  '$dDateLoad = Stat($sPath).LastModified
 
   hFile = Open $sPath
 
@@ -120,44 +117,64 @@ End
 Public Sub _free()
 
   Try Me.Save
-  If Error Then Error "gb.settings: warning: unable to save settings: "; $sPath
+  If Error Then Error "gb.settings: warning: unable to save settings: "; $sPath; ": "; Error.Where;; Error.Text
 
 End
 
 Public Sub Save()
 
   Dim aKey As New String[]
+  Dim cSave As Collection
   Dim cSlot As Collection
   Dim sKey As String
   Dim hFile As File
   Dim vVal As Variant
-  Dim iInd As Integer
+  Dim sTemp As String
   Dim hLock As File
+  Dim cModify As Collection
+  Dim sSlot As String
 
   If Not $bModify Then Return
+
+  'Debug $sPath
+
+  $bModify = False
+  
+  hLock = Lock $sPath & ".lock" Wait 2
+  
+  sTemp = $sPath & "#"
+
+  If Not $bModifyAll Then
+
+    cSave = $cSlot
+    cModify = $cModify
+    Load
+    For Each cModify
+      sKey = cModify.Key
+      sSlot = GetSlot(sKey)
+      sKey = File.Name(sKey)
+      If cSave.Exist(sSlot) Then 
+        Me[sSlot &/ sKey] = cSave[sSlot][sKey]
+      Else
+        Me[sSlot &/ sKey] = Null
+      Endif
+    Next
+    
+  Endif
 
   For Each cSlot In $cSlot
     aKey.Add($cSlot.Key)
   Next
-
   aKey.Sort
 
-  $bModify = False
-  
-  For iInd = 1 To 10
-    Try hLock = Lock $sPath & ".lock"
-    If Error And If iInd = 10 Then Error.Propagate
-    If Not Error Then Break
-    Sleep 0.2
-  Next
-  
-  hFile = Open $sPath & "#" For Create 
+  hFile = Open sTemp For Create 
 
   If $sTitle Then
     Print #hFile, "# "; $sTitle
   Endif
 
   For Each sKey In aKey
+    
     cSlot = $cSlot[sKey]
     If cSlot.Count Then
       Print #hFile, "[" & sKey & "]"
@@ -171,18 +188,20 @@ Public Sub Save()
   Close #hFile
   Try Kill $sPath & "~"
   Try Move $sPath To $sPath & "~"
-  Try Move $sPath & "#" To $sPath
+  Try Move sTemp To $sPath
+  
+  '$dDateLoad = Stat($sPath).LastModified
 
 Finally
 
-  Try Kill $sPath & ".lock"
-  Try Kill $sPath & "#"
-  Try Kill $sPath & "~"
+  If Exist($sPath & ".lock") Then Try Kill $sPath & ".lock"
+  If Exist(sTemp) Then Try Kill sTemp
+  If Exist($sPath & "~") Then Try Kill $sPath & "~"
   Try Unlock #hLock
   
 Catch
   
-  Error.Raise("Unable to save settings: " & Error.Text)
+  Error.Raise("Unable to save settings: " & Error.Where & " " & Error.Text)
 
 End
 
@@ -205,19 +224,45 @@ Public Function _get(Key As String, Optional {Default} As Variant) As Variant
 
   Dim hSlot As Collection
   Dim sSlot As String
+  'Dim dDate As Date
 
   sSlot = GetSlot(Key)
+  Key = File.Name(Key)
+  
   hSlot = $cSlot[sSlot]
-  If hSlot Then
-    Key = File.Name(Key)
-    If hSlot.Exist(Key) Then
-      Return hSlot[Key]
-    Endif
+  If hSlot And If hSlot.Exist(Key) Then
+    Return hSlot[Key]
   Endif
 
   Return {Default}
 
 End
+
+Private Sub SameSetting(vOld As Variant, vNew As Variant) As Boolean
+  
+  Dim I As Integer
+  Dim vOldVal As Variant
+  Dim vNewVal As Variant
+  
+  If IsNull(vOld) And If IsNull(vNew) Then Return True
+  If TypeOf(vOld) <> gb.Object And If TypeOf(vNew) <> gb.Object Then
+    Return vOld = vNew
+  Endif
+  If Not (vOld Is Array) Then Return
+  If Not (vNew Is Array) Then Return
+  If vOld.Count <> vNew.Count Then Return
+  
+  For I = 0 To vOld.Max
+    vOldVal = vOld[I]
+    vNewVal = vNew[I]
+    If TypeOf(vOldVal) = gb.Object Or If TypeOf(vNewVal) = gb.Object Then Return
+    If vOldVal <> vNewVal Then Return
+  Next
+  
+  Return True
+  
+End
+
 
 Public Sub _put(Value As Variant, Key As String)
 
@@ -233,9 +278,11 @@ Public Sub _put(Value As Variant, Key As String)
 
   Key = File.Name(Key)
 
-  If TypeOf(Value) = gb.Object Or If hSlot[Key] <> Value Then
+  If Not SameSetting(hSlot[Key], Value) Then
     hSlot[Key] = Value
+    $cModify[sSlot &/ Key] = True
     $bModify = True
+    'Save()
   Endif
 
 End
@@ -244,111 +291,37 @@ End
 Public Sub Clear(Optional ParentKey As String)
 
   Dim sSlot As String
+  Dim hSlot As Collection
+  Dim vVal As Variant
 
   If Not ParentKey Then
-    If $cSlot.Count Then Return
-    $cSlot.Clear
+    If $cSlot.Count Then
+      $cSlot.Clear
+      $bModify = True
+      $bModifyAll = True
+    Endif
   Else
     sSlot = GetSlot(ParentKey &/ "g")
-    If Not $cSlot.Exist(sSlot) Then Return
-    $cSlot.Remove(sSlot)
+    hSlot = $cSlot[sSlot]
+    If hSlot Then 
+      For Each vVal In hSlot
+        $cModify[sSlot &/ hSlot.Key] = True
+      Next
+      $cSlot.Remove(sSlot)
+      $bModify = True
+    Endif
   Endif
 
-  $bModify = True
+  'Save()
 
 End
-
-' PUBLIC FUNCTION MakeWindowKey(sWin AS String, sKey AS String) AS String
-' 
-'   RETURN "Window" &/ sWin &/ sKey
-' 
-' END
-' 
-' 
-' PUBLIC SUB LoadWindowPos(hForm AS Form, sKey AS String)
-' 
-'   DIM sPos AS String
-'   DIM cPos AS String[]
-' 
-'   'Dump($cData)
-' 
-'   sPos = ReadString(MakeWindowKey(sKey, "Pos"))
-'   IF Not sPos THEN RETURN
-' 
-'   'PRINT "LoadWindowPos: "; sKey; ": "; sPos
-' 
-'   cPos = Split(sPos, ",")
-'   IF cPos.Count = 4 THEN
-'     hForm.Move(cPos[0], cPos[1], cPos[2], cPos[3])
-'   ELSE
-'     hForm.Move(cPos[0], cPos[1])
-'   ENDIF
-' 
-' END
-' 
-' 
-' PUBLIC SUB SaveWindowPos(hWindow AS Form, sKey AS String, OPTIONAL bSaveSize AS Boolean = TRUE)
-' 
-'   DIM sPos AS String
-' 
-'   sPos = CStr(hWindow.X) & "," & CStr(hWindow.Y)
-'   IF bSaveSize THEN
-'     sPos = sPos & "," & CStr(hWindow.Width) & "," & CStr(hWindow.Height)
-'   ENDIF
-' 
-'   WriteString(MakeWindowKey(sKey, "Pos"), sPos)
-'   'PRINT "SaveWindowPos: "; sKey; ": "; sPos
-' 
-' END
-' 
-' 
-' PUBLIC SUB LoadWindowSize(hForm AS Form, sKey AS String)
-' 
-'   DIM sPos AS String
-'   DIM cPos AS String[]
-' 
-'   'Dump($cData)
-' 
-'   sPos = ReadString(MakeWindowKey(sKey, "Pos"))
-'   IF Not sPos THEN RETURN
-' 
-'   'PRINT "LoadWindowPos: "; sKey; ": "; sPos
-' 
-'   cPos = Split(sPos, ",")
-'   hForm.Resize(cPos[0], cPos[1])
-' 
-' END
-' 
-' 
-' PUBLIC SUB SaveWindowSize(hWindow AS Form, sKey AS String)
-' 
-'   DIM sPos AS String
-' 
-'   sPos = CStr(hWindow.W) & "," & CStr(hWindow.H)
-'   WriteString(MakeWindowKey(sKey, "Pos"), sPos)
-'   'PRINT "SaveWindowPos: "; sKey; ": "; sPos
-' 
-' END
-' 
-' 
-' PUBLIC SUB SaveSplitterPos(hSplitter AS Object, sWindow AS String, sKey AS String)
-' 
-'   TRY WriteString(MakeWindowKey(sWindow, sKey), hSplitter.Layout)
-'   IF ERROR THEN PRINT Error.Text
-' 
-' END
-' 
-' PUBLIC SUB LoadSplitterPos(hSplitter AS Object, sWindow AS String, sKey AS String)
-' 
-'   TRY hSplitter.Layout = ReadString(MakeWindowKey(sWindow, sKey))
-'   IF ERROR THEN PRINT Error.Text
-' 
-' END
 
 Private Sub ReadWindow(hWindow As Window, sKey As String)
 
   Dim aPos As Integer[]
   Dim X, Y, W, H, S As Integer
+  ' Dim D As Integer
+  ' Dim hObserver As Observer
 
   aPos = Me[sKey &/ "Geometry"]
 
@@ -373,6 +346,16 @@ Private Sub ReadWindow(hWindow As Window, sKey As String)
   X += Screens[S].AvailableX
   Y += Screens[S].AvailableY
 
+  ' If Not hWindow.Parent And If Component.IsLoaded("gb.desktop") Then
+  '   D = -1
+  '   Try D = aPos[5]
+  '   If D >= 0 Then 
+  '     hObserver = New Observer(hWindow, True) As "Window"
+  '     hObserver.Tag = D
+  '     $cObserver[hWindow.Id] = hObserver
+  '   Endif
+  ' Endif
+
   ' If Object.Type(hWindow) = "FHelpBrowser" Then
   '   Print "ReadWindow: "; X;; Y; " / "; S;; Screens[S].AvailableX;; Screens[S].AvailableY
   ' Endif
@@ -395,18 +378,30 @@ End
 Private Sub WriteWindow(hWindow As Window, sKey As String)
 
   Dim X, Y, W, H, S As Integer
+  'Dim D As Integer
+  Dim aVal As Integer[]
   
-  ' If Object.Type(hWindow) = "FHelpBrowser" Then
-  '   Print "WriteWindow: "; hWindow.X;; hWindow.Y; " / "; S;; Screens[S].AvailableX;; Screens[S].AvailableY
-  ' Endif
+  'Dim hDesktopWin As DesktopWindow
   
   S = hWindow.Screen
+  
   X = hWindow.X - Screens[S].AvailableX
   Y = hWindow.Y - Screens[S].AvailableY
   W = hWindow.Width
   H = hWindow.Height
+  
+  aVal = [X, Y, W, H, S]
+  
+  ' If Not hWindow.Parent And If Component.IsLoaded("gb.desktop") Then
+  '   hDesktopWin = New DesktopWindow(hWindow.Id)
+  '   D = -1
+  '   Try D = hDesktopWin.Desktop
+  '   If Error Then Debug Error.Text
+  '   Debug hWindow.Name;; "Desktop:";; D
+  '   If D >= 0 Then aVal.Add(D)
+  ' Endif
 
-  Me[sKey &/ "Geometry"] = [X, Y, W, H, S]
+  Me[sKey &/ "Geometry"] = aVal
 
 End
 
@@ -422,8 +417,11 @@ Public Sub Read(hObject As Object, Optional sKey As String, Optional vDefault As
     If Not sKey Then sKey = Object.Type(hObject) 
     ReadWindow(hObject, sKey)
   Else
-    If Not sKey Then Try sKey = hObject.Name
-    sKey = GetTopLevel(hObject) &/ sKey
+    If Not sKey Then 
+      Try sKey = GetTopLevel(hObject) &/ hObject.Name
+    Else If Left(sKey) <> "/" Then
+      Try sKey = GetTopLevel(hObject) &/ sKey
+    Endif
     Try hObject.Settings = Me[sKey, vDefault]
   Endif
 
@@ -434,9 +432,12 @@ Public Sub Write(hObject As Object, Optional sKey As String)
   If Object.Is(hObject, "Window") Then
     If Not sKey Then sKey = Object.Type(hObject) 
     WriteWindow(hObject, sKey)
-  Else 'IF Object.Is(hObject, "SidePanel") THEN
-    If Not sKey Then Try sKey = hObject.Name
-    sKey = GetTopLevel(hObject) &/ sKey
+  Else
+    If Not sKey Then 
+      Try sKey = GetTopLevel(hObject) &/ hObject.Name
+    Else If Left(sKey) <> "/" Then
+      Try sKey = GetTopLevel(hObject) &/ sKey
+    Endif
     Try Me[sKey] = hObject.Settings
   Endif
 
@@ -501,8 +502,8 @@ End
 Static Private Function DefaultDir_Read() As String
 
   Dim sPath As String = Application.Env["XDG_CONFIG_HOME"]
-  If Not sPath Then sPath = System.User.Home &/ ".i-nex"
-  Return sPath
+  If Not sPath Then sPath = System.User.Home &/ ".config"
+  Return sPath &/ "gambas" & System.Version
 
 End
 
@@ -575,7 +576,7 @@ Static Private Sub WriteValue(vVal As Variant)
     
 End
 
-Static Private Sub ToString(Value As Variant) As String
+Static Public Sub ToString(Value As Variant) As String
   
   $sStr = ""
   WriteValue(Value)
@@ -812,7 +813,7 @@ Static Private Sub ReadValue(Optional bNotStrict As Boolean) As Variant
 End
 
 
-Static Private Sub FromString(Value As String) As Variant
+Static Public Sub FromString(Value As String) As Variant
   
   Dim vVal As Variant
   $sStr = Value

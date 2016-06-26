@@ -15,23 +15,38 @@
 ' You should have received a copy of the GNU General Public License
 ' along with this program. If not, see <http://www.gnu.org/licenses/>.
 
+
 Public Sub Main()
 
   Dim hSettings As Settings
-  Dim sSlot As String
-  Dim sKey As String
 
   hSettings = New Settings("~/.i-nex/i-nex.conf")
   
+  hSettings["localhost/Login"] = ""
+  hSettings["Charlie/Login"] = "Toto"
+  Dump(hSettings)
+  hSettings.Save()
+  ' clear and save it
+  hSettings.Clear("Charlie")   ' don't work, found, removed
+  Dump(hSettings)
+  hSettings.Save() ' on save reloaded by "Sub Load()" from file
+  
+End
+
+Private Sub Dump(hSettings As Settings)
+
+  Dim sSlot As String
+  Dim sKey As String
+
   For Each sSlot In hSettings.Keys
     
     Print "["; sSlot; "]"
     For Each sKey In hSettings.Keys[sSlot]
-      Print sKey
+      Print sKey; "="; hSettings[sSlot &/ sKey]
     Next
     
   Next
-
+  Print
 
 End
 
