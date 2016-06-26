@@ -1,7 +1,7 @@
 # Maintainer: eloaders <eloaders at linux dot pl>
 
-pkgname=i-nex-git
-pkgver=7.4.0.21.g5bdc044
+pkgname=i-nex
+pkgver=7.4.0.46.g3dc781f
 pkgrel=1
 pkgdesc="System information tool like hardinfo, sysinfo"
 arch=('i686' 'x86_64')
@@ -19,7 +19,7 @@ depends=('gambas3-runtime'
          'lsb-release' 
          'curl')
 makedepends=('gambas3-devel' 'gcc' 'imagemagick' 'git')
-source=($pkgname::'git://github.com/eloaders/I-Nex.git')
+source=("$pkgname::git+https://github.com/eloaders/I-Nex.git")
 sha256sums=('SKIP')
 provides=('i-nex' 'i-nex-bzr' 'i-nex-dev')
 conflicts=('i-nex' 'i-nex-bzr' 'i-nex-dev')
