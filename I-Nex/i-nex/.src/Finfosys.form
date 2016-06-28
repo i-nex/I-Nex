@@ -1607,89 +1607,27 @@
     Text = "Memory"
     Picture = Picture["AppIcons/Finfosys/utilities-system-monitor.png"]
     { ProgressBar1 ProgressBar
-      Move(119,21,350,21)
+      Move(7,35,455,21)
     }
     { ProgressBar4 ProgressBar
-      Move(119,63,350,21)
+      Move(7,84,455,21)
     }
     { TextLabel24 TextLabel
-      Move(119,42,350,21)
+      Move(7,56,455,28)
       Font = Font["Bold,8"]
       Text = ("N/A")
       Alignment = Align.Center
       Border = Border.Raised
     }
-    { Label176 Label
-      Move(154,133,315,21)
-      Font = Font["Bold,8"]
-      Text = ("Label176")
-      Border = Border.Raised
-    }
-    { Label85 Label
-      Move(0,91,154,21)
-      Font = Font["Bold,8"]
-      Expand = True
-      Border = Border.Raised
-    }
-    { Label86 Label
-      Move(308,91,161,21)
-      Font = Font["Bold,8"]
-      Expand = True
-      Border = Border.Raised
-    }
-    { Label87 Label
-      Move(154,112,154,21)
-      Font = Font["Bold,8"]
-      Expand = True
-      Border = Border.Raised
-    }
-    { Label88 Label
-      Move(308,112,161,21)
-      Font = Font["Bold,8"]
-      Expand = True
-      Border = Border.Raised
-    }
-    { Label89 Label
-      Move(154,91,154,21)
-      Font = Font["Bold,8"]
-      Expand = True
-      Border = Border.Raised
-    }
-    { Label90 Label
-      Move(0,112,154,21)
-      Font = Font["Bold,8"]
-      Expand = True
-      Alignment = Align.Left
-      Border = Border.Raised
-    }
-    { Label91 Label
-      Move(0,133,154,21)
-      Font = Font["Bold,8"]
-      Expand = True
-      Border = Border.Raised
-    }
     { Label223 Label
-      Move(119,0,350,21)
+      Move(7,7,455,28)
       Font = Font["Bold,8"]
       Text = ("Label223")
       Alignment = Align.Center
       Border = Border.Raised
     }
-    { Label74 Label
-      Move(7,21,105,70)
-      Font = Font["Bold,20"]
-      Foreground = &HFF7F00&
-      Alignment = Align.Center
-    }
-    { Label77 Label
-      Move(0,0,119,21)
-      Font = Font["Bold,8"]
-      Text = ("Processes ↓")
-      Alignment = Align.Center
-      Border = Border.Raised
-    }
     { Frame2 Frame
-      Move(0,154,469,322)
+      Move(0,280,469,196)
       Font = Font["8"]
       Text = ("---===Serial Presence Detect===---")
       { Label227 Label
@@ -1746,6 +1684,12 @@
         Text = ("Label264")
         Border = Border.Raised
       }
+    }
+    { Label176 Label
+      Move(7,112,315,28)
+      Font = Font["Bold,8"]
+      Text = ("Label176")
+      Border = Border.Raised
     }
     Index = 8
     Text = "Network"

@@ -39,6 +39,7 @@ Public INDEX0 As String
 Public INDEX1 As String
 Public INDEX2 As String
 Public INDEX3 As String
+Public MEMINFO_FILE As File
 Public Sub Form_Open()
   Dim default_display_manager As Boolean = Exist("/etc/X11/default-display-manager")
   Dim i As Integer
@@ -675,55 +676,71 @@ End
 
 Public Sub dospam_uptime()
   Dim Users As String
-  Dim USAGE_BUFFER As String
-  Shell "users | tr ' ' '\n' | wc -l" Wait To Users
-  Exec [ChkPrm.ChkExecDir("i-nex-usage")] Wait To USAGE_BUFFER
-  USAGE = JSON.Decode(USAGE_BUFFER)
+  Dim sIcon As String
+  Dim sLine As String
+  Dim iPos As Integer
+  Dim sKey As String
+  Dim sVal As String
+  Dim MemTotal As Float
+  Dim MemFree As Float
+  Dim MemAvailable As Float
+  Dim Buffers As Float
+  Dim Cached As Float
+  Dim SwapCached As Float
+  Dim SwapTotal As Float
+  Dim SwapFree As Float
+  Dim Active As Float
+  Dim MEMINFO_FILE As File
   
-  Label85.Text = "Total:   " & 
-                 Int(USAGE["MEMORY_TOTAL"]) & 
-                 " MB"
-  Label86.Text = "Used:   " & 
-                 Int(USAGE["MEMORY_USED"]) & 
-                 " MB"
-  Label87.Text = "Free:   " & 
-                 Int(USAGE["MEMORY_FREE"]) & 
-                 " MB"
-  Label88.Text = "Shared:   " & 
-                 Int(USAGE["MEMORY_SHARED"]) & 
-                 " MB"
-  Label89.Text = "Buffers:   " & 
-                 Int(USAGE["MEMORY_BUFFERS"]) & 
-                 " MB"
-  Label90.Text = "Cached:   " & 
-                 Int(USAGE["MEMORY_CACHED"]) & 
-                 " MB"
-  Label223.Text = "Ram used: " & 
-                 Int(USAGE["USED_PLUS_CACHED"]) & 
-                 " MB"
-  Label91.Text = "SWAP Total: " & 
-                 Int(USAGE["SWAP_TOTAL"]) & 
-                 " MB "
-  TextLabel24.Text = "SWAP memory used: " & 
-                 Int(USAGE["SWAP_USED"]) & 
-                 " MB"
+  If IsNull(MEMINFO_FILE) = True Then
+   MEMINFO_FILE = Open "/proc/meminfo"
+  Else
+   MEMINFO_FILE = Open MStart.MEMINFO_FILE
+  Endif
+
+    For Each sLine In MEMINFO_FILE.Lines
+    sLine = Trim(sLine)
+    If Not sLine Then Continue 
+    
+    iPos = InStr(sLine, ":")
+    If iPos = 0 Then Continue
+    
+    sKey = Trim(Left$(sLine, iPos - 1))
+    sVal = Trim(Mid$(sLine, iPos + 1))
+    sVal = Replace(sVal, "kB", Null)
+    Select Case sKey
+      Case "MemTotal"
+       MemTotal = Val(sVal) / 1000
+      Case "MemFree"
+       MemFree = Val(sVal) / 1000
+      Case "MemAvailable"
+       MemAvailable = Val(sVal) / 1000
+      Case "Buffers"
+       Buffers = Val(sVal) / 1000
+      Case "Cached"
+        Cached = Val(sVal) / 1000
+      Case "SwapCached"
+        SwapCached = Val(sVal) / 1000
+      Case "SwapTotal"
+        SwapTotal = Val(sVal) / 1000
+      Case "SwapFree"
+        SwapFree = Val(sVal) / 1000
+      Case "Active"
+        Active = Val(sVal) / 1000
+    End Select
   
-  TextBox58.Text = "Days: " & USAGE["UPTIME_DAYS"] & 
-                   " " &
-                   "Hours: " & USAGE["UPTIME_HOURS"] & 
-                   " " &
-                   "Minutes: " & USAGE["UPTIME_MINUTES"] & 
-                   " " &
-                   "Seconds: " & USAGE["UPTIME_SECONDS"] & 
-                   " " &
-                   "Users: " & Subst$(Users) &
-                   "load average: " & Int(USAGE["LOAD_AVG_1MIN"]) & " " &
-                   ", " & Int(USAGE["LOAD_AVG_5MIN"]) & " " &
-                   ", " & Int(USAGE["LOAD_AVG_15MIN"])
-  Label74.Text = USAGE["NUMBER_OF_PROCESSES"]
+  Next
   
-  Try ProgressBar1.Value = Int(USAGE["USED_PLUS_CACHED"]) / Int(USAGE["MEMORY_TOTAL"])
-  Try ProgressBar4.Value = Int(USAGE["SWAP_USED"]) / Int(USAGE["SWAP_TOTAL"])
+  Close #MEMINFO_FILE
+
+  'Solution
+  'https://access.redhat.com/solutions/406773
+  Label223.Text = "Mem used: " & CString(MemTotal - (MemFree + Buffers + Cached)) & " MB"
+  TextLabel24.Text = "Swap used: " & (SwapTotal - SwapFree) & " MB"
+
+  Try ProgressBar1.Value = (MemTotal - (MemFree + Buffers + Cached)) / MemTotal
+  Try ProgressBar4.Value = (SwapTotal - SwapFree) / SwapTotal
+  
 End
 
 Public Sub battery_info()
@@ -1151,7 +1168,6 @@ Public Sub Form_Close()
   Settings["Window/Y"] = Me.Y
   Settings["Tab/Pos"] = TabStrip1.Orientation
   Logs("Good bye!", Logger.Info)
-  USAGE.Clear
   DATAT.Clear
   MCPUSAGE.CPUusage.Kill
   Me.Close
