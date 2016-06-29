@@ -4,6 +4,8 @@
   <img src="https://raw.githubusercontent.com/eloaders/I-Nex/master/I-Nex/i-nex/logo/i-nex.0.4.x.png" alt="logo"/> <img src="http://wstaw.org/m/2014/02/24/02202014003011573_1.png" alt="logo"/>
 </p>
 
+**[Homepage](http://i-nex.linux.pl/)**
+
 I-Nex is an application that gathers information for hardware components available on your system and displays it using an user interface similar to the popular Windows tool CPU-Z.
 
 I-Nex can display information for the following components: CPU, GPU, Motherboard, Sound, Hard disks, RAM, Network and USB as well as some system info like the hostname, Linux distribution and version, Xorg, GCC, GLX versions and Linux Kernel info.
@@ -11,11 +13,6 @@ I-Nex can display information for the following components: CPU, GPU, Motherboar
 Besides being able to display hardware information, I-Nex can also generate an advanced report for which you can select what to include and optionally send the report to a service such as Pastebin (and others). It also features an option to take a screenshot of the I-Nex window directly from the application.
 
 The difference between I-Nex and the other hardware information GUI tools available for Linux is that the information is better organized and is displayed faster (than lshw-gtk for instance). Also, the hardware information is presented in a way that’s easier to understand than other such tools.
-
-### Webpages
-
-* [Homepage](http://i-nex.linux.pl/) 
-* [Additional Screenshots](http://i-nex.linux.pl/screenshots/)
 
 ### Tested on
 
@@ -53,8 +50,6 @@ The difference between I-Nex and the other hardware information GUI tools availa
   * libXau
 * libprocps
   * libprocps3 | libprocps0 | libproc
-
-**Additional information are available in [requirements.md](requirements.md) file.
 
 ### Build in Ubuntu
 
