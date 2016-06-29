@@ -4,7 +4,7 @@ Last_Release=$(git describe | cut -d '-' -f 1)
 # Bump version in I-Nex.gambas
 sed -i -e 's|^Version.*|Version='$1'|' ./I-Nex/i-nex/.project
 sed -i -e 's|^PackageName=i-nex-.*|PackageName=i-nex-'$1'|' ./I-Nex/i-nex/.project
-# Update changelog filr based on git log.
+# Update changelog based on git log.
 git log $Last_Release..HEAD > changelogs/changelog-$1
 
 cat > ./debian/changelog2 <<EOF
