@@ -1,11 +1,11 @@
-#!/bin/bash 
-# Wydobycie informacji o ostatnim tagu w repozytorium git.
+#!/usr/bin/env bash
+# Extract lastest release tag from git log
 Last_Release=$(git describe | cut -d '-' -f 1)
-  #Zmiana wersji dla I-Nex.gambas
-    sed -i -e 's|^Version.*|Version='$1'|' ./I-Nex/i-nex/.project
-    sed -i -e 's|^PackageName=i-nex-.*|PackageName=i-nex-'$1'|' ./I-Nex/i-nex/.project
-  # Utworzenie pliku ze zmianami na podstawie logu git od ostatniej znanej wersji
-    git log $Last_Release..HEAD > changelogs/changelog-$1
+# Bump version in I-Nex.gambas
+sed -i -e 's|^Version.*|Version='$1'|' ./I-Nex/i-nex/.project
+sed -i -e 's|^PackageName=i-nex-.*|PackageName=i-nex-'$1'|' ./I-Nex/i-nex/.project
+# Update changelog filr based on git log.
+git log $Last_Release..HEAD > changelogs/changelog-$1
 
 cat > ./debian/changelog2 <<EOF
 i-nex ($1) stable; urgency=medium
