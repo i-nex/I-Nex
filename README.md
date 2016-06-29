@@ -1,29 +1,32 @@
 ## I-Nex: System and Hardware information tool
 
-![logo](https://raw2.github.com/eloaders/I-Nex/master/src/i-nex/logo/i-nex.0.4.x.png)
-![okno](http://wstaw.org/m/2014/02/24/02202014003011573_1.png)
-### I-Nex jest aplikacją Open Source, która wyświetla informacje o podzespołach komputera jak i samym systemie operacyjnym.
+<p align="left">
+  <img src="https://raw.githubusercontent.com/eloaders/I-Nex/master/I-Nex/i-nex/logo/i-nex.0.4.x.png" alt="logo"/> <img src="http://wstaw.org/m/2014/02/24/02202014003011573_1.png" alt="logo"/>
+</p>
 
-* Wyświetla informacje w przyjaznej formie, opartej na kartach.
-* Potrafi tworzyć zrzut aktywnej karty i zapisywać w formacie JPG lub PNG.
-* Pozwala wybierać poziom kompresji zapisywanego zdjęcia.
-* Potrafi tworzyć raport z zakładek i zapisuje je w formacie raw txt.
-* Pozwala wybrać, co dokładnie ma zawrzeć w raporcie.
-* Potrafi wysłać wygenerowany raport na ponad 10 serwisów nopaste.
-* Zapamiętuje pozycję na akranie oraz pozwala na ustwienie położenia kart.
+I-Nex is an application that gathers information for hardware components available on your system and displays it using an user interface similar to the popular Windows tool CPU-Z.
 
-### Strony
+I-Nex can display information for the following components: CPU, GPU, Motherboard, Sound, Hard disks, RAM, Network and USB as well as some system info like the hostname, Linux distribution and version, Xorg, GCC, GLX versions and Linux Kernel info.
 
-* Strony: [Strona domowa](http://i-nex.linux.pl/) | [Wygląd aplikacji](http://i-nex.linux.pl/screenshots/) | [Blog](http://i-nex.linux.pl/) | [Forum/Raportowanie błędów](http://demo.gitlabhq.com/users/sign_in)
+Besides being able to display hardware information, I-Nex can also generate an advanced report for which you can select what to include and optionally send the report to a service such as Pastebin (and others). It also features an option to take a screenshot of the I-Nex window directly from the application.
 
-### Testowany na
+The difference between I-Nex and the other hardware information GUI tools available for Linux is that the information is better organized and is displayed faster (than lshw-gtk for instance). Also, the hardware information is presented in a way that’s easier to understand than other such tools.
 
-* Ubuntu i pochodne
+### Webpages
+
+* [Homepage](http://i-nex.linux.pl/) 
+* [Additional Screenshots](http://i-nex.linux.pl/screenshots/)
+
+### Tested on
+
+* Ubuntu/Mint
 * Debian [Bug lp:1258468](https://bugs.launchpad.net/i-nex/+bug/1258468)
 * openSUSE [Question:243542](https://answers.launchpad.net/i-nex/+question/243542)
 * Fedora 20
+* Arch Linux
+* Manjaro Linux
 
-### Wymagania odnośnie bibliotek
+### Dependencies
 * Gambas3
   * gambas3-runtime (>= 3.5.0)
   * gambas3-gb-image (>= 3.5.0)
@@ -51,41 +54,32 @@
 * libprocps
   * libprocps3 | libprocps0 | libproc
 
-** Więcej informacji w [requirements doc](requirements.md)
+**Additional information are available in [requirements.md](requirements.md) file.
 
-### Kompilacja
+### Build in Ubuntu
 
-#### Ubuntu
-Dodanie repozytoriów:
-
-    sudo add-apt-repository ppa:nemh/gambas3
-    sudo add-apt-repository ppa:i-nex-development-team/libcpuid11
-
-Instalacja zależności potrzebnych do kompilacji:
-
-    sudo apt-get install debhelper devscripts
-    sudo apt-get install python python-all python-dev python-all-dev pkg-config dpkg-dev 
-    sudo apt-get install libcpuid11-dev lsb-release libprocps3-dev libprocps0-dev libproc-dev 
-    sudo apt-get install libx11-dev libxext-dev libgl1-mesa-dev libglu1-mesa-dev 
-    sudo apt-get install gambas3-dev gambas3-gb-image gambas3-gb-qt4 gambas3-gb-form gambas3-gb-desktop gambas3-gb-form-stock
-    sudo apt-get install imagemagick
-    sudo apt-get install git
-
-Pobieranie źródeł:
-
-    git clone https://github.com/eloaders/I-Nex.git
-
-Budowanie pakietu deb:
-
-    cd ./I-Nex
-    fakeroot debian/rules build 
-    fakeroot debian/rules binary
-    cd ..
-    sudo dpkg -i ./i-nex*.deb
-
-# Please report all bugs on the official forum of the project. 
-
-### Forum does not require confirmation of email address. 
-### Enables login by OpenID.
-
-# [Report Bug](http://forum.i-nex.pl/)
+Adding required repositories:
+```
+sudo add-apt-repository ppa:nemh/gambas3 &&\
+sudo add-apt-repository ppa:i-nex-development-team/libcpuid11
+```
+Installing dependencies:
+```
+sudo apt-get install \
+debhelper devscripts python python-all python-dev python-all-dev pkg-config dpkg-dev libcpuid11-dev \
+lsb-release libprocps3-dev libprocps0-dev libproc-dev libx11-dev libxext-dev libgl1-mesa-dev \
+libglu1-mesa-dev gambas3-dev gambas3-gb-image gambas3-gb-qt4 gambas3-gb-form gambas3-gb-desktop \
+gambas3-gb-form-stock imagemagick git
+```
+## Downloading sources
+```
+git clone https://github.com/eloaders/I-Nex.git
+```
+## Build DEB package from sources:
+```
+cd ./I-Nex && \
+fakeroot debian/rules build && \ 
+fakeroot debian/rules binary && \
+cd .. && \
+sudo dpkg -i ./i-nex*.deb
+```
