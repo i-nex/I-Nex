@@ -1,4 +1,4 @@
-### Wymagania odnośnie bibliotek
+### Dependencies
 * Gambas3
   * gambas3-runtime (>= 3.5.0)
   * gambas3-gb-image (>= 3.5.0)
