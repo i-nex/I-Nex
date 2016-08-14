@@ -25,14 +25,14 @@ The difference between I-Nex and the other hardware information GUI tools availa
 
 ### Dependencies
 * Gambas3
-  * gambas3-runtime (>= 3.5.0)
-  * gambas3-gb-image (>= 3.5.0)
-  * gambas3-gb-qt4 (>= 3.5.0)
-  * gambas3-gb-form (>= 3.5.0)
-  * gambas3-gb-desktop (>= 3.5.0)
-  * gambas3-gb-form-stock (>= 3.5.0)
+  * gambas3-runtime (>= 3.8.4)
+  * gambas3-gb-image (>= 3.8.4)
+  * gambas3-gb-qt4 (>= 3.8.4)
+  * gambas3-gb-form (>= 3.8.4)
+  * gambas3-gb-desktop (>= 3.8.4)
+  * gambas3-gb-form-stock (>= 3.8.4)
 * libc6
-* [libcpuid](https://github.com/eloaders/libcpuid)
+* [libcpuid](https://github.com/anrieff/libcpuid)
 * libx11 libxext libgl1-mesa libglu1-mesa
   * libX11 
   * libGL 
@@ -49,7 +49,7 @@ The difference between I-Nex and the other hardware information GUI tools availa
   * libpthread 
   * libXau
 * libprocps
-  * libprocps3 | libprocps0 | libproc
+  * libprocps3-dev, libprocps4-dev, libprocps-dev, libprocps0-dev, libproc-dev
 
 ### Build in Ubuntu
 
