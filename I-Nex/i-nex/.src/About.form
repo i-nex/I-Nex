@@ -48,7 +48,7 @@
     { Label4 Label
       Move(7,161,455,21)
       Padding = 3
-      Text = ("Copyright (C) 2011-2014 by Michał Głowienka")
+      Text = ("Copyright (C) 2011-2016 by Michał Głowienka")
       Alignment = Align.Center
     }
     { Button6 Button
