@@ -1162,8 +1162,27 @@ Public Sub Form_Move()
  
 End
 
+Public Sub Form_CloseWindows()
+  FCopyUrl.Close
+  FInputDate.Close
+  FDirDialog.Close
+  FFileDialog.Close
+
+  FModules.Close
+  FEDID.Close
+  FNET_R_T.Close
+  FSystemInfo.Close
+
+  FValidate.Close
+  ScreenShot.Close
+  FReport_Gen.Close
+  About.Close
+
+End
+
 Public Sub Form_Close()
  
+  Form_CloseWindows()
   Settings["Window/X"] = Me.X
   Settings["Window/Y"] = Me.Y
   Settings["Tab/Pos"] = TabStrip1.Orientation
