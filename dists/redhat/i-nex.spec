@@ -21,18 +21,18 @@ BuildRequires:  autoconf
 BuildRequires:  automake
 BuildRequires:  Mesa-demo-x
 BuildRequires:  fdupes
-BuildRequires:  gambas3-devel >= 3.8.0
-BuildRequires:  gambas3-gb-desktop >= 3.8.0
-BuildRequires:  gambas3-gb-form >= 3.8.0
-BuildRequires:  gambas3-gb-form-dialog >= 3.8.0
-BuildRequires:  gambas3-gb-form-stock >= 3.8.0
-BuildRequires:  gambas3-gb-gtk >= 3.8.0
-BuildRequires:  gambas3-gb-gui >= 3.8.0
-BuildRequires:  gambas3-gb-image >= 3.8.0
-BuildRequires:  gambas3-gb-qt5 >= 3.8.0
-BuildRequires:  gambas3-gb-qt5-opengl >= 3.8.0
-BuildRequires:  gambas3-gb-qt5-webkit >= 3.8.0
-BuildRequires:  gambas3-gb-settings >= 3.8.0
+BuildRequires:  gambas3-devel >= 3.8.4
+BuildRequires:  gambas3-gb-desktop >= 3.8.4
+BuildRequires:  gambas3-gb-form >= 3.8.4
+BuildRequires:  gambas3-gb-form-dialog >= 3.8.4
+BuildRequires:  gambas3-gb-form-stock >= 3.8.4
+BuildRequires:  gambas3-gb-gtk >= 3.8.4
+BuildRequires:  gambas3-gb-gui >= 3.8.4
+BuildRequires:  gambas3-gb-image >= 3.8.4
+BuildRequires:  gambas3-gb-qt5 >= 3.8.4
+BuildRequires:  gambas3-gb-qt5-opengl >= 3.8.4
+BuildRequires:  gambas3-gb-qt5-webkit >= 3.8.4
+BuildRequires:  gambas3-gb-settings >= 3.8.4
 BuildRequires:  hicolor-icon-theme
 BuildRequires:  net-tools
 BuildRequires:  pkgconfig
@@ -46,19 +46,19 @@ BuildRequires:  procps-ng
 BuildRequires:  procps-ng-devel
 BuildRequires:  xz
 Requires:       %{name}-data = %{version}
-Requires:       gambas3-gb-desktop >= 3.8.0
-Requires:       gambas3-gb-form >= 3.8.0
-Requires:       gambas3-gb-form-dialog >= 3.8.0
-Requires:       gambas3-gb-form-stock >= 3.8.0
-Requires:       gambas3-gb-gtk >= 3.8.0
-Requires:       gambas3-gb-gui >= 3.8.0
-Requires:       gambas3-gb-image >= 3.8.0
-Requires:       gambas3-gb-qt5 >= 3.8.0
-Requires:       gambas3-gb-qt5-opengl >= 3.8.0
-Requires:       gambas3-gb-qt5-webkit >= 3.8.0
-Requires:       gambas3-gb-settings >= 3.8.0
-Requires:       gambas3-runtime >= 3.8.0
-Requires:	      i2c-tools
+Requires:       gambas3-gb-desktop >= 3.8.4
+Requires:       gambas3-gb-form >= 3.8.4
+Requires:       gambas3-gb-form-dialog >= 3.8.4
+Requires:       gambas3-gb-form-stock >= 3.8.4
+Requires:       gambas3-gb-gtk >= 3.8.4
+Requires:       gambas3-gb-gui >= 3.8.4
+Requires:       gambas3-gb-image >= 3.8.4
+Requires:       gambas3-gb-qt5 >= 3.8.4
+Requires:       gambas3-gb-qt5-opengl >= 3.8.4
+Requires:       gambas3-gb-qt5-webkit >= 3.8.4
+Requires:       gambas3-gb-settings >= 3.8.4
+Requires:       gambas3-runtime >= 3.8.4
+Requires:	  i2c-tools
 Requires:       procps-ng
 Recommends:     Mesa-demo-x
 Recommends:     xrandr
