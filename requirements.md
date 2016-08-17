@@ -7,7 +7,7 @@
   * gambas3-gb-desktop (>= 3.5.0)
   * gambas3-gb-form-stock (>= 3.5.0)
 * libc6
-* [libcpuid](https://github.com/eloaders/libcpuid)
+* [libcpuid](https://github.com/anrieff/libcpuid)
 * libx11 libxext libgl1-mesa libglu1-mesa
   * libX11 
   * libGL 
