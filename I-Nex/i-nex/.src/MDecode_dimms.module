@@ -33,6 +33,7 @@ Public Sub _inits()
   Dim spd_data_bin As New Variant[]
   Dim module_types_ddr2 As String[] = ["Reserved", "Undefined", "RDIMM", "UDIMM", "SO-DIMM", "Micro-DIMM", "Mini-RDIMM", "Mini-UDIMM"]
   Dim module_types_ddr3 As String[] = ["Undefined", "RDIMM", "UDIMM", "SO-DIMM", "Micro-DIMM", "Mini-RDIMM", "Mini-UDIMM", "Mini-CDIMM", "72b-SO-UDIMM", "72b-SO-RDIMM", "72b-SO-CDIMM", "LRDIMM", "16b-SO-DIMM", "32b-SO-DIMM"]
+  Dim module_types_ddr4 As String[] = ["Undefined", "RDIMM", "UDIMM", "SO-DIMM", "LRDIMM"]
   Dim dram_device_type As String[] = ["Reserved", "FPM DRAM", "EDO", "Pipelined Nibble", "SDR SDRAM", "Multiplexed ROM", "DDR SGRAM", "DDR SDRAM", "DDR2 SDRAM", "FB-DIMM", "FB-DIMM Probe", "DDR3 SDRAM"]
   Dim SIZERAM As Integer
   Dim BYTES As Long = 0
@@ -73,6 +74,39 @@ Public Sub _inits()
    End Select
    
    Select Case MEMORY_TYPE
+    Case "DDR4"
+     SPD_REVISION = Mid(spd_data[1], 1, 1) & "." & Mid(spd_data[1], 2, 1)
+     
+     For i = 329 To 348
+      PART_NUMBER &= spd_data_str[i]
+     Next
+     
+   Select Case (CLong(spd_data_asc[350]) And &h7F&)
+    Case 0
+     JEDEC.init_jedec_id0_vals()
+     Try MANUFACTURER = JEDEC.$jedec_id0_vals[(CLong(spd_data_asc[351]) And &h7F&) - 1]
+    Case 1
+     JEDEC.init_jedec_id1_vals()
+     Try MANUFACTURER = JEDEC.$jedec_id1_vals[(CLong(spd_data_asc[351]) And &h7F&) - 1]
+    Case 2
+     JEDEC.init_jedec_id2_vals()
+     Try MANUFACTURER = JEDEC.$jedec_id2_vals[(CLong(spd_data_asc[351]) And &h7F&) - 1]
+    Case 3
+     JEDEC.init_jedec_id3_vals()
+     Try MANUFACTURER = JEDEC.$jedec_id3_vals[(CLong(spd_data_asc[351]) And &h7F&) - 1]
+    Case 4
+     JEDEC.init_jedec_id4_vals()
+     Try MANUFACTURER = JEDEC.$jedec_id4_vals[(CLong(spd_data_asc[351]) And &h7F&) - 1]
+    Case 5
+     JEDEC.init_jedec_id5_vals()
+     Try MANUFACTURER = JEDEC.$jedec_id5_vals[(CLong(spd_data_asc[351]) And &h7F&) - 1]
+    Case 6
+     JEDEC.init_jedec_id6_vals()
+     Try MANUFACTURER = JEDEC.$jedec_id6_vals[(CLong(spd_data_asc[351]) And &h7F&) - 1]
+    Case Else
+     MANUFACTURER = "Unknown"
+   End Select
+     
     Case "DDR3"
    SPD_REVISION = Mid(spd_data[1], 1, 1) & "." & Mid(spd_data[1], 2, 1)
 
