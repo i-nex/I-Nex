@@ -1606,90 +1606,104 @@
     Index = 7
     Text = "Memory"
     Picture = Picture["AppIcons/Finfosys/utilities-system-monitor.png"]
-    { ProgressBar1 ProgressBar
-      Move(7,35,455,21)
-    }
-    { ProgressBar4 ProgressBar
-      Move(7,84,455,21)
-    }
-    { TextLabel24 TextLabel
-      Move(7,56,455,28)
-      Font = Font["Bold,8"]
-      Text = ("N/A")
-      Alignment = Align.Center
-      Border = Border.Raised
-    }
-    { Label223 Label
-      Move(7,7,455,28)
-      Font = Font["Bold,8"]
-      Text = ("Label223")
-      Alignment = Align.Center
-      Border = Border.Raised
-    }
-    { Frame2 Frame
-      Move(0,280,469,196)
-      Font = Font["8"]
-      Text = ("---===Serial Presence Detect===---")
-      { Label227 Label
-        Move(7,63,252,21)
-        Font = Font["8"]
+    { TabStrip2 TabStrip
+      Move(0,0,469,476)
+      Count = 2
+      Index = 0
+      Text = ("Standard Info")
+      { ProgressBar1 ProgressBar
+        Move(7,35,448,21)
+      }
+      { ProgressBar4 ProgressBar
+        Move(7,84,448,21)
+      }
+      { TextLabel24 TextLabel
+        Move(7,56,448,28)
+        Font = Font["Bold,8"]
+        Text = ("N/A")
+        Alignment = Align.Center
         Border = Border.Raised
       }
-      { Label256 Label
-        Move(7,84,140,21)
-        Font = Font["8"]
+      { Label176 Label
+        Move(7,112,315,28)
+        Font = Font["Bold,8"]
+        Text = ("Label176")
         Border = Border.Raised
       }
-      { Label257 Label
-        Move(7,105,84,21)
-        Font = Font["8"]
+      { Label223 Label
+        Move(7,7,448,28)
+        Font = Font["Bold,8"]
+        Text = ("Label223")
+        Alignment = Align.Center
         Border = Border.Raised
       }
-      { Label258 Label
-        Move(91,105,168,21)
+      Index = 1
+      Text = ("Serial Presence Detect (Beta)")
+      { Frame2 Frame
+        Move(0,0,469,196)
         Font = Font["8"]
-        Border = Border.Raised
+        Text = ("---===Serial Presence Detect===---")
+        { Label227 Label
+          Move(7,63,252,21)
+          Font = Font["8"]
+          Border = Border.Raised
+        }
+        { Label256 Label
+          Move(7,84,140,21)
+          Font = Font["8"]
+          Border = Border.Raised
+        }
+        { Label257 Label
+          Move(7,105,84,21)
+          Font = Font["8"]
+          Border = Border.Raised
+        }
+        { Label258 Label
+          Move(91,105,168,21)
+          Font = Font["8"]
+          Border = Border.Raised
+        }
+        { Label259 Label
+          Move(7,21,455,21)
+          Font = Font["8"]
+          Border = Border.Raised
+        }
+        { Label260 Label
+          Move(7,42,455,21)
+          Font = Font["8"]
+          Border = Border.Raised
+        }
+        { Label261 Label
+          Move(147,84,315,21)
+          Font = Font["8"]
+          Text = ("Label261")
+          Border = Border.Raised
+        }
+        { Label262 Label
+          Move(7,126,252,21)
+          Font = Font["8"]
+          Text = ("Label262")
+          Border = Border.Raised
+        }
+        { Label263 Label
+          Move(7,147,252,21)
+          Font = Font["8"]
+          Text = ("Label263")
+          Border = Border.Raised
+        }
+        { Label264 Label
+          Move(7,168,252,21)
+          Font = Font["8"]
+          Text = ("Label264")
+          Border = Border.Raised
+        }
       }
-      { Label259 Label
-        Move(7,21,455,21)
-        Font = Font["8"]
-        Border = Border.Raised
+      { ComboBox10 ComboBox
+        Move(357,406,98,28)
+        ReadOnly = True
+        Text = ("ComboBox10")
       }
-      { Label260 Label
-        Move(7,42,455,21)
-        Font = Font["8"]
-        Border = Border.Raised
-      }
-      { Label261 Label
-        Move(147,84,315,21)
-        Font = Font["8"]
-        Text = ("Label261")
-        Border = Border.Raised
-      }
-      { Label262 Label
-        Move(7,126,252,21)
-        Font = Font["8"]
-        Text = ("Label262")
-        Border = Border.Raised
-      }
-      { Label263 Label
-        Move(7,147,252,21)
-        Font = Font["8"]
-        Text = ("Label263")
-        Border = Border.Raised
-      }
-      { Label264 Label
-        Move(7,168,252,21)
-        Font = Font["8"]
-        Text = ("Label264")
-        Border = Border.Raised
-      }
-    }
-    { Label176 Label
-      Move(7,112,315,28)
-      Font = Font["Bold,8"]
-      Text = ("Label176")
-      Border = Border.Raised
+      Index = 0
     }
     Index = 8
     Text = "Network"
@@ -2463,10 +2477,5 @@
     Text = ("Validate")
     Picture = Picture["AppIcons/gnome-network-properties.png"]
     Menu = "Menu2"
-  }
-  { ComboBox10 ComboBox
-    Move(315,511,98,28)
-    ReadOnly = True
-    Text = ("ComboBox10")
   }
 }

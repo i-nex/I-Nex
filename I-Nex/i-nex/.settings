@@ -47,7 +47,7 @@ File[16]=".src/Input_Devices.module:0.48"
 File[17]=".src/Network.module:34.10"
 File[18]=".src/Distribution_Detect.module:20.28"
 File[19]=".src/FFlags.module:20.0"
-File[20]=".src/Finfosys.class:0.1065"
+File[20]=".src/Finfosys.class:20.329"
 File[21]=".src/FNET_R_T.form"
 File[22]=".src/FNET_R_T.class:7.70"
 File[23]=".src/FGraphic.module:1.8"
@@ -92,8 +92,9 @@ File[61]=".src/VCore.module:0.0"
 File[62]=".src/Main.module:0.0"
 File[63]=".src/i2c.module:10.9"
 File[64]=".src/MDecode_dimms.module:23.31"
-Active=18
-Count=64
+Active=20
+Count=65
+File[65]="Data/screenfetch-dev:6.4945"
 
 [Watches]
 Count=0
