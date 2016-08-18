@@ -21,11 +21,11 @@ compile-i-nex-edid:
 	
 compile-i-nex-cpuid:
 	@echo -e '$(OK_COLOR)Compile i-nex-cpuid $(OK_STRING)$(NO_COLOR)'
-	$(CC) -o i-nex-cpuid i-nex-cpuid.c $(YESNO_LINK) $(CC_OPTS_LIBCPUID) $(additional_confflags)
+	$(CC) -o i-nex-cpuid i-nex-cpuid.c $(CC_OPTS_LIBCPUID) $(additional_confflags)
 	
 compile-i-nex-usage:
 	@echo -e '$(OK_COLOR)Compile i-nex-usage $(OK_STRING)$(NO_COLOR)'
-	$(CC) -o i-nex-usage i-nex-usage.c $(YESNO_LINK) $(CC_OPTS_LIBPROCPS) $(additional_confflags)
+	$(CC) -o i-nex-usage i-nex-usage.c $(CC_OPTS_LIBPROCPS) $(additional_confflags)
 	
 compile-i-nex-cpusage:
 	@echo -e '$(OK_COLOR)Compile i-nex-cpusage $(OK_STRING)$(NO_COLOR)'
