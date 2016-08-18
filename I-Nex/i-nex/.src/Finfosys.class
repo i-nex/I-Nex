@@ -451,6 +451,16 @@ Public Sub grafika()
   Finfosys.PictureBox1.Picture = Picture["Data/GPU_LOGO/nvidia.png"]
   Finfosys.PictureBox1.Name = "nvidia.png"
   Endif
+
+  If RTrim(Replace(gpu, "\n", "")) Like "*VirtualBox*" Then
+  Finfosys.PictureBox1.Picture = Picture["Data/GPU_LOGO/virtualbox.png"]
+  Finfosys.PictureBox1.Name = "virtualbox.png"
+  Endif
+  
+  If RTrim(Replace(gpu, "\n", "")) Like "*VMware*" Then
+  Finfosys.PictureBox1.Picture = Picture["Data/GPU_LOGO/vmware.png"]
+  Finfosys.PictureBox1.Name = "vmware.png"
+  Endif
   'GPU Logo Detection End
   
   ComboBox8.Index = 1
