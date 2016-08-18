@@ -675,8 +675,6 @@ Public Sub Button2_Click()
 End
 
 Public Sub dospam_uptime()
-  Dim Users As String
-  Dim sIcon As String
   Dim sLine As String
   Dim iPos As Integer
   Dim sKey As String
@@ -902,41 +900,47 @@ Label134.Text = "Rq affinity: " & Disk_Drives.rq_affinity
  Label125.Text = "BDI stable pages required: " & Disk_Drives.stable_pages_required
  
  If Disk_Drives.removable Like "0" Then
- Label45.Text = "Removable: No"
+  Label45.Text = "Removable: No"
  Endif
+ 
  If Disk_Drives.removable Like "1" Then
  Label45.Text = "Removable: Yes"
  Endif
+ 
  If IsNull(ComboBox3.Text) = False Then
- If Disk_Drives.check_swap Like "*" & ComboBox3.Text & "*" Then
- Label48.Visible = True
- Try ProgressBar2.Value = Disk_Drives.SWAP_USED / Disk_Drives.SWAP_TOTAL
- Else
- Label48.Visible = False
- Endif
+    If Disk_Drives.check_swap Like "*" & ComboBox3.Text & "*" Then
+      Label48.Visible = True
+      Try ProgressBar2.Value = Disk_Drives.SWAP_USED / Disk_Drives.SWAP_TOTAL
+    Else
+      Label48.Visible = False
+    Endif
  Else
   Label48.Visible = False
  Endif
- TextBox48.Text = Disk_Drives.mount_point
- TextBox52.Text = Disk_Drives.device_uuid
- TextBox53.Text = Disk_Drives.mount_widtch
  
- Label16.Text = Disk_Drives.CONNECTED_PORT
- Label17.Text = Disk_Drives.Logical_Size
+  TextBox48.Text = Disk_Drives.mount_point
+  TextBox52.Text = Disk_Drives.device_uuid
+  TextBox53.Text = Disk_Drives.mount_widtch
+  Label16.Text = Disk_Drives.CONNECTED_PORT
+  Label17.Text = Disk_Drives.Logical_Size
  
  Label251.Text = "HW SATA SPD Limit:" & Space$(2) & Disk_Drives.hw_sata_spd_limit
  Label251.Tooltip = "Maximum speed supported by the connected SATA device."
+ 'Max HDD/SSD Sata Speed :-)
  Label252.Text = "SATA SPD:" & Space$(2) & Disk_Drives.sata_spd
  Label252.Tooltip = "Current speed of the link [1.5, 3Gps,...]."
+ ':-)
  Label253.Text = "SATA SPD Limit:" & Space$(2) & Disk_Drives.sata_spd_limit
  Label253.Tooltip = "Maximum speed imposed by libata."
-
+ ':-)
+ 'USB Begin
  Label122.Text = "USB Speed:" & Space$(2) & Disk_Drives.USB_SPEED
  Label254.Text = "USB Version:" & Space$(2) & Disk_Drives.USB_VERSION
  Label255.Text = "USB Max Power:" & Space$(2) & Disk_Drives.USB_BMAXPOWER
+ 'Set Pictures for USB
  PictureBox5.Picture = Disk_Drives.USB_PIC
- 
  PictureBox4.Picture = Disk_Drives.SATA_PIC
+ 
  If Disk_Drives.USB_SPEED = Null Then
   Panel2.Visible = False
   Else
@@ -948,6 +952,7 @@ Label134.Text = "Rq affinity: " & Disk_Drives.rq_affinity
   Else
   Panel1.Visible = True
  Endif
+ 
 End
 
 Public Sub ComboBox5_Click()
@@ -977,19 +982,25 @@ End
 Public Sub Timer1_Timer()
   ''Refresh temp 1500/ms
   dospam_uptime()
+  'Check for temperature on this machine is supported.
+  'See "thermal_zone". You can add own code.
   thermal_zone._inits
   If thermal_zone.supporttemp = True Then
    LCDLabel1.Text = Replace("Temp: " & (thermal_zone.calculate / 1000) & " °C", ".", " . ")
   Else
     LCDLabel1.Visible = False
   Endif
+  'Check if critical temperature is supported.
+  'See "thermal_zone". You can add own code.
   If thermal_zone.supportcritical = True Then
    LCDLabel2.Text = Replace("Crit: " & (thermal_zone.calculatecrit / 1000) & " °C", ".", " . ")
   Else
    LCDLabel2.Visible = False
   Endif
+  'Try to show VCore temperatures.
   Try LCDLabel3.Text = VCore.CoreVoltage
   Try LCDLabel3.Visible = VCore.Visible
+  'Fix me if english translation is wrong.
 End
 
 Public Sub Button6_Click()
