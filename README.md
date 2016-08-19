@@ -55,7 +55,7 @@ The difference between I-Nex and the other hardware information GUI tools availa
 
 Adding required repositories:
 ```
-sudo add-apt-repository ppa:nemh/gambas3 &&\
+sudo add-apt-repository ppa:nemh/gambas3 && \
 sudo add-apt-repository ppa:i-nex-development-team/libcpuid11
 ```
 Installing dependencies:
@@ -78,3 +78,38 @@ fakeroot debian/rules binary && \
 cd .. && \
 sudo dpkg -i ./i-nex*.deb
 ```
+
+### Build lastest git snapshot I-Nex release in Arch Linux
+```
+yaourt -S i-nex-git --needed --noconfirm
+```
+
+### Install lastest backported I-Nex release in Manjaro Linux
+```
+sudo pacman -S i-nex
+```
+
+### Main guide build app from sources
+
+| NOTE: Don't report issues about manual build I-Nex app from sources based on this guide. First of all be sure you have installed all dependencies. Changes specify in pastebinit and inex.mk via sed command are needed for Arch Linux here. In Your distro these values can be different.|
+:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+## Downloading sources
+```
+git clone https://github.com/eloaders/I-Nex.git
+```
+## Build and install app from sources
+```
+cd I-Nex
+sed -i 's|python3$|python2|' pastebinit
+sed -i -e 's|^STATIC.*|STATIC = false|' i-nex.mk
+sed -i -e 's|^UDEV_RULES_DIR.*|UDEV_RULES_DIR = /usr/lib/udev/rules.d|' i-nex.mk
+cd I-Nex
+autoreconf -i
+./configure --prefix=/usr
+cd ..
+make
+sudo make install
+```
+
