@@ -1,4 +1,5 @@
-# Please set the 3 %define values based on the source code - https://github.com/eloaders/I-Nex
+# Please set the 3 %define values below based on the source code GIT tag - https://github.com/eloaders/I-Nex/commits/master
+# Also, the source should be named ~/rpmbuild/SOURCES/I-Nex-(gitlong).zip
 
 # The gittag version below ensures that the source tag points to the latest commit in GitHub e.g. latest commit as of 14 Aug 2016 is f57f4a5
 
@@ -19,7 +20,6 @@ Source0:        https://github.com/eloaders/I-Nex/archive/%{gittag}.zip#/I-Nex-%
 BuildRequires:  ImageMagick
 BuildRequires:  autoconf
 BuildRequires:  automake
-BuildRequires:  Mesa-demo-x
 BuildRequires:  fdupes
 BuildRequires:  gambas3-devel >= 3.8.4
 BuildRequires:  gambas3-gb-desktop >= 3.8.4
@@ -60,15 +60,6 @@ Requires:       gambas3-gb-settings >= 3.8.4
 Requires:       gambas3-runtime >= 3.8.4
 Requires:	  i2c-tools
 Requires:       procps-ng
-Recommends:     Mesa-demo-x
-Recommends:     xrandr
-Recommends:     lsb-release
-Recommends:     net-tools
-Recommends:     pastebinit >= 1.3
-Recommends:     pciutils
-Recommends:     python
-Recommends:     python-configobj
-Recommends:     xorg-x11 >= 7.5
 
 %description
 An application that gathers information for hardware
