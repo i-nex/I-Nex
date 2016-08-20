@@ -19,8 +19,8 @@ AC_DEFUN([GB_INIT_PROJECT],
     AC_MSG_ERROR(Cannot find .project file for $1 !)
   fi
 
-  AM_INIT_AUTOMAKE($1, `cat $1/.project | grep "^Version=" | sed s/"Version="//g`)
-  ##AM_INIT_AUTOMAKE($1, 7.0.0)
+  ##AM_INIT_AUTOMAKE($1, `cat $1/.project | grep "^Version=" | sed s/"Version="//g`)
+  AM_INIT_AUTOMAKE($1, 7.4.0)
 
   ## List of needed components
   COMPONENTS=`cat $1/.project | grep "^Component=" | sed s/"Component="//g`
@@ -28,6 +28,11 @@ AC_DEFUN([GB_INIT_PROJECT],
   ## Check if the project is a component
   COMPONENT_build=`cat $1/.project | grep "^Type=Component" | sed s/"Type=Component"/1/g`
   AC_SUBST(COMPONENT_build)
+  
+  if test "$COMPONENT_build" = "1"; then
+    COMPONENT_name=$2
+    AC_SUBST(COMPONENT_name)
+  fi
 
   AC_MSG_CHECKING(for gambas3 binaries)
   GAMBAS_path=`gbx3 -e system.path`/bin
