@@ -69,6 +69,9 @@ Public Sub _inits()
   Case Like "*centos*"
    Finfosys.PictureBox2.Picture = Picture["/etc/i-nex/Database/Distlogos/centos.png"]
    Finfosys.PictureBox2.Name = "centos.png"
+  Case Like "*neon*"
+   Finfosys.PictureBox2.Picture = Picture["/etc/i-nex/Database/Distlogos/kde_neon.png"]
+   Finfosys.PictureBox2.Name = "kde_neon.png"
  End Select
  
  If Finfosys.SCREENFETCH["Distro"] Like "*Ubuntu*" And Finfosys.SCREENFETCH["DE"] Like "*KDE*" Then
