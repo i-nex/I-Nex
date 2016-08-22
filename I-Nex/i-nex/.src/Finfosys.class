@@ -292,14 +292,13 @@ Public Sub ComboBox1_Click()
 End
 
 Public Sub kernel()
-  Dim UNAME_DATA As String
-  Try Exec ["/usr/bin/i-nex-uname"] Wait To UNAME_DATA
-  Try UNAME = JSON.Decode(UNAME_DATA)
-  Try TextLabel7.Text = "System name:  " & UNAME["System_name"]
-  Try TextLabel16.Text = "Nodename:    " & UNAME["Nodename"]
-  Try TextLabel17.Text = "Release:     " & UNAME["Release"]
-  Try TextLabel18.Text = "Version:     " & UNAME["Version"]
-  Try TextLabel26.Text = "Machine:     " & UNAME["Machine"]
+  Dim Machine As String
+  Try TextLabel18.Text = "Build Date: " & CString(File.Load("/proc/sys/kernel/version"))
+  Try TextLabel17.Text = "OS Release: " & CString(File.Load("/proc/sys/kernel/osrelease"))
+  Try TextLabel7.Text = "OS Type: " & CString(File.Load("/proc/sys/kernel/ostype"))
+  Try TextLabel16.Text = "Hostname: " & CString(File.Load("/proc/sys/kernel/hostname"))
+  Try Exec ["arch"] Wait To Machine
+  TextLabel26.Text = "Machine: " & CString(Machine)
   Try TextArea3.Text = File.Load("/proc/cmdline")
 End
 

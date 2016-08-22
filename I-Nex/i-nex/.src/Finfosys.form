@@ -1548,36 +1548,6 @@
     }
     Index = 6
     Text = "Kernel"
-    { TextLabel18 TextLabel
-      Move(14,126,441,28)
-      Font = Font["8"]
-      Alignment = Align.Normal
-      Border = Border.Raised
-    }
-    { TextLabel17 TextLabel
-      Move(14,98,441,28)
-      Font = Font["8"]
-      Alignment = Align.Normal
-      Border = Border.Raised
-    }
-    { TextLabel16 TextLabel
-      Move(14,70,441,28)
-      Font = Font["8"]
-      Alignment = Align.Normal
-      Border = Border.Raised
-    }
-    { TextLabel7 TextLabel
-      Move(14,42,441,28)
-      Font = Font["8"]
-      Alignment = Align.Normal
-      Border = Border.Raised
-    }
-    { TextLabel26 TextLabel
-      Move(14,14,441,28)
-      Font = Font["8"]
-      Alignment = Align.Normal
-      Border = Border.Raised
-    }
     { Label228 Label
       Move(154,168,168,28)
       Font = Font["8"]
@@ -1602,6 +1572,36 @@
     }
     { Separator10 Separator
       Move(0,161,469,14)
+    }
+    { TextLabel26 TextLabel
+      Move(0,0,462,28)
+      Font = Font["8"]
+      Alignment = Align.Normal
+      Border = Border.Raised
+    }
+    { TextLabel7 TextLabel
+      Move(0,28,462,28)
+      Font = Font["8"]
+      Alignment = Align.Normal
+      Border = Border.Raised
+    }
+    { TextLabel16 TextLabel
+      Move(0,56,462,28)
+      Font = Font["8"]
+      Alignment = Align.Normal
+      Border = Border.Raised
+    }
+    { TextLabel17 TextLabel
+      Move(0,84,462,28)
+      Font = Font["8"]
+      Alignment = Align.Normal
+      Border = Border.Raised
+    }
+    { TextLabel18 TextLabel
+      Move(0,112,462,28)
+      Font = Font["8"]
+      Alignment = Align.Normal
+      Border = Border.Raised
     }
     Index = 7
     Text = "Memory"
