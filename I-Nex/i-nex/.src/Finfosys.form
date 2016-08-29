@@ -1611,31 +1611,99 @@
       Count = 2
       Index = 0
       Text = ("Standard Info")
-      { ProgressBar1 ProgressBar
-        Move(7,35,448,21)
-      }
-      { ProgressBar4 ProgressBar
-        Move(7,84,448,21)
-      }
-      { TextLabel24 TextLabel
-        Move(7,56,448,28)
-        Font = Font["Bold,8"]
-        Text = ("N/A")
-        Alignment = Align.Center
-        Border = Border.Raised
-      }
-      { Label176 Label
-        Move(7,112,315,28)
-        Font = Font["Bold,8"]
-        Text = ("Label176")
-        Border = Border.Raised
-      }
-      { Label223 Label
-        Move(7,7,448,28)
-        Font = Font["Bold,8"]
-        Text = ("Label223")
-        Alignment = Align.Center
-        Border = Border.Raised
+      { HPanel2 HPanel
+        Move(0,0,462,406)
+        Expand = True
+        { HPanel3 HPanel
+          Move(0,0,168,168)
+          Expand = True
+          { Label223 Label
+            Move(0,0,448,28)
+            Font = Font["Bold,8"]
+            Expand = True
+            Text = ("Label223")
+            Alignment = Align.Center
+            Border = Border.Raised
+          }
+          { ProgressBar1 ProgressBar
+            Move(0,28,448,21)
+            Expand = True
+          }
+          { TextLabel24 TextLabel
+            Move(0,49,448,28)
+            Font = Font["Bold,8"]
+            Expand = True
+            Text = ("N/A")
+            Alignment = Align.Center
+            Border = Border.Raised
+          }
+          { ProgressBar4 ProgressBar
+            Move(0,77,448,21)
+            Expand = True
+          }
+          { Label176 Label
+            Move(0,105,315,28)
+            Font = Font["Bold,8"]
+            Expand = True
+            Text = ("Label176")
+            Border = Border.Raised
+          }
+        }
+        { HPanel6 HPanel
+          Move(119,168,336,224)
+          Expand = True
+          { Label85 Label
+            Move(0,0,168,28)
+            Font = Font["Bold,8"]
+            Expand = True
+            Padding = 3
+          }
+          { Label86 Label
+            Move(35,14,168,28)
+            Font = Font["Bold,8"]
+            Expand = True
+            Padding = 3
+          }
+          { Label87 Label
+            Move(35,28,168,28)
+            Font = Font["Bold,8"]
+            Expand = True
+            Padding = 3
+          }
+          { Label88 Label
+            Move(7,42,168,28)
+            Font = Font["Bold,8"]
+            Expand = True
+            Padding = 3
+          }
+          { Label89 Label
+            Move(35,70,168,28)
+            Font = Font["Bold,8"]
+            Expand = True
+            Padding = 3
+          }
+          { Label265 Label
+            Move(203,77,168,28)
+            Font = Font["Bold,8"]
+            Padding = 3
+          }
+          { Label90 Label
+            Move(28,84,168,28)
+            Font = Font["Bold,8"]
+            Expand = True
+            Padding = 3
+          }
+          { Label91 Label
+            Move(35,98,168,28)
+            Font = Font["Bold,8"]
+            Padding = 3
+          }
+          { Label266 Label
+            Move(161,161,168,28)
+            Font = Font["Bold,8"]
+            Padding = 3
+          }
+        }
       }
       Index = 1
       Text = ("Serial Presence Detect (Beta)")

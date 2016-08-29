@@ -744,7 +744,17 @@ Public Sub dospam_uptime()
   'https://access.redhat.com/solutions/406773
   Label223.Text = "Mem used: " & CString(MemTotal - (MemFree + Buffers + Cached)) & " MB"
   TextLabel24.Text = "Swap used: " & (SwapTotal - SwapFree) & " MB"
-
+  'Labels
+  Label85.Text = "Mem Total: " & MemTotal & "MB"
+  Label86.Text = "Mem Free: " & MemFree & "MB"
+  Label87.Text = "Mem Available: " & MemAvailable & "MB"
+  Label88.Text = "Buffers: " & Buffers & "MB"
+  Label89.Text = "Cached: " & Cached & "MB"
+  Label90.Text = "Swap Cached: " & SwapCached & "MB"
+  Label91.Text = "Swap Total: " & SwapTotal & "MB"
+  Label265.Text = "Swap Free: " & SwapFree & "MB"
+  Label266.Text = "Active: " & Active & "MB"
+     
   Try ProgressBar1.Value = (MemTotal - (MemFree + Buffers + Cached)) / MemTotal
   Try ProgressBar4.Value = (SwapTotal - SwapFree) / SwapTotal
   
