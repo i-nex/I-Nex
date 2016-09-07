@@ -244,7 +244,7 @@ Public Sub _inits()
                          spd_data[96],
                          spd_data[97],
                          spd_data[98])
-   
+
   Case Else
    MANUFACTURER = "Unknown"
    DRAM_MANUFACTURER = "Unknown"

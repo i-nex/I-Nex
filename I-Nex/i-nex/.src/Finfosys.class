@@ -49,7 +49,6 @@ Public Sub Form_Open()
   Dim MTRR As New String[]
   Logs("Starting log", Logger.Info)
   ComboBox10.Visible = False
-  Object.Call(MCPUSAGE, "GetUSAGE")
   ''Okno na środku
   ''
   If Settings["Window/X"] = Null Then
@@ -262,7 +261,9 @@ Public Sub Form_Open()
   Timer1.Start
   Timer1.Delay = 1500
   TextLabel21.Visible = False
-
+  
+ Logs("Set Combobox to cpu0", Logger.Info)
+ ComboBox1.Index = 0 ''Ustawienie combobox na Procesor0 / W przeciwnym wypadku nie pokaże nic
 'Uruchomienie instrukcji dla poszczególnych zakładek w celu wydobycia informacji z systemu
  Logs("Check Dospam uptime", Logger.Info)
  dospam_uptime()
@@ -277,9 +278,6 @@ Public Sub Form_Open()
  Logs("Check graphic card", Logger.Info)
  grafika()
  ''END Uruchomienie instrukcji dla poszczególnych zakładek w celu wydobycia informacji z systemu
- Logs("Set Combobox to cpu0", Logger.Info)
- ComboBox1.Index = 0 ''Ustawienie combobox na Procesor0 / W przeciwnym wypadku nie pokaże nic
- 
  Label25.Text = Application.version
  Logs(Label25.Text, Logger.Info)
  TabStrip1_Click()
@@ -701,8 +699,8 @@ Public Sub dospam_uptime()
   
   If IsNull(MEMINFO_FILE) = True Then
    MEMINFO_FILE = Open "/proc/meminfo"
-  Else
-   MEMINFO_FILE = Open MStart.MEMINFO_FILE
+  ' Else
+  '  MEMINFO_FILE = Open MStart.MEMINFO_FILE
   Endif
 
     For Each sLine In MEMINFO_FILE.Lines
@@ -1001,6 +999,7 @@ End
 Public Sub Timer1_Timer()
   ''Refresh temp 1500/ms
   dospam_uptime()
+
   'Check for temperature on this machine is supported.
   'See "thermal_zone". You can add own code.
   thermal_zone._inits
@@ -1020,6 +1019,7 @@ Public Sub Timer1_Timer()
   Try LCDLabel3.Text = VCore.CoreVoltage
   Try LCDLabel3.Visible = VCore.Visible
   'Fix me if english translation is wrong.
+  MCPUSAGE.proc_stat()
 End
 
 Public Sub Button6_Click()
@@ -1218,7 +1218,6 @@ Public Sub Form_Close()
   Settings["Tab/Pos"] = TabStrip1.Orientation
   Logs("Good bye!", Logger.Info)
   DATAT.Clear
-  MCPUSAGE.CPUusage.Kill
   Me.Close
  
 End

@@ -40,7 +40,8 @@ Depends: ${shlibs:Depends}, ${misc:Depends}, ${python:Depends},
   coreutils (>= 7.4),
   sed (>= 4.2),
   python-configobj,
-  curl
+  curl,
+  mesa-utils
 Replaces: i-nex
 Recommends:
   mount (>= 2.17),

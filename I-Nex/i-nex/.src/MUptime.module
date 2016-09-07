@@ -1,0 +1,25 @@
+' Gambas module file
+
+Public Sub _inits()
+  Dim sLine As String
+  Dim iPos As Integer
+  Dim SUptime As String
+  Dim SIdle As String
+  Dim UPTIME_FILE As File
+  
+  If IsNull(UPTIME_FILE) = True Then
+   UPTIME_FILE = Open "/proc/uptime"
+  Endif
+    
+    For Each sLine In UPTIME_FILE.Lines
+    sLine = Trim(sLine)
+    If Not sLine Then Continue 
+    Print Left$(sLine, (InStr(sLine, ".") - 1)) / 60
+    Print Left$(sLine, (InStr(sLine, ".") - 1)) / 60 / 60
+    Print (4319 / 60) / 60
+  Next
+  'Print Time(00, 00, 3600)
+  Close #UPTIME_FILE
+  'awk '{printf("%d:%02d:%02d:%02d",($1/60/60/24),($1/60/60%24),($1/60%60),($1%60))}' /proc/uptime
+
+End

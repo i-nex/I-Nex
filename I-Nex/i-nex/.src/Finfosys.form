@@ -610,7 +610,7 @@
       Move(133,462,329,14)
       #Translate = False
       Font = Font["Bold,8"]
-      ToolTip = "CPU Usage"
+      ToolTip = "CPU usage by the current core or thread"
     }
     Index = 1
     Text = "GPU"
@@ -1650,7 +1650,7 @@
           }
         }
         { HPanel6 HPanel
-          Move(119,168,336,224)
+          Move(0,168,336,224)
           Expand = True
           { Label85 Label
             Move(0,0,168,28)

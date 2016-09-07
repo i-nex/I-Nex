@@ -1,6 +1,6 @@
 ' Gambas module file
 
-' Copyright(C) 2011-2014, Michał Głowienka aka eloaders <eloaders@linux.pl>
+' Copyright(C) 2011-2016, Michał Głowienka aka eloaders <eloaders@linux.pl>
 '
 ' This program is free software; you can redistribute it and/or modify
 ' it under the terms of the GNU General Public License as published by
@@ -14,18 +14,116 @@
 '
 ' You should have received a copy of the GNU General Public License
 ' along with this program. If not, see <http://www.gnu.org/licenses/>.
-Public CPUusage As Process
-Private CPUusageOutput As String
-Public Sub GetUSAGE()
 
-  CPUusage = Exec ["/usr/bin/i-nex-cpusage"] For Input Output As "CPUusage"
+Public Sub proc_stat()
+  Dim PREV_STAT_PROC As File
+  Dim CURRENT_STAT_PROC As File
+  Dim sLine As String
+  Dim iPos As Integer
+  Dim Character As Integer
+  Dim sKey As String
+  Dim sVal As String
+  Dim PREV_SELT As String[]
+  Dim CURRENT_SELT As String[]
+  Dim prev_user As Integer
+  Dim prev_nice As Integer
+  Dim prev_System As Integer
+  Dim prev_idle As Integer
+  Dim prev_iowait As Integer
+  Dim prev_irq As Integer
+  Dim prev_softirq As Integer
+  Dim prev_steal As Integer
+  Dim prev_guest As Integer
+  Dim prev_guest_nice As Integer
+  Dim current_user As Integer
+  Dim current_nice As Integer
+  Dim current_System As Integer
+  Dim current_idle As Integer
+  Dim current_iowait As Integer
+  Dim current_irq As Integer
+  Dim current_softirq As Integer
+  Dim current_steal As Integer
+  Dim current_guest As Integer
+  Dim current_guest_nice As Integer
+  Dim PrevIdle As Integer
+  Dim Idle As Integer
+  Dim PrevNonIdle As Integer
+  Dim NonIdle As Integer
+  Dim PrevTotal As Integer
+  Dim Total As Integer
+  Dim totald As Integer
+  Dim idled As Integer
+  
+  PREV_STAT_PROC = Open "/proc/stat"
+  
+  For Each sLine In PREV_STAT_PROC.Lines
+    sLine = Trim(sLine)
+    If Not sLine Then Continue 
 
+    iPos = InStr(sLine, " ")
+    If iPos = 0 Then Continue
+
+    sKey = Trim(Left$(sLine, iPos - 1))
+    sVal = Trim(Mid$(sLine, iPos + 1))
+
+    Select Case sKey
+      Case Finfosys.ComboBox1.Text
+       PREV_SELT = Scan(sVal, "* * * * * * * * * *")
+       prev_user = CInt(PREV_SELT[0])
+       prev_nice = CInt(PREV_SELT[1])
+       prev_system = CInt(PREV_SELT[2])
+       prev_idle = CInt(PREV_SELT[3])
+       prev_iowait = CInt(PREV_SELT[4])
+       prev_irq = CInt(PREV_SELT[5])
+       prev_softirq = CInt(PREV_SELT[6])
+       'prev_steal = CInt(CURRENT_SELT[7])
+       ' prev_guest = CInt(CURRENT_SELT[8])
+       ' prev_guest_nice = CInt(CURRENT_SELT[9])
+    End Select
+  Next
+  
+  Close #PREV_STAT_PROC
+  
+  Wait 1
+  
+  CURRENT_STAT_PROC = Open "/proc/stat"
+  
+  For Each sLine In CURRENT_STAT_PROC.Lines
+    sLine = Trim(sLine)
+    If Not sLine Then Continue 
+
+    iPos = InStr(sLine, " ")
+    If iPos = 0 Then Continue
+
+    sKey = Trim(Left$(sLine, iPos - 1))
+    sVal = Trim(Mid$(sLine, iPos + 1))
+
+    Select Case sKey
+      Case Finfosys.ComboBox1.Text
+       CURRENT_SELT = Scan(sVal, "* * * * * * * * * *")
+       current_user = CInt(CURRENT_SELT[0])
+       current_nice = CInt(CURRENT_SELT[1])
+       current_system = CInt(CURRENT_SELT[2])
+       current_idle = CInt(CURRENT_SELT[3])
+       current_iowait = CInt(CURRENT_SELT[4])
+       current_irq = CInt(CURRENT_SELT[5])
+       current_softirq = CInt(CURRENT_SELT[6])
+       'current_steal = CInt(CURRENT_SELT[7])
+       ' current_guest = CInt(CURRENT_SELT[8])
+       ' current_guest_nice = CInt(CURRENT_SELT[9])
+    End Select
+  Next
+  
+  Close #CURRENT_STAT_PROC
+  
+  PrevIdle = (prev_idle + prev_iowait)
+  Idle = (current_idle + current_iowait)
+  PrevNonIdle = (prev_user + prev_nice + prev_system + prev_irq + prev_softirq) ' + prev_steal
+  NonIdle = (current_user + current_nice + current_system + current_irq + current_softirq) '+ current_steal
+  PrevTotal = (PrevIdle + PrevNonIdle)
+  Total = (Idle + NonIdle)
+    totald = (Total - PrevTotal)
+    idled = (Idle - PrevIdle)
+  
+  Finfosys.ProgressBar7.Value = (totald - idled) / totald 
 End
-
-Public Sub CPUusage_read()
-Dim CPUusageLines As String[]
-Line Input #CPUusage, CPUusageOutput
-  CPUusagelines = Split(CPUusageOutput, "\n")
-  Finfosys.ProgressBar7.Value = CInt(CFloat(CPUusageLines[0])) / 100
-End
-
