@@ -381,7 +381,7 @@ Public Sub grafika()
   Dim GLIXNFO As String
   Dim GLX As String[]
   Dim strings As String
-  Try Exec ["/usr/bin/i-nex-glinfo"] Wait To GLIXNFO
+  Try Exec ["glxinfo"] Wait To GLIXNFO
   GLX = Split(GLIXNFO, "\n", "")
   For Each strings In GLX
    If strings Like "*OpenGL vendor string:*" Then
