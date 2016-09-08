@@ -574,7 +574,7 @@ Public Sub Wykrywanie_procesorow()
   Try Label14.Tooltip = Replace(CPU_MODEL_NAME[CFloat(ComboBox1.Index)], "\n", "")
   Try Label71.Text = "Flags: " & FFlags.instructions
   Try Label13.Text = UCase$(Replace(Replace(Replace(CPU_VENDOR_ID[CFloat(ComboBox1.Index)], "Authentic", ""), "Genuine", ""), "\n", ""))
-  Try Label12.Text = Replace(CPU_CPU_MHZ[CFloat(ComboBox1.Index)], "\n", "") & " MHz"
+  'Try Label12.Text = Replace(CPU_CPU_MHZ[CFloat(ComboBox1.Index)], "\n", "") & " MHz"
   Try Label97.Text = "Family: " & Replace(CPU_FAMILYz[CFloat(ComboBox1.Index)], "\n", "")
   Try Label6.Text = "Model: " & Replace(CPU_MODEL[CFloat(ComboBox1.Index)], "\n", "")
   Try Label7.Text = "Stepping: " & Replace(CPU_STEPPING[CFloat(ComboBox1.Index)], "\n", "")
@@ -675,6 +675,35 @@ Public Sub Wykrywanie_procesorow()
   Logs("Get info from database", Logger.Info)
   Object.Call(FCpudb, "_inits")
 End
+
+Public Sub Refresh_CPU_MHZ()
+  Dim CPUINFO_PROC As File
+  Dim sLine As String
+  Dim iPos As Integer
+  Dim sKey As String
+  Dim sVal As String
+  Dim CPU_CPU_MHZ As New String[]
+  CPUINFO_PROC = Open "/proc/cpuinfo"
+  
+  For Each sLine In CPUINFO_PROC.Lines
+    sLine = Trim(sLine)
+    If Not sLine Then Continue 
+
+    iPos = InStr(sLine, ":")
+    If iPos = 0 Then Continue
+
+    sKey = Trim(Left$(sLine, iPos - 1))
+    sVal = Trim(Mid$(sLine, iPos + 1))
+    
+    Select Case sKey
+     Case "cpu MHz"
+      CPU_CPU_MHZ.Add(sVal)
+    End Select
+  Next
+  Label12.text = CPU_CPU_MHZ[(Mid$(ComboBox1.Current.Text, 4))]
+End
+
+
 
 Public Sub Button2_Click()
    ScreenShot.pic = Desktop.Screenshot(Me.X, Me.Y, Me.W + 12, Me.H + 30)
@@ -1020,6 +1049,7 @@ Public Sub Timer1_Timer()
   Try LCDLabel3.Visible = VCore.Visible
   'Fix me if english translation is wrong.
   MCPUSAGE.proc_stat()
+  Refresh_CPU_MHZ()
 End
 
 Public Sub Button6_Click()
