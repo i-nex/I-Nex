@@ -13,7 +13,7 @@ Description="I-Nex is an application that gathers information for hardware compo
 Authors="eloaders"
 Environment="LANG=C\nLC_ALL=C\nLIBOVERLAY_SCROLLBAR=0\nAPPMENU_DISPLAY_BOTH=1"
 TabSize=1
-Language=pl
+Language=en
 ControlPublic=1
 ModulePublic=1
 SourcePath=/home/michal/Pulpit
