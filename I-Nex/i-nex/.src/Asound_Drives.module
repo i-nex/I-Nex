@@ -44,7 +44,7 @@ Public Sub _inits()
 End
 
 Public Sub _get_informations()
-   Dim ASOUND_INPUT As String
+   Dim ASOUND_INPUT As String[]
    Dim ASOUND_INPUT_LIST_NAME As String
    Dim ASOUND_INPUT_LIST As String[]
    Dim i As Integer
@@ -54,18 +54,9 @@ Public Sub _get_informations()
    Shell "grep \"Codec:\" /proc/asound/" & ASOUND_ID & "/codec*" Wait To ASOUND_CODEC
    Finfosys.Label73.Text = Replace(ASOUND_CODEC, "\n", "") & "  "
    Finfosys.Label9.Text = Replace(Replace(ASOUND_ALSADV, "\n", ""), "Advanced Linux Sound Architecture", "ALSA")
-   Shell "ls /sys/class/sound/card" & Finfosys.ComboBox6.Index & " | grep input | sort" Wait To ASOUND_INPUT
-   ASOUND_INPUT_LIST = Split(ASOUND_INPUT, "\n", "%%")
-   
-   For i = 1 To ASOUND_INPUT_LIST.Count - 1
-    If ASOUND_INPUT_LIST[i] = Null Then
-       ASOUND_INPUT_LIST.Delete(i)
-    Endif
-   Next
+   ASOUND_INPUT_LIST = Dir("/sys/class/sound/card" & Finfosys.ComboBox6.Index & "", "input*").Sort()
    Finfosys.ComboBox9.List = ASOUND_INPUT_LIST
    Finfosys.ComboBox9.Index = 0
-   'ComboBox9
-   'file:///sys/class/sound/card0/input6/name
    
 End
 
