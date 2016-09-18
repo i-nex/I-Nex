@@ -60,6 +60,7 @@ Requires:       gambas3-gb-settings >= 3.8.4
 Requires:       gambas3-runtime >= 3.8.4
 Requires:	  i2c-tools
 Requires:       procps-ng
+Requires:       glx-utils
 
 %description
 An application that gathers information for hardware
