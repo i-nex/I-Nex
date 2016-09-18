@@ -125,5 +125,5 @@ Public Sub proc_stat()
     totald = (Total - PrevTotal)
     idled = (Idle - PrevIdle)
   
-  Finfosys.ProgressBar7.Value = (totald - idled) / totald 
+  If totald > 0 Then Finfosys.ProgressBar7.Value = (totald - idled) / totald 
 End
