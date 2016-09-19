@@ -245,12 +245,12 @@ Private Sub SameSetting(vOld As Variant, vNew As Variant) As Boolean
   Dim vNewVal As Variant
   
   If IsNull(vOld) And If IsNull(vNew) Then Return True
-  If TypeOf(vOld) <> gb.Object And If TypeOf(vNew) <> gb.Object Then
-    Return vOld = vNew
-  Endif
+  If TypeOf(vOld) <> gb.Object And If TypeOf(vNew) <> gb.Object Then Return vOld = vNew
+
   If Not (vOld Is Array) Then Return
   If Not (vNew Is Array) Then Return
   If vOld.Count <> vNew.Count Then Return
+  If vOld = vNew Then Return
   
   For I = 0 To vOld.Max
     vOldVal = vOld[I]

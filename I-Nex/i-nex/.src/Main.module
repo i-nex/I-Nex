@@ -1,35 +1,28 @@
 ' Gambas module file
 
-' Copyright(C) 2011-2014, Michał Głowienka aka eloaders <eloaders@linux.pl>
-'
-' This program is free software; you can redistribute it and/or modify
-' it under the terms of the GNU General Public License as published by
-' the Free Software Foundation; either version 3 of the License, or
-' (at your option) any later version.
-'
-' This program is distributed in the hope that it will be useful,
-' but WITHOUT ANY WARRANTY; without even the implied warranty of
-' MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-' GNU General Public License for more details.
-'
-' You should have received a copy of the GNU General Public License
-' along with this program. If not, see <http://www.gnu.org/licenses/>.
-
-
 Public Sub Main()
 
   Dim hSettings As Settings
+  Dim b As New Boolean[]
 
-  hSettings = New Settings("~/.i-nex/i-nex.conf")
+  ' hSettings = New Settings("~/test.conf")
+  ' hSettings["Cat1/Values"] = [False, False, False, False]
+  ' hSettings.Save
   
-  hSettings["localhost/Login"] = ""
-  hSettings["Charlie/Login"] = "Toto"
-  Dump(hSettings)
-  hSettings.Save()
-  ' clear and save it
-  hSettings.Clear("Charlie")   ' don't work, found, removed
-  Dump(hSettings)
-  hSettings.Save() ' on save reloaded by "Sub Load()" from file
+  hSettings = New Settings("~/.i-nex/i-nex.conf")
+  b = hSettings["Cat1/Values"]
+  b[1] = True
+  hSettings["Cat1/Values"] = b
+  hSettings.Save
+  
+  ' Settings.Save hSettings["localhost/Login"] = ""
+  ' hSettings["Charlie/Login"] = "Toto"
+  ' Dump(hSettings)
+  ' hSettings.Save()
+  ' ' clear and save it
+  ' hSettings.Clear("Charlie")   ' don't work, found, removed
+  ' Dump(hSettings)
+  ' hSettings.Save() ' on save reloaded by "Sub Load()" from file
   
 End
 
