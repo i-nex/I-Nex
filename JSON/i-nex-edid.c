@@ -214,7 +214,7 @@ extract_string(unsigned char *x, int *valid_termination, int len)
     memset(ret, 0, sizeof(ret));
 
     for (i = 0; i < len; i++) {
-	if (isalnum(x[i])) {
+	if (isgraph(x[i])) {
 	    ret[i] = x[i];
 	} else if (!seen_newline) {
 	    if (x[i] == 0x0a) {
@@ -618,7 +618,7 @@ cea_audio_block(unsigned char *x)
     for (i = 1; i < length; i += 3) {
 	format = (x[i] & 0x78) >> 3;
 	printf("    %s, max channels %d\n", audio_format(format),
-	       x[i] & 0x07);
+	       (x[i] & 0x07)+1);
 	printf("    Supported sample rates (kHz):%s%s%s%s%s%s%s\n",
 	       (x[i+1] & 0x40) ? " 192" : "",
 	       (x[i+1] & 0x20) ? " 176.4" : "",
@@ -629,11 +629,11 @@ cea_audio_block(unsigned char *x)
 	       (x[i+1] & 0x01) ? " 32" : "");
 	if (format == 1) {
 	    printf("    Supported sample sizes (bits):%s%s%s\n",
-		  (x[2] & 0x04) ? " 24" : "",
-		  (x[2] & 0x02) ? " 20" : "",
-		  (x[2] & 0x01) ? " 16" : "");
+		  (x[i+2] & 0x04) ? " 24" : "",
+		  (x[i+2] & 0x02) ? " 20" : "",
+		  (x[i+2] & 0x01) ? " 16" : "");
 	} else if (format <= 8) {
-	    printf("    Maximum bit rate: %d kHz\n", x[2] * 8);
+	    printf("    Maximum bit rate: %d kHz\n", x[i+2] * 8);
 	}
     }
 }
@@ -703,27 +703,125 @@ static const char *edid_cea_modes[] = {
     "1280x720@30Hz",
     "1920x1080@120Hz",
     "1920x1080@100Hz",
+    "1280x720@24Hz",
+    "1280x720@25Hz",
+    "1280x720@30Hz",
+    "1280x720@50Hz",
+    "1280x720@60Hz",
+    "1280x720@100Hz",
+    "1280x720@120Hz",
+    "1920x1080@24Hz",
+    "1920x1080@25Hz",
+    "1920x1080@30Hz",
+    "1920x1080@50Hz",
+    "1920x1080@60Hz",
+    "1920x1080@100Hz",
+    "1920x1080@120Hz",
+    "1680x720@24Hz",
+    "1680x720@25Hz",
+    "1680x720@30Hz",
+    "1680x720@50Hz",
+    "1680x720@60Hz",
+    "1680x720@100Hz",
+    "1680x720@120Hz",
+    "2560x1080@24Hz",
+    "2560x1080@25Hz",
+    "2560x1080@30Hz",
+    "2560x1080@50Hz",
+    "2560x1080@60Hz",
+    "2560x1080@100Hz",
+    "2560x1080@120Hz",
+    "3840x2160@24Hz",
+    "3840x2160@25Hz",
+    "3840x2160@30Hz",
+    "3840x2160@50Hz",
+    "3840x2160@60Hz",
+    "4096x2160@24Hz",
+    "4096x2160@25Hz",
+    "4096x2160@30Hz",
+    "4096x2160@50Hz",
+    "4096x2160@60Hz",
+    "3840x2160@24Hz",
+    "3840x2160@25Hz",
+    "3840x2160@30Hz",
+    "3840x2160@50Hz",
+    "3840x2160@60Hz",
 };
+
+static void
+cea_svd(unsigned char *x, int n)
+{
+    int i;
+
+    for (i = 0; i < n; i++)  {
+	unsigned char svd = x[i];
+	unsigned char native;
+	unsigned char vic;
+	const char *mode;
+
+	if ((svd & 0x7f) == 0)
+	    continue;
+
+	if ((svd - 1) & 0x40) {
+	    vic = svd;
+	    native = 0;
+	} else {
+	    vic = svd & 0x7f;
+	    native = svd & 0x80;
+	}
+
+	if (vic > 0 && vic <= ARRAY_SIZE(edid_cea_modes))
+	    mode = edid_cea_modes[vic - 1];
+	else
+	    mode = "Unknown mode";
+
+	printf("    VIC %3d %s %s\n", vic, mode, native ? "(native)" : "");
+    }
+}
 
 static void
 cea_video_block(unsigned char *x)
 {
-    int i;
     int length = x[0] & 0x1f;
 
-    for (i = 1; i <= length; i++)  {
-	unsigned char vic = x[i] & 0x7f;
-	unsigned char native = x[i] & 0x80;
-	const char *mode;
-	int index;
+    cea_svd(x + 1, length);
+}
 
-	index = vic - 1;
-	if (index < ARRAY_SIZE(edid_cea_modes))
-	    mode = edid_cea_modes[index];
-	else
-	    mode = "Unknown mode";
+static void
+cea_y420vdb(unsigned char *x)
+{
+    int length = x[0] & 0x1f;
 
-	printf("    VIC %02d %s %s\n", vic, mode, native ? "(native)" : "");
+    cea_svd(x + 2, length - 1);
+}
+
+static void
+cea_vfpdb(unsigned char *x)
+{
+    int length = x[0] & 0x1f;
+    int i;
+
+    for (i = 2; i <= length; i++)  {
+	unsigned char svr = x[i];
+
+	if ((svr > 0 && svr < 128) || (svr > 192 && svr < 254)) {
+	    unsigned char vic;
+	    const char *mode;
+	    int index;
+
+	    vic = svr;
+	    index = vic - 1;
+
+	    if (index < ARRAY_SIZE(edid_cea_modes))
+		mode = edid_cea_modes[vic];
+	    else
+		mode = "Unknown mode";
+
+	    printf("    VIC %02d %s\n", vic, mode);
+
+	} else if (svr > 128 && svr < 145) {
+	    printf("    DTD number %02d\n", svr - 128);
+	}
     }
 }
 
@@ -935,12 +1033,108 @@ static struct field *vcdb_fields[] = {
     &CE_scan,
 };
 
+static const char *sadb_map[] = {
+    "FL/FR",
+    "LFE",
+    "FC",
+    "RL/RR",
+    "RC",
+    "FLC/FRC",
+    "RLC/RRC",
+    "FLW/FRW",
+    "FLH/FRH",
+    "TC",
+    "FCH",
+};
+
+static void
+cea_sadb(unsigned char *x)
+{
+    int length = x[0] & 0x1f;
+    int i;
+
+    if (length >= 3) {
+	uint16_t sad = ((x[2] << 8) | x[1]);
+
+	printf("    Speaker map:");
+
+	for (i = 0; i < ARRAY_SIZE(sadb_map); i++) {
+	    if ((sad >> i) & 1)
+		printf(" %s", sadb_map[i]);
+	}
+
+	printf("\n");
+    }
+}
+
 static void
 cea_vcdb(unsigned char *x)
 {
     unsigned char d = x[2];
 
     decode(vcdb_fields, d, "    ");
+}
+
+static const char *colorimetry_map[] = {
+    "xvYCC601",
+    "xvYCC709",
+    "sYCC601",
+    "AdobeYCC601",
+    "AdobeRGB",
+    "BT2020cYCC",
+    "BT2020YCC",
+    "BT2020RGB",
+};
+
+static void
+cea_colorimetry_block(unsigned char *x)
+{
+    int length = x[0] & 0x1f;
+    int i;
+
+    if (length >= 3) {
+	for (i = 0; i < ARRAY_SIZE(colorimetry_map); i++) {
+	    if (x[2] >> i)
+		printf("    %s\n", colorimetry_map[i]);
+	}
+    }
+}
+
+static const char *eotf_map[] = {
+    "Traditional gamma - SDR luminance range",
+    "Traditional gamma - HDR luminance range",
+    "SMPTE ST2084",
+};
+
+static void
+cea_hdr_metadata_block(unsigned char *x)
+{
+    int length = x[0] & 0x1f;
+    int i;
+
+    if (length >= 3) {
+	printf("    Electro optical transfer functions:\n");
+	for (i = 0; i < 6; i++) {
+	    if (x[2] >> i) {
+		printf("      %s\n", i < ARRAY_SIZE(eotf_map) ?
+		       eotf_map[i] : "Unknown");
+	    }
+	}
+	printf("    Supported static metadata descriptors:\n");
+	for (i = 0; i < 8; i++) {
+	    if (x[3] >> i)
+		printf("      Static metadata type %d\n", i + 1);
+	}
+    }
+
+    if (length >= 4)
+	printf("    Desired content max luminance: %d\n", x[4]);
+
+    if (length >= 5)
+	printf("    Desired content max frame-average luminance: %d\n", x[5]);
+
+    if (length >= 6)
+	printf("    Desired content min luminance: %d\n", x[6]);
 }
 
 static void
@@ -968,6 +1162,7 @@ cea_block(unsigned char *x)
 	    break;
 	case 0x04:
 	    printf("  Speaker allocation data block\n");
+	    cea_sadb(x);
 	    break;
 	case 0x05:
 	    printf("  VESA DTC data block\n");
@@ -993,6 +1188,22 @@ cea_block(unsigned char *x)
 		    break;
 		case 0x05:
 		    printf("Colorimetry data block\n");
+		    cea_colorimetry_block(x);
+		    break;
+		case 0x06:
+		    printf("HDR static metadata data block\n");
+		    cea_hdr_metadata_block(x);
+		    break;
+		case 0x0d:
+		    printf("Video format preference data block\n");
+		    cea_vfpdb(x);
+		    break;
+		case 0x0e:
+		    printf("YCbCr 4:2:0 video data block\n");
+		    cea_y420vdb(x);
+		    break;
+		case 0x0f:
+		    printf("YCbCr 4:2:0 capability map data block\n");
 		    break;
 		case 0x10:
 		    printf("CEA miscellaneous audio fields\n");
@@ -1003,8 +1214,11 @@ cea_block(unsigned char *x)
 		case 0x12:
 		    printf("HDMI audio data block\n");
 		    break;
+		case 0x20:
+		    printf("InfoFrame data block\n");
+		    break;
 		default:
-		    if (x[1] >= 6 && x[1] <= 15)
+		    if (x[1] >= 6 && x[1] <= 12)
 			printf("Reserved video block (%02x)\n", x[1]);
 		    else if (x[1] >= 19 && x[1] <= 31)
 			printf("Reserved audio block (%02x)\n", x[1]);
@@ -1072,6 +1286,176 @@ parse_cea(unsigned char *x)
     return ret;
 }
 
+static int
+parse_displayid_detailed_timing(unsigned char *x)
+{
+    int ha, hbl, hso, hspw;
+    int va, vbl, vso, vspw;
+    char phsync, pvsync, *stereo;
+    int pix_clock;
+    char *aspect;
+
+    switch (x[3] & 0xf) {
+    case 0:
+	aspect = "1:1";
+	break;
+    case 1:
+	aspect = "5:4";
+	break;
+    case 2:
+	aspect = "4:3";
+	break;
+    case 3:
+	aspect = "15:9";
+	break;
+    case 4:
+	aspect = "16:9";
+	break;
+    case 5:
+	aspect = "16:10";
+	break;
+    case 6:
+	aspect = "64:27";
+	break;
+    case 7:
+	aspect = "256:135";
+	break;
+    default:
+	aspect = "undefined";
+	break;
+    }
+    switch ((x[3] >> 5) & 0x3) {
+    case 0:
+	stereo = "";
+	break;
+    case 1:
+	stereo = "stereo";
+	break;
+    case 2:
+	stereo = "user action";
+	break;
+    case 3:
+	stereo = "reserved";
+	break;
+    }
+    printf("Type 1 detailed timing: aspect: %s, %s %s\n", aspect, x[3] & 0x80 ? "Preferred " : "", stereo);
+    pix_clock = x[0] + (x[1] << 8) + (x[2] << 16);
+    ha = x[4] | (x[5] << 8);
+    hbl = x[6] | (x[7] << 8);
+    hso = x[8] | ((x[9] & 0x7f) << 8);
+    phsync = ((x[9] >> 7) & 0x1) ? '+' : '-';
+    hspw = x[10] | (x[11] << 8);
+    va = x[12] | (x[13] << 8);
+    vbl = x[14] | (x[15] << 8);
+    vso = x[16] | ((x[17] & 0x7f) << 8);
+    vspw = x[18] | (x[19] << 8);
+    pvsync = ((x[17] >> 7) & 0x1 ) ? '+' : '-';
+
+    printf("Detailed mode: Clock %.3f MHz, %d mm x %d mm\n"
+	   "               %4d %4d %4d %4d\n"
+	   "               %4d %4d %4d %4d\n"
+	   "               %chsync %cvsync\n",
+	   (float)pix_clock/100.0, 0, 0,
+	   ha, ha + hso, ha + hso + hspw, ha + hbl,
+	   va, va + vso, va + vso + vspw, va + vbl,
+	   phsync, pvsync
+	   );
+    return 1;
+}
+
+static int
+parse_displayid(unsigned char *x)
+{
+    int version = x[1];
+    int length = x[2];
+    int ext_count = x[4];
+    int i;
+    printf("Length %d, version %d, extension count %d\n", length, version, ext_count);
+    int offset = 5;
+    while (length > 0) {
+       int tag = x[offset];
+       int len = x[offset + 2];
+
+       if (len == 0)
+	   break;
+       switch (tag) {
+       case 0:
+	   printf("Product ID block\n");
+	   break;
+       case 1:
+	   printf("Display Parameters block\n");
+	   break;
+       case 2:
+	   printf("Color characteristics block\n");
+	   break;
+       case 3: {
+	   for (i = 0; i < len / 20; i++) {
+	       parse_displayid_detailed_timing(&x[offset + 3 + (i * 20)]);
+	   }
+	   break;
+       }
+       case 4:
+	   printf("Type 2 detailed timing\n");
+	   break;
+       case 5:
+	   printf("Type 3 short timing\n");
+	   break;
+       case 6:
+	   printf("Type 4 DMT timing\n");
+	   break;
+       case 7:
+	   printf("VESA DMT timing block\n");
+	   break;
+       case 8:
+	   printf("CEA timing block\n");
+	   break;
+       case 9:
+	   printf("Video timing range\n");
+	   break;
+       case 0xa:
+	   printf("Product serial number\n");
+	   break;
+       case 0xb:
+	   printf("GP ASCII string\n");
+	   break;
+       case 0xc:
+	   printf("Display device data\n");
+	   break;
+       case 0xd:
+	   printf("Interface power sequencing\n");
+	   break;
+       case 0xe:
+	   printf("Transfer characterisitics\n");
+	   break;
+       case 0xf:
+	   printf("Display interface\n");
+	   break;
+       case 0x10:
+	   printf("Stereo display interface\n");
+	   break;
+       case 0x12: {
+	   int capabilities = x[offset + 3];
+	   int num_v_tile = (x[offset + 4] & 0xf) | (x[offset + 6] & 0x30);
+	   int num_h_tile = (x[offset + 4] >> 4) | ((x[offset + 6] >> 2) & 0x30);
+	   int tile_v_location = (x[offset + 5] & 0xf) | ((x[offset + 6] & 0x3) << 4);
+	   int tile_h_location = (x[offset + 5] >> 4) | (((x[offset + 6] >> 2) & 0x3) << 4);
+	   int tile_width = x[offset + 7] | (x[offset + 8] << 8);
+	   int tile_height = x[offset + 9] | (x[offset + 10] << 8);
+	   printf("tiled display block: capabilities 0x%08x\n", capabilities);
+	   printf("num horizontal tiles %d, num vertical tiles %d\n", num_h_tile + 1, num_v_tile + 1);
+	   printf("tile location (%d, %d)\n", tile_h_location, tile_v_location);
+	   printf("tile dimensions (%d, %d)\n", tile_width + 1, tile_height + 1);
+	   break;
+       }
+       default:
+	   printf("Unknown displayid data block 0x%x\n", tag);
+	   break;
+       }
+       length -= len + 3;
+       offset += len + 3;
+    }
+    return 1;
+}
 /* generic extension code */
 
 static void
@@ -1096,6 +1480,10 @@ parse_extension(unsigned char *x)
     case 0x40: printf("DI extension block\n"); break;
     case 0x50: printf("LS extension block\n"); break;
     case 0x60: printf("DPVL extension block\n"); break;
+    case 0x70: printf("DisplayID extension block\n");
+	extension_version(x);
+        parse_displayid(x);
+        break;
     case 0xF0: printf("Block map\n"); break;
     case 0xFF: printf("Manufacturer-specific extension block\n");
     default:
@@ -1389,6 +1777,7 @@ int main(int argc, char **argv)
 		perror(argv[1]);
 		return 1;
 	    }
+	    ofd = -1;
 	    break;
 	case 3:
 	    if ((fd = open(argv[1], O_RDONLY)) == -1) {
@@ -1569,9 +1958,9 @@ int main(int argc, char **argv)
 	}
     } else {
 	printf("Supported color formats: RGB 4:4:4");
-	if (edid[0x18] & 0x10)
-	    printf(", YCrCb 4:4:4");
 	if (edid[0x18] & 0x08)
+	    printf(", YCrCb 4:4:4");
+	if (edid[0x18] & 0x10)
 	    printf(", YCrCb 4:2:2");
 	printf("\n");
     }

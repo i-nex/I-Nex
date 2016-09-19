@@ -1,5 +1,43 @@
-.TH i\-nex\-edid "1"
+.\" shorthand for double quote that works everywhere.
+.ds q \N'34'
+.TH i-nex-edid 1
 .SH NAME
-\fBinex\-edid\fP \- Decodes to text the binary EDID information from monitors.
+i-nex-edid - Decode EDID data in human-readable format
 .SH SYNOPSIS
-usage: \- i\-nex\-edid /sys/devices/.../drm/card*/card*/edid
+.B i-nex-edid [in] [out]
+.SH DESCRIPTION
+.B i-nex-edid
+decodes EDID monitor description data in human-readable format.  It takes
+zero, one, or two arguments.  If invoked with no arguments it reads from
+standard input and writes to standard output.  With one argument, the file
+named by the argument is read instead.  With two arguments, normal output
+is suppressed, and the binary EDID blob is written to the file named by
+the second argument.
+.PP
+Input files may be raw binaries or ASCII text.  ASCII input is scanned for
+hex dumps; heuristics are included to search for hexdumps in
+.B xrandr(1)
+property output and
+.B Xorg(1)
+log file formats, otherwise the data is treated as a raw hexdump.  EDID blocks
+for connected monitors can be found in
+.B /sys/class/drm/*/edid
+on modern Linux systems with kernel modesetting support.
+.PP
+.SH NOTES
+Not all fields are decoded, or decoded completely.  Some fields' decoding
+may appear to corrupt the output (for example, detailed string sections
+have their contents printed literally).
+.B i-nex-edid
+does attempt to validate its input against the relevant standards, but its
+opinions have not been double-checked with the relevant standards bodies,
+so they may be wrong.  Do not rely on the output format, as it will likely
+change in future versions of the tool as additional fields and extensions are
+added.
+.SH "SEE ALSO"
+Xorg(1), xrandr(1)
+.SH AUTHORS
+i-nex-edid was written by Adam Jackson, with contributions from Eric
+Anholt, Damien Lespiau, and others.  For complete history and the latest
+version, see
+.B http://cgit.freedesktop.org/xorg/app/edid-decode/
