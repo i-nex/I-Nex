@@ -1,19 +1,6 @@
 ' Gambas module file
 
-' Copyright(C) 2011-2014, Michał Głowienka aka eloaders <eloaders@linux.pl>
-'
-' This program is free software; you can redistribute it and/or modify
-' it under the terms of the GNU General Public License as published by
-' the Free Software Foundation; either version 3 of the License, or
-' (at your option) any later version.
-'
-' This program is distributed in the hope that it will be useful,
-' but WITHOUT ANY WARRANTY; without even the implied warranty of
-' MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-' GNU General Public License for more details.
-'
-' You should have received a copy of the GNU General Public License
-' along with this program. If not, see <http://www.gnu.org/licenses/>.
+Export
 
 Property Read {Null} As Variant
 
@@ -21,6 +8,13 @@ Private $vNull As Variant
 Private $sStr As String
 Private $iPos As Integer
 Private $bUseNull As Boolean
+Private $hStream As File
+
+Public Sub _init()
+  
+  $vNull = VarPtr($vNull)
+  
+End
 
 Private Sub GetChar() As String
   
@@ -212,20 +206,20 @@ Private Sub WriteValue(vVal As Variant)
   Select Case TypeOf(vVal)
     
     Case gb.Null
-      $sStr &= "null"
+      Write #$hStream, "null"
     
     Case gb.Boolean
       If vVal Then
-        $sStr &= "true"
+        Write #$hStream, "true"
       Else
-        $sStr &= "false"
+        Write #$hStream, "false"
       Endif
     
     Case gb.Byte, gb.Short, gb.Integer, gb.Long, gb.Float
-      $sStr &= CStr(vVal)
+      Write #$hStream, CStr(vVal)
     
     Case gb.Date
-      $sStr &= Chr$(34) & CStr(vVal) & Chr$(34)
+      Write #$hStream, Chr$(34) & CStr(vVal) & Chr$(34)
     
     Case gb.String
       sStr = Quote(vVal)
@@ -238,28 +232,28 @@ Private Sub WriteValue(vVal As Variant)
           Inc iPos
         Endif
       Loop
-      $sStr &= sStr
+      Write #$hStream, sStr
     
     Case Else
       If vVal Is Array Then
         aArray = vVal
-        $sStr &= "["
+        Write #$hStream, "["
         For iPos = 0 To vVal.Max
-          If iPos Then $sStr &= ", "
+          If iPos Then Write #$hStream, ","
           WriteValue(vVal[iPos])
         Next
-        $sStr &= "]"
+        Write #$hStream, "]"
       Else If vVal Is Collection Then
         cCol = vVal
-        $sStr &= "{"
+        Write #$hStream, "{"
         For Each vVal In cCol
-          If iPos Then $sStr &= ", "
+          If iPos Then Write #$hStream, ","
           WriteValue(cCol.Key)
-          $sStr &= ": "
+          Write #$hStream, ":"
           WriteValue(vVal)
           Inc iPos
         Next
-        $sStr &= "}"
+        Write #$hStream, "}"
       Endif
     
   End Select
@@ -273,7 +267,6 @@ Public Sub Decode(JSONString As String, Optional UseNull As Boolean) As Variant
   $sStr = JSONString
   $iPos = 1
   $bUseNull = UseNull
-  If UseNull And If IsNull($vNull) Then $vNull = VarPtr($vNull)
   vVal = ReadValue()
   $bUseNull = False
   $sStr = ""
@@ -283,9 +276,12 @@ End
 
 Public Sub Encode(Value As Variant) As String
   
-  $sStr = ""
+  Dim sStr As String
+  
+  $hStream = Open String For Write
   WriteValue(Value)
-  Return $sStr
+  sStr = Close #$hStream
+  Return sStr
   
 End
 
