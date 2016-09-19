@@ -7,9 +7,10 @@ Homepage: http://i-nex.linux.pl
 Build-Depends: debhelper (>= 7), 
   dh-autoreconf,
   python | python-all | python-dev | python-all-dev,
-  pkg-config, dpkg-dev (>= 1.14.17),
+  pkg-config, 
+  dpkg-dev (>= 1.14.17),
   debhelper (>= 5.0.0),
-  libcpuid11-dev | libcpuid13-dev, 
+  libcpuid13-dev, 
   lsb-release,
   libprocps3-dev | libprocps4-dev | libprocps-dev | libprocps0-dev | libproc-dev,
   libx11-dev,
@@ -23,7 +24,7 @@ Build-Depends: debhelper (>= 7),
   gambas3-gb-desktop (>= 3.8.4),
   gambas3-gb-desktop-x11 (>= 3.8.4),
   imagemagick
-Standards-Version: 3.9.4
+Standards-Version: 3.9.7
 Vcs-Browser: https://github.com/eloaders/I-Nex
 Vcs-Git: https://github.com/eloaders/I-Nex.git
 
@@ -44,18 +45,8 @@ Depends: ${shlibs:Depends}, ${misc:Depends}, ${python:Depends},
   curl,
   mesa-utils
 Replaces: i-nex
-Recommends:
-  mount (>= 2.17),
-  x11-utils (>= 7.5),
-  pciutils,
-  lsb-release (>= 4.0),
-  x11-xserver-utils (>= 7.5)
+Recommends: mount (>= 2.17), x11-utils (>= 7.5), pciutils, lsb-release (>= 4.0), x11-xserver-utils (>= 7.5)
 Description: CPU-Z Alternative for Linux. For Viewing System Device Information.
   I-Nex is an application that gathers information for hardware components.
   Available on your system and displays it using an user 
   interface similar to the popular Windows tool CPU-Z.
-  CPU, GPU, Motherboard, Sound, Hard disks, RAM, Network, USB, hostname, 
-  Linux distribution and version, Xorg, GCC, GLX versions and Linux Kernel info.
-  I-Nex can also generate an advanced report for which. 
-  You can select what to include and optionally send the report to a service such as Pastebin. 
-  It also features an option to take a screenshot of the I-Nex window directly from the application.
