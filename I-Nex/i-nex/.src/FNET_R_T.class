@@ -82,3 +82,12 @@ Public Sub Form_Open()
  Timer1.Start
  net_()
 End
+
+Public Sub Button2_Click()
+ 
+ Form_Close()
+ 
+End
+Public Sub Form_Close()
+  Me.Close
+End
