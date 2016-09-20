@@ -1,7 +1,7 @@
 # Gambas Form File 3.0
 
 { Form Form
-  MoveScaled(0,0,88,56)
+  MoveScaled(0,0,88,57)
   #Translate = False
   Expand = True
   Text = "Receive and Transmit"
@@ -21,7 +21,7 @@
     }
   }
   { Frame2 Frame
-    MoveScaled(0,28,88,27)
+    MoveScaled(0,28,88,28)
     Text = ("Transmit")
     { !GridView2 GridView
       MoveScaled(2,4,85,19)
@@ -31,6 +31,15 @@
       Header = GridView.Vertical
       AutoResize = False
       Sorted = True
+    }
+    { Button2 Button
+      MoveScaled(74,24,14,4)
+      Drop = True
+      Expand = True
+      AutoResize = True
+      Text = ("Close")
+      Picture = Picture["AppIcons/application-exit2.png"]
+      Default = True
     }
   }
   { !Timer1 #Timer
