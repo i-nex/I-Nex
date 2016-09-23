@@ -20,8 +20,8 @@ Public Temperature As String
 Public CriticalTemperature As String
 Public calculate As Float
 Public calculatecrit As Float
-Public supporttemp As Boolean '= False
-Public supportcritical As Boolean
+Public supporttemp As Boolean = True
+Public supportcritical As Boolean = True
 Public TemperaturesDirectiories As Collection
 Public TemperatureCriticalDirectories As Collection
 Public Sub _inits()
@@ -58,18 +58,22 @@ Public Sub _inits()
   Endif
  Next
  
- If CriticalTemperature = Null Then
- Logs("Not found crit temp", Logger.Error)
- supportcritical = False
- Else
-  calculatecrit = CFloat(Val(Replace(CriticalTemperature, "\n", "")))
+ If supportcritical = True Then
+  If CriticalTemperature = Null Then
+    Logs("Not found crit temp", Logger.Error)
+      supportcritical = False
+  Else
+    calculatecrit = CFloat(Val(Replace(CriticalTemperature, "\n", "")))
+  Endif
  Endif
  
- If Temperature = Null Then
- Logs("Not found temp", Logger.Error)
- supporttemp = False
- Else
-  calculate = CFloat(Val(Replace(Temperature, "\n", "")))
+ If supporttemp = True Then
+  If Temperature = Null Then
+    Logs("Not found temp", Logger.Error)
+      supporttemp = False
+  Else
+    calculate = CFloat(Val(Replace(Temperature, "\n", "")))
+  Endif
  Endif
  
 End
