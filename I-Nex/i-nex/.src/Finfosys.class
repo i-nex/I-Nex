@@ -945,13 +945,14 @@ Label134.Text = "Rq affinity: " & Disk_Drives.rq_affinity
  Label124.Text = "BDI min_ratio: " & Disk_Drives.min_ratio
  Label125.Text = "BDI stable pages required: " & Disk_Drives.stable_pages_required
  
- If Disk_Drives.removable Like "0" Then
-  Label45.Text = "Removable: No"
- Endif
- 
- If Disk_Drives.removable Like "1" Then
- Label45.Text = "Removable: Yes"
- Endif
+ Label45.Text = Choose(CInt(Disk_Drives.removable) + 1, "Removable: No", "Removable: Yes")
+ ' If Disk_Drives.removable Like "0" Then
+ '  Label45.Text = "Removable: No"
+ ' Endif
+ ' 
+ ' If Disk_Drives.removable Like "1" Then
+ ' Label45.Text = "Removable: Yes"
+ ' Endif
  
  If IsNull(ComboBox3.Text) = False Then
     If Disk_Drives.check_swap Like "*" & ComboBox3.Text & "*" Then
