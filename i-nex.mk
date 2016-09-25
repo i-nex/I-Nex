@@ -8,9 +8,6 @@ MANDIR			= 	/share/man/man1
 APP_NAME		= 	$(PN)
 LSB_CS 			= 	$(shell lsb_release -cs)
 CC_OPTS_LIBCPUID 	= 	$(shell pkg-config libcpuid --cflags --libs)
-libgl 			= 	$(shell pkg-config gl --cflags --libs)
-libx11 			= 	$(shell pkg-config x11 --cflags --libs)
-libxext 		= 	$(shell pkg-config xext --cflags --libs)
 ARCH			=	$(shell uname -m)
 GBC 			= 	/usr/bin/gbc3
 GBCOPTS 		= 	-eagtpm
@@ -26,7 +23,7 @@ RM_COM 			= 	rm
 RMFILE_OPT 		= 	-f
 RMDIR_OPT 		= 	-Rf
 STATIC 			= 	true
-UDEV_RULES_DIR		=	/etc/udev/rules.d
+UDEV_RULES_DIR		=	/lib/udev/rules.d
 
 ifeq ($(ARCH),x86)
 additional_confflags 	:= 	--disable-sse2
