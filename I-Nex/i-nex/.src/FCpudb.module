@@ -33,7 +33,7 @@ Function _inits()
   ' 
   If Finfosys.Label14.Text Like "*Opteron*" Then 'Use Opteron databese if TextBox Like Opteron
    Logs("Use AMD Opteron CPU Database", Logger.Info)
-    buffer = File.Load("/etc/i-nex/Database/Opteron.json") 'Load the database to a temporary buffer
+    buffer = File.Load("Database/Opteron.json") 'Load the database to a temporary buffer
     Finfosys.Label14.Text = Replace(Finfosys.Label14.Text, "AMD", "")
   '
   '
@@ -45,42 +45,42 @@ Function _inits()
   '
   Else If Finfosys.Label14.Text Like "*amd*" Then
    Logs("Use AMD CPU Database", Logger.Info)
-    buffer = File.Load("/etc/i-nex/Database/amd.json") 'Load the database to a temporary buffer
+    buffer = File.Load("Database/amd.json") 'Load the database to a temporary buffer
     Finfosys.Label14.Text = Replace(Finfosys.Label14.Text, "AMD", "")
   Else If Finfosys.Label14.Text Like "*Xeon*" Then 'Use Xeon databese if TextBox Like Xeon
    Logs("Use Intel Xeon CPU Database", Logger.Info)
-    buffer = File.Load("/etc/i-nex/Database/Xeon.json") 'Load the database to a temporary buffer
+    buffer = File.Load("Database/Xeon.json") 'Load the database to a temporary buffer
     Finfosys.Label14.Text = Replace(Finfosys.Label14.Text, "Intel", "")
   '
   '
   Else If Finfosys.Label14.Text Like "*i3*" Then
    Logs("Use Intel i3 CPU Database", Logger.Info)
-    buffer = File.Load("/etc/i-nex/Database/i3.json") 'Load the database to a temporary buffer
+    buffer = File.Load("Database/i3.json") 'Load the database to a temporary buffer
     Finfosys.Label14.Text = Replace(Finfosys.Label14.Text, "Intel", "")
   Else If Finfosys.Label14.Text Like "*i5*" Then
    Logs("Use Intel i5 CPU Database", Logger.Info)
-    buffer = File.Load("/etc/i-nex/Database/i5.json") 'Load the database to a temporary buffer
+    buffer = File.Load("Database/i5.json") 'Load the database to a temporary buffer
     Finfosys.Label14.Text = Replace(Finfosys.Label14.Text, "Intel", "")
   Else If Finfosys.Label14.Text Like "*i7*" Then
    Logs("Use Intel i7 CPU Database", Logger.Info)
-    buffer = File.Load("/etc/i-nex/Database/i7.json") 'Load the database to a temporary buffer
+    buffer = File.Load("Database/i7.json") 'Load the database to a temporary buffer
     Finfosys.Label14.Text = Replace(Finfosys.Label14.Text, "Intel", "")
   '
   '
   Else If Finfosys.Label14.Text Like "*atom*" Then
    Logs("Use Intel CPU Database (Atom)", Logger.Info)
-    buffer = File.Load("/etc/i-nex/Database/atom.json") 'Load the database to a temporary buffer
+    buffer = File.Load("Database/atom.json") 'Load the database to a temporary buffer
     Finfosys.Label14.Text = Replace(Finfosys.Label14.Text, "Intel", "")
   Else If Finfosys.Label14.Text Like "*intel*" Then
    Logs("Use Intel CPU Database (Intel All)", Logger.Info)
-    buffer = File.Load("/etc/i-nex/Database/intel.json") 'Load the database to a temporary buffer
+    buffer = File.Load("Database/intel.json") 'Load the database to a temporary buffer
     Finfosys.Label14.Text = Replace(Finfosys.Label14.Text, "Intel", "")
   Else If Finfosys.Label14.Text Like "*Pentium*" Then
    Logs("Use Intel CPU Database (Pentium)", Logger.Info)
-    buffer = File.Load("/etc/i-nex/Database/intel.json") 'Load the database to a temporary buffer
+    buffer = File.Load("Database/intel.json") 'Load the database to a temporary buffer
   Else If Finfosys.Label14.Text Like "*Celeron*" Then
    Logs("Use Intel CPU Database (Celeron)", Logger.Info)
-    buffer = File.Load("/etc/i-nex/Database/intel.json") 'Load the database to a temporary buffer
+    buffer = File.Load("Database/intel.json") 'Load the database to a temporary buffer
   Endif
   
   'Celeron(R)Dual - Core CPU T3000@1.80 GHz
@@ -126,7 +126,7 @@ Function _inits()
     If database["DATABASE"][z]["PROCESSOR_MODEL_NAME"] Like "*" & cpucache & "*" Then 
       Print database["DATABASE"][z]["PROCESSOR_MODEL_NAME"]
       Finfosys.PictureBox3.Name = database["DATABASE"][z]["PROCESSOR_SOCKET_IMAGE"]
-      Finfosys.PictureBox3.Picture = Picture["/etc/i-nex/Database/Logos/" & database["DATABASE"][z]["PROCESSOR_SOCKET_IMAGE"] & ""]
+      Finfosys.PictureBox3.Picture = Picture["Database/Logos/" & database["DATABASE"][z]["PROCESSOR_SOCKET_IMAGE"] & ""]
       Finfosys.Label103.Text = " Integrated GPU: " & database["DATABASE"][z]["PROCESSOR_INTEGRATEDGRAPHIC"]
       Finfosys.Label104.Text = " TDP: " & database["DATABASE"][z]["PROCESSOR_TDP"]
       Finfosys.Label110.Text = " PPS: " & database["DATABASE"][z]["PROCESSOR_PROCESS_SIZE"]

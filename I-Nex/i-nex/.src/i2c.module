@@ -6,7 +6,7 @@ Public Sub _inits()
  Dim I2C_BUSES As Collection
  Dim i As Integer
  Dim KERNEL_MODULE As String
- I2C_BUSES = JSON.Decode(File.Load("/etc/i-nex/Database/i2c/devices.json"))
+ I2C_BUSES = JSON.Decode(File.Load("Database/i2c/devices.json"))
  For Each element In RDir("/sys/bus/pci/devices/", "*:*")
   vendor = Replace(File.Load("/sys/bus/pci/devices/" & element & "/vendor"), "\n", "")
   device = Replace(File.Load("/sys/bus/pci/devices/" & element & "/device"), "\n", "")

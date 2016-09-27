@@ -35,7 +35,7 @@ Public Sub _d(vendor As String, device As String) As String
   vendor = Upper(vendor)
   device = Upper(device)
   
-  PCIDEVS = Open "/etc/i-nex/SIV/pcidevs.txt"
+  PCIDEVS = Open "SIV/pcidevs.txt"
   For Each sLine In PCIDEVS.Lines
     sLine = Trim(sLine)
     If Not sLine Then Continue 

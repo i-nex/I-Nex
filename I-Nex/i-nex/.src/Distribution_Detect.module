@@ -18,72 +18,72 @@
 Public Sub _inits()
  Select Case Finfosys.SCREENFETCH["Distro"]
   Case Like "*Mint*"
-   Finfosys.PictureBox2.Picture = Picture["/etc/i-nex/Database/Distlogos/mint.png"]
+   Finfosys.PictureBox2.Picture = Picture["Database/Distlogos/mint.png"]
    Finfosys.PictureBox2.Name = "mint.png"
   Case Like "*Ubuntu*"
-   Finfosys.PictureBox2.Picture = Picture["/etc/i-nex/Database/Distlogos/ubuntu.png"]
+   Finfosys.PictureBox2.Picture = Picture["Database/Distlogos/ubuntu.png"]
    Finfosys.PictureBox2.Name = "ubuntu.png"
   Case Like "*xUbuntu*"
-   Finfosys.PictureBox2.Picture = Picture["/etc/i-nex/Database/Distlogos/xubuntu.png"]
+   Finfosys.PictureBox2.Picture = Picture["Database/Distlogos/xubuntu.png"]
    Finfosys.PictureBox2.Name = "xubuntu.png"
   Case Like "*SUSE*"
-   Finfosys.PictureBox2.Picture = Picture["/etc/i-nex/Database/Distlogos/opensuse.png"]
+   Finfosys.PictureBox2.Picture = Picture["Database/Distlogos/opensuse.png"]
    Finfosys.PictureBox2.Name = "opensuse.png"
   Case Like "*Manjaro*"
-   Finfosys.PictureBox2.Picture = Picture["/etc/i-nex/Database/Distlogos/manjaro.png"]
+   Finfosys.PictureBox2.Picture = Picture["Database/Distlogos/manjaro.png"]
    Finfosys.PictureBox2.Name = "manjaro.png"
   Case Like "*Fedora*"
-   Finfosys.PictureBox2.Picture = Picture["/etc/i-nex/Database/Distlogos/fedora.png"]
+   Finfosys.PictureBox2.Picture = Picture["Database/Distlogos/fedora.png"]
    Finfosys.PictureBox2.Name = "fedora.png"
   Case Like "*Debian*"
-   Finfosys.PictureBox2.Picture = Picture["/etc/i-nex/Database/Distlogos/debian.png"]
+   Finfosys.PictureBox2.Picture = Picture["Database/Distlogos/debian.png"]
    Finfosys.PictureBox2.Name = "debian.png"
   Case Like "*Arch Linux*"
-   Finfosys.PictureBox2.Picture = Picture["/etc/i-nex/Database/Distlogos/archlinux.png"]
+   Finfosys.PictureBox2.Picture = Picture["Database/Distlogos/archlinux.png"]
    Finfosys.PictureBox2.Name = "archlinux.png"
   Case Like "*Sabayon*"
-   Finfosys.PictureBox2.Picture = Picture["/etc/i-nex/Database/Distlogos/sabayon.png"]
+   Finfosys.PictureBox2.Picture = Picture["Database/Distlogos/sabayon.png"]
    Finfosys.PictureBox2.Name = "sabayon.png"
   Case Like "*Gentoo*"
-   Finfosys.PictureBox2.Picture = Picture["/etc/i-nex/Database/Distlogos/gentoo.png"]
+   Finfosys.PictureBox2.Picture = Picture["Database/Distlogos/gentoo.png"]
    Finfosys.PictureBox2.Name = "gentoo.png"
   Case Like "*Red Hat Linux*"
-   Finfosys.PictureBox2.Picture = Picture["/etc/i-nex/Database/Distlogos/redhat.png"]
+   Finfosys.PictureBox2.Picture = Picture["Database/Distlogos/redhat.png"]
    Finfosys.PictureBox2.Name = "redhat.png"
   Case Like "*Slackware*"
-   Finfosys.PictureBox2.Picture = Picture["/etc/i-nex/Database/Distlogos/slackware.png"]
+   Finfosys.PictureBox2.Picture = Picture["Database/Distlogos/slackware.png"]
    Finfosys.PictureBox2.Name = "slackware.png"
   Case Like "*LMDE*"
-   Finfosys.PictureBox2.Picture = Picture["/etc/i-nex/Database/Distlogos/Mint/linux_mint_LMDE_Big_sticker.png"]
+   Finfosys.PictureBox2.Picture = Picture["Database/Distlogos/Mint/linux_mint_LMDE_Big_sticker.png"]
    Finfosys.PictureBox2.Name = "Mint/linux_mint_LMDE_Big_sticker.png"
   Case Like "*elementary OS*"
-   Finfosys.PictureBox2.Picture = Picture["/etc/i-nex/Database/Distlogos/elementaryos.png"]
+   Finfosys.PictureBox2.Picture = Picture["Database/Distlogos/elementaryos.png"]
    Finfosys.PictureBox2.Name = "elementaryos.png"
   Case Like "*LinuxDeepin*"
-   Finfosys.PictureBox2.Picture = Picture["/etc/i-nex/Database/Distlogos/LinuxDeepin.png"]
+   Finfosys.PictureBox2.Picture = Picture["Database/Distlogos/LinuxDeepin.png"]
    Finfosys.PictureBox2.Name = "LinuxDeepin.png"
   Case Like "*netrunner*"
-   Finfosys.PictureBox2.Picture = Picture["/etc/i-nex/Database/Distlogos/netrunner.png"]
+   Finfosys.PictureBox2.Picture = Picture["Database/Distlogos/netrunner.png"]
    Finfosys.PictureBox2.Name = "netrunner.png"
 ' CentOS
   Case Like "*centos*"
-   Finfosys.PictureBox2.Picture = Picture["/etc/i-nex/Database/Distlogos/centos.png"]
+   Finfosys.PictureBox2.Picture = Picture["Database/Distlogos/centos.png"]
    Finfosys.PictureBox2.Name = "centos.png"
   Case Like "*neon*"
-   Finfosys.PictureBox2.Picture = Picture["/etc/i-nex/Database/Distlogos/kde_neon.png"]
+   Finfosys.PictureBox2.Picture = Picture["Database/Distlogos/kde_neon.png"]
    Finfosys.PictureBox2.Name = "kde_neon.png"
  End Select
  
  If Finfosys.SCREENFETCH["Distro"] Like "*Ubuntu*" And Finfosys.SCREENFETCH["DE"] Like "*KDE*" Then
-  Finfosys.PictureBox2.Picture = Picture["/etc/i-nex/Database/Distlogos/kubuntu.png"]
+  Finfosys.PictureBox2.Picture = Picture["Database/Distlogos/kubuntu.png"]
   Finfosys.PictureBox2.Name = "kubuntu.png"
  Endif
  If Finfosys.SCREENFETCH["Distro"] Like "*Ubuntu*" And Finfosys.SCREENFETCH["DE"] Like "*XFCE*" Then
-  Finfosys.PictureBox2.Picture = Picture["/etc/i-nex/Database/Distlogos/xubuntu.png"]
+  Finfosys.PictureBox2.Picture = Picture["Database/Distlogos/xubuntu.png"]
   Finfosys.PictureBox2.Name = "xubuntu.png"
  Endif
  If Finfosys.SCREENFETCH["Distro"] Like "*Mint*" And Finfosys.SCREENFETCH["DE"] Like "*KDE*" Then
-  Finfosys.PictureBox2.Picture = Picture["/etc/i-nex/Database/Distlogos/linux_mint_KDE_BIG_sticker.png"]
+  Finfosys.PictureBox2.Picture = Picture["Database/Distlogos/linux_mint_KDE_BIG_sticker.png"]
   Finfosys.PictureBox2.Name = "Mint/linux_mint_KDE_BIG_sticker.png"
  Endif
  If Finfosys.SCREENFETCH["Distro"] Like "*Mint*" And Finfosys.SCREENFETCH["DE"] Like "*LXDE*" Then
@@ -91,11 +91,11 @@ Public Sub _inits()
   Finfosys.PictureBox2.Name = "Mint/linux_mint_KDE_BIG_sticker.png"
  Endif
  If Finfosys.SCREENFETCH["Distro"] Like "*Mint*" And Finfosys.SCREENFETCH["DE"] Like "*Fluxbox*" Then
-  Finfosys.PictureBox2.Picture = Picture["/etc/i-nex/Database/Distlogos/linux_mint_Fluxbox_BIG_sticker.png"]
+  Finfosys.PictureBox2.Picture = Picture["Database/Distlogos/linux_mint_Fluxbox_BIG_sticker.png"]
   Finfosys.PictureBox2.Name = "Mint/linux_mint_Fluxbox_BIG_sticker.png"
  Endif
  If Finfosys.SCREENFETCH["Distro"] Like "*Mint*" And Finfosys.SCREENFETCH["DE"] Like "*XFCE*" Then
-  Finfosys.PictureBox2.Picture = Picture["/etc/i-nex/Database/Distlogos/linux_mint_XFCE_Big_sticker.png"]
+  Finfosys.PictureBox2.Picture = Picture["Database/Distlogos/linux_mint_XFCE_Big_sticker.png"]
   Finfosys.PictureBox2.Name = "Mint/linux_mint_XFCE_Big_sticker.png"
  Endif
 'Mageia
