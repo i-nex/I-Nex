@@ -66,6 +66,9 @@
           <term><option>-b <arg>pastebin url</arg></option> (default is distro-specific with a fallback to pastebin.com)</term>
         </varlistentry>
         <varlistentry>
+          <term><option>-E</option> Print the content to stdout too</term>
+        </varlistentry>
+        <varlistentry>
           <term><option>-f <arg>format for syntax-highlighting</arg></option> (default: text)
           (check pastebin's website for complete list, example: python)</term>
         </varlistentry>
@@ -85,10 +88,10 @@
           <term><option>-m <arg>permatag</arg></option> (default: none)</term>
         </varlistentry>
         <varlistentry>
-          <term><option>-r <arg>parent post ID</arg></option> (default: none)</term>
+          <term><option>-t <arg>title of paste</arg></option> (default: none)</term>
         </varlistentry>
         <varlistentry>
-          <term><option>-t <arg>title of paste</arg></option> (default: none)</term>
+          <term><option>-P <arg>private</arg></option> (default: 1)</term>
         </varlistentry>
         <varlistentry>
           <term><option>-u <arg>username</arg></option> (default: none)</term>
