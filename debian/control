@@ -38,7 +38,7 @@ Depends: ${shlibs:Depends}, ${misc:Depends}, ${python:Depends},
   coreutils (>= 7.4),
   sed (>= 4.2),
   python-configobj,
-  python (>= 2.7),
+  python3,
   curl,
   mesa-utils
 Replaces: i-nex
