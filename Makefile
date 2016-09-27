@@ -38,8 +38,8 @@ install-pastebinit-and-other:
 	$(INSTALL) 0755 debian/i-nex.desktop $(DESTDIR)$(PREFIX)/share/applications/
 	$(INSTALL) 0755 debian/i-nex-library.desktop $(DESTDIR)$(PREFIX)/share/applications/
 	$(INSTALL) 0755 pastebinit $(DESTDIR)$(PREFIX)/share/i-nex/pastebinit/
-	$(INSTALL) 0755 pastebinit.xml $(DESTDIR)$(PREFIX)/share/i-nex/pastebinit/
-	$(INSTALL) 0755 release.conf $(DESTDIR)$(PREFIX)/share/i-nex/pastebinit/
+	$(INSTALL) 0644 pastebinit.xml $(DESTDIR)$(PREFIX)/share/i-nex/pastebinit/
+	$(INSTALL) 0644 release.conf $(DESTDIR)$(PREFIX)/share/i-nex/pastebinit/
 	$(MAKE) -C pastebin.d install
 	
 install-pixmaps:
