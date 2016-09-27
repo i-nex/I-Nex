@@ -3,7 +3,7 @@ Upstream-Name: I-Nex
 Upstream-Contact: eloaders <eloaders@linux.pl>
 Source: https://launchpad.net/i-nex
 
-Files: src/i-nex/*
+Files: I-Nex/*
 Copyright: 2011-2014 eloaders <eloaders@linux.pl>
 License: LGPL-3+
  I-Nex free software: you can redistribute it and/or modify
@@ -120,7 +120,7 @@ License: GPL-3+
  License version 3 can be found in the file
  `/usr/share/common-licenses/GPL-3'.
 
-Files: src/i-nex/Database/Logos/*
+Files: I-Nex/i-nex/Database/Logos/*
 Copyright: Intel, AMD
 License: Registered trademarks
   Copyright ©Intel Corporation. All rights reserved. Intel Corporation, 2200 Mission College Blvd., Santa Clara, CA 95052-8119, USA.
@@ -132,18 +132,18 @@ License: Registered trademarks
   Copyright ©Intel Corporation. All rights reserved. Intel Corporation, 2200 Mission College Blvd., Santa Clara, CA 95052-8119, USA.
   © Copyright 1994, 1995, 1996, 1997, 1998, 1999, 2000 Advanced Micro Devices, Inc.
 
-Files: src/i-nex/Database/Distlogos/*
+Files: I-Nex/i-nex/Database/Distlogos/*
 Copyright: deviantdark <http://deviantdark.deviantart.com/>
 License: Registered trademarks 
   deviantdark <http://deviantdark.deviantart.com/>
 
-Files: src/i-nex/Data/Karta_graficzna/*
+Files: I-Nex/i-nex/Data/GPU_LOGO/*
 Copyright: ATI, Intel
 License: Registered trademarks 
   Copyright ©Intel Corporation. All rights reserved. Intel Corporation, 2200 Mission College Blvd., Santa Clara, CA 95052-8119, USA.
   © Copyright 1994, 1995, 1996, 1997, 1998, 1999, 2000 Advanced Micro Devices, Inc.
 
-Files: src/i-nex/Data/Karta_graficzna/nvidia.png
+Files: I-Nex/i-nex/Data/GPU_LOGO/nvidia.png
 Copyright: nVidia
 License: Registered trademarks 
   The full legal notice for the images installed by

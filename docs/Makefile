@@ -2,15 +2,9 @@
 include ../i-nex.mk 
 install: install-doc
 
-install-doc: install_copyright \
-	     install_i_nex_LICENSE \
+install-doc: install_i_nex_LICENSE \
 	     install_Pastebinit_LICENSE
 
-install_copyright:
-	@echo -e '\033[1;32mCreate directory...\033[0m'
-	${MKDIR_P} $(DESTDIR)$(PREFIX)$(DOCSDIR)
-	@echo -e '\033[1;32mInstalling Docs copyright...\033[0m'
-	${INSTALL_DM}644 copyright "$(DESTDIR)$(PREFIX)$(DOCSDIR)/copyright"
 install_i_nex_LICENSE:
 	@echo -e '\033[1;32mCreate directory...\033[0m'
 	${MKDIR_P} $(DESTDIR)$(PREFIX)$(DOCSDIR)
