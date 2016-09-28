@@ -30,6 +30,7 @@ The difference between I-Nex and the other hardware information GUI tools availa
   * gambas3-gb-qt4 (>= 3.8.4)
   * gambas3-gb-form (>= 3.8.4)
   * gambas3-gb-desktop (>= 3.8.4)
+  * gambas3-gb-desktop-x11 (>= 3.8.4)
   * gambas3-gb-form-stock (>= 3.8.4)
 * libc6
 * [libcpuid](https://github.com/anrieff/libcpuid)
