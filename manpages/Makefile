@@ -17,3 +17,4 @@ compress-man:
 	gzip -9 "$(DESTDIR)$(PREFIX)$(MANDIR)/i-nex-lspci.1"
 	gzip -9 "$(DESTDIR)$(PREFIX)$(MANDIR)/i-nex.1"
 	gzip -9 "$(DESTDIR)$(PREFIX)$(MANDIR)/i-nex.gambas.1"
+	gzip -9 "$(DESTDIR)$(PREFIX)$(MANDIR)/i-nex-dimms.1"
