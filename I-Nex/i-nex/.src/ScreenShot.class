@@ -20,7 +20,7 @@ Public Sub Form_Open()
  Mkdir User.Home & "/.i-nex"
  Endif
  If Exist(User.Home & "/.i-nex/lastsaveg") Then
- ButtonBox1.Text = File.Load("" & User.Home & "/.i-nex/lastsaveg")
+ ButtonBox1.Text = File.Load(User.Home & "/.i-nex/lastsaveg")
  Else
  ButtonBox1.Text = Desktop.Path 
  Endif
@@ -37,7 +37,7 @@ Public Sub Form_Open()
  TextBox1.Text = Replace(TextBox1.Text, ".", "")
  ComboBox1.Add(".png")
  ComboBox1.Add(".jpg")
- ComboBox1.Text = ".png"
+ ComboBox1.Index = 0
  SliderBox1.Value = 9
 
 End
@@ -51,7 +51,7 @@ End
 Public Sub Button1_Click()
 
 ScreenShot.save(ButtonBox1.Text, TextBox1.Text, ComboBox1.Text, SliderBox1.Value)
-File.Save("" & User.Home & "/.i-nex/lastsaveg", ButtonBox1.Text)
+File.Save(User.Home & "/.i-nex/lastsaveg", ButtonBox1.Text)
 
 Form_Close()
 End
@@ -66,7 +66,7 @@ End
 
 Public Sub Form_Close()
 
- File.Save("" & User.Home & "/.i-nex/lastsaveg", ButtonBox1.Text)
+ File.Save(User.Home & "/.i-nex/lastsaveg", ButtonBox1.Text)
  Me.Close
 
 End
@@ -85,6 +85,6 @@ End
 
 Public Sub save(directory As String, filename As String, fileformat As String, filequality As Integer)
  
- Try pic.Save("" & directory & "/" & filename & "" & fileformat & "", filequality)
+ Try pic.Save(directory & "/" & filename & fileformat & "", filequality)
 
 End
