@@ -3,13 +3,13 @@
 
 # The gittag version below ensures that the source tag points to the latest commit in GitHub e.g. latest commit as of 14 Aug 2016 is f57f4a5
 
-%define gittag f57f4a5
-%define gitlong 657f4a5ddd5dd7c64fc0c2730c5ea1dd635ce703
-%define gitdate 20160625
+%define gittag c2ef2ea
+%define gitlong c2ef2ea4e32fea06258d7f15e7cce3eb41aef374
+%define gitdate 20161003
 
 Name:           i-nex
 Version:        7.4.0.1
-Release:        %{gitdate}.bzr910.git%{?gittag}%{?dist}
+Release:        %{gitdate}.bzr933.git%{?gittag}%{?dist}
 Summary:        System information tool
 
 License:        GPL-3.0+
@@ -133,8 +133,7 @@ rm -rf %{buildroot}%{_datadir}/doc/%{name}
 %{_datadir}/pixmaps/%{name}*
 %doc debian/changelog* changelogs/changelog*
 %doc I-Nex/AUTHORS I-Nex/ChangeLog I-Nex/README
-/etc/i-nex
-/etc/udev/rules.d/i2c_smbus.rules
+/lib/udev/rules.d/i2c_smbus.rules
 
 %changelog
 * Wed Aug 17 2016 <GitHub/eloaders/I-Nex/alphastar868>
