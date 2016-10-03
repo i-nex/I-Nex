@@ -136,10 +136,12 @@ _GITLONG_ = Long git commit tag,
 _TEMPSRCDIR_ = Temporary folder for uncompressed source
 
 ```
-  wget https://github.com/eloaders/I-Nex/archive/<GITTAG>.zip
-  cp I-Nex-<GITTAG>.zip ~/rpmbuild/SOURCES/I-Nex-<GITLONG>.zip
-  unzip I-Nex-<GITTAG>.zip -d <TEMPSRCDIR>
+  wget -O ~/rpmbuild/SOURCES/I-Nex-<GITLONG>.zip https://github.com/eloaders/I-Nex/archive/<GITTAG>.zip
+  unzip ~/rpmbuild/SOURCES/I-Nex-<GITLONG>.zip -d <TEMPSRCDIR>
   cp <TEMPSRCDIR>/dists/redhat/i-nex.spec ~/rpmbuild/SPECS
+
+  [NOTE: Edit %define _gittag_, _gitlong_, and _gitdate_ at the top of ~/rpmbuild/SPECS/i-nex.spec]
+
   rpmbuild -bb ~/rpmbuild/SPECS/i-nex.spec
 ```
 
