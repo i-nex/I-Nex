@@ -98,6 +98,10 @@ Public Sub _inits()
   Finfosys.PictureBox2.Picture = Picture["Database/Distlogos/linux_mint_XFCE_Big_sticker.png"]
   Finfosys.PictureBox2.Name = "Mint/linux_mint_XFCE_Big_sticker.png"
  Endif
+ If Finfosys.SCREENFETCH["Distro"] Like "*Mint*" And Finfosys.SCREENFETCH["DE"] Like "*MATE*" Then
+  Finfosys.PictureBox2.Picture = Picture["Database/Distlogos/mint_mate.png"]
+  Finfosys.PictureBox2.Name = "Mint/mint_mate.png"
+ Endif
 'Mageia
 ' Mandriva
 ' Mandrake
