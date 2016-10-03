@@ -120,7 +120,7 @@ rm -rf %{buildroot}%{_datadir}/doc/%{name}
 
 %files
 %defattr(-,root,root,-)
-%doc docs/copyright docs/I-Nex.LICENSE I-Nex/COPYING
+%doc debian/copyright docs/I-Nex.LICENSE I-Nex/COPYING
 %{_bindir}/%{name}-*
 %doc %{_mandir}/man*/%{name}*
 /usr/share/i-nex/pastebinit
