@@ -103,6 +103,10 @@ sudo dpkg -i ./i-nex*.deb
 
 ## Build in CentOS/RHEL
 
+### Adding required repositories:
+
+To satisfy build dependencies, please add the [Fedora EPEL](https://fedoraproject.org/wiki/EPEL) and [NUX Dextop](https://li.nux.ro/repos.html) repositories.
+
 ### Installing dependencies:
 ```
   yum install fdupes glx-utils i2c-tools procps-ng
@@ -128,6 +132,10 @@ where _VERSION_ = currently available Rawhide RPM
   yum --nogpgcheck localinstall gambas3-runtime gambas3-gb-desktop gambas3-gb-form gambas3-gb-form-dialog \
     gambas3-gb-form-stock gambas3-gb-gtk gambas3-gb-gui gambas3-gb-image gambas3-gb-qt5* gambas3-gb-settings \
     libcpuid* libcpuid*-devel
+```
+NOTE: Additional packages may need to be (re)built from [Rawhide](https://download.fedoraproject.org/pub/fedora/linux/development/rawhide/Everything/source/tree/Packages/), as Gambas build prerequisites:
+```
+yum --nogpgcheck localinstall allegro* alure* dumb* fluidsynth* lash* SDL2_image* SDL2_mixer* SDL2_ttf*
 ```
 
 ### Building RPM from latest commit sources:
