@@ -68,10 +68,18 @@ If Exist("/proc/acpi/battery/BAT1/info", True) Then
 Endif
 If Exist("/sys/class/power_supply/BAT1/", True) Then
  Finfosys.TabStrip1[11].Visible = True
- battery._get_inf_other()
+ battery._get_inf_other("BAT1")
  battery._replace_n()
  Finfosys.battery_info()
 Endif
+
+If Exist("/sys/class/power_supply/BAT0/", True) Then
+ Finfosys.TabStrip1[11].Visible = True
+ battery._get_inf_other("BAT0")
+ battery._replace_n()
+ Finfosys.battery_info()
+Endif
+
 End
 
 Public Sub _get_inf()
@@ -95,24 +103,24 @@ Public Sub _get_inf()
 
 End
 
-Public Sub _get_inf_other()
+Public Function _get_inf_other(BAT As String)
 
- Try alarm = Replace(File.Load("/sys/class/power_supply/BAT1/alarm"), "\n", "")
- Try capacity = Replace(File.Load("/sys/class/power_supply/BAT1/capacity"), "\n", "")
- Try charge_full = Replace(File.Load("/sys/class/power_supply/BAT1/charge_full"), "\n", "")
- Try charge_full_design = Replace(File.Load("/sys/class/power_supply/BAT1/charge_full_design"), "\n", "")
- Try charge_now = Replace(File.Load("/sys/class/power_supply/BAT1/charge_now"), "\n", "")
- Try current_now = Replace(File.Load("/sys/class/power_supply/BAT1/current_now"), "\n", "")
- Try cycle_count = Replace(File.Load("/sys/class/power_supply/BAT1/cycle_count"), "\n", "")
- Try manufacturer = Replace(File.Load("/sys/class/power_supply/BAT1/manufacturer"), "\n", "")
- Try model_name = Replace(File.Load("/sys/class/power_supply/BAT1/model_name"), "\n", "")
- Try Present = Replace(File.Load("/sys/class/power_supply/BAT1/present"), "\n", "")
- Try serial_number = Replace(File.Load("/sys/class/power_supply/BAT1/serial_number"), "\n", "")
- Try status = Replace(File.Load("/sys/class/power_supply/BAT1/status"), "\n", "")
- Try technology = Replace(File.Load("/sys/class/power_supply/BAT1/technology"), "\n", "")
- Try battery_type = Replace(File.Load("/sys/class/power_supply/BAT1/type"), "\n", "")
- Try voltage_min_design = Replace(File.Load("/sys/class/power_supply/BAT1/voltage_min_design"), "\n", "")
- Try voltage_now = Replace(File.Load("/sys/class/power_supply/BAT1/voltage_now"), "\n", "")
+ Try alarm = Replace(File.Load("/sys/class/power_supply/" & BAT & "/alarm"), "\n", "")
+ Try capacity = Replace(File.Load("/sys/class/power_supply/" & BAT & "/capacity"), "\n", "")
+ Try charge_full = Replace(File.Load("/sys/class/power_supply/" & BAT & "/charge_full"), "\n", "")
+ Try charge_full_design = Replace(File.Load("/sys/class/power_supply/" & BAT & "/charge_full_design"), "\n", "")
+ Try charge_now = Replace(File.Load("/sys/class/power_supply/" & BAT & "/charge_now"), "\n", "")
+ Try current_now = Replace(File.Load("/sys/class/power_supply/" & BAT & "/current_now"), "\n", "")
+ Try cycle_count = Replace(File.Load("/sys/class/power_supply/" & BAT & "/cycle_count"), "\n", "")
+ Try manufacturer = Replace(File.Load("/sys/class/power_supply/" & BAT & "/manufacturer"), "\n", "")
+ Try model_name = Replace(File.Load("/sys/class/power_supply/" & BAT & "/model_name"), "\n", "")
+ Try Present = Replace(File.Load("/sys/class/power_supply/" & BAT & "/present"), "\n", "")
+ Try serial_number = Replace(File.Load("/sys/class/power_supply/" & BAT & "/serial_number"), "\n", "")
+ Try status = Replace(File.Load("/sys/class/power_supply/" & BAT & "/status"), "\n", "")
+ Try technology = Replace(File.Load("/sys/class/power_supply/" & BAT & "/technology"), "\n", "")
+ Try battery_type = Replace(File.Load("/sys/class/power_supply/" & BAT & "/type"), "\n", "")
+ Try voltage_min_design = Replace(File.Load("/sys/class/power_supply/" & BAT & "/voltage_min_design"), "\n", "")
+ Try voltage_now = Replace(File.Load("/sys/class/power_supply/" & BAT & "/voltage_now"), "\n", "")
 
 End
 

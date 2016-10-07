@@ -805,7 +805,7 @@ Public Sub battery_info()
  TextBox20.Text = battery.OEM_info
  
  Logs("Get information Active Battery Done", Logger.Info)
- If Exist("/sys/class/power_supply/BAT1/", True) Then
+ If Exist("/sys/class/power_supply/BAT1/", True) Or Exist("/sys/class/power_supply/BAT0/", True) Then
  Label177.Text = "Alarm:  " & battery.alarm
  Label178.Text = "Capacity:  " & battery.capacity
  Label179.Text = "Charge full:  " & battery.charge_full
