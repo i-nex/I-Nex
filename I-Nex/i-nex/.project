@@ -3,7 +3,7 @@
 Title=I-Nex
 Startup=MStart
 Icon=logo/i-nex.0.4.x.png
-Version=7.4.0
+Version=7.6.0
 Component=gb.image
 Component=gb.qt5
 Component=gb.form
