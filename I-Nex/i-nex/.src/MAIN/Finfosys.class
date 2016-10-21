@@ -47,6 +47,7 @@ Public Sub Form_Open()
   Dim MaxCount As Integer
   Dim sLine As String
   Dim MTRR As New String[]
+  Label74.Text = "I-Nex " & Application.Version
   Logs("Starting log", Logger.Info)
   ComboBox10.Visible = False
   ''Okno na środku
@@ -826,13 +827,6 @@ Public Sub battery_info()
  
 End
 
-
-Public Sub Button3_Click()
-  Logs("Show About Window", Logger.Info)
-  About.Show
-
-End
-
 Public Sub Button7_Click()
   Dim packages As String
   If Exist("/var/lib/dpkg/status")
@@ -1242,7 +1236,6 @@ Public Sub Form_CloseWindows()
   FValidate.Close
   ScreenShot.Close
   FReport_Gen.Close
-  About.Close
 
 End
 

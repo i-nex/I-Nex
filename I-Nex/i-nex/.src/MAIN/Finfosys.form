@@ -58,13 +58,6 @@
     ToolTip = "Take a screenshot"
     Picture = Picture["AppIcons/camera-photo.png"]
   }
-  { Button3 Button
-    Move(84,511,28,28)
-    #Translate = False
-    Font = Font["8"]
-    ToolTip = "About this app"
-    Picture = Picture["AppIcons/help-about.png"]
-  }
   { Button1 Button
     Move(413,511,63,28)
     #Translate = False
@@ -95,7 +88,7 @@
     Spacing = True
     Margin = True
     Padding = 3
-    Count = 12
+    Count = 13
     TextFont = Font["8"]
     Index = 0
     Text = "CPU"
@@ -398,7 +391,7 @@
         Font = Font["Bold,8"]
         Foreground = &HBF0000&
         ToolTip = ("The information displayed below are the manufacturer's information. Not be changed dynamically.")
-        Text = ("Data from the manufacturer |:.....")
+        Text = ("Data from the manufacturer |:..") & "..."
         Alignment = Align.Center
       }
       { LCDLabel2 LCDLabel
@@ -2482,6 +2475,80 @@
       Font = Font["Bold,8"]
       Text = "Label192"
       Border = Border.Raised
+    }
+    Index = 12
+    Text = "About"
+    Picture = Picture["AppIcons/help-about.png"]
+    { PictureBox6 PictureBox
+      Move(0,0,128,128)
+      Picture = Picture["logo/i-nex.0.4.x.png"]
+      Stretch = True
+    }
+    { TextLabel1 TextLabel
+      Move(140,35,322,119)
+      #Translate = False
+      Font = Font["8"]
+      Text = "I-Nex is an application that gathers information for hardware components available on your system and displays it using an user interface similar to the popular Windows tool CPU-Z.\n\nI-Nex can display information for the following components: CPU, GPU, Motherboard, Sound, Hard disks, RAM, Network and USB as well as some system info like the hostname, Linux distribution and version, Xorg, GCC, GLX versions and Linux Kernel info.\n\n"
+    }
+    { ToolButton5 ToolButton
+      Move(154,343,161,70)
+      Picture = Picture["Data/donate.png"]
+      Border = True
+    }
+    { Label74 Label
+      Move(140,0,168,28)
+      Font = Font["Bold,9"]
+    }
+    { Label77 Label
+      Move(7,154,455,21)
+      Padding = 3
+      Text = ("Copyright (C) 2011-2016 by Michał Głowienka")
+      Alignment = Align.Center
+    }
+    { Button4 Button
+      Move(105,182,96,24)
+      Expand = True
+      Text = ("Home page")
+    }
+    { Button8 Button
+      Move(203,182,96,24)
+      Expand = True
+      Text = ("Mail")
+    }
+    { TextLabel2 TextLabel
+      Move(0,420,462,42)
+      Font = Font["Bold,9"]
+      Padding = 3
+      Text = ("If I-Nex in any way you want \nhandy and would help in the \nfurther development of the project. \nBuy me a coffee.")
+    }
+    { Label268 Label
+      Move(140,231,196,21)
+      Padding = 3
+      AutoResize = True
+      Text = ("Tomasz Przybył (FadeMind)   ")
+      Alignment = Align.Center
+    }
+    { Label267 Label
+      Move(140,259,196,21)
+      Padding = 3
+      Text = ("Dariusz Duma")
+      Alignment = Align.Center
+    }
+    { Label269 Label
+      Move(140,287,196,21)
+      Text = ("Marcin (Netbit73) Mach")
+      Alignment = Align.Center
+    }
+    { Label270 Label
+      Move(126,315,224,21)
+      Text = ("Paweł Baranowski (pavbaranov)")
+      Alignment = Align.Center
+    }
+    { Label271 Label
+      Move(154,210,168,21)
+      Font = Font["Bold,8"]
+      Text = ("Thanks to:")
+      Alignment = Align.Center
     }
     Index = 0
   }
