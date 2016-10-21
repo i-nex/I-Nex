@@ -14,6 +14,7 @@
 '
 ' You should have received a copy of the GNU General Public License
 ' along with this program. If not, see <http://www.gnu.org/licenses/>.
+
 Public CPUINFO_FILE As String
 Public Sub Main()
   Dim PrintErr As Boolean = True
@@ -43,9 +44,6 @@ Public Sub Main()
            "\n  Example:"
            "\n"
            "\n                env INEXCPU_VENDOR=\"Pentium(R) Dual-Core CPU       T4200  \" ./i-nex.gambas")
-   Case "--about"
-    About.Show
-    PrintErr = False
    Case "--library"
     FSystemInfo.Show
     PrintErr = False
