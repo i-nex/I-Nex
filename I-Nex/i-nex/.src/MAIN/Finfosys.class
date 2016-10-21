@@ -785,7 +785,7 @@ Public Sub dospam_uptime()
      
   Try ProgressBar1.Value = (MemTotal - (MemFree + Buffers + Cached)) / MemTotal
   Try ProgressBar4.Value = (SwapTotal - SwapFree) / SwapTotal
-  
+  Try MUptime.Main()
 End
 
 Public Sub battery_info()
