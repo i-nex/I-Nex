@@ -45,7 +45,6 @@ End
 
 Public Sub _get_informations()
    Dim ASOUND_INPUT As String[]
-   Dim ASOUND_INPUT_LIST_NAME As String
    Dim ASOUND_INPUT_LIST As String[]
    Dim i As Integer
    Try ASOUND_ID = File.Load("/proc/asound/card" & Finfosys.ComboBox6.Index & "/id")
