@@ -15,7 +15,6 @@
 ' You should have received a copy of the GNU General Public License
 ' along with this program. If not, see <http://www.gnu.org/licenses/>.
 Public Sub Form_Open()
- Dim i As Integer
  If ChkPrm.ChkExec("modinfo") = True Then
  ComboBox1.List = Dir("/sys/module/")
  Else
