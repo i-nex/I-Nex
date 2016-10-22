@@ -15,8 +15,6 @@
 ' You should have received a copy of the GNU General Public License
 ' along with this program. If not, see <http://www.gnu.org/licenses/>.
 Public INEXGLINFO As Process
-
-
 Public AllowLog As Boolean
 Public cpu As String
 Public CPU_FLAGS As New String[]
@@ -170,7 +168,7 @@ Public Sub Form_Open()
  Logs("Check Bios", Logger.Info)
  bios()
  Logs("Check Kernels", Logger.Info)
- kernel()
+ Object.Call(MKernel, "kernel")
  Logs("Check graphic card", Logger.Info)
  grafika()
  ''END Uruchomienie instrukcji dla poszczególnych zakładek w celu wydobycia informacji z systemu
@@ -183,17 +181,6 @@ Public Sub ComboBox1_Click()
   Logs("Checking procesors", Logger.Info)
   Wykrywanie_procesorow()
 
-End
-
-Public Sub kernel()
-  Dim Machine As String
-  Try TextLabel18.Text = "Build Date: " & CString(File.Load("/proc/sys/kernel/version"))
-  Try TextLabel17.Text = "OS Release: " & CString(File.Load("/proc/sys/kernel/osrelease"))
-  Try TextLabel7.Text = "OS Type: " & CString(File.Load("/proc/sys/kernel/ostype"))
-  Try TextLabel16.Text = "Hostname: " & CString(File.Load("/proc/sys/kernel/hostname"))
-  Try Exec ["arch"] Wait To Machine
-  TextLabel26.Text = "Machine: " & CString(Machine)
-  Try TextArea3.Text = File.Load("/proc/cmdline")
 End
 
 Public Sub bios()

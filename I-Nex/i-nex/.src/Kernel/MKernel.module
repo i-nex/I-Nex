@@ -1,0 +1,13 @@
+' Gambas module file
+
+
+Public Sub kernel()
+  Dim Machine As String
+  Try Finfosys.TextLabel18.Text = "Build Date: " & CString(File.Load("/proc/sys/kernel/version"))
+  Try Finfosys.TextLabel17.Text = "OS Release: " & CString(File.Load("/proc/sys/kernel/osrelease"))
+  Try Finfosys.TextLabel7.Text = "OS Type: " & CString(File.Load("/proc/sys/kernel/ostype"))
+  Try Finfosys.TextLabel16.Text = "Hostname: " & CString(File.Load("/proc/sys/kernel/hostname"))
+  Try Exec ["arch"] Wait To Machine
+  Finfosys.TextLabel26.Text = "Machine: " & CString(Machine)
+  Try Finfosys.TextArea3.Text = File.Load("/proc/cmdline")
+End
