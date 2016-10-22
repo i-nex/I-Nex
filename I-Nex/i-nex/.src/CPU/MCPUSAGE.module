@@ -20,7 +20,6 @@ Public Sub proc_stat()
   Dim CURRENT_STAT_PROC As File
   Dim sLine As String
   Dim iPos As Integer
-  Dim Character As Integer
   Dim sKey As String
   Dim sVal As String
   Dim PREV_SELT As String[]
@@ -32,9 +31,6 @@ Public Sub proc_stat()
   Dim prev_iowait As Integer
   Dim prev_irq As Integer
   Dim prev_softirq As Integer
-  Dim prev_steal As Integer
-  Dim prev_guest As Integer
-  Dim prev_guest_nice As Integer
   Dim current_user As Integer
   Dim current_nice As Integer
   Dim current_System As Integer
@@ -42,9 +38,6 @@ Public Sub proc_stat()
   Dim current_iowait As Integer
   Dim current_irq As Integer
   Dim current_softirq As Integer
-  Dim current_steal As Integer
-  Dim current_guest As Integer
-  Dim current_guest_nice As Integer
   Dim PrevIdle As Integer
   Dim Idle As Integer
   Dim PrevNonIdle As Integer
