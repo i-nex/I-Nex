@@ -1,0 +1,20 @@
+' Gambas module file
+
+Public Sub bios()
+  Try Finfosys.TextBox2.Text = "Board Vendor:   " & Replace(File.Load("/sys/devices/virtual/dmi/id/board_vendor"), "\n", "")
+  Try Finfosys.TextBox3.Text = "Board Version:   " & Replace(File.Load("/sys/devices/virtual/dmi/id/board_version"), "\n", "")
+  Try Finfosys.TextBox4.Text = "Board Name:   " & Replace(File.Load("/sys/devices/virtual/dmi/id/board_name"), "\n", "")
+  Try Finfosys.TextBox5.Text = "Board Asset Tag:  " & Replace(File.Load("/sys/devices/virtual/dmi/id/board_asset_tag"), "\n", "")
+  
+  Try Finfosys.TextBox6.Text = "Bios Vendor:   " & Replace(File.Load("/sys/devices/virtual/dmi/id/bios_vendor"), "\n", "")
+  Try Finfosys.TextBox21.Text = "Bios Version:   " & Replace(File.Load("/sys/devices/virtual/dmi/id/bios_version"), "\n", "")
+  Try Finfosys.TextBox22.Text = "Bios Date:   " & Replace(File.Load("/sys/devices/virtual/dmi/id/bios_date"), "\n", "")
+  
+  Try Finfosys.TextBox23.Text = "Chassis Vendor:   " & Replace(File.Load("/sys/devices/virtual/dmi/id/chassis_vendor"), "\n", "")
+  Try Finfosys.TextBox24.Text = "Chassis Version:   " & Replace(File.Load("/sys/devices/virtual/dmi/id/chassis_version"), "\n", "")
+  Try Finfosys.TextBox25.Text = "Chassis Type:   " & Replace(File.Load("/sys/devices/virtual/dmi/id/chassis_asset_tag"), "\n", "")
+  Try Finfosys.TextBox26.Text = "Chassis Asset Tag:   " & Replace(File.Load("/sys/devices/virtual/dmi/id/product_name"), "\n", "")
+  
+  Try Finfosys.TextBox27.Text = "Product Name:   " & Replace(File.Load("/sys/devices/virtual/dmi/id/product_name"), "\n", "")
+  Try Finfosys.TextBox28.Text = "Product Version:   " & Replace(File.Load("/sys/devices/virtual/dmi/id/product_version"), "\n", "")
+End

@@ -166,7 +166,7 @@ Public Sub Form_Open()
  Logs("Call to Distribution_Detect", Logger.Info)
  Object.Call(Distribution_Detect, "_inits")
  Logs("Check Bios", Logger.Info)
- bios()
+ Object.Call(MMobo, "bios")
  Logs("Check Kernels", Logger.Info)
  Object.Call(MKernel, "kernel")
  Logs("Check graphic card", Logger.Info)
@@ -181,25 +181,6 @@ Public Sub ComboBox1_Click()
   Logs("Checking procesors", Logger.Info)
   Wykrywanie_procesorow()
 
-End
-
-Public Sub bios()
-  Try TextBox2.Text = "Board Vendor:   " & Replace(File.Load("/sys/devices/virtual/dmi/id/board_vendor"), "\n", "")
-  Try TextBox3.Text = "Board Version:   " & Replace(File.Load("/sys/devices/virtual/dmi/id/board_version"), "\n", "")
-  Try TextBox4.Text = "Board Name:   " & Replace(File.Load("/sys/devices/virtual/dmi/id/board_name"), "\n", "")
-  Try TextBox5.Text = "Board Asset Tag:  " & Replace(File.Load("/sys/devices/virtual/dmi/id/board_asset_tag"), "\n", "")
-  
-  Try TextBox6.Text = "Bios Vendor:   " & Replace(File.Load("/sys/devices/virtual/dmi/id/bios_vendor"), "\n", "")
-  Try TextBox21.Text = "Bios Version:   " & Replace(File.Load("/sys/devices/virtual/dmi/id/bios_version"), "\n", "")
-  Try TextBox22.Text = "Bios Date:   " & Replace(File.Load("/sys/devices/virtual/dmi/id/bios_date"), "\n", "")
-  
-  Try TextBox23.Text = "Chassis Vendor:   " & Replace(File.Load("/sys/devices/virtual/dmi/id/chassis_vendor"), "\n", "")
-  Try TextBox24.Text = "Chassis Version:   " & Replace(File.Load("/sys/devices/virtual/dmi/id/chassis_version"), "\n", "")
-  Try TextBox25.Text = "Chassis Type:   " & Replace(File.Load("/sys/devices/virtual/dmi/id/chassis_asset_tag"), "\n", "")
-  Try TextBox26.Text = "Chassis Asset Tag:   " & Replace(File.Load("/sys/devices/virtual/dmi/id/product_name"), "\n", "")
-  
-  Try TextBox27.Text = "Product Name:   " & Replace(File.Load("/sys/devices/virtual/dmi/id/product_name"), "\n", "")
-  Try TextBox28.Text = "Product Version:   " & Replace(File.Load("/sys/devices/virtual/dmi/id/product_version"), "\n", "")
 End
 
 Public Sub grafika()
