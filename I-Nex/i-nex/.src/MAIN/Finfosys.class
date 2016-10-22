@@ -15,11 +15,8 @@
 ' You should have received a copy of the GNU General Public License
 ' along with this program. If not, see <http://www.gnu.org/licenses/>.
 Public INEXGLINFO As Process
-Private ToolButton[99] As ToolButton
-Private Label[99] As Label  ' Dim the array of controls
-Private Button[99] As Button
-Private TextLabel[99] As TextLabel
-Private YESNO As Picture
+
+
 Public AllowLog As Boolean
 Public cpu As String
 Public CPU_FLAGS As New String[]
@@ -28,8 +25,6 @@ Public CPU_PROCESSOR As New String[]
 Public CPU_CPU_CORES As New String[]
 Public Logs As New Logger
 Public GDF As String
-Public BUFFER As String
-Public DATAT As Collection
 Public UNAME As Collection
 Public USAGE As Collection
 Public INDEX0 As String
@@ -39,7 +34,7 @@ Public INDEX3 As String
 Public MEMINFO_FILE As File
 Public Sub Form_Open()
   Dim default_display_manager As Boolean = Exist("/etc/X11/default-display-manager")
-  Dim i As Integer
+
   Dim data As Stream
   Dim MaxCount As Integer
   Dim sLine As String
@@ -73,106 +68,9 @@ Public Sub Form_Open()
      End Select
   Endif
   
-  Logs("Check whereis inex-cpuid and get JSON Data", Logger.Info)
-      Exec [ChkPrm.ChkExecDir("i-nex-cpuid")] Wait To BUFFER
-  Logs("Decode JSON Data", Logger.Info)
-      DATAT = JSON.Decode(BUFFER)
-  Logs("Add Values CPUID", Logger.Info)
+  Logs("Call to MLibcpuid", Logger.Info)
+      Object.Call(MLibcpuid, "Libcpuid")
   
-      Label92.Text = DATAT["VENDOR_STR"]
-      Label193.Text = DATAT["CPU_CODENAME"]
-      Label194.Text = DATAT["BRAND_STR"]
-      Label195.Text = "Cores: " & DATAT["NUM_CORES"]
-      Label196.Text = "Logical CPUS: " & DATAT["NUM_LOGICAL_CPUS"]
-      Label197.Text = "Total Logical CPUS: " & DATAT["TOTAL_LOGICAL_CPUS"]
-      Label198.Text = "Family: " & DATAT["FAMILY"]
-      Label199.Text = "Model: " & DATAT["MODEL"]
-      Label200.Text = "Stepping: " & DATAT["STEPPING"]
-      Label201.Text = "Ext Family: " & DATAT["EXT_FAMILY"]
-      Label202.Text = "Ext Model: " & DATAT["EXT_MODEL"]
-      Label203.Text = "CPU Clock: " & DATAT["CPU_CLOCK"]
-      Label204.Text = "CPU Clock BY OS: " & DATAT["CPU_CLOCK_BY_OS"]
-      Label205.Text = "CPU Clock BY IC: " & DATAT["CPU_CLOCK_BY_IC"]
-      Label206.Text = "CPU Clock Measure: " & DATAT["CPU_CLOCK_MEASURE"]
-      Label207.Text = "Mark TSC: " & DATAT["MARK_TSC"]
-      Label208.Text = "Mark SYS Clock: " & DATAT["MARK_SYS_CLOCK"]
-      Label209.Text = "L1 D: " & DATAT["L1_DATA_CACHE"]
-      Label210.Text = "L1 I: " & DATAT["L1_INSTRUCTION_CACHE"]
-      Label211.Text = "L2 Cache: " & DATAT["L2_CACHE"]
-      Label212.Text = "L3 Cache: " & DATAT["L3_CACHE"]
-      Label213.Text = "L1 Assoc: " & DATAT["L1_ASSOC"]
-      Label214.Text = "L2 Assoc: " & DATAT["L2_ASSOC"]
-      Label215.Text = "L3 Assoc: " & DATAT["L3_ASSOC"]
-      Label216.Text = "L1 line: " & DATAT["L1_CACHELINE"]
-      Label217.Text = "L2 line: " & DATAT["L2_CACHELINE"]
-      Label218.Text = "L3 line: " & DATAT["L3_CACHELINE"]
-      Label219.Text = "SSE Size: " & DATAT["SSE_SIZE"]
-
-  Logs("Create Labels ToolButtons TextLabels in ScrollView1", Logger.Info)
-  For i = 1 To 98
-      Label[i] = New Label(ScrollView1)
-      ToolButton[i] = New ToolButton(ScrollView1)
-      Button[i] = New Button(ScrollView1) As "Buttongroup"
-      TextLabel[i] = New TextLabel(ScrollView1)
-                  If DATAT["Flags"][i]["VALUE"] = 1 Then
-                     YESNO = Picture["Data/check_true.png"]
-                  Else
-                     YESNO = Picture["Data/check_false.png"]
-                  Endif
-                  With Label[i]
-                      .X = 2
-                      .Y = 310 + Int(i * 20)
-                      .Width = 440
-                      .Height = 21
-                      .Border = Border.Raised
-                      .Padding = 0
-                      .Font.Size = 8
-                      .Tooltip = DATAT["Flags"][i]["NAME"]
-                      .Text = DATAT["Flags"][i]["DESC"]
-                      If DATAT["Flags"][i]["NAME"] = "CPU_FEATURE_RESERVED" Then
-                       .Visible = False
-                      Endif
-                  End With
-                  With ToolButton[i]
-                           .X = 420
-                           .Y = 310 + Int(i * 20)
-                           .Width = 21
-                           .Height = 21
-                           .Picture = YESNO
-                           .Tooltip = DATAT["Flags"][i]["VALUE"]
-                           If DATAT["Flags"][i]["NAME"] = "CPU_FEATURE_RESERVED" Then
-                           .Visible = False
-                           Endif
-                  End With
-                  With Button[i]
-                       .X = 400
-                       .Y = 310 + Int(i * 20)
-                       .Width = 21
-                       .Height = 21
-                       .Font.Bold = True
-                       .Font.Size = 8
-                       .Foreground = 6
-                       .Tooltip = "Open Wikipedia page about this processor feature\n" & DATAT["Flags"][i]["WEBSITE"] & ""
-                       .Name = DATAT["Flags"][i]["WEBSITE"]
-                       .Visible = DATAT["Flags"][i]["HAVEWEBSITE"]
-                       .Picture = Picture["AppIcons/applications-internet.png"]
-                  End With
-                  With TextLabel[i]
-                          .X = 320
-                          .Y = 310 + Int(i * 20)
-                          .Width = 80
-                          .Height = 21
-                          .Font.Bold = True
-                          .Font.Size = 8
-                          .Foreground = 6
-                          .Alignment = Align.Center
-                          .Text = DATAT["Flags"][i]["FEATURE"]
-                          If DATAT["Flags"][i]["NAME"] = "CPU_FEATURE_RESERVED" Then
-                          .Visible = False
-                          Endif
-                  End With
-  Next
-
   Try data = Open "/proc/mtrr" For Input
 
   While Not Eof(data)
@@ -1187,7 +1085,7 @@ Public Sub Form_Close()
   Settings["Window/Y"] = Me.Y
   Settings["Tab/Pos"] = TabStrip1.Orientation
   Logs("Good bye!", Logger.Info)
-  DATAT.Clear
+  MLibcpuid.DATAT.Clear
   Me.Close
  
 End
