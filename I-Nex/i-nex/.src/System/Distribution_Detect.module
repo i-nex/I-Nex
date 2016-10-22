@@ -16,7 +16,7 @@
 ' along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 Public Sub _inits()
- Select Case Finfosys.SCREENFETCH["Distro"]
+ Select Case MSystem.SCREENFETCH["Distro"]
   Case Like "*Mint*"
    Finfosys.PictureBox2.Picture = Picture["Database/Distlogos/mint.png"]
    Finfosys.PictureBox2.Name = "mint.png"
@@ -74,31 +74,31 @@ Public Sub _inits()
    Finfosys.PictureBox2.Name = "kde_neon.png"
  End Select
  
- If Finfosys.SCREENFETCH["Distro"] Like "*Ubuntu*" And Finfosys.SCREENFETCH["DE"] Like "*KDE*" Then
+ If MSystem.SCREENFETCH["Distro"] Like "*Ubuntu*" And MSystem.SCREENFETCH["DE"] Like "*KDE*" Then
   Finfosys.PictureBox2.Picture = Picture["Database/Distlogos/kubuntu.png"]
   Finfosys.PictureBox2.Name = "kubuntu.png"
  Endif
- If Finfosys.SCREENFETCH["Distro"] Like "*Ubuntu*" And Finfosys.SCREENFETCH["DE"] Like "*XFCE*" Then
+ If MSystem.SCREENFETCH["Distro"] Like "*Ubuntu*" And MSystem.SCREENFETCH["DE"] Like "*XFCE*" Then
   Finfosys.PictureBox2.Picture = Picture["Database/Distlogos/xubuntu.png"]
   Finfosys.PictureBox2.Name = "xubuntu.png"
  Endif
- If Finfosys.SCREENFETCH["Distro"] Like "*Mint*" And Finfosys.SCREENFETCH["DE"] Like "*KDE*" Then
+ If MSystem.SCREENFETCH["Distro"] Like "*Mint*" And MSystem.SCREENFETCH["DE"] Like "*KDE*" Then
   Finfosys.PictureBox2.Picture = Picture["Database/Distlogos/linux_mint_KDE_BIG_sticker.png"]
   Finfosys.PictureBox2.Name = "Mint/linux_mint_KDE_BIG_sticker.png"
  Endif
- If Finfosys.SCREENFETCH["Distro"] Like "*Mint*" And Finfosys.SCREENFETCH["DE"] Like "*LXDE*" Then
+ If MSystem.SCREENFETCH["Distro"] Like "*Mint*" And MSystem.SCREENFETCH["DE"] Like "*LXDE*" Then
   Finfosys.PictureBox2.Picture = Picture["Database/Distlogos/linux_mint_LXDE_BIG_sticker.png"]
   Finfosys.PictureBox2.Name = "Mint/linux_mint_KDE_BIG_sticker.png"
  Endif
- If Finfosys.SCREENFETCH["Distro"] Like "*Mint*" And Finfosys.SCREENFETCH["DE"] Like "*Fluxbox*" Then
+ If MSystem.SCREENFETCH["Distro"] Like "*Mint*" And MSystem.SCREENFETCH["DE"] Like "*Fluxbox*" Then
   Finfosys.PictureBox2.Picture = Picture["Database/Distlogos/linux_mint_Fluxbox_BIG_sticker.png"]
   Finfosys.PictureBox2.Name = "Mint/linux_mint_Fluxbox_BIG_sticker.png"
  Endif
- If Finfosys.SCREENFETCH["Distro"] Like "*Mint*" And Finfosys.SCREENFETCH["DE"] Like "*XFCE*" Then
+ If MSystem.SCREENFETCH["Distro"] Like "*Mint*" And MSystem.SCREENFETCH["DE"] Like "*XFCE*" Then
   Finfosys.PictureBox2.Picture = Picture["Database/Distlogos/linux_mint_XFCE_Big_sticker.png"]
   Finfosys.PictureBox2.Name = "Mint/linux_mint_XFCE_Big_sticker.png"
  Endif
- If Finfosys.SCREENFETCH["Distro"] Like "*Mint*" And Finfosys.SCREENFETCH["DE"] Like "*MATE*" Then
+ If MSystem.SCREENFETCH["Distro"] Like "*Mint*" And MSystem.SCREENFETCH["DE"] Like "*MATE*" Then
   Finfosys.PictureBox2.Picture = Picture["Database/Distlogos/mint_mate.png"]
   Finfosys.PictureBox2.Name = "Mint/mint_mate.png"
  Endif

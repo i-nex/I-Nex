@@ -1,0 +1,60 @@
+' Gambas module file
+
+Public aScan As String[]
+Public sLine As String
+Public SCREENFETCH As Collection
+Public Sub System()
+  Dim hostname, arch, gcc, timezone, xorg_version, glx_version As String
+  Dim SCREENFETCH_P As Process
+  SCREENFETCH_P = Exec ["" & ChkPrm.ChkExecDir("bash") & ""] For Write
+  Write #SCREENFETCH_P, File.Load("Data/screenfetch-dev")
+  SCREENFETCH_P.Wait
+  SCREENFETCH = JSON.Decode(File.Load(User.Home & "/.i-nex/screenfetch.json"))
+  
+  Shell "cat /etc/timezone | grep ^TIMEZONE= /etc/sysconfig/clock | cut -d '=' -f 2" Wait To timezone
+  If timezone = Null Or "" Then
+    Shell "timedatectl status | grep \"Time zone:\" | cut -d \":\" -f 2 | cut -d \"(\" -f 1" Wait To timezone
+  Endif
+  'Detect heap size
+  For Each sLine In Split(File.Load("/proc/self/maps"), "\n")
+      If InStr(sLine, "[heap]") Then
+        aScan = Scan(sLine, "*-* *")
+        Finfosys.Label176.Text = "Heap size is " & Format(Val("&H" & aScan[1] & "&") - Val("&H" & aScan[0] & "&"), "#,##0") & " bytes."
+        Break
+      Endif
+  Next
+  'End od detect heap size
+  hostname = System.Host
+  arch = System.Architecture
+  Shell "gcc -dumpversion" Wait To gcc
+  Shell "cat /var/log/Xorg.0.log | grep \"X.Org X Server\" | awk {'print $4'}" Wait To xorg_version
+  Shell ChkPrm.ChkExecDir("glxinfo") & "| grep \"GLX version:\" | sed -n '1p' | cut -d ':' -f 2" Wait To glx_version
+  'Shell "echo $SHELL" Wait To TextBox67.Text
+  Finfosys.Label135.Text = "System SHELL: " & System.Shell
+  Finfosys.Label137.Text = "GCC Version: " & Replace(gcc, "\n", "")
+  Finfosys.Label138.Text = "Hostname: " & Replace(hostname, "\n", "")
+  Finfosys.Label139.Text = "Arch: " & Replace(arch, "\n", "")
+  Finfosys.Label140.Text = "Timezone: " & Replace(timezone, "\n", "")
+  Finfosys.Label141.Text = "X.Org Version: " & Replace(xorg_version, "\n", "")
+  Finfosys.Label142.Text = "GLX Version: " & Replace(glx_version, "\n", "")
+  Distribution_Detect._inits
+  
+  Finfosys.Label4.Text = "Distro Vendor: " & SCREENFETCH["Distro"]
+  Finfosys.Label135.Text = "Distro Release: " & SCREENFETCH["Distro_Release"]
+  Finfosys.Label144.Text = SCREENFETCH["BINUTILS"]
+  Finfosys.Label145.Text = "Linux C Library: " & SCREENFETCH["LNXCLIB"]
+  Finfosys.Label37.Text = "Desktop environment: " & SCREENFETCH["DE"]
+  Finfosys.Label60.Text = "Window manager: " & SCREENFETCH["WM"]
+  Finfosys.Label61.Text = "Window manager Theme: " & SCREENFETCH["WinTheme"]
+  Finfosys.Label62.Text = "GTK+ 2 Theme: " & SCREENFETCH["GTK2Theme"]
+  Finfosys.Label63.Text = "GTK+ 3 Theme: " & SCREENFETCH["GTK3Theme"]
+  Finfosys.Label147.Text = "GTK Font: " & SCREENFETCH["GTKFont"]
+  Finfosys.Label148.Text = "GTK Icons: " & SCREENFETCH["GTKIcons"]
+  Finfosys.Label149.Text = "GNU Make Version: " & SCREENFETCH["GNUMAKE"]
+  Finfosys.Label150.Text = "PPP: " & SCREENFETCH["PPP"]
+  Finfosys.Label151.Text = "Dynamic linker (ldd): " & SCREENFETCH["DYNAMIC_LINKER"]
+  Finfosys.Label152.Text = "Net-tools: " & SCREENFETCH["NETTOOLS"]
+  Finfosys.Label153.Text = "Wireless-tools: " & SCREENFETCH["WIRELESS_TOOLS"]
+  SCREENFETCH_P.Kill
+  SCREENFETCH.Clear
+End

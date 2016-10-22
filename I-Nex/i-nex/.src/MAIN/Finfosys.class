@@ -21,8 +21,6 @@ Private Button[99] As Button
 Private TextLabel[99] As TextLabel
 Private YESNO As Picture
 Public AllowLog As Boolean
-Public sLine As String
-Public aScan As String[]
 Public cpu As String
 Public CPU_FLAGS As New String[]
 Public CPU_VENDOR_ID As New String[]
@@ -34,7 +32,6 @@ Public BUFFER As String
 Public DATAT As Collection
 Public UNAME As Collection
 Public USAGE As Collection
-Public SCREENFETCH As Collection
 Public INDEX0 As String
 Public INDEX1 As String
 Public INDEX2 As String
@@ -269,7 +266,7 @@ Public Sub Form_Open()
  Logs("Check Dospam uptime", Logger.Info)
  dospam_uptime()
  Logs("Check System", Logger.Info)
- System()
+ Object.Call(MSystem, "System")
  Logs("Call to Distribution_Detect", Logger.Info)
  Object.Call(Distribution_Detect, "_inits")
  Logs("Check Bios", Logger.Info)
@@ -318,62 +315,6 @@ Public Sub bios()
   
   Try TextBox27.Text = "Product Name:   " & Replace(File.Load("/sys/devices/virtual/dmi/id/product_name"), "\n", "")
   Try TextBox28.Text = "Product Version:   " & Replace(File.Load("/sys/devices/virtual/dmi/id/product_version"), "\n", "")
-End
-
-Public Sub System()
-  Dim hostname, arch, gcc, timezone, xorg_version, glx_version As String
-  Dim SCREENFETCH_P As Process
-  SCREENFETCH_P = Exec ["" & ChkPrm.ChkExecDir("bash") & ""] For Write
-  Write #SCREENFETCH_P, File.Load("Data/screenfetch-dev")
-  SCREENFETCH_P.Wait
-  SCREENFETCH = JSON.Decode(File.Load(User.Home & "/.i-nex/screenfetch.json"))
-  
-  Shell "cat /etc/timezone | grep ^TIMEZONE= /etc/sysconfig/clock | cut -d '=' -f 2" Wait To timezone
-  If timezone = Null Or "" Then
-    Shell "timedatectl status | grep \"Time zone:\" | cut -d \":\" -f 2 | cut -d \"(\" -f 1" Wait To timezone
-  Endif
-  'Detect heap size
-  For Each sLine In Split(File.Load("/proc/self/maps"), "\n")
-      If InStr(sLine, "[heap]") Then
-        aScan = Scan(sLine, "*-* *")
-        Label176.Text = "Heap size is " & Format(Val("&H" & aScan[1] & "&") - Val("&H" & aScan[0] & "&"), "#,##0") & " bytes."
-        Break
-      Endif
-  Next
-  'End od detect heap size
-  hostname = System.Host
-  arch = System.Architecture
-  Shell "gcc -dumpversion" Wait To gcc
-  Shell "cat /var/log/Xorg.0.log | grep \"X.Org X Server\" | awk {'print $4'}" Wait To xorg_version
-  Shell ChkPrm.ChkExecDir("glxinfo") & "| grep \"GLX version:\" | sed -n '1p' | cut -d ':' -f 2" Wait To glx_version
-  'Shell "echo $SHELL" Wait To TextBox67.Text
-  Label135.Text = "System SHELL: " & System.Shell
-  Label137.Text = "GCC Version: " & Replace(gcc, "\n", "")
-  Label138.Text = "Hostname: " & Replace(hostname, "\n", "")
-  Label139.Text = "Arch: " & Replace(arch, "\n", "")
-  Label140.Text = "Timezone: " & Replace(timezone, "\n", "")
-  Label141.Text = "X.Org Version: " & Replace(xorg_version, "\n", "")
-  Label142.Text = "GLX Version: " & Replace(glx_version, "\n", "")
-  Distribution_Detect._inits
-  
-  Label4.Text = "Distro Vendor: " & SCREENFETCH["Distro"]
-  Label135.Text = "Distro Release: " & SCREENFETCH["Distro_Release"]
-  Label144.Text = SCREENFETCH["BINUTILS"]
-  Label145.Text = "Linux C Library: " & SCREENFETCH["LNXCLIB"]
-  Label37.Text = "Desktop environment: " & SCREENFETCH["DE"]
-  Label60.Text = "Window manager: " & SCREENFETCH["WM"]
-  Label61.Text = "Window manager Theme: " & SCREENFETCH["WinTheme"]
-  Label62.Text = "GTK+ 2 Theme: " & SCREENFETCH["GTK2Theme"]
-  Label63.Text = "GTK+ 3 Theme: " & SCREENFETCH["GTK3Theme"]
-  Label147.Text = "GTK Font: " & SCREENFETCH["GTKFont"]
-  Label148.Text = "GTK Icons: " & SCREENFETCH["GTKIcons"]
-  Label149.Text = "GNU Make Version: " & SCREENFETCH["GNUMAKE"]
-  Label150.Text = "PPP: " & SCREENFETCH["PPP"]
-  Label151.Text = "Dynamic linker (ldd): " & SCREENFETCH["DYNAMIC_LINKER"]
-  Label152.Text = "Net-tools: " & SCREENFETCH["NETTOOLS"]
-  Label153.Text = "Wireless-tools: " & SCREENFETCH["WIRELESS_TOOLS"]
-  SCREENFETCH_P.Kill
-  SCREENFETCH.Clear
 End
 
 Public Sub grafika()
