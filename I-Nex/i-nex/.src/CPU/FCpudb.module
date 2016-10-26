@@ -31,54 +31,54 @@ Function _inits()
   ' The use Of the database In JSON format.To decode the information about the processor. 
   ' The database Is Divided into several parts To the model processor manufacturer.
   ' 
-  If Finfosys.Label14.Text Like "*Opteron*" Then 'Use Opteron databese if TextBox Like Opteron
+  If Finfosys.TextBox32.Text Like "*Opteron*" Then 'Use Opteron databese if TextBox Like Opteron
    Logs("Use AMD Opteron CPU Database", Logger.Info)
     buffer = File.Load("Database/Opteron.json") 'Load the database to a temporary buffer
-    Finfosys.Label14.Text = Replace(Finfosys.Label14.Text, "AMD", "")
+    Finfosys.Label14.Text = Replace(Finfosys.TextBox32.Text, "AMD", "")
   '
   '
-  Else If Finfosys.Label14.Text Like "*amd*A6*" Then
+  Else If Finfosys.TextBox32.Text Like "*amd*A6*" Then
    Logs("Use AMD A6 CPU Database", Logger.Info)
     buffer = File.Load("Database/A6.json") 'Load the database to a temporary buffer
-    Finfosys.Label14.Text = Replace(Finfosys.Label14.Text, "AMD", "")
+    Finfosys.TextBox32.Text = Replace(Finfosys.TextBox32.Text, "AMD", "")
   '
   '
-  Else If Finfosys.Label14.Text Like "*amd*" Then
+  Else If Finfosys.TextBox32.Text Like "*amd*" Then
    Logs("Use AMD CPU Database", Logger.Info)
     buffer = File.Load("Database/amd.json") 'Load the database to a temporary buffer
-    Finfosys.Label14.Text = Replace(Finfosys.Label14.Text, "AMD", "")
-  Else If Finfosys.Label14.Text Like "*Xeon*" Then 'Use Xeon databese if TextBox Like Xeon
+    Finfosys.TextBox32.Text = Replace(Finfosys.TextBox32.Text, "AMD", "")
+  Else If Finfosys.TextBox32.Text Like "*Xeon*" Then 'Use Xeon databese if TextBox Like Xeon
    Logs("Use Intel Xeon CPU Database", Logger.Info)
     buffer = File.Load("Database/Xeon.json") 'Load the database to a temporary buffer
-    Finfosys.Label14.Text = Replace(Finfosys.Label14.Text, "Intel", "")
+    Finfosys.TextBox32.Text = Replace(Finfosys.TextBox32.Text, "Intel", "")
   '
   '
-  Else If Finfosys.Label14.Text Like "*i3*" Then
+  Else If Finfosys.TextBox32.Text Like "*i3*" Then
    Logs("Use Intel i3 CPU Database", Logger.Info)
     buffer = File.Load("Database/i3.json") 'Load the database to a temporary buffer
-    Finfosys.Label14.Text = Replace(Finfosys.Label14.Text, "Intel", "")
-  Else If Finfosys.Label14.Text Like "*i5*" Then
+    Finfosys.TextBox32.Text = Replace(Finfosys.TextBox32.Text, "Intel", "")
+  Else If Finfosys.TextBox32.Text Like "*i5*" Then
    Logs("Use Intel i5 CPU Database", Logger.Info)
     buffer = File.Load("Database/i5.json") 'Load the database to a temporary buffer
-    Finfosys.Label14.Text = Replace(Finfosys.Label14.Text, "Intel", "")
-  Else If Finfosys.Label14.Text Like "*i7*" Then
+    Finfosys.TextBox32.Text = Replace(Finfosys.TextBox32.Text, "Intel", "")
+  Else If Finfosys.TextBox32.Text Like "*i7*" Then
    Logs("Use Intel i7 CPU Database", Logger.Info)
     buffer = File.Load("Database/i7.json") 'Load the database to a temporary buffer
-    Finfosys.Label14.Text = Replace(Finfosys.Label14.Text, "Intel", "")
+    Finfosys.TextBox32.Text = Replace(Finfosys.Label14.Text, "Intel", "")
   '
   '
-  Else If Finfosys.Label14.Text Like "*atom*" Then
+  Else If Finfosys.TextBox32.Text Like "*atom*" Then
    Logs("Use Intel CPU Database (Atom)", Logger.Info)
     buffer = File.Load("Database/atom.json") 'Load the database to a temporary buffer
-    Finfosys.Label14.Text = Replace(Finfosys.Label14.Text, "Intel", "")
-  Else If Finfosys.Label14.Text Like "*intel*" Then
+    Finfosys.TextBox32.Text = Replace(Finfosys.TextBox32.Text, "Intel", "")
+  Else If Finfosys.TextBox32.Text Like "*intel*" Then
    Logs("Use Intel CPU Database (Intel All)", Logger.Info)
     buffer = File.Load("Database/intel.json") 'Load the database to a temporary buffer
-    Finfosys.Label14.Text = Replace(Finfosys.Label14.Text, "Intel", "")
-  Else If Finfosys.Label14.Text Like "*Pentium*" Then
+    Finfosys.TextBox32.Text = Replace(Finfosys.TextBox32.Text, "Intel", "")
+  Else If Finfosys.TextBox32.Text Like "*Pentium*" Then
    Logs("Use Intel CPU Database (Pentium)", Logger.Info)
     buffer = File.Load("Database/intel.json") 'Load the database to a temporary buffer
-  Else If Finfosys.Label14.Text Like "*Celeron*" Then
+  Else If Finfosys.TextBox32.Text Like "*Celeron*" Then
    Logs("Use Intel CPU Database (Celeron)", Logger.Info)
     buffer = File.Load("Database/intel.json") 'Load the database to a temporary buffer
   Endif
@@ -87,7 +87,7 @@ Function _inits()
   Logs("Decode CPU Database", Logger.Info)
   database = JSON.Decode(buffer) 'Convert JSON data to Collection
   buffer = Null
-  cpucache = Finfosys.Label14.Text & "*"
+  cpucache = Finfosys.TextBox32.Text & "*"
   Logs("Replace CPU Strings to Null", Logger.Info)
   
   'For the purpose of the database, certain words have to be converted to an empty value.
@@ -127,20 +127,41 @@ Function _inits()
       Print database["DATABASE"][z]["PROCESSOR_MODEL_NAME"]
       Finfosys.PictureBox3.Name = database["DATABASE"][z]["PROCESSOR_SOCKET_IMAGE"]
       Finfosys.PictureBox3.Picture = Picture["Database/Logos/" & database["DATABASE"][z]["PROCESSOR_SOCKET_IMAGE"] & ""]
-      Finfosys.Label103.Text = " Integrated GPU: " & database["DATABASE"][z]["PROCESSOR_INTEGRATEDGRAPHIC"]
-      Finfosys.Label104.Text = " TDP: " & database["DATABASE"][z]["PROCESSOR_TDP"]
-      Finfosys.Label110.Text = " PPS: " & database["DATABASE"][z]["PROCESSOR_PROCESS_SIZE"]
-      Finfosys.Label111.Text = " Socket: " & database["DATABASE"][z]["PROCESSOR_SOCKET"]
-      Finfosys.Label112.Text = " Transistors: " & database["DATABASE"][z]["PROCESSOR_TRANSISTORS"]
-      Finfosys.Label113.Text = " Die size: " & database["DATABASE"][z]["PROCESSOR_DIE_SIZE"]
-      Finfosys.Label114.Text = " Package: " & database["DATABASE"][z]["PROCESSOR_PACKAGE"]
-      Finfosys.Label115.Text = " TCaseMax: " & database["DATABASE"][z]["PROCESSOR_TCASEMAX"]
-      Finfosys.Label116.Text = " Turboclock: " & database["DATABASE"][z]["PROCESSOR_TURBOCLOCK"] 
-      Finfosys.Label117.Text = " Multiplier: " & database["DATABASE"][z]["PROCESSOR_MULTIPLIER"]
-      Finfosys.Label118.Text = " Voltage: " & database["DATABASE"][z]["PROCESSOR_VOLTAGE"]
-      Finfosys.Label119.Text = " Codename: " & database["DATABASE"][z]["PROCESSOR_CODENAME"]
-      Finfosys.Label120.Text = " Part: " & database["DATABASE"][z]["PROCESSOR_PART"]
-      Finfosys.Label121.Text = " Memory support: " & database["DATABASE"][z]["PROCESSOR_MEMORYSUPPORT"]
+      Finfosys.GridView1.Columns.Count = 2
+      Finfosys.GridView1.Rows.Count = 7
+      Finfosys.GridView1.Columns.Width = 220
+      Finfosys.GridView1.Rows.Height = 21
+      Finfosys.GridView1[0, 0].Text = "Integrated GPU: " & database["DATABASE"][z]["PROCESSOR_INTEGRATEDGRAPHIC"]
+      Finfosys.GridView1[1, 0].Text = "TDP: " & database["DATABASE"][z]["PROCESSOR_TDP"]
+      Finfosys.GridView1[2, 0].Text = " PPS: " & database["DATABASE"][z]["PROCESSOR_PROCESS_SIZE"]
+      Finfosys.GridView1[3, 0].Text = " Socket: " & database["DATABASE"][z]["PROCESSOR_SOCKET"]
+      Finfosys.GridView1[4, 0].Text = " Transistors: " & database["DATABASE"][z]["PROCESSOR_TRANSISTORS"]
+      Finfosys.GridView1[5, 0].Text = " Die size: " & database["DATABASE"][z]["PROCESSOR_DIE_SIZE"]
+      Finfosys.GridView1[6, 0].Text = " Part: " & database["DATABASE"][z]["PROCESSOR_PART"]
+      
+      Finfosys.GridView1[0, 1].Text = " Codename: " & database["DATABASE"][z]["PROCESSOR_CODENAME"]
+      Finfosys.GridView1[1, 1].Text = " Package: " & database["DATABASE"][z]["PROCESSOR_PACKAGE"]
+      Finfosys.GridView1[2, 1].Text = " TCaseMax: " & database["DATABASE"][z]["PROCESSOR_TCASEMAX"]
+      Finfosys.GridView1[3, 1].Text = " Turboclock: " & database["DATABASE"][z]["PROCESSOR_TURBOCLOCK"] 
+      Finfosys.GridView1[4, 1].Text = " Multiplier: " & database["DATABASE"][z]["PROCESSOR_MULTIPLIER"]
+      Finfosys.GridView1[5, 1].Text = " Voltage: " & database["DATABASE"][z]["PROCESSOR_VOLTAGE"]
+      Finfosys.GridView1[6, 1].Text = " Memory support: " & database["DATABASE"][z]["PROCESSOR_MEMORYSUPPORT"]
+
+      'Finfosys.ColumnView1.Rows.Count = 2
+      ' Finfosys.Label103.Text = " Integrated GPU: " & database["DATABASE"][z]["PROCESSOR_INTEGRATEDGRAPHIC"]
+      ' Finfosys.Label104.Text = " TDP: " & database["DATABASE"][z]["PROCESSOR_TDP"]
+      ' Finfosys.Label110.Text = " PPS: " & database["DATABASE"][z]["PROCESSOR_PROCESS_SIZE"]
+      ' Finfosys.Label111.Text = " Socket: " & database["DATABASE"][z]["PROCESSOR_SOCKET"]
+      ' Finfosys.Label112.Text = " Transistors: " & database["DATABASE"][z]["PROCESSOR_TRANSISTORS"]
+      ' Finfosys.Label113.Text = " Die size: " & database["DATABASE"][z]["PROCESSOR_DIE_SIZE"]
+      ' Finfosys.Label114.Text = " Package: " & database["DATABASE"][z]["PROCESSOR_PACKAGE"]
+      ' Finfosys.Label115.Text = " TCaseMax: " & database["DATABASE"][z]["PROCESSOR_TCASEMAX"]
+      ' Finfosys.Label116.Text = " Turboclock: " & database["DATABASE"][z]["PROCESSOR_TURBOCLOCK"] 
+      ' Finfosys.Label117.Text = " Multiplier: " & database["DATABASE"][z]["PROCESSOR_MULTIPLIER"]
+      ' Finfosys.Label118.Text = " Voltage: " & database["DATABASE"][z]["PROCESSOR_VOLTAGE"]
+      ' Finfosys.Label119.Text = " Codename: " & database["DATABASE"][z]["PROCESSOR_CODENAME"]
+      ' Finfosys.Label120.Text = " Part: " & database["DATABASE"][z]["PROCESSOR_PART"]
+      ' Finfosys.Label121.Text = " Memory support: " & database["DATABASE"][z]["PROCESSOR_MEMORYSUPPORT"]
       i = z
     Endif
   Next

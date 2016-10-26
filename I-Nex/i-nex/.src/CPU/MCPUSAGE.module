@@ -14,7 +14,7 @@
 '
 ' You should have received a copy of the GNU General Public License
 ' along with this program. If not, see <http://www.gnu.org/licenses/>.
-
+Fast
 Public Sub proc_stat()
   Dim PREV_STAT_PROC As File
   Dim CURRENT_STAT_PROC As File
@@ -117,6 +117,7 @@ Public Sub proc_stat()
   Total = (Idle + NonIdle)
     totald = (Total - PrevTotal)
     idled = (Idle - PrevIdle)
-  
-  If totald > 0 Then Finfosys.ProgressBar7.Value = (totald - idled) / totald 
+
+  If totald > 0 Then Finfosys.ProgressBar6.Value = (totald - idled) / totald
+
 End

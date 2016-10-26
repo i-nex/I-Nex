@@ -31,8 +31,6 @@ Public INDEX2 As String
 Public INDEX3 As String
 Public MEMINFO_FILE As File
 Public Sub Form_Open()
-  Dim default_display_manager As Boolean = Exist("/etc/X11/default-display-manager")
-
   Dim data As Stream
   Dim MaxCount As Integer
   Dim sLine As String
@@ -143,14 +141,6 @@ Public Sub Form_Open()
       Object.Call(FGraphic, "_check")
   Logs("Check sound cards", Logger.Info)
       Object.Call(Asound_Drives, "_inits")
-  Logs("Check for default display manager", Logger.Info)
-  If default_display_manager = True Then
-     Label4.Visible = True
-     Label143.Visible = True
-     Label143.Text = File.Load("/etc/X11/default-display-manager")
-     Label143.Text = "Deafult DM: " & Replace(Label143.Text, "\n", "")
-     Logs("Default display manager is " & Label143.Text, Logger.Info)
-  Endif
   'Check temperature. If temterature is OK then timer start 1500/ms. Check temp 1500/ms
   Timer1.Start
   Timer1.Delay = 1500
@@ -378,18 +368,18 @@ Public Sub Wykrywanie_procesorow()
   
   Close #CPUINFO_PROC
 
-  Try Label14.Text = Replace(CPU_MODEL_NAME[CFloat(ComboBox1.Index)], "\n", "")
-  Try Label14.Tooltip = Replace(CPU_MODEL_NAME[CFloat(ComboBox1.Index)], "\n", "")
-  Try Label71.Text = "Flags: " & FFlags.instructions
+  Try TextBox32.Text = Replace(CPU_MODEL_NAME[CFloat(ComboBox1.Index)], "\n", "")
+  Try TextBox32.Tooltip = Replace(CPU_MODEL_NAME[CFloat(ComboBox1.Index)], "\n", "")
+  Try TextBox36.Text = "Flags: " & FFlags.instructions
   Try Label13.Text = UCase$(Replace(Replace(Replace(CPU_VENDOR_ID[CFloat(ComboBox1.Index)], "Authentic", ""), "Genuine", ""), "\n", ""))
-  Try Label12.Text = Replace(CPU_CPU_MHZ[CFloat(ComboBox1.Index)], "\n", "") & " MHz"
-  Try Label97.Text = "Family: " & Replace(CPU_FAMILYz[CFloat(ComboBox1.Index)], "\n", "")
-  Try Label6.Text = "Model: " & Replace(CPU_MODEL[CFloat(ComboBox1.Index)], "\n", "")
-  Try Label7.Text = "Stepping: " & Replace(CPU_STEPPING[CFloat(ComboBox1.Index)], "\n", "")
-  Try Label8.Text = "Cores: " & Replace(CPU_SIBLINGS[CFloat(ComboBox1.Index)], "\n", "")
-  Try Label19.Text = "Phy id: " & Replace(CPU_PHYSICAL_ID[CFloat(ComboBox1.Index)], "\n", "")
+  Try TextBox33.Text = Replace(CPU_CPU_MHZ[CFloat(ComboBox1.Index)], "\n", "") & " MHz"
+  Try TextBox34.Text &= "Family: " & Replace(CPU_FAMILYz[CFloat(ComboBox1.Index)], "\n", "")
+  Try TextBox34.Text &= " | Model: " & Replace(CPU_MODEL[CFloat(ComboBox1.Index)], "\n", "")
+  Try TextBox34.Text &= " | Stepping: " & Replace(CPU_STEPPING[CFloat(ComboBox1.Index)], "\n", "")
+  Try TextBox34.Text &= " | Cores: " & Replace(CPU_SIBLINGS[CFloat(ComboBox1.Index)], "\n", "")
+  Try TextBox34.Text &= " | Phy id: " & Replace(CPU_PHYSICAL_ID[CFloat(ComboBox1.Index)], "\n", "")
   Try Label10.Text = "Bogomips: " & Replace(CPU_BOGOMIPS[CFloat(ComboBox1.Index)], "\n", "")
-  Try Label11.Text = "Address sizes: " & Replace(CPU_ADRESS_SIZES[CFloat(ComboBox1.Index)], "\n", "")
+  Try TextBox35.Text = "Address sizes: " & Replace(CPU_ADRESS_SIZES[CFloat(ComboBox1.Index)], "\n", "")
   Try Label15.Text = "Power mangament: " & Replace(CPU_POWER_MANAGEMENT[CFloat(ComboBox1.Index)], "\n", "")
   
   Try INDEX0 = Replace(File.Load("/sys/devices/system/cpu/" & Subst(ComboBox1.Current.Text) & "/cache/index0/size"), "\n", "")
@@ -508,7 +498,7 @@ Public Sub Refresh_CPU_MHZ()
       CPU_CPU_MHZ.Add(sVal)
     End Select
   Next
-  Try Label12.text = CPU_CPU_MHZ[(Mid$(ComboBox1.Current.Text, 4))] & " MHz"
+  Try TextBox33.text = CPU_CPU_MHZ[(Mid$(ComboBox1.Current.Text, 4))] & " MHz"
 End
 
 

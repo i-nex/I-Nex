@@ -1,5 +1,18 @@
 ' Gambas module file
 
+
+  Public sLine As String
+
+Public spd_data As New String[]
+Public spd_data_asc As New String[]
+Public spd_data_str As New String[]
+Public spd_data_bin As New Variant[]
+Public module_types_ddr2 As String[] = ["Reserved", "Undefined", "RDIMM", "UDIMM", "SO-DIMM", "Micro-DIMM", "Mini-RDIMM", "Mini-UDIMM"]
+Public module_types_ddr3 As String[] = ["Undefined", "RDIMM", "UDIMM", "SO-DIMM", "Micro-DIMM", "Mini-RDIMM", "Mini-UDIMM", "Mini-CDIMM", "72b-SO-UDIMM", "72b-SO-RDIMM", "72b-SO-CDIMM", "LRDIMM", "16b-SO-DIMM", "32b-SO-DIMM"]
+Public module_types_ddr4 As String[] = ["Undefined", "RDIMM", "UDIMM", "SO-DIMM", "LRDIMM"]
+Public dram_device_type As String[] = ["Reserved", "FPM DRAM", "EDO", "Pipelined Nibble", "SDR SDRAM", "Multiplexed ROM", "DDR SGRAM", "DDR SDRAM", "DDR2 SDRAM", "FB-DIMM", "FB-DIMM Probe", "DDR3 SDRAM"]
+Public SIZERAM As Integer
+Public BYTES As Long = 0
 Public PART_NUMBER As String
 Public MEMORY_TYPE As String
 Public SPD_REVISION As String
@@ -23,20 +36,8 @@ Public Sub List_EEPROM()
 End
 
 Public Sub _inits()
-
   Dim hFile As File
-  Dim sLine As String
   Dim i As Integer
-  Dim spd_data As New String[]
-  Dim spd_data_asc As New String[]
-  Dim spd_data_str As New String[]
-  Dim spd_data_bin As New Variant[]
-  Dim module_types_ddr2 As String[] = ["Reserved", "Undefined", "RDIMM", "UDIMM", "SO-DIMM", "Micro-DIMM", "Mini-RDIMM", "Mini-UDIMM"]
-  Dim module_types_ddr3 As String[] = ["Undefined", "RDIMM", "UDIMM", "SO-DIMM", "Micro-DIMM", "Mini-RDIMM", "Mini-UDIMM", "Mini-CDIMM", "72b-SO-UDIMM", "72b-SO-RDIMM", "72b-SO-CDIMM", "LRDIMM", "16b-SO-DIMM", "32b-SO-DIMM"]
-  Dim module_types_ddr4 As String[] = ["Undefined", "RDIMM", "UDIMM", "SO-DIMM", "LRDIMM"]
-  Dim dram_device_type As String[] = ["Reserved", "FPM DRAM", "EDO", "Pipelined Nibble", "SDR SDRAM", "Multiplexed ROM", "DDR SGRAM", "DDR SDRAM", "DDR2 SDRAM", "FB-DIMM", "FB-DIMM Probe", "DDR3 SDRAM"]
-  Dim SIZERAM As Integer
-  Dim BYTES As Long = 0
   'Clear data before get new
   SETNULL()
   spd_data.Clear
@@ -48,6 +49,7 @@ Public Sub _inits()
   'hFile = Open "/home/michal/Desktop/Kingston_eeprom" For Input
   'hFile = Open "/home/michal/Pobrane/pavbaranov_eeprom" For Input
   'hFile = Open "/home/michal/Pobrane/n150_eeprom" For Input
+  'hFile = Open "/home/michal/Pulpit/eeprom" For Input
   BYTES = 0
   While Not Eof(hFile)
    Line Input #hFile, sLine
@@ -107,7 +109,7 @@ Public Sub _inits()
      MANUFACTURER = "Unknown"
    End Select
      
-    Case "DDR3"
+  Case "DDR3"
    SPD_REVISION = Mid(spd_data[1], 1, 1) & "." & Mid(spd_data[1], 2, 1)
 
    For i = 128 To 145
@@ -207,7 +209,41 @@ Public Sub _inits()
    SPD_REVISION = Mid(spd_data[62], 1, 1) & "." & Mid(spd_data[62], 2, 1)
    Try FUNDAMENTAL_MEMORY_TYPE = dram_device_type[spd_data_asc[2]]
    Try MODULE_TYPE = module_types_ddr2[spd_data[20]]
-
+   'SDRAM Device Cycle time 
+   Select Case spd_data[9]
+    Case "50"
+      Finfosys.Label272.Text = "SDRAM Device Cycle time: 5.0 ns (400Mhz)"
+    Case "3D"
+      Finfosys.Label272.Text = "SDRAM Device Cycle time: 3.75 ns (533Mhz)"
+    Case "30"
+      Finfosys.Label272.Text = "SDRAM Device Cycle time: 3.0 ns    (667Mhz)"
+    Case "25"
+      Finfosys.Label272.Text = "SDRAM Device Cycle time: 2.5 ns (800Mhz)"
+    Case Else
+      Finfosys.Label272.Text = "SDRAM Device Cycle time: Unknown"
+   End Select
+   'SDRAM Device Access from Clock (tAC)
+   Select Case spd_data[10]
+     Case "60"
+      Finfosys.Label273.text = "SDRAM Device Access from Clock (tAC): +/-0.6ns"
+     Case "50"
+      Finfosys.Label273.text = "SDRAM Device Access from Clock (tAC): +/-0.5ns"
+     Case "45"
+      Finfosys.Label273.text = "SDRAM Device Access from Clock (tAC): +/-0.45ns"
+     Case "40"
+      Finfosys.Label273.text = "SDRAM Device Access from Clock (tAC): +/-0.40ns"
+     Case Else
+      Finfosys.Label273.text = "SDRAM Device Access from Clock (tAC): unknown"
+   End Select
+   'DIMM Configuration Type
+   Select Case spd_data[11]
+    Case "0"
+     Finfosys.Label274.text = "DIMM Configuration Type: NonECC"
+    Case "2"
+     Finfosys.Label274.text = "DIMM Configuration Type: ECC"
+    Case Else
+     Finfosys.Label274.text = "DIMM Configuration Type: Unknown"
+   End Select
    For i = 73 To 90
     PART_NUMBER &= spd_data_str[i]
    Next
@@ -236,6 +272,7 @@ Public Sub _inits()
     Case Else
      MANUFACTURER = "Unknown"
    End Select
+   
    Try Manufacturing_Date = Subst("&1-W&2",
                          CInt(2000 + spd_data[93]),
                          spd_data[94])
@@ -244,6 +281,8 @@ Public Sub _inits()
                          spd_data[96],
                          spd_data[97],
                          spd_data[98])
+
+                      
 
   Case Else
    MANUFACTURER = "Unknown"

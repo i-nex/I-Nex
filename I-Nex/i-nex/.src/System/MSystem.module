@@ -4,6 +4,7 @@ Public aScan As String[]
 Public sLine As String
 Public SCREENFETCH As Collection
 Public Sub System()
+  Dim default_display_manager As Boolean = Exist("/etc/X11/default-display-manager")
   Dim hostname, arch, gcc, timezone, xorg_version, glx_version As String
   Dim SCREENFETCH_P As Process
   SCREENFETCH_P = Exec ["" & ChkPrm.ChkExecDir("bash") & ""] For Write
@@ -30,31 +31,48 @@ Public Sub System()
   Shell "cat /var/log/Xorg.0.log | grep \"X.Org X Server\" | awk {'print $4'}" Wait To xorg_version
   Shell ChkPrm.ChkExecDir("glxinfo") & "| grep \"GLX version:\" | sed -n '1p' | cut -d ':' -f 2" Wait To glx_version
   'Shell "echo $SHELL" Wait To TextBox67.Text
-  Finfosys.Label135.Text = "System SHELL: " & System.Shell
-  Finfosys.Label137.Text = "GCC Version: " & Replace(gcc, "\n", "")
-  Finfosys.Label138.Text = "Hostname: " & Replace(hostname, "\n", "")
-  Finfosys.Label139.Text = "Arch: " & Replace(arch, "\n", "")
-  Finfosys.Label140.Text = "Timezone: " & Replace(timezone, "\n", "")
-  Finfosys.Label141.Text = "X.Org Version: " & Replace(xorg_version, "\n", "")
-  Finfosys.Label142.Text = "GLX Version: " & Replace(glx_version, "\n", "")
+  
+  Finfosys.GridView2.Columns.Count = 1
+  Finfosys.GridView2.Rows.Count = 9
+  
+  Finfosys.GridView2[0, 0].Text = "Distro Vendor: " & SCREENFETCH["Distro"]
+  Finfosys.GridView2[1, 0].Text = "Distro Release: " & SCREENFETCH["Distro_Release"]
+  Finfosys.GridView2[2, 0].Text = "Desktop environment: " & SCREENFETCH["DE"]
+  Finfosys.GridView2[3, 0].Text = "Window manager: " & SCREENFETCH["WM"]
+  Finfosys.GridView2[4, 0].Text = "Window manager Theme: " & SCREENFETCH["WinTheme"]
+  Finfosys.GridView2[5, 0].Text = "GTK+ 2 Theme: " & SCREENFETCH["GTK2Theme"]
+  Finfosys.GridView2[6, 0].Text = "GTK+ 3 Theme: " & SCREENFETCH["GTK3Theme"]
+  Finfosys.GridView2[7, 0].Text = "GTK Font: " & SCREENFETCH["GTKFont"]
+  Finfosys.GridView2[8, 0].Text = "GTK Icons: " & SCREENFETCH["GTKIcons"]
+  Finfosys.GridView2[8, 0].Text = "System SHELL: " & System.Shell
+  Finfosys.GridView3.Columns.Count = 2
+  Finfosys.GridView3.Rows.Count = 8
+  Finfosys.GridView3.Columns.Width = 230
+  Finfosys.GridView3[0, 0].Text = "GCC Version: " & Replace(gcc, "\n", "")
+  Finfosys.GridView3[1, 0].Text = "Hostname: " & Replace(hostname, "\n", "")
+  Finfosys.GridView3[2, 0].Text = "Arch: " & Replace(arch, "\n", "")
+  Finfosys.GridView3[3, 0].Text = "Timezone: " & Replace(timezone, "\n", "")
+  Finfosys.GridView3[4, 0].Text = "X.Org Version: " & Replace(xorg_version, "\n", "")
+  Finfosys.GridView3[5, 0].Text = "GLX Version: " & Replace(glx_version, "\n", "")
+
   Distribution_Detect._inits
   
-  Finfosys.Label4.Text = "Distro Vendor: " & SCREENFETCH["Distro"]
-  Finfosys.Label135.Text = "Distro Release: " & SCREENFETCH["Distro_Release"]
-  Finfosys.Label144.Text = SCREENFETCH["BINUTILS"]
-  Finfosys.Label145.Text = "Linux C Library: " & SCREENFETCH["LNXCLIB"]
-  Finfosys.Label37.Text = "Desktop environment: " & SCREENFETCH["DE"]
-  Finfosys.Label60.Text = "Window manager: " & SCREENFETCH["WM"]
-  Finfosys.Label61.Text = "Window manager Theme: " & SCREENFETCH["WinTheme"]
-  Finfosys.Label62.Text = "GTK+ 2 Theme: " & SCREENFETCH["GTK2Theme"]
-  Finfosys.Label63.Text = "GTK+ 3 Theme: " & SCREENFETCH["GTK3Theme"]
-  Finfosys.Label147.Text = "GTK Font: " & SCREENFETCH["GTKFont"]
-  Finfosys.Label148.Text = "GTK Icons: " & SCREENFETCH["GTKIcons"]
-  Finfosys.Label149.Text = "GNU Make Version: " & SCREENFETCH["GNUMAKE"]
-  Finfosys.Label150.Text = "PPP: " & SCREENFETCH["PPP"]
-  Finfosys.Label151.Text = "Dynamic linker (ldd): " & SCREENFETCH["DYNAMIC_LINKER"]
-  Finfosys.Label152.Text = "Net-tools: " & SCREENFETCH["NETTOOLS"]
-  Finfosys.Label153.Text = "Wireless-tools: " & SCREENFETCH["WIRELESS_TOOLS"]
+  Finfosys.GridView3[0, 1].Text = "Linux C Library: " & SCREENFETCH["LNXCLIB"]
+  Finfosys.GridView3[1, 1].Text = "GNU Make Version: " & SCREENFETCH["GNUMAKE"]
+  Finfosys.GridView3[2, 1].Text = "PPP: " & SCREENFETCH["PPP"]
+  Finfosys.GridView3[3, 1].Text = "Dynamic linker (ldd): " & SCREENFETCH["DYNAMIC_LINKER"]
+  Finfosys.GridView3[4, 1].Text = "Net-tools: " & SCREENFETCH["NETTOOLS"]
+  Finfosys.GridView3[5, 1].Text = "Wireless-tools: " & SCREENFETCH["WIRELESS_TOOLS"]
+  Finfosys.GridView3[6, 1].Text = Replace(SCREENFETCH["BINUTILS"], "\n", "")
+
+  If default_display_manager = True Then
+     Finfosys.GridView3[7, 0].Text = "Default Display Manager: " & Replace(File.Load("/etc/X11/default-display-manager"), "\n", "")
+  Endif
+  ' 
+  ' Finfosys.TableView1.EditWith(Finfosys.TextBox37)
+  ' Finfosys.TableView1.Columns.Count = 2
+  ' Finfosys.TableView1.Rows.Count = 8
+  ' Finfosys.TableView1[0, 0].Text = "Linux C Library: " & SCREENFETCH["LNXCLIB"]
   SCREENFETCH_P.Kill
   SCREENFETCH.Clear
 End
