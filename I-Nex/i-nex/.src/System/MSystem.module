@@ -1,9 +1,13 @@
 ' Gambas module file
 
+Private sa As ScrollArea
 Public aScan As String[]
 Public sLine As String
 Public SCREENFETCH As Collection
+Public UPTIME As String
 Public Sub System()
+  Dim obs As Observer
+  Dim TextBox As TextBox
   Dim default_display_manager As Boolean = Exist("/etc/X11/default-display-manager")
   Dim hostname, arch, gcc, timezone, xorg_version, glx_version As String
   Dim SCREENFETCH_P As Process
@@ -31,48 +35,267 @@ Public Sub System()
   Shell "cat /var/log/Xorg.0.log | grep \"X.Org X Server\" | awk {'print $4'}" Wait To xorg_version
   Shell ChkPrm.ChkExecDir("glxinfo") & "| grep \"GLX version:\" | sed -n '1p' | cut -d ':' -f 2" Wait To glx_version
   'Shell "echo $SHELL" Wait To TextBox67.Text
+
+  sa = Finfosys.GridView2.Children[0]
+  obs = New Observer(sa) As "Scroll"
+  With Finfosys.GridView2
+   .Columns.Count = 1
+   .Rows.Count = 9
+  End With
+  Finfosys.GridView2.Columns[0].W = 250
+  With TextBox = New TextBox(sa) As "DISTRO_VENDOR"
+    .X = Finfosys.GridView2.Columns[0].X
+    .Y = Finfosys.GridView2.Rows[0].Y
+    .W = Finfosys.GridView2[0, 0].W
+    .H = Finfosys.GridView2[0, 0].H
+    .Text = "Distro Vendor: " & SCREENFETCH["Distro"]
+    .Border = False
+    .ReadOnly = True
+  End With
   
-  Finfosys.GridView2.Columns.Count = 1
-  Finfosys.GridView2.Rows.Count = 9
+  With TextBox = New TextBox(sa) As "DISTRO_RELEASE"
+    .X = Finfosys.GridView2.Columns[0].X
+    .Y = Finfosys.GridView2.Rows[1].Y
+    .W = Finfosys.GridView2[1, 0].W
+    .H = Finfosys.GridView2[1, 0].H
+    .Text = "Distro Release: " & SCREENFETCH["Distro_Release"]
+    .Border = False
+    .ReadOnly = True
+  End With
   
-  Finfosys.GridView2[0, 0].Text = "Distro Vendor: " & SCREENFETCH["Distro"]
-  Finfosys.GridView2[1, 0].Text = "Distro Release: " & SCREENFETCH["Distro_Release"]
-  Finfosys.GridView2[2, 0].Text = "Desktop environment: " & SCREENFETCH["DE"]
-  Finfosys.GridView2[3, 0].Text = "Window manager: " & SCREENFETCH["WM"]
-  Finfosys.GridView2[4, 0].Text = "Window manager Theme: " & SCREENFETCH["WinTheme"]
-  Finfosys.GridView2[5, 0].Text = "GTK+ 2 Theme: " & SCREENFETCH["GTK2Theme"]
-  Finfosys.GridView2[6, 0].Text = "GTK+ 3 Theme: " & SCREENFETCH["GTK3Theme"]
-  Finfosys.GridView2[7, 0].Text = "GTK Font: " & SCREENFETCH["GTKFont"]
-  Finfosys.GridView2[8, 0].Text = "GTK Icons: " & SCREENFETCH["GTKIcons"]
-  Finfosys.GridView2[8, 0].Text = "System SHELL: " & System.Shell
-  Finfosys.GridView3.Columns.Count = 2
-  Finfosys.GridView3.Rows.Count = 8
-  Finfosys.GridView3.Columns.Width = 230
-  Finfosys.GridView3[0, 0].Text = "GCC Version: " & Replace(gcc, "\n", "")
-  Finfosys.GridView3[1, 0].Text = "Hostname: " & Replace(hostname, "\n", "")
-  Finfosys.GridView3[2, 0].Text = "Arch: " & Replace(arch, "\n", "")
-  Finfosys.GridView3[3, 0].Text = "Timezone: " & Replace(timezone, "\n", "")
-  Finfosys.GridView3[4, 0].Text = "X.Org Version: " & Replace(xorg_version, "\n", "")
-  Finfosys.GridView3[5, 0].Text = "GLX Version: " & Replace(glx_version, "\n", "")
+  With TextBox = New TextBox(sa) As "DESKTOP_ENVIRONMENT"
+    .X = Finfosys.GridView2.Columns[0].X
+    .Y = Finfosys.GridView2.Rows[2].Y
+    .W = Finfosys.GridView2[2, 0].W
+    .H = Finfosys.GridView2[2, 0].H
+    .Text = "Desktop environment: " & SCREENFETCH["DE"]
+    .Border = False
+    .ReadOnly = True
+  End With
+  
+  With TextBox = New TextBox(sa) As "WINDOW_MANAGER"
+    .X = Finfosys.GridView2.Columns[0].X
+    .Y = Finfosys.GridView2.Rows[3].Y
+    .W = Finfosys.GridView2[3, 0].W
+    .H = Finfosys.GridView2[3, 0].H
+    .Text = "Window manager: " & SCREENFETCH["WM"]
+    .Border = False
+    .ReadOnly = True
+  End With
+  
+  With TextBox = New TextBox(sa) As "WINDOW_MANAGER_THEME"
+    .X = Finfosys.GridView2.Columns[0].X
+    .Y = Finfosys.GridView2.Rows[4].Y
+    .W = Finfosys.GridView2[4, 0].W
+    .H = Finfosys.GridView2[4, 0].H
+    .Text = "Window manager Theme: " & SCREENFETCH["WinTheme"]
+    .Border = False
+    .ReadOnly = True
+  End With
+  
+  With TextBox = New TextBox(sa) As "GTK2_THEME"
+    .X = Finfosys.GridView2.Columns[0].X
+    .Y = Finfosys.GridView2.Rows[5].Y
+    .W = Finfosys.GridView2[5, 0].W
+    .H = Finfosys.GridView2[5, 0].H
+    .Text = "GTK+ 2 Theme: " & SCREENFETCH["GTK2Theme"]
+    .Border = False
+    .ReadOnly = True
+  End With
+  
+  With TextBox = New TextBox(sa) As "GTK3_THEME"
+    .X = Finfosys.GridView2.Columns[0].X
+    .Y = Finfosys.GridView2.Rows[6].Y
+    .W = Finfosys.GridView2[6, 0].W
+    .H = Finfosys.GridView2[6, 0].H
+    .Text = "GTK+ 3 Theme: " & SCREENFETCH["GTK3Theme"]
+    .Border = False
+    .ReadOnly = True
+  End With
+  
+  With TextBox = New TextBox(sa) As "GTK_FONT"
+    .X = Finfosys.GridView2.Columns[0].X
+    .Y = Finfosys.GridView2.Rows[7].Y
+    .W = Finfosys.GridView2[7, 0].W
+    .H = Finfosys.GridView2[7, 0].H
+    .Text = "GTK Font: " & SCREENFETCH["GTKFont"]
+    .Border = False
+    .ReadOnly = True
+  End With
+  
+  With TextBox = New TextBox(sa) As "GTK_ICONS"
+    .X = Finfosys.GridView2.Columns[0].X
+    .Y = Finfosys.GridView2.Rows[8].Y
+    .W = Finfosys.GridView2[8, 0].W
+    .H = Finfosys.GridView2[8, 0].H
+    .Text = "GTK Icons: " & SCREENFETCH["GTKIcons"]
+    .Border = False
+    .ReadOnly = True
+  End With
+  
+  With TextBox = New TextBox(sa) As "SYSTEM_SHELL"
+    .X = Finfosys.GridView2.Columns[0].X
+    .Y = Finfosys.GridView2.Rows[9].Y
+    .W = Finfosys.GridView2[9, 0].W
+    .H = Finfosys.GridView2[9, 0].H
+    .Text = "System SHELL: " & System.Shell
+    .Border = False
+    .ReadOnly = True
+  End With
+
+  sa = Finfosys.GridView3.Children[0]
+  obs = New Observer(sa) As "Scroll2"
+  With Finfosys.GridView3
+   .Columns.Count = 2
+   .Rows.Count = 8
+  End With
+  Finfosys.GridView3.Columns[0].W = 230
+  Finfosys.GridView3.Columns[1].W = 230
+
+  With TextBox = New TextBox(sa) As "GCC_VERSION"
+    .X = Finfosys.GridView3.Columns[0].X
+    .Y = Finfosys.GridView3.Rows[0].Y
+    .W = Finfosys.GridView3[0, 0].W
+    .H = Finfosys.GridView3[0, 0].H
+    .Text = "GCC Version: " & Replace(gcc, "\n", "")
+    .Border = False
+    .ReadOnly = True
+  End With
+
+  With TextBox = New TextBox(sa) As "HOSTNAME"
+    .X = Finfosys.GridView3.Columns[0].X
+    .Y = Finfosys.GridView3.Rows[1].Y
+    .W = Finfosys.GridView3[1, 0].W
+    .H = Finfosys.GridView3[1, 0].H
+    .Text = "Hostname: " & Replace(hostname, "\n", "")
+    .Border = False
+    .ReadOnly = True
+  End With
+  
+  With TextBox = New TextBox(sa) As "ARCH"
+    .X = Finfosys.GridView3.Columns[0].X
+    .Y = Finfosys.GridView3.Rows[2].Y
+    .W = Finfosys.GridView3[2, 0].W
+    .H = Finfosys.GridView3[2, 0].H
+    .Text = "Arch: " & Replace(arch, "\n", "")
+    .Border = False
+    .ReadOnly = True
+  End With
+  
+  With TextBox = New TextBox(sa) As "TIMEZONE"
+    .X = Finfosys.GridView3.Columns[0].X
+    .Y = Finfosys.GridView3.Rows[3].Y
+    .W = Finfosys.GridView3[3, 0].W
+    .H = Finfosys.GridView3[3, 0].H
+    .Text = "Timezone: " & Replace(timezone, "\n", "")
+    .Border = False
+    .ReadOnly = True
+  End With
+  
+  With TextBox = New TextBox(sa) As "XORG_VERSION"
+    .X = Finfosys.GridView3.Columns[0].X
+    .Y = Finfosys.GridView3.Rows[4].Y
+    .W = Finfosys.GridView3[4, 0].W
+    .H = Finfosys.GridView3[4, 0].H
+    .Text = "X.Org Version: " & Replace(xorg_version, "\n", "")
+    .Border = False
+    .ReadOnly = True
+  End With
+  
+  With TextBox = New TextBox(sa) As "GLX_VERSION"
+    .X = Finfosys.GridView3.Columns[0].X
+    .Y = Finfosys.GridView3.Rows[5].Y
+    .W = Finfosys.GridView3[5, 0].W
+    .H = Finfosys.GridView3[5, 0].H
+    .Text = "GLX Version: " & Replace(glx_version, "\n", "")
+    .Border = False
+    .ReadOnly = True
+  End With
 
   Distribution_Detect._inits
   
-  Finfosys.GridView3[0, 1].Text = "Linux C Library: " & SCREENFETCH["LNXCLIB"]
-  Finfosys.GridView3[1, 1].Text = "GNU Make Version: " & SCREENFETCH["GNUMAKE"]
-  Finfosys.GridView3[2, 1].Text = "PPP: " & SCREENFETCH["PPP"]
-  Finfosys.GridView3[3, 1].Text = "Dynamic linker (ldd): " & SCREENFETCH["DYNAMIC_LINKER"]
-  Finfosys.GridView3[4, 1].Text = "Net-tools: " & SCREENFETCH["NETTOOLS"]
-  Finfosys.GridView3[5, 1].Text = "Wireless-tools: " & SCREENFETCH["WIRELESS_TOOLS"]
-  Finfosys.GridView3[6, 1].Text = Replace(SCREENFETCH["BINUTILS"], "\n", "")
+  With TextBox = New TextBox(sa) As "LINUX_C_LIBRARY"
+    .X = Finfosys.GridView3.Columns[1].X
+    .Y = Finfosys.GridView3.Rows[0].Y
+    .W = Finfosys.GridView3[0, 1].W
+    .H = Finfosys.GridView3[0, 1].H
+    .Text = "Linux C Library: " & SCREENFETCH["LNXCLIB"]
+    .Border = False
+    .ReadOnly = True
+  End With
+  
+  With TextBox = New TextBox(sa) As "LINUX_GNU_MAKE"
+    .X = Finfosys.GridView3.Columns[1].X
+    .Y = Finfosys.GridView3.Rows[1].Y
+    .W = Finfosys.GridView3[1, 1].W
+    .H = Finfosys.GridView3[1, 1].H
+    .Text = "GNU Make Version: " & SCREENFETCH["GNUMAKE"]
+    .Border = False
+    .ReadOnly = True
+  End With
+  
+  With TextBox = New TextBox(sa) As "_PPP"
+    .X = Finfosys.GridView3.Columns[1].X
+    .Y = Finfosys.GridView3.Rows[2].Y
+    .W = Finfosys.GridView3[2, 1].W
+    .H = Finfosys.GridView3[2, 1].H
+    .Text = "PPP: " & SCREENFETCH["PPP"]
+    .Border = False
+    .ReadOnly = True
+  End With
+
+  With TextBox = New TextBox(sa) As "_DYNAMIC_LINKER_LDD"
+    .X = Finfosys.GridView3.Columns[1].X
+    .Y = Finfosys.GridView3.Rows[3].Y
+    .W = Finfosys.GridView3[3, 1].W
+    .H = Finfosys.GridView3[3, 1].H
+    .Text = "Dynamic linker (ldd): " & SCREENFETCH["DYNAMIC_LINKER"]
+    .Border = False
+    .ReadOnly = True
+  End With
+  
+  With TextBox = New TextBox(sa) As "_NET_TOOLS"
+    .X = Finfosys.GridView3.Columns[1].X
+    .Y = Finfosys.GridView3.Rows[4].Y
+    .W = Finfosys.GridView3[4, 1].W
+    .H = Finfosys.GridView3[4, 1].H
+    .Text = "Net-tools: " & SCREENFETCH["NETTOOLS"]
+    .Border = False
+    .ReadOnly = True
+  End With
+  
+  With TextBox = New TextBox(sa) As "_WIRELESS_TOOLS"
+    .X = Finfosys.GridView3.Columns[1].X
+    .Y = Finfosys.GridView3.Rows[5].Y
+    .W = Finfosys.GridView3[5, 1].W
+    .H = Finfosys.GridView3[5, 1].H
+    .Text = "Wireless-tools: " & SCREENFETCH["WIRELESS_TOOLS"]
+    .Border = False
+    .ReadOnly = True
+  End With
+  
+  With TextBox = New TextBox(sa) As "_BINUTILS"
+    .X = Finfosys.GridView3.Columns[1].X
+    .Y = Finfosys.GridView3.Rows[6].Y
+    .W = Finfosys.GridView3[6, 1].W
+    .H = Finfosys.GridView3[6, 1].H
+    .Text = Replace(SCREENFETCH["BINUTILS"], "\n", "")
+    .Border = False
+    .ReadOnly = True
+  End With
 
   If default_display_manager = True Then
-     Finfosys.GridView3[7, 0].Text = "Default Display Manager: " & Replace(File.Load("/etc/X11/default-display-manager"), "\n", "")
+  With TextBox = New TextBox(sa) As "DEFAULT_DISPLAY_MANAGER"
+    .X = Finfosys.GridView3.Columns[1].X
+    .Y = Finfosys.GridView3.Rows[7].Y
+    .W = Finfosys.GridView3[7, 1].W
+    .H = Finfosys.GridView3[7, 1].H
+    .Text = "Default Display Manager: " & Replace(File.Load("/etc/X11/default-display-manager"), "\n", "")
+    .Border = False
+    .ReadOnly = True
+  End With
   Endif
-  ' 
-  ' Finfosys.TableView1.EditWith(Finfosys.TextBox37)
-  ' Finfosys.TableView1.Columns.Count = 2
-  ' Finfosys.TableView1.Rows.Count = 8
-  ' Finfosys.TableView1[0, 0].Text = "Linux C Library: " & SCREENFETCH["LNXCLIB"]
+
   SCREENFETCH_P.Kill
   SCREENFETCH.Clear
 End
