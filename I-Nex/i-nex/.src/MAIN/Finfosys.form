@@ -2258,7 +2258,7 @@
       Text = "I-Nex is an application that gathers information for hardware components available on your system and displays it using an user interface similar to the popular Windows tool CPU-Z.\n\nI-Nex can display information for the following components: CPU, GPU, Motherboard, Sound, Hard disks, RAM, Network and USB as well as some system info like the hostname, Linux distribution and version, Xorg, GCC, GLX versions and Linux Kernel info.\n\n"
     }
     { ToolButton5 ToolButton
-      Move(154,343,161,70)
+      Move(7,343,161,70)
       Picture = Picture["Data/donate.png"]
       Border = True
     }
@@ -2289,25 +2289,25 @@
       Text = ("If I-Nex in any way you want \nhandy and would help in the \nfurther development of the project. \nBuy me a coffee.")
     }
     { Label268 Label
-      Move(140,231,196,21)
+      Move(35,231,196,21)
       Padding = 3
       AutoResize = True
       Text = ("Tomasz Przybył (FadeMind)   ")
       Alignment = Align.Center
     }
     { Label267 Label
-      Move(140,259,196,21)
+      Move(245,231,196,21)
       Padding = 3
       Text = ("Dariusz Duma")
       Alignment = Align.Center
     }
     { Label269 Label
-      Move(140,287,196,21)
+      Move(35,259,196,21)
       Text = ("Marcin (Netbit73) Mach")
       Alignment = Align.Center
     }
     { Label270 Label
-      Move(126,315,224,21)
+      Move(245,259,224,21)
       Text = ("Paweł Baranowski (pavbaranov)")
       Alignment = Align.Center
     }
@@ -2315,6 +2315,11 @@
       Move(154,210,168,21)
       Font = Font["Bold,8"]
       Text = ("Thanks to:")
+      Alignment = Align.Center
+    }
+    { Label4 Label
+      Move(126,287,224,28)
+      Text = ("vuott from http://www.gambas-it.org/")
       Alignment = Align.Center
     }
     Index = 0
