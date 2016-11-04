@@ -37,6 +37,7 @@ Public Sub Main()
            "\n          --cpuinfo    (Use cpuinfo instead of /proc)"
            "\n          --smbus                             (smbus)"
            "\n"
+           "\n          --libcpuid (Print info about CPU in term using Libcpuid)"
            "\n  Env Variables:"
            "\n"
            "\n                INEXCPU_VENDOR"
@@ -56,6 +57,9 @@ Public Sub Main()
     PrintErr = False
    Case "--smbus"
     i2c._inits
+    PrintErr = False
+   Case "--libcpuid"
+    MLibcpuid14.Main()
     PrintErr = False
    Case ""
     Finfosys.Show

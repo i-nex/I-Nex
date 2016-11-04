@@ -1,0 +1,160 @@
+' Gambas module file
+
+Library "libcpuid:14.0.0"
+
+Private Enum CPU_HINT_SSE_SIZE_AUTH = 0, NUM_CPU_HINTS
+
+ 
+
+Public Struct cpu_raw_data_t 
+  basic_cpuid[32, 4] As Integer
+  ext_cpuid[32, 4] As Integer
+  intel_fn4[8, 4] As Integer
+  intel_fn11[4, 4] As Integer
+  intel_fn12h[4, 4] As Integer
+  intel_fn14h[4, 4] As Integer
+End Struct
+
+Public Struct cpu_sgx_t
+  present As Integer
+  max_enclave_32bit As Byte
+  max_enclave_64bit As Byte
+  flags[14] As Byte
+  num_epc_sections As Integer
+  misc_select As Integer
+  secs_attributes As Long
+  secs_xfrm As Long
+End Struct
+
+Public Struct cpu_id_t
+  vendor_str[16] As Byte            '     0 -  15
+  brand_str[64] As Byte             '    16 -  79
+  vendor As Integer                 '    80 -  83
+  flags[124] As Byte                '    84 -   ?
+  family As Integer
+  model As Integer
+  stepping As Integer
+  ext_family As Integer
+  ext_model As Integer
+  num_cores As Integer
+  num_logical_cpus As Integer
+  total_logical_cpus As Integer
+  l1_data_cache As Integer
+  l1_instruction_cache As Integer
+  l2_cache As Integer
+  l3_cache As Integer
+  l4_cache As Integer
+  l1_assoc As Integer
+  l2_assoc As Integer
+  l3_assoc As Integer
+  l4_assoc As Integer
+  l1_cacheline As Integer
+  l2_cacheline As Integer
+  l3_cacheline As Integer
+  l4_cacheline As Integer
+  cpu_codename[64] As Byte
+  sse_size As Integer
+  detection_hints[16] As Byte
+  sgx As Struct Cpu_sgx_t
+End Struct
+
+Public Struct cpu_mark_t
+  tsc As Long
+  sys_clock As Long
+End Struct
+
+' int cpuid_present(void)
+' Checks if the CPUID instruction is supported.
+Private Extern cpuid_present() As Integer
+
+' int cpuid_get_raw_data(struct cpu_raw_data_t* data)
+' Obtains the raw CPUID data from the current CPU.
+Private Extern cpuid_get_raw_data(data As Cpu_raw_data_t) As Integer
+
+' const char* cpuid_error(void)
+' Returns textual description of the last error.
+Private Extern cpuid_error() As String
+
+' int cpu_identify(struct cpu_raw_data_t* raw, struct cpu_id_t* data)
+' Identifies the CPU.
+Private Extern cpu_identify(raw As Cpu_raw_data_t, data As Cpu_id_t) As Integer
+
+' void cpu_tsc_mark(struct cpu_mark_t* mark)
+' Store TSC and timing info.
+Private Extern cpu_tsc_mark(mark As Cpu_mark_t)
+
+' void cpu_tsc_unmark(struct cpu_mark_t* mark)
+' Calculate TSC and timing difference.
+Private Extern cpu_tsc_unmark(mark As Cpu_mark_t)
+
+' int cpu_clock(void)
+' Get the CPU clock frequency (all-in-one method).
+Private Extern cpu_clock() As Integer
+
+' int cpu_clock_by_os(void)
+' Returns the CPU clock, as reported by the OS.
+Private Extern cpu_clock_by_os() As Integer
+
+' int cpu_clock_by_ic(int millis, int runs)
+' Measure the CPU clock frequency using instruction-counting.
+Private Extern cpu_clock_by_ic(millis As Integer, runs As Integer) As Integer
+
+' int cpu_clock_measure(int millis, int quad_check)
+' Measure the CPU clock frequency.
+Private Extern cpu_clock_measure(millis As Integer, quad_check As Integer) As Integer
+
+
+Public Sub Main()
+
+  Dim raw As New Cpu_raw_data_t 
+  Dim data As New Cpu_id_t
+  Dim mark As New Cpu_mark_t
+  Dim au As String
+  Dim i As Integer
+    If Not cpuid_present() Then Error.Raise("Sorry, your CPU doesn't support CPUID !")
+    
+    If cpuid_get_raw_data(raw) < 0 Then
+      Error.Raise("Sorry, cannot get the CPUID raw data.\nError: " & cpuid_error())
+    Endif
+  
+    If cpu_identify(raw, data) < 0 Then
+      Error.Raise("Sorry, CPU identification failed.\nError: " & cpuid_error())
+    Endif
+
+    cpu_tsc_mark(mark)
+    cpu_tsc_unmark(mark)
+    Print "   \"VENDOR_STR\":         "; String@(data.vendor_str.data)
+    Print "   \"CPU_CODENAME\":       "; String@(data.cpu_codename.data)
+    Print "   \"BRAND_STR\":          "; String@(data.brand_str.data)
+    Print "   \"VENDOR\":             "; data.vendor
+    Print "   \"NUM_CORES\":          "; data.num_cores
+    Print "   \"NUM_LOGICAL_CPUS\":   "; data.num_logical_cpus
+    Print "   \"TOTAL_LOGICAL_CPUS\": "; data.total_logical_cpus
+    Print "   \"FAMILY\":             "; data.family
+    Print "   \"MODEL\":              "; data.model
+    Print "   \"STEPPING\":           "; data.stepping
+    Print "   \"EXT_FAMILY\":         "; data.ext_family
+    Print "   \"EXT_MODEL\":          "; data.ext_model
+    au = IIf(data.detection_hints[CPU_HINT_SSE_SIZE_AUTH], "(authoritative)", "(non-authoritative)")
+    Print "   \"SSE_SIZE\":           "; data.sse_size; " bit "; au
+    Print "   \"CPU_CLOCK\":          "; cpu_clock(); " Mhz"
+    Print "   \"CPU_CLOCK_BY_OS\":    "; cpu_clock_by_os(); " Mhz"
+    Print "   \"CPU_CLOCK_BY_IC\":    "; cpu_clock_by_ic(25, 16); " Mhz" 
+    Print "   \"CPU_CLOCK_MEASURE\":  "; cpu_clock_measure(400, 1); " Mhz"
+    Print "   \"L1_DATA_CACHE\":      "; data.l1_data_cache; " KB"
+    Print "   \"L1_INSTRUCTION_CACHE\": "; data.l1_instruction_cache; " KB"
+    Print "   \"L1_CACHELINE\":       "; data.l1_cacheline; " bytes"
+    Print "   \"L1_ASSOC\":           "; data.l1_assoc; "-way"
+    Print "   \"L2_CACHE\":           "; data.l2_cache; " KB"
+    Print "   \"L2_ASSOC\":           "; data.l2_assoc; "-way"
+    Print "   \"L2_CACHELINE\":       "; data.l2_cacheline; " bytes"
+    Print "   \"L3_CACHE\":           "; data.l3_cache; " KB"
+    Print "   \"L3_ASSOC\":           "; data.l3_assoc; "-way"
+    Print "   \"L3_CACHELINE\":       "; data.l3_cacheline; " bytes"
+    Print "   \"L4_CACHE\":           "; data.l4_cache; " KB"
+    Print "   \"L4_ASSOC\":           "; data.l4_assoc; "-way"
+    Print "   \"L4_CACHELINE\":       "; data.l4_cacheline; " bytes"
+    Print "   \"MARK_TSC\":           "; mark.tsc
+    Print "   \"MARK_SYS_CLOCK\":     "; mark.sys_clock
+
+End

@@ -4,8 +4,8 @@ Public Report As Collection
 Public DATA_RETURN As String
 Public Sub refresh()
 Report = [("0"): ("========================================================" & Finfosys.ComboBox1.Text & "================================================================="),
-                               ("1"): (Finfosys.Label13.Text),
-                               ("2"): (Finfosys.Label14.Text),
+                               ("1"): (Finfosys.TextBox32.Text),
+                               ("2"): (Finfosys.TextBox33.Text),
                                ("3"): (Finfosys.Label12.Text),
                                ("4"): (Finfosys.Label103.Text),
                                ("5"): (Finfosys.LCDLabel1.Text),
@@ -41,7 +41,7 @@ Public Sub _inits()
  Dim hFile As File
  DATA_RETURN = Null
  refresh()
- 
+
  For All2 = 1 To Finfosys.ComboBox1.Count
   Finfosys.ComboBox1.Index = All2
   
