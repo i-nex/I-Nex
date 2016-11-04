@@ -1,5 +1,7 @@
 ' Gambas module file
 
+' The module was written by vuott from http://www.gambas-it.org/
+' http://www.gambas-it.org/smf/index.php?action=profile;u=402
 Library "libcpuid:14.0.0"
 
 Private Enum CPU_HINT_SSE_SIZE_AUTH = 0, NUM_CPU_HINTS
