@@ -6,7 +6,135 @@ Library "libcpuid:14.0.0"
 
 Private Enum CPU_HINT_SSE_SIZE_AUTH = 0, NUM_CPU_HINTS
 
- 
+Private Enum CPU_FEATURE_FPU,
+             CPU_FEATURE_VME,
+             CPU_FEATURE_DE,
+             CPU_FEATURE_PSE,
+             CPU_FEATURE_TSC,
+             CPU_FEATURE_MSR,
+             CPU_FEATURE_PAE,
+             CPU_FEATURE_MCE, '!< Machine check exception */
+             CPU_FEATURE_CX8, '!< CMPXCHG8B instruction supported */
+             CPU_FEATURE_APIC, '!< APIC support */
+             CPU_FEATURE_MTRR, '!< Memory type range registers */
+             CPU_FEATURE_SEP, '!< SYSENTER / SYSEXIT instructions supported */
+             CPU_FEATURE_PGE, '!< Page global enable */
+             CPU_FEATURE_MCA, '!< Machine check architecture */
+             CPU_FEATURE_CMOV, '!< CMOVxx instructions supported */
+             CPU_FEATURE_PAT, '!< Page attribute table */
+             CPU_FEATURE_PSE36, '!< 36-bit page address extension */
+             CPU_FEATURE_PN, 	'!< Processor serial # implemented (Intel P3 only) */
+             CPU_FEATURE_CLFLUSH, '!< CLFLUSH instruction supported */
+             CPU_FEATURE_DTS, '!< Debug store supported */
+             CPU_FEATURE_ACPI, '!< ACPI support (power states) */
+             CPU_FEATURE_MMX, '!< MMX instruction set supported */
+             CPU_FEATURE_FXSR, '!< FXSAVE / FXRSTOR supported */
+             CPU_FEATURE_SSE, '!< Streaming-SIMD Extensions (SSE) supported */
+             CPU_FEATURE_SSE2, '!< SSE2 instructions supported */
+             CPU_FEATURE_SS, 		'!< Self-snoop */
+             CPU_FEATURE_HT, 		'!< Hyper-threading supported (but might be disabled) */
+             CPU_FEATURE_TM, 		'!< Thermal monitor */
+             CPU_FEATURE_IA64, '!< IA64 supported (Itanium only) */
+             CPU_FEATURE_PBE, '!< Pending-break enable */
+             CPU_FEATURE_PNI, '!< PNI (SSE3) instructions supported */
+             CPU_FEATURE_PCLMUL, '!< PCLMULQDQ instruction supported */
+             CPU_FEATURE_DTS64, '!< 64-bit Debug store supported */
+             CPU_FEATURE_MONITOR, '!< MONITOR / MWAIT supported */
+             CPU_FEATURE_DS_CPL, '!< CPL Qualified Debug Store */
+             CPU_FEATURE_VMX, '!< Virtualization technology supported */
+             CPU_FEATURE_SMX, '!< Safer mode exceptions */
+             CPU_FEATURE_EST, '!< Enhanced SpeedStep */
+             CPU_FEATURE_TM2, '!< Thermal monitor 2 */
+             CPU_FEATURE_SSSE3, '!< SSSE3 instructionss supported (this is different from SSE3!) */
+             CPU_FEATURE_CID, '!< Context ID supported */
+             CPU_FEATURE_CX16, '!< CMPXCHG16B instruction supported */
+             CPU_FEATURE_XTPR, '!< Send Task Priority Messages disable */
+             CPU_FEATURE_PDCM, '!< Performance capabilities MSR supported */
+             CPU_FEATURE_DCA, '!< Direct cache access supported */
+             CPU_FEATURE_SSE4_1, '!< SSE 4.1 instructions supported */
+             CPU_FEATURE_SSE4_2, '!< SSE 4.2 instructions supported */
+             CPU_FEATURE_SYSCALL, '!< SYSCALL / SYSRET instructions supported */
+             CPU_FEATURE_XD, 	'!< Execute disable bit supported */
+             CPU_FEATURE_MOVBE, '!< MOVBE instruction supported */
+             CPU_FEATURE_POPCNT, '!< POPCNT instruction supported */
+             CPU_FEATURE_AES, '!< AES* instructions supported */
+             CPU_FEATURE_XSAVE, '!< XSAVE/XRSTOR/etc instructions supported */
+             CPU_FEATURE_OSXSAVE, '!< non-privileged copy of OSXSAVE supported */
+             CPU_FEATURE_AVX, '!< Advanced vector extensions supported */
+             CPU_FEATURE_MMXEXT, '!< AMD MMX-extended instructions supported */
+             CPU_FEATURE_3DNOW, '!< AMD 3DNow! instructions supported */
+             CPU_FEATURE_3DNOWEXT, '!< AMD 3DNow! extended instructions supported */
+             CPU_FEATURE_NX, 		'!< No-execute bit supported */
+             CPU_FEATURE_FXSR_OPT, '!< FFXSR: FXSAVE and FXRSTOR optimizations */
+             CPU_FEATURE_RDTSCP, '!< RDTSCP instruction supported (AMD-only) */
+             CPU_FEATURE_LM, 		'!< Long mode (x86_64/EM64T) supported */
+             CPU_FEATURE_LAHF_LM, '!< LAHF/SAHF supported in 64-bit mode */
+             CPU_FEATURE_CMP_LEGACY, '!< core multi-processing legacy mode */
+             CPU_FEATURE_SVM, '!< AMD Secure virtual machine */
+             CPU_FEATURE_ABM, '!< LZCNT instruction support */
+             CPU_FEATURE_MISALIGNSSE, '!< Misaligned SSE supported */
+             CPU_FEATURE_SSE4A, '!< SSE 4a from AMD */
+             CPU_FEATURE_3DNOWPREFETCH, '!< PREFETCH/PREFETCHW support */
+             CPU_FEATURE_OSVW, '!< OS Visible Workaround (AMD) */
+             CPU_FEATURE_IBS, '!< Instruction-based sampling */
+             CPU_FEATURE_SSE5, '!< SSE 5 instructions supported (deprecated, will never be 1) */
+             CPU_FEATURE_SKINIT, '!< SKINIT / STGI supported */
+             CPU_FEATURE_WDT, '!< Watchdog timer support */
+             CPU_FEATURE_TS, 		'!< Temperature sensor */
+             CPU_FEATURE_FID, '!< Frequency ID control */
+             CPU_FEATURE_VID, '!< Voltage ID control */
+             CPU_FEATURE_TTP, '!< THERMTRIP */
+             CPU_FEATURE_TM_AMD, '!< AMD-specified hardware thermal control */
+             CPU_FEATURE_STC, '!< Software thermal control */
+             CPU_FEATURE_100MHZSTEPS, '!< 100 MHz multiplier control */
+             CPU_FEATURE_HWPSTATE, '!< Hardware P-state control */
+             CPU_FEATURE_CONSTANT_TSC, '!< TSC ticks at constant rate */
+             CPU_FEATURE_XOP, '!< The XOP instruction set (same as the old CPU_FEATURE_SSE5) */
+             CPU_FEATURE_FMA3, '!< The FMA3 instruction set */
+             CPU_FEATURE_FMA4, '!< The FMA4 instruction set */
+             CPU_FEATURE_TBM, '!< Trailing bit manipulation instruction support */
+             CPU_FEATURE_F16C, '!< 16-bit FP convert instruction support */
+             CPU_FEATURE_RDRAND, '!< RdRand instruction */
+             CPU_FEATURE_X2APIC, '!< x2APIC, APIC_BASE.EXTD, MSRs 0000_0800h...0000_0BFFh 64-bit ICR (+030h but not +031h), no DFR (+00Eh), SELF_IPI (+040h) also see standard level 0000_000Bh */
+             CPU_FEATURE_CPB, '!< Core performance boost */
+             CPU_FEATURE_APERFMPERF, '!< MPERF/APERF MSRs support */
+             CPU_FEATURE_PFI, '!< Processor Feedback Interface support */
+             CPU_FEATURE_PA, 		'!< Processor accumulator */
+             CPU_FEATURE_AVX2, '!< AVX2 instructions */
+             CPU_FEATURE_BMI1, '!< BMI1 instructions */
+             CPU_FEATURE_BMI2, '!< BMI2 instructions */
+             CPU_FEATURE_HLE, '!< Hardware Lock Elision prefixes */
+             CPU_FEATURE_RTM, '!< Restricted Transactional Memory instructions */
+             CPU_FEATURE_AVX512F, '!< AVX-512 Foundation */
+             CPU_FEATURE_AVX512DQ, '!< AVX-512 Double/Quad granular insns */
+             CPU_FEATURE_AVX512PF, '!< AVX-512 Prefetch */
+             CPU_FEATURE_AVX512ER, '!< AVX-512 Exponential/Reciprocal */
+             CPU_FEATURE_AVX512CD, '!< AVX-512 Conflict detection */
+             CPU_FEATURE_SHA_NI, '!< SHA-1/SHA-256 instructions */
+             CPU_FEATURE_AVX512BW, '!< AVX-512 Byte/Word granular insns */
+             CPU_FEATURE_AVX512VL, '!< AVX-512 128/256 vector length extensions */
+             CPU_FEATURE_SGX, '!< SGX extensions. Non-autoritative, check cpu_id_t::sgx::present to verify presence */
+             CPU_FEATURE_RDSEED, '!< RDSEED instruction */
+             CPU_FEATURE_ADX,
+             NUM_CPU_FEATURES
+
+Private Enum VENDOR_INTEL = 0,  '/*!< Intel CPU */
+	           VENDOR_AMD,        '/*!< AMD CPU */
+	           VENDOR_CYRIX,      '/*!< Cyrix CPU */
+	           VENDOR_NEXGEN,     '/*!< NexGen CPU */
+	           VENDOR_TRANSMETA,  '/*!< Transmeta CPU */
+	           VENDOR_UMC,        '/*!< x86 CPU by UMC */
+	           VENDOR_CENTAUR,    '/*!< x86 CPU by IDT */
+	           VENDOR_RISE,       '/*!< x86 CPU by Rise Technology */
+	           VENDOR_SIS,        '/*!< x86 CPU by SiS */
+	           VENDOR_NSC,        '/*!< x86 CPU by National Semiconductor */
+	           NUM_CPU_VENDORS,   '/*!< Valid CPU vendor ids: 0..NUM_CPU_VENDORS - 1 */
+             VENDOR_UNKNOWN = -1
+
+Public Struct cpu_list_t
+	 num_entries As Integer
+	 names As String
+End Struct
 
 Public Struct cpu_raw_data_t 
   basic_cpuid[32, 4] As Integer
@@ -29,40 +157,45 @@ Public Struct cpu_sgx_t
 End Struct
 
 Public Struct cpu_id_t
-  vendor_str[16] As Byte            '     0 -  15
-  brand_str[64] As Byte             '    16 -  79
-  vendor As Integer                 '    80 -  83
-  flags[124] As Byte                '    84 -   ?
-  family As Integer
-  model As Integer
-  stepping As Integer
-  ext_family As Integer
-  ext_model As Integer
-  num_cores As Integer
-  num_logical_cpus As Integer
-  total_logical_cpus As Integer
-  l1_data_cache As Integer
-  l1_instruction_cache As Integer
-  l2_cache As Integer
-  l3_cache As Integer
-  l4_cache As Integer
-  l1_assoc As Integer
-  l2_assoc As Integer
-  l3_assoc As Integer
-  l4_assoc As Integer
-  l1_cacheline As Integer
-  l2_cacheline As Integer
-  l3_cacheline As Integer
-  l4_cacheline As Integer
-  cpu_codename[64] As Byte
-  sse_size As Integer
-  detection_hints[16] As Byte
-  sgx As Struct Cpu_sgx_t
+  vendor_str[16] As Byte                   '       0 -  15
+  brand_str[64] As Byte                     '     16 -  79
+  vendor As Integer                            '     80 -  83
+  flags[124] As Byte                            '    84 - 211
+  family As Integer                              '  212 - 215 
+  model As Integer                             '  216 - 219
+  stepping As Integer                         '  220 - 223
+  ext_family As Integer                      '  224 - 227
+  ext_model As Integer                     '  228 - 231
+  num_cores As Integer                    '  232 - 235
+  num_logical_cpus As Integer       '  236 - 239
+  total_logical_cpus As Integer       '  240 - 243
+  l1_data_cache As Integer             '  244 - 247
+  l1_instruction_cache As Integer  '  248 - 251
+  l2_cache As Integer                       '  252 - 255
+  l3_cache As Integer                       '  256 - 259
+  l4_cache As Integer                       '  260 - 263
+  l1_assoc As Integer                       '  264 - 267
+  l2_assoc As Integer                       '  268 - 271
+  l3_assoc As Integer                       '  272 - 275
+  l4_assoc As Integer                       '  276 - 279
+  l1_cacheline As Integer                '  280 - 283
+  l2_cacheline As Integer                '  284 - 287
+  l3_cacheline As Integer                '  288 - 291
+  l4_cacheline As Integer                '  292 - 295
+  cpu_codename[64] As Byte         '  296 - 359
+  sse_size As Integer                       '  360 - 363
+  detection_hints[16] As Byte         '  364 - 379
+  sgx As Struct Cpu_sgx_t              '  380 - 431
 End Struct
 
 Public Struct cpu_mark_t
   tsc As Long
   sys_clock As Long
+End Struct
+
+Public Struct cpu_epc_t
+  start_addr As Long
+	length As Long
 End Struct
 
 ' int cpuid_present(void)
@@ -72,6 +205,16 @@ Private Extern cpuid_present() As Integer
 ' int cpuid_get_raw_data(struct cpu_raw_data_t* data)
 ' Obtains the raw CPUID data from the current CPU.
 Private Extern cpuid_get_raw_data(data As Cpu_raw_data_t) As Integer
+
+'/ * *
+' * @brief Returns the short textual representation Of a CPU flag
+' * @param feature - the feature, whose textual representation Is Wanted.
+' * @returns a constant string Like "fpu", "tsc", "sse2", etc.
+' * @note the names Of the returned flags are compatible With those From
+' * / proc / cpuinfo In Linux, With the exception Of `tm_amd'
+' * /
+'Const char * cpu_feature_str(cpu_feature_t feature);
+Private Extern cpu_feature_str(cpu_feature_t As Integer) As String
 
 ' const char* cpuid_error(void)
 ' Returns textual description of the last error.
@@ -93,6 +236,11 @@ Private Extern cpu_tsc_unmark(mark As Cpu_mark_t)
 ' Get the CPU clock frequency (all-in-one method).
 Private Extern cpu_clock() As Integer
 
+'cpu_vendor_t cpuid_get_vendor(void);
+Private Extern cpuid_get_vendor() As Integer
+
+'void cpuid_get_cpu_list(cpu_vendor_t vendor, struct cpu_list_t* list);
+Private Extern cpuid_get_cpu_list(cpu_vendor_t As String, list As Cpu_list_t) As String
 ' int cpu_clock_by_os(void)
 ' Returns the CPU clock, as reported by the OS.
 Private Extern cpu_clock_by_os() As Integer
@@ -111,20 +259,27 @@ Public Sub Main()
   Dim raw As New Cpu_raw_data_t 
   Dim data As New Cpu_id_t
   Dim mark As New Cpu_mark_t
+  Dim names As New Cpu_list_t
   Dim au As String
+  Dim dataflags As Pointer
   Dim i As Integer
     If Not cpuid_present() Then Error.Raise("Sorry, your CPU doesn't support CPUID !")
-    
+    dataflags = Alloc(SizeOf(gb.Byte), 432)
     If cpuid_get_raw_data(raw) < 0 Then
       Error.Raise("Sorry, cannot get the CPUID raw data.\nError: " & cpuid_error())
     Endif
-  
     If cpu_identify(raw, data) < 0 Then
+      Error.Raise("Sorry, CPU identification failed.\nError: " & cpuid_error())
+    Endif
+    If cpu_identify(raw, dataflags) < 0 Then
       Error.Raise("Sorry, CPU identification failed.\nError: " & cpuid_error())
     Endif
 
     cpu_tsc_mark(mark)
     cpu_tsc_unmark(mark)
+
+
+
     Print "   \"VENDOR_STR\":         "; String@(data.vendor_str.data)
     Print "   \"CPU_CODENAME\":       "; String@(data.cpu_codename.data)
     Print "   \"BRAND_STR\":          "; String@(data.brand_str.data)
@@ -158,5 +313,9 @@ Public Sub Main()
     Print "   \"L4_CACHELINE\":       "; data.l4_cacheline; " bytes"
     Print "   \"MARK_TSC\":           "; mark.tsc
     Print "   \"MARK_SYS_CLOCK\":     "; mark.sys_clock
-
+    For i = 0 To 109
+     Print "   \"FEATURE\":           "; cpu_feature_str(i); IIf(Byte@(dataflags + (i + 84)), " Present", " Absent")
+    Next
+    
+    Free(dataflags)
 End
