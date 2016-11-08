@@ -99,7 +99,7 @@
       Margin = True
       Padding = 3
       Border = False
-      Count = 2
+      Count = 3
       TextFont = Font["Bold,8"]
       Orientation = Align.Bottom
       Highlight = True
@@ -305,189 +305,18 @@
       }
       Index = 1
       Text = ("CPUID")
-      { ScrollView1 ScrollView
-        Move(0,0,469,455)
-        Font = Font["8"]
-        { Label92 Label
-          Move(0,7,441,21)
-          Font = Font["Bold,8"]
-          Text = ("Label92")
-          Alignment = Align.Center
-          Border = Border.Raised
-        }
-        { Label193 Label
-          Move(0,56,441,21)
-          Font = Font["Bold,8"]
-          Text = ("Label193")
-          Alignment = Align.Center
-          Border = Border.Raised
-        }
-        { Label194 Label
-          Move(0,28,441,28)
-          Font = Font["Bold,8"]
-          Text = ("Label194")
-          Alignment = Align.Center
-          Border = Border.Raised
-        }
-        { Label195 Label
-          Move(217,98,224,21)
-          Font = Font["Bold,8"]
-          Text = ("Label195")
-          Border = Border.Raised
-        }
-        { Label196 Label
-          Move(0,119,217,21)
-          Font = Font["Bold,8"]
-          Text = ("Label196")
-          Border = Border.Raised
-        }
-        { Label197 Label
-          Move(217,119,224,21)
-          Font = Font["Bold,8"]
-          Text = ("Label197")
-          Border = Border.Raised
-        }
-        { Label198 Label
-          Move(217,77,119,21)
-          Font = Font["Bold,8"]
-          Text = ("Label198")
-          Border = Border.Raised
-        }
-        { Label199 Label
-          Move(0,77,98,21)
-          Font = Font["Bold,8"]
-          Text = ("Label199")
-          Border = Border.Raised
-        }
-        { Label200 Label
-          Move(0,98,217,21)
-          Font = Font["Bold,8"]
-          Text = ("Label200")
-          Border = Border.Raised
-        }
-        { Label201 Label
-          Move(336,77,105,21)
-          Font = Font["Bold,8"]
-          Text = ("Label201")
-          Border = Border.Raised
-        }
-        { Label202 Label
-          Move(98,77,119,21)
-          Font = Font["Bold,8"]
-          Text = ("Label202")
-          Border = Border.Raised
-        }
-        { Label203 Label
-          Move(0,140,217,21)
-          Font = Font["Bold,8"]
-          Text = ("Label203")
-          Border = Border.Raised
-        }
-        { Label204 Label
-          Move(217,140,224,21)
-          Font = Font["Bold,8"]
-          Text = ("Label204")
-          Border = Border.Raised
-        }
-        { Label205 Label
-          Move(0,161,217,21)
-          Font = Font["Bold,8"]
-          Text = ("Label205")
-          Border = Border.Raised
-        }
-        { Label206 Label
-          Move(217,161,224,21)
-          Font = Font["Bold,8"]
-          Text = ("Label206")
-          Border = Border.Raised
-        }
-        { Label207 Label
-          Move(0,182,217,21)
-          Font = Font["Bold,8"]
-          Text = ("Label207")
-          Border = Border.Raised
-        }
-        { Label208 Label
-          Move(217,182,224,21)
-          Font = Font["Bold,8"]
-          Text = ("Label208")
-          Border = Border.Raised
-        }
-        { Separator12 Separator
-          Move(0,315,441,14)
-        }
-        { Label209 Label
-          Move(0,210,147,21)
-          Font = Font["Bold,8"]
-          Text = ("Label209")
-          Border = Border.Raised
-        }
-        { Label210 Label
-          Move(0,231,147,21)
-          Font = Font["Bold,8"]
-          Text = ("Label210")
-          Border = Border.Raised
-        }
-        { Label211 Label
-          Move(0,252,147,21)
-          Font = Font["Bold,8"]
-          Text = ("Label211")
-          Border = Border.Raised
-        }
-        { Label212 Label
-          Move(0,273,147,21)
-          Font = Font["8,Bold"]
-          Text = ("Label212")
-          Border = Border.Raised
-        }
-        { Label213 Label
-          Move(147,210,140,21)
-          Font = Font["Bold,8"]
-          Text = ("Label213")
-          Border = Border.Raised
-        }
-        { Label214 Label
-          Move(147,231,140,21)
-          Font = Font["Bold,8"]
-          Text = ("Label214")
-          Border = Border.Raised
-        }
-        { Label215 Label
-          Move(147,252,140,21)
-          Font = Font["Bold,8"]
-          Text = ("Label215")
-          Border = Border.Raised
-        }
-        { Label216 Label
-          Move(287,210,154,21)
-          Font = Font["Bold,8"]
-          Text = ("Label216")
-          Border = Border.Raised
-        }
-        { Label217 Label
-          Move(287,231,154,21)
-          Font = Font["Bold,8"]
-          Text = ("Label217")
-          Border = Border.Raised
-        }
-        { Label218 Label
-          Move(287,252,154,21)
-          Font = Font["Bold,8"]
-          Text = ("Label218")
-          Border = Border.Raised
-        }
-        { Label219 Label
-          Move(0,294,441,21)
-          Font = Font["Bold,8"]
-          Text = ("Label219")
-          Alignment = Align.Center
-          Border = Border.Raised
-        }
+      { GridView4 GridView
+        Move(7,7,462,441)
+      }
+      Index = 2
+      Text = ("FLAGS")
+      { ListBox2 ListBox
+        Move(7,7,462,441)
       }
       Index = 0
     }
     { ProgressBar6 ProgressBar
-      Move(119,455,350,21)
+      Move(168,455,301,21)
     }
     Index = 1
     Text = "GPU"

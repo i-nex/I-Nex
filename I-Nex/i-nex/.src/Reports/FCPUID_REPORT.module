@@ -47,7 +47,7 @@ End
 
 Function get_value(Value As Integer, Pos As Integer) As String
  
- If Finfosys.DATAT["Flags"][Pos]["VALUE"] = 1 Then
+ If Finfosys.DATAT["Flags"][Pos][VALUE] = 1 Then
   Return "Is Supported"
  Else
   Return "Not Supported"

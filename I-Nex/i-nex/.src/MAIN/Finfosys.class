@@ -64,8 +64,8 @@ Public Sub Form_Open()
      End Select
   Endif
   
-  Logs("Call to MLibcpuid", Logger.Info)
-      Object.Call(MLibcpuid, "Libcpuid")
+  Logs("Call to MLibcpuid14", Logger.Info)
+       Object.Call(MLibcpuid14, "main")
   
   Try data = Open "/proc/mtrr" For Input
 
@@ -992,6 +992,8 @@ Public Sub TabPanel1_Click()
  Else If TabPanel1.Current.Text = "CPUINFO" Then
   ComboBox1.Visible = True
   'MenuButton1.Visible = True
+ Else If TabPanel1.Current.Text = "FLAGS" Then
+  ComboBox1.Visible = False
  Else
   ComboBox1.Visible = False
   'MenuButton1.Visible = False
@@ -1043,7 +1045,7 @@ Public Sub Form_Close()
   Settings["Window/Y"] = Me.Y
   Settings["Tab/Pos"] = TabStrip1.Orientation
   Logs("Good bye!", Logger.Info)
-  MLibcpuid.DATAT.Clear
+  'MLibcpuid.DATAT.Clear
   Me.Close
  
 End

@@ -7,7 +7,6 @@ DOCSDIR 		= 	/share/doc/i-nex
 MANDIR			= 	/share/man/man1
 APP_NAME		= 	$(PN)
 LSB_CS 			= 	$(shell lsb_release -cs)
-CC_OPTS_LIBCPUID 	= 	$(shell pkg-config libcpuid --cflags --libs)
 ARCH			=	$(shell uname -m)
 GBC 			= 	/usr/bin/gbc3
 GBCOPTS 		= 	-eagtpm
@@ -32,11 +31,6 @@ ifeq ($(ARCH),x86_64)
 additional_confflags 	:= 	-O2
 endif
 
-ifeq ($(LSB_CS),precise)
-CC_OPTS_LIBPROCPS 	= 	-lproc
-else
-CC_OPTS_LIBPROCPS 	= 	$(shell pkg-config libprocps --cflags --libs)
-endif
 
 NO_COLOR		=	\033[0m
 OK_COLOR		=	\033[92m
