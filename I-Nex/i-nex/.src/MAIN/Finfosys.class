@@ -179,6 +179,10 @@ Public Sub grafika()
   Dim GLIXNFO As String
   Dim GLX As String[]
   Dim strings As String
+  
+  Try Exec ["/bin/bash", "/usr/bin/i-nex-lspci", "nonprefetchable"] Wait To memory_non_prefetchable
+  Try Exec ["/bin/bash", "/usr/bin/i-nex-lspci", "prefetchable"] Wait To memory_prefetchable
+  
   Try Exec ["glxinfo"] Wait To GLIXNFO
   GLX = Split(GLIXNFO, "\n", "")
   For Each strings In GLX
@@ -221,8 +225,6 @@ Public Sub grafika()
   If IsNull(Kernel_driver_in_use) Or IsSpace(Kernel_driver_in_use) = True Then
    Try Exec [ChkPrm.ChkExecDir("xdriinfo")] Wait To Kernel_driver_in_use
   Endif
-  Try Exec ["/bin/bash", "/usr/bin/i-nex-lspci", "nonprefetchable"] Wait To memory_non_prefetchable
-  Try Exec ["/bin/bash", "/usr/bin/i-nex-lspci", "prefetchable"] Wait To memory_prefetchable
 
   Label136.Text = "Kernel driver in use: " & Replace(Kernel_driver_in_use, "\n", "")
   Try Label64.Text = "Total Memory prefetchable: " & Replace(memory_prefetchable, "\n", " - ")
@@ -1048,10 +1050,6 @@ Public Sub Form_Close()
   'MLibcpuid.DATAT.Clear
   Me.Close
  
-End
-
-Public Sub Button13_Click()
-FValidate.Show
 End
 
 Public Sub MenuButton1_Click()

@@ -67,18 +67,11 @@
     Picture = Picture["AppIcons/application-exit2.png"]
   }
   { Button12 Button
-    Move(56,511,28,28)
+    Move(28,511,28,28)
     #Translate = False
     Font = Font["8"]
     ToolTip = "Generate report"
     Picture = Picture["AppIcons/printer.png"]
-  }
-  { Button13 Button
-    Move(28,511,28,28)
-    #Translate = False
-    Font = Font["8"]
-    ToolTip = "Options"
-    Picture = Picture["AppIcons/options.png"]
   }
   { TabStrip1 TabStrip
     Move(0,0,476,511)
