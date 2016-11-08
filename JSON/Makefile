@@ -2,8 +2,7 @@
 include ../i-nex.mk 
 make: make-binary
 
-make-binary: compile-i-nex-edid \
-	     compile-i-nex-cpuid
+make-binary: compile-i-nex-edid
 	
 compile-i-nex-edid:
 	@echo -e '$(OK_COLOR)Compile i-nex-edid $(OK_STRING)$(NO_COLOR)'
