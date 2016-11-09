@@ -11,7 +11,6 @@ Build-Depends: debhelper (>= 7),
   dpkg-dev (>= 1.16.1),
   libcpuid14-dev, 
   lsb-release,
-  libprocps3-dev | libprocps4-dev | libprocps-dev | libprocps0-dev | libproc-dev,
   gambas3-dev (>= 3.8.4),
   gambas3-gb-image (>= 3.8.4),
   gambas3-gb-qt5 (>= 3.8.4),
@@ -38,7 +37,6 @@ Depends: ${shlibs:Depends}, ${misc:Depends}, ${python:Depends},
   sed (>= 4.2),
   python-configobj,
   python3,
-  curl,
   mesa-utils
 Replaces: i-nex
 Recommends: mount (>= 2.17), x11-utils (>= 7.5), pciutils, lsb-release (>= 4.0), x11-xserver-utils (>= 7.5)

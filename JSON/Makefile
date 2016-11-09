@@ -14,17 +14,11 @@ install-set-executables: set-executable-i-nex-edid
 set-executable-i-nex-edid:
 	chmod +x i-nex-edid
 
-install-bin: install-bin-i-nex-edid \
-	     install-bin-i-nex-dimms
-	     
-	     
+install-bin: install-bin-i-nex-edid
 
 install-bin-i-nex-edid:
 	test -d $(DESTDIR)$(bindir) || mkdir $(DESTDIR)$(bindir)
 	$(INSTALL) 0755 i-nex-edid $(DESTDIR)$(bindir)
-install-bin-i-nex-dimms:
-	test -d $(DESTDIR)$(bindir) || mkdir $(DESTDIR)$(bindir)
-	$(INSTALL) 0755 i-nex-dimms $(DESTDIR)$(bindir)
 clean:
 	@echo -e '$(ACTION_COLOR)Clean JSON$(NO_COLOR)'
 	$(RM_COM) $(RMFILE_OPT) i-nex-edid
