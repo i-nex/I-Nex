@@ -77,16 +77,16 @@ Public Sub Main()
   cpu_vendor = ["Intel CPU", "AMD CPU", "Cyrix CPU", "NexGen CPU", "Transmeta CPU", "x86 CPU by UMC", "x86 CPU by IDT",
                 "x86 CPU by Rise Technology", "x86 CPU by SiS", "x86 CPU by National Semiconductor", ""]
      
-    If Not cpuid_present() Then Error.Raise("La CPUID non è supportata !")
+    If Not cpuid_present() Then Error.Raise("Sorry, your CPU doesn't support CPUID!")
    
     If cpuid_get_raw_data(raw) < 0 Then
-      Error.Raise("Impossibile ottenere dati grezzi CPUID !\nError: " & cpuid_error())
+      Error.Raise("Sorry, cannot get the CPUID raw data. \nError: " & cpuid_error())
     Endif
   
       data = Alloc(SizeOf(gb.Byte), 432)
   
     If cpu_identify(raw, data) < 0 Then
-      Error.Raise("Impossibile identificare la CPU !\nError: " & cpuid_error())
+      Error.Raise("Sorrry, CPU identification failed. !\nError: " & cpuid_error())
     Endif
    
       cpu_tsc_mark(mark)
