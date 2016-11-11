@@ -1,7 +1,7 @@
 # Maintainer: eloaders <eloaders at linux dot pl>
 
 pkgname=i-nex
-pkgver=7.4.0.46.g3dc781f
+pkgver=7.6.0
 pkgrel=1
 pkgdesc="System information tool like hardinfo, sysinfo"
 arch=('i686' 'x86_64')
@@ -11,29 +11,17 @@ depends=('gambas3-runtime'
 	 'gambas3-gb-image' 
 	 'gambas3-gb-form'
          'gambas3-gb-desktop'
-         'gambas3-gb-qt4'
+         'gambas3-gb-qt5'
          'gambas3-gb-desktop-x11'
          'python2' 
          'libcpuid-git'
          'xorg-server-utils' 
-         'lsb-release' 
-         'curl')
+         'lsb-release')
 makedepends=('gambas3-devel' 'gcc' 'imagemagick' 'git')
 source=("$pkgname::git+https://github.com/eloaders/I-Nex.git")
 sha256sums=('SKIP')
 provides=('i-nex' 'i-nex-bzr' 'i-nex-dev')
 conflicts=('i-nex' 'i-nex-bzr' 'i-nex-dev')
-backup=('etc/i-nex/Database/i2c/devices.json'
-	'etc/i-nex/Database/A6.json'
-	'etc/i-nex/Database/amd.json'
-	'etc/i-nex/Database/atom.json'
-	'etc/i-nex/Database/i3.json'
-	'etc/i-nex/Database/i5.json'
-	'etc/i-nex/Database/i7.json'
-	'etc/i-nex/Database/intel_Core_2_Duo.json'
-	'etc/i-nex/Database/intel.json'
-	'etc/i-nex/Database/Opteron.json'
-	'etc/i-nex/Database/Xeon.json')
 pkgver() {
   cd $pkgname
   git describe --tags | tr - .
