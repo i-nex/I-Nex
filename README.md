@@ -27,30 +27,13 @@ The difference between I-Nex and the other hardware information GUI tools availa
 * Gambas3
   * gambas3-runtime (>= 3.8.4)
   * gambas3-gb-image (>= 3.8.4)
-  * gambas3-gb-qt4 (>= 3.8.4)
+  * gambas3-gb-qt5 (>= 3.8.4)
   * gambas3-gb-form (>= 3.8.4)
   * gambas3-gb-desktop (>= 3.8.4)
   * gambas3-gb-desktop-x11 (>= 3.8.4)
   * gambas3-gb-form-stock (>= 3.8.4)
 * libc6
 * [libcpuid](https://github.com/anrieff/libcpuid)
-* libx11 libxext libgl1-mesa libglu1-mesa
-  * libX11 
-  * libGL 
-  * libxcb 
-  * libdl 
-  * libglapi 
-  * libXext 
-  * libXdamage 
-  * libXfixes 
-  * libX11-xc 
-  * libxcb-glx 
-  * libxcb-dri2 
-  * libXxf86vm 
-  * libpthread 
-  * libXau
-* libprocps
-  * libprocps3-dev, libprocps4-dev, libprocps-dev, libprocps0-dev, libproc-dev
 
 ### Build in Ubuntu
 
@@ -62,9 +45,8 @@ sudo add-apt-repository ppa:i-nex-development-team/libcpuid11
 Installing dependencies:
 ```
 sudo apt-get install \
-debhelper devscripts python python-all python-dev python-all-dev pkg-config dpkg-dev libcpuid11-dev \
-lsb-release libprocps3-dev libprocps0-dev libproc-dev libx11-dev libxext-dev libgl1-mesa-dev \
-libglu1-mesa-dev gambas3-dev gambas3-gb-image gambas3-gb-qt4 gambas3-gb-form gambas3-gb-desktop \
+debhelper devscripts python python-all python-dev python-all-dev pkg-config dpkg-dev libcpuid14-dev \
+lsb-release gambas3-dev gambas3-gb-image gambas3-gb-qt4 gambas3-gb-form gambas3-gb-desktop \
 gambas3-gb-form-stock imagemagick git
 ```
 ## Downloading sources
@@ -93,7 +75,7 @@ sudo dpkg -i ./i-nex*.deb
 ```
   yum install --enablerepo rawhide gambas3-runtime gambas3-gb-desktop gambas3-gb-form gambas3-gb-form-dialog \
     gambas3-gb-form-stock gambas3-gb-gtk gambas3-gb-gui gambas3-gb-image gambas3-gb-qt5* gambas3-gb-settings
-  yum install fdupes glx-utils i2c-tools procps-ng
+  yum install fdupes
 ```
 ### Install RPM from repository:
 ```
@@ -111,7 +93,7 @@ To satisfy build dependencies, please add the [Fedora EPEL](https://fedoraprojec
 ```
   yum install fdupes glx-utils i2c-tools procps-ng
   yum install imagemagick autoconf automake hicolor-icon-theme net-tools pkgconfig libcpuid-devel \
-    procps-ng-devel freeglut libx* libx11-devel mesa-libgl* qt5-qtx11extras-devel xorg-x11-proto-devel pciutils \
+    procps-ng-devel freeglut pciutils \
     xz rpm-build redhat-rpm-config make gcc
 ```
 ### Setup RPM Build Environment
