@@ -179,9 +179,9 @@ Public Sub grafika()
   Dim GLIXNFO As String
   Dim GLX As String[]
   Dim strings As String
-  
-  Try Exec ["/bin/bash", "/usr/bin/i-nex-lspci", "nonprefetchable"] Wait To memory_non_prefetchable
-  Try Exec ["/bin/bash", "/usr/bin/i-nex-lspci", "prefetchable"] Wait To memory_prefetchable
+
+  Try Exec ["/bin/bash", User.Home &/ ".i-nex/i-nex-lspci", "nonprefetchable"] Wait To memory_non_prefetchable
+  Try Exec ["/bin/bash", User.Home &/ ".i-nex/i-nex-lspci", "prefetchable"] Wait To memory_prefetchable
   
   Try Exec ["glxinfo"] Wait To GLIXNFO
   GLX = Split(GLIXNFO, "\n", "")

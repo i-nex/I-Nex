@@ -1,75 +1,1365 @@
-* Sat Aug 20 2016 eloaders <eloaders@linux.pl> 7.4.0
+7.6.0
+	- Fixes #48
+	- Merge pull request #55 from alphastar868/patch-1
+	- Update README.md
+	- Merge pull request #52 from alphastar868/patch-1
+	- Update depends on libcpuid14
+	- Update i7.json
+	- Update SIV Database
+	- Add Linux Mint Mate Sticker
+	- Merge pull request #51 from alphastar868/patch-2
+	- Update README.md
+	- Merge pull request #50 from alphastar868/patch-1
+	- Update i-nex.spec
+	- Fixes #49
+	- Update Atom Database
+	- Removing unnecessary characters
+	- Fix CPU Mhz
+	- Fixes #46
+	- Fixes #27
+	- +Component=gb.desktop.x11 +Component=gb.desktop
+	- Fixes #44
+	- Fix manpages
+	- Add manpages to debian/
+	- Move copyright to debian
+	- pastebinit 1.5
+	- Update depends
+	- Fixes #40
+	- Fixes #40 #issuecomment-249791805
+	- Fixes #40
+	- Fixes #43
+	- Fixes #41
+	- fixes #39
+	- Update screenfetch
+	- Fixes #37
+	- Delete Validate button
+	- Change "if" to Choose
+	- Fixes #35
+	- Add Intel i5-6600K and i5-6600
+	- Merge pull request #34 from alphastar868/patch-1
+	- Merge pull request #1 from alphastar868/patch-2
+	- Delete .Readme-CentOS.RHELmd
+	- Update FNET_R_T.form
+	- Update FNET_R_T.class
+	- update i-nex-edid
+	- Some fixes
+	- Fix startup
+	- Update JSON module
+	- Update settings class
+	- Some fixes of cpufreq
+	- Remove gb.desktop.x11 and gb.desktop
+	- Merge pull request #32 from alphastar868/patch-2
+	- Merge pull request #31 from alphastar868/patch-1
+	- Add Fedora/CentOS/RHEL to README.md
+	- Create .Readme-CentOS.RHELmd
+	- Update i-nex.spec
+	- Update MCPUSAGE.module
+	- Better list of ASOUND_INPUT_LIST
+	- Again Clean manpages
+	- Clean manpages
+	- Fix default lang
+	- Add libcpuid13-dev depends
+	- Clean code
+	- Dynamic uptade for cpu Mhz
+	- Fix glxinfo. remove glinfo. Now depends on mesa-utils
+	- Remove i-nex-cpusage. Add MCPUSAGE.module. Convert from C to Gambas lang
+	- Update Memory
+	- Remove i-nex-usage and i-nex-uname
+	- Add Kde Neon
+	- Merge branch 'master' of https://github.com/eloaders/I-Nex
+	- Update Automake
+	- README.md: expand build section
+	- Merge pull request #25 from alphastar868/patch-1
+	- Update to i7.json for Haswell, Broadwell and Skylake
+	- Logos for Skylake and Broadwell Core-i7
+	- GPU logs for VMs
+	- Add SPD DDR4 (Need test, eeprom DDR4)
+	- Better makefile for changelogs
+	- Add comments. Fix english? :-)
+	- Change static linking to dynamic.
+	- Memory UI Changes
+	- Update Finfosys.class with VM logos for VM GPUs
+	- New GPU images
+	- Update i-nex.spec
+	- .gitmodules: fix libcpuid url
+	- requirements.md: fix libcpuid url
+	- Merge pull request #23 from alphastar868/centos
+	- Update i-nex.spec
+	- Close popup windows on exit
+	- Create i-nex.spec
+	- Update control
+	- Update .project
+	- Update README.md
+	- Update About.form
+	- Update depends version Gambas 3.8.4
+	- Update control
+	- Update control
+	- mkrelease: fix typo
+	- mkrelease: english
+	- requirements.md: english
+	- README.md: removing useless
+	- README.md: cleanup
+	- Fix Memory tam (Tomasz Przybył) FadeMind
+	- Update Settings Class Module
+	- Update PKGBUILD
+	- Add support for blk-mq
+	- Merge branch 'master' of https://github.com/eloaders/I-Nex
+	- Merge remote-tracking branch 'refs/remotes/origin/master'
+	- Add Celeron T3000 Support and some fixes
+	- Update changelog
+	- Update changelog
+	- Update control
+	- Update i-nex.spec
+	- Try to fix i-nex-lspci nonprefetchable
+	- Fix: No distribution detection or logo for CentOS
+	- Merge pull request #17 from weirddan455/master
+	- Delete postinst
+	- Fix a typo
+	- Remove Padding
+	- Add try to i-nex-glinfo
+	- Add depends
+	- Removal of opening the home page of the program after installing a new version
+	- Fix module_types_ddr2 And Add Manufacturing_Date Assembly_Serial_Number DDR2
+	- fixup! Add i5-4210U
+	- Add i5-4210U
+	- All LOGOS and database files placed in /etc/i-nex
+	- New pci, usb, pnp database. SIV http://rh-software.com/
+	- Add backup files
+	- Replace Case Like "" to Case Else
+	- CPU Voltage fixes
+	- All LOGOS and database files placed in /etc/i-nex
+	- Add Case Else (default = Unknown)
+	- No Add pastebinit .conf files as static to Combobox
+	- JEDEC DDR2
+	- Fix udev dir
+	- in ubuntu must be static
+	- fixup! Experimental SPD Decode
+	- fixup! Experimental SPD Decode
+	- fixup! Fix calculate size of eeprom byte
+	- Fix calculate size of eeprom byte
+	- Experimental SPD Decode
+	- Remove DF GUI, UDISKS. Remove chceck exist decode-dimms
+	- Fix validate button pos
+	- Add Experimental decode-dimms as i-nex-dimms
+	- Add udev rules
+	- check modules loaded.
+	- Add devices to i2c database
+	- Print udev rule
+	- Add Experimental SMBus I2C for decode-dimms
+	- Fixes
+	- Resize labels in CPUID
 
-* Tue Nov 05 2013 eloaders <eloaders@yahoo.com> 0.5.6
+7.4.0
+	- Fix replace (R)
+	- Design changes
+	- SETNULL before get information
+	- Fix server proto to HTTPS
+	- Remove gambas3-gb-form-stock
+	- Remove print
+	- Calculate SWAP Usage in Drives
+	- Remove gambas3-gb-form-stock depends
+	- Fixes for DVD/CD sr[0-9]
+	- Design changes
+	- Fixes for USB Version Graphic
+	- Fixes for USB Version
+	- Add to Drives Show USB Version, power, speed and graphic logo
+	- Remove BOLD
+	- CalculateSIZE in MB fixes (Testing)
+	- Add Panel to Drives. Show if HDD is SATA
+	- If scheduler detection
+	- Remove For Read
+	- Fix Screenshot
+	- Fix
+	- Show SATA Picture in Drives
+	- Open For Read
+	- Remove ScreenshotM module and add anotations to Drives
+	- Add SATA SPD detection
+	- Convert utf8 to ascii
+	- Add /sys/class/hwmon/hwmon1/temp1_crit
+	- Fix
+	- Update database
+	- Better Visible Sched
+	- Again replace Write to Print
+	- Fixed Clear DATAT and USAGE
+	- Fix calculate
+	- Calculate size by *512 block and /1000
+	- Add GET Connected Port. Only SATA[0-9] and USB[0-9] is supported
+	- New Mobo report style
+	- Add refresh button to Drives
+	- Set Variables to Null before get.
+	- UI Design changes
+	- Replace execution echo in shell to Write #hFile
+	- Add New Labels to report
+	- Replace Print #hFile to Write #hFile
+	- Replace Print #hFile to Write #hFile
+	- Remove print Used and SIZE_W
+	- Don't call ipinfo.io at start
+	- Fix not show progressbar 100%
+	- Use Open instead of shell
+	- Add cpuinfo to report
+	- Fixes
+	- Remove PKGBUILD_AUR
+	- Set Progressbar to 0 if Used = SIZE_W
+	- Fix calculate USED space % if drives in GB.MB.KiB, Bytes. Olways return in bytes
+	- Change version
+	- Remove Label122
+	- Fix Calculate USED/FREE Progressbar
+	- Speed up AMD A6 CPUDB
+	- Clean code
+	- Fragmentation CPUDB add MConvert.module
+	- Remove df command to get Used space on partition
+	- Fix add Graphic card to combo.
+	- Add CalculateFreeSpace
+	- Change "Partition size" to "Part size" and "Device size" to "Disk size"
+	- Add Padding = 3 & #Public = True
+	- Add new bug reporter to About
+	- Add size of prim device
+	- Fix Calculation of partition/disc size in MB, KiB, GB, Bytes
+	- Change Float to Integer
+	- Use Ceil(value) instead of Int
+	- Calculate Device Size in MB, KB, GB, Bytes
+	- Fixes for bash location
+	- Remove Spacing
+	- File system size fixes
+	- Add copy
+	- Add Calculate Free space in device
+	- Add i-nex-library.desktop and option args --library
+	- Add Library Version Detection
+	- Remove Shell echo. Replace to open file for write append or create
+	- Public Sub as Function
+	- Public Sub as Function
+	- Remove Public
+	- Add Copyright(C)
+	- Change startup class
+	- New Args[]
+	- Remove module
+	- Move screenfetch execution
+	- Clear CPU Database
+	- Fix passible bug
+	- Faster execute screenfetch [Need testing] Unstable and can break I-Nex
+	- Not print ASCII
+	- Remove no need variable
+	- Close open data
+	- Try to kill before create it
+	- Better Count and lists Installed kernels
+	- Fix count number of Packages.
+	- Fast modules
+	- Fast USB
+	- Fixes for removable devices like Usb Key
+	- Adding a list of processors in a better and faster way.
+	- The acceleration detecting graphics card.
+	- Fixed SWAP Detection and Mount Point, UUID, Filesystem Type
+	- Replace SHELL instruction for detect UUID with Dir
+	- Fix UUID detection
+	- Fix Detection CPU if Have Graphic string. Replece it to *
+	- Fix CPUDB detection. Need tests
+	- Removal instructions "SHELL"
+	- Replacement instructions "If Else" on the "Select Case"
+	- Change the SHELL statement to KILL
+	- Removal of unnecessary variables
+	- Acceleration detection Network.
+	- Acceleration detection Drives.
+	- Acceleration detection processors.
 
-* Mon Nov 04 2013 eloaders <eloaders@yahoo.com> 0.5.6
+7.2.1
+	- Fix cache and mobo
+	- Add mkrelease
+	- Update PKGBUILDS
 
-* Mon Nov 04 2013 eloaders <eloaders@yahoo.com> 0.5.6
+7.2.0
+	- Changing Permission for files
+	- Repairs version detection
+	- Remove unnecessary lines of code
+	- Replace gzip -9 to COMPRESS
+	- Libcpuid instruction fixes
+	- Fixes copyright install
+	- Fix
+	- Better docs install.
+	- Fixes ubuntu peckaging. use I-Nex dir. remove src
+	- Move src to I-Nex
+	- Fixes for make -j option
+	- Fix docs
+	- Improving the detection of processor cache
+	- Fix Voltage
+	- UI Fixes
+	- Add Close data
+	- Not use /proc/modules. Use /sys/module/
+	- Change URL bug report to http://forum.i-nex.pl
+	- Remove print check_swap
+	- Replace Shell to Exec.
+	- Blkid fixes
+	- Some fixes for Detect Drives UUID using blkid.
+	- Update forum URL
+	- Redesign USB tab
+	- Redesign CPUID
+	- Update Settings Module
+	- Update JSON module
+	- Speed up GPU Detection
+	- Speed up LCache detection
+	- Add cpu crit temps
+	- Update pkgbuilds
+	- Add dh-autoreconf Build-Depends
+	- Fix logs. Not edid.
+	- Fix Window Icon
+	- Add locate kernels.
+	- Autoreconf fixes
+	- Fix prew commit
+	- Add OpenGL ES and VCore
+	- link-inex
+	- Try to fix build ubuntu errors
+	- Move reusable, non-GLX code into glinfo_common.[ch]
+	- Update Code.
+	- Some Fixes in flags
+	- Fix link-inex
+	- Try fix Makefile:76: polecenia dla obiektu 'install-scripts' nie powiodły się
+	- Fixes
+	- Pixmaps fixes
+	- Fix pixmaps dir
+	- Fix aperfmperf
+	- Fix changelogs makefile
+	- Fixes makefile
+	- Deleting unnecessary files.
+	- Makefile fixes
+	- Some Makefile fixes
+	- Fix Processor accumulator
+	- Add 4 new instructions
+	- Repair the previous revision.
+	- Removing unnecessary feature detection slowing logo for distribution
+	- Fix SWAP detection
+	- Fix Intel i5/7/3 logo size
+	- Removing unnecessary code for the detection of processor instructions.
+	- Add xdriinfo
+	- Remove two 
+	- New Manjaro logo
+	- Remove nets
+	- Speeding up detection of network interfaces.
+	- Speed Up decoding USB Drives
+	- Input Fixes.
+	- Some fixes in position of buttons. Add Border
+	- Add testing GPUTEMP
+	- Add Stable pkgbuild
+	- Add daily pkgbuild
+	- Faster and correct way to detect CPU temperature and the critical temperature
+	- Changing the size and position of controls
+	- Removing unnecessary spaces
+	- Cache fixes
+	- Fix I-Nex for manjaro
+	- Fix curl manjaro depends
+	- Add Core i7-4710MQ & Core 2 Duo L9400
+	- Add Athlon 64 X2 TK-57ary
+	- Add script to update cpudb
+	- Udpate Cpud database Atom, Intel, AMD
+	- Fix for APU with Radeon(TM) R7 Graphics
+	- Update Intel Database
 
-* Mon Nov 04 2013 eloaders <eloaders@yahoo.com> 0.5.6
+7.0.0
+	- Remove Adfly
+	- Fixes in detection of GPU ChkPrm
+	- Fix About license position
+	- Add report-ng code to screenfetch. Print all data to one file as JSON format
+	- Fuck yeah :)
+	- Some ASOUND Fixes
+	- Speed up Drives detection
+	- Update Autotools
+	- Remove Old CPU Logos. Remove Global class and move GPU Logos to Finfosys.class
+	- Update AMD Database
+	- Update Intel Database
+	- Not print Raw EDID in logfile
+	- Replace ' to \"
+	- Remove Break if CPU has found And print help log.
+	- Update Atom Database
+	- Update AMD Database
+	- Update Intel Database
+	- Link /usr/bin/i-nex.gambas to /usr/bin/i-nex
+	- Fix Bug. Detect AMD APU As Sempron :)
+	- Fix opacity
+	- Fix Thermal Zone in IDB D425KT
+	- Add ipinfo.io GUI to Network card
+	- Update Kubuntu & OpenSUSE stickers
 
-* Mon Nov 04 2013 eloaders <eloaders@yahoo.com> 0.5.6
+0.6.6
+	- Fix
+	- Fix make[1]: autoreconf: Command not found
+	- Run autoreconf --install src before configure
+	- Add To report gen, new pastebin websites
+	- Update Pastebinit to 1.4
+	- Add pastebin.mate-desktop.org to Pastebinit configs
+	- Add lpaste.net to Pastebinit configs
+	- Update Pastebinit configs
+	- Fix Validate. Remove DMESG, LSPCI, CPUINFO, LSUSB
+	- Fix Phisical = remove. Add number of processes
+	- Not add empty card
+	- Put 2 to /dev/null
+	- Put to 2>/dev/null
+	- Not chosen where you want to save the report and check installed xdpyinfo
+	- Remove dafault text from Labels
+	- Add Option to save Validate data
+	- Detect Netrunner Sticker
+	- Update screenfetch-dev
+	- Fix download count
+	- Removing the opening address Cerbero report in your default browser.
+	- Count I-Nex installs from ppa.
+	- Fix graphic detect. Fork glxinfo as i-nex-glinfo
+	- Change ver
+	- Update .spec
+	- Update PKGBUILD
+	- add dmesg, cpuinfo, lsusb, lspci to validate
+	- New processors and logos
+	- Validation Cerbero Fixes
+	- Fix changelog
 
-* Mon Nov 04 2013 eloaders <eloaders@yahoo.com> 0.5.6
+0.6.4
+	- Some fixes
+	- Add curl depends
+	- Update logos
+	- Add Validate Service
+	- add window screenshot
+	- Add option to check first run or installed new version of I-Nex
+	- Use Wildcards fo install manpages and pastebinit conf files
+	- Use wildcard for install changelogs.
+	- Remove colors from system tab
+	- Fix reporting bugs info
+	- Add report bug section
+	- Try to fix sound report
+	- Fix kernel report
+	- Change colors
+	- Add more space in CPU temp
+	- Cut AMD/Intel in processor model name
+	- Add Option to set CPU Vendor from env
+	- Fix Pentium(R) Family
+	- fix
+	- fix
+	- bug in i-nex
+	- Fix Hyper Threading in Intel and Hyper Transport in AMD
+	- Virtualization Check enabled in bios and check if supported by cpu
+	- Update depends gambas >=3.5.0
+	- Show temp in LCD Label
+	- Fix prefix bindir
+	- Fix << to >=
+	- Fixes failed builds
+	- Add Wymagania odnośnie bibliotek
+	- Fix Ze źródeł bez trzorzenia pakietu
+	- Fix Wymagania odnośnie bibliotek
+	- Fix Wymagania odnośnie bibliotek
+	- New readme
+	- More standards
+	- Update depends
+	- Update depends
+	- Add Compress Man pages colored
+	- Add Compress Docs colored
+	- Add Colors info
+	- Add Colors
+	- Add Option to disable static compilation for libaries LIBPROCPS and LIBCPUID
+	- make[2]: *** No rule to make target `distclean'.  Stop.
+	- Fixes
+	- Fixes for new standards
+	- Add More standards for I-Nex
+	- RM libcpuid
+	- first commit with submodule libcpuid
+	- Add libcpuid
+	- Fix Hardware Virtualization Detect and add detect for Hyper-Transport in AMD.
+	- Try to fix Ati
+	- Speed Up CPU Detection
+	- Fix control. is fake [linux-any kfreebsd-any]
+	- I-Nex remember TabStrip orientation. Navigation keys: Ctrl+Alt+[Left,Right,Up,Down] Keys
+	- Fix, rm newline
+	- Fix homepage url
+	- Try to add new Audio card. Fixes i drives and FFlags
+	- Add Colors. Fix thermal in AMD Athlon X2 250. Fix GPU graphic
+	- Fix font size and remove Bold. Add Colors and Fix some tabs
+	- Fix pixmaps
+	- Move Files, fix license
+	- New I-Nex Logo
+	- Next 0.6.4
 
-* Mon Nov 04 2013 eloaders <eloaders@yahoo.com> 0.5.6
+0.6.2
+	- New uname JSON. MV files to JSON folder. Fixes in thermal.
+	- UPD License
+	- Cosmetic changes in GPU tab
+	- Fix lsb-release
+	- gcc -o inex-glinfo glinfo.c -O2  -lX11    -O2
+	- gcc -o inex-glinfo glinfo.c -O2 -lX11 -lGL -lXext
+	- Add: inex-glinfo. Rm dep mesa-utils
+	- Move CPU Usage progressbar
+	- Fix Temp: °C
+	- Add Server Workstation Xeon, Atom, Opteron Database and Logos.
+	- Fixes detection of CPU in AMD Triple, Six, Quad Core Processor
+	- MK dir changelogs, new i-nex icon etc
+	- Fix intel database and AMD APU Processors detection
+	- Add New CPUs to database:
+	- Fix version
+	- resize main tab
+	- Show CPU Usage in CPUINFO tab.
 
-* Mon Oct 21 2013 eloaders <eloaders@yahoo.com> 0.5.6
+0.6.0
+	- Add New Option to report CPUID And Flags. Move position of x2apic and remove duplication of fpu.
+	- fixes for precise
+	- Update build depends
+	- Fix free.c as inex-usage. Add Intel 64 Architecture x2APIC Specification detection
+	- Fix Memory tab
+	- Fixed Memory Tab, new functions using inex-usage Library libgtop2
+	- New Memory Tab
+	- Add getusage.c as inex-usage:
+	- Not show empty Labels and copy button in Detailed block String, EDID block does Not, Extracted
+	- Fix Bug (this is different from SSE3!) https://bugs.launchpad.net/i-nex/+bug/1270643
+	- Move
+	- Font = Font["8"]
+	- #Scaled = False
+	- Again try to fix bug window not show
+	- Try to fix window not show
+	- Add GUI For decode-dimms
+	- Better MTRR information.
+	- Better EDID Window
+	- Fix force detect EDID
+	- Update inex-cpuid in i-nex.spec and PKGBUILD
+	- Fix Window Size
+	- Fix Window Size
+	- Fix Window Size
+	- Add more Wikipedia links to cpu.c
+	- Try to fix Bug https://bugs.launchpad.net/i-nex/+bug/1269970/
+	- Add button to open Wikipedia page about processor features
+	- Updating the specification of building rpm packages
+	- Adding the current git revision to the names of the installer run
+	- Displaying the flag shortcut processor
+	- Don't show ComboBox to select info of processor[0-9] if TabPanel1.Current.Text = CPUID
+	- Update desktop file
+	- Update debian menu
+	- Remove not nedded png. And replace icons. Convert to xpm, not png
+	- additional_confflags
+	- Fix MMX Flags
+	- Update About Author email and homepage
+	- Add More informations from inex-cpuid to I-Nex
+	- Fix battery
+	- Show CPUINFO And CPUID information. First use /proc and two use CPUID Instruction.
+	- Fix inex-cpuid Location
+	- Better info for Flags
+	- Add inex-cpuid.1 man1
+	- Update Makefile
+	- update settings
+	- Add CFlags
+	- Add Function to show CFlags.Show
+	- Add to flags More... button
+	- Add Window ICON
+	- Fix amdphenom.png location
+	- Fix now Printf as JSON Format
+	- Update depends
+	- Add New Program for show processor FLAGS
+	- Add License info
+	- Move
+	- Show I-Nex current git revision
+	- Fix Battery module
+	- Update battery module for Samsung N150+ /sys/class/power_supply/BAT1
+	- Add icons to TabStrip
+	- Add feanza icons and remember window position X/Y on all win
+	- Use DV, not File.Load
+	- Move Buttons and ComboBox
+	- update PKGBUILD
+	- Add detect new CPU temp
+	- Add detect filesystem type ls -l /sys/fs/*/*
+	- Fix OpenSUSE Powered By detect
+	- Not Print screenfetch-dev output
+	- Fix screenfetch-dev
+	- Fix CPU tab
+	- Save logs to /tmp/i-nex.log
+	- Fix logs
+	- http://tools.ietf.org/html/rfc5424
+	- Force detect EDID information from xrandr --verbose
+	- Add Menu to set TabStrip orientation and remember windows position
+	- Add 2014
+	- Change GBCOPTS
+	- Fix database
+	- New informations in Network tab
+	- Cosmetics changes
+	- Cosmetics changes
+	- Rm file:// from savefile
+	- Fix env
+	- fix changelogs dir
+	- Rm utils
+	- fix send report
+	- Speedup CPU detect from database on Intel Atom platforms
+	- Beeter Add detect savefile Begins "file:"
+	- Check access to home
+	- Cpu Vendor Font["Bold,12"]
+	- Cpu Vendor to UCase$
+	- If IsNull(monitor_name)
+	- If IsNull
+	- cd pixmaps; make +	$(MAKE) -C pixmaps
+	- dh_installman debian/manpages/*
+	- MV changelogs
+	- Update files for deb docs
+	- Remove make patch and make unpatch. And set default conf dir to ~/.i-nex
+	- New. If System have kdialog, yad, zenity then file chooser use this command to get save file dir i Generate report
+	- Some fixes
+	- Rm Depends from makefile gambas3-gb-form-dialog gambas3-gb-settings
+	- RM
+	- Add APPMENU_DISPLAY_BOTH=1
+	- Graphic Tab fixes and Add.....
+	- Add new informations to System report
+	- Add elementary OS Sticker and LinuxDeepin
+	- Update PKGBUILD
+	- Add to System tab more info.
+	- Cosmetics changes
+	- Update ATI Logo
+	- Rm .directory file
+	- Remove $(RM_COM) $(RMDIR_OPT) `find . -name "screenfetch-dev"`
+	- change font labels All to Bold,8
+	- Try to fix broken detection of gtk, wm, themes etc
+	- 
+	- Add make patch & make unpatch
+	- Add [PATCH] I-Nex New GUI
+	- Merge branch 'master' of http://anongit.freedesktop.org/git/xorg/app/edid-decode
+	- remove commented lines
+	- fix pixmaps
+	- Fix
+	- Remove translation files
+	- New CPU tab style
+	- New processor logo
+	- Update database. New informations for:
+	- Fix ARCH detection in build-selfexecutable and Makefile
+	- remove buttons
+	- Fix
+	- Next unstable 0.6.0
+	- Update Makefile
 
-* Fri Oct 18 2013 eloaders <eloaders@yahoo.com> 0.5.4
+0.5.8
+	- 0.5.8
+	- Add ${python:Depends}
+	- Again change bzip2 comp to xz level 9
+	- Replcace SHELL commands to Gambas3 Kill "dir/file" and better debug informations.
+	- Add option to remember last save directory. All window close using Form_Close()
+	- New Mint logos for KDE, XFCE, Fluxbox, LMDE and add Kubuntu logo and resize sticker images
+	- Add more Powered by
+	- Move files
+	- Padding +3 Border = Raised Font = Bold,8
+	- Add Bash modules, update system report and show more info in system tab
+	- Fix build-deb to get current revision
+	- Sorting sites pastebin
+	- Makefile: Add xz, gzip, bzip2, pbzip2, compress and complevel set to 9.
+	- Update makeself to 2.2.0
+	- fix confdir /usr/share/i-nex/pastebinit/pastebin.d
+	- Remove hashtag
+	- Add dpaste.com and hpaste.org services
+	- New labels in Mobo
+	- Better
+	- Add more informations from /sys/block/sd[a-z]/queue And iostats
+	- Rm Env GB_PATH=inex
+	- If I-Nex run as root, then window auto close
+	- Read extension blocks in xrandr EDID property
+	- Note that it tried to read fpaste.org.conf.orig when it was in the same dir. Not nice.
+	- Parse the list of additional 3D modes
+	- Add Label to Drives. Use for tooltip information
+	- Fix size FModules
+	- Resize Labels in Drives
+	- Try to fix duplicated mount width.
+	- Add detect Kubuntu
+	- Add debian detect
+	- Add xubuntu detect
+	- Fix GridView1.Columns[5].Width = 250 to 400 If drive mount width UUID
+	- Fix duplicated mount width.
+	- Fix show filesystem type duplicated.
+	- Fix for VMware Graphic driver called vmwgfx
+	- Add i-nex.spec file for rpmbuild
+	- Change debian format from quilt to native
+	- Add remove .pot, .po, .mo files to make clean
+	- rm
+	- +  #Translate = False
+	- Update master Bug reporter
+	- Remove files
+	- Add rm -Rf src/i-nex/.gambas to make clean
+	- Add ME.Hide
+	- Add option to copy to clipboard and remove unity_support_test
+	- Remove variables All2 Integer
+	- Add report for /proc/modules, /proc/cmdline, /etc/default/grub
+	- Remove variables processorscount and za Integer
+	- Fix commit c5cfe453040dec3bd5954401dd4d206b006b1d72
+	- Dmesg always be in the end of report. Because is longer than any report.
+	- Default pastebin service is now pastebin.com And remove duplication of paste.debian.net
+	- Fix duplication ind drives
+	- Show Progress in MInclude reports
+	- Add do FReport_Gen options from MInclude
+	- Add reports for lspci, lsusb. dmesg, partitions, scsi, dma, mtrr, devices, diskstats
+	- Fix. If ComboBox3.Count = 0. Print info from ComboBox4
+	- Add Drives report module and Fix bug for Processor0,1,2.. report and sd[a-z]
+	- Add CheckBox for "Close this window when finished."
+	- Add MInclude.module
+	- Remove Application.Args[1] = "--gen_report"
+	- Fix Start_App_Args
+	- Update and add new reports. Remove pot files
+	- Merge branch 'master'
+	- Fix Size of Processors logos
+	- New reporting system
+	- Merge branch 'master'
+	- dh_install: cp -a ./src/i-nex/logo/i-nex.0.4.x.png debian/i-nex/usr/share/pixmaps/i-nex.png/ returned exit code 1 make: *** [binary-arch] Error 1 dpkg-buildpackage: error: /usr/bin/fakeroot debian/rules binary-arch gave error exit status 2
+	- Add postinst and postrm
+	- Fix GNU GPL v2, GNU GPL v3 to GPL-3+
+	- override_dh_installmenu: dh_installmenu --noscripts
+	- Add i-nex.png
+	- Add ${shlibs:Depends}
+	- Update logo
+	- Update Makefile for install logo
+	- Move to quilt format
+	- Test +3.0 (git) source format
+	- Merge branch 'master'
+	- tab drives mixes sda1 and sda10, fix for 2 digit disk-partitions
+	- Fix last commit
+	- I must commit this. New pre report
+	- Add more in Description
+	- Next unstable 0.5.8
+	- Change Vcs-Git
+	- Pastebinit fixes
+	- Add paste.opensuse.org to FReport_Gen.class
+	- Add paste.opensuse.org
+	- Use dh_builddeb -- -Zbzip2 Not XZ, fix for Trusty failed builds
+	- Update changelog
 
-* Thu Oct 17 2013 eloaders <eloaders@yahoo.com> 0.5.4
+0.5.6
+	- Add adf.ly and paypal donate buttons
+	- Update ToolTips
+	- Fix Graphic report
+	- Fix About/License ScrollBar not in end of file. Change Finfosys ALL to Translate = False
+	- Show Memory prefetchable And non-prefetchable in GPU tab
+	- SliderBox1 Value For .png Max = 10, Def = 9, for .jpg Max = 100, Def = 70
+	- Use bzip2 instead of gzip +3.0 (quilt) dh_builddeb -- -Zxz
+	- PictureBox3 Stretch = True
+	- Update about window
+	- convert -verbose -resize 50%
+	- convert -verbose -resize 50% -quality 75% $ff $ff
+	- convert -quality 80%
+	- Fix GPU EDID ASCII monitor name
+	- update makefile
+	- fix makefile make install
+	- Add Powered by Fedora
+	- Add pkg, Packages are installed (pacman -Q
+	- Add Scroll to About. Prev Scroll not working.
+	- Fix FadeMind Developer mailto:fademind@gmail.com
+	- Add Powered by Manjaro Linux
+	- Add openSUSE to Distribution_Detect.module
+	- Add new mail for FadeMind Developer in Credits Tab.
+	- Merge branch 'master' of http://anongit.freedesktop.org/git/xorg/app/edid-decode AND
+	- Replace Shell "Command" to File.Load (Faster method) And Add If Exist("sys/classdrm")
+	- Remove not nedded files
+	- Remove env
+	- Update other files
+	- +  Debug "Good bye!" -  Object.Call(FCpudb, "_init") +  Object.Call(FCpudb, "_inits")
+	- +Environment="LANG=C\nLC_ALL=C\nGB_STOCK_DEBUG=1\nGB_JIT_DEBUG=1\nLIBOVERLAY_SCROLLBAR=0"
+	- Add Break if processor in database found. And add Debug Current position of processor
+	- Fix Memery tab, change position of progress
+	- Add Vcs-Git: git://git.manjaro.org/eloaders/i-nex.git
+	- Change Standards-Version:3.9.2 to 3.9.3
+	- Update pastebin API
+	- RM crash.db and package-hooks
+	- Fix buildd
+	- UDisks GUI is now Resizable
+	- Remove I-Nex Apport support
+	- Remove gambas3-gb-form-dialog dependency. I-Nex no more need gambas3-gb-form-dialog.
+	- Debug "Settings default dir = " & Print Settings.DefaultDir & ""
+	- Remove gambas3-gb-settings dependency. Add Main.module, Settings.class, _Settings_Keys.class
+	- Remove gambas3-gb-web dependency. Add JSON and JSONCollection to I-Nex code
+	- Add some new informations to CPU Tab.
+	- Add processor logos and show processor logo for processor
+	- Update database
+	- Add gb.web.gambas to self executable
+	- Add depends gambas3-gb-web (>= 3.0.90), gambas3-gb-web (<< 3.99.0)
+	- Remove Authentic from AuthenticAMD and show only AMD
+	- Add Database
+	- Add PKGBUILD
+	- Fix Launchpad Buildd gambas-gb-gui.
+	- Add more to UDisks gui
+	- Change depends gambas from 3.4.99 to 3.4.0
+	- Update README
+	- Remove empty lines and move Form_Close() to End of file
+	- Fix last commit
+	- Add gui for udisks --show-info and some fixes in GUI and more standards
+	- Make self detect kdesu, kdesudo, gksu
+	- Fix failed to build
+	- Reduce i-nex.run from 3.9MB to 2.9MB Remove libaries .so.0 so.0.0 so.0.0.0 not nedded
+	- Add to makefile: make self make self create i-nex.run file to install using command: sudo i-nex.run i-nex.run no need gambas3 libaries installed on system.
+	- Add i-nex bash script to run i-nex using i-nex command. Add i-nex script to debian/i-nex.install Remove stupid scripts from debian/rules
+	- Update control and rules
+	- Next unstable 0.5.6
+	- Fix changelog for 0.5.4 Add facebook button
 
-* Wed Jan 02 2013 eloaders <eloaders@yahoo.com> 0.5.1
+0.5.4
+	- Add in GPU tab Monitor name, Manufacturer, Serial number.
+	- Modified makefile
+	- add Makefile
+	- rm install, move to i-nex.install
+	- fix rules. Prev deb paskage empty, only doc.
+	- Add/Fix missed build depends: debhelper (>= 7), pkg-config, dpkg-dev (>= 1.14.17)
+	- Fix Arch all to any in debian/control
+	- Add edid-decode as inex-decode to package.
+	- display AMD 7xxx Kuma graphic in cpu tab
+	- Removed: Check for BIOS microcode update recommended
+	- Fix graphic report and change version in changelog
+	- Finish the list of 3D layouts 3D_Structure_ALL can code for
+	- Include the last VIC in the CEA video block
+	- Print the correct VIC number next to the mode
+	- Add a missing comma to the list of CEA VICs
+	- New missing files
+	- Some fixes. New functions
+	- Decode the Video Capability Data Block
+	- Add a small framework to decode fields generically
+	- Add the EDID of a Samsung TV that has a VCDB
+	- Print the HDMI resolution next to the HDMI VICs
+	- Decode HDMI 1.4 4k VICs
+	- Add Skyworth 50E780U 50" edid (4k TV)
+	- Print the resolutions next to the CEA VICs
+	- data: Oculus Rift DK1
+	- FIX dpkg-buildpackage -rfakeroot -D -us -uc failed
 
-* Sat Jan 28 2012 eloaders <eloaders@yahoo.com> 0.4.0
+0.5.2
+	- move recive and transmit to new window
+	- Add GUI for df
+	- Remove textbox in CPU tab and resize frames
+	- Fix HT detect
+	- In WEB tab add GridView for /proc/net/dev
+	- Text Alignment = Center
+	- Fix lspci location in Reportm.module
+	- Fix swap detect
+	- Repair HT Detect. Test Bash script:
+	- Update thermal_zone.module Fix bug for locate lspci, swapon in openSUSE. Using which $exec to detect where is located
+	- Undoing mistakes
+	- Fix bug #1
+	- Fix bug
+	- chmod +x pastebinit Fix cpu report
+	- New FFlags.module Update CPU Tab Detect HT, lm, vmx
+	- Understanding Linux /proc/cpuinfo http://www.richweb.com/cpu_info
+	- Fix detect all cores per cpu if cpu HT https://www.ibm.com/developerworks/mydeveloperworks/blogs/brian/entry/linux_show_the_number_of_cpu_cores_on_your_system17?lang=en
+	- Some fixes Try to repair bug segmentation fault in thermal_zone.module
+	- New module for detect distro Thanks to Joshua Higgins Supported distros:                             vector:/etc/vector-version                             slackware:/etc/slackware-version                             debian:/etc/debian_version                             redhat:/etc/redhat-release                             arch:/etc/arch-release                             SuSE:/etc/SuSE-release                             gentoo:/etc/gentoo-release                             conectiva:/etc/conectiva-release                             mandriva:/etc/mandriva-release                             mandrake:/etc/mandrake-release                             pardus:/etc/pardus-release                             kanotix:/etc/kanotix-release                             generic-undetected:/etc/issue
+	- Downgrade pastebinit script Update nopaste services
+	- Try to fix image displayed for Core2Quad
+	- Fixed detec CD/DVD Devices
+	- Modified debian/copyright
+	- Name=I-Nex
+	- change control
+	- Add License file LICENSE /usr/share/doc/i-nex
+	- Add new bug reporter, Marcin Mach aka netbit73
+	- Update license
+	- All TextBox = ReadOnly="True"
 
-* Sat Oct 22 2011 eloaders <eloaders@yahoo.com> 0.2.4
-- i
+0.5.1
+	- New 0.5.1
+	- Fix procesor to processor Remove TextArea2 from CPU tab Remove button in USB
 
-* Thu Feb 17 2011 eloaders <eloaders@yahoo.com> 0.1.7
-- Naprawiono wyświetlanie nazwy dystrybucji w zakładce system.
-- Przebudowano i dodano dodatkowe opcje wyświetlania w zakładce pamięć.
+0.5.0
+	- Update changelog-0.5.0
+	- Repair Bug in USB_Drives.module New WEB tab Update GUI
+	- Update pastebinit
+	- Remove some graphic. Remove text above icons
+	- Launchpad automatic translations update.
+	- Launchpad automatic translations update.
+	- The new card layout
+	- Remove change resolution in GPU tab. Add view only max & min resolution of screen
+	- Decode CEA audio blocks
+	- Launchpad automatic translations update.
+	- Launchpad automatic translations update.
+	- Update Pastebinit. Update generate report window. (Pages)
+	- Launchpad automatic translations update.
+	- Fix nonconformant extension reporting
+	- Also check string termination for name string
+	- Check for valid string termination in string and serial number
+	- Be a bit stricter about range descriptor conformance
+	- HDMI 1.4 3D feature bits
+	- Print sync range class
+	- Take a crack at stereo decode for detailed timings
+	- Launchpad automatic translations update.
+	- Cleaning up for PEP8
+	- From now on, only python3 will be supported
+	- Launchpad automatic translations update.
+	- Update test code to check both python2 and python3
+	- Port to python3 and configparser (no more need for configobj). The code is still python2 compatible at the moment (tested with 2.7).
+	- Trailing spaces
+	- Remove pastie.org, no longer accepts bots/scripts (requires javascript)
+	- Drop quotes/double quotes from all the .conf files, will ease transition to configparser
+	- Remove paste.pocoo.org (has been shutdown)
+	- Remove yourpaste.net as it's returning an empty page nowadays
+	- Fix Bug device only sdb, sdc, sdx = partition master. Check swap replace Like *sdx* to Like sdx. Fix Bug if partition = New Wolume, fix display as only "New", fix to New Wolume mounted in media.
+	- Fix standard timing decode for pre-1.3 blocks
+	- Fix standard timing decode for 16:9 modes
+	- Launchpad automatic translations update.
+	- version 1.3.1 (bugfix release for pastebin.com)
+	- Add new Experimental GUI, Test run i-nex.gambas --dev
+	- Update pastebinit script
+	- Some Fixes
+	- Fix detect device_uuid
+	- Launchpad automatic translations update.
+	- Fix Device real size to show in GB
+	- Launchpad automatic translations update.
+	- Update pastebinit
 
-* Wed Feb 16 2011 eloaders <eloaders@yahoo.com> 0.1.5
-- Zmieniono pozycję system oraz grafika.
+0.4.8.1
+	- Launchpad automatic translations update.
+	- Update depends for gambas3 3.1.0
+	- Launchpad automatic translations update.
 
-* Wed Feb 16 2011 eloaders <eloaders@yahoo.com> 0.1.5
-- Zmiana nazwy
-- Test build
+0.4.8
+	- Launchpad automatic translations update.
+	- Launchpad automatic translations update.
+	- Add report a bug option
+	- Add inex-crashdb.conf
+	- Add i-nex.py for apport/package-hooks
+	- Add Modules Information
+	- Update pastebinit script
+	- Replace IF Application.Args[1] To Select Case Application.Args[1]
+	- Fix Start_App_Args
+	- Add Refresh Memory 1500ms
+	- Fix detect USB Devices
+	- Some fixes
+	- Add refresh Temp and print in term. 1500ms
 
-* Tue Feb 15 2011 eloaders <eloaders@yahoo.com> 0.1.4
-- Zmieniono wygląd zakładki system.
-- Dodano informacje o ilości zainstalowanych pakietów.
-- Naprawiono wyświetlanie zakładki dysk.
+0.4.6
+	- Added support for:
+	- Launchpad automatic translations update.
+	- Launchpad automatic translations update.
+	- Launchpad automatic translations update.
+	- Version 1.3
+	- Manual translation import from Launchpad
+	- Add the request of the Hebrew translators, remove the he.po file and add it to the ignore list.
+	- Launchpad automatic translations update.
+	- Fix Kernel Command Line
+	- Remember last dir to save screenshot
+	- CPU Tab change Width to Address sizes
+	- Drives replace TextArea to TextBox
+	- Again try to fix Drives detect uuid, mount point, mount width
+	- Added thermal_zone.module Try to fix Drives
+	- Move BIOS_microcode_update_recommended.module
+	- Fix last commit
+	- Fix Check Bios Microcode Update Recommended
+	- Add Kernel Tab Kernel command line
+	- Add Check for  BIOS microcode update recommended
+	- Fix last commit
 
-* Mon Feb 14 2011 eloaders <eloaders@yahoo.com> 0.1.3
-- FIXED
+0.4.5
+	- Change path to save screenshot User.Home / Desktop.Path
+	- Fix bug in send report about graphic Add ProgressBar Values % in sending
+	- Graphic Tab TextArea replace to TextBox Resize Main Form Finfosys.form Change pisition in USB Tab
+	- Speed add MB
+	- Fix Shell in System Tab Replace new line to Null
+	- Launchpad automatic translations update.
+	- Fix Drives bug in detect UUID, Mount Piont, Mount Width Fix System Tab (Replace new line to Null)
+	- Fix bug _init() change to _inits()
+	- Remove Pastebin shell script Added Pastebinit script
+	- Fix Send To Pastebin Add detect curl binary
+	- FReport_Gen add option Send report to pastebin.com
+	- Launchpad automatic translations update.
+	- Change order of pastebin.d location to end with CWD. Sort pastebin listing.
+	- Update translation template
+	- Add support for paste.pound-python.org
+	- Fix paste.debian.net to use the right tag for the format. Thanks for paste.debian.net for updating their form\!
+	- Per bug 799044, also look in /usr/local/etc/pastebin.d
+	- Load pastebins from multiple directories instead of just from the last valid one. (LP: #777902)
+	- Fix issues hilighted in bug 739766
+	- Merge pbget/pbput/pbputs from Dustin Kirkland into a utils/ directory, these should be shipped in most Linux distros (and possible other Unixes)
+	- Merge support for paste.pocoo.org from Stefano Rivera
+	- Merge support for drizzle from Monty Taylor
+	- Merge openstack support from Soren Hansen.
+	- Remove stikked as it doesn't seem to exist anymore.
+	- Added Pastebin.com Bash Script
+	- Add support AMD Athlon X2 Dual-Core
+	- Add Reports directory
+	- Add ChkPrm.module
+	- Fix /usr/bin/gbc3 -e -a -g -t -p -m  src/i-nex gbc: error: Component not found: &1	gb.net make: *** [build-stamp] Error 1 dpkg-buildpackage: error: debian/rules build gave error exit status 2
+	- Fix Report: Default save = /home/USERNAME/Desktop/report.txt Fix Application.Args add Message.Warning
+	- Fix i-nex.gambas --gen_report Fix Unity Support Test
+	- Add to report: Include Unity Support Test (CheckBox Visible if exist /usr/lib/nux/unity_support_test)
+	- Reportm.module add dmesg
+	- Add Include SCSI
+	- Remoe Application.Args: i-nex.gambas --show Add if Args invalid then show window text: Invalid arguments!!
+	- Add Application.Args
+	- Fix Reportm.module For i = 0 To Finfosys.ComboBox1.Count - 1 Add send to Progressbar %
+	- Add new FReport_Gen.class, Reportm.module New initial option to generate report about CPU, Mobo / Bios, Graphic
+	- Add Picture = Picture["icon:/16/mouse"] To Input Tab
+	- Change Memory Tab
+	- Change Kernel Tab Replace TextArea to ListBox
+	- New Input Tab Add Input_Devices.module Add HWmon_coretemp.module Update position of ComboBox USB, Sound
+	- New Sound Tab
+	- Add Debug lista Debug risultato
+	- Add Asound_Drives.module. Fix Size on CPU Tab Add Version to Sound Tab
+	- Add If Error Then Print "Cannot calculate used RAM memory"; Error.Text If Error Then Print "Cannot calculate used SWAP memory"; Error.Text
+	- Remove Debug lsusb
+	- Fix last commit
 
-* Mon Feb 14 2011 eloaders <eloaders@yahoo.com> 0.1.5
-- FIXED
+0.4.4
+	- Fix bug dospam_uptime() [6] Type mismatch: wanted Integer, got string instead. Finfosys.dospam_uptime.414
+	- Add support: Intel(R) Core(TM) i3
+	- Change CPU Tab: Spacing = True to False Add to Battery tab: Progressbar for show XX%
+	- Fix CPU Tab, Text size 10,Bold Add HBox, → /Fix position
+	- Added config for paste.drizzle.org.
+	- Add botton to About: I-Nex home page
+	- Fix battery tab, All TextBox = ReadOnly True
+	- Decided to remove screenfetch-dev
+	- New About dialog
+	- Add Build-Depends: wget
+	- Add screenfetch-dev https://github.com/KittyKatt/screenFetch
+	- Fix CPU Tab → Frame CPU → Text Size, Padding, Autoresize, Expand.
+	- Fix last commit
+	- Add new bug reporter Tomasz Przybył (FadeMind) dj.m.freex[at]gmail[dot]com www.gravatar.com/fademind
+	- Battery Fix Spaces LTrim
+	- Fix Bug in battery.module Detect BAT0 & BAT1
+	- Update USB_Drives.module New show lsusb Device New Update-Usbids
+	- Add gentoo
+	- Fix distrodetect.class
+	- Fix Cache position
 
-* Mon Feb 14 2011 eloaders <eloaders@yahoo.com> 0.1.3
-- Dodano progress bar informujący o zajętym miejscu na dysku jak i informacja o wolnym miejscu.
-- Zmieniono wygląd pozycji bios.
-- Dodano progress bar w zakładce pamięć.
-- Dodano informacje o pojemności głównego dysku.
+0.4.3
+	- Add USB_Drives.module Fix ComboBox Read Only = True
+	- Update Depends dpkg (>= 1.15), grep (>= 2.5), mount (>= 2.17), procps, x11-xserver-utils (>= 7.5), lsb-release (>= 4.0), bash (>= 4.1), coreutils (>= 7.4), sed (>= 4.2), pciutils, x11-utils (>= 7.5), mesa-utils (>= 7.6), hostname
+	- Fix uptime
+	- Fix internet()
+	- Fix ScreenShot.form Set Icon and Text
+	- Fix debian/control Build-depends and Depends. Screenshot not based on gnome-screenshot. New modules and Forms for create screenshot.
+	- + 531 ProgressBar2.ToolTip = Disk_Drives.Used & "%" + 535 ProgressBar2.ToolTip = "Unknown"
+	- Fix Bios. Detect Vendor,Date and Version
+	- Add HPanel, HBox Change size fonts, use system settings. Auto resize / expand CPU, Frame = The Main Information Graphic, Frame = OpenGl
+	- Fix font CPU Tab Bold,10
+	- Fix Used add sed -n '1p'
+	- Fix CPU tab
+	- Fix Motherboard / Bios, System Tab
+	- Add detect nVidia logo in Graphic tab
+	- Fix disable overlay-scrollbar Add to debian/i-nex.desktop Exec=env LIBOVERLAY_SCROLLBAR=0 /usr/bin/i-nex.gambas
+	- Fix CPU tab TextArea to TextBox Strings font = Bold
+	- Add depends: dpkg (>= 1.16), grep (>= 2.9), mount (>= 2.19), procps, x11-xserver-utils (>= 7.6), lsb-release (>= 4.0), bash (>= 4.2), coreutils (>= 8.5), sed (>= 4.2), pciutils, x11-utils (>= 7.6), mesa-utils (>= 7.6), hostname
+	- Fix icons in forms
+	- Add new logo in about window. Special thanks to: mmaciek12 http://mmaciek12.deviantart.com/art/CPU-Icon-281444281
+	- Add info to About window Main developer Main bug reporter
+	- Add detect: max_hw_sectors_kb max_sectors_kb max_segments max_segment_size read_ahead_kb scheduler
+	- Add detect: add_random discard_granularity discard_max_bytes discard_zeroes_data hw_sector_size
+	- Add Ext range, range
+	- Add detect removable 0 = No 1 = Yes
+	- Fix Version
+	- Fix Device Tab, remove old functions and add new func and UI. More Information about disc sda,b,c....,x..     New 0.4.0 Version
+	- Fix last commit
+	- Add support Pentium(R) Dual-Core see http://opensource-tr.org/destek/thread-569-post-4227.html#pid4227
+	- 1: Fix Motherboard / Bios Tab, replace TextArea to TexBox
+	- Fix: Finfosys.dospam_uptime.435: #6: Type mismatch: wanted Float, got String instead 1: Finfosys.dospam_uptime.435
+	- Fix detect L3 Cache Thanks to lp:~dhor
+	- TextBox22 ReadOnly = True
+	- Fix Memory Tab: total, used, free, shared, buffers, cached +$1
+	- Add Frames for: 0.2.x Version and 0.3.x Version
+	- Add to Credits, Art and Graphic
+	- Add Check for default display manager
+	- Add support: AMD Athlon(tm) 2 x3
+	- Add support: Intel(R) Celeron(R) M xxx
+	- Fix bug: /usr/bin/gbc3 -e -a -g -t -p -m  src/i-nex Finfosys.class:499: error: Unknown identifier: &1	Brightness
+	- Add support for:                             Intel(R) Core(TM) i7 xxx (bug = black logo)                             Intel(R) Core(TM) i5 xxx
+	- Change: System Tab   Number of installed packages:   Add icon to Button check
+	- Label25.Text = Application.Name & " v: " & Application.version
+	- Delete /src/i-nex/version, /src/i-nex/VERSION. Get version from file /src/VERSION = 0.3.3 Add some Debug
+	- Move PictureBox on Graphic Tab. Change icons in tabs
+	- Remove TextBox, TextLabel and fix Kernel Tab, System Tab
+	- Add Build Depends = gambas3-gb-dbus (>= 2.90.0) Add Depends = gambas3-gb-dbus (>= 2.90.0)
+	- Battery support on netbooks is active if exist patch to get informations from info file.
+	- Fix Internet / Network
+	- Fix version program. Not 0.3.5, correct to 0.3.3.
+	- Remove: options, settings mangament, modules. Hide: Battery (Not finished for end users) Bug in default translation: Replace to (Present resolution) Change GUI Forms and texbox, resize buttons.
+	- Add debian/control depends Gambas form stock icons
+	- err, no, it doesn't look like one can make the http:// optional
+	- Add paste.pocoo.org
 
-* Sat Feb 12 2011 eloaders <eloaders@yahoo.com> 0.1.2
-- Poprawiono wyświetlanie grafiki / stickera procesora
+0.3.3
+	- Update control Build depends and binary depends
+	- Update project gambas files
+	- Update and add initial support for battery on netbooks / laptops
+	- Add Options dialog
+	- Add pots
+	- Add Setting.module
+	- Add battery.module
+	- Add initial AMD FX Processors
+	- replace ATI to ATI Technologies for detect product logo
+	- Update changelog
+	- Add support for AMD Athlon(tm) II X4 and fix Radeon to ATI
+	- Add detect Physical id, CPU Cores and replace TextArea to TextBox in CPU frame
+	- Fix support for AMD Athlon x2 and ATI Radeon Graphic
+	- Fix
+	- Deleted old graphic for AMD Athlon x2
+	- Add AMD Athlon x2 sticker
+	- Add ATI Radeon graphic for show in graphic tab
+	- Fix Take a picture of this window
+	- Remove postinst and postrm
+	- add chmod +x to postinst and postrm files
+	- Fix debianization for gambas3, i-nex 0.3.0
 
-* Fri Feb 11 2011 eloaders <eloaders@yahoo.com> 0.1.1
-- Dodano ikony do zakładek.
-- Naprawiono karte dźwięk. Wyświetla wszystkie urządzenia odpowiedzialne za dźwięk.
-- Dodano wykrywanie grafiki, sticera procesora.
-- Dodano button info odsyłający do strony o szczegółowych informacjach o procesorze.
-- Zmieniono tekst strona domowa na button.
-- Zmieniono wygląd zakładki system.
+0.3.0
+	- Replace "\n" to ""
+	- Fix EXEC ["gnome-screenshot -w"] to EXEC ["gnome-screenshot", "-w"]
+	- Replace SHELL to EXEC ["gnome-screenshot -w"]
+	- Remove old intel.jpg and add transparency intel.png
+	- Fix SHELL "uptime" to EXEC ["uptime"]
+	- Fix Memory Tab
+	- fix cat /some/dir to grep "sometext" /some/dir
+	- Launchpad automatic translations update.
+	- Document the EPI and SPWG conventions
+	- Fix bug mause blank to default
+	- Add README
+	- +- Widtch / height
+	- Naprawiono swapon -s na /sbin/swapon -s
+	- Fix Motherboard / Bios tab
+	- Add IF Exist(/usr/bin/gnome-screenshot)
+	- Zmieniono domyślny język na angielski
+	- Add check_kernel
+	- Zmiany nazw katalogów oraz poprawa debian/*
+	- Poprawiono logo programu
+	- edid-decode: Be explicit about valid checksums
+	- Use $CC rather than gcc
+	- Support providing the EDID in hex (without log formatting)
+	- Fix a gcc warning
+	- Allow a second command line argument to dump EDID binary
+	- Fix some memory leaks in ENOMEM handling
+	- Allow for some copy/paste issues in parsing Xorg.log
+	- Properly handle input > 1K for EDID exiting in log files
+	- Launchpad automatic translations update.
+	- Usunięcie autora z pliku changelog
+	- Dodano wykrywanie więkrzej ilości dystrybucji oraz dodano kilka opcji
+	- Dodano wykrywanie powłoki w zakładce system
+	- Dodano zalerzności lsb-release, dodano wykrywanie więkrzej ilości dystrybucji Arch, LMDE, debian, ubuntu, Linux Mint
+	- Zmiana wersji
+	- Zmiana wersji
+	- Nowy formularz wyświetlający informacje o pakietach
+	- Dodanie zależności debian/control
+	- Dodano wykrywanie do 12 procesorów bądź rdzeni.
+	- Change debian/changelog
+	- Change debian control and compat
+	- pastebinit: modify shebang to "#!/usr/bin/env python". LP: #799044
 
-* Tue Feb 08 2011 eloaders <eloaders@yahoo.com> 0.0.9
-- Usunięto opcje zmiany tapety.
-- Usunięto wykrywanie tapety pulpitu.
-- Zmniejszono użycie procesora poprzez usunięcie timer.
-- Dodano buttony odświerz.
-- Oraz naprawiono inne błędy których nie pamiętam.
-
+2.1
+	- Launchpad automatic translations update.
+	- Launchpad automatic translations update.
+	- mention in man page that the default pastebin is distro-specific. LP: 755997
+	- add .conf filename to pb.daviey.com config file. LP: 809371
+	- added support for asymmetric encryption for pbputs; updated documentation
+	- added pbput and it's manpage add links to pbget, and pbgets (and to the manpage) relicensed from GPLv3 to GPLv2
+	- Launchpad automatic translations update.
+	- Launchpad automatic translations update.
+	- Launchpad automatic translations update.
+	- Launchpad automatic translations update.
+	- Launchpad automatic translations update.
+	- Launchpad automatic translations update.
+	- Launchpad automatic translations update.
+	- Launchpad automatic translations update.
+	- Launchpad automatic translations update.
+	- Launchpad automatic translations update.
+	- Launchpad automatic translations update.
+	- Launchpad automatic translations update.
+	- Release 1.2
+	- Add test.sh, script to test all supported pastebins automatically
+	- Add release.conf for mkdst
+	- Launchpad automatic translations update.
+	- Launchpad automatic translations update.
+	- Add 100k limit for pastie.org, remove pastebin.ca (offline for a while)
+	- Launchpad automatic translations update.
+	- Launchpad automatic translations update.
+	- Add json support by Soren
+	- Make sure target_url variable always exists.
+	- Remove print statement (left over from debugging).
+	- Add target_url parameter that replaces the original url for the final url.
+	- Add support for paste.openstack.org
+	- Add JSON support.
+	- Launchpad automatic translations update.
+	- Launchpad automatic translations update.
+	- pastebinit: add support for Fedora to default PB switcher code
+	- pastebinit: set default pastebin according to OS for Ubuntu and Debian
+	- pastebin.d/stikked.com.conf: expire in 4 weeks by default (LP: 580816)
+	- pastebin.d/: push back 20-set_sensible_expiry.patch (LP: 580816)
+	- Launchpad automatic translations update.
+	- Add support for p.defau.lt
+	- Fix bug #369219
+	- Update pastebinit.xml to not require parameters
+	- Add support for sprunge.us
+	- Add cxg.de
+	- Add paste.ubuntu.org.cn
+	- Add note on format
+	- Update translation template
+	- Add sizelimit checking
+	- Add -l parameter to list all pastebins. Update help output and update manpage accordingly. Add example of .pastebinit.xml configuration file
+	- Add support for /usr/share/pastebin.d (LP: #621923)
+	- Make paste.kde.org to work by adding a regexp
+	- Merge paste.kde.org support from Nitesh Mistry
+	- Fixes bug lp:700644 Pastes to paste.kde.org fine but returns only "http://paste.kde.org/" without the #id of the paste.
+	- Merge fix from Jan Urbański
+	- Merge support for pb.daviey.com
+	- edid-decode: accept EDID_DATA: or EDID:
+	- pastebin.d/pb.daviey.com: Added pb.daviey.com / pastebin.daviey.com
+	- Loop over all config directories before returning
+	- Bugfix release 1.1
+	- Fix yourpaste.net and paste2.org
+	- Fix pastebin.com api
+	- Update pastebin.com's definition
+	- version 1.0
+	- Update translations
+	- Drop non-working pastebins for now (rafb.net, pastey.net, gist.github.com). Thanks to cyphermox for testing
+	- Merge fixes from cyphermox's branch
+	- Slight changes to field names:  - fixes posts to fpaste.org and pastebin.com
+	- stronger install target
+	- install target
+	- Merge from Marius Gedminas' branch
+	- Use boolean values instead of magic numbers.
+	- Don't use a regexp where a simple str.endswith() will do.
+	- Code cleanup: don't call __special__ object methods directly.
+	- Whitespace fixups as per PEP-8.
+	- Prefer os.path.expanduser to manual handling of $HOME.
+	- Remove unused module.
+	- Add the pastie.org config file, d'oh!
+	- Fix misspelt variable 'parmatag'.
+	- Bugfix: make custom_keywords work like described in the README
+	- Improve config file parsing:
+	- Merge with upstream.
+	- Translation updates (taken from Launchpad)
+	- Update translation template
+	- Drop hardcoded pastebins
+	- Merge branch from Matt Trudel, replace tabs by spaces
+	- Dump CEA VICs as decimal, since they're decimal in the spec
+	- Leave some breadcrumbs for obscure detailed block info
+	- - Spellchecking pass on README.
+	- - Cleanup useless comments. - Rework wording for the README file.
+	- - Added documentation for the pastebin.d config files' format.
+	- - Add missing files in previous commit: gist.github.com.conf, 	yourpaste.net.conf - Remove superfluous comments in config files.
+	- - Finalize code rework (external pastebin conf support): 	- Move gist.github.com out 	- Move yourpaste.net out
+	- - Merge own branch with older related changes: prelim work to support pastebin.d - Build new pastebin configuration files.
+	- data: Apple Cinema HD 30"
+	- Fix bpc decoding for digital interfaces in 1.4
+	- data: HP LP2275w DisplayPort
+	- data: LG L206WU USB
+	- Update template
+	- - Support parent fixup for "any" site, not just pastey.net. 	- Tested with pastey.net, untested with other sites. - pastebin.d file for pastey.net. - Commented out pastebins available through external conf files.
+	- - Include config files for reworked pastebins, as testing
+	- - Prelim. work to support custom pastebins using /etc/pastebin.d
+	- Support reading from pipe, print error on edid parse fail
+	- Sample: ASUS VW246 HDMI
+	- Add support for specifying the format for pastie.org.
+	- Add support for http://pastie.org
+	- Sample: HP LP2480zx DisplayPort
+	- Sample: Dell 2408WFP DisplayPort
+	- 1.4: Fix video input definition conformance mask.
+	- data: Matrox TripleHead2Go DVI
+	- Forgot to fix a typo in .xml, fix and release 0.11.2, sorry for that
+	- Update translations. Release of 0.11.1
+	- Fix pastebinit bugs as reported on Launchpad. Disable 1t2.us as it no longer works. Disable all options specifc to 1t2.us (commented out). Fix remainning pastebins. Update manpage. Tag 0.11.1, waiting on translations for the release.
+	- Merge fix from Spiro Harvey
+	- Add some sample EDIDs
+	- Fix extension decode for raw data files
+	- Update a bunch of XXX comments
+	- Remove an XXX comment
+	- Add additional max dotclock strictness
+	- Add some warnings for CVT subblock corner cases
+	- Print high-resolution dotclock limit from CVT subblock
+	- Print supported CVT version
+	- Fix max horizontal pixel counting in range CVT subblock
+	- Formatting fix.
+	- Change pastebinit's default behavior to reading from stdin, add a -h option for help. Checking size of content to avoid 0-sized upload. Usage still needs to be updated accordingly and so does the manpage. (Thanks again fta)
+	- Replace spaces by tab
+	- Update translations from Launchpad and release 0.11
+	- Add stikked.com support
+	- Some more typo fixing
+	- Fix typo in pastebinit.xml
+	- Update the usage
+	- Update the manpage thanks to HisChild
+	- Remove mentions to paste.stgraber.org
+	- Update default configuration file
+	- Ignore po/mo/
+	- Update translations
+	- Update po template
+	- Add support for github, pastey.net, slexy.org, pastebin.ca. Drop paste.stgraber.org and paste.f-box.org. Fix UTF-8 encoding issues, update manpage. Update for the 0.11 release to come, it's not the final release though as it still requires some testing and manpage update
+	- Print what the checksum should be when it's wrong.
+	- Detailed timings: decode interlace flag
+	- CEA: Decode names for the extended block types.
+	- CEA: Dump more data block names.
+	- CEA: rudimentary Video Data Block support.
+	- Add CEA data blocks and HDMI VSDBs.
+	- Fix up CEA support for versions > 1.
+	- Add german translation and update the pot file
+	- Add support for pastecode.com, sort pastebinit.xml
+	- Add support for paste2.org
+	- First attempt to fix LP bug 230649, manpage will probably need updating.
+	- Add support for paste.debian.net (Rolf Leggewie)
+	- Move debian/ into its own branch
+	- Update debian packaging for Intrepid upload
+	- Fix typo in e-mail address
+	- Release version 0.10
+	- Merge fixes from Fabien Tassin
+	- * Add support for http://pastebin.mozilla.org
+	- * Add support for http://paste.ubuntu.com
+	- * Fix -a in Usage()
+	- * Add Vcs-Bzr to debian/control
+	- Closing LP #219185
+	- Disable regexp when not useful (caused URLs like /blah/ to work and return an error message), disable pastebin.ca (they use some kind of CAPTCHA), remove archlinux.org (closed), change expiry and regexp for yourpaste.net, update debian/control
+	- Manpage fixed
+	- Closing LP#193352
+	- Update debian packaging, update copyright, add changelog entries, add watch file
+	- * New upstream release (0.9)  * LP #137648 - Control file updated  * LP #115467 - http://rafb.net/paste now supported  * LP #184276 - http://pastebin.archlinux.org now supported (Thanks to Sashi)  * LP #184282 - -i parameter now optional (Thanks to Xilon)  * LP #185508 - Change default pastebin to pastebin.com  * Add a "page" parameter to specify a custom destination page  * Use cleaner code to handle "regexp" and "page" parameters  * Update manpage * Update packaging to 3.7.3 * Update the control file according to manpage * Change maintainer field to MOTU
+	- Add a rudimentary parser for CEA-EXT version 1.
+	- Start adding an extension parser.
+	- Remove a comment that's now inaccurate
+	- Make garbage in the range descriptor a conformance failure.
+	- Un-XXX a comment
+	- static keywording.
+	- Make invalid descriptor ordering a complete conformance failure.
+	- Exit value reflects conformance.
+	- Decode the new CVT feature subblock
+	- Parse sync range offsets.
+	- Parse 3-byte CVT codes in detailed descriptors.
+	- Spacing in the hex dump makes it awfully pretty.
+	- Add more descriptor pad checking.
+	- Fix sync type detection.
+	- Fix descriptor block detection, and add a dump of the EDID hex for debug.
+	- include stdint.h
+	- Fix swapped h/v sync decode.
+	- Add established and standard timing decode.
+	- Add support for decoding the output of xrandr --verbose (EDID_DATA property).
+	- Note sync method in detailed timings when other than digital separate.
+	- Add french translation
+	- Gettext localization implemented
+	- bug closing in debian/changelog
+	- Added KeyboardInterrupt exception, closing bug#119273
+	- Reverting unnedeed changes from Debian.
+	- Synced with debian upcoming package
+	- Move from classical MAN to xml generated one (debian 0.8.1)
+	- Update Debian files for Ubuntu Gutsy (move to 0.8)
+	- Check for valid dummy block fill bytes.
+	- Implement new digital output properties from 1.4.
+	- Start updating for EDID 1.4.
+	- Modifications to paste.stgraber.org to v0.61 of pastebin site, updated usage instructions to reflect.
+	- Debian files update
+	- Adding ~/.pastebinit.xml, permatag & jabber notification support
+	- Fixed manpage
+	- Reworked regexp definition by Daniel Bartlett
+	- Updated manpage
+	- Add 401 redirect management, new parameters system, title, format, user, password and lt2.us support by Daniel Bartlett and Pipe detection by Stéphane Graber. Will be release 0.7
+	- Print detailed modes in a format more similar to X modelines.
+	- Print out the polarities in detailed timing descriptors.
+	- Add a whine for descriptor block ordering.
+	- Make the clean target actually nuke the built binary.
+	- Fix extract_edid() when realloc returns a moved pointer.
+	- Don't crash if there's no "EDID (in hex):" line in the log file.
+	- Minor changelog update
+	- 0.6-1
+	- Update the package before universe
+	- Update the package before universe
+	- Update the manpage
+	- Fix vendor section decode
+	- Decode the serial number section.
+	- Robustify the EDID scanner
+	- Crash less if no EDID block found in log file.
+	- Decode the ranges section.
+	- Print ASCII string sections.  Fix digital display conformance check.
+	- Add X log file scanning.
+	- Debian package fix
+	- Version 0.6 released
+	- Moving to paste.stgraber.org as default Pastebin for neutrality (no more Ubuntu specific) and to have a stable Pastebin (changes made in both paste.stgraber.org and pastebinit)
+	- Add support of pastebin.ca, add support of regexp on the result page (used by pastebin.ca), update for paste.ubuntu-nl.org, add a test on the result to prevent timeout or bad answer
+	- Release 0.5
+	- Doc work and fix in the issue
+	- Correct typos, update the error messages, cleaning the code and commenting it a little bit more
+	- Using a function to get the parameters depending of the website choosen
+	- typo, usage and comment added
+	- Improving the help message
+	- Initial commit
+	- Fix the name termination check.
+	- Validate extension count.
+	- Comment about string validation.
+	- Validate detailed block fill.
+	- Validate manufacturing date.
+	- Checksum failure is non-conformance.
+	- Verbose conformance warnings.  Free the EDID block.  Name termination check.
+	- Factor EDID extraction to allow for X log scanning.
+	- Initial import.  More or less works!

@@ -8,7 +8,7 @@ Function Convert(inputS As String, OutputS As String, CPUName As String)
  Dim CPUDBINTEL As New Collection
  Dim CPUDBINTELADD As New Collection
  JSON_FILE = JSON.Decode(File.Load(inputS))
- CPUDBINTEL = JSON.Decode(File.Load("/etc/i-nex/Database/NULLD"))
+ CPUDBINTEL = JSON.Decode(File.Load("Database/NULLD"))
  For z = 0 To JSON_FILE["DATABASE"].Count - 1
     If JSON_FILE["DATABASE"][z]["PROCESSOR_MODEL_NAME"] Like CPUName Then 
      Print JSON_FILE["DATABASE"][z]["PROCESSOR_MODEL_NAME"]

@@ -33,6 +33,7 @@ The difference between I-Nex and the other hardware information GUI tools availa
   * gambas3-gb-desktop-x11 (>= 3.8.4)
   * gambas3-gb-form-stock (>= 3.8.4)
 * libc6
+* pastebinit
 * [libcpuid](https://github.com/anrieff/libcpuid)
 
 ### Build in Ubuntu
@@ -45,9 +46,9 @@ sudo add-apt-repository ppa:i-nex-development-team/libcpuid11
 Installing dependencies:
 ```
 sudo apt-get install \
-debhelper devscripts python python-all python-dev python-all-dev pkg-config dpkg-dev libcpuid14-dev \
+debhelper devscripts pkg-config dpkg-dev \
 lsb-release gambas3-dev gambas3-gb-image gambas3-gb-qt4 gambas3-gb-form gambas3-gb-desktop \
-gambas3-gb-form-stock imagemagick git
+gambas3-gb-form-stock git
 ```
 ## Downloading sources
 ```

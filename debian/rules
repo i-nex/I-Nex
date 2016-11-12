@@ -10,8 +10,6 @@ override_dh_autoreconf:
 	cd I-Nex && autoreconf -i
 override_dh_auto_configure:
 	dh_auto_configure --sourcedirectory=I-Nex
-override_dh_pysupport:
-	dh_python2
 override_dh_builddeb:
 	dh_builddeb $(COMPRESSION)
 override_dh_fixperms:

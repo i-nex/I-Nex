@@ -8,16 +8,16 @@ arch=('i686' 'x86_64')
 url="http://i-nex.linux.pl/"
 license=('LGPL3')
 depends=('gambas3-runtime' 
-	 'gambas3-gb-image' 
-	 'gambas3-gb-form'
+	 	 'gambas3-gb-image' 
+	 	 'gambas3-gb-form'
          'gambas3-gb-desktop'
          'gambas3-gb-qt5'
          'gambas3-gb-desktop-x11'
-         'python2' 
+         'pastebinit' 
          'libcpuid-git'
          'xorg-server-utils' 
          'lsb-release')
-makedepends=('gambas3-devel' 'gcc' 'imagemagick' 'git')
+makedepends=('gambas3-devel' 'gcc' 'git')
 source=("$pkgname::git+https://github.com/eloaders/I-Nex.git")
 sha256sums=('SKIP')
 provides=('i-nex' 'i-nex-bzr' 'i-nex-dev')
@@ -28,7 +28,6 @@ pkgver() {
 }
 prepare() {
   cd $pkgname
-  sed -i 's|python3$|python2|' pastebinit
   # make it dynamic
   sed -i -e 's|^STATIC.*|STATIC = false|' i-nex.mk
   sed -i -e 's|^UDEV_RULES_DIR.*|UDEV_RULES_DIR = /usr/lib/udev/rules.d|' i-nex.mk

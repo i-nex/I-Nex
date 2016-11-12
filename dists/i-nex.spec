@@ -59,15 +59,8 @@ BuildRequires:  net-tools
 BuildRequires:  openSUSE-release
 %endif
 BuildRequires:  pkgconfig
-BuildRequires:  pkgconfig(libcpuid) >= 0.2.1
-BuildRequires:  pkgconfig(libprocps)
-BuildRequires:  pkgconfig(x11)
-BuildRequires:  pkgconfig(gl)
-BuildRequires:  pkgconfig(xext)
+BuildRequires:  pkgconfig(libcpuid) >= 0.3.1
 BuildRequires:  pciutils
-BuildRequires:  procps
-BuildRequires:  procps-ng
-BuildRequires:  procps-ng-devel
 #BuildRequires:  update-desktop-files
 %if 0%{?suse_version}
 BuildRequires:  xorg-x11 >= 7.5

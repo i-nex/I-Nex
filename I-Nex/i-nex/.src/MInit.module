@@ -18,50 +18,42 @@
 Public Logs As New Logger
 Public Sub _inits()
  Dim Do_not_print As String
- If Access("" & User.Home & "/", gb.Write) = False Then
+ If Access(User.Home & "/", gb.Write) = False Then
   Message.Error("Cannot write files to " & User.Home & "/.i-nex")
  Endif
- If Exist("" & User.Home & "/.i-nex") Then
+ 
+ If Exist(User.Home & "/.i-nex") Then
   
-  Logs("i-nex in home folder is exist", Logger.Info)
+  Logs("I-Nex config directory in user/home folder exist", Logger.Info)
   Logs("Try to remove files", Logger.Info)
-  'Try Kill User.Home & "/.i-nex/screenfetch-dev"
-  Try Kill User.Home & "/.i-nex/gputemp"
+  Remove_Nedded_Files()
+  Logs("Copy nedded files", Logger.Info)
+  Copy_Nedded_Files()
  Else
   Logs("i-nex in home folder not exist", Logger.Error)
-  Try Mkdir User.Home & "/.i-nex/"
+  Create_Nedded_Folders()
   Logs("i-nex in home folder created", Logger.Info)
  Endif
- 
- Logs("Copy nedded files", Logger.Info)
- 'Logs("Copy screenfetch-dev from Data/screenfetch-dev to " & User.Home &/ ".i-nex/screenfetch-dev", Logger.Info)
- ' Copy "Data/screenfetch-dev" To User.Home &/ ".i-nex/screenfetch-dev"
- Logs("Copy gputemp from Data/gputemp to " & User.Home &/ ".i-nex/gputemp", Logger.Info)
-  Copy "Data/gputemp" To User.Home &/ ".i-nex/gputemp"
- 'Logs("Execute copied files", Logger.Info)
- 'Logs("Execute screenfetch-dev", Logger.Info)
- 'Exec ["/bin/bash", "" & User.Home & "/.i-nex/screenfetch-dev"] Wait To Do_not_print
+
  Do_not_print = Null
  
- ' If Settings["FirstRun/Value"] = "True" Then
- '    If Settings["FirstRun/AppVer"] < Application.Version Then
- ' 
- '       Desktop.Open("http://i-nex.linux.pl/" & Application.Version & "")
- '       Settings["FirstRun/AppVer"] = Application.Version
- ' 
- '    Else
- ' 
- '       Logs("This is not first run of I-Nex", Logger.Info)
- ' 
- '    Endif
- ' 
- ' 
- ' Else
- ' 
- '    Desktop.Open("http://i-nex.linux.pl")
- '    Settings["FirstRun/Value"] = "True"
- '    Settings["FirstRun/AppVer"] = Application.Version
- ' 
- ' Endif
+End
+
+Private Function Remove_Nedded_Files()
+ 
+ Try Kill User.Home & "/.i-nex/gputemp"
+ Try Kill User.Home & "/.i-nex/i-nex-lspci"
+End
+
+
+Private Function Copy_Nedded_Files()
+ Logs("Copy gputemp from Data/gputemp to " & User.Home &/ ".i-nex/gputemp", Logger.Info)
+ Try Copy "Data/gputemp" To User.Home &/ ".i-nex/gputemp"
+ Try Copy "Data/i-nex-lspci" To User.Home &/ ".i-nex/i-nex-lspci"
+End
+
+Private Function Create_Nedded_Folders()
+
+ Try Mkdir User.Home & "/.i-nex/"
  
 End

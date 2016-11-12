@@ -16,7 +16,7 @@
 ' along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 Public Sub Form_Open()
-  Dim PASTEBIN_SITES As String[] = Dir("/usr/share/i-nex/pastebinit/pastebin.d/")
+  Dim PASTEBIN_SITES As String[] = Dir("/usr/share/pastebin.d/")
   Dim Conf As Integer
   If Exist("~/.i-nex/lastsave") Then
    ButtonBox1.Text = File.Load("" & User.Home & "/.i-nex/lastsave")
