@@ -29,16 +29,16 @@ function printTag(input) {
 		printf("\n## %s\n", input)
 }
 function printCommit(input, longHash, shortHash) {
-	if ( match(input, CHANGELOG_REGEX) ) {
-		sub(CHANGELOG_REGEX, "", input)
+	#if ( match(input, CHANGELOG_REGEX) ) {
+		#sub(CHANGELOG_REGEX, "", input)
 		if (TYPE == "plain")
 			printf("\t- %s\n", input, makeCommitLink(REPO_URL, shortHash, longHash) )
 		else
 			printf("- %s (%s)\n", input, makeCommitLink(REPO_URL, shortHash, longHash) )
-	}
+	#}
 }
 function makeCommitLink(repoUrl, shortHash, longHash) {
-	return ("[" shortHash "](https://github.com/i-nex/I-Nex/commit/" longHash ")")
+	return ("[" shortHash "](" repoUrl "/commit/" longHash ")")
 }
 
 # Get Git repo URL
