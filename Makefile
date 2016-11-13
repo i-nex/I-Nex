@@ -3,16 +3,10 @@
 include i-nex.mk
 make: build-inex build-json
 
-install: install-pixmaps install-manpages install-changelogs\
-	 install-json install-inex \
-	 install-udev-rule link-inex
-	 
+install: install-pixmaps install-desktop-files install-manpages install-changelogs install-json install-inex install-udev-rule link-inex
 clean: clean-json clean-inex clean-all
-
 distclean: clean
-
 sysclean: uninstall rmgambas
-
 build-inex:
 
 	@echo -e '\033[1;32mBuild I-Nex...\033[0m'
@@ -23,7 +17,7 @@ build-json:
 	@echo -e '\033[1;32mBuild JSON...\033[0m'
 	$(MAKE) -C JSON
 	
-install-pastebinit-and-other:
+install-desktop-files:
 	@echo -e '\033[1;32mCreate nedded dirs...\033[0m'
 	mkdir -p $(DESTDIR)$(PREFIX)/share/applications
 	$(INSTALL) 0755 debian/i-nex.desktop $(DESTDIR)$(PREFIX)/share/applications/
