@@ -3,13 +3,13 @@
 
 # The gittag version below ensures that the source tag points to the latest commit in GitHub e.g. latest commit as of 14 Aug 2016 is f57f4a5
 
-%define gittag c2ef2ea
-%define gitlong c2ef2ea4e32fea06258d7f15e7cce3eb41aef374
-%define gitdate 20161003
+%define gittag 6832317
+%define gitlong 6832317eb859d9d557597cddbb51091ccdec0039
+%define gitdate 20161112
 
 Name:           i-nex
-Version:        7.4.0.1
-Release:        %{gitdate}.bzr933.git%{?gittag}%{?dist}
+Version:        7.6.0
+Release:        %{gitdate}.git%{?gittag}%{?dist}
 Summary:        System information tool
 
 License:        GPL-3.0+
@@ -36,7 +36,7 @@ BuildRequires:  gambas3-gb-settings >= 3.8.4
 BuildRequires:  hicolor-icon-theme
 BuildRequires:  net-tools
 BuildRequires:  pkgconfig
-BuildRequires:  pkgconfig(libcpuid) >= 0.3.0
+BuildRequires:  pkgconfig(libcpuid) >= 0.4.0
 BuildRequires:  pkgconfig(libprocps)
 BuildRequires:  pkgconfig(x11)
 BuildRequires:  pkgconfig(gl)
@@ -58,9 +58,7 @@ Requires:       gambas3-gb-qt5-opengl >= 3.8.4
 Requires:       gambas3-gb-qt5-webkit >= 3.8.4
 Requires:       gambas3-gb-settings >= 3.8.4
 Requires:       gambas3-runtime >= 3.8.4
-Requires:	  i2c-tools
 Requires:       procps-ng
-Requires:       glx-utils
 
 %description
 An application that gathers information for hardware
@@ -120,10 +118,10 @@ rm -rf %{buildroot}%{_datadir}/doc/%{name}
 
 %files
 %defattr(-,root,root,-)
-%doc debian/copyright docs/I-Nex.LICENSE I-Nex/COPYING
+%doc debian/copyright I-Nex/ChangeLog I-Nex/COPYING 
+%doc I-Nex/INSTALL I-Nex/NEWS I-Nex/README
 %{_bindir}/%{name}-*
 %doc %{_mandir}/man*/%{name}*
-/usr/share/i-nex/pastebinit
 
 %files  data
 %defattr(-,root,root,-)
@@ -131,9 +129,8 @@ rm -rf %{buildroot}%{_datadir}/doc/%{name}
 %{_bindir}/%{name}.gambas
 %{_datadir}/applications/%{name}*.desktop
 %{_datadir}/pixmaps/%{name}*
-%doc debian/changelog* changelogs/changelog*
-%doc I-Nex/AUTHORS I-Nex/ChangeLog I-Nex/README
-/lib/udev/rules.d/i2c_smbus.rules
+%doc debian/changelog* I-Nex/ChangeLog
+%doc I-Nex/AUTHORS I-Nex/COPYING I-Nex/NEWS I-Nex/README
 
 %changelog
 * Wed Aug 17 2016 <GitHub/eloaders/I-Nex/alphastar868>
