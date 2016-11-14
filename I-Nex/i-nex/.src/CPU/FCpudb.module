@@ -26,7 +26,7 @@ Function _inits()
    Logs("Not Use CPU Vendor from ENV", Logger.Info)
   Else
    Logs("Use CPU Vendor from ENV", Logger.Info)
-   Finfosys.Label14.Text = Application.Env["INEXCPU_VENDOR"]
+   Finfosys.TextBox32.Text = Application.Env["INEXCPU_VENDOR"]
   Endif
   ' The use Of the database In JSON format.To decode the information about the processor. 
   ' The database Is Divided into several parts To the model processor manufacturer.
@@ -34,7 +34,7 @@ Function _inits()
   If Finfosys.TextBox32.Text Like "*Opteron*" Then 'Use Opteron databese if TextBox Like Opteron
    Logs("Use AMD Opteron CPU Database", Logger.Info)
     buffer = File.Load("Database/Opteron.json") 'Load the database to a temporary buffer
-    Finfosys.Label14.Text = Replace(Finfosys.TextBox32.Text, "AMD", "")
+    Finfosys.TextBox32.Text = Replace(Finfosys.TextBox32.Text, "AMD", "")
   '
   '
   Else If Finfosys.TextBox32.Text Like "*amd*A6*" Then
@@ -64,7 +64,7 @@ Function _inits()
   Else If Finfosys.TextBox32.Text Like "*i7*" Then
    Logs("Use Intel i7 CPU Database", Logger.Info)
     buffer = File.Load("Database/i7.json") 'Load the database to a temporary buffer
-    Finfosys.TextBox32.Text = Replace(Finfosys.Label14.Text, "Intel", "")
+    Finfosys.TextBox32.Text = Replace(Finfosys.TextBox32.Text, "Intel", "")
   '
   '
   Else If Finfosys.TextBox32.Text Like "*atom*" Then
