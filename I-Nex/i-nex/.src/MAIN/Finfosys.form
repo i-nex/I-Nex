@@ -1347,12 +1347,6 @@
         Font = Font["8"]
         Border = Border.Raised
       }
-      { TextBox31 TextBox
-        Move(7,252,273,21)
-        Font = Font["8"]
-        Text = ("AMD Athlon(tm) 64 X2 Dual-Core Processor TK-53")
-        Border = False
-      }
       Index = 0
     }
     Index = 8
