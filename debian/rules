@@ -15,4 +15,4 @@ override_dh_builddeb:
 override_dh_fixperms:
 	dh_fixperms
 %:
-	dh $@ --parallel --with autoreconf
+	dh $@ --with autoreconf
