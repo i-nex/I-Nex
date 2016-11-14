@@ -25,7 +25,7 @@ Libcpuid provides CPU identification for the x86 (and x86_64).
 %package devel
 Summary:        Development files for %{name}
 Group:          Development/Libraries/C and C++
-Requires:       %{name} = %{version}
+Requires:       %{name}14 = %{version}
 
 %description devel
 The %{name}-devel package contains libraries and header files for
