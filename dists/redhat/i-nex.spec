@@ -60,9 +60,9 @@ Requires:       gambas3-gb-settings >= 3.8.4
 Requires:       gambas3-runtime >= 3.8.4
 Requires:       procps-ng
 Requires:       libcpuid14 >= 0.4.0
-Recommends:     i2c-tools
-Recommends:     glx-utils
-Recommends:     pastebinit >= 1.5
+# Recommends:     i2c-tools
+# Recommends:     glx-utils
+# Recommends:     pastebinit >= 1.5
 
 %description
 An application that gathers information for hardware
