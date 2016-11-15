@@ -135,6 +135,7 @@ rm -rf %{buildroot}%{_datadir}/doc/%{name}
 %{_datadir}/pixmaps/%{name}*
 %doc debian/changelog* I-Nex/ChangeLog
 %doc I-Nex/AUTHORS I-Nex/COPYING I-Nex/NEWS I-Nex/README
+/lib/udev/rules.d/i2c_smbus.rules
 
 %changelog
 * Wed Aug 17 2016 <GitHub/eloaders/I-Nex/alphastar868>
