@@ -3,9 +3,9 @@
 
 # The gittag version below ensures that the source tag points to the latest commit in GitHub e.g. latest commit as of 14 Aug 2016 is f57f4a5
 
-%define gittag 6832317
-%define gitlong 6832317eb859d9d557597cddbb51091ccdec0039
-%define gitdate 20161112
+%define gittag a75faf8
+%define gitlong a75faf816744066a428c9dce9e0d1d76dccc076f
+%define gitdate 20161115
 
 Name:           i-nex
 Version:        7.6.0
@@ -59,7 +59,10 @@ Requires:       gambas3-gb-qt5-webkit >= 3.8.4
 Requires:       gambas3-gb-settings >= 3.8.4
 Requires:       gambas3-runtime >= 3.8.4
 Requires:       procps-ng
-Recommends:     pastebinit >= 1.5
+Requires:       libcpuid14 >= 0.4.0
+# Recommends:     i2c-tools
+# Recommends:     glx-utils
+# Recommends:     pastebinit >= 1.5
 
 %description
 An application that gathers information for hardware
@@ -132,6 +135,7 @@ rm -rf %{buildroot}%{_datadir}/doc/%{name}
 %{_datadir}/pixmaps/%{name}*
 %doc debian/changelog* I-Nex/ChangeLog
 %doc I-Nex/AUTHORS I-Nex/COPYING I-Nex/NEWS I-Nex/README
+/lib/udev/rules.d/i2c_smbus.rules
 
 %changelog
 * Wed Aug 17 2016 <GitHub/eloaders/I-Nex/alphastar868>
