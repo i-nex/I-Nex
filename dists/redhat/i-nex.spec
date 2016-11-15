@@ -59,6 +59,7 @@ Requires:       gambas3-gb-qt5-webkit >= 3.8.4
 Requires:       gambas3-gb-settings >= 3.8.4
 Requires:       gambas3-runtime >= 3.8.4
 Requires:       procps-ng
+Recommends:     pastebinit >= 1.5
 
 %description
 An application that gathers information for hardware
