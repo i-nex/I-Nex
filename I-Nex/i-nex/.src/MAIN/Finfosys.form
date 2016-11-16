@@ -192,7 +192,6 @@
       { PictureBox3 PictureBox
         Move(343,7,119,147)
         Font = Font["8"]
-        Stretch = True
         AutoResize = True
         Alignment = Align.Center
       }
