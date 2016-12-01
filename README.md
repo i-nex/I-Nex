@@ -44,6 +44,11 @@ sudo add-apt-repository ppa:gambas-team/gambas3 && \
 sudo add-apt-repository ppa:i-nex-development-team/stable && \
 sudo apt-get update
 ```
+Optional - add the development build repository (latest build, may be unstable):
+```
+sudo add-apt-repository ppa:i-nex-development-team/daily && \
+sudo apt-get update
+```
 Installing dependencies:
 ```
 sudo apt-get install \
