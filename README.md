@@ -48,7 +48,7 @@ Installing dependencies:
 ```
 sudo apt-get install \
 debhelper devscripts pkg-config dpkg-dev \
-lsb-release gambas3-dev gambas3-gb-image gambas3-gb-qt4 gambas3-gb-form gambas3-gb-desktop \
+lsb-release gambas3-dev gambas3-gb-image gambas3-gb-qt5 gambas3-gb-form gambas3-gb-desktop \
 gambas3-gb-form-stock git
 ```
 Install from repository:
