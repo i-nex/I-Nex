@@ -40,8 +40,9 @@ The difference between I-Nex and the other hardware information GUI tools availa
 
 Adding required repositories:
 ```
-sudo add-apt-repository ppa:nemh/gambas3 && \
-sudo add-apt-repository ppa:i-nex-development-team/libcpuid11
+sudo add-apt-repository ppa:gambas-team/gambas3 && \
+sudo add-apt-repository ppa:i-nex-development-team/stable && \
+sudo apt-get update
 ```
 Installing dependencies:
 ```
@@ -49,6 +50,10 @@ sudo apt-get install \
 debhelper devscripts pkg-config dpkg-dev \
 lsb-release gambas3-dev gambas3-gb-image gambas3-gb-qt4 gambas3-gb-form gambas3-gb-desktop \
 gambas3-gb-form-stock git
+```
+Install from repository:
+```
+sudo apt-get install i-nex
 ```
 ## Downloading sources
 ```
