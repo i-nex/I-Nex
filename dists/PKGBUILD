@@ -40,10 +40,10 @@ build() {
   cd I-Nex
   ./configure --prefix=/usr
   cd ..
-  make
+  make -j1
 }
  
 package() {
   cd $pkgname
-  make install DESTDIR="$pkgdir"
+  make -j1 install DESTDIR="$pkgdir"
 }
