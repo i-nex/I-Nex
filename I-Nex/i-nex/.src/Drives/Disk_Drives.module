@@ -76,6 +76,9 @@ Function _inits()
   For Avail_HDD = 1 To Dir("/sys/block/", "sr*").Count
    Finfosys.ComboBox4.Add(Dir("/sys/block/", "sr*")[Avail_HDD - 1])
   Next
+  For Avail_HDD = 1 To Dir("/sys/block/", "nvme*").Count
+   Finfosys.ComboBox4.Add(Dir("/sys/block/", "nvme*")[Avail_HDD - 1])
+  Next
 End
 
 Function _init_2()
