@@ -2,7 +2,7 @@
 
 Private sa As ScrollArea
 Public aScan As String[]
-Public sLine As String
+'Public sLine As String
 Public SCREENFETCH As Collection
 Public UPTIME As String
 Public Sub System()
@@ -11,6 +11,7 @@ Public Sub System()
   Dim default_display_manager As Boolean = Exist("/etc/X11/default-display-manager")
   Dim hostname, arch, gcc, timezone, xorg_version, glx_version As String
   Dim SCREENFETCH_P As Process
+  Dim sLine As String
   SCREENFETCH_P = Exec ["" & ChkPrm.ChkExecDir("bash") & ""] For Write
   Write #SCREENFETCH_P, File.Load("Data/screenfetch-dev")
   SCREENFETCH_P.Wait
