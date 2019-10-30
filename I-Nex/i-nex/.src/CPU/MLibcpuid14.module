@@ -2,7 +2,7 @@
 
 ' The module was written by vuott from http://www.gambas-it.org/
 ' http://www.gambas-it.org/smf/index.php?action=profile;u=402
-Library "libcpuid:14.0.0"
+Library "libcpuid:14.0.1"
 
 Public Struct cpu_raw_data_t 
   basic_cpuid[32, 4] As Integer
