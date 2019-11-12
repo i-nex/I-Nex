@@ -73,6 +73,67 @@
     ToolTip = "Generate report"
     Picture = Picture["AppIcons/printer.png"]
   }
+  { ComboBox1 ComboBox
+    Move(322,511,91,28)
+    #Translate = False
+    Font = Font["Bold,8"]
+    ReadOnly = True
+    Text = "Select core"
+  }
+  { ComboBox8 ComboBox
+    Move(322,511,91,28)
+    #Translate = False
+    Visible = False
+    ReadOnly = True
+    Text = "ComboBox8"
+  }
+  { Button11 Button
+    Move(245,511,77,28)
+    Visible = False
+    Font = Font["Bold,8"]
+    ToolTip = ("Force detect EDID information from xrandr --verbose")
+    Text = ("Force")
+    Picture = Picture["AppIcons/application-default-icon.png"]
+  }
+  { !HBox19 HBox
+    Move(210,511,203,28)
+    #Public = True
+    Visible = False
+    { ComboBox4 ComboBox
+      Move(77,0,63,28)
+      #Translate = False
+      Expand = True
+      ReadOnly = True
+    }
+    { ComboBox3 ComboBox
+      Move(140,0,63,28)
+      #Translate = False
+      Expand = True
+      ReadOnly = True
+    }
+  }
+  { Label25 Label
+    Move(112,511,98,28)
+    #Translate = False
+    Font = Font["Bold,10"]
+    Foreground = &HFF0000&
+    Padding = 3
+    Alignment = Align.Center
+    Border = Border.Plain
+  }
+  { Button6 Button
+    Move(315,511,98,28)
+    Font = Font["8,Bold"]
+    Text = ("Show modules")
+  }
+  { MenuButton1 MenuButton
+    Move(210,511,112,28)
+    Font = Font["Bold,8"]
+    Foreground = &H0000FF&
+    Text = ("Validate")
+    Picture = Picture["AppIcons/gnome-network-properties.png"]
+    Menu = "Menu2"
+  }
   { TabStrip1 TabStrip
     Move(0,0,476,511)
     #Translate = False
@@ -2139,66 +2200,5 @@
       Alignment = Align.Center
     }
     Index = 0
-  }
-  { ComboBox1 ComboBox
-    Move(322,511,91,28)
-    #Translate = False
-    Font = Font["Bold,8"]
-    ReadOnly = True
-    Text = "Select core"
-  }
-  { ComboBox8 ComboBox
-    Move(322,511,91,28)
-    #Translate = False
-    Visible = False
-    ReadOnly = True
-    Text = "ComboBox8"
-  }
-  { Button11 Button
-    Move(245,511,77,28)
-    Visible = False
-    Font = Font["Bold,8"]
-    ToolTip = ("Force detect EDID information from xrandr --verbose")
-    Text = ("Force")
-    Picture = Picture["AppIcons/application-default-icon.png"]
-  }
-  { !HBox19 HBox
-    Move(210,511,203,28)
-    #Public = True
-    Visible = False
-    { ComboBox4 ComboBox
-      Move(77,0,63,28)
-      #Translate = False
-      Expand = True
-      ReadOnly = True
-    }
-    { ComboBox3 ComboBox
-      Move(140,0,63,28)
-      #Translate = False
-      Expand = True
-      ReadOnly = True
-    }
-  }
-  { Label25 Label
-    Move(112,511,98,28)
-    #Translate = False
-    Font = Font["Bold,10"]
-    Foreground = &HFF0000&
-    Padding = 3
-    Alignment = Align.Center
-    Border = Border.Plain
-  }
-  { Button6 Button
-    Move(315,511,98,28)
-    Font = Font["8,Bold"]
-    Text = ("Show modules")
-  }
-  { MenuButton1 MenuButton
-    Move(210,511,112,28)
-    Font = Font["Bold,8"]
-    Foreground = &H0000FF&
-    Text = ("Validate")
-    Picture = Picture["AppIcons/gnome-network-properties.png"]
-    Menu = "Menu2"
   }
 }

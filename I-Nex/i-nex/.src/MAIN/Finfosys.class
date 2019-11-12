@@ -36,8 +36,7 @@ Public Sub Form_Open()
   Dim sLine As String
   Dim MTRR As New String[]
   Label74.Text = "I-Nex " & Application.Version
-  Logs("Starting log", Logger.Info)
-  ComboBox10.Visible = False
+  
   ''Okno na środku
   ''
   If Settings["Window/X"] = Null Then

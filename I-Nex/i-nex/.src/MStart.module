@@ -14,11 +14,24 @@
 '
 ' You should have received a copy of the GNU General Public License
 ' along with this program. If not, see <http://www.gnu.org/licenses/>.
-
+Public Logs As New Logger
 Public CPUINFO_FILE As String
 Public Sub Main()
   Dim PrintErr As Boolean = True
-  MDecode_dimms.List_EEPROM()
+  
+  ''Check eeprom for SPD
+  Logs("Starting log", Logger.Info)
+  Logs("Checking if eeprom module is loaded", Logger.Info)
+  If Exist("/sys/bus/i2c/drivers/eeprom/") Then
+      MDecode_dimms.List_EEPROM()
+      Finfosys.TabStrip2[1].Visible = True
+      Logs("I found the eeprom module in the system", Logger.Info)
+  Else 
+      Finfosys.TabStrip2[1].Visible = False
+      Logs("I did not find the eeprom module in the system", Logger.Error)
+  Endif
+  '' End Check eeprom for SPD
+  
   Finfosys.MenuButton1.Delete
   Select Case Application.Args[1]
    Case "--help"
