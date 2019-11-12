@@ -91,7 +91,7 @@ Private Sub _Write(sLine As String)
       Else 
        LOG_FILE = Open "/tmp/" & Application.Name & ".log" For Write Create
      Endif 
-     Write #LOG_FILE, sLine
+     Write #LOG_FILE, sLine & "\n"
      Close #LOG_FILE
     Endif
   Else
