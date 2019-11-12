@@ -167,8 +167,6 @@ Function _inits()
   Next
   Logs("Current position of processor = " & cpucache & " is = " & z & "", Logger.Info)
   Logs("Detect CPU As = " & database["DATABASE"][i]["PROCESSOR_MODEL_NAME"] & "", Logger.Info)
-  Logs("\nIf Detected CPU is wrong CPU. \n"
-       "Please submit report at forum \n"
-       "http://forum.i-nex.pl/ \n", Logger.Info)
+  Logs("If Detected CPU is wrong CPU. Please submit report at https://github.com/i-nex/I-Nex/issues/new \n", Logger.Info)
   database.Clear
 End
