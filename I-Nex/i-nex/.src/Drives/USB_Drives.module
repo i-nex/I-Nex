@@ -28,7 +28,7 @@ Public lsusb As String
 Public ListAllDiscs As String
 
 Public Sub _inits()
-  Finfosys.ComboBox5.List = Dir("/sys/bus/usb/devices/", "*[0-9]*")
+  Finfosys.ComboBox5.List = Dir("/sys/bus/usb/devices/", "*[0-9]*").Sort(gb.Descent)
   Finfosys.ComboBox5.Index = 0
 End
 

@@ -94,7 +94,7 @@ Public Sub Form_Open()
   
     'Procesor
   Logs("Check available procesors", Logger.Info)
-  ComboBox1.List = Dir("/sys/devices/system/cpu/", "cpu[0-9]")
+  ComboBox1.List = Dir("/sys/devices/system/cpu/", "cpu[0-9]").Sort(gb.Ascent)
   'Locate kernels
   MaxCount = 0
   ' Try data = Shell "ls /boot | grep 'vmlinuz*'" For Input
