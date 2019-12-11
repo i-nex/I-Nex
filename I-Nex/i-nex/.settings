@@ -19,6 +19,7 @@ Geometry=[236,249,180,180]
 
 [Executable]
 Path="/home/michal/Pulpit/i-nex.gambas"
+DoNotIncrementVersion=False
 
 [FFind]
 SearchIn="Module"
@@ -30,7 +31,7 @@ SearchString=True
 [OpenFile]
 File[1]=".src/MAIN/Finfosys.form"
 File[2]=".src/Battery/battery.module:15.70"
-File[3]=".src/Drives/Disk_Drives.module:107.107"
+File[3]=".src/Drives/Disk_Drives.module:104.107"
 File[4]=".src/ScreenShot.form"
 File[5]=".src/ScreenShot.class:5.23"
 File[6]=".src/Drives/USB_Drives.module:44.6"

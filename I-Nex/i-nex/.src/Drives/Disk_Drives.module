@@ -86,11 +86,11 @@ Function _init_2()
   Logs("Add Drives to ComboBox..", Logger.Info)
   Finfosys.ComboBox3.Clear
   For count = 1 To Dir("/sys/block/" & Finfosys.ComboBox4.Text & "", "sd*").Count
-   Finfosys.ComboBox3.Add(Dir("/sys/block/" & Finfosys.ComboBox4.Text & "", "" & Left$(Finfosys.ComboBox4.Text, - 1) & "*")[count - 1])
+   Finfosys.ComboBox3.Add(Dir("/sys/block/" & Finfosys.ComboBox4.Text & "", "" & Left$(Finfosys.ComboBox4.Text, -1) & "*")[count - 1])
   Next
   
   For count = 1 To Dir("/sys/block/" & Finfosys.ComboBox4.Text & "", "sr*").Count
-   Finfosys.ComboBox3.Add(Dir("/sys/block/" & Finfosys.ComboBox4.Text & "", "" & Left$(Finfosys.ComboBox4.Text, - 1) & "*")[count - 1])
+   Finfosys.ComboBox3.Add(Dir("/sys/block/" & Finfosys.ComboBox4.Text & "", "" & Left$(Finfosys.ComboBox4.Text, -1) & "*")[count - 1])
   Next
   Finfosys.ComboBox3.Index = 0
 End

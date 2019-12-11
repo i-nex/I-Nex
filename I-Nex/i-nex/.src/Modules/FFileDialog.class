@@ -77,7 +77,7 @@ Private Sub SetExtension(sPath As String) As String
     If Not sExt Then Continue
     If sExt = "*" Then Continue
     If sPath Ends "." & sExt Then
-      sPath = Left$(sPath, - Len(sExt) - 1)
+      sPath = Left$(sPath, -Len(sExt) - 1)
       bGotIt = True
       Break
     Endif
